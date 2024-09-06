@@ -4,7 +4,7 @@
             <img src="@/assets/svg/devfest-logo.svg" /> Modena
         </div>
         <div id="right-side" class="flexbox align-center" style="gap: 12px">
-            <a href="mailto:sponsor@devfest.modena.it" class="button-like">
+            <a href="mailto:sponsors@devfest.modena.it" class="button-like">
                 Sponsorizza
             </a>
             <Hamburger />
