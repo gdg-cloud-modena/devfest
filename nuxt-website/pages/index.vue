@@ -24,7 +24,7 @@
             </div>
         </section>
         <section 
-            class="flexbox column justify-center align-center full pad-24"
+            class="flexbox column justify-center align-center pad-24"
         >   
             
         </section>

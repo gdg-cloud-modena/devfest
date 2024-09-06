@@ -12,8 +12,12 @@
     </div>
 </template>
 <script setup>
-    const navigation_menu = provide('navigation-menu', ref(false));
-    const dark_mode = ref(false);
+    const dark_mode = inject('dark-mode');
+    const nav_menu_status = inject('navigation-menu');
+
+    watch(nav_menu_status, (new_val) => {
+        dark_mode.value = new_val;
+    });
 
     const onIntersect = entries => {
         entries.forEach(e => {
