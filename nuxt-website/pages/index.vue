@@ -13,7 +13,9 @@
             >
                 <div class="content flexbox column" style="gap: 24px">
                     <div class="pad-24 radius-24 background">
-                        <img src="@/assets/svg/devfest-logo-full.svg">
+                        <div style="max-width: 570px; max-height: 80px;">
+                            <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/devfest-logo-full.svg">
+                        </div>
                     </div>
                     <h2 class="text-secondary" style="text-align: center;">
                         Modena<br> 12 ottobre 2024
