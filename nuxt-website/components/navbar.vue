@@ -2,11 +2,11 @@
     <div id="navbar" :class="{ 'dark': dark_mode }" data-navbar>
         <RouterLink to="/" style="text-decoration: none;">
             <div id="logo">
-                <img src="@/assets/svg/devfest-logo.svg" /> Modena
+                <img src="@/assets/svg/devfest-logo.svg" /> <span id="logo-text">Modena</span>
             </div>
         </RouterLink>
         <div id="right-side" class="flexbox align-center" style="gap: 12px">
-            <a href="mailto:sponsors@devfest.modena.it" class="button-like">
+            <a href="mailto:sponsors@devfest.modena.it" class="button-like" id="sponsor-button">
                 Sponsorizza
             </a>
             <Hamburger />
@@ -41,3 +41,20 @@
             })
     });
 </script>
+<style lang="scss">
+    @media screen and (max-width: 500px){
+        #navbar{
+            #logo{
+                #logo-text{
+                    display: none;
+                }
+            }
+            #sponsor-button{
+                display: none;
+            }
+            h1{
+                font-size: 2rem !important;
+            }
+        }
+    }
+</style>

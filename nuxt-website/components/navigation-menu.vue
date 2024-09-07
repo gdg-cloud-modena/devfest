@@ -19,3 +19,11 @@
         <SecondaryLinks />
     </section>
 </template>
+<style lang="scss">
+    @media screen and (max-width: 500px){
+        h1{
+            font-size: 3rem !important;
+            word-break: break-all;
+        }
+    }
+</style>
