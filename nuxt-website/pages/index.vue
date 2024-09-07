@@ -42,7 +42,7 @@
                 <div class="flexbox column" style="gap: 24px; flex: 1 1 560px;">
                     <h3 style="font-weight: normal;">DevFest è un evento dedicato agli sviluppatori, ospitato dai Google Developer Groups di tutto il mondo.</h3>
                     <h4>
-                        L'evento nasce dallo lavoro congiunto delle comunità locali: GDG Cloud Modena, Modena Full Stack, Flutter Modena, Conoscere Linux, Reggio Emilia Full Stack e GDG Bologna.
+                        L'evento nasce dal lavoro congiunto delle comunità locali: GDG Cloud Modena, Modena Full Stack, Flutter Modena, Conoscere Linux, Reggio Emilia Full Stack e GDG Bologna.
                     </h4>
                     <div class="flexbox" style="gap: 24px; padding-bottom: 24px;">
                         <a class="button-like" href="https://www.eventbrite.it/e/devfest-modena-2024-tickets-1006887817567?aff=oddtdtcreator" target="_blank"> Riserva un biglietto! </a>
