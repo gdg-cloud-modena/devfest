@@ -10,7 +10,7 @@
             <template #title> Contatti </template>
             <template #subtitle> Serve una mano? Eccoci :) </template>
             <template #hint> 
-                Puoi interagire con il nostro staff tramite adiversi canali.
+                Puoi interagire con il nostro staff tramite diversi canali.
                 <br>
                 Scegli quello che preferisci. 
             </template>
