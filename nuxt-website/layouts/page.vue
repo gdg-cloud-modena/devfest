@@ -39,3 +39,29 @@
         document.body.style.overflow = status ? "hidden" : "auto";
     })
 </script>
+<style lang="scss">
+    @media screen and (max-width: 1024px){
+        #page{
+            #hero, #content{
+                padding: 48px;
+            }
+            #hero{
+                .image{
+                    display: none;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 870px){
+        #page{
+            #hero, #content{
+                padding: 24px;
+            }
+            #hero{
+                .image{
+                    display: none;
+                }
+            }
+        }
+    }
+</style>

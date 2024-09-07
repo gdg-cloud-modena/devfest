@@ -18,15 +18,15 @@
                     <div class="flexbox column" style="gap: 24px; flex: 1 1 470px;">
                         <div class="flexbox column">
                             <h4>Sei uno speaker o vuoi proporti?</h4>
-                            <h3 class="text-accent">speakers@devfest.modena.it</h3>
+                            <h3 class="text-accent" style="word-break: break-all;">speakers@devfest.modena.it</h3>
                         </div>
                         <div class="flexbox column">
                             <h4>Sei uno sponsor o desideri diventarlo?</h4>
-                            <h3 class="text-accent">sponsors@devfest.modena.it</h3>
+                            <h3 class="text-accent" style="word-break: break-all;">sponsors@devfest.modena.it</h3>
                         </div>
                         <div class="flexbox column">
                             <h4>Per qualsiasi altra informazione scrivi a:</h4>
-                            <h3 class="text-accent">info@devfest.modena.it</h3>
+                            <h3 class="text-accent" style="word-break: break-all;">info@devfest.modena.it</h3>
                         </div>
                     </div>
                     <div class="flexbox column" style="gap: 24px; flex: 1 1 470px;">
