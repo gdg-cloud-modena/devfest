@@ -10,6 +10,9 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -135,6 +138,9 @@ section{
 .text-accent-2{
     color: $textAccent2;
 }
+.text-accent-3{
+    color: $textAccent3;
+}
 button, .button-like{
     background: $accent1;
     color: $textSecondary;
@@ -157,5 +163,31 @@ hr{
         background: $background;
         border-top: 2px solid #c9c9c9;
         border-bottom: 2px solid #c9c9c9;
+    }
+}
+.card{
+    background-color: $ternaryBackground;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid #8f8f8f;
+    border-radius: 24px;;
+    .image{
+        width: 100%;
+        text-align: center;
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+    } 
+    .highlight{
+        text-align: center;
+        width: 100%;
+
+    }
+    .content{
+        text-align: center;
+        width: 100%;
     }
 }

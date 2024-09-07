@@ -1,4 +1,5 @@
 <template>
+    <Title>DevFest Modena 2024 &mdash; Homepage</Title>
     <div>
         <section 
             data-toggle
@@ -20,10 +21,14 @@
                     <h2 class="text-secondary" style="text-align: center;">
                         Modena<br> 12 ottobre 2024
                     </h2>
+                    <div style="text-align: center;">
+                        <a href="#info"><img src="@/assets/svg/chevron-down.svg" /></a>
+                    </div>
                 </div>
             </div>
         </section>
         <section 
+            id="info"
             class="flexbox column pad-48"
             style="gap: 48px;"
         >   
@@ -40,9 +45,24 @@
                         L'evento nasce dallo lavoro congiunto delle comunità locali: GDG Cloud Modena, Modena Full Stack, Flutter Modena, Conoscere Linux, Reggio Emilia Full Stack e GDG Bologna.
                     </h4>
                 </div>
-                <div class="flexbox align-center" style="gap: 24px; flex: 1 1 560px;">
+                <div class="flexbox align-center justify-center" style="gap: 24px; flex: 1 1 560px;">
                     <div class="card">
-
+                        <div class="image">
+                            <img src="@/assets/svg/people.svg" />
+                        </div>
+                        <div class="highlight">
+                            <h3 class="text-accent">300</h3>
+                        </div>
+                        <h4>Ospiti</h4>
+                    </div>
+                    <div class="card">
+                        <div class="image">
+                            <img src="@/assets/svg/room.svg" />
+                        </div>
+                        <div class="highlight">
+                            <h3 class="text-accent-3">3</h3>
+                        </div>
+                        <h4>Track</h4>
                     </div>
                 </div>
             </div>

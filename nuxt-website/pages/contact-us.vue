@@ -1,4 +1,5 @@
 <template>
+    <Title>DevFest Modena 2024 &mdash; Contatti</Title>
     <div>
         <NuxtLayout name="page">
             <template #image>
