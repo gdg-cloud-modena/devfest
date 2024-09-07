@@ -1,5 +1,9 @@
 @import 'colors';
 #navbar{
+    max-width: 3000px;
+    left: 0;
+    right: 0;
+    margin: auto;
     z-index: 100;
     position: fixed;
     display: flex;
