@@ -1,8 +1,10 @@
 <template>
     <div id="navbar" :class="{ 'dark': dark_mode }" data-navbar>
-        <div id="logo">
-            <img src="@/assets/svg/devfest-logo.svg" /> Modena
-        </div>
+        <RouterLink to="/" style="text-decoration: none;">
+            <div id="logo">
+                <img src="@/assets/svg/devfest-logo.svg" /> Modena
+            </div>
+        </RouterLink>
         <div id="right-side" class="flexbox align-center" style="gap: 12px">
             <a href="mailto:sponsors@devfest.modena.it" class="button-like">
                 Sponsorizza
@@ -14,9 +16,10 @@
 <script setup>
     const dark_mode = inject('dark-mode');
     const nav_menu_status = inject('navigation-menu');
+    const was_dark_mode = dark_mode.value;
 
     watch(nav_menu_status, (new_val) => {
-        dark_mode.value = new_val;
+        dark_mode.value = was_dark_mode ? true : new_val;
     });
 
     const onIntersect = entries => {

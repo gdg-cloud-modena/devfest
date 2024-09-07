@@ -21,8 +21,11 @@
                         </div>
                     </div>
                 </section>
-                <section id="content">
+                <section class="content" id="content">
                     <slot name="content" />
+                </section>
+                <section id="under-content">
+                    <slot name="under-content" />
                 </section>
             </section>
             <slot />
@@ -31,13 +34,16 @@
     </div>
 </template>
 <script setup>
-    const dark_mode = ref(false);
+    const dark_mode = ref(true);
     const nav_menu_status = ref(false);
     provide('navigation-menu', nav_menu_status);
     provide('dark-mode', dark_mode);
     watch(nav_menu_status, (status) => {
         document.body.style.overflow = status ? "hidden" : "auto";
     })
+    onMounted(() => {
+        document.body.style.overflow = "auto";
+    });
 </script>
 <style lang="scss">
     @media screen and (max-width: 1024px){

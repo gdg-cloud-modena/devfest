@@ -16,4 +16,7 @@
     watch(nav_menu_status, (status) => {
         document.body.style.overflow = status ? "hidden" : "auto";
     })
+    onMounted(() => {
+        document.body.style.overflow = "auto";
+    });
 </script>

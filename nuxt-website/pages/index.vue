@@ -24,9 +24,28 @@
             </div>
         </section>
         <section 
-            class="flexbox column justify-center align-center pad-24"
+            class="flexbox column pad-48"
+            style="gap: 48px;"
         >   
-            
+            <div class="flexbox justify-between align-center">
+                <h1 class="text-accent">Cos'è il DevFest</h1>
+                <div style="width: 114px; height: 101px;">
+                    <img src="@/assets/svg/colon.svg" style="max-width: 100%; max-height: 100%;" />
+                </div>
+            </div>
+            <div class="flexbox wrap">
+                <div class="flexbox column" style="gap: 24px; flex: 1 1 560px;">
+                    <h3 style="font-weight: normal;">DevFest è un evento dedicato agli sviluppatori, ospitato dai Google Developer Groups di tutto il mondo.</h3>
+                    <h4>
+                        L'evento nasce dallo lavoro congiunto delle comunità locali: GDG Cloud Modena, Modena Full Stack, Flutter Modena, Conoscere Linux, Reggio Emilia Full Stack e GDG Bologna.
+                    </h4>
+                </div>
+                <div class="flexbox align-center" style="gap: 24px; flex: 1 1 560px;">
+                    <div class="card">
+
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 </template>

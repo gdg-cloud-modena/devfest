@@ -5,7 +5,7 @@
     >
         <div class="flexbox justify-between pad-24 wrap" style="padding-top: 120px; gap: 48px;">
             <div class="flexbox column" style="gap: 48px; flex: 1 1 470px;">
-                <h1>Home</h1>
+                <h1><RouterLink to="/">Home</RouterLink></h1>
                 <h1>Programma</h1>
                 <h1>Speaker</h1>
             </div>
