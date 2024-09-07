@@ -142,6 +142,10 @@ section{
     color: $textAccent3;
 }
 button, .button-like{
+    border: none;
+    text-align: center;
+    font-family: dmsans;
+    font-size: 1rem;
     background: $accent1;
     color: $textSecondary;
     padding: 12px;

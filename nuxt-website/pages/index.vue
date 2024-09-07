@@ -44,6 +44,10 @@
                     <h4>
                         L'evento nasce dallo lavoro congiunto delle comunità locali: GDG Cloud Modena, Modena Full Stack, Flutter Modena, Conoscere Linux, Reggio Emilia Full Stack e GDG Bologna.
                     </h4>
+                    <div class="flexbox" style="gap: 24px">
+                        <a class="button-like" href="https://www.eventbrite.it/e/devfest-modena-2024-tickets-1006887817567?aff=oddtdtcreator" target="_blank"> Riserva un biglietto! </a>
+                        <a class="button-like" href="https://sessionize.com/devfest-modena2024/" target="_blank"> Candidati come speaker </a>
+                    </div>
                 </div>
                 <div class="flexbox align-center justify-center" style="gap: 24px; flex: 1 1 560px;">
                     <div class="card">
