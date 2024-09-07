@@ -24,7 +24,7 @@
                 <section class="content" id="content">
                     <slot name="content" />
                 </section>
-                <section id="under-content">
+                <section id="under-content" style="width: 100% !important;">
                     <slot name="under-content" />
                 </section>
             </section>
