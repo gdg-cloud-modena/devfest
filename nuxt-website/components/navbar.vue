@@ -52,9 +52,6 @@
             #sponsor-button{
                 display: none;
             }
-            h1{
-                font-size: 2rem !important;
-            }
         }
     }
 </style>
