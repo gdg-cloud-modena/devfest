@@ -6,14 +6,16 @@
             </div>
         </RouterLink>
         <div id="right-side" class="flexbox align-center" style="gap: 12px">
-            <a href="mailto:sponsors@devfest.modena.it" class="button-like" id="sponsor-button">
-                Sponsorizza
+            <a class="button-like" id="sponsor-button">
+                <RouterLink to="/sponsor-us">Sponsorizza</RouterLink>
             </a>
             <Hamburger />
         </div>
     </div>
 </template>
 <script setup>
+import { RouterLink } from 'vue-router';
+
     const dark_mode = inject('dark-mode');
     const nav_menu_status = inject('navigation-menu');
     const was_dark_mode = dark_mode.value;
