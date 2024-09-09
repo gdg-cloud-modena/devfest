@@ -71,6 +71,8 @@
                 </div>
             </div>
         </section>
+        <FreeTicket />
+        <SocialLinks />
     </div>
 </template>
 <!-- style="background: url(/img/bg.jpg) no-repeat center center scroll" -->
