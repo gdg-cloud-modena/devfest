@@ -6,7 +6,7 @@
         <NuxtLayout name="page">
             <template #image>
                 <div style="max-width: 100px; max-height: 200px;">
-                    <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/Hash.svg">
+                    <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/Plus.svg">
                 </div>
             </template>
             <template #title>
@@ -59,10 +59,53 @@
                         <div class="text-content">
                             <h4 class="blue-title">I partecipanti</h4>
                             <p>
-                                I partecipanti saranno super-appassionati provenienti da aziende, startup innovative, oltre a freelance, sviluppatori indipendenti e membri di grandi organizzazioni. Si stima un’affluenza di circa 300 persone.                            </p>
+                                I partecipanti saranno super-appassionati provenienti da <span style="font-weight: bold;">aziende</span>, <span style="font-weight: bold;">startup</span> innovative, oltre a <span style="font-weight: bold;">freelance</span>, <span style="font-weight: bold;">sviluppatori</span> indipendenti e membri di grandi organizzazioni. Si stima un’affluenza di circa <span style="font-weight: bold;">300 persone</span>.                            
+                            </p>
                             <br>
                             <p>
-                                Il DevFest  è il luogo dove si potrà essere aggiornati sulle più innovativi tecnologie e sulle più diffuse pratiche nell'ingegneria del software.                            </p>
+                                Il DevFest è il luogo dove si potrà essere aggiornati sulle più innovativi tecnologie e sulle più diffuse pratiche nell'ingegneria del software.                            
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="image-container">
+                            <img src="@/assets/img/sponsorizza-5.png"/>
+                        </div>
+                        <div class="text-content">
+                            <h4 class="blue-title">La location</h4>
+                            <p>
+                                Il posto dove innovazione, sperimentazione e cultura si incontrano.
+                            </p>                            
+                            <br>
+                            <p>
+                                Il Laboratorio Aperto di Modena è un luogo di formazione e innovazione per cittadini, scuole, università, imprese e professionisti del settore culturale.                            
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="image-container">
+                            <img src="@/assets/img/sponsorizza-6.png"/>
+                        </div>
+                        <div class="text-content">
+                            <h4 class="blue-title">Area sponsor</h4>
+                            <p>
+                                Un’area dove accogliere le persone e presentarsi.
+                            </p>                            
+                            <br>
+                            <p>
+                                In aggiunta, l’Area Vip rappresenta uno spazio esclusivo situato nel soppalco. L’area è pensata appositamente per le aziende che desiderano creare un ambiente personalizzato e riservato.                            
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="image-container">
+                            <img src="@/assets/img/sponsorizza-7.png"/>
+                        </div>
+                        <div class="text-content">
+                            <h4 class="blue-title">Come sponsorizzare</h4>
+                            <p>
+                                Contattaci all’indirizzo email <a href="mailto:sponsors@devfest.modena.it">sponsors@devfest.modena.it</a>. Fisseremo una call di 10-15 minuti per spiegarti i dettagli e mostrarti i pacchetti disponibili.
+                            </p>                            
                         </div>
                     </div>
                 </div>
@@ -119,6 +162,10 @@ mark.green{
   color: #4285F4;
   margin-bottom: 15px;
   font-weight: bold;
+}
+
+a {
+  color: #4285F4;
 }
 
 @media (max-width: 768px) {
