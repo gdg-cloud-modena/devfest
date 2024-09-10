@@ -3,7 +3,7 @@
         <div class="flexbox wrap pad-24" style="gap: 48px;">
             <h4><RouterLink to="/faq">FAQ</RouterLink></h4>
             <h4><RouterLink to="/contact-us">Contatti</RouterLink></h4>
-            <h4>Come raggiungerci</h4>
+            <h4><RouterLink to="/location">Come raggiungerci</RouterLink></h4>
             <h4><a href="https://sessionize.com/devfest-modena2024/" target="_blank">Candidati</a></h4>
             <h4>Chi siamo</h4>
             <h4>Associazioni</h4>
