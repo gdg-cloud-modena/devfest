@@ -205,3 +205,17 @@ hr{
   margin-left: 5px;
   font-weight: bold;
 }
+.swapper-500{
+    container: swapper-500 / inline-size;
+    .to-swap{
+        display: none;
+    }
+}
+@container swapper-500 (max-width: 500px){
+    .main{
+        display: none;
+    }
+    .to-swap{
+        display: block !important;
+    }
+}

@@ -18,22 +18,49 @@
                 <div class="flexbox wrap" style="gap: 48px">
                     <div class="flexbox column" style="gap: 24px; flex: 1 1 470px;">
                         <div class="flexbox column">
-                            <h4>Sei uno speaker o vuoi proporti?</h4>
-                        <h3 class="text-accent" style="word-break: break-all;">
-                            <a href="mailto:speakers@devfest.modena.it">speakers@devfest.modena.it</a>
-                        </h3>
+                            <h4>Desideri proporti come speaker?</h4>
+                            <div class="swapper-500">
+                                <div class="main">
+                                    <h3 class="text-accent" style="word-break: break-all;">
+                                        <a href="mailto:speakers@devfest.modena.it">speakers@devfest.modena.it</a>
+                                    </h3>
+                                </div>
+                                <div class="to-swap">
+                                    <h4 class="text-accent" style="word-break: break-all;">
+                                        <a href="mailto:speakers@devfest.modena.it">speakers@devfest.modena.it</a>
+                                    </h4>
+                                </div>
+                            </div>
                         </div>
                         <div class="flexbox column">
-                            <h4>Sei uno sponsor o desideri diventarlo?</h4>
-                            <h3 class="text-accent" style="word-break: break-all;">
-                                <a href="mailto:sponsors@devfest.modena.it">sponsors@devfest.modena.it</a>
-                            </h3>
+                            <h4>Vuoi partecipare come sponsor?</h4>
+                            <div class="swapper-500">
+                                <div class="main">
+                                    <h3 class="text-accent" style="word-break: break-all;">
+                                        <a href="mailto:sponsors@devfest.modena.it">sponsors@devfest.modena.it</a>
+                                    </h3>
+                                </div>
+                                <div class="to-swap">
+                                    <h4 class="text-accent" style="word-break: break-all;">
+                                        <a href="mailto:sponsors@devfest.modena.it">sponsors@devfest.modena.it</a>
+                                    </h4>
+                                </div>
+                            </div>
                         </div>
                         <div class="flexbox column">
                             <h4>Per qualsiasi altra informazione scrivi a:</h4>
-                            <h3 class="text-accent" style="word-break: break-all;">
-                                <a href="mailto:info@devfest.modena.it">info@devfest.modena.it</a>
-                            </h3>
+                            <div class="swapper-500">
+                                <div class="main">
+                                    <h3 class="text-accent" style="word-break: break-all;">
+                                        <a href="mailto:info@devfest.modena.it">info@devfest.modena.it</a>
+                                    </h3>
+                                </div>
+                                <div class="to-swap">
+                                    <h4 class="text-accent" style="word-break: break-all;">
+                                        <a href="mailto:info@devfest.modena.it">info@devfest.modena.it</a>
+                                    </h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="flexbox column" style="gap: 24px; flex: 1 1 470px;">
