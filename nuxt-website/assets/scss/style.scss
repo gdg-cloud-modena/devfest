@@ -1,6 +1,7 @@
 @import 'partials/fonts';
 @import 'partials/navbar';
 @import 'partials/colors';
+@import 'partials/cards';
 
 *{
     box-sizing: border-box;
@@ -17,6 +18,7 @@ body{
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     margin: 0;
+    background: $background;
 }
 a{
     text-decoration: none;
@@ -105,6 +107,9 @@ section{
 .secondary-background{
     background: $secondaryBackground;
 }
+.ternary-background{
+    background: $ternaryBackground;
+}
 .background-inv{
     background: $backgroundInv;
     *{
@@ -129,6 +134,9 @@ section{
 .text-accent-3{
     color: $textAccent3;
 }
+.text-label{
+    color: grey;
+}
 button, .button-like{
     border: none;
     text-align: center;
@@ -139,6 +147,13 @@ button, .button-like{
     padding: 12px;
     border-radius: 8px;
     text-decoration: none;
+    text-align: center;
+    &.cool-blue {
+        background-color: #4285F4;
+        &:hover {
+            background-color: #365bb5;
+          }
+      }
 }
 hr{
     background: $textPrimary;
@@ -155,6 +170,21 @@ hr{
         background: $background;
         border-top: 2px solid #c9c9c9;
         border-bottom: 2px solid #c9c9c9;
+    }
+}
+#speaker-page{
+    #hero, #content{
+        padding-left: 48px;
+        padding-right: 48px;
+        padding-bottom: 24px;
+    }
+    #content{
+        background: $background;
+        border-top: 2px solid #c9c9c9;
+        border-bottom: 2px solid #c9c9c9;
+    }
+    #hero{
+        padding-top: 180px;
     }
 }
 .card{

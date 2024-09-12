@@ -1,6 +1,6 @@
 <template>
     <Title>DevFest Modena 2024 &mdash; Homepage</Title>
-    <div>
+    <div class="flexbox column" style="gap: 48px;">
         <section 
             data-toggle
             class="flexbox column justify-center align-center full pad-24"
@@ -71,7 +71,30 @@
                 </div>
             </div>
         </section>
-        <section class="full">
+        <section 
+            id="speakers-home"
+            class="flexbox column pad-24"
+            style="gap: 48px;"
+        >   
+            <div class="flexbox justify-between column justify-center" style="pad: 24px">
+                <div class="flexbox justify-between">
+                    <h1 class="text-accent">Speaker</h1>
+                    <div style="width: 101px; height: 101px;">
+                        <img src="@/assets/svg/square-brackets.svg" style="max-width: 100%; max-height: 100%;" />
+                    </div>
+                </div>
+                <h4>Ecco chi interverrà all'evento</h4>
+            </div>
+            <div class="flexbox wrap justify-center" style="gap: 24px;">
+                <div class="white-card max-width-450">
+                    <div class="image riccardo-carlesso"></div>
+                    <h4>Riccardo Carlesso</h4>
+                    <p class="text-label">English/Italiano</p>
+                    <RouterLink to="/speaker/riccardo-carlesso" class="button-like">Scopri di più</RouterLink>
+                </div>
+            </div>
+        </section>
+        <section class="full ternary-background" style="border-radius: 24px;">
             <TicketWidget />
         </section>
         <section>

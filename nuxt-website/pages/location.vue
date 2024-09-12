@@ -25,7 +25,7 @@
                           <p>Viale Buon Pastore 43, Modena, 41125, (MO)</p>
                       </div>
                     </div>
-                    <a href="https://maps.google.com/?q=Viale Buon Pastore 43, Modena" target="_blank" class="maps-button">Apri in Maps</a>
+                    <a href="https://maps.google.com/?q=Viale Buon Pastore 43, Modena" target="_blank" class="button-like cool-blue">Apri in Maps</a>
                   </div>
                   <div class="map-image" style="flex: 1 1 400px;">
                       <img src="@/assets/img/map.png" alt="Map Image" />
@@ -47,24 +47,6 @@
 </script>
 
 <style scoped>
-.maps-button {
-  background-color: #4285F4;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  text-align: center;
-  margin-top: auto; /* Push button to the bottom */
-  display: inline-block;
-  text-decoration: none;
-}
-
-.maps-button:hover {
-  background-color: #365bb5;
-}
-
 .map-image {
   padding: 0;
   display: flex;
