@@ -7,7 +7,7 @@
         <div class="flexbox justify-between column">
             <h1 class="text-accent">Biglietti</h1>
             <h4>
-                Interessato? Prendi il tuo biglietto su Eventbrite. L’ingresso è gratuito.
+                Ti interessa? Prendi il tuo biglietto su Eventbrite. L’ingresso è gratuito.
             </h4>
         </div>
         <div id="eventbrite-widget-container-1006887817567" style="flex: 1;"></div>
