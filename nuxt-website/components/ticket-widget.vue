@@ -1,7 +1,7 @@
 <template>
     <section 
             id="ticket"
-            class="flexbox column pad-24"
+            class="flexbox column pad-24 full"
             style="gap: 48px;"
         >   
         <div class="flexbox justify-between column">
@@ -9,8 +9,8 @@
             <h4>
                 Interessato? Prendi il tuo biglietto su Eventbrite. L’ingresso è gratuito.
             </h4>
-            <div id="eventbrite-widget-container-1006887817567"></div>
         </div>
+        <div id="eventbrite-widget-container-1006887817567" style="flex: 1;"></div>
     </section>
 </template>
 <script setup>

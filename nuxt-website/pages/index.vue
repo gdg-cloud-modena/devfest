@@ -71,8 +71,10 @@
                 </div>
             </div>
         </section>
-        <section>
+        <section class="full">
             <TicketWidget />
+        </section>
+        <section>
             <FreeTicket />
             <SocialLinks />
         </section>
