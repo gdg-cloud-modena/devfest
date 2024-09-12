@@ -40,7 +40,6 @@
 <style scoped>
     .faq-section {
     width: 80%;
-    max-width: 800px;
     margin: 50px auto;
     background-color: #fff;
     padding: 20px;

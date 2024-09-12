@@ -71,9 +71,11 @@
                 </div>
             </div>
         </section>
-        <TicketWidget />
-        <FreeTicket />
-        <SocialLinks />
+        <section>
+            <TicketWidget />
+            <FreeTicket />
+            <SocialLinks />
+        </section>
     </div>
 </template>
 <!-- style="background: url(/img/bg.jpg) no-repeat center center scroll" -->

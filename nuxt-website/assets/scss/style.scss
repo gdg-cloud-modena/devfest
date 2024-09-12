@@ -27,6 +27,9 @@ a{
     &.align-center{
         align-items: center;
     }
+    &.align-top{
+        align-items: flex-start;
+    }
     &.justify-center{
         justify-content: center;
     }
@@ -41,7 +44,7 @@ a{
     }
 }
 section{
-    max-width: 3000px;
+    max-width: 2000px;
     margin: 0 auto;
     width: 100%;
     &.full{
@@ -179,4 +182,26 @@ hr{
         text-align: center;
         width: 100%;
     }
+}
+.info-box {
+    background-color: white;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    padding: 12px;
+}
+
+.info-box h3 {
+  font-size: 1.65rem;
+  color: #4285F4;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.info-box p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  font-weight: bold;
 }

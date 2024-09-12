@@ -1,6 +1,6 @@
 @import 'colors';
 #navbar{
-    max-width: 3000px;
+    max-width: calc(2000px - 96px);
     left: 0;
     right: 0;
     margin: auto;
