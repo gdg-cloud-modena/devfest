@@ -34,8 +34,7 @@
         #bars{
             display: flex;
             gap: 12px;
-            flex-direction: column;
-            
+            flex-direction: column;   
         }
         #bars-45{
             display: block;
@@ -68,6 +67,29 @@
                 .bar{
                     background: $background;
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    #navbar{
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 0;
+        width: 100%;
+        background-color: rgba($background, 0.25);
+        backdrop-filter: blur(4px);
+        padding-left: 24px;
+        padding-right: 24px;
+        #hamburger{
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            padding: 12px;
+            #bars{
+                gap: 6px;
             }
         }
     }

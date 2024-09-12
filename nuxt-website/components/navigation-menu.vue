@@ -2,6 +2,7 @@
     <section 
         style="position: fixed; z-index: 99; overflow-y: scroll; gap: 48px; max-width: 100% !important;"
         class="full background flexbox column pad-24"
+        id="navigation"
     >
         <section>
             <div class="flexbox justify-between pad-24 wrap" style="padding-top: 120px; gap: 48px;">
@@ -23,9 +24,11 @@
 </template>
 <style lang="scss">
     @media screen and (max-width: 500px){
-        h1{
-            font-size: 3rem !important;
-            word-break: break-all;
+        #navigation {
+            h1{
+                font-size: 3rem !important;
+                word-break: break-all;
+            }
         }
     }
 </style>

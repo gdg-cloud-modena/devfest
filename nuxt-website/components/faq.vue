@@ -39,40 +39,40 @@
   
 <style scoped>
     .faq-section {
-    width: 80%;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .faq-item {
-    margin-bottom: 10px;
+      margin-bottom: 10px;
     }
 
     .faq-question {
-    width: 100%;
-    padding: 15px;
-    background-color: #34A853;
-    color: white;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 20px;
-    outline: none;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
+      width: 100%;
+      padding: 15px;
+      background-color: #34A853;
+      color: white;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 20px;
+      outline: none;
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
     }
 
     .faq-answer {
-    padding: 15px;
-    background-color: #f9f9f9;
-    margin-top: 5px;
-    border-left: 3px solid #34A853;
-    border-radius: 5px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      margin-top: 5px;
+      border-left: 3px solid #34A853;
+      border-radius: 5px;
     }
 
     .faq-question:focus {

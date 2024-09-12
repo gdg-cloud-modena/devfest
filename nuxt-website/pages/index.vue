@@ -29,7 +29,7 @@
         </section>
         <section 
             id="info"
-            class="flexbox column pad-48"
+            class="flexbox column pad-24"
             style="gap: 48px;"
         >   
             <div class="flexbox justify-between align-center">
