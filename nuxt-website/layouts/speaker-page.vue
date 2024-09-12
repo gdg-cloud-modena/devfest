@@ -27,7 +27,7 @@
                             <div :class="['circle', 'radius-300', speakerImage]"></div>
                         </slot>
                         <slot name="speaker-info" />
-                        <div class="flexbox pad-24" style="width: 100%;">
+                        <div class="flexbox pad-24" style="width: 100%; padding-top: 0;">
                             <RouterLink :to="speakerUrl" class="cool-blue button-like flexbox justify-center align-center" style="flex: 1; gap: 12px;">
                             <div>Scopri il talk</div>
                             <img src="@/assets/svg/arrow.svg" style="height: 20px;" />
