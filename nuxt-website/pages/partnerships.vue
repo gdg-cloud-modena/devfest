@@ -1,6 +1,6 @@
 <template>
     <Title>
-        DevFest Modena 2024 &mdash; Associazioni
+        DevFest Modena 2024 &mdash; Communities
     </Title>
     <div>
         <NuxtLayout name="page">
@@ -10,7 +10,7 @@
                 </div>
             </template>
             <template #title>
-                Associazioni
+                Communities
             </template>
             <template #content>
                 <div class="flexbox wrap justify-center align-top" style="gap: 48px; flex: 1 1 400px;">
