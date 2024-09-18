@@ -49,24 +49,42 @@
                         <a class="button-like" href="https://sessionize.com/devfest-modena2024/" target="_blank"> Candidati come speaker </a>
                     </div>
                 </div>
-                <div class="flexbox align-center justify-center" style="gap: 24px; flex: 1 1 560px;">
-                    <div class="card">
-                        <div class="image">
-                            <img src="@/assets/svg/people.svg" />
-                        </div>
-                        <div class="highlight">
-                            <h3 class="text-accent">300</h3>
-                        </div>
-                        <h4>Ospiti</h4>
-                    </div>
-                    <div class="card">
+                <div class="flexbox wrap align-center justify-center" style="gap: 24px; flex: 1 1 560px;">
+                    <div class="card" style="width: 167px;">
                         <div class="image">
                             <img src="@/assets/svg/room.svg" />
                         </div>
                         <div class="highlight">
                             <h3 class="text-accent-3">3</h3>
                         </div>
-                        <h4>Track</h4>
+                        <h4 style="margin-left: auto; margin-right: auto;">Sale</h4>
+                    </div>
+                    <div class="card" style="width: 167px;">
+                        <div class="image">
+                            <img src="@/assets/svg/ic_keyboard_voice.svg" />
+                        </div>
+                        <div class="highlight">
+                            <h3 class="text-accent-2">20</h3>
+                        </div>
+                        <h4 style="margin-left: auto; margin-right: auto;">Relatori</h4>
+                    </div>
+                    <div class="card" style="width: 167px;">
+                        <div class="image">
+                            <img src="@/assets/svg/ic_teach.svg" />
+                        </div>
+                        <div class="highlight">
+                            <h3 class="text-accent-1">3</h3>
+                        </div>
+                        <h4 style="margin-left: auto; margin-right: auto;">Workshop</h4>
+                    </div>
+                    <div class="card" style="width: 167px;">
+                        <div class="image">
+                            <img src="@/assets/svg/people.svg" />
+                        </div>
+                        <div class="highlight">
+                            <h3 class="text-accent">300</h3>
+                        </div>
+                        <h4 style="margin-left: auto; margin-right: auto;">Ospiti</h4>
                     </div>
                 </div>
             </div>

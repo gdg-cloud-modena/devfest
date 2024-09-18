@@ -9,7 +9,7 @@
             <div class="flexbox column" style="gap: 48px; flex: 1 1 470px;">
                 <h1><RouterLink to="/">Home</RouterLink></h1>
                 <h1>Programma</h1>
-                <h1>Speaker</h1>
+                <h1><RouterLink to="/speakers">Speakers</RouterLink></h1>
             </div>
             <div class="flexbox column gap-24 wrap" style="gap: 48px; flex: 1 1 470px;">
                 <h1>News</h1>
