@@ -1,35 +1,34 @@
 <template>
-    <Title>DevFest Modena 2024 &mdash; Riccardo Carlesso</Title>
+    <Title>DevFest Modena 2024 &mdash; Flavio Basile</Title>
     <div>
-        <NuxtLayout name="speaker-page" speaker-url="/" speaker-image="riccardo-carlesso"> <!-- TODO: aggiungere talk-->
+        <NuxtLayout name="speaker-page" speaker-url="/" speaker-image="flavio-basile"> <!-- TODO: aggiungere talk-->
             <template #image>
                 <div style="max-width: 100px; max-height: 200px;">
                     <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/square-brackets.svg">
                 </div>
             </template>
-            <template #title> Riccardo Carlesso </template>
+            <template #title> Flavio Basile </template>
             <template #speaker-info>
                 <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
                     <div class="info-box">
                         <h3>Azienda</h3>
-                        <p>Google Cloud</p>
+                        <p>PMO in bit Time Professionals s.r.l.</p>
                     </div>
                     <div class="info-box">
                         <h3>Ruolo</h3>
-                        <p>Developer Advocate</p>
+                        <p>Analista Programmatore</p>
                     </div>
                 </div>
             </template>
             <template #description>
                 <p>
-                    Riccardo loves caipirinhas and Amarone, playing piano and triathlons; he's been passionate about Mathematics since he was 4.
-                    He's still in love with Ruby and Rails.
-                    Former network administrator, sysadmin, and Ruby on Rails developer, Riccardo has been in operations for 20+ years and still likes to spend time coding (better if Ruby). He loves engaging with customers and help them run their operations reliably and successfully in the cloud.
+                    Sono Flavio Basile, sono un Informatico laureatosi all’Università degli studi di Catania e dal 2006 mi occupo professionalmente di progettazione e sviluppo software applicativo desktop.
+                    Ho un passato professionale di libero professionista ma dal 2015 lavoro come Analista Programmatore presso Software House. Oggi lo faccio per bit Time Professionals
                 </p>
 
                 <!--Links-->
                 <div class="flexbox" style="gap: 12px;">
-                    <a href="https://www.linkedin.com/in/riccardocarlesso/" target="_blank">
+                    <a href="https://www.linkedin.com/in/flavio-basile-87556041/" target="_blank">
                         <img src="@/assets/img/linkedin.png" style="height: 24px;" />
                     </a>
                 </div>

@@ -18,6 +18,10 @@
             background: url("~/assets/img/riccardo-carlesso.jpg");
             background-size: cover;
         }
+        &.moreno-razzoli{
+            background: url("~/assets/img/moreno-razzoli.jpg");
+            background-size: cover;
+        }
     }
 }
 .circle{
@@ -31,6 +35,10 @@
         &.riccardo-carlesso{
             background: url("~/assets/img/riccardo-carlesso.jpg");
             background-position: -100px;
+            background-size: cover;
+        }
+        &.moreno-razzoli{
+            background: url("~/assets/img/moreno-razzoli.jpg");
             background-size: cover;
         }
     }

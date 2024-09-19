@@ -1,39 +1,36 @@
 <template>
-    <Title>DevFest Modena 2024 &mdash; Riccardo Carlesso</Title>
     <div>
-        <NuxtLayout name="speaker-page" speaker-url="/" speaker-image="riccardo-carlesso"> <!-- TODO: aggiungere talk-->
+        <Title>DevFest Modena 2024 &mdash; Alfonso Graziano</Title>
+        <NuxtLayout name="speaker-page" speaker-url="/" speaker-image="alfonso-graziano"> <!-- TODO: aggiungere talk-->
             <template #image>
                 <div style="max-width: 100px; max-height: 200px;">
                     <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/square-brackets.svg">
                 </div>
             </template>
-            <template #title> Riccardo Carlesso </template>
+            <template #title> Alfonso Graziano </template>
             <template #speaker-info>
                 <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
                     <div class="info-box">
                         <h3>Azienda</h3>
-                        <p>Google Cloud</p>
+                        <p>NearForm | AWS Certified Solutions Architect</p>
                     </div>
                     <div class="info-box">
                         <h3>Ruolo</h3>
-                        <p>Developer Advocate</p>
+                        <p>Senior Developer</p>
                     </div>
                 </div>
             </template>
             <template #description>
                 <p>
-                    Riccardo loves caipirinhas and Amarone, playing piano and triathlons; he's been passionate about Mathematics since he was 4.
-                    He's still in love with Ruby and Rails.
-                    Former network administrator, sysadmin, and Ruby on Rails developer, Riccardo has been in operations for 20+ years and still likes to spend time coding (better if Ruby). He loves engaging with customers and help them run their operations reliably and successfully in the cloud.
+                    I'm a Full Stack Developer in NearForm. I work mainly with Node.js and React. In my free time I like to read books and articles, cook, and walk in the nature.
                 </p>
 
                 <!--Links-->
                 <div class="flexbox" style="gap: 12px;">
-                    <a href="https://www.linkedin.com/in/riccardocarlesso/" target="_blank">
-                        <img src="@/assets/img/linkedin.png" style="height: 24px;" />
+                    <a href="https://www.alfonsograziano.it/" target="_blank">
+                        Link al sito web di Alfonso Graziano
                     </a>
                 </div>
-
             </template>
             <template #under-content>
                 <FreeTicket />
@@ -42,6 +39,7 @@
         </NuxtLayout>
     </div>
 </template>
+
 <script setup lang="ts">
     definePageMeta({
         layout: false,
