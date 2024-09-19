@@ -193,46 +193,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="swapper-500">
-                <div class="main">
-                <div class="flexbox column" style="width: 100%;">
-                    
-                <div class="flexbox">                    
-                    <TimetableCard 
-                        timetable-type="break" 
-                        time="10:30 - 11:00"
-                        speaker="Break"
-                        title="Coffee break"
-                    />
-                    <TimetableCard 
-                        timetable-type="break" 
-                        time="10:30 - 11:00"
-                        speaker="Break"
-                        title="Coffee break"
-                        class="border"
-                    />
-                    <TimetableCard 
-                        timetable-type="break" 
-                        time="10:30 - 11:00"
-                        speaker="Break"
-                        title="Coffee break"
-                    />
-                </div>
-                <div class="timetable-card break below border-top">
-                    <div class="header">
-                        <p>10:30 - 11:00</p>
-                    </div>
-                    <div class="content">
-                        <h4 class="text-accent">Giancarlo De Bongleris</h4>
-                        <h2>Go è terribile</h2>
-                        <p>Sala grande - Italiano</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-                </div>
-            </div>-->
         </section>
         <section 
             id="speakers-home"
