@@ -1,6 +1,6 @@
 @import 'colors';
 #navbar{
-    max-width: calc(1800px - 96px);
+    max-width: 1800px;
     left: 0;
     right: 0;
     margin: auto;
@@ -10,10 +10,9 @@
     align-items: center;
     justify-content: space-between;
     height: 5rem;
-    top: 48px;
-    left: 48px;
-    right: 48px;
-    width: calc(100% - 48px - 48px);
+    padding: 48px;
+    padding-top: 96px;
+    width: 100%;
     #logo{
         color: $textSecondary;
         display: flex;
@@ -58,6 +57,7 @@
         }
     }
     &.dark{
+        backdrop-filter: blur(4px);
         #logo{
             color: $textPrimary;
         }
@@ -83,6 +83,7 @@
         backdrop-filter: blur(4px);
         padding-left: 24px;
         padding-right: 24px;
+        padding-top: 48px;
         #hamburger{
             width: 40px;
             height: 40px;
