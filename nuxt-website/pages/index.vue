@@ -90,11 +90,156 @@
             </div>
         </section>
         <section 
+            id="timetable-home"
+            class="flexbox column pad-24"
+            style="gap: 48px;"
+        >
+        <div class="flexbox justify-between column justify-center" style="width: 100%;">
+            <div class="flexbox justify-between">
+                    <h1 class="text-accent">Programma generale</h1>
+                    <div style="width: 101px; height: 101px;">
+                        <img src="@/assets/svg/brackets.svg" style="max-width: 100%; max-height: 100%;" />
+                    </div>
+                </div>
+                <h4>Come si svolge la giornata</h4>
+            </div>
+            <div class="swapper-500">
+                <div class="main">
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="10:30 - 11:00"
+                        speaker="Break"
+                        title="Coffee break"
+                        class="above border-bottom"
+                    />
+                    <div class="flexbox">
+                        <TimetableCard 
+                            timetable-type="event" 
+                            time="10:30 - 11:00"
+                            speaker="Ponglo Ponglers"
+                            title="Rust è figo"
+                            room-and-language="Sala 1 - Italiano"
+                            url="/speakers"
+                            style="flex: 1"
+                        />
+                        <TimetableCard 
+                            timetable-type="event" 
+                            time="10:30 - 11:00"
+                            speaker="Ponglo Ponglers"
+                            title="Rust è figo"
+                            room-and-language="Sala 1 - Italiano"
+                            url="/speakers"
+                            class="border"
+                            style="flex: 1"
+                        />
+                        <TimetableCard 
+                            timetable-type="event" 
+                            time="10:30 - 11:00"
+                            speaker="Ponglo Ponglers"
+                            title="Rust è figo"
+                            room-and-language="Sala 1 - Italiano"
+                            url="/speakers"
+                            style="flex: 1"
+                        />
+                    </div>
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="10:30 - 11:00"
+                        speaker="Break"
+                        title="Coffee break"
+                        class="below border-top"
+                    />
+                </div>
+                <div class="to-swap">
+                    <div class="flexbox column" style="gap: 48px">
+                        <TimetableCard 
+                            timetable-type="event" 
+                            time="10:30 - 11:00"
+                            speaker="Break"
+                            title="Coffee break"
+                        />
+                        <div>
+                            <TimetableCard 
+                            timetable-type="event" 
+                            time="10:30 - 11:00"
+                            speaker="Ponglo Ponglers"
+                            title="Rust è figo"
+                            room-and-language="Sala 1 - Italiano"
+                            url="/speakers"
+                        />
+                        <TimetableCard 
+                            timetable-type="event" 
+                            time="10:30 - 11:00"
+                            speaker="Ponglo Ponglers"
+                            title="Rust è figo"
+                            room-and-language="Sala 1 - Italiano"
+                            url="/speakers"
+                        />
+                        <TimetableCard 
+                            timetable-type="event" 
+                            time="10:30 - 11:00"
+                            speaker="Ponglo Ponglers"
+                            title="Rust è figo"
+                            room-and-language="Sala 1 - Italiano"
+                            url="/speakers"
+                        />
+                        </div>
+                        <TimetableCard 
+                            timetable-type="event" 
+                            time="10:30 - 11:00"
+                            speaker="Break"
+                            title="Lunch Break"
+                        />
+                    </div>
+                </div>
+            </div>
+            <!--<div class="swapper-500">
+                <div class="main">
+                <div class="flexbox column" style="width: 100%;">
+                    
+                <div class="flexbox">                    
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="10:30 - 11:00"
+                        speaker="Break"
+                        title="Coffee break"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="10:30 - 11:00"
+                        speaker="Break"
+                        title="Coffee break"
+                        class="border"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="10:30 - 11:00"
+                        speaker="Break"
+                        title="Coffee break"
+                    />
+                </div>
+                <div class="timetable-card break below border-top">
+                    <div class="header">
+                        <p>10:30 - 11:00</p>
+                    </div>
+                    <div class="content">
+                        <h4 class="text-accent">Giancarlo De Bongleris</h4>
+                        <h2>Go è terribile</h2>
+                        <p>Sala grande - Italiano</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+            </div>-->
+        </section>
+        <section 
             id="speakers-home"
             class="flexbox column pad-24"
             style="gap: 48px;"
         >   
-            <div class="flexbox justify-between column justify-center" style="pad: 24px">
+            <div class="flexbox justify-between column justify-center">
                 <div class="flexbox justify-between">
                     <h1 class="text-accent">Speaker</h1>
                     <div style="width: 101px; height: 101px;">
@@ -110,6 +255,19 @@
                     <p class="text-label">English/Italiano</p>
                     <RouterLink to="/speaker/riccardo-carlesso" class="button-like">Scopri di più</RouterLink>
                 </div>
+                <div class="white-card max-width-450">
+                    <div class="image moreno-razzoli"></div>
+                    <h4>Moreno Razzoli</h4>
+                    <p class="text-label">English/Italiano</p>
+                    <RouterLink to="/speaker/moreno-razzoli" class="button-like">Scopri di più</RouterLink>
+                </div>
+            </div>
+            <div class="white-card">
+                <RouterLink to="/speakers">
+                    <div class="flexbox justify-center" style="gap: 12px;">
+                        <p style="text-align: center">Vedi tutto</p> <img src="@/assets/svg/arrow-black.svg" />
+                    </div>
+                </RouterLink>
             </div>
         </section>
         <section class="full ternary-background" style="border-radius: 24px;">

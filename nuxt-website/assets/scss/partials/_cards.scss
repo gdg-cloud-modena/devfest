@@ -44,3 +44,53 @@
         }
     }
 }
+.timetable-card{
+    .header{
+        background: $accent2;
+    }
+    .content{
+        padding: 24px;
+        background: $ternaryBackground;
+        flex: 1;
+    }
+    &.break{
+        overflow: hidden;
+        &.above{
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            &.border-bottom{
+                border-bottom: 2px solid #cecece;
+            }
+        }
+        &.below{
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            &.border-top{
+                border-top: 2px solid #cecece;
+                border-bottom: none;
+            }
+        }        
+        display: flex;
+        gap: 0;
+        .header{
+            align-content: center;
+            padding-top: 48px;
+            padding-bottom: 48px;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
+    &.event{
+        display: flex;
+        flex-direction: column;
+        .header{
+            padding: 24px;
+        }
+        &.border{
+            border-left: 2px solid #cecece;
+            border-right: 2px solid #cecece;
+        }
+    }
+}
