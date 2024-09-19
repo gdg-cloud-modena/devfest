@@ -28,7 +28,7 @@
                         </slot>
                         <slot name="speaker-info" />
                         <div class="flexbox pad-24" style="width: 100%; padding-top: 0;">
-                            <RouterLink :to="speakerUrl" class="cool-blue button-like flexbox justify-center align-center" style="flex: 1; gap: 12px;">
+                        <RouterLink :to="speakerUrl" class="cool-blue button-like flexbox justify-center align-center" style="flex: 1; gap: 12px;">
                             <div>Scopri il talk</div>
                             <img src="@/assets/svg/arrow.svg" style="height: 20px;" />
                         </RouterLink>
@@ -88,6 +88,9 @@
                 }
             }
         }
+        #sider{
+                border: none;
+            }
     }
     @media screen and (max-width: 870px){
         #page{
@@ -98,6 +101,22 @@
                 .image{
                     display: none;
                 }
+            }
+        }
+    }
+    @media screen and (max-width: 500px){
+        #hero{
+            .image{
+                display: none;
+            }
+        }
+        #speaker-page{
+            #content{
+                padding: 0;
+            }
+            #hero{
+                padding-left: 24px;
+                padding-right: 24px;
             }
         }
     }
