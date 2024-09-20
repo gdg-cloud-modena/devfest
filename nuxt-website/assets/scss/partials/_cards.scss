@@ -9,6 +9,10 @@
     &.max-width-450{
         max-width: 450px;
     }
+    &.team-card{
+        max-width: 250px;
+        height: 400px;
+    }
     .image{
         width: 100%;
         height: 300px;
@@ -74,7 +78,61 @@
             background: url("~/assets/img/paolo-galeone.jpg");
             background-size: cover;
         }
-        
+        &.biagio-grimolizzi{
+            background: url("~/assets/img/biagio-grimolizzi.jpg");
+            background-size: cover;
+        }
+        &.carmine-zaccagnino{
+            background: url("~/assets/img/carmine-zaccagnino.jpg");
+            background-size: cover;
+        }
+        &.dario-varriale{
+            background: url("~/assets/img/dario-varriale.jpg");
+            background-size: cover;
+        }
+        &.davide-muzzarelli{
+            background: url("~/assets/img/davide-muzzarelli.jpg");
+            background-size: cover;
+        }
+        &.elia-tolin{
+            background: url("~/assets/img/elia-tolin.jpg");
+            background-size: cover;
+        }
+        &.francesca-palazzo{
+            background: url("~/assets/img/francesca-palazzo.jpg");
+            background-size: cover;
+        }
+        &.francesco-boschetti{
+            background: url("~/assets/img/francesco-boschetti.jpg");
+            background-size: cover;
+        }
+        &.marco-arena{
+            background: url("~/assets/img/marco-arena.jpg");
+            background-size: cover;
+        }
+        &.emiliano-maccaferri{
+            background: url("~/assets/img/emiliano-maccaferri.webp");
+            background-size: cover;
+        }
+        &.marco-savarese{
+            background: url("~/assets/img/marco-savarese.jpg");
+            background-size: cover;
+        }
+        &.maurizio-ipsale{
+            background: url("~/assets/img/maurizio-ipsale.jpg");
+            background-size: cover;
+        }
+        &.mirko-gillioli{
+            background: url("~/assets/img/mirko-gillioli.jpg");
+            background-size: cover;
+        }
+        &.niccolo-maria-menozzi{
+            background: url("~/assets/img/niccolo-maria-menozzi.jpg");
+            background-size: cover;
+        }
+        &.image-staff {
+            height: 200px;
+        }
     }
 }
 .circle{
