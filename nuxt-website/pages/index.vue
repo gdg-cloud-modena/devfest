@@ -103,7 +103,7 @@
                 </div>
                 <h4>Come si svolge la giornata</h4>
             </div>
-            <div class="swapper-500">
+            <!--div class="swapper-500">
                 <div class="main">
                     <TimetableCard 
                         timetable-type="break" 
@@ -192,7 +192,7 @@
                         />
                     </div>
                 </div>
-            </div>
+            </div-->
         </section>
         <section 
             id="speakers-home"
