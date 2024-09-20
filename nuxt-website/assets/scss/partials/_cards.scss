@@ -55,6 +55,8 @@
     }
     &.break{
         overflow: hidden;
+        display: flex;
+        gap: 0;
         &.above{
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
@@ -72,8 +74,6 @@
                 border-bottom: none;
             }
         }        
-        display: flex;
-        gap: 0;
         .header{
             align-content: center;
             padding-top: 48px;
