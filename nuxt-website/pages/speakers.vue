@@ -53,14 +53,14 @@
                         <RouterLink to="/speaker/imran-us-salam-mian">
                             <div class="image imran-us-salam-mian"></div>
                             <h4>Imran us Salam Mian</h4>
-                            <p class="text-label">English/Urdu</p>
+                            <p class="text-label">English</p>
                         </RouterLink>
                     </div>
                     <div class="white-card max-width-450">
                         <RouterLink to="/speaker/ankur-roy">
                             <div class="image ankur-roy"></div>
                             <h4>Ankur Roy</h4>
-                            <p class="text-label">English/French</p>
+                            <p class="text-label">English</p>
                         </RouterLink>
                     </div>
                     <div class="white-card max-width-450">
@@ -74,7 +74,7 @@
                         <RouterLink to="/speaker/flavio-basile">
                             <div class="image flavio-basile"></div>
                             <h4>Flavio Basile</h4>
-                            <p class="text-label">English/Italiano</p>
+                            <p class="text-label">Italiano</p>
                         </RouterLink>
                     </div>
                     <div class="white-card max-width-450">

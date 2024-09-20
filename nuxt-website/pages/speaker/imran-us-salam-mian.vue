@@ -24,7 +24,7 @@
                     </div>
                     <div class="info-box">
                         <h3>Lingua</h3>
-                        <p>English/Urdu</p>
+                        <p>English</p>
                     </div>
                 </div>
             </template>
