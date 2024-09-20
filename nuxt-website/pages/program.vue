@@ -12,7 +12,7 @@
             <template #title>
                 Sabato 12 Ottobre 2024
             </template>
-            <template #content>
+            <!--template #content>
                 <div class="swapper-500">
                     <div class="main">
                         <TimetableCard 
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-            </template>
+            </template-->
             <template #under-content>
                 <FreeTicket />
                 <SocialLinks />

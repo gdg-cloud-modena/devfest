@@ -15,14 +15,14 @@
                         <h3>Speaker</h3>
                         <p>Moreno Razzoli</p>
                     </div>
-                    <div class="info-box">
+                    <!--div class="info-box">
                         <h3>Orario</h3>
                         <p>10:00 AM - 11:00 AM</p>
                     </div>
                     <div class="info-box">
                         <h3>Sala</h3>
                         <p>Stanza piccola</p>
-                    </div>
+                    </div-->
                     <div class="info-box">
                         <h3>Lingua</h3>
                         <p>Italiano</p>
