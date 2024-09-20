@@ -1,0 +1,19 @@
+# Assessing Effectiveness of Cyber Essentials Technical Controls
+
+ Priyanka Badva, Partha Das Chowdhury, Kopo M. Ramokapane, Barnaby Craggs, Awais Rashid
+
+University of Bristol
+
+UK
+
+###### Abstract
+
+Cyber Essentials (CE) comprise a set of controls designed to protect organisations, irrespective of their size, against cyber attacks. The controls are _fireshills, secure configuration, user access control, malware protection & security update management_. In this work, we explore the extent to which CE remains robust against an ever-evolving threat landscape. To that end, we reconstruct 45 breaches mapped to MiTRE ATT&CK using an Incident Fault Tree (IFT) approach. Our method reveals the intersections where the placement of controls could have protected organisations. Then we identify appropriate Cyber Essential controls and/or Additional Controls for these vulnerable intersections. Our results show that CE controls can effectively protect against most attacks during the initial attack phase. However, they may need to be complemented with Additional Controls if the attack proceeds further into organisational systems & networks. The Additional Controls (AC) we identify include back-ups, security awareness, logging and monitoring. Our analysis brings to the fore a foundational issue as to whether controls should exclude recovery and focus only on pre-emption. The latter makes the strong assumption that a prior identification of all controls in a dynamic threat landscape is indeed possible. Furthermore, any potential broadening of technical controls entails re-scoping the skills that are required for a Cyber Essentials (CE) assessor. To that end, we suggest _human factors_ and _security operations and incident management_ as two potential knowledge areas from Cyber Security Body of Knowledge (CyBOK) if there is any broadening of CE based on these findings.
+
+Cyber attacks Ransomware Phishing Incident Fault Tree (IFT) Cyber Essentials (CE) Inhibit Gate
+
+## 1 Introduction
+
+The Cyber Essentials (CE) technical controls [5] are the UK government certification scheme to help organisations secure themselves against attacks on their information systems and processes. The framework comprises a set of technical controls developed in collaboration with the Information Assurance for Small and Medium Enterprises (IASME) consortium, the Information Security Forum (ISF) and the British Standards Institution (BSI). CE certification is a prerequisite to bidr for UK government contracts, particularly in areas that involve handling sensitive information. A study [17] conducted in 2015 to assess the effectiveness of Cyber Essential technical controls investigated 200 vulnerabilities from the CVE list of 2013 and 2014 published by MiTRE. The study reported that 131 vulnerabilities were mitigated using CE technical controls. CE controls were also reported to be effective against three high-profile vulnerabilities of the day, namely Heartbleed, ShellShock and Superfish.
+
+The landscape of threats and mal-actors has changed over 8 years since that first systematic evaluation of CE. The proliferation of smartphones and clouds has increasingly replaced conventional data stores holding sensitive information. Compromised email accounts cost Yahoo to the tune of $350 million [2, 1]. WannaCry led to disruptions in the National Health Service (NHS) information systems [3] and NotPetya spread through an update to the MEDoc tax accounting

@@ -1,0 +1,17 @@
+Authentication (2FA) as an additional layer of security, which helps in reducing the risk of unauthorised user access and enhances the overall security of access control systems.
+* ***Malware Protection:** Systems inside an organisation's network should not be readily susceptible to malicious pieces of code. The malicious code can come from trusted sources as well. So there need to be protections to mitigate malware entering the organisation's systems and propagating.
+* ***Security Update Management:** Bugs do emerge in software systems much later than they are released and vendors provide updates to the existing insecure version. While the internet makes it easier to remotely patch insecure software, organisations need the discipline to apply such updates regularly.
+
+### Incident Fault Tree
+
+An Incident Fault Tree IFT [7] is a modelling approach to explain incidents in terms of various causes and events. The method proposed in [13] involves modelling each security incident as an IFT. An IFT is a modelling tool for the retrospective documentation and analysis of an incident. It is used to explain the incident in terms of the various causes that contributed to it. An IFT is based on, and thus uses, the graphical symbols of the Fault Tree Analysis (FTA) method. It comprises two broad types of notations, namely _events_ and _gates_. _Events_ are specific discrete events or other conditions that precipitate an incident. _Gates_ are used to represent multiple scenarios. They can be used to represent the various ways in which _events_ combine in order to cause another event. The mitigating factors that can prevent an exploitable event are also represented as _inhibit gates_. The IFT symbols are shown in Figure 1 and are as follows:
+
+* *Basic Event: cannot be explained in terms of other causal events, or has no known causes;
+* *Intermediate Event: can be explained in terms of other causal events, or there are known causes;
+* *Undeveloped Event: can be explained in terms of other causal events but we have chosen not to do so because such causal elaboration serves no analytical purpose;
+* *AND Gate and OR Gate: respectively represent the conjunction or disjunction of causal events;
+* *Inhibit Gate: is placed between an event and its causes to stop an event from occurring unless the condition in the Conditioning Event is satisfied. The Inhibit Gate is a critical part of the modelling and analysis as it makes it possible to model the mitigating or remedial actions that may act as barriers to the progress towards a security breach. In this project, we use it to model where CE Controls would have inhibited an attack and where other controls beyond CE were required.
+
+### Mitre Att&ck
+
+The behaviour and attack paths of an adversary for known attacks are documented in the Adversarial Tactics Techniques & Common Knowledge (ATT&CK) framework [15]. The project started with documenting the Tactic Techniques and

@@ -29,7 +29,13 @@
                 <!--Links-->
                 <div class="flexbox" style="gap: 12px;">
                     <a href="https://www.youtube.com/morrolinux" target="_blank">
-                        Da mettere l'icona di YouTube??
+                        <img src="@/assets/img/youtube.png" style="height: 24px;" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/morenorazzoli/" target="_blank">
+                        <img src="@/assets/img/linkedin.png" style="height: 24px;" />
+                    </a>
+                    <a href="https://x.com/morrolinux/" target="_blank">
+                        <img src="@/assets/img/twitter.png" style="height: 24px;" />
                     </a>
                 </div>
             </template>
