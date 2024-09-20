@@ -30,6 +30,7 @@
         { question: 'Ho delle allergie/intolleranze alimentari, come posso fare?', answer: 'Siamo in grado di gestire allergie e intolleranzie alimentari. Segnalacelo quando prenoti il biglietto, comunque entro 3 giorni prima dell\'evento.' },
         { question: 'Dove trovo parcheggio?', answer: 'Il parcheggio è sotterraneo, economico, vicino all\'ingresso dell\'evento, e con una capienza di 400 posti auto.'},
         { question: 'L\'evento è gratuito?', answer: 'Si'},
+        { question: 'Vorrei proporre un talk come speaker, come faccio?', answer: 'La call for speakers è chiusa al momento, quindi non è possibile.'},
     ];
 
     const toggleAnswer = (index) => {

@@ -8,7 +8,7 @@
             <div 
                 class="pad-24 full radius-24 black-layer-24 flexbox column justify-center align-center"
                 style="
-                    background: url(/img/bg.jpg) no-repeat center center fixed;
+                    background: url(/img/bg.webp) no-repeat center center fixed;
                     background-size: cover;
                 "
             >
@@ -46,7 +46,6 @@
                     </h4>
                     <div class="flexbox" style="gap: 24px; padding-bottom: 24px;">
                         <a class="button-like" href="https://www.eventbrite.it/e/devfest-modena-2024-tickets-1006887817567?aff=oddtdtcreator" target="_blank"> Riserva un biglietto! </a>
-                        <a class="button-like" href="https://sessionize.com/devfest-modena2024/" target="_blank"> Candidati come speaker </a>
                     </div>
                 </div>
                 <div class="flexbox wrap align-center justify-center" style="gap: 24px; flex: 1 1 560px;">

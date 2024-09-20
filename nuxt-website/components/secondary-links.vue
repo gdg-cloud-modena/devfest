@@ -4,7 +4,6 @@
             <h4><RouterLink to="/faq">FAQ</RouterLink></h4>
             <h4><RouterLink to="/contact-us">Contatti</RouterLink></h4>
             <h4><RouterLink to="/location">Come raggiungerci</RouterLink></h4>
-            <h4><a href="https://sessionize.com/devfest-modena2024/" target="_blank">Candidati</a></h4>
             <h4><RouterLink to="/team">Chi siamo</RouterLink></h4>
             <h4><RouterLink to="/communities">Communities</RouterLink></h4>
             <h4>Codice di condotta</h4>
