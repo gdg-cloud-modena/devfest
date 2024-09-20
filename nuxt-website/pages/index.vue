@@ -64,7 +64,7 @@
                             <img src="@/assets/svg/ic_keyboard_voice.svg" />
                         </div>
                         <div class="highlight">
-                            <h3 class="text-accent-2">20</h3>
+                            <h3 class="text-accent-2">19</h3>
                         </div>
                         <h4 style="margin-left: auto; margin-right: auto;">Relatori</h4>
                     </div>
