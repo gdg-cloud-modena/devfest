@@ -28,7 +28,7 @@
                 <!--Links-->
                 <div class="flexbox" style="gap: 12px;">
                     <a href="https://www.alfonsograziano.it/" target="_blank">
-                        Link al sito web di Alfonso Graziano
+                        <img src="@/assets/img/website.png" style="height: 24px;" />
                     </a>
                 </div>
             </template>

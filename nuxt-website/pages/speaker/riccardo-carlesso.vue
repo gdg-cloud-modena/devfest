@@ -32,24 +32,6 @@
                     <a href="https://www.linkedin.com/in/riccardocarlesso/" target="_blank">
                         <img src="@/assets/img/linkedin.png" style="height: 24px;" />
                     </a>
-                    <a href="https://www.instagram.com/palladius/" target="_blank">
-                        <img src="@/assets/img/instagram.png" style="height: 24px;" />
-                    </a>
-                    <a href="https://twitter.com/palladius" target="_blank">
-                        <img src="@/assets/img/twitter.png" style="height: 24px;" />
-                    </a>
-                    <a href="https://github.com/palladius/" target="_blank">
-                        <img src="@/assets/img/github.svg" style="height: 24px;" />
-                    </a>
-                    <a href="https://medium.com/@palladiusbonton" target="_blank">
-                        <img src="@/assets/img/website.png" style="height: 24px;" />
-                    </a>
-                    <a href="https://ricc.rocks/en/" target="_blank">
-                        <img src="@/assets/img/website.png" style="height: 24px;" />
-                    </a>
-                    <a href="https://cloud.google.com/developers/advocates/riccardo-carlesso" target="_blank">
-                        <img src="@/assets/img/website.png" style="height: 24px;" />
-                    </a>
                 </div>
 
             </template>
