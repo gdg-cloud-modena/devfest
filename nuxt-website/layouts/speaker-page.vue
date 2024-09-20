@@ -27,15 +27,14 @@
                             <div :class="['circle', 'radius-300', speakerImage]"></div>
                         </slot>
                         <slot name="speaker-info" />
-                        <div class="flexbox pad-24" style="width: 100%; padding-top: 0;">
-                        <RouterLink :to="speakerUrl" class="cool-blue button-like flexbox justify-center align-center" style="flex: 1; gap: 12px;">
-                            <div>Scopri il talk</div>
-                            <img src="@/assets/svg/arrow.svg" style="height: 20px;" />
-                        </RouterLink>
-                        </div>
                     </div>
-                    <div class="flexbox column" id="description">
-                        <slot name="description" /> 
+                    <div id="description">
+                        <div id="separator" style="gap: 12px;">
+                            <slot name="talk" />
+                        </div>
+                        <div id="bio">
+                            <slot name="description" />
+                        </div>
                     </div>
                 </section>
                 <section id="under-content" style="width: 100% !important;">
@@ -76,6 +75,13 @@
         padding-left: 24px;
         gap: 24px; 
         flex: 1 1 800px;
+    }
+    #separator{
+        border-bottom: 2px solid #cecece;
+        padding-bottom: 24px;
+    }
+    #bio{
+        padding-top: 24px;
     }
     @media screen and (max-width: 1024px){
         #page{
