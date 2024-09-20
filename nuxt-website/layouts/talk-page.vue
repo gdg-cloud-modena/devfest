@@ -9,7 +9,7 @@
                 <section id="hero" class="ternary-background">
                     
                     <div class="flexbox" style="gap: 24px;">
-                        <div class="image" style="margin-top: auto">
+                        <div class="image">
                             <slot name="image" />
                         </div>
                         <div class="flexbox column">
