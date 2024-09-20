@@ -29,6 +29,7 @@
                 </div>
             </template>
             <template #talk>
+                <h3>Abstract</h3>
                 <p>
                     Typescript or not Typescript? More than ten years have passed since its birth, and many of us still struggle to understand and love it.
                     Well, it’s time to understand more and stop bypassing it with a simple any.

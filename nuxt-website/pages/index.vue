@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="flexbox wrap align-center justify-center" style="gap: 24px; flex: 1 1 560px;">
-                    <div class="card" style="width: 167px;">
+                    <div class="card">
                         <div class="image">
                             <img src="@/assets/svg/room.svg" />
                         </div>
@@ -59,7 +59,7 @@
                         </div>
                         <h4 style="margin-left: auto; margin-right: auto;">Sale</h4>
                     </div>
-                    <div class="card" style="width: 167px;">
+                    <div class="card">
                         <div class="image">
                             <img src="@/assets/svg/ic_keyboard_voice.svg" />
                         </div>
@@ -68,7 +68,7 @@
                         </div>
                         <h4 style="margin-left: auto; margin-right: auto;">Relatori</h4>
                     </div>
-                    <div class="card" style="width: 167px;">
+                    <div class="card">
                         <div class="image">
                             <img src="@/assets/svg/ic_teach.svg" />
                         </div>
@@ -77,7 +77,7 @@
                         </div>
                         <h4 style="margin-left: auto; margin-right: auto;">Workshop</h4>
                     </div>
-                    <div class="card" style="width: 167px;">
+                    <div class="card">
                         <div class="image">
                             <img src="@/assets/svg/people.svg" />
                         </div>

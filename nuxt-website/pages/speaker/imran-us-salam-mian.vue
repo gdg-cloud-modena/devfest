@@ -16,11 +16,11 @@
                     </div>
                     <div class="info-box">
                         <h3>Azienda</h3>
-                        <p>Non c'è??</p>
+                        <p>Workwise</p>
                     </div>
                     <div class="info-box">
                         <h3>Ruolo</h3>
-                        <p>Integrating Human intelligence in Machines</p>
+                        <p>Senior Machine Learning Engineer</p>
                     </div>
                     <div class="info-box">
                         <h3>Lingua</h3>
@@ -29,6 +29,7 @@
                 </div>
             </template>
             <template #talk>
+                <h3>Abstract</h3>
                 <p>
                     What is Ray?
                     <br />

@@ -10,7 +10,7 @@
                 </div>
             </template>
             <template #title>
-                Sabato 12 Ottobre 2024
+                Programma da definire
             </template>
             <!--template #content>
                 <div class="swapper-500">

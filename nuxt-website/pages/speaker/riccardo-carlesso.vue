@@ -29,6 +29,7 @@
                 </div>
             </template>
             <template #talk>
+                <h3>Abstract</h3>
                 <p>
                     How can we get an LLM to be updated to today’s news?
                     Gen AI is great at answering questions.. from the past. After the LLM was trained, all you can do is RAG.

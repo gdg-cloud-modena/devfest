@@ -140,6 +140,9 @@ section{
 .text-label{
     color: grey;
 }
+.text-justify{
+    text-align: justify;
+}
 button, .button-like{
     border: none;
     text-align: center;
@@ -197,7 +200,13 @@ hr{
     flex-direction: column;
     gap: 12px;
     border: 1px solid #8f8f8f;
-    border-radius: 24px;;
+    border-radius: 24px;
+    width: 167px;
+
+    @media only screen and (max-width: 500px) {
+        width: 100%;
+    }
+
     .image{
         width: 100%;
         text-align: center;
