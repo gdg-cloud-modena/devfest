@@ -1,5 +1,5 @@
 <template>
-    <Title>DevFest Modena 2024 &mdash; GemAPI testing in action - DMVC & PyTest for better API</Title>
+    <Title>DevFest Modena 2024 &mdash; API testing in action - DMVC & PyTest for better API</Title>
     <div>
         <NuxtLayout name="speaker-page" speaker-image="flavio-basile">
             <template #image>
@@ -7,7 +7,7 @@
                     <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/square-brackets.svg">
                 </div>
             </template>
-            <template #title> GemAPI testing in action - DMVC & PyTest for better API </template>
+            <template #title> API testing in action - DMVC & PyTest for better API </template>
             <template #speaker-info>
                 <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
                     <div class="info-box">
@@ -29,6 +29,7 @@
                 </div>
             </template>
             <template #talk>
+                <h3>Abstract</h3>
                 <p>
                     Nelle architetture distribuite, nell’ambito delle applicazioni organizzate come Microservizi offerti mediante l’esposizione di un set di API, la fase di testing assume un ruolo importante come fase del processo di sviluppo del software al fine di garantire robustezza e scalabilità del sistema.
                     Con questo speech, mostrerò come è possibile metter su facilmente un sistema di testing per le nostre API utilizzando gli strumenti a noi più familiari, affiancati ad altri che magari non rientrano nella nostra quotidianità ma che, conosciuti, non potranno più mancare nella nostra Toolbox.

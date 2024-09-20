@@ -32,7 +32,7 @@
                         <div id="separator" style="gap: 12px;">
                             <slot name="talk" />
                         </div>
-                        <div id="bio">
+                        <div id="bio" class="text-justify">
                             <slot name="description" />
                         </div>
                     </div>
@@ -73,7 +73,9 @@
     #description{
         padding-top: 24px;
         padding-left: 24px;
-        gap: 24px; 
+        padding-right: 24px;
+        gap: 24px;
+        text-align: justify;
         flex: 1 1 800px;
     }
     #separator{

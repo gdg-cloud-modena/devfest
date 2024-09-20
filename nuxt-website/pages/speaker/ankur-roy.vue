@@ -29,6 +29,7 @@
                 </div>
             </template>
             <template #talk>
+                <h3>Abstract</h3>
                 <p>
                     What are the applications of multimodality with Gemini? This session will cover a variety of different multimodal use cases for text, images, audio, video, and code to provide ideas on how you can apply multimodality to practical business scenarios. You will gain hands-on experience with both Gemini 1.5 Pro and Gemini 1.5 Flash.
                 </p>

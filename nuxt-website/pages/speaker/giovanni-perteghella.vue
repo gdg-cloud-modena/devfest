@@ -15,12 +15,8 @@
                         <p>Giovanni Perteghella</p>
                     </div>
                     <div class="info-box">
-                        <h3>Azienda</h3>
-                        <p>Non ho capito cosa mettere</p>
-                    </div>
-                    <div class="info-box">
                         <h3>Ruolo</h3>
-                        <p>Non ho capito cosa mettere</p>
+                        <p> CTO, Senior AWS, Cisco, Google, VMware, Kubernetes and CyberSecurity Trainer </p>
                     </div>
                     <div class="info-box">
                         <h3>Lingua</h3>
@@ -29,6 +25,7 @@
                 </div>
             </template>
             <template #talk>
+                <h3>Abstract</h3>
                 <p>
                     In this talk, we will explore the new features of Gemini Functions Calls in Flutter, how to use them, and how to integrate them into your projects.
                 </p>

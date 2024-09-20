@@ -29,6 +29,7 @@
                 </div>
             </template>
             <template #talk>
+                <h3>Abstract</h3>
                 <p>
                     In this talk, we explore how to combine a large language model (LLM) with a relational database management system (RDBMS) to enable users to ask questions about their data in a natural way. It demonstrates the development of a Retrieval-Augmented Generation (RAG) system built with Go that leverages PostgreSQL and pgvector for data storage, retrieval, and embedding generation. The provided code showcases the core functionalities of the system. This work serves as an overview of the "chat with your data" feature currently under development for fitsleepinsights.app.
                 </p>
