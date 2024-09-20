@@ -1,0 +1,114 @@
+<template>
+    <div>
+        <Navbar />
+        <NavigationMenu v-if="nav_menu_status" />
+        <div id="speaker-page" data-scroll>
+            <section 
+                class="flexbox column at-least-full"
+            >   
+                <section id="hero" class="ternary-background">
+                    
+                    <div class="flexbox" style="gap: 24px;">
+                        <div class="image" style="margin-top: auto">
+                            <slot name="image" />
+                        </div>
+                        <div class="flexbox column">
+                            <h4 class="text-primary">
+                                <slot name="hint" />
+                            </h4>
+                            <h1 class="text-accent"><slot name="title" /></h1>
+                        </div>
+                    </div>
+                </section>
+                <section class="content at-least-full flexbox wrap" id="content">
+                    <div class="flexbox column align-center" id="sider"
+                    >
+                        <slot name="speaker-info" />
+                    </div>
+                    <div class="flexbox column" id="description">
+                        <slot name="description" /> 
+                    </div>
+                </section>
+                <section id="under-content" style="width: 100% !important;">
+                    <slot name="under-content" />
+                </section>
+            </section>
+            <slot />
+        </div>
+        <Footer />
+    </div>
+</template>
+<script setup>
+    const props = defineProps(['speakerUrl', 'speakerImage']);
+    const {
+        speakerUrl,
+        speakerImage,
+    } = toRefs(props);
+    const dark_mode = ref(true);
+    const nav_menu_status = ref(false);
+    provide('navigation-menu', nav_menu_status);
+    provide('dark-mode', dark_mode);
+    watch(nav_menu_status, (status) => {
+        document.body.style.overflow = status ? "hidden" : "auto";
+    })
+    onMounted(() => {
+        document.body.style.overflow = "auto";
+    });
+</script>
+<style lang="scss">
+    #sider{
+        gap: 24px; 
+        flex: 1; 
+        padding-top: 24px;
+        border-right: 2px solid #cecece;
+    }
+    #description{
+        padding-top: 24px;
+        padding-left: 24px;
+        gap: 24px; 
+        flex: 1 1 800px;
+    }
+    @media screen and (max-width: 1024px){
+        #page{
+            #hero, #content{
+                padding: 48px;
+            }
+            #hero{
+                .image{
+                    display: none;
+                }
+            }
+        }
+        #sider{
+                border: none;
+            }
+    }
+    @media screen and (max-width: 870px){
+        #page{
+            #hero, #content{
+                padding: 24px;
+            }
+            #hero{
+                .image{
+                    display: none;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 500px){
+        #hero{
+            .image{
+                display: none;
+            }
+        }
+        #speaker-page{
+            #content{
+                padding: 0;
+            }
+            #hero{
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+        }
+    }
+</style>

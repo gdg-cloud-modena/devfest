@@ -73,6 +73,18 @@
                 border-top: 2px solid #cecece;
                 border-bottom: none;
             }
+        }
+        &.middle{
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            &.border-top{
+                border-top: 2px solid #cecece;
+            }
+            &.border-bottom{
+                border-bottom: 2px solid #cecece;
+            }
         }        
         .header{
             align-content: center;

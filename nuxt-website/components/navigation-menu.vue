@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router';
+</script>
+
 <template>
     <section 
         style="position: fixed; z-index: 99; overflow-y: scroll; gap: 48px; max-width: 100% !important;"
@@ -8,7 +12,7 @@
             <div class="flexbox justify-between pad-24 wrap" style="padding-top: 120px; gap: 48px;">
             <div class="flexbox column" style="gap: 48px; flex: 1 1 470px;">
                 <h1><RouterLink to="/">Home</RouterLink></h1>
-                <h1>Programma</h1>
+                <h1><RouterLink to="/program">Programma</RouterLink></h1>
                 <h1><RouterLink to="/speakers">Speakers</RouterLink></h1>
             </div>
             <div class="flexbox column gap-24 wrap" style="gap: 48px; flex: 1 1 470px;">

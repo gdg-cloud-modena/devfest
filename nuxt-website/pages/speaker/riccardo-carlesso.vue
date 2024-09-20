@@ -1,7 +1,7 @@
 <template>
     <Title>DevFest Modena 2024 &mdash; Riccardo Carlesso</Title>
     <div>
-        <NuxtLayout name="speaker-page" speaker-url="/" speaker-image="riccardo-carlesso"> <!-- TODO: aggiungere talk-->
+        <NuxtLayout name="speaker-page" speaker-url="/talk/riccardo-carlesso" speaker-image="riccardo-carlesso"> <!-- TODO: aggiungere talk-->
             <template #image>
                 <div style="max-width: 100px; max-height: 200px;">
                     <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/square-brackets.svg">
