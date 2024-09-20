@@ -25,7 +25,7 @@
                         <RouterLink to="/speaker/moreno-razzoli">
                             <div class="image moreno-razzoli"></div>
                             <h4>Moreno Razzoli</h4>
-                            <p class="text-label">English/Italiano</p>
+                            <p class="text-label">Italiano</p>
                         </RouterLink>
                     </div>
                     <div class="white-card max-width-450">
@@ -39,7 +39,7 @@
                         <RouterLink to="/speaker/giovanni-perteghella">
                             <div class="image giovanni-perteghella"></div>
                             <h4>Giovanni Perteghella</h4>
-                            <p class="text-label">English/Italiano</p>
+                            <p class="text-label">Italiano</p>
                         </RouterLink>
                     </div>
                     <div class="white-card max-width-450">
@@ -88,7 +88,7 @@
                         <RouterLink to="/speaker/marco-breveglieri">
                             <div class="image marco-breveglieri"></div>
                             <h4>Marco Breveglieri</h4>
-                            <p class="text-label">English/Italiano</p>
+                            <p class="text-label">Italiano</p>
                         </RouterLink>
                     </div>
                 </div>

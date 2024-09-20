@@ -1,15 +1,19 @@
 <template>
-    <Title>DevFest Modena 2024 &mdash; Ankur Roy</Title>
+    <Title>DevFest Modena 2024 &mdash; Gemini 1.5: A workshop in multimodal use cases</Title>
     <div>
-        <NuxtLayout name="speaker-page" speaker-url="/talk/ankur-roy" speaker-image="ankur-roy"> <!-- TODO: aggiungere talk-->
+        <NuxtLayout name="speaker-page" speaker-image="ankur-roy">
             <template #image>
                 <div style="max-width: 100px; max-height: 200px;">
                     <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/square-brackets.svg">
                 </div>
             </template>
-            <template #title> Ankur Roy </template>
+            <template #title> Gemini 1.5: A workshop in multimodal use cases </template>
             <template #speaker-info>
                 <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
+                    <div class="info-box">
+                        <h3>Speaker</h3>
+                        <p>Ankur Roy</p>
+                    </div>
                     <div class="info-box">
                         <h3>Azienda</h3>
                         <p>Online Partner AB</p>
@@ -18,9 +22,19 @@
                         <h3>Ruolo</h3>
                         <p>Solutions Architect</p>
                     </div>
+                    <div class="info-box">
+                        <h3>Lingua</h3>
+                        <p>English</p>
+                    </div>
                 </div>
             </template>
+            <template #talk>
+                <p>
+                    What are the applications of multimodality with Gemini? This session will cover a variety of different multimodal use cases for text, images, audio, video, and code to provide ideas on how you can apply multimodality to practical business scenarios. You will gain hands-on experience with both Gemini 1.5 Pro and Gemini 1.5 Flash.
+                </p>
+            </template>
             <template #description>
+                <h3>Bio</h3>
                 <p>
                     I am a Solutions Architect at Online Partner AB. I have worked on several projects involving Google Cloud services and Google Workspace along with multiple other technology stacks and platforms.
                     Some important things to know about me:
@@ -31,6 +45,7 @@
                         <li>I am passionate about working out, writing, and content creation.</li>
                         <li>I love public speaking and have done many speaking appearances including one recently for a webinar at Google's Oslo headquarters.</li>
                     </ul>
+                <br />
                 <!--Links-->
                 <div class="flexbox" style="gap: 12px;">
                     <a href="https://www.linkedin.com/in/ankurr0y/" target="_blank">

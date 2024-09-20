@@ -1,15 +1,19 @@
 <template>
-    <Title>DevFest Modena 2024 &mdash; Giovanni Perteghella</Title>
+    <Title>DevFest Modena 2024 &mdash; Dal Caos al Controllo: Il Viaggio nell'Infrastructure as Code, da Docker Compose a Kubernetes</Title>
     <div>
-        <NuxtLayout name="speaker-page" speaker-url="/talk/giovanni-perteghella" speaker-image="giovanni-perteghella"> <!-- TODO: aggiungere talk-->
+        <NuxtLayout name="speaker-page" speaker-image="giovanni-perteghella">
             <template #image>
                 <div style="max-width: 100px; max-height: 200px;">
                     <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/square-brackets.svg">
                 </div>
             </template>
-            <template #title> Giovanni Perteghella </template>
+            <template #title> Dal Caos al Controllo: Il Viaggio nell'Infrastructure as Code, da Docker Compose a Kubernetes </template>
             <template #speaker-info>
                 <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
+                    <div class="info-box">
+                        <h3>Speaker</h3>
+                        <p>Giovanni Perteghella</p>
+                    </div>
                     <div class="info-box">
                         <h3>Azienda</h3>
                         <p>Non ho capito cosa mettere</p>
@@ -18,9 +22,31 @@
                         <h3>Ruolo</h3>
                         <p>Non ho capito cosa mettere</p>
                     </div>
+                    <div class="info-box">
+                        <h3>Lingua</h3>
+                        <p>Italiano</p>
+                    </div>
                 </div>
             </template>
+            <template #talk>
+                <p>
+                    In this talk, we will explore the new features of Gemini Functions Calls in Flutter, how to use them, and how to integrate them into your projects.
+                </p>
+                <ol>
+                    <li>Introduzione</li>
+                    <li> Il Caos Iniziale: Sfide nella Gestione dell'Infrastruttura</li>
+                    <li>Infrastructure as Code (IaC): I Fondamenti</li>
+                    <li>Docker Compose: Il Primo Passo verso l'Ordine</li>
+                    <li>Limiti di Docker Compose e Necessità di Scalare</li>
+                    <li>Kubernetes: L'Evoluzione dell'Orchestrazione</li>
+                    <li>Strumenti per l'IaC in Kubernetes</li>
+                    <li>Best Practices e Considerazioni di Sicurezza</li>
+                    <li>Il Controllo Raggiunto: Benefici e Sfide</li>
+                    <li>Conclusione e Domande</li>
+                </ol>
+            </template>
             <template #description>
+                <h3>Bio</h3>
                 <p>
                     Ciao sono Giovanni Perteghella, un trainer ufficiale Cisco, VMware, EC-Council, Fortinet, Checkpoint a livello europeo, vivo in Italia e gestisco questo blog perteghella.org
 
@@ -28,7 +54,7 @@
 
                     Le tecnologie si cui mi occupo sono Routing e Switching, Collaboration, Wireless, Virtualizzazione e Automazione.
                 </p>
-
+                <br />
                 <!--Links-->
                 <div class="flexbox" style="gap: 12px;">
                     <a href="https://www.linkedin.com/in/perteghella/" target="_blank">
