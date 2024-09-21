@@ -100,7 +100,8 @@
                         <img src="@/assets/svg/brackets.svg" style="max-width: 100%; max-height: 100%;" />
                     </div>
                 </div>
-                <h4>Come si svolge la giornata</h4>
+                <h4><!-->Come si svolge la giornata<--->Programma da definire</h4>
+
             </div>
             <!--div class="swapper-500">
                 <div class="main">
