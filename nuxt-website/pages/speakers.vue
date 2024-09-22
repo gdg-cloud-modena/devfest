@@ -1,6 +1,6 @@
 <template>
     <Title>
-        DevFest Modena 2024 &mdash; Speakers
+        DevFest Modena 2024 &mdash; Speaker
     </Title>
     <div>
         <NuxtLayout name="page">
@@ -10,9 +10,21 @@
                 </div>
             </template>
             <template #title>
-                Gli speakers
-            </template>
+                Gli speaker
+            </template>        
             <template #content>
+                <div class="flexbox center align-center" style="justify-content: center;">
+                    <div style="padding-bottom: 100px;width: 80%; text-align: justify-center;">
+                        <h4>
+                            Durante questo evento, avrai l'opportunità di ascoltare e incontrare esperti del settore, innovatori e professionisti.
+                            Qui trovi tutte le informazioni sugli interventi in programma, con dettagli sugli argomenti trattati e i profili degli speaker che li presenteranno.
+                        </h4>
+                        <br />
+                        <h4>
+                            Esplora il programma, scopri le storie e le competenze di chi salirà sul palco e preparati a vivere un'esperienza di apprendimento e ispirazione senza pari a Modena.
+                        </h4>
+                    </div>
+                </div>
                 <div class="flexbox wrap justify-center align-top" style="gap: 48px; flex: 1 1 400px;">
                     <div class="white-card max-width-450">
                         <RouterLink to="/speaker/riccardo-carlesso">
