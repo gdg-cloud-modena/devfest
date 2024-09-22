@@ -29,7 +29,7 @@
                 </div>
             </template>
             <template #talk>
-                <h3>Abstract</h3>
+                <h2>Speech</h2>
                 <p>
                     How can we get an LLM to be updated to today’s news?
                     Gen AI is great at answering questions.. from the past. After the LLM was trained, all you can do is RAG.
@@ -38,7 +38,7 @@
                 </p>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     Riccardo loves caipirinhas and Amarone, playing piano and triathlons; he's been passionate about Mathematics since he was 4.
                     He's still in love with Ruby and Rails.

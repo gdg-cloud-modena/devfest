@@ -29,13 +29,13 @@
                 </div>
             </template>
             <template #talk>
-                <h3>Abstract</h3>
+                <h2>Speech</h2>
                 <p>
                     What are the applications of multimodality with Gemini? This session will cover a variety of different multimodal use cases for text, images, audio, video, and code to provide ideas on how you can apply multimodality to practical business scenarios. You will gain hands-on experience with both Gemini 1.5 Pro and Gemini 1.5 Flash.
                 </p>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     I am a Solutions Architect at Online Partner AB. I have worked on several projects involving Google Cloud services and Google Workspace along with multiple other technology stacks and platforms.
                     Some important things to know about me:

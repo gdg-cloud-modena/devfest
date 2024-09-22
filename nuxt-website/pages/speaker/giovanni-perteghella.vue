@@ -25,7 +25,7 @@
                 </div>
             </template>
             <template #talk>
-                <h3>Abstract</h3>
+                <h2>Speech</h2>
                 <p>
                     In this talk, we will explore the new features of Gemini Functions Calls in Flutter, how to use them, and how to integrate them into your projects.
                 </p>
@@ -43,7 +43,7 @@
                 </ol>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     Ciao sono Giovanni Perteghella, un trainer ufficiale Cisco, VMware, EC-Council, Fortinet, Checkpoint a livello europeo, vivo in Italia e gestisco questo blog perteghella.org
 

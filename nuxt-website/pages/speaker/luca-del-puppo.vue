@@ -29,7 +29,7 @@
                 </div>
             </template>
             <template #talk>
-                <h3>Abstract</h3>
+                <h2>Speech</h2>
                 <p>
                     Typescript or not Typescript? More than ten years have passed since its birth, and many of us still struggle to understand and love it.
                     Well, it’s time to understand more and stop bypassing it with a simple any.
@@ -37,7 +37,7 @@
                 </p>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     I'm a Senior Software Engineer, Microsoft MVP, Google Developer Expert and GitKraken Ambassador, I love JavaScript and TypeScript. In my free time, I love to study new technologies or something about improving myself and do trail running in my love Dolomiti.
                 </p>

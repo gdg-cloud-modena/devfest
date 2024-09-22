@@ -29,13 +29,13 @@
                 </div>
             </template>
             <template #talk>
-                <h3>Abstract</h3>
+                <h2>Speech</h2>
                 <p>
                     Engineer or Manager: Who wears the cooler tech cape? Dive into the great debate with insights from 'The Manager's Path' and 'The Staff Engineer's Path'. From code-wrangling wizards to tech team captains, get a fun peek into the world of tech's top jobs. Pick your path or just enjoy the ride!
                 </p>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     I'm a Full Stack Developer in NearForm. I work mainly with Node.js and React. In my free time I like to read books and articles, cook, and walk in the nature.
                 </p>

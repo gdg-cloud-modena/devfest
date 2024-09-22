@@ -29,14 +29,14 @@
                 </div>
             </template>
             <template #talk>
-                <h3>Abstract</h3>
+                <h2>Speech</h2>
                 <p>
                     Preparatevi a scoprire le Gemini Function Calls, lo strumento rivoluzionario di Google che vi permetterà di infondere l'intelligenza artificiale generativa nelle vostre app Flutter. Durante questo intervento, vi guiderò attraverso l'utilizzo del Google AI Studio SDK per creare app capaci di generare contenuti coinvolgenti, rispondere a domande e portare a termine compiti in modo intelligente.
                     Insieme, daremo vita a un'app per l'agenda del DevFest dotata di un assistente AI interattivo, alimentato dalle Gemini Functions. Vi svelerò i segreti della progettazione dell'interfaccia utente, della strutturazione dei dati e dell'utilizzo delle Gemini Functions per creare contenuti dinamici e interazioni coinvolgenti.
                 </p>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     Known as HatDroid, is a Technology enthusiast, former Android, and now Flutter developer, always in search of new technologies and strategies to improve.
                     Flutter Google Developer Expert and Full-time Flutter Developer @Pvotal technologies and admin for Flutter Italia Developers.

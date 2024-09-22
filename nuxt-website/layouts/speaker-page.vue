@@ -12,8 +12,7 @@
                             <slot name="image" />
                         </div>
                         <div class="flexbox column" style="gap: 24px">
-                            <h1 class="text-accent"><slot name="title" /></h1>
-                            <h2 style="font-weight: normal;"><slot name="subtitle" /></h2>
+                            <h1 class="text-accent" style="line-height: 1.1em;"><slot name="title" /></h1>
                             <h4 class="text-ternary">
                                 <slot name="hint" />
                             </h4>

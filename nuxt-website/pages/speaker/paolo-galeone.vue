@@ -29,15 +29,15 @@
                 </div>
             </template>
             <template #talk>
-                <h3>Abstract</h3>
+                <h2>Speech</h2>
                 <p>
                     In this talk, we explore how to combine a large language model (LLM) with a relational database management system (RDBMS) to enable users to ask questions about their data in a natural way. It demonstrates the development of a Retrieval-Augmented Generation (RAG) system built with Go that leverages PostgreSQL and pgvector for data storage, retrieval, and embedding generation. The provided code showcases the core functionalities of the system. This work serves as an overview of the "chat with your data" feature currently under development for fitsleepinsights.app.
                 </p>
             </template>
             <template #description>
-                <h3>
+                <h2>
                     Bio
-                </h3>
+                </h2>
                 <p>
                     Paolo Galeone is a Computer Engineer with a real passion for the IT world. He received his MSc in 2016 with a thesis on the application of convolutional neural networks to the object detection and classification problems.
                     After this, he took up research as a career and became a research fellow at the Computer Vision Laboratory at the University of Bologna, Italy, where he worked on a broad range of topics such as object detection, classification, coordinate regression, and anomaly detection.

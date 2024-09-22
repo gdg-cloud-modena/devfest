@@ -29,6 +29,7 @@
                 </div>
             </template>
             <template #talk>
+                <h2>Speech</h2>
                 <p>
                     Saltando a bordo della nostra DeLorean faremo un viaggio verso l'inaspettato: creeremo app mobile native e cross-platform con... udite udite... Pascal! Sì, fidati del brivido lungo la schiena: parliamo proprio di quel Pascal. Pesante!
                     <br />
@@ -38,7 +39,7 @@
                 </p>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     Marco is a software and Web developer, a mentor and a consultant since 1999. He works at ABLS Team, a company dedicated to process analysis and software implementation, from small dedicate systems to large vertical solutions, which also offers consulting, training and outsourcing services providing its expertise to partners and companies. In his spare time, he does live coding sessions on Twitch.
                 </p>

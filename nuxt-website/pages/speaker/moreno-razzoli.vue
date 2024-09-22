@@ -29,6 +29,7 @@
                 </div>
             </template>
             <template #talk>
+                <h2>Speech</h2>
                 <p>
                     I container semplificano la distribuzione del software racchiudendo un'app e tutte le sue dipendenze in un'unica unità portabile, eliminando così la complessità della gestione delle dipendenze su diverse piattaforme.
                     <br />
@@ -38,7 +39,7 @@
                 </p>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     Mi chiamo Moreno Razzoli,
                     Sono laureato in Scienze Informatiche, ho conseguito le certificazioni Linux LPI, CompTIA Linux+ e Suse CLA, ho realizzato diversi progetti Open Source, contribuito allo sviluppo di nuove funzionalità in altrettanti progetti già avviati e realizzo video didattici dal 2008 su YouTube e sul mio sito ufficiale.

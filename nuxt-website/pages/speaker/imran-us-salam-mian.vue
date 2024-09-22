@@ -29,7 +29,7 @@
                 </div>
             </template>
             <template #talk>
-                <h3>Abstract</h3>
+                <h2>Speech</h2>
                 <p>
                     What is Ray?
                     <br />
@@ -37,7 +37,7 @@
                 </p>
             </template>
             <template #description>
-                <h3>Bio</h3>
+                <h2>Bio</h2>
                 <p>
                     I am a Machine Learning Engineer in the field of Computer Vision. My main area of focus is in Generative Modeling and Latent Variable Methods. I have also been an AI Scholar at Pi School, Rome. I also participate in conducting workshops and technical talks around the field of Machine Learning to teach others and in return learn from them. And I make steaks.
                 </p>
