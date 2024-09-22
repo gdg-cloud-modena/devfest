@@ -9,9 +9,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 5rem;
+    height: 4rem;
     padding: 48px;
-    padding-top: 96px;
+    padding-top: 51px;
     width: 100%;
     #logo{
         color: $textSecondary;
@@ -22,18 +22,19 @@
     #hamburger{
         cursor: pointer;
         background: $background;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         border-radius: 12px;
         display: flex;
         flex-direction: column;
         gap: 12px;
-        padding: 24px;
+        padding: 18px;
         justify-content: center;
         #bars{
             display: flex;
-            gap: 12px;
-            flex-direction: column;   
+            gap: 8px;
+            flex-direction: column;
+            width: 100%;
         }
         #bars-45{
             display: block;
