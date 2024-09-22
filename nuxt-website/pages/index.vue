@@ -193,8 +193,15 @@
                     </div>
                 </div>
             </div-->
+            <div class="white-card">
+                <RouterLink to="/speakers">
+                    <div class="flexbox justify-center" style="gap: 12px;">
+                        <p style="text-align: center">Vedi tutti gli speaker</p> <img src="@/assets/svg/arrow-black.svg" />
+                    </div>
+                </RouterLink>
+            </div>
         </section>
-        <section 
+        <!--<section 
             id="speakers-home"
             class="flexbox column pad-24"
             style="gap: 48px;"
@@ -229,7 +236,7 @@
                     </div>
                 </RouterLink>
             </div>
-        </section>
+        </section>-->
         <section class="full ternary-background" style="border-radius: 24px;">
             <TicketWidget />
         </section>
