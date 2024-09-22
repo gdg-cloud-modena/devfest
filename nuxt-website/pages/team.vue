@@ -1,6 +1,6 @@
 <template>
     <Title>
-        DevFest Modena 2024 &mdash; Speakers
+        DevFest Modena 2024 &mdash; Team
     </Title>
     <div>
         <NuxtLayout name="page">
@@ -10,11 +10,11 @@
                 </div>
             </template>
             <template #title>
-                Chi siamo
+                Team
             </template>
             <template #content >
                 <div class="flexbox center align-center" style="justify-content: center;">
-                    <div style="padding-bottom: 100px;width: 80%;text-align: justify-center;">
+                    <div style="padding-bottom: 100px;width: 80%; text-align: justify-center;">
                         <h4>
                             DevFest Modena 2024 è il risultato della passione e dell'impegno delle comunità tecnologiche di Modena, Reggio Emilia e Bologna. Un evento creato per ispirare e connettere, nato dalla collaborazione di professionisti e appassionati del settore. Scopri chi c'è dietro l'organizzazione di questo straordinario evento.
                         </h4>
