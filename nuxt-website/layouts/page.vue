@@ -5,9 +5,8 @@
         <div id="page" data-scroll>
             <section 
                 class="flexbox column at-least-full"
-                style="padding-top: 120px;"
             >   
-                <section id="hero">
+                <section id="hero" class="ternary-background">
                     <div class="flexbox" style="gap: 24px;">
                         <div class="image">
                             <slot name="image" />
