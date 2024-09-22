@@ -32,9 +32,9 @@
                 <h2>Speech</h2>
                 <p>
                     I container semplificano la distribuzione del software racchiudendo un'app e tutte le sue dipendenze in un'unica unità portabile, eliminando così la complessità della gestione delle dipendenze su diverse piattaforme.
-                    <br />
+                </p><p>
                     Dopo una rapida introduzione dei concetti di base, entreremo nel vivo della creazione di immagini di container con Docker o Podman. Impareremo a costruire, configurare e distribuire applicazioni containerizzate con facilità. Durante la sessione, metteremo tutto in pratica containerizzando insieme la nostra prima applicazione.
-                    <br />
+                </p><p>
                     Questo workshop è pensato per sviluppatori di ogni livello, con un approccio pratico e orientato alla semplicità.
                 </p>
             </template>
