@@ -106,6 +106,16 @@
                             <p class="text-label">Intelligent Transportation Systems Researcher</p>
                         </div>
                     </a>
+                    <div class="white-card team-card">
+                        <div class="image image-staff"></div>
+                        <h4>Mariagrazia Zaccagnino</h4>
+                        <p class="text-label">Law Student</p>
+                    </div>
+                    <div class="white-card team-card">
+                        <div class="image image-staff antonio-de-blasi"></div>
+                        <h4>Antonio De Blasi</h4>
+                        <p class="text-label">Intelligent Transportation Systems Researcher</p>
+                    </div>
                     <a href="https://www.linkedin.com/in/dario-varriale/">
                         <div class="white-card team-card">
                             <div class="image image-staff dario-varriale"></div>
