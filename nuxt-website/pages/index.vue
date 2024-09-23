@@ -100,53 +100,55 @@
                         <img src="@/assets/svg/brackets.svg" style="max-width: 100%; max-height: 100%;" />
                     </div>
                 </div>
-                <h4>Programma da definire</h4>
-
+                <h4>
+                    Il programma generale coi principali momenti della giornata.
+                    Il programma dettagliato sarà disponibile a breve, nel frattempo puoi consultare <RouterLink to="/speakers">speaker e speech</RouterLink>.
+                </h4>
             </div>
-            <!--div class="swapper-500">
+            <div class="swapper-500">
                 <div class="main">
                     <TimetableCard 
-                        timetable-type="break" 
-                        time="10:30 - 11:00"
-                        speaker="Break"
-                        title="Coffee break"
+                        timetable-type="event" 
+                        time="9:00 - 9:30"
+                        speaker=""
+                        title="Inizio dell'evento, accoglienza e networking"
+                        room-and-language="Keynote + 4 sale tra sessioni, workshop e networking"
                         class="above border-bottom"
+                        url="/speakers"
                     />
-                    <div class="flexbox">
-                        <TimetableCard 
-                            timetable-type="event" 
-                            time="10:30 - 11:00"
-                            speaker="Ponglo Ponglers"
-                            title="Rust è figo"
-                            room-and-language="Sala 1 - Italiano"
-                            url="/speakers"
-                            style="flex: 1"
-                        />
-                        <TimetableCard 
-                            timetable-type="event" 
-                            time="10:30 - 11:00"
-                            speaker="Ponglo Ponglers"
-                            title="Rust è figo"
-                            room-and-language="Sala 1 - Italiano"
-                            url="/speakers"
-                            class="border"
-                            style="flex: 1"
-                        />
-                        <TimetableCard 
-                            timetable-type="event" 
-                            time="10:30 - 11:00"
-                            speaker="Ponglo Ponglers"
-                            title="Rust è figo"
-                            room-and-language="Sala 1 - Italiano"
-                            url="/speakers"
-                            style="flex: 1"
-                        />
-                    </div>
                     <TimetableCard 
                         timetable-type="break" 
                         time="10:30 - 11:00"
-                        speaker="Break"
+                        speaker="4 sale tra sessioni, workshop e networking"
                         title="Coffee break"
+                        class="middle border-bottom border-top"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="12:30 - 14:00"
+                        speaker="4 sale tra sessioni, workshop e networking"
+                        title="Pausa pranzo"
+                        class="middle border-bottom"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="16:00 - 16:30"
+                        speaker="4 sale tra sessioni, workshop e networking"
+                        title="Coffee break"
+                        class="middle border-bottom"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="18:30 - 18:30"
+                        speaker=""
+                        title="Fine dell'evento"
+                        class="middle"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="19:00 - 21:30"
+                        speaker=""
+                        title="Party con dj-set"
                         class="below border-top"
                     />
                 </div>
@@ -154,45 +156,45 @@
                     <div class="flexbox column" style="gap: 48px">
                         <TimetableCard 
                             timetable-type="event" 
-                            time="10:30 - 11:00"
-                            speaker="Break"
-                            title="Coffee break"
-                        />
-                        <div>
-                            <TimetableCard 
-                            timetable-type="event" 
-                            time="10:30 - 11:00"
-                            speaker="Ponglo Ponglers"
-                            title="Rust è figo"
-                            room-and-language="Sala 1 - Italiano"
+                            time="9:00 - 9:30"
+                            speaker=""
+                            title="Inizio dell'evento, accoglienza e networking"
+                            room-and-language="Keynote + 4 sale tra sessioni, workshop e networking"
                             url="/speakers"
                         />
                         <TimetableCard 
-                            timetable-type="event" 
-                            time="10:30 - 11:00"
-                            speaker="Ponglo Ponglers"
-                            title="Rust è figo"
-                            room-and-language="Sala 1 - Italiano"
-                            url="/speakers"
+                        timetable-type="event" 
+                        time="10:30 - 11:00"
+                        speaker="4 sale tra sessioni, workshop e networking"
+                        title="Coffee break"
                         />
                         <TimetableCard 
-                            timetable-type="event" 
-                            time="10:30 - 11:00"
-                            speaker="Ponglo Ponglers"
-                            title="Rust è figo"
-                            room-and-language="Sala 1 - Italiano"
-                            url="/speakers"
+                        timetable-type="event" 
+                        time="12:30 - 14:00"
+                        speaker="4 sale tra sessioni, workshop e networking"
+                        title="Pausa pranzo"
                         />
-                        </div>
                         <TimetableCard 
-                            timetable-type="event" 
-                            time="10:30 - 11:00"
-                            speaker="Break"
-                            title="Lunch Break"
+                        timetable-type="event" 
+                        time="16:00 - 16:30"
+                        speaker="4 sale tra sessioni, workshop e networking"
+                        title="Coffee break"
+                        />
+                        <TimetableCard
+                        timetable-type="event"
+                        time="18:30 - 18:30"
+                        speaker=""
+                        title="Fine dell'evento"
+                        />
+                        <TimetableCard
+                        timetable-type="event"
+                        time="19:00 - 21:30"
+                        speaker=""
+                        title="Party con dj-set"
                         />
                     </div>
                 </div>
-            </div-->
+            </div>
             <div class="white-card">
                 <RouterLink to="/speakers">
                     <div class="flexbox justify-center" style="gap: 12px;">
