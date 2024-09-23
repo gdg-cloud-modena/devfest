@@ -13,6 +13,15 @@
                 Communities
             </template>
             <template #content>
+                <div class="flexbox center align-center" style="justify-content: center;">
+                    <div style="padding-bottom: 100px;width: 80%; text-align: justify-center;">
+                        <h4>
+                            Le comunità locali di sviluppatori sono il fulcro dell'innovazione e della collaborazione tecnica.
+                            In queste realtà, professionisti e appassionati si uniscono per condividere conoscenze, crescere insieme e creare soluzioni innovative.
+                            Esplora l'elenco delle comunità per trovare quella più vicina a te e unirti a un network dinamico di creatori e visionari.
+                        </h4>
+                    </div>
+                </div>
                 <div class="flexbox wrap justify-center align-top" style="gap: 48px; flex: 1 1 400px;">
                     <div class="card-partner">
                         <div class="image">
