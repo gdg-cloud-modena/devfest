@@ -48,7 +48,8 @@
     @media screen and (max-width: 1024px){
         #page{
             #hero, #content{
-                padding: 48px;
+                padding-left: 48px;
+                padding-right: 48px;
             }
             #hero{
                 .image{
@@ -60,12 +61,29 @@
     @media screen and (max-width: 870px){
         #page{
             #hero, #content{
-                padding: 24px;
+                padding-left: 24px;
+                padding-right: 24px;
             }
             #hero{
                 .image{
                     display: none;
                 }
+            }
+        }
+    }
+    @media screen and (max-width: 500px){
+        #hero{
+            .image{
+                display: none;
+            }
+        }
+        #page{
+            #content{
+                padding: 0;
+            }
+            #hero{
+                padding-left: 24px;
+                padding-right: 24px;
             }
         }
     }

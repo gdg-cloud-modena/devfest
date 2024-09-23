@@ -85,9 +85,10 @@
         padding-top: 24px;
     }
     @media screen and (max-width: 1024px){
-        #page{
+        #speaker-page{
             #hero, #content{
-                padding: 48px;
+                padding-left: 48px;
+                padding-right: 48px;
             }
             #hero{
                 .image{
@@ -100,9 +101,10 @@
             }
     }
     @media screen and (max-width: 870px){
-        #page{
+        #speaker-page{
             #hero, #content{
-                padding: 24px;
+                padding-left: 24px;
+                padding-right: 24px;
             }
             #hero{
                 .image{

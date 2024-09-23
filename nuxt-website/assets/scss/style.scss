@@ -169,13 +169,15 @@ hr{
     #hero, #content{
         padding-left: 240px;
         padding-right: 240px;
-        padding-top: 180px;
         padding-bottom: 24px;
     }
     #content{
         background: $background;
         border-top: 2px solid #c9c9c9;
         border-bottom: 2px solid #c9c9c9;
+    }
+    #hero{
+        padding-top: 180px;
     }
 }
 #speaker-page{
