@@ -5,7 +5,7 @@
             <h4><RouterLink to="/location">Location</RouterLink></h4>
             <h4><RouterLink to="/sponsors">Sponsor</RouterLink></h4>
             <h4><RouterLink to="/team">Team</RouterLink></h4>
-            <h4><RouterLink to="/communities">Comunità</RouterLink></h4>
+            <h4><RouterLink to="/communities">Communities</RouterLink></h4>
             <h4><RouterLink to="/contact-us">Contacts</RouterLink></h4>
             <h4><RouterLink to="/code-of-conduct">Codice di condotta</RouterLink></h4>
         </div>
