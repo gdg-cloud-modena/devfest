@@ -12,6 +12,7 @@
     &.team-card{
         width: 250px;
         height: 400px;
+        border: 1px solid #8f8f8f;
     }
     .image{
         width: 100%;
@@ -132,6 +133,30 @@
         }
         &.antonio-de-blasi{
             background: url("~/assets/img/antonio-de-blasi.png");
+            background-size: cover;
+        }
+        &.conoscere-linux{
+            background: url("~/assets/img/Logo(1).png");
+            background-size: cover;
+        }
+        &.flutter-modena{
+            background: url("~/assets/img/Logo(2).png");
+            background-size: cover;
+        }
+        &.gdg-modena{
+            background: url("~/assets/img/Logo(3).png");
+            background-size: cover;
+        }
+        &.ml-modena{
+            background: url("~/assets/img/Logo(4).png");
+            background-size: cover;
+        }
+        &.modena-full-stack{
+            background: url("~/assets/img/Logo(5).png");
+            background-size: cover;
+        }
+        &.gdg-bologna{
+            background: url("~/assets/img/Logo(6).png");
             background-size: cover;
         }
         &.image-staff {
