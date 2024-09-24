@@ -128,11 +128,11 @@
                             <h4>Francesco Baldassarri</h4>
                             <p class="text-label">English/Italiano</p>
                         </RouterLink>
-                        <RouterLink to="/speaker/jai-campbell">
+                        <!--RouterLink to="/speaker/jai-campbell">
                             <div class="image jai-campbell"></div>
                             <h4>Jai Campbell</h4>
                             <p class="text-label">English</p>
-                        </RouterLink>
+                        </RouterLink-->
                     </div>
                 </div>
             </template>
