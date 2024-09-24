@@ -69,8 +69,8 @@
                             title="Coffee break"
                             class="middle border-bottom border-top" 
                         />
-                        <div class="flexbox" style="flex: 1">
-                            <div class="column">
+                        <div class="flexbox" >
+                            <div class="column" style="flex: 1">
                                 <TimetableCard 
                                     timetable-type="event" 
                                     time="AM"
@@ -100,17 +100,28 @@
                                 url="/speakers/moreno-razzoli"
                                 style="flex: 1;"
                             />
+                            <div class="column" style="flex: 1">
+                                <TimetableCard 
+                                    timetable-type="event" 
+                                    time="AM"
+                                    speaker="TBD "
+                                    title="Sponsored Talk"
+                                    room-and-language="Sala 2 - English/Italiano"
+                                    url="/speaker"
+                                    style="flex: 1"
+                                    class="border"
+                                />
+                                <TimetableCard 
+                                    timetable-type="event" 
+                                    time="AM"
+                                    speaker="Paolo Galeone"
+                                    title=" Building a RAG for tabular data in Go with PostgreSQL & Gemini "
+                                    room-and-language="Sala 2 - English / Italiano"
+                                    url="/speaker/paolo-galeone"
+                                    class="border"
+                                />
+                            </div>
                             
-                            <TimetableCard 
-                                timetable-type="event" 
-                                time="AM"
-                                speaker="TBD "
-                                title="Sponsored Talk"
-                                room-and-language="Sala 2 - English/Italiano"
-                                url="/speaker"
-                                style="flex: 1"
-                                class="border"
-                            />
                         </div>
                     </div>
                     <!--div class="to-swap">
