@@ -10,5 +10,4 @@
   @import '@/assets/scss/style.scss';
 </style>
 <script setup>
-
 </script>
