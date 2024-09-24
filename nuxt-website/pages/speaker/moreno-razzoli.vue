@@ -29,7 +29,7 @@
                 </div>
             </template>
             <template #talk>
-                <h2>Speech</h2>
+                <h2>Workshop</h2>
                 <p>
                     I container semplificano la distribuzione del software racchiudendo un'app e tutte le sue dipendenze in un'unica unità portabile, eliminando così la complessità della gestione delle dipendenze su diverse piattaforme.
                 </p><p>

@@ -1,54 +1,54 @@
 <template>
-    <Title>DevFest Modena 2024 &mdash; Scale your Frontend application with Module Federation</Title>
+    <Title>DevFest Modena 2024 &mdash; Pattern Matching to the Rescue!</Title>
     <div>
-        <NuxtLayout name="speaker-page" speaker-image="luca-del-puppo"> 
+        <NuxtLayout name="speaker-page" speaker-image="matteo-maria-terzuolo"> 
             <template #image>
                 <div style="max-width: 100px; max-height: 200px;">
                     <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/square-brackets.svg">
                 </div>
             </template>
-            <template #title> Scale your Frontend application with Module Federation</template>
+            <template #title> Pattern Matching to the Rescue! </template>
             <template #speaker-info>
                 <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
                     <div class="info-box">
                         <h3>Speaker</h3>
-                        <p>Luca Del Puppo</p>
+                        <p>Matteo Maria Terzuolo</p>
                     </div>
                     <div class="info-box">
                         <h3>Azienda</h3>
-                        <p>NearForm</p>
+                        <p>Salty Spaghetti</p>
                     </div>
                     <div class="info-box">
                         <h3>Ruolo</h3>
-                        <p>Senior Software Developer</p>
+                        <p>Dev by day, gamer by night</p>
                     </div>
                     <div class="info-box">
                         <h3>Lingua</h3>
-                        <p>Italiano</p>
+                        <p>English / Italiano</p>
                     </div>
                 </div>
             </template>
             <template #talk>
                 <h2>Speech</h2>
                 <p>
-                    Building complex frontend applications can be a challenge. As features grow, monolithic codebases become unwieldy and difficult to maintain. Microfrontends offer a solution by breaking down the application into independent, feature-focused chunks.
+                    This talk is going to be a deep dive into Pattern Matching in Dart. We'll explore how Dart simplifies dealing with complex data structures using clear and intuitive patterns.
                 </p>
                 <p>
-                    However, traditional microfrontend approaches can introduce new issues with dependency management and communication between the microfrontends themselves. 
+                    The demo application includes a simple bank dashboard and a login form. If the SIM Swap API detects that a phone number was swapped recently, the verification code will not be sent, and additional security measures will be applied. A verification code will be sent via the Verify v2 API to authenticate the user if no recent swap is detected.
                 </p>
                 <p>
-                    This talk explores Module Federation, a technique that addresses these challenges. By enabling dynamic loading of remote microfrontends at runtime, Module Federation fosters a more efficient and scalable architecture for large-scale frontend applications.
+                    So buckle up, because by the end of this session, you'll be ready to level up your Dart game and tackle those data structures like a pro!
                 </p>
             </template>
             <template #description>
                 <h2>Bio</h2>
                 <p>
-                    I'm a Senior Software Engineer, Microsoft MVP, Google Developer Expert and GitKraken Ambassador, I love JavaScript and TypeScript. In my free time, I love to study new technologies or something about improving myself and do trail running in my love Dolomiti.
+                    Matteo Maria is a Flutter Engineer who always loves to experiment with new things. He works with Flutter but is also interested in Rust and backend development. In his free time, he spends tons of hours playing video games and listening to every genre under the EDM umbrella
                 </p>
                 <br />
                 <!--Links-->
                 <div class="flexbox" style="gap: 12px;">
-                    <a href="https://www.linkedin.com/in/lucadelpuppo/" target="_blank">
+                    <a href="https://www.linkedin.com/in/matteo-maria-terzuolo/" target="_blank">
                         <img src="@/assets/img/linkedin.png" style="height: 24px;" />
                     </a>
                 </div>

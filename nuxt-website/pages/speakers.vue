@@ -103,6 +103,37 @@
                             <p class="text-label">Italiano</p>
                         </RouterLink>
                     </div>
+                    <div class="white-card max-width-450">
+                        <RouterLink to="/speaker/amanda-cavallaro">
+                            <div class="image amanda-cavallaro"></div>
+                            <h4>Amanda Cavallaro</h4>
+                            <p class="text-label">English</p>
+                        </RouterLink>
+                    </div>
+                    <div class="white-card max-width-450">
+                        <RouterLink to="/speaker/matteo-maria-terzuolo">
+                            <div class="image matteo-maria-terzuolo"></div>
+                            <h4>Matteo Maria Terzuolo</h4>
+                            <p class="text-label">English/Italiano</p>
+                        </RouterLink>
+                        </div>
+                        <div class="white-card max-width-450">
+                        <RouterLink to="/speaker/marco-arena">
+                            <div class="image marco-arena"></div>
+                            <h4>Marco Arena</h4>
+                            <p class="text-label">English/Italiano</p>
+                        </RouterLink>
+                        <RouterLink to="/speaker/francesco-baldassarri">
+                            <div class="image francesco-baldassarri"></div>
+                            <h4>Francesco Baldassarri</h4>
+                            <p class="text-label">English/Italiano</p>
+                        </RouterLink>
+                        <RouterLink to="/speaker/jai-campbell">
+                            <div class="image jai-campbell"></div>
+                            <h4>Jai Campbell</h4>
+                            <p class="text-label">English</p>
+                        </RouterLink>
+                    </div>
                 </div>
             </template>
             <template #under-content>
