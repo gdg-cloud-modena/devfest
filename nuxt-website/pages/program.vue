@@ -97,7 +97,7 @@
                                 speaker="Moreno Razzoli"
                                 title="Containerizza la tua App e distribuisci senza pensieri"
                                 room-and-language="Sala Workshop - English/Italiano"
-                                url="/speakers/moreno-razzoli"
+                                url="/speaker/moreno-razzoli"
                                 style="flex: 1;"
                             />
                             <div class="column" style="flex: 1">
@@ -107,7 +107,7 @@
                                     speaker="TBD "
                                     title="Sponsored Talk"
                                     room-and-language="Sala 2 - English/Italiano"
-                                    url="/speaker"
+                                    url="/speakers"
                                     style="flex: 1"
                                     class="border"
                                 />
