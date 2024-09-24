@@ -283,6 +283,7 @@ hr{
 .swapper-500{
     container: swapper-500 / inline-size;
     .to-swap{
+        width: 100%;
         display: none;
     }
 }

@@ -108,48 +108,79 @@
             <div class="swapper-500">
                 <div class="main">
                     <TimetableCard 
-                        timetable-type="event" 
+                        timetable-type="break" 
                         time="9:00 - 9:30"
                         speaker=""
                         title="Inizio dell'evento, accoglienza e networking"
-                        room-and-language="Keynote + 4 sale tra sessioni, workshop e networking"
                         class="above border-bottom"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="9:30 - 10:30"
+                        speaker=""
+                        title="Keynote + 4 sale tra sessioni, workshop e networking"
                         url="/speakers"
+                        class="middle border-bottom"
                     />
                     <TimetableCard 
                         timetable-type="break" 
                         time="10:30 - 11:00"
-                        speaker="4 sale tra sessioni, workshop e networking"
+                        speaker=""
                         title="Coffee break"
-                        class="middle border-bottom border-top"
+                        class="middle border-bottom"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="11:00 - 12:30"
+                        speaker=""
+                        title="4 sale tra sessioni, workshop e networking"
+                        url="/speakers"
+                        class="middle border-bottom"
                     />
                     <TimetableCard 
                         timetable-type="break" 
                         time="12:30 - 14:00"
-                        speaker="4 sale tra sessioni, workshop e networking"
+                        speaker=""
+                        room-and-language="La pausa pranzo è suddivisa su 3 turni di mezz'ora in base alle sale"
                         title="Pausa pranzo"
                         class="middle border-bottom"
                     />
                     <TimetableCard 
                         timetable-type="break" 
+                        time="14:00 - 16:00"
+                        speaker=""
+                        title="4 sale tra sessioni, workshop e networking"
+                        url="/speakers"
+                        class="middle border-bottom"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
                         time="16:00 - 16:30"
-                        speaker="4 sale tra sessioni, workshop e networking"
+                        speaker=""
                         title="Coffee break"
                         class="middle border-bottom"
                     />
                     <TimetableCard 
                         timetable-type="break" 
-                        time="18:30 - 18:30"
+                        time="16:30 - 18:30"
+                        speaker=""
+                        title="4 sale tra sessioni, workshop e networking"
+                        url="/speakers"
+                        class="middle border-bottom"
+                    />
+                    <TimetableCard 
+                        timetable-type="break" 
+                        time="18:30"
                         speaker=""
                         title="Fine dell'evento"
-                        class="middle"
+                        class="middle border-bottom"
                     />
                     <TimetableCard 
                         timetable-type="break" 
                         time="19:00 - 21:30"
                         speaker=""
                         title="Party con dj-set"
-                        class="below border-top"
+                        class="below"
                     />
                 </div>
                 <div class="to-swap">
@@ -159,30 +190,57 @@
                             time="9:00 - 9:30"
                             speaker=""
                             title="Inizio dell'evento, accoglienza e networking"
-                            room-and-language="Keynote + 4 sale tra sessioni, workshop e networking"
-                            url="/speakers"
+                        />
+                        <TimetableCard 
+                        timetable-type="event" 
+                        time="9:30 - 10:30"
+                        speaker=""
+                        title="Keynote + 4 sale tra sessioni, workshop e networking"
+                        url="/speakers"
                         />
                         <TimetableCard 
                         timetable-type="event" 
                         time="10:30 - 11:00"
-                        speaker="4 sale tra sessioni, workshop e networking"
+                        speaker=""
                         title="Coffee break"
+                        />
+                        <TimetableCard 
+                        timetable-type="event" 
+                        time="11:00 - 12:30"
+                        speaker=""
+                        title="4 sale tra sessioni, workshop e networking"
+                        url="/speakers"
                         />
                         <TimetableCard 
                         timetable-type="event" 
                         time="12:30 - 14:00"
-                        speaker="4 sale tra sessioni, workshop e networking"
+                        speaker=""
+                        room-and-language="La pausa pranzo è suddivisa su 3 turni di mezz'ora in base alle sale"
                         title="Pausa pranzo"
                         />
                         <TimetableCard 
                         timetable-type="event" 
+                        time="14:00 - 16:00"
+                        speaker=""
+                        title="4 sale tra sessioni, workshop e networking"
+                        url="/speakers"
+                        />
+                        <TimetableCard 
+                        timetable-type="event" 
                         time="16:00 - 16:30"
-                        speaker="4 sale tra sessioni, workshop e networking"
+                        speaker=""
                         title="Coffee break"
+                        />
+                        <TimetableCard 
+                        timetable-type="event" 
+                        time="16:30 - 18:30"
+                        speaker=""
+                        title="4 sale tra sessioni, workshop e networking"
+                        url="/speakers"
                         />
                         <TimetableCard
                         timetable-type="event"
-                        time="18:30 - 18:30"
+                        time="18:30"
                         speaker=""
                         title="Fine dell'evento"
                         />

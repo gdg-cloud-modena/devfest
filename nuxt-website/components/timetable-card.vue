@@ -1,5 +1,5 @@
 <template>
-    <div :class='["timetable-card", "above", "border-bottom", timetableType]'>
+    <div :class='["timetable-card", "border-bottom", timetableType]'>
         <div class="header">
             <p style="text-align: center;">{{ time }}</p>
         </div>
@@ -7,10 +7,10 @@
             <h4 class="text-accent">{{ speaker }}</h4>
             <h2>{{ title }}</h2>
             <div
-                v-if="roomAndLanguage && url" 
+                v-if="roomAndLanguage || url" 
                 class="flexbox justify-between wrap align-center">
                     <p style="flex: 1 1 150px;">{{ roomAndLanguage }}</p>
-                    <RouterLink class="button-like cool-blue" :to="url">Dettagli</RouterLink>
+                    <RouterLink v-if="url" class="button-like cool-blue" :to="url">Dettagli</RouterLink>
             </div>
         </div>
     </div>
