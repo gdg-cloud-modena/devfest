@@ -5,7 +5,7 @@
         </div>
         <div class="content">
             <h4 class="text-accent">{{ speaker }}</h4>
-            <h2>{{ title }}</h2>
+            <p class="session-title">{{ title }}</p>
             <div
                 v-if="roomAndLanguage || url" 
                 class="flexbox justify-between wrap align-center">
@@ -15,6 +15,13 @@
         </div>
     </div>
 </template>
+<style>
+.session-title {
+    font-size: clamp(1rem, 1.774vw, 1.774rem); 
+    font-weight: 600;
+}
+
+</style>
 <script lang="ts" setup>
     type TimetableType = 'break' | 'event';
     const props = defineProps<{
