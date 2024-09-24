@@ -4,7 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      script: [{src: 'https://www.eventbrite.it/static/widgets/eb_widgets.js'}]
+      script: [
+        {src: 'https://www.eventbrite.it/static/widgets/eb_widgets.js'},
+        {src: 'https://sa.devfest.modena.it/latest.js'},
+        {src: 'https://scripts.simpleanalyticscdn.com/auto-events.js'}
+      ]
     }
   }
 })
