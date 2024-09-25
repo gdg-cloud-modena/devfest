@@ -28,7 +28,7 @@
                 <div class="flexbox column align-center" style="gap: 48px; flex: 1 1 400px;">
                     <a href="https://developers.google.com/community/devfest?utm_source=devfest&utm_medium=website&utm_campaign=devfest_modena_2024">
                         <div class="white-card
-                            team-card">
+                            sponsor-card">
                             <div class="image image-staff google"></div>
                             <h4>Google</h4>
                         </div>
@@ -42,7 +42,7 @@
                 <div class="flexbox column align-center" style="gap: 48px; flex: 1 1 400px;">
                     <a href="https://zuru.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
                         <div class="white-card
-                            team-card">
+                            sponsor-card">
                             <div class="image image-staff zuru"></div>
                             <h4>Zuru</h4>
                         </div>
@@ -56,64 +56,62 @@
                 <div class="flexbox column align-center" style="gap: 48px; flex: 1 1 400px;">
                     <a href="https://www.dualb.it/&utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
                         <div class="white-card
-                            team-card">
+                            sponsor-card">
                             <div class="image image-staff dualbit"></div>
                             <h4>Dualbit</h4>
                         </div>
                     </a>
                 </div>
-                
-                <div class="flexbox wrap justify-center align-top" style="gap: 48px; flex: 1 1 400px;">
-                    <a href="https://developers.google.com/community/devfest?utm_source=devfest&utm_medium=website&utm_campaign=devfest_modena_2024">
-                        <div class="white-card team-card">
-                            <div class="image image-staff google"></div>
-                            <h4>Google</h4>
-                            <h5>Main Sponsor</h5>
-                        </div>
-                    </a>
-                    <a href="https://zuru.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-                        <div class="white-card team-card">
-                            <div class="image image-staff zuru"></div>
-                            <h4>Zuru</h4>
-                            <h5>Diamond Sponsor</h5>
-                        </div>
-                    </a>
-                    <a href="https://www.dualb.it/&utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-                        <div class="white-card team-card">
-                            <div class="image image-staff dualbit"></div>
-                            <h4>Dualbit</h4>
-                            <h5>Gold Sponsor</h5>
-                        </div>
-                    </a>
+                <div class="flexbox center align-center" style="justify-content: center; padding-top: 24px;">
+                    <div style="text-align: justify-center;">
+                        <h4>Tech</h4>
+                    </div>
+                </div>
+                <div class="flexbox column align-center" style="gap: 48px; flex: 1 1 400px;">
                     <a href="https://netframe.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-                        <div class="white-card team-card">
+                        <div class="white-card sponsor-card">
                             <div class="image image-staff netframe"></div>
                             <h4>Netframe</h4>
-                            <h5>Tech Sponsor</h5>
                         </div>
                     </a>
+                </div>
+                <div class="flexbox center align-center" style="justify-content: center; padding-top: 24px;">
+                    <div style="text-align: justify-center;">
+                        <h4>Bronze</h4>
+                    </div>
+                </div>
+                <div class="flexbox column align-center" style="gap: 48px; flex: 1 1 400px;">
+                    <a href="https://atobit.it?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                        <div class="white-card sponsor-card">
+                            <div class="image image-staff atobit"></div>
+                            <h4>Atobit</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="flexbox center align-center" style="justify-content: center; padding-top: 24px;">
+                    <div style="text-align: justify-center;">
+                        <h4>Community</h4>
+                    </div>
+                </div>
+                <div class="flexbox column align-center" style="gap: 48px; flex: 1 1 400px;">
+                    <a href="https://www.jetbrains.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                        <div class="white-card sponsor-card">
+                            <div class="image image-staff jetbrains"></div>
+                            <h4>JetBrains</h4>
+                        </div>
+                    </a>
+                </div>
+                
+
+                
                     <!--a href="https://quix.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-                        <div class="white-card team-card">
+                        <div class="white-card sponsor-card">
                             <div class="image image-staff quix"></div>
                             <h4>Quix</h4>
                             <h5>Silver Sponsor</h5>
                         </div>
                     </a-->
-                    <a href="https://atobit.it?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-                        <div class="white-card team-card">
-                            <div class="image image-staff atobit"></div>
-                            <h4>Atobit</h4>
-                            <h5>Bronze Sponsor</h5>
-                        </div>
-                    </a>
-                    <a href="https://www.jetbrains.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-                        <div class="white-card team-card">
-                            <div class="image image-staff jetbrains"></div>
-                            <h4>Jetbrains</h4>
-                            <h5>Community Sponsor</h5>
-                        </div>
-                    </a>
-                </div>
+                        
             </template>
             <template #under-content>
                 <FreeTicket />
