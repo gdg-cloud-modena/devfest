@@ -315,49 +315,50 @@
                 <h4>Scopri i partner che hanno scelto di sostenere la nostra missione.</h4>
             </div>
             <div class="flexbox wrap justify-center" style="gap: 48px;">
-                <a href="https://blog.fluttermodena.dev/">
-                    <div class="white-card
-                        team-card">
+                <a href="https://developers.google.com/community/devfest?utm_source=devfest&utm_medium=website&utm_campaign=devfest_modena_2024">
+                    <div class="white-card team-card">
                         <div class="image image-staff google"></div>
                         <h4>Google</h4>
                         <h5>Main Sponsor</h5>
                     </div>
                 </a>
-                <a href="https://conoscerelinux.org/">
-                    <div class="white-card
-                        team-card">
+                <a href="https://zuru.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                    <div class="white-card team-card">
                         <div class="image image-staff zuru"></div>
                         <h4>Zuru</h4>
                         <h5>Diamond Sponsor</h5>
                     </div>
                 </a>
-                <a href="https://www.meetup.com/it-IT/Modena-Full-Stack/">
-                    <div class="white-card
-                        team-card">
+                <a href="https://www.dualb.it/&utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                    <div class="white-card team-card">
                         <div class="image image-staff dualbit"></div>
                         <h4>Dualbit</h4>
                         <h5>Gold Sponsor</h5>
                     </div>
                 </a>
-                <a href="https://mlmodena.it/">
-                    <div class="white-card
-                        team-card">
+                <a href="https://netframe.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                    <div class="white-card team-card">
                         <div class="image image-staff netframe"></div>
                         <h4>Netframe</h4>
                         <h5>Tech Sponsor</h5>
                     </div>
                 </a>
-                <a href="https://www.atobit.it/">
-                    <div class="white-card
-                        team-card">
+                <!--a href="https://quix.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                    <div class="white-card team-card">
+                        <div class="image image-staff quix"></div>
+                        <h4>Quix</h4>
+                        <h5>Silver Sponsor</h5>
+                    </div>
+                </a-->
+                <a href="https://atobit.it?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                    <div class="white-card team-card">
                         <div class="image image-staff atobit"></div>
                         <h4>Atobit</h4>
                         <h5>Bronze Sponsor</h5>
                     </div>
                 </a>
-                <a href="https://gdg.community.dev/gdg-bologna/">
-                    <div class="white-card
-                        team-card">
+                <a href="https://www.jetbrains.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                    <div class="white-card team-card">
                         <div class="image image-staff jetbrains"></div>
                         <h4>Jetbrains</h4>
                         <h5>Community Sponsor</h5>
