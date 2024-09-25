@@ -309,7 +309,7 @@
                 <div class="flexbox justify-between">
                     <h1 class="text-accent">I nostri sponsor</h1>
                     <div style="width: 101px; height: 101px;">
-                        <img src="@/assets/svg/plus.svg" style="max-width: 100%; max-height: 100%;" />
+                        <img src="@/assets/svg/Ellipsis_y.svg" style="max-width: 100%; max-height: 100%;" />
                     </div>
                 </div>
                 <h4>Scopri i partner che hanno scelto di sostenere la nostra missione.</h4>

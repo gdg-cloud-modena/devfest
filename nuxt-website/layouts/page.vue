@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="content" id="content">
+                <section class="content" id="content" style="padding-top: 24px;">
                     <slot name="content" />
                 </section>
                 <section id="under-content" style="width: 100% !important;">
