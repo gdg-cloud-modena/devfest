@@ -13,7 +13,7 @@
                 Programma (orari da definire)
             </template>
             <template #content>
-                <div style="padding-top: 48px;"><!--class="swapper-500"-->
+                <div class="swapper-500" style="padding-top: 48px;"><!--class="swapper-500"-->
                     <div class="main">
                         <TimetableCard 
                         timetable-type="break" 
@@ -120,52 +120,53 @@
                                     url="/speaker/paolo-galeone"
                                     class="border"
                                 />
-                            </div>
-                            
+                            </div>                  
                         </div>
                     </div>
-                    <!--div class="to-swap">
+                    <div class="to-swap">
                         <div class="flexbox column" style="gap: 48px">
                             <TimetableCard 
                                 timetable-type="event" 
-                                time="10:30 - 11:00"
-                                speaker="Break"
-                                title="Coffee break"
+                                time="AM"
+                                speaker="Amanda Cavallaro"
+                                title=" Improve your Multi-Factor Auth with Firebase and Vonage APIs "
+                                room-and-language="Sala 1 - English"
+                                url="/speaker/amanda-cavallaro"
                             />
-                            <div>
-                                <TimetableCard 
+                            <TimetableCard 
                                 timetable-type="event" 
-                                time="10:30 - 11:00"
-                                speaker="Ponglo Ponglers"
-                                title="Rust è figo"
-                                room-and-language="Sala 1 - Italiano"
+                                time="AM"
+                                speaker="Susanna Wang"
+                                title=" Improve your Multi-Factor Auth with Firebase and Vonage APIs "
+                                room-and-language="Sala 1 - English"
+                                url="/speaker/amanda-cavallaro"
+                            />                            
+                            <TimetableCard 
+                                timetable-type="event" 
+                                time="AM"
+                                speaker="Moreno Razzoli"
+                                title="Containerizza la tua App e distribuisci senza pensieri"
+                                room-and-language="Sala Workshop - English/Italiano"
+                                url="/speaker/moreno-razzoli"
+                            />
+                            <TimetableCard 
+                                timetable-type="event" 
+                                time="AM"
+                                speaker="TBD "
+                                title="Sponsored Talk"
+                                room-and-language="Sala 2 - English/Italiano"
                                 url="/speakers"
                             />
                             <TimetableCard 
                                 timetable-type="event" 
-                                time="10:30 - 11:00"
-                                speaker="Ponglo Ponglers"
-                                title="Rust è figo"
-                                room-and-language="Sala 1 - Italiano"
-                                url="/speakers"
-                            />
-                            <TimetableCard 
-                                timetable-type="event" 
-                                time="10:30 - 11:00"
-                                speaker="Ponglo Ponglers"
-                                title="Rust è figo"
-                                room-and-language="Sala 1 - Italiano"
-                                url="/speakers"
-                            />
-                            </div>
-                            <TimetableCard 
-                                timetable-type="event" 
-                                time="10:30 - 11:00"
-                                speaker="Break"
-                                title="Lunch Break"
+                                time="AM"
+                                speaker="Paolo Galeone"
+                                title=" Building a RAG for tabular data in Go with PostgreSQL & Gemini "
+                                room-and-language="Sala 2 - English / Italiano"
+                                url="/speaker/paolo-galeone"
                             />
                         </div>
-                    </div-->
+                    </div>
                 </div>
             </template>
             <template #under-content>
