@@ -116,24 +116,28 @@
                             <h4>Matteo Maria Terzuolo</h4>
                             <p class="text-label">English/Italiano</p>
                         </RouterLink>
-                        </div>
-                        <div class="white-card max-width-450">
+                    </div>
+                    <div class="white-card max-width-450">
                         <RouterLink to="/speaker/marco-arena">
                             <div class="image marco-arena"></div>
                             <h4>Marco Arena</h4>
                             <p class="text-label">English/Italiano</p>
                         </RouterLink>
+                    </div>
+                    <div class="white-card max-width-450">
                         <RouterLink to="/speaker/francesco-baldassarri">
                             <div class="image francesco-baldassarri"></div>
                             <h4>Francesco Baldassarri</h4>
                             <p class="text-label">English/Italiano</p>
                         </RouterLink>
-                        <!--RouterLink to="/speaker/jai-campbell">
+                    </div>
+                    <!--div class="white-card max-width-450">
+                        <RouterLink to="/speaker/jai-campbell">
                             <div class="image jai-campbell"></div>
                             <h4>Jai Campbell</h4>
                             <p class="text-label">English</p>
-                        </RouterLink-->
-                    </div>
+                        </RouterLink>
+                    </div-->
                 </div>
             </template>
             <template #under-content>
