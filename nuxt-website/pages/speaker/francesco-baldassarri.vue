@@ -31,13 +31,15 @@
             <template #talk>
                 <h2>Speech</h2>
                 <p>
-                    Francesco Baldassarri is a Product/Program/Project Manager with experience in Developer Relations (DevRel) and Technology Community Leadership and Management. He is also Technical Evangelist and Author/Editor. He worked for several main player in IT panorama. Currently, he is Technical Project Manager c/o expert.ai, global leader in artificial intelligence since early ’00s. In spare time, he is a retro-computing lover and sci-fi cinema/books/comics enthusiast.
+                    Generative AI and large language models (LLMs) represent a groundbreaking innovation, offering vast new opportunities. However, there are significant limitations, particularly high costs from overpriced GPUs and expensive cloud services, making AI experimentation challenging. In this session, we'll explore the architecture of Llama models and how to download, convert, quantize and fine-tune it on your own hardware.
                 </p>
+
+                
             </template>
             <template #description>
                 <h2>Bio</h2>
                 <p>
-                    Generative AI and large language models (LLMs) represent a groundbreaking innovation, offering vast new opportunities. However, there are significant limitations, particularly high costs from overpriced GPUs and expensive cloud services, making AI experimentation challenging. In this session, we'll explore the architecture of Llama models and how to download, convert, quantize and fine-tune it on your own hardware.
+                    Francesco Baldassarri is a Product/Program/Project Manager with experience in Developer Relations (DevRel) and Technology Community Leadership and Management. He is also Technical Evangelist and Author/Editor. He worked for several main player in IT panorama. Currently, he is Technical Project Manager c/o expert.ai, global leader in artificial intelligence since early ’00s. In spare time, he is a retro-computing lover and sci-fi cinema/books/comics enthusiast.
                 </p>
                 <br />
                 <!--Links-->
