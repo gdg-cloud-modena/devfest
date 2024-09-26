@@ -20,7 +20,7 @@
                     </div>
                     <div class="info-box">
                         <h3>Ruolo</h3>
-                        <p>Artificial Intelligence Engineering Lead</p>
+                        <p>C++ Software Engineer & Community Lead</p>
                     </div>
                     <div class="info-box">
                         <h3>Lingua</h3>
@@ -30,6 +30,53 @@
             </template>
             <template #talk>
                 <h2>Workshop</h2>
+                <p>
+                    Coding Gym is an international format of programming labs open to any language. It is designed for continuous improvement, guided by the principles of the Coding Gym manifesto:
+                </p>
+                <br />
+                <p>
+                    "We help others practice programming, software development, and communication skills by making coding laboratories open to any programming language where cooperation is valued over competition, doing and sharing are valued over teaching, and where competing solutions come with discussing and understanding tradeoffs."
+                </p>
+                <br />
+                <p style="font-weight: bold;">
+                    How It Works:
+                </p>
+                <p>
+                    Coding Gym is NOT a contest!
+                </p>
+                <p>
+                    Participants ("gymmers") work in pairs on 3 self-contained problems using any programming language of their choice, all within a browser.
+                </p>
+                <p>
+                    After each exercise, a Coding Gym "trainer" moderates a retrospective session where gymmers present their solutions, discussing pros, cons, and tradeoffs.
+                </p>
+                <p>
+                    The trainer may also set new questions such as "What happens if the input size increases by 100 times?", or may introduce new solutions and concepts, potentially altering the problem on the spot to encourage discussion on changes and their impact. These variations can lead to discovering new ways of simplifying or complicating the problem.
+                </p>
+                <br />
+                <p style="font-weight: bold;">
+                    Philosophy:
+                </p>
+                <p>
+                    Coding Gym is not tied to any specific paradigm or programming language. It uses any tool, technique, or paradigm necessary to achieve its goals, promoting freedom in problem-solving.
+                </p>
+                <p>
+                    For each problem, Coding Gym encourages gymmers to explore, study, and experiment with alternative solutions and variations. This approach helps participants break free from their mental patterns, evolving and learning new concepts and techniques. Each new solution brings compromises, advantages, and disadvantages that must be identified and understood as part of the practice.
+                </p>
+                <p>
+                    A key aspect of Coding Gym is recognizing that technical skills alone are not sufficient. Professionals also need to master effective communication and collaboration. Coding Gym provides opportunities to practice these skills directly, enabling participants to collaborate with others and to explain their ideas and solutions in public. We eliminate stress, anxiety, and strict deadlines, replacing them with a fun and friendly atmosphere that fosters creativity and personal growth.
+                </p>
+                <br />
+                <p>
+                    More information on <a href="https://coding-gym.org">coding-gym.org</a>
+                </p>
+                <br />
+                <p>
+                    Coding Gym has been conceived, developed, and directed by Marco Arena since 2016.
+                </p>
+            </template>
+            <template #description>
+                <h2>Bio</h2>
                 <p>
                     Marco Arena is a software engineer and community lead with extensive experience in C++ development.
                  </p>
@@ -42,12 +89,6 @@
                  <p>
                     Recognized for his contributions, Marco has received the Microsoft MVP award nine times since 2016, highlighting his significant impact on the community.
                  </p>
-            </template>
-            <template #description>
-                <h2>Bio</h2>
-                <p>
-                    Marco Arena...
-                </p>
                 <br />
                 <!--Links-->
                 <div class="flexbox" style="gap: 12px;">

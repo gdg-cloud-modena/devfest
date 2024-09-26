@@ -214,7 +214,6 @@
         max-width: 300px;
         &.riccardo-carlesso{
             background: url("~/assets/img/riccardo-carlesso.jpg");
-            background-position: -100px;
             background-size: cover;
         }
         &.moreno-razzoli{
@@ -275,6 +274,10 @@
         }
         &.matteo-maria-terzuolo{
             background: url("~/assets/img/matteo-maria-terzuolo.jpg");
+            background-size: cover;
+        }
+        &.marco-arena{
+            background: url("~/assets/img/marco-arena.jpg");
             background-size: cover;
         }
     }
