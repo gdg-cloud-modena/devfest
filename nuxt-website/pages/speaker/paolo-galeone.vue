@@ -15,12 +15,8 @@
                         <p>Paolo Galeone</p>
                     </div>
                     <div class="info-box">
-                        <h3>Azienda</h3>
-                        <p>GDE in Machine Learning</p>
-                    </div>
-                    <div class="info-box">
                         <h3>Ruolo</h3>
-                        <p>Tech Lead</p>
+                        <p>Tech Lead | GDE in Machine Learning</p>
                     </div>
                     <div class="info-box">
                         <h3>Lingua</h3>

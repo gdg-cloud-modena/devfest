@@ -265,7 +265,7 @@
                     title: "News Crawler via Langchain.RB and Gemini APIs",
                     time: "10:00 - 10:50",
                     speaker: "Riccardo Carlesso",
-                    duration: 50,
+                    duration: 55,
                     url: "/speaker/riccardo-carlesso"
                 },
                 {
@@ -273,7 +273,7 @@
                     title: "Coffee Break",
                     time: "10:50 - 11:00",
                     speaker: "",
-                    duration: 10,
+                    duration: 20, //si "mangia" il succ
                     url: ""
                 },
                 {
@@ -289,7 +289,7 @@
                     title: "WWWAI: Constructing a truly open GenAI app with WebAssembly, WebGPU, and WebAI",
                     time: "12:10 - 13:00",
                     speaker: "Susanna Wang",
-                    duration: 50,
+                    duration: 60,
                     url: "/speaker/susanna-wang"
                 },
                 {
@@ -313,7 +313,7 @@
                     title: "The Staff Engineer VS Manager Path: A window over the tech career paths",
                     time: "15:00 - 15:50",
                     speaker: "Alfonso Graziano",
-                    duration: 50,
+                    duration: 60, //+10 di pausa prima
                     url: "/speaker/alfonso-graziano"
                 },
                 {
@@ -321,7 +321,7 @@
                     title: "Coffee Break",
                     time: "16:00 - 16:20",
                     speaker: "",
-                    duration: 20,
+                    duration: 30, // +10 di pausa prima
                     url: ""
                 },
                 {
@@ -337,7 +337,7 @@
                     title: "Scale your Frontend application with Module Federation",
                     time: "17:00 - 17:35",
                     speaker: "Luca Del Puppo",
-                    duration: 35,
+                    duration: 40, // +5 di pausa prima
                     url: "/speaker/luca-del-puppo"
                 },
                 {
@@ -345,72 +345,11 @@
                     title: "SPONSOR",
                     time: "17:40 - 18:20",
                     speaker: "Talk tecnico",
-                    duration: 40,
+                    duration: 55, //+5 di pausa prima, +10 di pausa dopo
                     url: ""
                 },
                 {
                     id: 14,
-                    title: "DJ Set",
-                    time: "18:30 - 21:30",
-                    speaker: "",
-                    duration: 120,
-                    url: ""
-                }
-            ]
-        },
-        {
-            id: 2,
-            name: "Sala Workshop",
-            events: [
-                {
-                    id: 15,
-                    title: "CoderDojo",
-                    time: "09:00 - 11:00",
-                    duration: 120,
-                    url: "/event/coderdojo"
-                },
-                {
-                    id: 16,
-                    title: "Riccardo Carlesso",
-                    time: "11:00 - 13:00",
-                    speaker: "Riccardo Carlesso",
-                    duration: 120,
-                    url: "/event/riccardo-carlesso"
-                },
-                {
-                    id: 17,
-                    title: "Lunch",
-                    time: "13:00 - 14:00",
-                    speaker: "",
-                    duration: 60,
-                    url: ""
-                },
-                {
-                    id: 18,
-                    title: "Moreno Razzoli",
-                    time: "14:00 - 16:00",
-                    speaker: "Moreno Razzoli",
-                    duration: 120,
-                    url: "/event/moreno-razzoli"
-                },
-                {
-                    id: 19,
-                    title: "Coffee Break",
-                    time: "16:00 - 16:20",
-                    speaker: "",
-                    duration: 20,
-                    url: ""
-                },
-                {
-                    id: 20,
-                    title: "Paolo Galeone",
-                    time: "16:20 - 18:20",
-                    speaker: "Marco Arena",
-                    duration: 120,
-                    url: "/event/marco-arena"
-                },
-                {
-                    id: 21,
                     title: "DJ Set",
                     time: "18:30 - 21:30",
                     speaker: "",
@@ -441,18 +380,106 @@
                 },
                 {
                     id: 19,
-                    title: "Francesco Baldassarri (GenAI)",
+                    title: "Unleash the Power of Llama 3.1 on Your Local Hardware – No Cloud Needed!",
                     time: "10:00 - 10:45",
                     speaker: "Francesco Baldassarri",
                     duration: 45,
-                    url: "/event/francesco-baldassarri-genai"
+                    url: "/speaker/francesco-baldassarri"
                 },
                 {
                     id: 20,
                     title: "Coffee Break",
                     time: "10:50 - 11:00",
-                    speaker: "None",
-                    duration: 10,
+                    speaker: "",
+                    duration: 15, // compreso buco prima
+                    url: ""
+                },
+                {
+                    id: 50,
+                    title: "TBD",
+                    time: "11:00 - 11:35",
+                    speaker: "TBD",
+                    duration: 40, // +5min dopo
+                    url: ""
+                },
+                {
+                    id: 51,
+                    title: "Building a RAG for tabular data in Go with PostgreSQL & Gemini ",
+                    time: "11:40 - 12:15",
+                    speaker: "Paolo Galeone",
+                    duration: 45,
+                    url: "/speaker/paolo-galeone"
+                },
+                {// buco grande
+                    id: 52,
+                    title: "",
+                    time: "",
+                    speaker: "",
+                    duration: 15,
+                    url: ""
+                },
+                {
+                    id: 53,
+                    title: "Lunch",
+                    time: "12:30 - 13:30",
+                    speaker: "",
+                    duration: 60,
+                    url: ""
+                },
+                {
+                    id: 54,
+                    title: " Ray on Vertex AI  ",
+                    time: "14:00 - 14:35",
+                    speaker: "Imran us Salam Mian",
+                    duration: 40, // con i 5m dopo
+                    url: "/speaker/imran-us-salam-mian"
+                },
+                {
+                    id: 55,
+                    title: "TBD",
+                    time: "14:40 - 15:55",
+                    speaker: "TBD",
+                    duration: 80,
+                    url: ""
+                },
+                {
+                    id: 56,
+                    title: "Coffee Break",
+                    time: "16:00 - 16:20",
+                    speaker: "",
+                    duration: 20,
+                    url: ""
+                },
+                {
+                    id: 57,
+                    title: "Gemini 1.5: A workshop in multimodal use cases",
+                    time: "16:20 - 16:55",
+                    speaker: "Ankur Roy",
+                    duration: 40, // incl 5 min dopo
+                    url: "/speaker/ankur-roy"
+                },
+                {
+                    id: 58,
+                    title: "TBD",
+                    time: "17:00 - 17:35",
+                    speaker: "TBD",
+                    duration: 40, // incl 5 min dopo
+                    url: ""
+                },
+                {
+                    id: 58,
+                    title: "TBD",
+                    time: "17:40 - 18:20",
+                    speaker: "TBD",
+                    duration: 50, // incl 10 min dopo
+                    url: ""
+                },
+                {
+                    id: 21,
+                    title: "DJ Set",
+                    time: "18:30 - 21:30",
+                    speaker: "",
+                    duration: 120,
                     url: ""
                 }
             ]
@@ -465,7 +492,7 @@
                     id: 21,
                     title: "Accoglienza",
                     time: "09:00 - 09:30",
-                    speaker: "None",
+                    speaker: "",
                     duration: 30,
                     url: ""
                 },
@@ -474,7 +501,7 @@
                     title: "Intro/Keynote",
                     time: "09:30 - 09:55",
                     speaker: "None",
-                    duration: 25,
+                    duration: 30, // allungato a comprendere pausa dopo
                     url: ""
                 },
                 {
@@ -485,8 +512,17 @@
                     duration: 40,
                     url: "/speaker/flavio-basile"
                 },
-                {
+                { //buco troppo grande
                     id: 24,
+                    title: "",
+                    time: "",
+                    speaker: "",
+                    duration: 30,
+                    url: ""
+
+                },
+                {
+                    id: 25,
                     title: "Matteo Maria Terzuolo (Dev)",
                     time: "11:10 - 12:00",
                     speaker: "Matteo Maria Terzuolo",
@@ -494,11 +530,73 @@
                     url: "/speaker/matteo-maria-terzuolo-dev"
                 }
             ]
-        }
+        },
+        {
+            id: 2,
+            name: "Sala Workshop",
+            events: [
+                {
+                    id: 15,
+                    title: "CoderDojo",
+                    time: "09:00 - 11:00",
+                    duration: 120,
+                    url: ""
+                },
+                {
+                    id: 16,
+                    title: "Riccardo Carlesso",
+                    time: "11:00 - 13:00",
+                    speaker: "Riccardo Carlesso",
+                    duration: 120,
+                    url: "/speaker/riccardo-carlesso"
+                },
+                {
+                    id: 17,
+                    title: "Lunch",
+                    time: "13:00 - 14:00",
+                    speaker: "",
+                    duration: 60,
+                    url: ""
+                },
+                {
+                    id: 18,
+                    title: "Moreno Razzoli",
+                    time: "14:00 - 16:00",
+                    speaker: "Moreno Razzoli",
+                    duration: 120,
+                    url: "/speaker/moreno-razzoli"
+                },
+                {
+                    id: 19,
+                    title: "Coffee Break",
+                    time: "16:00 - 16:20",
+                    speaker: "",
+                    duration: 20,
+                    url: ""
+                },
+                {
+                    id: 20,
+                    title: "Coding Gym",
+                    time: "16:20 - 18:20",
+                    speaker: "Marco Arena",
+                    duration: 120,
+                    url: "/speaker/marco-arena"
+                },
+                {
+                    id: 21,
+                    title: "DJ Set",
+                    time: "18:30 - 21:30",
+                    speaker: "",
+                    duration: 120,
+                    url: ""
+                }
+            ]
+        },
+
     ];
 
     const getEventHeight = (duration: number) => {
-        return `${duration * 6}px`; 
+        return `${duration * 6.5-18}px`; 
     };
 </script>
 
