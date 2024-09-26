@@ -26,10 +26,12 @@
                             class="event"
                             :style="{ height: getEventHeight(event.duration) }"
                         >
+                            <div v-if="event.title" class="event-header">
+                                <p style="text-align: center;">{{ event.time }}</p>
+                            </div>
+                            <div class="event-details" style="color: #4285f4;">{{ event.speaker }}</div>
                             <div class="event-title">{{ event.title }}</div>
-                            <div class="time">{{ event.time }}</div>
-                            <div class="event-details">{{ event.speaker }}</div>
-                            <RouterLink v-if="event.url" style="position: absolute; bottom: 10px; left: 10px;" class="button-like cool-blue" :to="event.url">Dettagli</RouterLink>
+                            <RouterLink v-if="event.url" style="position: absolute; bottom: 10px; right: 10px;" class="button-like cool-blue" :to="event.url">Dettagli</RouterLink>
                         </div>
                     </div>
                 </div>
@@ -257,7 +259,7 @@
                     id: 2,
                     title: "Intro/Keynote",
                     time: "09:30 - 09:55",
-                    duration: 25,
+                    duration: 30, // allungato a comprendere pausa dopo
                     url: ""
                 },
                 {
@@ -265,7 +267,7 @@
                     title: "News Crawler via Langchain.RB and Gemini APIs",
                     time: "10:00 - 10:50",
                     speaker: "Riccardo Carlesso",
-                    duration: 55,
+                    duration: 50,
                     url: "/speaker/riccardo-carlesso"
                 },
                 {
@@ -281,7 +283,7 @@
                     title: "Improve your Multi-Factor Auth with Firebase and Vonage APIs",
                     time: "11:10 - 12:00",
                     speaker: "Amanda Cavallaro",
-                    duration: 50,
+                    duration: 60, //+10 di pausa dopo
                     url: "/speaker/amanda-cavallaro"
                 },
                 {
@@ -289,7 +291,7 @@
                     title: "WWWAI: Constructing a truly open GenAI app with WebAssembly, WebGPU, and WebAI",
                     time: "12:10 - 13:00",
                     speaker: "Susanna Wang",
-                    duration: 60,
+                    duration: 50,
                     url: "/speaker/susanna-wang"
                 },
                 {
@@ -305,7 +307,7 @@
                     title: "Dal Caos al Controllo: Il Viaggio nell'Infrastructure as Code, da Docker Compose a Kubernetes",
                     time: "14:00 - 14:50",
                     speaker: "Giovanni Perteghella",
-                    duration: 50,
+                    duration: 60, //+10 di pausa dopo
                     url: "speaker/giovanni-perteghella"
                 },
                 {
@@ -313,7 +315,7 @@
                     title: "The Staff Engineer VS Manager Path: A window over the tech career paths",
                     time: "15:00 - 15:50",
                     speaker: "Alfonso Graziano",
-                    duration: 60, //+10 di pausa prima
+                    duration: 60, // +10 di pausa dopo
                     url: "/speaker/alfonso-graziano"
                 },
                 {
@@ -321,7 +323,7 @@
                     title: "Coffee Break",
                     time: "16:00 - 16:20",
                     speaker: "",
-                    duration: 30, // +10 di pausa prima
+                    duration: 20,
                     url: ""
                 },
                 {
@@ -329,7 +331,7 @@
                     title: "Gemini Functions Calls in Flutter",
                     time: "16:20 - 16:55",
                     speaker: "Carlo Lucera",
-                    duration: 35,
+                    duration: 40, // +5 di pausa dopo
                     url: "/speaker/carlo-lucera"
                 },
                 {
@@ -337,7 +339,7 @@
                     title: "Scale your Frontend application with Module Federation",
                     time: "17:00 - 17:35",
                     speaker: "Luca Del Puppo",
-                    duration: 40, // +5 di pausa prima
+                    duration: 40, // +5 di pausa dopo
                     url: "/speaker/luca-del-puppo"
                 },
                 {
@@ -345,7 +347,7 @@
                     title: "SPONSOR",
                     time: "17:40 - 18:20",
                     speaker: "Talk tecnico",
-                    duration: 55, //+5 di pausa prima, +10 di pausa dopo
+                    duration: 50, // +10 di pausa dopo
                     url: ""
                 },
                 {
@@ -375,7 +377,7 @@
                     title: "Intro/Keynote",
                     time: "09:30 - 09:55",
                     speaker: "",
-                    duration: 25,
+                    duration: 30,
                     url: ""
                 },
                 {
@@ -383,7 +385,7 @@
                     title: "Unleash the Power of Llama 3.1 on Your Local Hardware – No Cloud Needed!",
                     time: "10:00 - 10:45",
                     speaker: "Francesco Baldassarri",
-                    duration: 45,
+                    duration: 50,
                     url: "/speaker/francesco-baldassarri"
                 },
                 {
@@ -391,7 +393,7 @@
                     title: "Coffee Break",
                     time: "10:50 - 11:00",
                     speaker: "",
-                    duration: 15, // compreso buco prima
+                    duration: 20, // compreso buco dopo
                     url: ""
                 },
                 {
@@ -407,7 +409,7 @@
                     title: "Building a RAG for tabular data in Go with PostgreSQL & Gemini ",
                     time: "11:40 - 12:15",
                     speaker: "Paolo Galeone",
-                    duration: 45,
+                    duration: 40,
                     url: "/speaker/paolo-galeone"
                 },
                 {// buco grande
@@ -415,7 +417,7 @@
                     title: "",
                     time: "",
                     speaker: "",
-                    duration: 15,
+                    duration: 10,
                     url: ""
                 },
                 {
@@ -424,6 +426,14 @@
                     time: "12:30 - 13:30",
                     speaker: "",
                     duration: 60,
+                    url: ""
+                },
+                {// buco grande
+                    id: 52,
+                    title: "",
+                    time: "",
+                    speaker: "",
+                    duration: 27.5,
                     url: ""
                 },
                 {
@@ -439,7 +449,7 @@
                     title: "TBD",
                     time: "14:40 - 15:55",
                     speaker: "TBD",
-                    duration: 80,
+                    duration: 75,
                     url: ""
                 },
                 {
@@ -500,34 +510,114 @@
                     id: 22,
                     title: "Intro/Keynote",
                     time: "09:30 - 09:55",
-                    speaker: "None",
+                    speaker: "",
                     duration: 30, // allungato a comprendere pausa dopo
                     url: ""
                 },
                 {
                     id: 23,
-                    title: "Flavio Basile (Dev/Test)",
+                    title: "API testing in action - DMVC & PyTest for better API",
                     time: "10:00 - 10:40",
                     speaker: "Flavio Basile",
-                    duration: 40,
+                    duration: 45,
                     url: "/speaker/flavio-basile"
                 },
-                { //buco troppo grande
+                { 
                     id: 24,
-                    title: "",
-                    time: "",
+                    title: "Coffee Break",
+                    time: "10:50 - 11:00",
                     speaker: "",
-                    duration: 30,
+                    duration: 20,
                     url: ""
 
                 },
                 {
                     id: 25,
-                    title: "Matteo Maria Terzuolo (Dev)",
-                    time: "11:10 - 12:00",
+                    title: "Pattern Matching to the rescue!",
+                    time: "11:10 - 11:45",
                     speaker: "Matteo Maria Terzuolo",
+                    duration: 40,
+                    url: "/speaker/matteo-maria-terzuolo"
+                },
+                {
+                    id: 26,
+                    title: "TBD",
+                    time: "11:50 - 12:25",
+                    speaker: "TBD",
+                    duration: 40,
+                    url: ""
+                },
+                {
+                    id: 27,
+                    title: "Lunch",
+                    time: "12:30 - 13:30",
+                    speaker: "",
+                    duration: 90,
+                    url: ""
+                },
+                {
+                    id: 28,
+                    title: "TBD",
+                    time: "14:00 - 14:35",
+                    speaker: "Marco Breveglieri",
+                    duration: 40,
+                    url: ""
+                },
+                {
+                    id: 29,
+                    title: "Coffee Break",
+                    time: "14:40 - 15:15",
+                    speaker: "",
+                    duration: 40,
+                    url: ""
+                },
+                {
+                    id: 30,
+                    title: "TBD",
+                    time: "15:20 - 15:55",
+                    speaker: "TBD",
+                    duration: 46.3,
+                    url: ""
+                },
+                {
+                    id: 31,
+                    title: "TBD",
+                    time: "16:00 - 16:20",
+                    speaker: "TBD",
+                    duration: 20,
+                    url: ""
+                },
+                {
+                    id: 32,
+                    title: "Coffee Break",
+                    time: "16:20 - 16:55",
+                    speaker: "",
+                    duration: 40,
+                    url: ""
+                },
+                {
+                    id: 33,
+                    title: "TBD",
+                    time: "17:00 - 17:35",
+                    speaker: "TBD",
+                    duration: 40,
+                    url: ""
+                },
+                {
+                    id: 35,
+                    title: "TBD",
+                    time: "17:40 - 18:20",
+                    speaker: "TBD",
                     duration: 50,
-                    url: "/speaker/matteo-maria-terzuolo-dev"
+                    url: ""
+                },
+                {
+                    id: 36,
+                    title: "DJ Set",
+                    time: "18:30 - 21:30",
+                    speaker: "",
+                    duration: 120,
+                    url : ""
                 }
             ]
         },
@@ -625,17 +715,23 @@
         padding: 10px;
     }
 
+    .event-header{
+            padding: 12px;
+            background: #ff7daf;
+        }
+
     .event {
         margin-bottom: 10px;
         padding: 10px;
-        background-color: #f2f2f2;
-        border: 1px solid #ddd;
+        background-color: #fefefe;
+        border: 1px solid #cecece;
         position: relative;
         box-sizing: border-box;
     }
 
     .event-title {
-        font-weight: bold;
+        font-size: clamp(1rem, 1.174vw, 1.574rem); 
+        font-weight: 500;
     }
 
     .time {
