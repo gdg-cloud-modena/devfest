@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="flexbox column align-center" style="gap: 48px; flex: 1 1 400px;">
-                    <a href="https://www.dualb.it/&utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+                    <a href="https://www.dualb.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
                         <div class="white-card
                             sponsor-card">
                             <div class="image image-staff dualbit"></div>
