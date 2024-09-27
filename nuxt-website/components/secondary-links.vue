@@ -8,6 +8,7 @@
             <h4><RouterLink to="/communities">Communities</RouterLink></h4>
             <h4><RouterLink to="/contact-us">Contacts</RouterLink></h4>
             <h4><RouterLink to="/code-of-conduct">Codice di condotta</RouterLink></h4>
+            <h4><RouterLink to="/program">Programma</RouterLink></h4>
         </div>
         <div class="flexbox wrap pad-24" style="gap: 48px;">
             <p><RouterLink to="/privacy">Privacy Policy</RouterLink></p>

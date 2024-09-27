@@ -15,6 +15,10 @@
                         <p>Paolo Galeone</p>
                     </div>
                     <div class="info-box">
+                        <h3>Azienda</h3>
+                        <p>ZURU Tech</p>
+                    </div>
+                    <div class="info-box">
                         <h3>Ruolo</h3>
                         <p>Tech Lead | GDE in Machine Learning</p>
                     </div>

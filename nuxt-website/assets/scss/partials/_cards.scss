@@ -194,6 +194,10 @@
             background: url("~/assets/img/zuru.webp");
             background-size: cover;
         }
+        &.coder-dojo{
+            background: url("~/assets/img/coder-dojo.png");
+            background-size: cover;
+        }
         /*&.quix{
             background: url("~/assets/img/quix.webp");
             background-size: cover;
@@ -280,6 +284,11 @@
             background: url("~/assets/img/marco-arena.jpg");
             background-size: cover;
         }
+        &.coder-dojo{
+            background: url("~/assets/img/coder-dojo.png");
+            background-size: cover;
+        }
+
     }
 }
 .timetable-card{

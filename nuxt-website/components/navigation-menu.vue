@@ -11,8 +11,6 @@ import { RouterLink } from 'vue-router';
         <section>
             <div class="flexbox justify-between pad-24 wrap" style="padding-top: 120px; gap: 48px;">
             <div class="flexbox column" style="gap: 48px; flex: 1 1 470px;">
-                <h1><RouterLink to="/">Home</RouterLink></h1>
-                <!--h1><RouterLink to="/program">Programma</RouterLink></h1-->
                 <h1><RouterLink to="/speakers">Speaker</RouterLink></h1>
                 <h1><RouterLink to="/team">Team</RouterLink></h1>
             </div>

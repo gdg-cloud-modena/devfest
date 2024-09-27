@@ -37,6 +37,13 @@
                 </p><p>
                     Questo workshop è pensato per sviluppatori di ogni livello, con un approccio pratico e orientato alla semplicità.
                 </p>
+                <h2>Informazioni Importanti</h2>
+                <p>
+                    Per partecipare al workshop è richiesta un'installazione funzionante di Docker o Podman su una macchina LINUX x86 a 64 bit (fisica o virtuale).
+                </p>
+                <p>
+                    Qualunque altra configurazione (Docker su Windows; Mac con Apple Silicon; altre piattaforme o architetture) non sarà ufficialmente supportata per ragioni legate alle tempistiche.
+                </p>
             </template>
             <template #description>
                 <h2>Bio</h2>

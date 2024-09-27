@@ -254,9 +254,9 @@
                 </div>
             </div>
             <div class="white-card">
-                <RouterLink to="/speakers">
+                <RouterLink to="/program">
                     <div class="flexbox justify-center" style="gap: 12px;">
-                        <p style="text-align: center">Vedi tutti gli speaker</p> <img src="@/assets/svg/arrow-black.svg" />
+                        <p style="text-align: center">Vedi il programma dettagliato</p> <img src="@/assets/svg/arrow-black.svg" />
                     </div>
                 </RouterLink>
             </div>

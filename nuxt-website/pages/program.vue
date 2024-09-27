@@ -377,7 +377,7 @@
                     title: "Intro/Keynote",
                     time: "09:30 - 09:55",
                     speaker: "",
-                    duration: 30,
+                    duration: 30, // 5m dopo
                     url: ""
                 },
                 {
@@ -385,7 +385,7 @@
                     title: "Unleash the Power of Llama 3.1 on Your Local Hardware – No Cloud Needed!",
                     time: "10:00 - 10:45",
                     speaker: "Francesco Baldassarri",
-                    duration: 50,
+                    duration: 50, // 5m dopo
                     url: "/speaker/francesco-baldassarri"
                 },
                 {
@@ -393,7 +393,7 @@
                     title: "Coffee Break",
                     time: "10:50 - 11:00",
                     speaker: "",
-                    duration: 20, // compreso buco dopo
+                    duration: 10,
                     url: ""
                 },
                 {
@@ -557,11 +557,11 @@
                 },
                 {
                     id: 28,
-                    title: "TBD",
+                    title: "Ritorno al Futuro: sviluppare app mobile e cross-platform in Pascal, Grande Giove! ",
                     time: "14:00 - 14:35",
                     speaker: "Marco Breveglieri",
                     duration: 40,
-                    url: ""
+                    url: "/speaker/marco-breveglieri"
                 },
                 {
                     id: 29,
@@ -669,11 +669,11 @@
                     title: "Coding Gym",
                     time: "16:20 - 18:20",
                     speaker: "Marco Arena",
-                    duration: 120,
+                    duration: 121.5,
                     url: "/speaker/marco-arena"
                 },
                 {
-                    id: 21,
+                    id: 22,
                     title: "DJ Set",
                     time: "18:30 - 21:30",
                     speaker: "",
@@ -686,7 +686,7 @@
     ];
 
     const getEventHeight = (duration: number) => {
-        return `${duration * 6.5-18}px`; 
+        return `${duration * 12-18}px`; 
     };
 </script>
 
