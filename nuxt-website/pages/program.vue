@@ -290,9 +290,9 @@
                     id: 6,
                     title: "WWWAI: Constructing a truly open GenAI app with WebAssembly, WebGPU, and WebAI",
                     time: "12:10 - 13:00",
-                    speaker: "Susanna Wang",
+                    speaker: "Susanna Wong",
                     duration: 50,
-                    url: "/speaker/susanna-wang"
+                    url: "/speaker/susanna-wong"
                 },
                 {
                     id: 7,
@@ -409,7 +409,7 @@
                     title: "Building a RAG for tabular data in Go with PostgreSQL & Gemini ",
                     time: "11:40 - 12:15",
                     speaker: "Paolo Galeone",
-                    duration: 40,
+                    duration: 35,
                     url: "/speaker/paolo-galeone"
                 },
                 {// buco grande
@@ -417,7 +417,7 @@
                     title: "",
                     time: "",
                     speaker: "",
-                    duration: 10,
+                    duration: 15,
                     url: ""
                 },
                 {
@@ -433,7 +433,7 @@
                     title: "",
                     time: "",
                     speaker: "",
-                    duration: 27.5,
+                    duration: 30,
                     url: ""
                 },
                 {
@@ -449,7 +449,7 @@
                     title: "TBD",
                     time: "14:40 - 15:55",
                     speaker: "TBD",
-                    duration: 75,
+                    duration: 80, // 5m dopo
                     url: ""
                 },
                 {
@@ -519,7 +519,7 @@
                     title: "API testing in action - DMVC & PyTest for better API",
                     time: "10:00 - 10:40",
                     speaker: "Flavio Basile",
-                    duration: 45,
+                    duration: 50, // pausa dopo
                     url: "/speaker/flavio-basile"
                 },
                 { 
@@ -527,7 +527,7 @@
                     title: "Coffee Break",
                     time: "10:50 - 11:00",
                     speaker: "",
-                    duration: 20,
+                    duration: 20, // pausa dopo
                     url: ""
 
                 },
@@ -536,7 +536,7 @@
                     title: "Pattern Matching to the rescue!",
                     time: "11:10 - 11:45",
                     speaker: "Matteo Maria Terzuolo",
-                    duration: 40,
+                    duration: 40, // pausa dopo
                     url: "/speaker/matteo-maria-terzuolo"
                 },
                 {
@@ -544,7 +544,7 @@
                     title: "TBD",
                     time: "11:50 - 12:25",
                     speaker: "TBD",
-                    duration: 40,
+                    duration: 40, // pausa dopo
                     url: ""
                 },
                 {
@@ -552,7 +552,15 @@
                     title: "Lunch",
                     time: "12:30 - 13:30",
                     speaker: "",
-                    duration: 90,
+                    duration: 60,
+                    url: ""
+                },
+                {
+                    id: 27,
+                    title: "",
+                    time: "12:30 - 13:30",
+                    speaker: "",
+                    duration: 30,
                     url: ""
                 },
                 {
@@ -560,7 +568,7 @@
                     title: "Ritorno al Futuro: sviluppare app mobile e cross-platform in Pascal, Grande Giove! ",
                     time: "14:00 - 14:35",
                     speaker: "Marco Breveglieri",
-                    duration: 40,
+                    duration: 40, // pausa dopo
                     url: "/speaker/marco-breveglieri"
                 },
                 {
@@ -568,7 +576,7 @@
                     title: "Coffee Break",
                     time: "14:40 - 15:15",
                     speaker: "",
-                    duration: 40,
+                    duration: 40, // 5m dopo
                     url: ""
                 },
                 {
@@ -576,7 +584,7 @@
                     title: "TBD",
                     time: "15:20 - 15:55",
                     speaker: "TBD",
-                    duration: 46.3,
+                    duration: 40, // 5m dopo
                     url: ""
                 },
                 {
@@ -592,7 +600,7 @@
                     title: "Coffee Break",
                     time: "16:20 - 16:55",
                     speaker: "",
-                    duration: 40,
+                    duration: 40, // 5m dopo
                     url: ""
                 },
                 {
@@ -600,7 +608,7 @@
                     title: "TBD",
                     time: "17:00 - 17:35",
                     speaker: "TBD",
-                    duration: 40,
+                    duration: 40, // 5m dopo
                     url: ""
                 },
                 {
@@ -608,7 +616,7 @@
                     title: "TBD",
                     time: "17:40 - 18:20",
                     speaker: "TBD",
-                    duration: 50,
+                    duration: 50, // 10m dopo
                     url: ""
                 },
                 {
@@ -634,11 +642,11 @@
                 },
                 {
                     id: 16,
-                    title: "Riccardo Carlesso",
+                    title: "Bring your old PHP app to the Cloud: AppMod with Google",
                     time: "11:00 - 13:00",
                     speaker: "Riccardo Carlesso",
                     duration: 120,
-                    url: "/speaker/riccardo-carlesso"
+                    url: "/speaker/riccardo-carlesso-workshop"
                 },
                 {
                     id: 17,
@@ -650,7 +658,7 @@
                 },
                 {
                     id: 18,
-                    title: "Moreno Razzoli",
+                    title: "Containerizza la tua App e distribuisci senza pensieri",
                     time: "14:00 - 16:00",
                     speaker: "Moreno Razzoli",
                     duration: 120,
@@ -669,7 +677,7 @@
                     title: "Coding Gym",
                     time: "16:20 - 18:20",
                     speaker: "Marco Arena",
-                    duration: 121.5,
+                    duration: 130, // 10m dopo
                     url: "/speaker/marco-arena"
                 },
                 {
@@ -686,7 +694,7 @@
     ];
 
     const getEventHeight = (duration: number) => {
-        return `${duration * 12-18}px`; 
+        return `${duration * 12-10}px`; 
     };
 </script>
 
@@ -718,11 +726,14 @@
     .event-header{
             padding: 12px;
             background: #ff7daf;
+            margin-bottom: 5px;
         }
 
     .event {
         margin-bottom: 10px;
         padding: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
         background-color: #fefefe;
         border: 1px solid #cecece;
         position: relative;
