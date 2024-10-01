@@ -137,6 +137,13 @@
                             <p class="text-label">Art Director, UX/UI designer</p>
                         </div>
                     </a>
+                    <a href="https://www.davidecavallini.com/">
+                        <div class="white-card team-card">
+                            <div class="image image-staff davide-cavallini"></div>
+                            <h4>Davide Cavallini</h4>
+                            <p class="text-label">Senior Software Engineer</p>
+                        </div>
+                    </a>
                 </div>
             </template>
             <section class="full-w ternary-background"
