@@ -16,6 +16,7 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.1",
     "simple-analytics-vue": "^3.0.2"
   }
 }

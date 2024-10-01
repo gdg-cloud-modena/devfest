@@ -3,15 +3,17 @@
         <div class="header">
             <p style="text-align: center;">{{ time }}</p>
         </div>
-        <div class="content">
+        <div class="content flex flex-col lg:flex-row items-center justify-between">
+          <div>
             <h4 class="text-accent">{{ speaker }}</h4>
             <p class="session-title">{{ title }}</p>
-            <div
-                v-if="roomAndLanguage || url" 
-                class="flexbox justify-between wrap align-center">
-                    <p style="flex: 1 1 150px;">{{ roomAndLanguage }}</p>
-                    <RouterLink v-if="url" class="button-like cool-blue" :to="url">Dettagli</RouterLink>
-            </div>
+          </div>
+          <div
+              v-if="roomAndLanguage || url"
+              class="flexbox justify-between wrap align-center pt-5 lg:pt-0">
+                  <p style="flex: 1 1 150px;">{{ roomAndLanguage }}</p>
+                  <RouterLink v-if="url" class="button-like cool-blue py-3 px-5" :to="url">Dettagli</RouterLink>
+          </div>
         </div>
     </div>
 </template>

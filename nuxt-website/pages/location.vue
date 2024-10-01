@@ -25,17 +25,20 @@
                           <p>Viale Buon Pastore 43, Modena, 41125, (MO)</p>
                       </div>
                     </div>
-                    <a href="https://maps.google.com/?q=Viale Buon Pastore 43, Modena" target="_blank" class="button-like cool-blue">Apri in Maps</a>
+                    <a href="https://maps.google.com/?q=Viale Buon Pastore 43, Modena" target="_blank" class="button-like cool-blue text-2xl py-5 px-7">Apri in Maps</a>
                   </div>
                   <div class="map-image" style="flex: 1 1 400px;">
                       <img src="@/assets/img/map.png" alt="Map Image" />
                   </div>
               </div>
             </template>
-            <template #under-content>
-                <FreeTicket />
-                <SocialLinks />
-            </template>
+            <section class="full-w ternary-background"
+          style="border-bottom: 2px solid #c9c9c9;">
+            <FreeTicket />
+        </section>
+        <section class="full-w secondary-background">
+            <SocialLinks />
+        </section>
         </NuxtLayout>
     </div>
 </template>

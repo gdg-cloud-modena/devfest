@@ -25,7 +25,7 @@
                         </h4>
                     </div>
                 </div>
-                <div class="flexbox wrap justify-center align-top" style="gap: 48px; flex: 1 1 400px;">
+                <div class="flexbox wrap justify-center align-top px-4 pb-8" style="gap: 48px; flex: 1 1 400px;">
                     <div class="white-card max-width-450">
                         <RouterLink to="/speaker/riccardo-carlesso">
                             <div class="image riccardo-carlesso"></div>
@@ -140,10 +140,17 @@
                     </div-->
                 </div>
             </template>
-            <template #under-content>
-                <FreeTicket />
-                <SocialLinks />
-            </template>
+<!--            <template #under-content>-->
+<!--                <FreeTicket />-->
+<!--                <SocialLinks />-->
+<!--            </template>-->
+          <section class="full-w ternary-background"
+          style="border-bottom: 2px solid #c9c9c9;">
+            <FreeTicket />
+        </section>
+        <section class="full-w secondary-background">
+            <SocialLinks />
+        </section>
         </NuxtLayout>
     </div>
 </template>

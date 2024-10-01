@@ -84,6 +84,8 @@
             #hero{
                 padding-left: 24px;
                 padding-right: 24px;
+              padding-bottom: 0;
+              padding-top: 90px
             }
         }
     }

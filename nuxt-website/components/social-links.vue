@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="pad-48 flexbox wrap justify-between secondary-background align-center" 
+        class="pad-48 flexbox wrap justify-between align-center"
         style="border-bottom: 2px solid #c9c9c9;">
             <div class="flexbox wrap" style="gap: 24px">
                 <img src="@/assets/svg/blue-plus.svg" />

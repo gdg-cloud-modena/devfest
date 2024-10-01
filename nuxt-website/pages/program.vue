@@ -31,7 +31,7 @@
                             </div>
                             <div class="event-details" style="color: #4285f4;">{{ event.speaker }}</div>
                             <div class="event-title">{{ event.title }}</div>
-                            <RouterLink v-if="event.url" style="position: absolute; bottom: 10px; right: 10px;" class="button-like cool-blue" :to="event.url">Dettagli</RouterLink>
+                            <RouterLink v-if="event.url" style="position: absolute; bottom: 10px; right: 10px;" class="button-like cool-blue text-lg py-3 px-5" :to="event.url">Dettagli</RouterLink>
                         </div>
                     </div>
                 </div>
@@ -230,10 +230,13 @@
                     </div>
                 </div-->
             </template>
-            <template #under-content>
-                <FreeTicket />
-                <SocialLinks />
-            </template>
+            <section class="full-w ternary-background"
+          style="border-bottom: 2px solid #c9c9c9;">
+            <FreeTicket />
+        </section>
+        <section class="full-w secondary-background">
+            <SocialLinks />
+        </section>
         </NuxtLayout>
     </div>
 </template>

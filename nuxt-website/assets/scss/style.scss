@@ -45,10 +45,10 @@ a{
         flex-direction: column;
     }
 }
-section{
+section {
+    width: 100%;
     max-width: 1800px;
     margin: 0 auto;
-    width: 100%;
     &.full{
         height: 100vh;
         width: 100%;
@@ -61,8 +61,13 @@ section{
         height: 100%;
         width: 100%;
     }
-    .content{
+    &.footer, &.full-w {
+         max-width: none;
 
+        & > div {
+             max-width: 1800px;
+            margin: 0 auto;
+        }
     }
 }
 .pad-24{
@@ -144,16 +149,15 @@ section{
     text-align: justify;
 }
 button, .button-like{
+    display: inline-block;
     border: none;
     text-align: center;
     font-family: dmsans;
-    font-size: 1rem;
     background: $accent1;
     color: $textSecondary;
-    padding: 12px;
+    //padding: 12px;
     border-radius: 8px;
     text-decoration: none;
-    text-align: center;
     &.cool-blue {
         background-color: #4285F4;
         &:hover {
@@ -203,7 +207,6 @@ hr{
     gap: 12px;
     border: 1px solid #8f8f8f;
     border-radius: 24px;
-    width: 167px;
 
     @media only screen and (max-width: 500px) {
         width: 100%;
@@ -212,9 +215,11 @@ hr{
     .image{
         width: 100%;
         text-align: center;
-        img{
+
+        img {
             max-width: 100%;
             max-height: 100%;
+            display: inline-block;
         }
     } 
     .highlight{

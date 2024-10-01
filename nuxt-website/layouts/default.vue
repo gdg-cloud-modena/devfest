@@ -2,7 +2,7 @@
     <div>
         <Navbar />
         <NavigationMenu v-if="nav_menu_status" />
-        <div id="page" data-scroll>
+        <div id="page" class="pt-9 lg:pt-14" data-scroll>
             <slot />
         </div>
         <Footer />
