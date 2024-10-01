@@ -13,6 +13,7 @@ import { RouterLink } from 'vue-router';
             <div class="flexbox column" style="gap: 48px; flex: 1 1 470px;">
                 <h1><RouterLink to="/speakers">Speaker</RouterLink></h1>
                 <h1><RouterLink to="/team">Team</RouterLink></h1>
+                <h1><RouterLink to="/program">Program</RouterLink></h1>
             </div>
             <div class="flexbox column gap-24 wrap" style="gap: 48px; flex: 1 1 470px;">
                 <h1><RouterLink to="/location">Location</RouterLink></h1>
