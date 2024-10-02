@@ -1,20 +1,25 @@
 <template>
-    <div id="navbar" class="dark px-4 py-2" data-navbar>
-        <RouterLink to="/" style="text-decoration: none;">
-            <div id="logo">
-                <img src="@/assets/svg/devfest-logo.svg" /> <span id="logo-text">Modena</span>
-            </div>
-        </RouterLink>
-        <div id="right-side" class="flexbox align-center" style="gap: 12px">
-            <a class="button-like py-3 px-5" id="sponsor-button">
-                <RouterLink to="/sponsor-us">Sponsorizza</RouterLink>
-            </a>
-            <Hamburger />
+  <div id="navbar" :class="{dark: !props.white}" data-navbar>
+    <div class="px-6 py-2">
+      <RouterLink to="/" style="text-decoration: none;">
+        <div id="logo">
+          <img src="@/assets/svg/devfest-logo.svg"/> <span id="logo-text" class="font-semibold">Modena</span>
         </div>
+      </RouterLink>
+      <div id="right-side" class="flexbox align-center" style="gap: 12px">
+        <a class="button-like py-2 px-4 font-semibold" id="sponsor-button">
+          <RouterLink to="/sponsor-us">Sponsorizza</RouterLink>
+        </a>
+        <Hamburger/>
+      </div>
     </div>
+  </div>
 </template>
+
 <script setup>
-import { RouterLink } from 'vue-router';
+import {RouterLink} from 'vue-router';
+
+const props = defineProps(["white"])
 
 // const dark_mode = inject('dark-mode');
 // const nav_menu_status = inject('navigation-menu');
@@ -43,17 +48,19 @@ import { RouterLink } from 'vue-router';
 //         })
 // });
 </script>
+
 <style lang="scss">
-    @media screen and (max-width: 500px){
-        #navbar{
-            #logo{
-                #logo-text{
-                    display: none;
-                }
-            }
-            #sponsor-button{
-                display: none;
-            }
-        }
+@media screen and (max-width: 500px) {
+  #navbar {
+    #logo {
+      #logo-text {
+        display: none;
+      }
     }
+
+    #sponsor-button {
+      display: none;
+    }
+  }
+}
 </style>

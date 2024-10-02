@@ -230,13 +230,6 @@
                     </div>
                 </div-->
             </template>
-            <section class="full-w ternary-background"
-          style="border-bottom: 2px solid #c9c9c9;">
-            <FreeTicket />
-        </section>
-        <section class="full-w secondary-background">
-            <SocialLinks />
-        </section>
         </NuxtLayout>
     </div>
 </template>
@@ -465,7 +458,7 @@
                 },
                 {
                     id: 57,
-                    title: "Gemini 1.5: A workshop in multimodal use cases",
+                    title: "Gemini 1.5: A demo in multimodal use cases",
                     time: "16:20 - 16:55",
                     speaker: "Ankur Roy",
                     duration: 40, // incl 5 min dopo

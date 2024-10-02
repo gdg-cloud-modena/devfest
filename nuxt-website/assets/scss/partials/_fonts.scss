@@ -1,28 +1,11 @@
 @font-face {
-    font-family: dmsans;
-    src: url(~/assets/fonts/dm.ttf);
+  font-family: dmsans;
+  src: url(~/assets/fonts/dm.ttf);
 }
-@font-face {
-    font-family: dmsans;
-    src: url(~/assets/fonts/dm_italic.ttf);
 
-    font-style: italic;
+@font-face {
+  font-family: dmsans;
+  src: url(~/assets/fonts/dm_italic.ttf);
+
+  font-style: italic;
 }
-h1{
-    font-size: clamp(2.5rem, 4.2062vw, 4.2062rem); 
-    font-weight: 600;
- }
- h2{
-    font-size: clamp(2rem, 3.1575vw, 3.1575rem); 
- }
- h3{
-     font-size: clamp(1.5rem, 2.8125vw, 2.8125rem);
-     font-weight: 500;
- }
- h4{
-     font-size: clamp(1rem, 1.774vw, 1.774rem); 
-     font-weight: 400;
-  }
- span, p{
-     font-size: clamp(1rem, 1vw, 1rem);
- }

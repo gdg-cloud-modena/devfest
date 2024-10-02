@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
+    "postcss-nesting": "^13.0.0",
     "simple-analytics-vue": "^3.0.2"
   }
 }

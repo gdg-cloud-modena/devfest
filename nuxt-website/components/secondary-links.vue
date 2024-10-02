@@ -1,18 +1,20 @@
 <template>
-    <div class="flexbox column w-full" style="gap: 12px">
-        <div class="flexbox wrap pad-24" style="gap: 48px;">
-            <h4><RouterLink to="/faq">FAQ</RouterLink></h4>
-            <h4><RouterLink to="/location">Location</RouterLink></h4>
-            <h4><RouterLink to="/sponsors">Sponsor</RouterLink></h4>
-            <h4><RouterLink to="/team">Team</RouterLink></h4>
-            <h4><RouterLink to="/communities">Communities</RouterLink></h4>
-            <h4><RouterLink to="/contact-us">Contacts</RouterLink></h4>
-            <h4><RouterLink to="/code-of-conduct">Codice di condotta</RouterLink></h4>
-            <h4><RouterLink to="/program">Programma</RouterLink></h4>
+    <div class="flexbox column w-full">
+        <div class="flexbox wrap pad-24 gap-4 lg:gap-8">
+            <div class="text-lg"><RouterLink to="/faq">FAQ</RouterLink></div>
+            <div class="text-lg"><RouterLink to="/location">Location</RouterLink></div>
+            <div class="text-lg"><RouterLink to="/sponsors">Sponsor</RouterLink></div>
+            <div class="text-lg"><RouterLink to="/team">Team</RouterLink></div>
+            <div class="text-lg"><RouterLink to="/communities">Communities</RouterLink></div>
+            <div class="text-lg"><RouterLink to="/contact-us">Contacts</RouterLink></div>
+            <div class="text-lg"><RouterLink to="/code-of-conduct">Codice di condotta</RouterLink></div>
+            <div class="text-lg"><RouterLink to="/program">Programma</RouterLink></div>
         </div>
-        <div class="flexbox wrap pad-24" style="gap: 48px;">
-            <p><RouterLink to="/privacy">Privacy Policy</RouterLink></p>
-            <p><RouterLink to="/legal">Note legali</RouterLink></p>
+        <div class="flexbox wrap pad-24 gap-4 lg:gap-8">
+            <RouterLink to="/privacy">Privacy Policy</RouterLink>
+            <RouterLink to="/legal">Note legali</RouterLink>
         </div>
     </div>
 </template>
+<script setup lang="ts">
+</script>

@@ -17,7 +17,7 @@
                     <h4>DACCI UNA MANO A DIVENTARE</h4>
                     <h3>IL <mark class="red">GRANDE</mark> APPUNTAMENTO DI <mark class="green">OTTOBRE</mark></h3>
                 </div>
-                <div>
+                <div class="px-4">
                     <div class="section-content">
                         <div class="image-container">
                             <img src="@/assets/img/sponsorizza-1.png"/>
@@ -110,13 +110,6 @@
                     </div>
                 </div>
             </template>
-            <section class="full-w ternary-background"
-          style="border-bottom: 2px solid #c9c9c9;">
-            <FreeTicket />
-        </section>
-        <section class="full-w secondary-background">
-            <SocialLinks />
-        </section>
         </NuxtLayout>
     </div>
 </template>

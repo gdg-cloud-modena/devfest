@@ -47,13 +47,6 @@
                     </a>
                 </div>
             </template>
-            <section class="full-w ternary-background"
-          style="border-bottom: 2px solid #c9c9c9;">
-            <FreeTicket />
-        </section>
-        <section class="full-w secondary-background">
-            <SocialLinks />
-        </section>
         </NuxtLayout>
     </div>
 </template>

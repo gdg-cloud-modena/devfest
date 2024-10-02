@@ -1,88 +1,108 @@
 @import 'colors';
-#navbar{
+
+#navbar {
+  background: #fff;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+
+  & > div {
     max-width: 1800px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    z-index: 100;
-    position: fixed;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    //height: 4rem;
-    //padding: 48px;
-    //padding-top: 51px;
-    width: 100%;
-    #logo{
-        color: $textSecondary;
-        display: flex;
-        gap: 12px;
-        align-items: center;
+  }
+
+  #logo {
+    color: $textSecondary;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  #logo-text {
+    color: #1e1e1e;
+  }
+
+  #hamburger {
+    cursor: pointer;
+    background: $background;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px;
+    justify-content: center;
+
+    #bars {
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+      width: 100%;
     }
-    #hamburger{
-        cursor: pointer;
-        background: $background;
-        width: 60px;
-        height: 60px;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        padding: 18px;
-        justify-content: center;
-        #bars{
-            display: flex;
-            gap: 8px;
-            flex-direction: column;
-            width: 100%;
+
+    #bars-45 {
+      display: block;
+      position: relative;
+
+      .bar {
+        position: absolute;
+
+        &:nth-child(1) {
+          transform: rotate(45deg);
         }
-        #bars-45{
-            display: block;
-            position: relative;
-            .bar{
-                position: absolute;
-                &:nth-child(1){
-                    transform: rotate(45deg);
-                }
-                &:nth-child(2){
-                    transform: rotate(-45deg);
-                }
-            }
+
+        &:nth-child(2) {
+          transform: rotate(-45deg);
         }
-        #bars, #bars-45{
-            .bar{
-                background: $textPrimary;
-                width: 100%;
-                height: 2px;
-            }
-        }
+      }
     }
-    &.dark{
-        backdrop-filter: blur(4px);
-        #logo{
-            color: $textPrimary;
-        }
-        #hamburger{
-            background: $textPrimary;
-            #bars, #bars-45{
-                .bar{
-                    background: $background;
-                }
-            }
-        }
+
+    #bars, #bars-45 {
+      .bar {
+        background: $textPrimary;
+        width: 100%;
+        height: 2px;
+      }
     }
+  }
+
+  &.dark {
+    //backdrop-filter: blur(4px);
+    background: #f0f0f0;
+
+    #logo {
+      color: $textPrimary;
+    }
+
+    #hamburger {
+      background: $textPrimary;
+
+      #bars, #bars-45 {
+        .bar {
+          background: $background;
+        }
+      }
+    }
+  }
 }
 
-@media screen and (max-width: 500px){
-    #navbar {
-        #hamburger {
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
-            padding: 12px;
-            #bars {
-                gap: 6px;
-            }
-        }
+@media screen and (max-width: 500px) {
+  #navbar {
+    #hamburger {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      padding: 12px;
+
+      #bars {
+        gap: 6px;
+      }
     }
+  }
 }
