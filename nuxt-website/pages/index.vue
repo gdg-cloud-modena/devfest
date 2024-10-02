@@ -40,7 +40,8 @@
       </div>
       <div class="flex flex-col lg:flex-row mt-6">
         <div class="w-full lg:w-7/12 lg:pr-10">
-          <h3 class="mb-4 text-xl lg:text-2xl" style="font-weight: normal;">DevFest è un evento dedicato agli sviluppatori,
+          <h3 class="mb-4 text-xl lg:text-2xl" style="font-weight: normal;">DevFest è un evento dedicato agli
+            sviluppatori,
             ospitato dai
             Google Developer Groups di tutto il mondo.</h3>
           <h4 class="mb-6 text-lg lg:text-xl">
@@ -330,13 +331,14 @@
         <div class="flexbox justify-between">
           <div class="pr-6">
             <div class="text-accent text-4xl lg:text-6xl font-bold">I nostri sponsor</div>
-            <div class="text-lg lg:text-xl pt-6">Scopri i partner che hanno scelto di sostenere la nostra missione.</div>
+            <div class="text-lg lg:text-xl pt-6">Scopri i partner che hanno scelto di sostenere la nostra missione.
+            </div>
           </div>
           <div class="max-w-10 lg:max-w-20">
             <img src="@/assets/svg/Ellipsis_y.svg"/>
           </div>
         </div>
-        <div class="flex flex-col lg:flex-wrap items-center lg:items-start my-10">
+        <div class="flex flex-col  lg:flex-row flex-wrap items-center lg:items-start my-10">
           <a class="mt-6 lg:mr-8 white-card sponsor-card"
              href="https://developers.google.com/community/devfest?utm_source=devfest&utm_medium=website&utm_campaign=devfest_modena_2024">
             <div class="image image-staff google"></div>

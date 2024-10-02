@@ -23,7 +23,7 @@
             i
             partecipanti.
           </div>
-          <div class="flex flex-col lg:flex-wrap items-center lg:items-start my-10">
+          <div class="flex flex-col lg:flex-row flex-wrap items-center lg:items-start my-10">
             <a class="mt-6 lg:mr-8 white-card sponsor-card"
                href="https://developers.google.com/community/devfest?utm_source=devfest&utm_medium=website&utm_campaign=devfest_modena_2024">
               <div class="image image-staff google"></div>
