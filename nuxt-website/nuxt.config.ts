@@ -15,9 +15,11 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        {src: 'https://www.eventbrite.it/static/widgets/eb_widgets.js'},
-        {src: 'https://sa.devfest.modena.it/latest.js'},
-        {src: 'https://scripts.simpleanalyticscdn.com/auto-events.js'}
+        {src: 'https://sa.devfest.modena.it/latest.js', "data-collect-dnt": "true", async: true, defer: true, body: true},
+        {src: 'https://sa.devfest.modena.it/auto-events.js', async: true, body: true },
+      ],
+      noscript: [
+        { children: '<img src="https://sa.devfest.modena.it/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" />', body: true }
       ]
     }
   },
