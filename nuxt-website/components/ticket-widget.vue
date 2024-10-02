@@ -7,31 +7,8 @@
     <div class="flexbox justify-between column">
       <div class="text-accent text-4xl lg:text-6xl font-bold">Biglietti</div>
       <div class="text-lg lg:text-2xl pt-6">
-        Ti interessa? Prendi il tuo biglietto su Eventbrite. L’ingresso è gratuito.
+        Ti interessa? Prendi il tuo biglietto <a href="https://devfest-modena-2024.eventbrite.it/">su Eventbrite</a>. L’ingresso è gratuito.
       </div>
     </div>
-    <div id="eventbrite-widget-container-1006887817567" style="flex: 1;"></div>
   </section>
 </template>
-<script setup>
-onMounted(async () => {
-  var exampleCallback = function () {
-    console.log('Ordine completato.');
-  };
-  console.log("Creating widget");
-
-  window.EBWidgets.createWidget({
-    // Required
-    widgetType: 'checkout',
-    eventId: '1006887817567',
-    iframeContainerId: 'eventbrite-widget-container-1006887817567',
-
-    // Optional
-    iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
-    onOrderComplete: exampleCallback  // Method called when an order has successfully completed
-  });
-
-  console.log("Created widget");
-
-});
-</script>
