@@ -49,11 +49,6 @@
               <div class="image image-staff ml-modena"></div>
               <div class="font-medium">ML Modena</div>
             </a>
-            <a class="mt-6 mr-8 white-card sponsor-card"
-               href="https://gdg.community.dev/gdg-bologna/">
-              <div class="image image-staff gdg-bologna"></div>
-              <div class="font-medium">GDG Bologna</div>
-            </a>
           </div>
         </section>
       </template>

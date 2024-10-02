@@ -46,7 +46,7 @@
             Google Developer Groups di tutto il mondo.</h3>
           <h4 class="mb-6 text-lg lg:text-xl">
             L'evento nasce dal lavoro congiunto delle communities locali: GDG Cloud Modena, Modena Full Stack, Flutter
-            Modena, ML Modena, Conoscere Linux, Reggio Emilia Full Stack e GDG Bologna.
+            Modena, ML Modena, Conoscere Linux, Reggio Emilia Full Stack.
           </h4>
           <div class="pt-5">
             <a class="button-like text-2xl py-5 px-7 font-bold"
