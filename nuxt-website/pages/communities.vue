@@ -23,7 +23,7 @@
             Esplora l'elenco delle comunità per trovare quella più vicina a te e unirti a un network dinamico di
             creatori e visionari.
           </div>
-          <div class="flex flex-wrap my-10">
+          <div class="flex flex-wrap justify-center my-10">
             <a class="mt-6 mr-8 white-card sponsor-card"
                href="https://gdg.community.dev/gdg-cloud-modena/">
               <div class="image image-staff gdg-modena"></div>
