@@ -23,38 +23,7 @@
             i
             partecipanti.
           </div>
-          <div class="flex flex-col lg:flex-row flex-wrap items-center lg:items-start my-10">
-            <a class="mt-6 lg:mr-8 white-card sponsor-card"
-               href="https://developers.google.com/community/devfest?utm_source=devfest&utm_medium=website&utm_campaign=devfest_modena_2024">
-              <div class="image image-staff google"></div>
-              <div class="font-medium">MAIN</div>
-            </a>
-            <a class="mt-6 lg:mr-8 white-card sponsor-card"
-               href="https://zuru.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-              <div class="image image-staff zuru"></div>
-              <div class="font-medium">DIAMOND</div>
-            </a>
-            <a class="mt-6 lg:mr-8 white-card sponsor-card"
-               href="https://www.dualb.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-              <div class="image image-staff dualbit"></div>
-              <div class="font-medium">GOLD</div>
-            </a>
-            <a class="mt-6 lg:mr-8 white-card sponsor-card"
-               href="https://netframe.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-              <div class="image image-staff netframe"></div>
-              <div class="font-medium">TECH</div>
-            </a>
-            <a class="mt-6 lg:mr-8 white-card sponsor-card"
-               href="https://atobit.it?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-              <div class="image image-staff atobit"></div>
-              <div class="font-medium">BRONZE</div>
-            </a>
-            <a class="mt-6 lg:mr-8 white-card sponsor-card"
-               href="https://www.jetbrains.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
-              <div class="image image-staff jetbrains"></div>
-              <div class="font-medium">COMMUNITY</div>
-            </a>
-          </div>
+          <Sponsor/>
         </section>
       </template>
     </NuxtLayout>
@@ -62,6 +31,8 @@
 </template>
 
 <script setup lang="ts">
+import Sponsor from "~/components/sponsor.vue";
+
 definePageMeta({
   layout: false,
 });

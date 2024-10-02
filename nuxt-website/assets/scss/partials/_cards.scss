@@ -226,6 +226,13 @@
       background-size: cover;
     }
 
+    &.netai {
+      background-image: url("~/assets/img/netAi.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
     &.google {
       background: url("~/assets/img/google.webp");
       background-size: cover;
