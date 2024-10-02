@@ -40,7 +40,7 @@
         <div class="font-medium">Atobit</div>
       </a>
       <a class="white-card sponsor-card"
-         href="https://netai.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+         href="https://netai.it/devfest/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
         <div class="image image-staff netai"></div>
         <div class="font-medium">NetAi</div>
       </a>
