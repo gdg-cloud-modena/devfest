@@ -316,8 +316,8 @@
             </RouterLink>
         </div>
     </section>-->
-    <section class="full px-4 mb-14">
-      <div class="full ternary-background" style="border-radius: 24px;">
+    <section class="px-4 mb-14">
+      <div class="ternary-background" style="border-radius: 24px;">
         <TicketWidget/>
       </div>
     </section>
