@@ -32,8 +32,8 @@
         <RouterLink to="/legal">Note legali</RouterLink>
       </div>
       <div class="flex item-center mt-8 lg:mt-0 text-lg">
-        <div>
-          Patrocinato da <img class="ml-3 inline-block" style="height: 40px" src="@/assets/img/comune-modena.jpeg"/>
+        <div class="text-center lg:text-right">
+          Patrocinato da <img class="mt-2 lg:mt-0 lg:ml-3 inline-block" style="height: 40px" src="@/assets/img/comune-modena.jpeg"/>
         </div>
       </div>
     </div>
