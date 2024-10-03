@@ -13,42 +13,42 @@
         Sponsorizza
       </template>
       <template #content>
-        <div class="pt-10 text-center">
-          <h4 class="text-2xl font-semibold">DACCI UNA MANO A DIVENTARE</h4>
-          <h3 class="text-2xl font-semibold">IL
+        <section class="pt-10 lg:pt-14 pb-4 text-center">
+          <h4 class="text-4xl font-semibold">DACCI UNA MANO A DIVENTARE</h4>
+          <h3 class="text-3xl font-semibold mt-2">IL
             <mark class="red">GRANDE</mark>
             APPUNTAMENTO DI
             <mark class="green">OTTOBRE</mark>
           </h3>
-        </div>
-        <div class="px-4 pb-8">
-          <div class="section-content">
-            <div class="image-container">
-              <img src="@/assets/img/sponsorizza-1.png"/>
+        </section>
+        <section class="px-4 lg:pt-6 pb-8">
+          <div class="flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 mt-8">
+            <div class="w-full lg:w-5/12">
+              <img src="@/assets/img/sponsorizza-1.png" class="w-full rounded-xl"/>
             </div>
-            <div class="text-content">
-              <h4 class="blue-title">La prima DevFest in Emilia</h4>
-              <p>
+            <div class="w-full lg:w-7/12">
+              <h4 class="blue-title text-2xl">La prima DevFest in Emilia</h4>
+              <p class="text-lg">
                 La prima volta a Modena di un evento DevFest nel corso del quale si incontreranno e si aggiorneranno
                 sviluppatori e devops ma anche studenti e i talentuosi creativi che stanno costruendo il domani.
               </p>
               <br>
-              <p>
+              <p class="text-lg">
                 In Emilia la prima DevFest per chi ama l’informatica, la tecnologia e vuole entrare nella più attiva
                 comunità locale per imparare e conoscere appassionati, professionisti ed imprenditori.
               </p>
             </div>
           </div>
-          <div class="section-content">
-            <div class="image-container">
-              <img src="@/assets/img/sponsorizza-3.png"/>
+           <div class="flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 mt-8">
+            <div class="w-full lg:w-5/12">
+              <img src="@/assets/img/sponsorizza-3.png" class="w-full rounded-xl"/>
             </div>
-            <div class="text-content">
-              <h4 class="blue-title">Chi organizza?</h4>
-              <p>
+            <div class="w-full lg:w-7/12">
+              <h4 class="blue-title text-2xl">Chi organizza?</h4>
+              <p class="text-lg">
                 Le comunità di Modena, Reggio Emilia e Bologna insieme nella creazione di un evento in comune: </p>
               <br>
-              <ul>
+              <ul class="text-lg">
                 <li>GDG Cloud Modena</li>
                 <li>Modena Full Stack</li>
                 <li>Flutter Modena</li>
@@ -58,71 +58,71 @@
               </ul>
             </div>
           </div>
-          <div class="section-content">
-            <div class="image-container">
-              <img src="@/assets/img/sponsorizza-2.png"/>
+           <div class="flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 mt-8">
+            <div class="w-full lg:w-5/12">
+              <img src="@/assets/img/sponsorizza-2.png" class="w-full rounded-xl"/>
             </div>
-            <div class="text-content">
-              <h4 class="blue-title">I partecipanti</h4>
-              <p>
+            <div class="w-full lg:w-7/12">
+              <h4 class="blue-title text-2xl">I partecipanti</h4>
+              <p class="text-lg">
                 I partecipanti saranno super-appassionati provenienti da <span style="font-weight: bold;">aziende</span>,
                 <span style="font-weight: bold;">startup</span> innovative, oltre a <span style="font-weight: bold;">freelance</span>,
                 <span style="font-weight: bold;">sviluppatori</span> indipendenti e membri di grandi organizzazioni. Si
                 stima un’affluenza di circa <span style="font-weight: bold;">300 persone</span>.
               </p>
               <br>
-              <p>
+              <p class="text-lg">
                 Il DevFest è il luogo dove si potrà essere aggiornati sulle più innovativi tecnologie e sulle più
                 diffuse pratiche nell'ingegneria del software.
               </p>
             </div>
           </div>
-          <div class="section-content">
-            <div class="image-container">
-              <img src="@/assets/img/sponsorizza-5.png"/>
+           <div class="flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 mt-8">
+            <div class="w-full lg:w-5/12">
+              <img src="@/assets/img/sponsorizza-5.png" class="w-full rounded-xl"/>
             </div>
-            <div class="text-content">
-              <h4 class="blue-title">La location</h4>
-              <p>
+            <div class="w-full lg:w-7/12">
+              <h4 class="blue-title text-2xl">La location</h4>
+              <p class="text-lg">
                 Il posto dove innovazione, sperimentazione e cultura si incontrano.
               </p>
               <br>
-              <p>
+              <p class="text-lg">
                 Il Laboratorio Aperto di Modena è un luogo di formazione e innovazione per cittadini, scuole,
                 università, imprese e professionisti del settore culturale.
               </p>
             </div>
           </div>
-          <div class="section-content">
-            <div class="image-container">
-              <img src="@/assets/img/sponsorizza-6.png"/>
+           <div class="flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 mt-8">
+            <div class="w-full lg:w-5/12">
+              <img src="@/assets/img/sponsorizza-6.png" class="w-full rounded-xl"/>
             </div>
-            <div class="text-content">
-              <h4 class="blue-title">Area sponsor</h4>
-              <p>
+            <div class="w-full lg:w-7/12">
+              <h4 class="blue-title text-2xl">Area sponsor</h4>
+              <p class="text-lg">
                 Un’area dove accogliere le persone e presentarsi.
               </p>
               <br>
-              <p>
+              <p class="text-lg">
                 In aggiunta, l’Area Vip rappresenta uno spazio esclusivo situato nel soppalco. L’area è pensata
                 appositamente per le aziende che desiderano creare un ambiente personalizzato e riservato.
               </p>
             </div>
           </div>
-          <div class="section-content">
-            <div class="image-container">
-              <img src="@/assets/img/sponsorizza-7.png"/>
+           <div class="flex flex-col lg:flex-row items-center gap-8 bg-white rounded-2xl p-6 mt-8">
+            <div class="w-full lg:w-5/12">
+              <img src="@/assets/img/sponsorizza-7.png" class="w-full rounded-xl"/>
             </div>
-            <div class="text-content">
-              <h4 class="blue-title">Come sponsorizzare</h4>
-              <p>
+            <div class="w-full lg:w-7/12">
+              <h4 class="blue-title text-2xl">Come sponsorizzare</h4>
+              <p class="text-lg">
                 Contattaci all’indirizzo email <a
                   href="mailto:sponsors@devfest.modena.it">sponsors@devfest.modena.it</a>. Fisseremo una call di 10-15
                 minuti per spiegarti i dettagli e mostrarti i pacchetti disponibili.
               </p>
             </div>
           </div>
-        </div>
+        </section>
       </template>
     </NuxtLayout>
   </div>
