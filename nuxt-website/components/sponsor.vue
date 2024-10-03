@@ -16,7 +16,7 @@
         <div class="font-medium">ZURU</div>
       </a>
       <a class="white-card sponsor-card"
-         href="https://it.qubicaamf.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+         href="https://www.qubicaamf.com/company">
         <div class="image image-staff qubicaamf"></div>
         <div class="font-medium">QubicaAMF</div>
       </a>
