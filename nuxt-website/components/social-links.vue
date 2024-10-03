@@ -5,7 +5,7 @@
       <div class="max-w-14 hidden lg:block">
         <img src="@/assets/svg/blue-plus.svg"/>
       </div>
-      <div class="text-accent text-4xl font-semibold" style="line-height: unset;">Seguici sui social ;)</div>
+      <div class="text-accent text-3xl lg:text-4xl font-semibold" style="line-height: unset;">Seguici sui social ;)</div>
     </div>
     <div class="flexbox wrap mt-4 lg:mt-0" style="gap: 24px">
       <a href="https://www.facebook.com/events/7532786990157832/" target="_blank">
