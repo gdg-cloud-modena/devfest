@@ -5,7 +5,7 @@
   <div>
     <NuxtLayout name="page">
       <template #image>
-         <img src="@/assets/svg/square-brackets.svg">
+        <img src="@/assets/svg/square-brackets.svg">
       </template>
 
       <template #title>
@@ -25,120 +25,122 @@
             un'esperienza di apprendimento e ispirazione senza pari a Modena.
           </div>
         </section>
-        <div class="flexbox wrap justify-center align-top px-4 pb-8" style="gap: 48px; flex: 1 1 400px;">
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/riccardo-carlesso">
-              <div class="image riccardo-carlesso"></div>
-              <div class="font-semibold text-medium mt-3">Riccardo Carlesso</div>
-              <p class="text-label">English/Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/moreno-razzoli">
-              <div class="image moreno-razzoli"></div>
-              <div class="font-semibold text-medium mt-3">Moreno Razzoli</div>
-              <p class="text-label">Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/alfonso-graziano">
-              <div class="image alfonso-graziano"></div>
-              <div class="font-semibold text-medium mt-3">Alfonso Graziano</div>
-              <p class="text-label">English/Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/giovanni-perteghella">
-              <div class="image giovanni-perteghella"></div>
-              <div class="font-semibold text-medium mt-3">Giovanni Perteghella</div>
-              <p class="text-label">Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/paolo-galeone">
-              <div class="image paolo-galeone"></div>
-              <div class="font-semibold text-medium mt-3">Paolo Galeone</div>
-              <p class="text-label">English/Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/imran-us-salam-mian">
-              <div class="image imran-us-salam-mian"></div>
-              <div class="font-semibold text-medium mt-3">Imran us Salam Mian</div>
-              <p class="text-label">English</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/ankur-roy">
-              <div class="image ankur-roy"></div>
-              <div class="font-semibold text-medium mt-3">Ankur Roy</div>
-              <p class="text-label">English</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/carlo-lucera">
-              <div class="image carlo-lucera"></div>
-              <div class="font-semibold text-medium mt-3">Carlo Lucera</div>
-              <p class="text-label">English/Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/flavio-basile">
-              <div class="image flavio-basile"></div>
-              <div class="font-semibold text-medium mt-3">Flavio Basile</div>
-              <p class="text-label">Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/luca-del-puppo">
-              <div class="image luca-del-puppo"></div>
-              <div class="font-semibold text-medium mt-3">Luca del Puppo</div>
-              <p class="text-label">English/Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/marco-breveglieri">
-              <div class="image marco-breveglieri"></div>
-              <div class="font-semibold text-medium mt-3">Marco Breveglieri</div>
-              <p class="text-label">Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/amanda-cavallaro">
-              <div class="image amanda-cavallaro"></div>
-              <div class="font-semibold text-medium mt-3">Amanda Cavallaro</div>
-              <p class="text-label">English</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/matteo-maria-terzuolo">
-              <div class="image matteo-maria-terzuolo"></div>
-              <div class="font-semibold text-medium mt-3">Matteo Maria Terzuolo</div>
-              <p class="text-label">English/Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/marco-arena">
-              <div class="image marco-arena"></div>
-              <div class="font-semibold text-medium mt-3">Marco Arena</div>
-              <p class="text-label">English/Italiano</p>
-            </RouterLink>
-          </div>
-          <div class="white-card max-width-450">
-            <RouterLink to="/speaker/francesco-baldassarri">
-              <div class="image francesco-baldassarri"></div>
-              <div class="font-semibold text-medium mt-3">Francesco Baldassarri</div>
-              <p class="text-label">English/Italiano</p>
-            </RouterLink>
-          </div>
-          <!--div class="white-card max-width-450">
-              <RouterLink to="/speaker/jai-campbell">
-                  <div class="image jai-campbell"></div>
-                  <h4>Jai Campbell</h4>
-                  <p class="text-label">English</p>
+        <section class="px-4 pb-8 lg:pb-16">
+          <div class="flexbox wrap justify-center align-top" style="gap: 48px; flex: 1 1 400px;">
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/riccardo-carlesso">
+                <div class="image riccardo-carlesso"></div>
+                <div class="font-semibold text-medium mt-3">Riccardo Carlesso</div>
+                <p class="text-label">English/Italiano</p>
               </RouterLink>
-          </div-->
-        </div>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/moreno-razzoli">
+                <div class="image moreno-razzoli"></div>
+                <div class="font-semibold text-medium mt-3">Moreno Razzoli</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/alfonso-graziano">
+                <div class="image alfonso-graziano"></div>
+                <div class="font-semibold text-medium mt-3">Alfonso Graziano</div>
+                <p class="text-label">English/Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/giovanni-perteghella">
+                <div class="image giovanni-perteghella"></div>
+                <div class="font-semibold text-medium mt-3">Giovanni Perteghella</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/paolo-galeone">
+                <div class="image paolo-galeone"></div>
+                <div class="font-semibold text-medium mt-3">Paolo Galeone</div>
+                <p class="text-label">English/Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/imran-us-salam-mian">
+                <div class="image imran-us-salam-mian"></div>
+                <div class="font-semibold text-medium mt-3">Imran us Salam Mian</div>
+                <p class="text-label">English</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/ankur-roy">
+                <div class="image ankur-roy"></div>
+                <div class="font-semibold text-medium mt-3">Ankur Roy</div>
+                <p class="text-label">English</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/carlo-lucera">
+                <div class="image carlo-lucera"></div>
+                <div class="font-semibold text-medium mt-3">Carlo Lucera</div>
+                <p class="text-label">English/Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/flavio-basile">
+                <div class="image flavio-basile"></div>
+                <div class="font-semibold text-medium mt-3">Flavio Basile</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/luca-del-puppo">
+                <div class="image luca-del-puppo"></div>
+                <div class="font-semibold text-medium mt-3">Luca del Puppo</div>
+                <p class="text-label">English/Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/marco-breveglieri">
+                <div class="image marco-breveglieri"></div>
+                <div class="font-semibold text-medium mt-3">Marco Breveglieri</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/amanda-cavallaro">
+                <div class="image amanda-cavallaro"></div>
+                <div class="font-semibold text-medium mt-3">Amanda Cavallaro</div>
+                <p class="text-label">English</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/matteo-maria-terzuolo">
+                <div class="image matteo-maria-terzuolo"></div>
+                <div class="font-semibold text-medium mt-3">Matteo Maria Terzuolo</div>
+                <p class="text-label">English/Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/marco-arena">
+                <div class="image marco-arena"></div>
+                <div class="font-semibold text-medium mt-3">Marco Arena</div>
+                <p class="text-label">English/Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/francesco-baldassarri">
+                <div class="image francesco-baldassarri"></div>
+                <div class="font-semibold text-medium mt-3">Francesco Baldassarri</div>
+                <p class="text-label">English/Italiano</p>
+              </RouterLink>
+            </div>
+            <!--div class="white-card max-width-450">
+                <RouterLink to="/speaker/jai-campbell">
+                    <div class="image jai-campbell"></div>
+                    <h4>Jai Campbell</h4>
+                    <p class="text-label">English</p>
+                </RouterLink>
+            </div-->
+          </div>
+        </section>
       </template>
     </NuxtLayout>
   </div>
