@@ -240,6 +240,13 @@
       background-position: center;
     }
 
+    &.quix {
+      background-image: url("~/assets/img/logo-quix.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
     &.google {
       background: url("~/assets/img/google.webp");
       background-size: cover;
@@ -265,10 +272,6 @@
       background-size: cover;
     }
 
-    /*&.quix{
-        background: url("~/assets/img/quix.webp");
-        background-size: cover;
-    }*/
     &.image-staff {
       height: 200px;
     }
