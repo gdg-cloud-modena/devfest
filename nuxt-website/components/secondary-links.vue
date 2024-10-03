@@ -31,12 +31,9 @@
         <RouterLink to="/privacy">Privacy Policy</RouterLink>
         <RouterLink to="/legal">Note legali</RouterLink>
       </div>
-      <div class="flex item-center mt-8 lg:mt-0">
+      <div class="flex item-center mt-8 lg:mt-0 text-lg">
         <div>
-          Patrocinato da
-        </div>
-        <div>
-          <img class="ml-3" style="height: 25px" src="@/assets/img/comune-modena.jpeg"/>
+          Patrocinato da <img class="ml-3 inline-block" style="height: 40px" src="@/assets/img/comune-modena.jpeg"/>
         </div>
       </div>
     </div>
