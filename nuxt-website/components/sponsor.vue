@@ -57,6 +57,12 @@
         <div class="image image-staff netai"></div>
         <div class="font-medium">NetAi</div>
       </a>
+      <a class="white-card sponsor-card"
+         href="mailto:gilioli@dgpcommercialisti.it">
+        <div class="image image-staff studio-dgp"></div>
+        <div class="font-medium">Studio DGP</div>
+      </a>
+
     </div>
     <div class="font-bold mt-8">Community</div>
     <div class="flex flex-col lg:flex-row flex-wrap items-center lg:items-start gap-6 mt-4">

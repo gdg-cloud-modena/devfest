@@ -3,11 +3,9 @@
     <div>
         <NuxtLayout name="speaker-page" speaker-image="francesco-baldassarri"> 
             <template #image>
-                <div style="max-width: 100px; max-height: 200px;">
-                    <img style="max-width: 100%; max-height: 100%;" src="@/assets/svg/square-brackets.svg">
-                </div>
+                <img src="@/assets/svg/square-brackets.svg">
             </template>
-            <template #title> Unleash the Power of Llama 3.1 on Your Local Hardware – No Cloud Needed!</template>
+            <template #title>Unleash the Power of Llama 3.1 on Your Local Hardware – No Cloud Needed!</template>
             <template #speaker-info>
                 <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
                     <div class="info-box">
@@ -24,7 +22,7 @@
                     </div>
                     <div class="info-box">
                         <h3>Lingua</h3>
-                        <p>English / Italiano</p>
+                        <p>English/Italiano</p>
                     </div>
                 </div>
             </template>
@@ -33,8 +31,6 @@
                 <p>
                     Generative AI and large language models (LLMs) represent a groundbreaking innovation, offering vast new opportunities. However, there are significant limitations, particularly high costs from overpriced GPUs and expensive cloud services, making AI experimentation challenging. In this session, we'll explore the architecture of Llama models and how to download, convert, quantize and fine-tune it on your own hardware.
                 </p>
-
-                
             </template>
             <template #description>
                 <h2>Bio</h2>

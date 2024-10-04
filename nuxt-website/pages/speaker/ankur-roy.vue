@@ -3,11 +3,11 @@
   <div>
     <NuxtLayout name="speaker-page" speaker-image="ankur-roy">
       <template #image>
-        <div>
-          <img src="@/assets/svg/square-brackets.svg">
-        </div>
+        <img src="@/assets/svg/square-brackets.svg">
       </template>
+
       <template #title> Gemini 1.5: A workshop in multimodal use cases</template>
+
       <template #speaker-info>
         <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
           <div class="info-box">
@@ -30,7 +30,13 @@
       </template>
       <template #talk>
         <h2>Speech</h2>
-        <p>
+        <p class="mb-3">
+          Session abstract<br/>
+          It is a pre-prepared demo using Google's content on multimodal use cases with Gemini that has been provided to
+          GDEs. I will present it along with a short talk to explain Vertex AI and Gemini models. The description, as
+          given by Google is as follows:
+        </p>
+        <p class="mb-3">
           What are the applications of multimodality with Gemini? This session will cover a variety of different
           multimodal use cases for text, images, audio, video, and code to provide ideas on how you can apply
           multimodality to practical business scenarios. You will gain hands-on experience with both Gemini 1.5 Pro and
@@ -60,8 +66,16 @@
           <a href="https://www.linkedin.com/in/ankurr0y/" target="_blank">
             <img src="@/assets/img/linkedin.png" style="height: 24px;"/>
           </a>
+          <a href="https://github.com/ankurr0y" target="_blank">
+            <img src="@/assets/img/github.svg" style="height: 24px;"/>
+          </a>
+          <a href="https://ankurr.substack.com/" target="_blank">
+            <img src="@/assets/img/website.png" style="height: 24px;"/>
+          </a>
+          <a href="https://open.spotify.com/show/5INjWLYQdlPOCJmCoRDx7C?si=jtHQpBzcRimHWK-7Yn8yBg" target="_blank">
+            <img src="@/assets/img/website.png" style="height: 24px;"/>
+          </a>
         </div>
-
       </template>
     </NuxtLayout>
   </div>

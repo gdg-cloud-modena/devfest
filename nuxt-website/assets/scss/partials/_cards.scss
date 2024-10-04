@@ -46,6 +46,16 @@
       background-size: cover;
     }
 
+    &.mirko-gilioli {
+      background: url("~/assets/img/mirko-gilioli.jpg");
+      background-size: cover;
+    }
+
+    &.maurizio-ipsale {
+      background: url("~/assets/img/maurizio-ipsale.jpg");
+      background-size: cover;
+    }
+
     &.marco-breveglieri {
       background: url("~/assets/img/marco-breveglieri.jpg");
       background-size: cover;
@@ -233,6 +243,13 @@
       background-position: center;
     }
 
+    &.studio-dgp {
+      background-image: url("~/assets/img/studio-dgp.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
     &.qubicaamf {
       background-image: url("~/assets/img/qubica.png");
       background-size: contain;
@@ -376,6 +393,16 @@
 
     &.coder-dojo {
       background: url("~/assets/img/coder-dojo.png");
+      background-size: cover;
+    }
+
+    &.mirko-gilioli {
+      background: url("~/assets/img/mirko-gilioli.jpg");
+      background-size: cover;
+    }
+
+    &.maurizio-ipsale {
+      background: url("~/assets/img/maurizio-ipsale.jpg");
       background-size: cover;
     }
 

@@ -139,6 +139,20 @@
                 <p class="text-label">English</p>
               </RouterLink>
             </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/mirko-gilioli">
+                <div class="image mirko-gilioli"></div>
+                <div class="font-semibold text-medium mt-3">Mirko Gilioli</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/maurizio-ipsale">
+                <div class="image maurizio-ipsale"></div>
+                <div class="font-semibold text-medium mt-3">Maurizio Ipsale</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
             <!--div class="white-card max-width-450">
                 <RouterLink to="/speaker/jai-campbell">
                     <div class="image jai-campbell"></div>
