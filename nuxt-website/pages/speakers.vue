@@ -132,6 +132,13 @@
                 <p class="text-label">English/Italiano</p>
               </RouterLink>
             </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/susanna-wong">
+                <div class="image susanna-wong"></div>
+                <div class="font-semibold text-medium mt-3">Susanna Wong</div>
+                <p class="text-label">English</p>
+              </RouterLink>
+            </div>
             <!--div class="white-card max-width-450">
                 <RouterLink to="/speaker/jai-campbell">
                     <div class="image jai-campbell"></div>
