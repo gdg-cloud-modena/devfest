@@ -33,10 +33,7 @@
           with complex data structures using clear and intuitive patterns.
         </p>
         <p class="mb-3">
-          The demo application includes a simple bank dashboard and a login form. If the SIM Swap API detects that a
-          phone number was swapped recently, the verification code will not be sent, and additional security measures
-          will be applied. A verification code will be sent via the Verify v2 API to authenticate the user if no recent
-          swap is detected.
+          We'll uncover real-world applications and share some neat tricks to maximize the potential of this powerful feature.
         </p>
         <p class="mb-3">
           So buckle up, because by the end of this session, you'll be ready to level up your Dart game and tackle those
