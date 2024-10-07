@@ -61,7 +61,7 @@
                 <img src="@/assets/svg/room.svg"/>
               </div>
               <div class="highlight">
-                <div class="text-accent-3 text-3xl font-bold">3</div>
+                <div class="text-accent-3 text-3xl font-bold">4</div>
               </div>
               <div class="text-xl">Sale</div>
             </div>
@@ -83,7 +83,7 @@
                 <img src="@/assets/svg/ic_teach.svg"/>
               </div>
               <div class="highlight">
-                <div class="text-accent-1 text-3xl font-bold">3</div>
+                <div class="text-accent-1 text-3xl font-bold">4</div>
               </div>
               <div class="text-xl">Workshop</div>
             </div>
@@ -94,7 +94,7 @@
                 <img src="@/assets/svg/people.svg"/>
               </div>
               <div class="highlight">
-                <div class="text-accent text-3xl font-bold">300</div>
+                <div class="text-accent text-3xl font-bold">300+</div>
               </div>
               <div class="text-xl">Ospiti</div>
             </div>
