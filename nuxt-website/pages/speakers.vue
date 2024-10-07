@@ -157,7 +157,7 @@
               <RouterLink to="/speaker/maurizio-carli">
                 <div class="image maurizio-carli"></div>
                 <div class="font-semibold text-medium mt-3">Maurizio Carli</div>
-                <p class="text-label">English/Italiano</p>
+                <p class="text-label">Italiano</p>
               </RouterLink>
             </div>
             <!--div class="white-card max-width-450">

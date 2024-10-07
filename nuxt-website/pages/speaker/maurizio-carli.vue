@@ -18,11 +18,11 @@
           </div>
           <div class="info-box">
             <h3>Ruolo</h3>
-            <p>Bowling Products</p>
+            <p>Tech Lead</p>
           </div>
           <div class="info-box">
             <h3>Lingua</h3>
-            <p>English / Italiano</p>
+            <p>Italiano</p>
           </div>
         </div>
       </template>
