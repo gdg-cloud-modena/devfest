@@ -20,6 +20,11 @@
         <div class="image image-staff qubicaamf"></div>
         <div class="font-medium">QubicaAMF</div>
       </a>
+      <a class="white-card sponsor-card"
+         href="https://www.expert.ai/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+        <div class="image image-staff expert-ai"></div>
+        <div class="font-medium">Expert.AI</div>
+      </a>
     </div>
     <div class="font-bold mt-8">Gold</div>
     <div class="flex flex-col lg:flex-row flex-wrap items-center lg:items-start gap-6 mt-4">
@@ -27,6 +32,11 @@
          href="https://www.dualb.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
         <div class="image image-staff dualbit"></div>
         <div class="font-medium">DualBit</div>
+      </a>
+      <a class="white-card sponsor-card"
+         href="https://www.credem.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+        <div class="image image-staff gruppo-credem"></div>
+        <div class="font-medium">Credem</div>
       </a>
     </div>
     <div class="font-bold mt-8">Tech</div>
@@ -62,7 +72,6 @@
         <div class="image image-staff studio-dgp"></div>
         <div class="font-medium">Studio DGP</div>
       </a>
-
     </div>
     <div class="font-bold mt-8">Community</div>
     <div class="flex flex-col lg:flex-row flex-wrap items-center lg:items-start gap-6 mt-4">

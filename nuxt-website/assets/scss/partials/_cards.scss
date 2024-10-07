@@ -262,6 +262,20 @@
       background-position: center;
     }
 
+    &.expert-ai {
+      background-image: url("~/assets/img/expert-ai.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &.gruppo-credem {
+      background-image: url("~/assets/img/gruppo-credem.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
     &.quix {
       background-image: url("~/assets/img/logo-quix.svg");
       background-size: contain;
