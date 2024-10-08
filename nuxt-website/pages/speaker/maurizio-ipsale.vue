@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Title>DevFest Modena 2024 &mdash; Lead Google Cloud Instructor</Title>
+    <Title>DevFest Modena 2024 &mdash; Keynote</Title>
     <NuxtLayout name="speaker-page" speaker-image="maurizio-ipsale">
       <template #image>
         <img src="@/assets/svg/square-brackets.svg">
       </template>
 
-      <template #title>The Staff Engineer VS Manager Path: A window over the tech career paths</template>
+      <template #title>Keynote</template>
 
       <template #speaker-info>
         <div class="flexbox column pad-24" style="gap: 12px; width: 100%;">
