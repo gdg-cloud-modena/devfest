@@ -167,13 +167,13 @@
                 <p class="text-label">Italiano</p>
               </RouterLink>
             </div>
-            <!--div class="white-card max-width-450">
-                <RouterLink to="/speaker/jai-campbell">
-                    <div class="image jai-campbell"></div>
-                    <h4>Jai Campbell</h4>
-                    <p class="text-label">English</p>
-                </RouterLink>
-            </div-->
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/emilio-junior-francischetti">
+                <div class="image emilio-junior-francischetti"></div>
+                <div class="font-semibold text-medium mt-3">Emilio Junior Francischetti</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
           </div>
         </section>
       </template>
