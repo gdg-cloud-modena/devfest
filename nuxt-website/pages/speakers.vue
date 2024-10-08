@@ -174,6 +174,20 @@
                 <p class="text-label">Italiano</p>
               </RouterLink>
             </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/enrico-sasdelli">
+                <div class="image enrico-sasdelli"></div>
+                <div class="font-semibold text-medium mt-3">Enrico Sasdelli</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/emiliano-della-casa">
+                <div class="image emiliano-della-casa"></div>
+                <div class="font-semibold text-medium mt-3">Emiliano Della Casa</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
           </div>
         </section>
       </template>
