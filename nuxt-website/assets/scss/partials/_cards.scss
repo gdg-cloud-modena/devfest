@@ -31,6 +31,12 @@
     background-size: cover;
     border-radius: 12px;
 
+    &.image-staff {
+      height: 200px;
+      background: url("~/assets/img/profile.jpg");
+      background-size: cover;
+    }
+
     &.riccardo-carlesso {
       background: url("~/assets/img/riccardo-carlesso.jpg");
       background-size: cover;
@@ -346,10 +352,6 @@
     &.coder-dojo {
       background: url("~/assets/img/coder-dojo.png");
       background-size: cover;
-    }
-
-    &.image-staff {
-      height: 200px;
     }
   }
 }
