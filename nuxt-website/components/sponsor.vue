@@ -11,7 +11,7 @@
     <div class="font-bold mt-8">Diamond</div>
     <div class="flex flex-col lg:flex-row flex-wrap items-center lg:items-start gap-6 mt-4">
       <a class="white-card sponsor-card"
-         href="https://zuru.com/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+         href="https://zuru.tech/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
         <div class="image image-staff zuru"></div>
         <div class="font-medium">ZURU</div>
       </a>
