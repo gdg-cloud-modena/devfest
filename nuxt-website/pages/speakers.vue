@@ -160,6 +160,13 @@
                 <p class="text-label">Italiano</p>
               </RouterLink>
             </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/andrea-capitani">
+                <div class="image andrea-capitani"></div>
+                <div class="font-semibold text-medium mt-3">Andrea Capitani</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
             <!--div class="white-card max-width-450">
                 <RouterLink to="/speaker/jai-campbell">
                     <div class="image jai-campbell"></div>
