@@ -28,12 +28,12 @@
       </template>
       <template #talk>
         <h2>Workshop</h2>
-        <p>
+        <p class="mb-3">
           Coding Gym is an international format of programming labs open to any language. It is designed for continuous
           improvement, guided by the principles of the Coding Gym manifesto:
         </p>
         <br/>
-        <p>
+        <p class="mb-3">
           "We help others practice programming, software development, and communication skills by making coding
           laboratories open to any programming language where cooperation is valued over competition, doing and sharing
           are valued over teaching, and where competing solutions come with discussing and understanding tradeoffs."
@@ -42,18 +42,18 @@
         <p style="font-weight: bold;">
           How It Works:
         </p>
-        <p>
+        <p class="mb-3">
           Coding Gym is NOT a contest!
         </p>
-        <p>
+        <p class="mb-3">
           Participants ("gymmers") work in pairs on 3 self-contained problems using any programming language of their
           choice, all within a browser.
         </p>
-        <p>
+        <p class="mb-3">
           After each exercise, a Coding Gym "trainer" moderates a retrospective session where gymmers present their
           solutions, discussing pros, cons, and tradeoffs.
         </p>
-        <p>
+        <p class="mb-3">
           The trainer may also set new questions such as "What happens if the input size increases by 100 times?", or
           may introduce new solutions and concepts, potentially altering the problem on the spot to encourage discussion
           on changes and their impact. These variations can lead to discovering new ways of simplifying or complicating
@@ -67,13 +67,13 @@
           Coding Gym is not tied to any specific paradigm or programming language. It uses any tool, technique, or
           paradigm necessary to achieve its goals, promoting freedom in problem-solving.
         </p>
-        <p>
+        <p class="mb-3">
           For each problem, Coding Gym encourages gymmers to explore, study, and experiment with alternative solutions
           and variations. This approach helps participants break free from their mental patterns, evolving and learning
           new concepts and techniques. Each new solution brings compromises, advantages, and disadvantages that must be
           identified and understood as part of the practice.
         </p>
-        <p>
+        <p class="mb-3">
           A key aspect of Coding Gym is recognizing that technical skills alone are not sufficient. Professionals also
           need to master effective communication and collaboration. Coding Gym provides opportunities to practice these
           skills directly, enabling participants to collaborate with others and to explain their ideas and solutions in
@@ -85,8 +85,20 @@
           More information on <a href="https://coding-gym.org">coding-gym.org</a>
         </p>
         <br/>
-        <p>
+        <p class="mb-5">
           Coding Gym has been conceived, developed, and directed by Marco Arena since 2016.
+        </p>
+        <br/>
+        <p class="mb-3 font-bold text-xl">
+          Participation Requirements
+        </p>
+        <p class="mb-3">
+          Please remember to bring your own laptop. While we will be working in pairs, you might still need it, so
+          having it with you is important.
+          Additionally, having an account on HackerRank is required, as all challenges will be done directly in the
+          browser using the platform. The exercises are hosted there, and it will be the main tool for testing and
+          submitting solutions. Sign up here: https://www.hackerrank.com/
+          Finally, sign up at this HackerRank contest (although Coding Gym IS NOT a contest)
         </p>
       </template>
       <template #description>

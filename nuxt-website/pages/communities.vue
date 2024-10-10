@@ -49,6 +49,11 @@
               <div class="image image-staff ml-modena"></div>
               <div class="font-medium">ML Modena</div>
             </a>
+            <a class="mt-6 mr-8 white-card sponsor-card"
+               href="https://www.meetup.com/reggio-emilia-full-stack/">
+              <div class="image image-staff reggio-emilia-full-stack"></div>
+              <div class="font-medium">Reggio Emilia full stack</div>
+            </a>
           </div>
         </section>
       </template>
