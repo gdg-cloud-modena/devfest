@@ -305,7 +305,7 @@ const events = [
   },
   {
     id: 26,
-    title: "TODO !!!!!!",
+    title: "",
     time: "11:00 - 11:35",
     speaker: "Stefano Allegretti",
     duration: 40, // +5min dopo
