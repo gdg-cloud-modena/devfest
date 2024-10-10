@@ -52,7 +52,7 @@
             <a class="mt-6 mr-8 white-card sponsor-card"
                href="https://www.meetup.com/reggio-emilia-full-stack/">
               <div class="image image-staff reggio-emilia-full-stack"></div>
-              <div class="font-medium">Reggio Emilia full stack</div>
+              <div class="font-medium">Reggio Emilia Full Stack</div>
             </a>
           </div>
         </section>
