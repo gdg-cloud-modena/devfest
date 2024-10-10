@@ -459,7 +459,7 @@ const events = [
   },
   {
     id: 42,
-    title: "Expert.ai",
+    title: "Intelligent Document Processing",
     time: "11:50 - 12:25",
     speaker: "Andrea Capitani, Alessandro Rosa, Stefano Simonazzi",
     duration: 40, // pausa dopo
