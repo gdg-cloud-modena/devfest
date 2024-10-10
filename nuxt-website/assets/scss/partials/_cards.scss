@@ -278,7 +278,7 @@
     }
 
     &.gdg-modena {
-      background: url("~/assets/img/Logo3.png");
+      background: url("~/assets/img/GDG-cloud-Modena.png");
       background-size: cover;
     }
 
@@ -288,8 +288,10 @@
     }
 
     &.modena-full-stack {
-      background: url("~/assets/img/Logo5.png");
-      background-size: cover;
+      background: url("~/assets/img/logo-modena-full-stack.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     &.gdg-bologna {
