@@ -26,6 +26,8 @@
                   <p>Viale Buon Pastore 43, Modena, 41125, (MO)</p>
                 </div>
               </div>
+              <a href="https://maps.app.goo.gl/XK2MhNpML3Yr77DG6" target="_blank"
+              class="button-like cool-blue text-2xl py-5 px-7">Link Parcheggio sotterraneo</a>
               <a href="https://maps.google.com/?q=Viale Buon Pastore 43, Modena" target="_blank"
                  class="button-like cool-blue text-2xl py-5 px-7">Apri in Maps</a>
             </div>
