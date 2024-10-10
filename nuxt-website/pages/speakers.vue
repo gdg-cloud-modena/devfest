@@ -168,6 +168,20 @@
               </RouterLink>
             </div>
             <div class="white-card max-width-450">
+              <RouterLink to="/speaker/alessandro-rosa">
+                <div class="image alessandro-rosa"></div>
+                <div class="font-semibold text-medium mt-3">Alessandro Rosa</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/stefano-simonazzi">
+                <div class="image stefano-simonazzi"></div>
+                <div class="font-semibold text-medium mt-3">Stefano Simonazzi</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
+            <div class="white-card max-width-450">
               <RouterLink to="/speaker/emilio-junior-francischetti">
                 <div class="image emilio-junior-francischetti"></div>
                 <div class="font-semibold text-medium mt-3">Emilio Junior Francischetti</div>
