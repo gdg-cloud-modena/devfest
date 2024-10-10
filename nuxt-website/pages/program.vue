@@ -51,7 +51,7 @@ definePageMeta({
 const events = [
   {
     id: 52,
-    title: "Basilico",
+    title: "Balsamico",
     time: "18:30 - 21:30",
     speaker: "",
     duration: 120,
