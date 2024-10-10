@@ -72,7 +72,7 @@
                 <img src="@/assets/svg/ic_keyboard_voice.svg"/>
               </div>
               <div class="highlight">
-                <div class="text-accent-2 text-3xl font-bold">19</div>
+                <div class="text-accent-2 text-3xl font-bold">25</div>
               </div>
               <div class="text-xl">Relatori</div>
             </div>
@@ -94,7 +94,7 @@
                 <img src="@/assets/svg/people.svg"/>
               </div>
               <div class="highlight">
-                <div class="text-accent text-3xl font-bold">300+</div>
+                <div class="text-accent text-3xl font-bold">400</div>
               </div>
               <div class="text-xl">Ospiti</div>
             </div>
