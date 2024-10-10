@@ -358,6 +358,20 @@
       background-position: center;
     }
 
+    &.tetrapack {
+      background-image: url("~/assets/img/tetra-pak-logotype.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+     &.juno {
+      background-image: url("~/assets/img/juno.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
     &.google {
       background: url("~/assets/img/google.webp");
       background-size: cover;

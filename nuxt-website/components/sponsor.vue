@@ -46,6 +46,11 @@
         <div class="image image-staff netframe"></div>
         <div class="font-medium">netframe</div>
       </a>
+      <a class="white-card sponsor-card"
+         href="https://www.tetrapak.com/it-it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+        <div class="image image-staff tetrapack"></div>
+        <div class="font-medium">Tetrapack</div>
+      </a>
     </div>
     <div class="font-bold mt-8">Silver</div>
     <div class="flex flex-col lg:flex-row flex-wrap items-center lg:items-start gap-6 mt-4">
@@ -53,6 +58,11 @@
          href="https://quix.it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
         <div class="image image-staff quix"></div>
         <div class="font-medium">Quix</div>
+      </a>
+      <a class="white-card sponsor-card"
+         href="https://www.any3dp.com/it/?utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2024">
+        <div class="image image-staff juno"></div>
+        <div class="font-medium">Juno</div>
       </a>
     </div>
     <div class="font-bold mt-8">Bronze</div>
