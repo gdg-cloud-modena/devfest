@@ -245,7 +245,7 @@
             events: [
                 {
                     id: 15,
-                    title: "CoderDojo",
+                    title: "MakerDojo",
                     time: "09:00 - 11:00",
                     duration: 120,
                     url: ""

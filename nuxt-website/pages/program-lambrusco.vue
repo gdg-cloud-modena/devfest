@@ -286,9 +286,9 @@
                 },
                 {
                     id: 26,
-                    title: "TBD",
+                    title: "Intelligent Document Processing",
                     time: "11:50 - 12:25",
-                    speaker: "TBD",
+                    speaker: "Andrea Capitani, Alessandro Rosa, Stefano Simonazzi",
                     duration: 40, // pausa dopo
                     url: ""
                 },
@@ -303,7 +303,7 @@
                 {
                     id: 27,
                     title: "",
-                    time: "12:30 - 13:30",
+                    time: "13:30 - 14:00",
                     speaker: "",
                     duration: 30,
                     url: ""
@@ -318,49 +318,47 @@
                 },
                 {
                     id: 29,
-                    title: "Coffee Break",
+                    title: "gRPC on Rails - a true story",
                     time: "14:40 - 15:15",
-                    speaker: "",
+                    speaker: "Emiliano Della Casa",
                     duration: 40, // 5m dopo
                     url: ""
                 },
                 {
                     id: 30,
-                    title: "TBD",
+                    title: "Free slot",
                     time: "15:20 - 15:55",
-                    speaker: "TBD",
                     duration: 40, // 5m dopo
                     url: ""
                 },
                 {
                     id: 31,
-                    title: "TBD",
+                    title: "Coffee break",
                     time: "16:00 - 16:20",
-                    speaker: "TBD",
                     duration: 20,
                     url: ""
                 },
                 {
                     id: 32,
-                    title: "Coffee Break",
+                    title: "AI-Powered Testing: Revolutionizing QA with Machine Learning",
                     time: "16:20 - 16:55",
-                    speaker: "",
+                    speaker: "Ludovico Besana",
                     duration: 40, // 5m dopo
                     url: ""
                 },
                 {
                     id: 33,
-                    title: "TBD",
+                    title: "Le incredibili conseguenze della keyword final",
                     time: "17:00 - 17:35",
-                    speaker: "TBD",
+                    speaker: "Enrico Sasdelli",
                     duration: 40, // 5m dopo
                     url: ""
                 },
                 {
                     id: 35,
-                    title: "TBD",
+                    title: "Saluti finali e via al DJ Set",
                     time: "17:40 - 18:20",
-                    speaker: "TBD",
+                    speaker: "",
                     duration: 50, // 10m dopo
                     url: ""
                 },

@@ -277,9 +277,9 @@
                 },
                 {
                     id: 50,
-                    title: "TBD",
+                    title: "",
                     time: "11:00 - 11:35",
-                    speaker: "TBD",
+                    speaker: "Stefano Allegretti",
                     duration: 40, // +5min dopo
                     url: ""
                 },
@@ -317,7 +317,7 @@
                 },
                 {
                     id: 54,
-                    title: " Ray on Vertex AI  ",
+                    title: " Ray on Vertex AI",
                     time: "14:00 - 14:35",
                     speaker: "Imran us Salam Mian",
                     duration: 40, // con i 5m dopo
@@ -325,10 +325,18 @@
                 },
                 {
                     id: 55,
-                    title: "TBD",
-                    time: "14:40 - 15:55",
-                    speaker: "TBD",
-                    duration: 80, // 5m dopo
+                    title: "Technological porting for a legacy system",
+                    time: "14:40 - 15:15",
+                    speaker: "Maurizio Carli",
+                    duration: 40, // 5m dopo
+                    url: ""
+                },
+                {
+                    id: 55,
+                    title: "Es/Cqrs Anatomy",
+                    time: "15:20 - 15:55",
+                    speaker: "Emilio Junior Franceschetti",
+                    duration: 40, // 5m dopo
                     url: ""
                 },
                 {
@@ -349,17 +357,16 @@
                 },
                 {
                     id: 58,
-                    title: "TBD",
+                    title: "Free slot",
                     time: "17:00 - 17:35",
-                    speaker: "TBD",
+                    speaker: "",
                     duration: 40, // incl 5 min dopo
                     url: ""
                 },
                 {
                     id: 58,
-                    title: "TBD",
+                    title: "Saluti finali e via al DJ Set",
                     time: "17:40 - 18:20",
-                    speaker: "TBD",
                     duration: 50, // incl 10 min dopo
                     url: ""
                 },

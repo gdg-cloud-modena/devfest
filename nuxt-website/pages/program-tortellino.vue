@@ -276,11 +276,11 @@
                 },
                 {
                     id: 5,
-                    title: "Improve your Multi-Factor Auth with Firebase and Vonage APIs",
+                    title: "The Staff Engineer VS Manager Path: A window over the tech career paths",
                     time: "11:10 - 12:00",
-                    speaker: "Amanda Cavallaro",
+                    speaker: "Alfonso Graziano",
                     duration: 60, //+10 di pausa dopo
-                    url: "/speaker/amanda-cavallaro"
+                    url: "/speaker/alfonso-graziano"
                 },
                 {
                     id: 6,
@@ -308,11 +308,11 @@
                 },
                 {
                     id: 9,
-                    title: "The Staff Engineer VS Manager Path: A window over the tech career paths",
+                    title: "Improve your Multi-Factor Auth with Firebase and Vonage APIs",
                     time: "15:00 - 15:50",
-                    speaker: "Alfonso Graziano",
+                    speaker: "Amanda Cavallaro",
                     duration: 60, // +10 di pausa dopo
-                    url: "/speaker/alfonso-graziano"
+                    url: "/speaker/amanda-cavallaro"
                 },
                 {
                     id: 10,
