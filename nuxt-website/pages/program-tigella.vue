@@ -277,7 +277,7 @@
                 },
                 {
                     id: 50,
-                    title: "",
+                    title: "Modern asynchronous programming in C++: the Execution library",
                     time: "11:00 - 11:35",
                     speaker: "Stefano Allegretti",
                     duration: 40, // +5min dopo
