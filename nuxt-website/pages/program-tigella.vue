@@ -335,7 +335,7 @@
                     id: 55,
                     title: "Es/Cqrs Anatomy",
                     time: "15:20 - 15:55",
-                    speaker: "Emilio Junior Franceschetti",
+                    speaker: "Emilio Junior Francischetti",
                     duration: 40, // 5m dopo
                     url: ""
                 },
