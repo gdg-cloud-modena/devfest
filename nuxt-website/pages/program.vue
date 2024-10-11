@@ -305,7 +305,7 @@ const events = [
   },
   {
     id: 26,
-    title: "",
+    title: "Modern asynchronous programming in C++: the Execution library",
     time: "11:00 - 11:35",
     speaker: "Stefano Allegretti",
     duration: 40, // +5min dopo
@@ -352,7 +352,7 @@ const events = [
     id: 31,
     title: "Es/Cqrs Anatomy",
     time: "15:20 - 15:55",
-    speaker: "Emilio Junior Franceschetti",
+    speaker: "Emilio Junior Francischetti",
     duration: 80, // 5m dopo
     block: "block-time-two",
     url: ""
