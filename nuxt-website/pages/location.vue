@@ -36,7 +36,10 @@
             </div>
             <div>
               <div class="font-medium text-2xl mb-4">Garage Info - Via Antonio Peretti, 40/54</div>
-              <div class="pb-3">Uscita garage: Piazza Dei Binari. L'edificio è quello di fronte all'uscita, giallo, con la torre dell'acqua, dalla piazzetta si arriva dietro al edificio (ex centrale termica), l'ingresso del evento si trova sulla strada.</div>
+              <div class="pb-3">Uscita garage: Piazza Dei Binari. L'edificio è quello di fronte all'uscita, giallo, con
+                la torre dell'acqua, dalla piazzetta si arriva dietro al edificio (ex centrale termica), l'ingresso del
+                evento si trova sulla strada.
+              </div>
               <div class="flex flex-col lg:flex-row gap-8">
                 <div>
                   <img src="@/assets/img/garage-out.jpg" class="rounded-md"/>
@@ -47,6 +50,29 @@
                 <div>
                   <img src="@/assets/img/location-out.jpg" class="rounded-md"/>
                 </div>
+              </div>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-8">
+              <div>
+                <div class="font-medium text-xl mb-2">Informazioni per raggiungerci con i mezzi di trasporto</div>
+                <ul class="list-disc ml-5">
+                  <li>da stazione dei treni Modena si possono prendere gli autobus 11S e 13 direzione Ospedale
+                    baggiovara
+                  </li>
+                  <li>taxi da stazione (059 374242 o tramite whatsapp 3351838555)</li>
+                  <li>2km da piedi</li>
+                </ul>
+              </div>
+              <div>
+                <div class="font-medium text-xl mb-2">Informazioni sui mezzi di trasporto</div>
+                <ul class="list-disc ml-5">
+                  <li>biglietto valido per 75 minuti</li>
+                  <li>2 euro a bordo da macchina self service (solo moente)</li>
+                  <li>1,50 euro a bordo con carta di credito contactless</li>
+                  <li>1,50 euro biglietteria nel piazzale antistante la stanzione, nell'angolo adiacente ai terminal
+                    bus
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
