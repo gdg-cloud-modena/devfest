@@ -238,6 +238,10 @@
     definePageMeta({
         layout: false,
     });
+    await navigateTo({
+      path: '/program',
+      hash: '#lambrusco'
+    })
     const rooms = [
         {
             id: 4,

@@ -238,6 +238,10 @@
     definePageMeta({
         layout: false,
     });
+    await navigateTo({
+      path: '/program',
+      hash: '#balsamico'
+    })
     const rooms = [
         {
             id: 2,

@@ -18,7 +18,7 @@
             <div v-for="(event, index) in events"
                  :key="index"
                  :class="`div${(index+1)}`">
-              <div v-if="event?.title_room" class="font-medium text-2xl p-2 text-center">{{ event.title }}</div>
+              <a v-if="event?.title_room" :name="event?.tag" class="font-medium text-2xl p-2 text-center block pt-7">{{ event.title }}</a>
               <RouterLink v-else-if="event.url"
                           :to="event.url"
                           class="block border border-slate-200 rounded-lg p-2 bg-white hover:bg-slate-50 mb-3 h-full">
@@ -57,6 +57,7 @@ const events = [
     duration: 120,
     block: "block-time-one",
     url: "",
+    tag: "balsamico",
     title_room: true
   },
   {
@@ -130,6 +131,7 @@ const events = [
     duration: 120,
     block: "block-time-one",
     url: "",
+    tag: "tortellino",
     title_room: true
   },
   {
@@ -265,6 +267,7 @@ const events = [
     duration: 120,
     block: "block-time-one",
     url: "",
+    tag: "tigella",
     title_room: true
   },
   {
@@ -410,6 +413,7 @@ const events = [
     duration: 120,
     block: "block-time-one",
     url: "",
+    tag: "lambrusco",
     title_room: true
   },
   {

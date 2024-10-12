@@ -238,6 +238,10 @@
     definePageMeta({
         layout: false,
     });
+    await navigateTo({
+      path: '/program',
+      hash: '#tortellino'
+    })
     const rooms = [
         {
             id: 1,
