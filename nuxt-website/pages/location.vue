@@ -27,12 +27,23 @@
                 </div>
               </div>
               <a href="https://maps.app.goo.gl/eq783A1v6aVxPwFHA?g_st=atm" target="_blank"
-              class="button-like cool-blue text-2xl py-5 px-7">Link Parcheggio sotterraneo</a>
+                 class="button-like cool-blue text-2xl py-5 px-7">Link Parcheggio sotterraneo</a>
               <a href="https://maps.google.com/?q=Viale Buon Pastore 43, Modena" target="_blank"
                  class="button-like cool-blue text-2xl py-5 px-7">Apri in Maps</a>
             </div>
             <div class="map-image" style="flex: 1 1 400px;">
               <img src="@/assets/img/map.png" alt="Map Image"/>
+            </div>
+            <div>
+              <div class="font-medium text-2xl mb-4">Garage Info - Via Antonio Peretti, 40/54</div>
+              <div class="flex flex-col lg:flex-row gap-8">
+                <div>
+                  <img src="@/assets/img/garage-out.jpg" class="rounded-md"/>
+                </div>
+                <div>
+                  <img src="@/assets/img/garage-in.jpg" class="rounded-md"/>
+                </div>
+              </div>
             </div>
           </div>
         </section>
