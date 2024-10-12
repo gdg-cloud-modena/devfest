@@ -317,7 +317,13 @@
         <TicketWidget/>
       </div>
     </section>
-
+    <section id="form-contact"
+        class="flexbox column px-4 mb-14">
+      <div class="text-accent text-4xl lg:text-6xl font-bold">Lascia un feedback al evento</div>
+      <div class="mt-8">
+        <a href="https://form.asana.com/?k=P_42RWPIQH11hg36wJdZsw&d=588515525965352" class="px-5 py-6 bg-orange-500 border-black border rounded-lg text-white font-semibold inline-block text-3xl text-center w-full">Lascia un feedback</a>
+      </div>
+    </section>
     <section
         id="sponsor-home"
         class="flexbox column px-4 mb-14"
