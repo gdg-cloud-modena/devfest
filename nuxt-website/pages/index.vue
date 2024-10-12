@@ -127,154 +127,154 @@
       <RouterLink to="/program" class="px-5 py-6 bg-red-600 rounded-md text-white font-semibold inline-block text-3xl text-center">
         Vedi il programma
       </RouterLink>
-      <div class="swapper-500">
-        <div class="main">
-          <TimetableCard
-              timetable-type="break"
-              time="9:00 - 9:30"
-              speaker=""
-              title="Inizio dell'evento, accoglienza e networking"
-              class="above border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="9:30 - 10:30"
-              speaker=""
-              title="Keynote + 4 sale tra sessioni, workshop e networking"
-              url="/speakers"
-              class="middle border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="10:30 - 11:00"
-              speaker=""
-              title="Coffee break"
-              class="middle border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="11:00 - 12:30"
-              speaker=""
-              title="4 sale tra sessioni, workshop e networking"
-              url="/speakers"
-              class="middle border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="12:30 - 14:00"
-              speaker=""
-              room-and-language="La pausa pranzo è suddivisa su 3 turni di mezz'ora in base alle sale"
-              title="Pausa pranzo"
-              class="middle border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="14:00 - 16:00"
-              speaker=""
-              title="4 sale tra sessioni, workshop e networking"
-              url="/speakers"
-              class="middle border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="16:00 - 16:30"
-              speaker=""
-              title="Coffee break"
-              class="middle border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="16:30 - 18:30"
-              speaker=""
-              title="4 sale tra sessioni, workshop e networking"
-              url="/speakers"
-              class="middle border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="18:30"
-              speaker=""
-              title="Fine dell'evento"
-              class="middle border-bottom"
-          />
-          <TimetableCard
-              timetable-type="break"
-              time="19:00 - 21:30"
-              speaker=""
-              title="Party con dj-set"
-              class="below"
-          />
-        </div>
-        <div class="to-swap">
-          <div class="flexbox column" style="gap: 48px">
-            <TimetableCard
-                timetable-type="event"
-                time="9:00 - 9:30"
-                speaker=""
-                title="Inizio dell'evento, accoglienza e networking"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="9:30 - 10:30"
-                speaker=""
-                title="Keynote + 4 sale tra sessioni, workshop e networking"
-                url="/speakers"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="10:30 - 11:00"
-                speaker=""
-                title="Coffee break"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="11:00 - 12:30"
-                speaker=""
-                title="4 sale tra sessioni, workshop e networking"
-                url="/speakers"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="12:30 - 14:00"
-                speaker=""
-                room-and-language="La pausa pranzo è suddivisa su 3 turni di mezz'ora in base alle sale"
-                title="Pausa pranzo"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="14:00 - 16:00"
-                speaker=""
-                title="4 sale tra sessioni, workshop e networking"
-                url="/speakers"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="16:00 - 16:30"
-                speaker=""
-                title="Coffee break"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="16:30 - 18:30"
-                speaker=""
-                title="4 sale tra sessioni, workshop e networking"
-                url="/speakers"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="18:30"
-                speaker=""
-                title="Fine dell'evento"
-            />
-            <TimetableCard
-                timetable-type="event"
-                time="19:00 - 21:30"
-                speaker=""
-                title="Party con dj-set"
-            />
-          </div>
-        </div>
-      </div>
+<!--      <div class="swapper-500">-->
+<!--        <div class="main">-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="9:00 - 9:30"-->
+<!--              speaker=""-->
+<!--              title="Inizio dell'evento, accoglienza e networking"-->
+<!--              class="above border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="9:30 - 10:30"-->
+<!--              speaker=""-->
+<!--              title="Keynote + 4 sale tra sessioni, workshop e networking"-->
+<!--              url="/speakers"-->
+<!--              class="middle border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="10:30 - 11:00"-->
+<!--              speaker=""-->
+<!--              title="Coffee break"-->
+<!--              class="middle border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="11:00 - 12:30"-->
+<!--              speaker=""-->
+<!--              title="4 sale tra sessioni, workshop e networking"-->
+<!--              url="/speakers"-->
+<!--              class="middle border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="12:30 - 14:00"-->
+<!--              speaker=""-->
+<!--              room-and-language="La pausa pranzo è suddivisa su 3 turni di mezz'ora in base alle sale"-->
+<!--              title="Pausa pranzo"-->
+<!--              class="middle border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="14:00 - 16:00"-->
+<!--              speaker=""-->
+<!--              title="4 sale tra sessioni, workshop e networking"-->
+<!--              url="/speakers"-->
+<!--              class="middle border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="16:00 - 16:30"-->
+<!--              speaker=""-->
+<!--              title="Coffee break"-->
+<!--              class="middle border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="16:30 - 18:30"-->
+<!--              speaker=""-->
+<!--              title="4 sale tra sessioni, workshop e networking"-->
+<!--              url="/speakers"-->
+<!--              class="middle border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="18:30"-->
+<!--              speaker=""-->
+<!--              title="Fine dell'evento"-->
+<!--              class="middle border-bottom"-->
+<!--          />-->
+<!--          <TimetableCard-->
+<!--              timetable-type="break"-->
+<!--              time="19:00 - 21:30"-->
+<!--              speaker=""-->
+<!--              title="Party con dj-set"-->
+<!--              class="below"-->
+<!--          />-->
+<!--        </div>-->
+<!--        <div class="to-swap">-->
+<!--          <div class="flexbox column" style="gap: 48px">-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="9:00 - 9:30"-->
+<!--                speaker=""-->
+<!--                title="Inizio dell'evento, accoglienza e networking"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="9:30 - 10:30"-->
+<!--                speaker=""-->
+<!--                title="Keynote + 4 sale tra sessioni, workshop e networking"-->
+<!--                url="/speakers"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="10:30 - 11:00"-->
+<!--                speaker=""-->
+<!--                title="Coffee break"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="11:00 - 12:30"-->
+<!--                speaker=""-->
+<!--                title="4 sale tra sessioni, workshop e networking"-->
+<!--                url="/speakers"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="12:30 - 14:00"-->
+<!--                speaker=""-->
+<!--                room-and-language="La pausa pranzo è suddivisa su 3 turni di mezz'ora in base alle sale"-->
+<!--                title="Pausa pranzo"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="14:00 - 16:00"-->
+<!--                speaker=""-->
+<!--                title="4 sale tra sessioni, workshop e networking"-->
+<!--                url="/speakers"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="16:00 - 16:30"-->
+<!--                speaker=""-->
+<!--                title="Coffee break"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="16:30 - 18:30"-->
+<!--                speaker=""-->
+<!--                title="4 sale tra sessioni, workshop e networking"-->
+<!--                url="/speakers"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="18:30"-->
+<!--                speaker=""-->
+<!--                title="Fine dell'evento"-->
+<!--            />-->
+<!--            <TimetableCard-->
+<!--                timetable-type="event"-->
+<!--                time="19:00 - 21:30"-->
+<!--                speaker=""-->
+<!--                title="Party con dj-set"-->
+<!--            />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </section>
     <!--<section
         id="speakers-home"
