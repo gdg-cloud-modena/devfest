@@ -124,6 +124,9 @@
           </div>
         </div>
       </div>
+      <RouterLink to="/program" class="px-5 py-6 bg-red-600 rounded-md text-white font-semibold inline-block text-3xl text-center">
+        Vedi il programma
+      </RouterLink>
       <div class="swapper-500">
         <div class="main">
           <TimetableCard
@@ -271,13 +274,6 @@
             />
           </div>
         </div>
-      </div>
-      <div class="white-card">
-        <RouterLink to="/program">
-          <div class="flexbox justify-center" style="gap: 12px;">
-            <p style="text-align: center">Vedi il programma dettagliato</p> <img src="@/assets/svg/arrow-black.svg"/>
-          </div>
-        </RouterLink>
       </div>
     </section>
     <!--<section
