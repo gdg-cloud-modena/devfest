@@ -36,12 +36,16 @@
             </div>
             <div>
               <div class="font-medium text-2xl mb-4">Garage Info - Via Antonio Peretti, 40/54</div>
+              <div class="pb-3">Uscita garage: Piazza Dei Binari. L'edificio è quello di fronte all'uscita, giallo, con la torre dell'acqua, dalla piazzetta si arriva dietro al edificio (ex centrale termica), l'ingresso del evento si trova sulla strada.</div>
               <div class="flex flex-col lg:flex-row gap-8">
                 <div>
                   <img src="@/assets/img/garage-out.jpg" class="rounded-md"/>
                 </div>
                 <div>
                   <img src="@/assets/img/garage-in.jpg" class="rounded-md"/>
+                </div>
+                <div>
+                  <img src="@/assets/img/location-out.jpg" class="rounded-md"/>
                 </div>
               </div>
             </div>
