@@ -310,7 +310,7 @@ const events = [
     speaker: "Stefano Allegretti",
     duration: 40, // +5min dopo
     block: "block-time-two",
-    url: ""
+    url: "/speaker/stefano-allegretti"
   },
   {
     id: 27,

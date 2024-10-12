@@ -202,6 +202,13 @@
                 <p class="text-label">Italiano</p>
               </RouterLink>
             </div>
+            <div class="white-card max-width-450">
+              <RouterLink to="/speaker/stefano-allegretti">
+                <div class="image stefano-allegretti"></div>
+                <div class="font-semibold text-medium mt-3">Stefano Allegretti</div>
+                <p class="text-label">Italiano</p>
+              </RouterLink>
+            </div>
           </div>
         </section>
       </template>
