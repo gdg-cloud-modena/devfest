@@ -287,12 +287,12 @@ const events = [
   },
   {
     id: 24,
-    title: "Unleash the Power of Llama 3.1 on Your Local Hardware – No Cloud Needed!",
+    title: "Free slot",
     time: "10:00 - 10:45",
-    speaker: "Francesco Baldassarri",
+    speaker: "",
     duration: 50, // 5m dopo
     block: "block-time-one",
-    url: "/speaker/francesco-baldassarri"
+    url: ""
   },
   {
     id: 25,
@@ -432,12 +432,12 @@ const events = [
   },
   {
     id: 39,
-    title: "API testing in action - DMVC & PyTest for better API",
+    title: "Free slot",
     time: "10:00 - 10:40",
-    speaker: "Flavio Basile",
+    speaker: "",
     duration: 50, // pausa dopo
     block: "block-time-one",
-    url: "/speaker/flavio-basile"
+    url: ""
   },
   {
     id: 40,
@@ -495,12 +495,12 @@ const events = [
   },
   {
     id: 46,
-    title: "Free slot",
+    title: "API testing in action - DMVC & PyTest for better API",
     time: "15:20 - 15:55",
-    speaker: "",
-    duration: 40, // 5m dopo
+    speaker: "Flavio Basile",
+    duration: 50, // pausa dopo
     block: "block-time-two",
-    url: ""
+    url: "/speaker/flavio-basile"
   },
   {
     id: 47,
