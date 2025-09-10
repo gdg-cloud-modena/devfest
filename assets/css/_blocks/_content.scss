@@ -1,0 +1,48 @@
+// Container for user generated content, like Markdown.
+
+@use "_responsive" as r;
+
+@use "_blocks/_h1";
+@use "_blocks/_h2";
+@use "_blocks/_h3";
+@use "_blocks/_h4";
+@use "_blocks/_link";
+@use "_blocks/_p";
+@use "_blocks/_ol";
+@use "_blocks/_ul";
+
+@if r.$core {
+  .content {
+    h1 {
+      @extend .h1;
+    }
+
+    h2 {
+      @extend .h2;
+    }
+
+    h3 {
+      @extend .h3;
+    }
+
+    h4 {
+      @extend .h4;
+    }
+
+    p {
+      @extend .p;
+    }
+
+    a {
+      @extend .link;
+    }
+
+    ol {
+      @extend .ol;
+    }
+
+    ul {
+      @extend .ul;
+    }
+  }
+}

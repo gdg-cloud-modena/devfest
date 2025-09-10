@@ -1,0 +1,6 @@
+// CSS tweaks for desktop devices.
+
+@use "_responsive" with (
+  $desktop: true
+);
+@use "_base";

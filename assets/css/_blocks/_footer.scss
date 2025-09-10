@@ -1,0 +1,84 @@
+// Website footer.
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@use "_blocks/_hr";
+
+@if r.$core {
+  .footer {
+    background: colors.$black;
+    color: colors.$white;
+    padding-top: spaces.$space-l;
+    padding-bottom: spaces.$space-l;
+    font-size: fonts.$size--1;
+  }
+
+  .footer-wrapper {
+  }
+
+  .footer-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: spaces.$space-xl;
+  }
+
+  .footer-column {
+    flex: 1;
+  }
+
+  .footer-logo {
+    margin: spaces.$space-2xs auto;
+    background-color: colors.$white;
+    padding: spaces.$space-2xs;
+    @extend %rounded;
+  }
+
+  .footer-title {
+    font-weight: bold;
+    color: colors.$tertiary--2;
+    font-size: fonts.$size-0;
+  }
+
+  .footer-description {
+    text-align: justify;
+    font-size: fonts.$size--1;
+  }
+
+  .footer-hr {
+    @extend .hr;
+    border-top: 1px solid colors.$gray;
+  }
+
+  .footer-copy {
+    text-align: center;
+    font-weight: 200;
+    font-size: fonts.$size--1;
+  }
+
+  .footer-menu {
+    font-weight: 400;
+  }
+
+  .footer-menuItem {
+    margin-top: spaces.$space-2xs;
+    margin-bottom: spaces.$space-2xs;
+  }
+}
+
+@if r.$mobile or r.$tablet {
+  .footer-columns {
+    align-items: left;
+    flex-direction: column;
+  }
+}
+
+@if r.$tablet {
+  .footer-column {
+    width: 24em;
+  }
+}

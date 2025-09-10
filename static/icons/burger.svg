@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 12 12"
+   enable-background="new 0 0 12 12"
+   id="Слой_1"
+   version="1.1"
+   xml:space="preserve"
+   sodipodi:docname="burger.svg"
+   inkscape:version="1.1.1 (1:1.1+202109281944+c3084ef5ed)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs13" /><sodipodi:namedview
+   id="namedview11"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1.0"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   showgrid="false"
+   inkscape:zoom="1.09125"
+   inkscape:cx="400.45819"
+   inkscape:cy="400"
+   inkscape:window-width="1920"
+   inkscape:window-height="1088"
+   inkscape:window-x="0"
+   inkscape:window-y="319"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="g8" />
+    <g
+   id="g8">
+        <rect
+   fill="#1D1D1B"
+   height="1"
+   width="11"
+   x="0.5"
+   y="2.5"
+   id="rect2"
+   style="fill:#261a1f;fill-opacity:1" />
+        <rect
+   fill="#1D1D1B"
+   height="1"
+   width="11"
+   x="0.5"
+   y="5.5"
+   id="rect4"
+   style="fill:#261a1f;fill-opacity:1" />
+        <rect
+   fill="#1D1D1B"
+   height="1"
+   width="11"
+   x="0.5"
+   y="8.5"
+   id="rect6"
+   style="fill:#261a1f;fill-opacity:1" />
+    </g>
+</svg>

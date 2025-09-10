@@ -1,0 +1,26 @@
+// Links and anchors.
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_sizes";
+@use "_default/_spaces";
+
+.link {
+  @if r.$core {
+    color: colors.$primary;
+    font-weight: bold;
+
+    &:link,
+    &:visited {
+      color: colors.$secondary;
+    }
+
+    &:hover {
+      color: colors.$secondary;
+      transition: color effects.$time ease-in;
+    }
+  }
+}

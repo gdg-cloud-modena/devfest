@@ -1,0 +1,23 @@
+/* Centered container for DIVs, SECTIONs, ARTICLEs etc. */
+
+@use "_responsive" as r;
+
+@use "_default/_sizes";
+@use "_default/_spaces";
+
+@if r.$core {
+  .section {
+    max-width: sizes.$desktop;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: spaces.$space-s;
+    padding-right: spaces.$space-s;
+  }
+
+  /* Separates content from top and bottom. */
+  .section--padded {
+    padding-top: spaces.$space-l;
+    padding-bottom: spaces.$space-l;
+  }
+}

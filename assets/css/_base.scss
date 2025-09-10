@@ -1,0 +1,43 @@
+@use "_responsive" as r;
+
+// Defaults
+@use "_default/_colors";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+// Widgets
+
+// Blocks
+@use "_blocks/_button";
+@use "_blocks/_content";
+@use "_blocks/_features";
+@use "_blocks/_footer";
+@use "_blocks/_h1";
+@use "_blocks/_h2";
+@use "_blocks/_h3";
+@use "_blocks/_h4";
+@use "_blocks/_h5";
+@use "_blocks/_header";
+@use "_blocks/_hero";
+@use "_blocks/_hr";
+@use "_blocks/_link";
+@use "_blocks/_ol";
+@use "_blocks/_p";
+@use "_blocks/_section";
+@use "_blocks/_ul";
+
+@if r.$core {
+  body {
+    background-color: colors.$white;
+    color: colors.$black;
+    font-family: fonts.$text;
+    font-size: fonts.$size-0;
+    font-optical-sizing: auto;
+
+    // Layout
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+  }
+}

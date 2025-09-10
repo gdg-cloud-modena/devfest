@@ -1,0 +1,30 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+  }
+
+  .features-item {
+    flex: 1 1 250px;
+    min-width: 200px;
+    max-width: 300px;
+    padding: spaces.$space-xs;
+    border: 1px solid colors.$primary;
+    @extend %rounded;
+  }
+
+  .features-title {
+    font-family: fonts.$titles;
+    font-size: fonts.$size-2;
+    font-weight: bold;
+  }
+}

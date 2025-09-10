@@ -1,0 +1,24 @@
+{{ $options := dict "transpiler" "dartsass" "targetPath" "css/core.css" "enableSourceMap" "true" -}}
+{{- with resources.Get "css/core.scss" | toCSS $options | minify | fingerprint -}}
+<link rel="stylesheet" href="{{- .RelPermalink -}}">
+{{- end }}
+
+{{ $options := dict "transpiler" "dartsass" "targetPath" "css/mobile.css" "enableSourceMap" "true" -}}
+{{- with resources.Get "css/mobile.scss" | toCSS $options | minify | fingerprint -}}
+<link rel="stylesheet" href="{{- .RelPermalink -}}" media="screen and (max-width: 39.9375em)">
+{{- end }}
+
+{{ $options := dict "transpiler" "dartsass" "targetPath" "css/tablet.css" "enableSourceMap" "true" -}}
+{{- with resources.Get "css/tablet.scss" | toCSS $options | minify | fingerprint -}}
+<link rel="stylesheet" href="{{- .RelPermalink -}}" media="screen and (min-width: 40em) and (max-width: 63.9375em)">
+{{- end }}
+
+{{ $options := dict "transpiler" "dartsass" "targetPath" "css/desktop.css" "enableSourceMap" "true" -}}
+{{- with resources.Get "css/desktop.scss" | toCSS $options | minify | fingerprint -}}
+<link rel="stylesheet" href="{{- .RelPermalink -}}" media="screen and (min-width: 64em)">
+{{- end }}
+
+{{ $options := dict "transpiler" "dartsass" "targetPath" "css/print.css" "enableSourceMap" "true" -}}
+{{- with resources.Get "css/print.scss" | toCSS $options | minify | fingerprint -}}
+<link rel="stylesheet" href="{{- .RelPermalink -}}" media="print" defer>
+{{- end }}

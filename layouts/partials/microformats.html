@@ -1,0 +1,48 @@
+{{- $lastmod := .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}
+<meta property="og:locale" content="{{ .Site.Params.Locale }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Description }}">
+{{- with .Params.Image }}
+<meta property="og:image" content="{{ $.Site.BaseURL }}{{ ((resources.Get .).Resize "1200x").RelPermalink }}">
+{{- end }}
+{{- block "og" . }}
+<meta property="og:type" content="{{ default "website" .Params.MetaType }}">
+{{- with .Params.metaLocation }}
+<meta property="og:location" content="{{ . }}">
+{{- end }}
+{{- with .Params.metaStartTime }}
+<meta property="og:start_time" content="{{ . }}">
+{{- end }}
+{{- with .Params.metaEndTime }}
+<meta property="og:end_time" content="{{ . }}">
+{{- end }}
+{{- end }}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:updated_time" content="{{ $lastmod }}">
+<meta name="DC.Title" content="{{ .Title }}">
+<meta name="DC.Creator" content="{{ .Site.Params.Author }}">
+<meta name="DC.Subject" content="{{ .Site.Params.Subject }}">
+<meta name="DC.Description" content="{{ .Description }}">
+<meta name="DC.Date" content="{{ .Lastmod.Format "2006-01-02" }}">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Format" content="text/html">
+<meta name="DC.Language" content="{{ $.Site.LanguageCode }}">
+<meta name="DC.Rights" content="Reserved to {{ .Site.Params.Author }}">
+<meta name="twitter:card" content="summary">
+{{- with .Site.Params.Twitter }}
+<meta name="twitter:creator" content="{{ . }}">
+{{- end }}
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ .Description }}">
+{{- with .Params.Image }}
+<meta name="twitter:image" content="{{ $.Site.BaseURL }}{{ ((resources.Get .).Resize "1200x").RelPermalink }}">
+{{- end }}
+{{- if .Site.Params.Favicon }}
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="DevFest Modena">
+<link rel="manifest" href="/site.webmanifest">
+{{- end }}

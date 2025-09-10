@@ -1,0 +1,28 @@
+// Shadows, rounded corners, transitions etc.
+
+@use "_default/_spaces";
+
+// Box shadow
+$box-shadow:
+  0 1px 1px rgba(0, 0, 0, 0.12),
+  0 2px 2px rgba(0, 0, 0, 0.12),
+  0 4px 4px rgba(0, 0, 0, 0.12),
+  0 8px 8px rgba(0, 0, 0, 0.12),
+  0 16px 16px rgba(0, 0, 0, 0.12);
+
+// Corners
+$radius: 1.5rem;
+%rounded {
+  border-radius: $radius;
+}
+
+// Transitions
+$time: 0.15s;
+
+%transition-background {
+  transition: background $time ease;
+}
+
+%transition-border {
+  transition: border $time ease;
+}

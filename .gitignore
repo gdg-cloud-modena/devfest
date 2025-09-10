@@ -1,0 +1,66 @@
+# Basics
+__pycache__
+-swp
+.*.rej
+.*~
+.#*
+.DS_Store
+.idea
+.imdone
+.mypy_cache
+.php_cs.cache
+.vscode
+*.e3g
+*.e3p
+*.e3s
+*.e3t
+*.la
+*.lo
+*.pik
+*.py[cod]
+*.pyc
+*.pyo
+*.rej
+*.swo
+*.swp
+*~
+#*#
+%*.php
+
+# Builds
+_build
+.eggs
+.hugo_build.lock
+*.egg-info
+build
+dist
+hugo_stats.json
+node_modules
+venv
+
+# Logs
+*.log
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.pytest_cache
+.tox
+coverage.xml
+htmlcov
+nosetests.xml
+
+# Translations
+*.pot
+#*.mo
+
+# CSS
+.sass-cache
+
+# Hugo
+/public/
+/resources/
+
+# User content
+/static/share/
+/static/media/

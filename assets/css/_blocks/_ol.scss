@@ -1,0 +1,11 @@
+// Ordered list OL.
+
+@use "_responsive" as r;
+
+@use "_default/_fonts";
+
+@if r.$core {
+  .ol {
+    margin-bottom: fonts.$margin-text;
+  }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ $.Site.LanguageCode }}" dir="ltr">
+
+<head>
+  {{- partial "head.html" . -}}
+  {{- partial "styles.html" . -}}
+  {{- partial "microformats.html" . -}}
+</head>
+
+<body>
+  {{ if eq .Layout "landing" }}
+
+  {{ else }}
+  {{- partial "header.html" . -}}
+  {{ end }}
+  {{- block "main" . }}{{- end }}
+  {{- partial "footer.html" . -}}
+  {{- partial "scripts.html" . -}}
+</body>
+
+</html>

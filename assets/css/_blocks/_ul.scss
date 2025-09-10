@@ -1,0 +1,18 @@
+// Unordered list UL.
+
+@use "_responsive" as r;
+
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .ul {
+    margin-bottom: fonts.$margin-text;
+    list-style-type: disc;
+    margin-block-start: spaces.$space-xs;
+    margin-block-end: spaces.$space-xs;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: spaces.$space-s;
+  }
+}

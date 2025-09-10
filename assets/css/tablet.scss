@@ -1,0 +1,6 @@
+// CSS tweaks for tablet devices.
+
+@use "_responsive" with (
+  $tablet: true
+);
+@use "_base";

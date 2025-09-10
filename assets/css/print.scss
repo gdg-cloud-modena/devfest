@@ -1,0 +1,6 @@
+// CSS tweaks for printers.
+
+@use "_responsive" with (
+  $print: true
+);
+@use "_base";

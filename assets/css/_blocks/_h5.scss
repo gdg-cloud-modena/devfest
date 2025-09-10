@@ -1,0 +1,15 @@
+// H4 title.
+
+@use "_responsive" as r;
+
+@use "_default/_fonts";
+
+@use "_blocks/_h1";
+
+@if r.$core {
+  .h5 {
+    @extend .h1;
+
+    font-size: fonts.$size-0;
+  }
+}

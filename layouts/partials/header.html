@@ -1,0 +1,28 @@
+{{- $logo := (resources.Get "images/logo.png").Resize "x60 webp q85" -}}
+<header class="header">
+  <div class="header-wrapper section">
+    <a class="header-brand" href="/" title="Home">
+      <img src="{{- $logo.RelPermalink -}}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" alt="DevFest Modena">
+      <div class="header-brandText">
+        <span class="header-title">{{ .Site.Params.brand }}</span>
+        <span class="header-subtitle">{{ .Site.Params.tagline }}</span>
+      </div>
+    </a>
+    <nav class="header-menu">
+      {{ range .Site.Menus.main }}
+      <a class="header-menuItem {{ if eq $.Page.Params.identifier .Identifier }}header-menuItem--active{{ end }}" href="{{ .URL  | relLangURL }}" {{ if .Params.external }}target="_blank"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+      <details class="header-dropdown header-dropdown--smallOnly" name="header">
+        <summary class="header-dropdownIcon">
+          <img class="header-dropdownImg header-dropdownImg--open" src="/icons/burger.svg" alt="Open menu" title="Open menu" width="32" height="auto">
+          <img class="header-dropdownImg header-dropdownImg--close" src="/icons/close.svg" alt="Close menu" title="Close menu" width="32" height="auto">
+        </summary>
+        <nav class="header-burgerMenu">
+          {{ range .Site.Menus.main }}
+          <a class="header-burgerItem {{ if eq $.Page.Params.identifier .Identifier }}header-burgerItem--active{{ end }}" href="{{ .URL }}" {{ if .Params.external }}target="_blank"{{ end }}>{{ .Name }}</a>
+          {{ end }}
+        </nav>
+      </details>
+    </nav>
+  </div>
+</header>

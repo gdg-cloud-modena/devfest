@@ -1,0 +1,46 @@
+@use "_responsive" as r;
+
+// Font sizes
+// @link https://utopia.fyi/type/calculator/?c=600,18,1.2,1140,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+$size--2: clamp(0.781rem, 0.76rem + 0.056vi, 0.8rem); // 12px
+$size--1: clamp(0.938rem, 0.868rem + 0.185vi, 1rem); // 16px
+$size-0: clamp(1.125rem, 0.986rem + 0.37vi, 1.25rem); // 20px
+$size-1: clamp(1.35rem, 1.114rem + 0.63vi, 1.563rem); // 25px
+$size-2: clamp(1.62rem, 1.25rem + 0.987vi, 1.953rem); // 31px
+$size-3: clamp(1.944rem, 1.391rem + 1.474vi, 2.441rem); // 39px
+$size-4: clamp(2.333rem, 1.534rem + 2.13vi, 3.052rem); // 48px
+$size-5: clamp(2.799rem, 1.671rem + 3.008vi, 3.815rem); // 61px
+$size-6: clamp(3.3592rem, 1.7935rem + 4.1752vw, 4.7684rem); // 76px
+
+// Families
+$titles: "Google Sans Display", sans-serif;
+$text: "Google Sans Display", sans-serif;
+
+// Line heights
+$reduced: 0.8;
+$solid: 1;
+$title: 1.25;
+$copy: 1.5;
+
+// Margins
+$margin-title: 0.5em;
+$margin-text: 1.25em;
+
+// Font faces
+@if r.$core {
+  @font-face {
+    font-family: "Google Sans Display";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/google-sans-display/regular.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Google Sans Display";
+    font-style: normal;
+    font-weight: bold;
+    src: url("/fonts/google-sans-display/bold.woff2") format("woff2");
+    font-display: swap;
+  }
+}

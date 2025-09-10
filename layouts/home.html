@@ -1,0 +1,28 @@
+{{ define "main" }}
+<main>
+  <section class="hero hero--home">
+    <picture class="hero-bg">
+       {{- $hero := (resources.Get "images/home-hero.webp").Resize "300x webp q45" -}}
+      <source srcset="{{ $hero.Permalink }}" media="(max-width: 300px)">
+      {{- $hero = (resources.Get "images/home-hero.webp").Resize "600x webp q70" -}}
+      <source srcset="{{ $hero.Permalink }}" media="(max-width: 600px)">
+      {{- $hero = (resources.Get "images/home-hero.webp").Resize "1080x webp q85" -}}
+      <img  class="hero-bgImg" src="{{ $hero.Permalink }}" alt="Acetaia">
+    </picture>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      {{- $icon := (resources.Get "images/logo-simple-year.png").Resize "x100 webp q45" -}}
+      <img class="hero-icon" src="{{ $icon.Permalink }}" width="{{ $icon.Width }}" height="{{ $icon.Height }}" alt="DevFest Modena 2025">
+      <h1 class="hero-title">4-5 ottobre 2025</h1>
+    </div>
+  </section>
+  <section class="section section--padded">
+    {{ .Content }}
+  </section>
+  <section class="section section--padded">
+    <h2 class="h2">Biglietti</h2>
+    <p>I biglietti sono separati per sabato 4 e domenica 5 ottobre 2025, puoi scegliere entrambi per goderti tutto l'evento oppure anche solo uno per un singolo giorno.</p>
+    <div id="eventbrite-widget-container-1620558878229"></div>
+  </section>
+</main>
+{{ end }}

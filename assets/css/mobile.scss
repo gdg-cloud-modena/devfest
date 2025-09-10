@@ -1,0 +1,6 @@
+// CSS tweaks for mobile devices.
+
+@use "_responsive" with (
+  $mobile: true
+);
+@use "_base";

@@ -1,0 +1,28 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .button {
+    display: inline-block;
+    padding: spaces.$space-3xs spaces.$space-s;
+    border: none;
+    @extend %rounded;
+    background-color: colors.$primary;
+    color: colors.$black;
+    text-decoration: none;
+    transition:
+      transform effects.$time,
+      box-shadow effects.$time;
+    background-color: colors.$primary;
+    margin-left: spaces.$space-3xs;
+    margin-right: spaces.$space-3xs;
+    font-size: fonts.$size--1;
+
+    &:hover {
+    }
+  }
+}

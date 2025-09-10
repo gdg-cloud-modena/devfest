@@ -1,0 +1,18 @@
+// H1 title.
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_fonts";
+
+@if r.$core {
+  .h1 {
+    color: colors.$primary;
+    font-size: fonts.$size-4;
+    line-height: fonts.$title;
+    font-family: fonts.$titles;
+    font-weight: bold;
+    font-optical-sizing: auto;
+    margin-bottom: fonts.$margin-title;
+  }
+}

@@ -1,0 +1,20 @@
+{{/* Usage:
+{{< img "images/logo.png" "100x webp q45" "alignment" "alt" "class" >}}
+Where `alignment` can be: center, left, right, wide.
+`alt` is for the alternative text.
+The latest parameter is for classes.
+*/}}
+
+{{- $src := .Get 0 -}}
+{{- $size := .Get 1 -}}
+{{- $alignment := .Get 2 -}}
+{{- $alt := .Get 3 -}}
+{{- $class := .Get 4 -}}
+
+{{- if eq $alignment "wide" }}{{ $size = "2280x webp q45" }}{{ end -}}
+
+{{- $image := (resources.Get $src).Resize $size -}}
+
+{{ with $image }}
+<img {{ if $class }}class="{{ $class }}"{{ end }} src="{{- .RelPermalink -}}" width="{{ div .Width 2 }}" height="{{ div .Height 2 }}" alt="{{ $alt }}" loading="lazy">
+{{ end }}

@@ -1,0 +1,16 @@
+// Paragraph <p>.
+
+@use "_responsive" as r;
+
+@use "_default/_fonts";
+
+@if r.$core {
+  .p {
+    margin-bottom: fonts.$margin-text;
+    line-height: fonts.$title;
+  }
+
+  .p--center {
+    text-align: center;
+  }
+}

@@ -1,0 +1,9 @@
+<meta charset="utf-8">
+<link type="text/plain" rel="author" href="/humans.txt">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{- block "title" . }}{{ .Title }} &ndash; {{ .Site.Title }}{{- end }}</title>
+<meta name="description" content="{{ .Description }}">
+{{- $notFound := ne .Page.Kind "404" -}}
+<meta name="robots" content="{{ if and (default true .Params.Index) $notFound }}index{{ else }}noindex{{ end }} {{ if and (default true .Params.Follow) $notFound }}follow{{ else }}nofollow{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">

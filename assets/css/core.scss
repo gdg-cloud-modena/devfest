@@ -1,0 +1,7 @@
+// Core CSS with default styles.
+
+@use "_default/_normalizer";
+@use "_responsive" with (
+  $core: true
+);
+@use "_base";

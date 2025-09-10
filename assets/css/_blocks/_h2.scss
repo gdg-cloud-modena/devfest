@@ -1,0 +1,16 @@
+// H2 title.
+
+@use "_responsive" as r;
+
+@use "_default/_fonts";
+
+@use "_blocks/_h1";
+
+@if r.$core {
+  .h2 {
+    @extend .h1;
+
+    font-size: fonts.$size-3;
+    margin-bottom: fonts.$margin-title;
+  }
+}

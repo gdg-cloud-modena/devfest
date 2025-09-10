@@ -1,0 +1,190 @@
+// Website header.
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .header {
+    padding-top: spaces.$space-xs;
+    padding-bottom: spaces.$space-xs;
+  }
+
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    line-height: fonts.$solid;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: spaces.$space-2xs;
+  }
+
+  .header-brandText {
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-3xs;
+  }
+
+  .header-title {
+    color: colors.$black;
+    font-size: fonts.$size-2;
+    font-weight: bold;
+    font-family: fonts.$titles;
+  }
+
+  .header-subtitle {
+    font-size: fonts.$size--2;
+    color: colors.$secondary;
+  }
+
+  .header-menu {
+    display: flex;
+    gap: spaces.$space-m;
+    font-variant: small-caps;
+    color: colors.$black;
+  }
+
+  .header-menuItem {
+    text-decoration: none;
+    position: relative;
+    padding: 0.5em 0.75em 0.5em 0.75em;
+    background: colors.$tertiary--1;
+    border: 2px solid transparent;
+    @extend %rounded;
+    @extend %transition-border;
+  }
+
+  .header-menuItem--active,
+  .header-menuItem:hover,
+  .header-dropdownIcon:hover,
+  .header-dropdown[open] > .header-dropdownIcon {
+    border: 2px solid colors.$black;
+    color: colors.$black;
+    display: inline-block;
+    @extend %rounded;
+    @extend %transition-border;
+  }
+
+  .header-dropdown {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0;
+    z-index: 1000;
+
+    &--smallOnly {
+      display: none;
+    }
+  }
+
+  .header-dropdownIcon {
+    list-style: none;
+    padding: 0.5em 0.75em 0.5em 0.75em;
+
+    // Prevents text selection
+    -webkit-user-select: none; /* Safari / Chrome */
+    -moz-user-select: none; /* Firefox */
+    user-select: none; /* Standard */
+    -webkit-touch-callout: none; /* iOS: disable context menu */
+    -webkit-tap-highlight-color: transparent; /* remove gray flash */
+
+    &::marker,
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  .header-dropdownImg {
+    display: inline;
+  }
+
+  .header-dropdownList {
+    position: absolute;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-3xs;
+    right: 0;
+    left: auto;
+    border: 1px solid colors.$gray;
+    background-color: colors.$gray;
+    @extend %rounded;
+  }
+
+  .header-dropdownItem {
+    @extend %rounded;
+    padding: 0.5em 0.75em;
+
+    &:hover {
+      background: colors.$secondary;
+      color: colors.$black;
+      @extend %transition-background;
+    }
+  }
+
+  .header-dropdownImg--open {
+    display: inline;
+  }
+
+  .header-dropdownImg--close {
+    display: none;
+  }
+
+  .header-dropdown[open] .header-dropdownImg--open {
+    display: none;
+  }
+
+  .header-dropdown[open] .header-dropdownImg--close {
+    display: inline;
+  }
+
+  .header-burgerMenu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-3xs;
+    inset: 4.25em 0 0 auto;
+    background-color: colors.$gray;
+    text-align: left;
+    cursor: default;
+    width: 100%;
+    padding: spaces.$space-xs;
+  }
+
+  .header-burgerItem {
+    @extend %rounded;
+    padding: 1em 2rem;
+    color: colors.$black;
+    background-color: colors.$primary--1;
+    border: 2px solid colors.$black;
+
+    &--active {
+      background: colors.$secondary--1;
+      color: colors.$black;
+    }
+
+    &:hover {
+      background: colors.$secondary--1;
+      color: colors.$black;
+      @extend %transition-background;
+    }
+  }
+}
+
+@if r.$mobile or r.$tablet {
+  .header-menuItem {
+    display: none;
+  }
+
+  .header-dropdown--smallOnly {
+    display: inline;
+  }
+}

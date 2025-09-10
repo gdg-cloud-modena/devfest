@@ -1,0 +1,12 @@
+// Element <HR>
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_spaces";
+
+.hr {
+  border: none;
+  border-top: 1px solid colors.$black;
+  margin: spaces.$space-m 0;
+}

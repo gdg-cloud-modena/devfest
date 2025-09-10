@@ -1,0 +1,83 @@
+// Semantic colors
+
+/* NB: No other colors or shades are provided; please use only those provided.
+*/
+
+// Primary
+$primary--2: #c3ecf6;
+$primary--1: #57caff;
+$primary: #4285f4;
+
+// Secondary
+$secondary--2: #ccf6c5;
+$secondary--1: #5cdb6d;
+$secondary: #34a853;
+
+// Tertiary
+$tertiary--2: #ffe7a5;
+$tertiary--1: #ffd427;
+$tertiary: #f9ab00;
+
+// Quaternary
+$quaternary--2: #f8d8d8;
+$quaternary--1: #ff7daf;
+$quaternary: #ea4335;
+
+// Gray
+$white: #ffffff;
+$gray: #f0f0f0;
+$black: #1e1e1e; // Black as the logo
+
+// Success
+$success--4: #f4fcce;
+$success--3: #e7fa9f;
+$success--2: #d1f16e;
+$success--1: #b9e349;
+$success: #98d114;
+$success-1: #7cb30e;
+$success-2: #63960a;
+$success-3: #4b7906;
+$success-4: #3b6403;
+
+// Info
+$info--4: #d9fffa;
+$info--3: #b3fffb;
+$info--2: #8dfbff;
+$info--1: #71efff;
+$info: #42dcff;
+$info-1: #30aedb;
+$info-2: #2185b7;
+$info-3: #155f93;
+$info-4: #0c457a;
+
+// Warning
+$warning--1: #fff5cf;
+$warning--2: #ffe89f;
+$warning--3: #ffd86f;
+$warning--4: #ffc94b;
+$warning: #ffaf0f;
+$warning-1: #db8e0a;
+$warning-2: #b77007;
+$warning-3: #935504;
+$warning-4: #7a4202;
+
+// Danger
+$danger--4: #ffe6d6;
+$danger--3: #ffc6ad;
+$danger--2: #ffa083;
+$danger--1: #ff7c65;
+$danger: #ff4032;
+$danger-1: #db2427;
+$danger-2: #b71928;
+$danger-3: #930f27;
+$danger-4: #7a0927;
+
+// Constrast
+$primary-contrast: $white;
+$secondary-contrast: $black;
+$tertiary-contrast: $white;
+$gray-contrast: $black;
+$success-contrast: $black;
+$info-contrast: $white;
+$warning-contrast: $black;
+$danger-contrast: $white;
