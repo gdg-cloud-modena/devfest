@@ -1,8 +1,8 @@
-{{- $logo := (resources.Get "images/logo.png").Resize "x60 webp q85" -}}
+{{- $logo := (resources.Get "images/logo.png").Resize "x120 webp q65" -}}
 <header class="header">
   <div class="header-wrapper section">
     <a class="header-brand" href="/" title="Home">
-      <img src="{{- $logo.RelPermalink -}}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" alt="DevFest Modena">
+      <img src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena">
       <div class="header-brandText">
         <span class="header-title">{{ .Site.Params.brand }}</span>
         <span class="header-subtitle">{{ .Site.Params.tagline }}</span>
