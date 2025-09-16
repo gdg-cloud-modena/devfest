@@ -33,6 +33,11 @@ We don't have a SaaS or a single-page application, so please:
 it https://simonwillison.net/2025/May/26/css-minecraft/).
 - If you really need to use JavaScript, use jQuery.
 
+We adopt https://trunkbaseddevelopment.com/, so:
+- Only commit tested, stable, and publishable code.
+- Don't use Pull Requests. First pull and resolve conflicts locally, **then**
+commit, then push.
+
 
 # Structure
 
