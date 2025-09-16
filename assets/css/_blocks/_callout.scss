@@ -1,0 +1,30 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_spaces";
+
+@if r.$core {
+  .callout {
+    padding: spaces.$space-xs spaces.$space-s;
+    border: 1px solid colors.$black;
+    margin: spaces.$space-xs 0;
+    @extend %rounded;
+  }
+
+  .callout--success {
+    background-color: colors.$success--2;
+  }
+
+  .callout--info {
+    background-color: colors.$info--2;
+  }
+
+  .callout--warning {
+    background-color: colors.$warning--2;
+  }
+
+  .callout--danger {
+    background-color: colors.$danger--2;
+  }
+}

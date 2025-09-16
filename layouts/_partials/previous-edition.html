@@ -1,0 +1,3 @@
+{{ if ne .Site.Params.currentEdition .Params.year }}
+<p class="callout callout--warning" role="status" aria-live="polite">Questa pagina fa riferimento all'edizione {{ .Params.year }}.</p>
+{{ end }}

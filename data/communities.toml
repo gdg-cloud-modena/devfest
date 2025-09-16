@@ -1,0 +1,47 @@
+# Full list of all community profiles.
+# Each year has its own index file.
+
+[[community]]
+name = "GDG Cloud Modena"
+code = "gdg-cloud-modena"
+website = "https://gdgcloudmodena.it/"
+
+[[community]]
+name = "Modena Full Stack"
+code = "modena-full-stack"
+website = "https://www.meetup.com/it-IT/Modena-Full-Stack/"
+
+[[community]]
+name = "Reggio Emilia Full Stack"
+code = "reggio-emilia-full-stack"
+website = "https://www.meetup.com/reggio-emilia-full-stack/"
+
+[[community]]
+name = "ML Modena"
+code = "ml-modena"
+website = "https://mlmodena.it/"
+
+[[community]]
+name = "Flutter Modena"
+code = "flutter-modena"
+website = "https://blog.fluttermodena.dev/"
+
+[[community]]
+name = "Conoscerelinux"
+code = "conoscere-linux"
+website = "https://conoscerelinux.org/"
+
+[[community]]
+name = "She Is a Scientist"
+code = "she-is-a-scientist"
+website = "https://sheisascientist.com/"
+
+[[community]]
+name = "Designing Success"
+code = "designing-success"
+website = "https://www.linkedin.com/company/designing-success-community"
+
+[[community]]
+name = "Maker Dojo"
+code = "maker-dojo"
+website = "https://www.makerdojo.it/"

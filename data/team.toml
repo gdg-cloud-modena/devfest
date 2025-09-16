@@ -1,0 +1,33 @@
+# Full list of all team profiles.
+# Each year has its own index file.
+
+# People
+
+[[people]]
+name = "Davide Muzzarelli"
+code = "davide-muzzarelli"
+title = "Web Specialist & Community Lead"
+website = ""
+linkedin = "https://www.linkedin.com/in/davidemuzzarelli/"
+instagram = ""
+facebook = ""
+x = ""
+
+[[people]]
+name = "Maurizio Ipsale"
+code = "maurizio-ipsale"
+title = "Lead Google Cloud Trainer"
+website = ""
+linkedin = "https://linkedin.com/in/maurizioipsale"
+instagram = ""
+facebook = ""
+x = ""
+
+[[people]]
+code = ""
+title = ""
+website = ""
+linkedin = ""
+instagram = ""
+facebook = ""
+x = ""

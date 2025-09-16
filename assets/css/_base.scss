@@ -9,6 +9,7 @@
 
 // Blocks
 @use "_blocks/_button";
+@use "_blocks/_callout";
 @use "_blocks/_content";
 @use "_blocks/_features";
 @use "_blocks/_footer";
@@ -24,11 +25,13 @@
 @use "_blocks/_ol";
 @use "_blocks/_p";
 @use "_blocks/_section";
+@use "_blocks/_sessions";
+@use "_blocks/_relatedSpeakers";
 @use "_blocks/_ul";
 
 @if r.$core {
   body {
-    background-color: colors.$white;
+    background-color: colors.$gray;
     color: colors.$black;
     font-family: fonts.$text;
     font-size: fonts.$size-0;

@@ -1,0 +1,30 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .sessions {
+    margin-bottom: fonts.$margin-text;
+    list-style-type: disc;
+    margin-block-start: spaces.$space-xs;
+    margin-block-end: spaces.$space-xs;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: spaces.$space-s;
+  }
+
+  .sessions-item {
+    margin: spaces.$space-2xs 0;
+  }
+
+  .sessions-itemHead {
+    font-weight: bold;
+  }
+
+  .sessions-itemDetails {
+    font-size: fonts.$size--1;
+  }
+}

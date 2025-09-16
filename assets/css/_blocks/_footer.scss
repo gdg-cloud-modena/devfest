@@ -70,15 +70,24 @@
   }
 }
 
-@if r.$mobile or r.$tablet {
+@if r.$mobile {
   .footer-columns {
-    align-items: left;
+    align-items: center;
     flex-direction: column;
+  }
+
+  .footer-column {
+    width: 24em;
   }
 }
 
 @if r.$tablet {
+  .footer-columns {
+    gap: spaces.$space-m;
+  }
+
   .footer-column {
-    width: 24em;
+    align-items: center;
+    flex-direction: column;
   }
 }

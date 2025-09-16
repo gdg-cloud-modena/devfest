@@ -10,17 +10,21 @@
 
 .link {
   @if r.$core {
-    color: colors.$primary;
-    font-weight: bold;
+    color: colors.$tertiary;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color effects.$time ease;
 
     &:link,
     &:visited {
-      color: colors.$secondary;
+      color: colors.$tertiary;
+      text-decoration-color: transparent;
     }
 
     &:hover {
-      color: colors.$secondary;
-      transition: color effects.$time ease-in;
+      text-decoration-color: colors.$tertiary;
+      text-decoration: underline;
+      transition: text-decoration-color effects.$time ease;
     }
   }
 }

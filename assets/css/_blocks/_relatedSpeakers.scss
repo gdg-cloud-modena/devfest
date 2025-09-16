@@ -1,0 +1,29 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .relatedSpeakers-item {
+    display: flex;
+    justify-content: start;
+    gap: spaces.$space-xs;
+    align-items: center;
+  }
+
+  .relatedSpeakers-image {
+    border-radius: 50%;
+  }
+}
+
+@if r.$mobile {
+  .relatedSpeakers-item {
+    flex-direction: column;
+  }
+
+  .relatedSpeakers-details {
+    text-align: center;
+  }
+}

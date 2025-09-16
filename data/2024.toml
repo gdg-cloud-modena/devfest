@@ -1,0 +1,166 @@
+days = [2024-10-12]
+
+# People roles
+
+[[roles]]
+title = "Organizzatori"
+code = "organizers"
+
+[[roles]]
+title = "Staff"
+code = "staff"
+
+[[roles]]
+title = "Supporter"
+code = "supporter"
+
+# People index
+
+[[people]]
+role = "organizers"
+code = "davide-muzzarelli"
+
+[[people]]
+role = "organizers"
+code = "maurizio-ipsale"
+
+[[people]]
+role = ""
+code = ""
+
+# Community index
+
+communities = [
+  "gdg-cloud-modena",
+  "modena-full-stack",
+  "reggio-emilia-full-stack",
+  "ml-modena",
+  "flutter-modena",
+  "conoscere-linux",
+  "she-is-a-scientist",
+  "designing-success",
+  "maker-dojo",
+]
+
+# Spnsorship levels
+
+[[levels]]
+title = "Main"
+code = "main"
+weight = 1
+
+[[levels]]
+title = "Diamond"
+code = "diamond"
+weight = 2
+
+[[levels]]
+title = "Gold"
+code = "gold"
+weight = 3
+
+[[levels]]
+title = "Tech"
+code = "tech"
+weight = 4
+
+[[levels]]
+title = "Silver"
+code = "silver"
+weight = 5
+
+[[levels]]
+title = "Bronze"
+code = "bronze"
+weight = 6
+
+[[levels]]
+title = "Community"
+code = "community"
+weight = 7
+
+# Sponsors
+
+[[sponsors]]
+name = "Google"
+code = "google"
+link = "https://developers.google.com/community/devfest"
+level = "main"
+
+[[sponsors]]
+name = "Zuru"
+code = "zuru"
+link = "https://zuru.tech/"
+level = "diamond"
+
+[[sponsors]]
+name = "QubicaAMF"
+code = "qubicaamf"
+link = "https://www.qubicaamf.com/company"
+level = "diamond"
+
+[[sponsors]]
+name = "Expert.AI"
+code = "expertai"
+link = "https://www.expert.ai/"
+level = "diamond"
+
+[[sponsors]]
+name = "DualBit"
+code = "dualbit"
+link = "https://www.dualb.it/"
+level = "gold"
+
+[[sponsors]]
+name = "Credem"
+code = "credem"
+link = "https://www.credem.it/"
+level = "gold"
+
+[[sponsors]]
+name = "Netframe"
+code = "netframe"
+link = "https://netframe.it/"
+level = "tech"
+
+[[sponsors]]
+name = "Tetrapack"
+code = "tetrapack"
+link = "https://www.tetrapak.com/it-it/"
+level = "tech"
+
+[[sponsors]]
+name = "Quix"
+code = "quix"
+link = "https://quix.it/"
+level = "silver"
+
+[[sponsors]]
+name = "Juno"
+code = "juno"
+link = "https://www.any3dp.com/it/"
+level = "silver"
+
+[[sponsors]]
+name = "Atobit"
+code = "atobit"
+link = "https://atobit.it/"
+level = "bronze"
+
+[[sponsors]]
+name = "NetAi"
+code = "netai"
+link = "https://netai.it/devfest/"
+level = "bronze"
+
+[[sponsors]]
+name = "Studio DGP"
+code = "studio-dgp"
+link = "mailto:gilioli@dgpcommercialisti.it"
+level = "bronze"
+
+[[sponsors]]
+name = "JetBrains"
+code = "jetbrains"
+link = "https://www.jetbrains.com/"
+level = "community"

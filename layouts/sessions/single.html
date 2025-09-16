@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{- $year := printf "%v" (.Param "year") -}}
+
+{{/* Build rooms map: slug -> name */}}
+{{- $rooms := dict -}}
+{{ range $page := (site.GetPage (printf "/%s/rooms" $year)).Pages }}
+  {{ $rooms = merge $rooms (dict $page.File.BaseFileName $page) }}
+{{ end }}
+
+{{/* Prepare the room list */}}
+{{- $roomNames := slice -}}
+{{- range $code := .Params.rooms -}}
+  {{- $room := index $rooms $code -}}
+  {{- $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) -}}
+{{- end -}}
+{{- $roomsHTML := delimit $roomNames ", " -}}
+
+<main class="section section--padded">
+  {{ partial "previous-edition" . }}
+  <h1 class="h1">{{ .Title }}</h1>
+  {{ if .Params.warning }}
+  <p class="callout callout--warning">{{ .Params.warning }}</p>
+  {{ end }}
+  <p class="p"><b>{{ .Params.starts | time.Format "Monday" | title }}</b> dalle <b>{{ .Params.starts | time.Format "15:04" }}</b> alle {{ .Params.ends | time.Format "15:04" }} {{ if eq (len $roomNames) 1 }}nella sala {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}nelle sale {{ $roomsHTML | safeHTML }} in contemporanea{{ end }}.</p>
+  {{ if .Params.slidesURL }}
+  <p class="p">Consulta le <a class="link" href="{{ .Params.slidesURL }}" target="_blank">slide</a>.</p>
+  {{ end }}
+  <div class="content">
+    {{ .Content }}
+  </div>
+  <h2 class="h2">{{ if eq (len .Params.speakers) 1 }}Relatore{{ else }}Relatori{{ end }}</h2>
+  <ul class="relatedSpeakers">
+  {{ range $slug := .Params.speakers }}
+  {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+    {{ $image := (resources.Get (printf "speakers/%s.jpg" .File.BaseFileName)).Resize "100x100 webp q65"  }}
+    <li class="relatedSpeakers-item">
+      <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
+      <div class="relatedSpeakers-details">
+        <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        <p class="relatedSpeakers-role">{{ .Params.company }} · {{ .Params.role }}.</p>
+      </div>
+    </li>
+    {{ else }}
+    <li><b>{{ $slug }}</b></li>
+    {{ end }}
+  {{ end }}
+  </ul>
+</main>
+{{ end }}

@@ -1,0 +1,9 @@
+{{ define "main" }}
+<main class="section section--padded">
+  {{ partial "previous-edition" . }}
+  <h1 class="h1">Sala {{ .Title }}</h1>
+  <div class="content">
+    {{ .Content }}
+  </div>
+</main>
+{{ end }}
