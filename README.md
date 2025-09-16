@@ -94,7 +94,7 @@ directory for that year, for example `content/2024/team.md`.
 
 ## How to add a new year
 
-To add a new year, for example 2030, simply create the directory `content/2023/`
+To add a new year, for example 2030, simply create the directory `content/2030/`
 and its database `data/2030.toml`, taking inspiration from previous years.
 
 Then update the `currentEdition` parameter in `hugo.toml`.
