@@ -36,23 +36,34 @@ hidden = false
 simpleAnalyticsDomain = "sa.devfest.modena.it"
 utm = "utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2025"
 ticketsUrl = "https://devfest-modena-2025.eventbrite.it"
+currentEdition = 2025
 
 [params.social]
 LinkedIn = "https://www.linkedin.com/showcase/devfest-modena/"
-Instagram = "https://instagram.com/explore/tags/wtmmodena/"
-Facebook = "https://www.facebook.com/hashtag/wtmmodena/"
+Instagram = "https://www.instagram.com/devfest.modena/"
+Facebook = "https://www.facebook.com/events/1308374207349867"
 
-# Menu
+# Memu
 
 [menus]
+
+# Main menu
+
+[[menus.main]]
+identifier = "agenda"
+name = "Agenda"
+url = "/2025/sessions/"
+weight = 1
 
 [[menus.main]]
 identifier = "tickets"
 name = "Biglietti"
 url = "https://devfest-modena-2025.eventbrite.it"
-weight = 1
+weight = 2
 [menus.main.params]
 external = true
+
+# Footer menu
 
 [[menus.footer]]
 identifier = "wtm"
