@@ -1,0 +1,126 @@
+@use "_responsive" as r;
+@use "_default/_spaces";
+
+@if r.$core {
+  .partner-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: start;
+  }
+
+  .partner-title-section{
+    width: 100%;
+  }
+
+  .partner-levels-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .partner-level {
+    margin-top: spaces.$space-l;
+  }
+
+  .partner-level-title {
+    margin-bottom: spaces.$space-m;
+  }
+
+  .partner-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spaces.$space-s;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .partner-grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: spaces.$space-s;
+    text-decoration: none;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex: 0 1 calc(160px + spaces.$space-s); /* Set flexible sizing */
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .partner-logo {
+    display: block;
+    max-width: 160px;
+    max-height: 160px;
+    margin: auto;
+    object-fit: contain;
+    padding: spaces.$space-xs;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    align-self: center; /* Ensures alignment within flexible parents */
+    justify-self: center; /* Centers within grid parents */
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  .partner-logo--placeholder {
+    width: 160px;
+    height: 160px;
+    border-radius: 8px;
+    background: #fff; /* Slightly lighter background for distinction */
+    border: 2px dashed #999; /* Dashed border to indicate missing content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Ensure multi-line names are centered */
+    color: #666666; /* Slightly darker text for readability */
+    font-size: 1rem; /* Slightly larger text for visibility */
+    font-weight: bold; /* Highlight text */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); /* Adds depth */
+  }
+
+  .partner-logoText {
+    padding: 0 spaces.$space-2xs;
+    text-align: center;
+  }
+
+  .partner-logoText-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+
+  }
+
+}
+
+@if r.$mobile {
+  .partner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@if r.$tablet {
+  .partner-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@if r.$desktop {
+  .partner-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
