@@ -50,39 +50,34 @@ code = "main"
 weight = 1
 
 [[levels]]
-title = "Diamond Plus"
-code = "diamond-plus"
-weight = 2
-
-[[levels]]
 title = "Diamond"
 code = "diamond"
-weight = 3
+weight = 2
 
 [[levels]]
 title = "Gold"
 code = "gold"
-weight = 4
+weight = 3
 
 [[levels]]
 title = "Tech"
 code = "tech"
-weight = 5
+weight = 4
 
 [[levels]]
 title = "Silver"
 code = "silver"
-weight = 6
+weight = 5
 
 [[levels]]
 title = "Bronze"
 code = "bronze"
-weight = 7
+weight = 6
 
 [[levels]]
 title = "Community"
 code = "community"
-weight = 8
+weight = 7
 
 # Sponsors
 
