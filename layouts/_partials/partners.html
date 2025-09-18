@@ -25,19 +25,15 @@
 <section class="partner-section section section--padded">
   <h2 class="h2 partner-title-section">Partner</h2>
 
-	<div class="partner-levels-container">
-		
-		{{ range $levels }}
-    {{ $level := . }}
+		{{ range $level := $levels }}
     {{ $code := $level.code }}
-    {{ $title := $level.title }}
     {{ $items := where $partners "level" $code }}
 
     {{ if gt (len $items) 0 }}
-      <div class="partner-level">
-        <div class="partner-level-title">{{ $title }}</div>
+      <div class="partners">
+        <p class="partners-level">{{ $level.title }}</p>
 
-        <div class="partner-grid">
+        <div class="partners-grid">
           {{ range $items }}
             {{ $name := .name }}
             {{ $code := .code }}
@@ -57,43 +53,20 @@
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.jpg" $code)) }}{{ end }}
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.webp" $code)) }}{{ end }}
 
-            <a
-	            class="partner-grid-item"
-	            href="{{ $link }}"
-	            target="_blank"
-	            rel="noopener noreferrer"
-	            aria-label="{{ $name }}"
-            >
+            <a class="partners-partner" href="{{ $link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $name }}">
               {{ if $img }}
                 {{ $res := $img.Fit "320x160 webp q80" }}
-                <img
-	                class="partner-logo"
-	                src="{{ $res.RelPermalink }}"
-	                width="{{ $res.Width }}"
-	                height="{{ $res.Height }}"
-	                alt="{{ $name }}"
-	                loading="lazy"
-                />
+                <img class="partners-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
               {{ else }}
-                <span
-	                class="partner-logo partner-logo--placeholder"
-	                role="img"
-	                aria-label="{{ $name }} logo placeholder"
-                >
-                  <span class="partner-logoText">{{ $name }}</span>
+                <span class="partners-logo partners-logo--placeholder" role="img" aria-label="{{ $name }} logo placeholder">
+                  <span class="partners-name">{{ $name }}</span>
                 </span>
               {{ end }}
-	            
-	            <span class="partner-name">{{ $name }}</span>
-	            <span class="partner-logoText-visually-hidden">(opens in a new tab)</span>
-	            
-	            
+	            <span class="partners-name">{{ $name }}</span>
             </a>
           {{ end }}
         </div>
       </div>
     {{ end }}
   {{ end }}
-	</div>
 </section>
-
