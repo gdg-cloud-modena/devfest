@@ -92,3 +92,21 @@ name = "QubicaAMF"
 code = "qubicaamf"
 link = "https://www.qubicaamf.com/company"
 level = "diamond"
+
+[[sponsors]]
+name = "Zuru"
+code = "zuru"
+link = "https://zuru.tech/"
+level = "gold"
+
+[[sponsors]]
+name = "Gruppo Credem"
+code = "gruppo-credem"
+link = "https://www.credem.it/"
+level = "gold"
+
+[[sponsors]]
+name = "Netframe"
+code = "netframe"
+link = "https://www.netframe.it/"
+level = "tech"
