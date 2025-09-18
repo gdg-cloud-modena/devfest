@@ -1,0 +1,15 @@
++++
+title = "Closing ceremony"
+date = 2025-09-10
+draft = false
+
+[params]
+rooms = ["teatro"]
+speakers = ["maurizio-ipsale"]
+starts = 2025-10-05T13:15:00
+ends = 2025-10-05T13:30:00
+slidesURL = ""
+warning = ""
++++
+
+Closing ceremony.

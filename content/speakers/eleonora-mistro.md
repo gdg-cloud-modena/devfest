@@ -1,5 +1,5 @@
 +++
-title = "Name Surname"
+title = "Eleonora Mistro"
 date = 2025-09-10
 draft = false
 
