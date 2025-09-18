@@ -8,8 +8,8 @@
 @use "_default/_sizes";
 @use "_default/_spaces";
 
-.link {
-  @if r.$core {
+@if r.$core {
+  .link {
     color: colors.$tertiary;
     text-decoration: underline;
     text-decoration-color: transparent;
