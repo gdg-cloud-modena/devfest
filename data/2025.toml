@@ -19,14 +19,157 @@ code = "supporter"
 [[people]]
 role = "organizers"
 code = "davide-muzzarelli"
+name = "Davide Muzzarelli"
+description = "Web Specialist & Community Lead"
+website = "https://www.linkedin.com/in/davidemuzzarelli/"
 
 [[people]]
 role = "organizers"
 code = "maurizio-ipsale"
+name = "Maurizio Ipsale"
+description = "Lead Google Cloud Trainer"
+website = "https://linkedin.com/in/maurizioipsale"
 
 [[people]]
-role = ""
-code = ""
+role = "organizer"
+code = "mirko-gilioli"
+name = "Mirko Gilioli"
+description = "Lead Google Cloud Trainer"
+website = "https://www.linkedin.com/in/mirko-gilioli/"
+
+[[people]]
+role = "staff"
+code = "eleonora-mistro"
+name = "Eleonora Mistro"
+description = "Career Coach | HR Designer"
+website = "https://www.linkedin.com/in/eleonora-mistro/"
+
+[[people]]
+role = "staff"
+code = "alberto-avallone"
+name = "Alberto Avallone"
+description = "Computer Engineer focused on Artificial Intelligence"
+website = "https://www.linkedin.com/in/alberto-avallone-5bbbb22ba/"
+
+[[people]]
+role = "staff"
+code = "dario-varriale"
+name = "Dario Varriale"
+description = "iOS Developer && Flutter Developer"
+website = "https://www.linkedin.com/in/dario-varriale/"
+
+[[people]]
+role = "staff"
+code = "emanuele-caruso"
+name = "Emanuele Caruso"
+description = "Software Engineer"
+website = "https://www.linkedin.com/in/emanuele-caruso-942bb6232/"
+
+[[people]]
+role = "staff"
+code = "emanuele-verlanti"
+name = "Emanuele Verlanti"
+description = "Penetration Tester | OSINT Specialist | Python Developer"
+website = "https://www.linkedin.com/in/emanuele-verlanti/"
+
+[[people]]
+role = "staff"
+code = "emiliano-della-casa"
+name = "Emiliano Della Casa"
+description = "Independent Consultant"
+website = "https://www.linkedin.com/in/emilianodellacasa/"
+
+[[people]]
+role = "staff"
+code = "francesco-grandi"
+name = "Francesco Grandi"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "federico-marchesi"
+name = "Federico Marchesi"
+description = "AI Software Engineer @Prima"
+website = "https://www.linkedin.com/in/federico-marchesi-669692169/"
+
+[[people]]
+role = "staff"
+code = "luca-bonetti"
+name = "Luca Bonetti"
+description = "Web Software Developer"
+website = "https://www.linkedin.com/in/lb-luca-bonetti/"
+
+[[people]]
+role = "staff"
+code = "marco-breveglieri"
+name = "Marco Breveglieri"
+description = ""
+website = "https://www.linkedin.com/in/marcobreveglieri/"
+
+[[people]]
+role = "staff"
+code = "marco-pollacci"
+name = "Marco Pollacci"
+description = "FrontEnd Javascript Enthusiast"
+website = "https://www.linkedin.com/in/marcopollacci/"
+
+[[people]]
+role = "staff"
+code = "maya-shah"
+name = "Maya Shah"
+description = "AI Developer | Freelance"
+website = "https://www.linkedin.com/in/memoonashah/"
+
+[[people]]
+role = "staff"
+code = "natalia-orlandi"
+name = "Natalia Orlandi"
+description = "Product Manager in 20tab"
+website = "https://www.linkedin.com/in/nataliaorlandi/"
+
+[[people]]
+role = "staff"
+code = "paolo-caleffi"
+name = "Paolo Caleffi"
+description = "Vue/Quasar, Laravel, Angular and Android developer. "
+website = "https://www.linkedin.com/in/paolocaleffi/"
+
+[[people]]
+role = "staff"
+code = "pia-grandi"
+name = "Pia Grandi"
+description = "Sentire. Connettere. Crescere."
+website = "https://www.linkedin.com/in/mariapiagrandi/"
+
+[[people]]
+role = "staff"
+code = "stefano-carlini"
+name = "Stefano Carlini"
+description = "Business Development Manager | Cloud & AI Strategy"
+website = "https://www.linkedin.com/in/stefanocarlini/"
+
+[[people]]
+role = "staff"
+code = "barbara-bulf"
+name = "Barbara Bulf"
+description = "EduTech Marketing Operations @ MakerDojo"
+website = "https://www.linkedin.com/in/barbara-bulf/"
+
+[[people]]
+role = "staff"
+code = "andrei-daniel"
+name = "Andrei Daniel"
+description = "Laravel Dev · DevOps Consultant · Monitoring Consultant "
+website = "https://www.linkedin.com/in/petricadaniel/"
+
+[[people]]
+role = "staff"
+code = "dumitru-birsan"
+name = "Dumitru Birsan"
+description = "Full stack developer"
+website = "https://www.linkedin.com/in/dumitru-birsan-6b58771bb/"
+
 
 # Community index
 
