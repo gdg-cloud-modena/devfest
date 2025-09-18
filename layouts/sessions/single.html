@@ -30,20 +30,25 @@
   </div>
   <h2 class="h2">{{ if eq (len .Params.speakers) 1 }}Relatore{{ else }}Relatori{{ end }}</h2>
   <ul class="relatedSpeakers">
-  {{ range $slug := .Params.speakers }}
-  {{ with site.GetPage (printf "/speakers/%s" $slug) }}
-    {{ $image := (resources.Get (printf "speakers/%s.jpg" .File.BaseFileName)).Resize "100x100 webp q65"  }}
-    <li class="relatedSpeakers-item">
-      <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
-      <div class="relatedSpeakers-details">
-        <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
-        <p class="relatedSpeakers-role">{{ .Params.company }} · {{ .Params.role }}.</p>
-      </div>
-    </li>
-    {{ else }}
-    <li><b>{{ $slug }}</b></li>
-    {{ end }}
-  {{ end }}
+	  {{ range $slug := .Params.speakers }}
+	  {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+	    {{ $img := resources.Get (printf "speakers/%s.jpg" $slug) }}
+	    {{ if not $img }}
+	      {{ $img = resources.Get (printf "speakers/%s.png" $slug) }}
+	    {{ end }}
+	    {{ if $img }}
+	      {{ $image := $img.Resize "100x100 webp q65" }}
+	      <li class="relatedSpeakers-item">
+	        <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
+	      </li>
+	    {{ else }}
+	      <li class="relatedSpeakers-item">
+	        <div class="relatedSpeakers-image relatedSpeakers-image--placeholder" aria-hidden="true"></div>
+	      </li>
+	    {{ end }}
+	  {{ end }}
+	  {{ end }}
+  
   </ul>
 </main>
 {{ end }}

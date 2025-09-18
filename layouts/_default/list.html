@@ -1,0 +1,16 @@
+{{ define "main" }}
+<main class="section section--padded">
+  {{ partial "previous-edition" . }}
+  <h1 class="h1">{{ .Title }}</h1>
+  <div class="content">
+    {{ .Content }}
+  </div>
+
+  {{ range .Pages }}
+    <article class="content" style="margin-top: 1rem;">
+      <h2 class="h2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+    </article>
+  {{ end }}
+</main>
+{{ end }}
