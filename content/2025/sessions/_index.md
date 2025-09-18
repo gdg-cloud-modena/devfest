@@ -5,8 +5,6 @@ type = "sessions"
 type = "sessions"
 +++
 
-**Stiamo pubblicando l'agenda, ci scusiamo per l'attesa.**
-
 Durante questo evento, avrai l'opportunità di ascoltare e incontrare esperti del settore, innovatori e professionisti.
 
 Qui trovi tutte le informazioni sugli interventi in programma, con dettagli sugli argomenti trattati e i profili degli speaker che li presenteranno.
