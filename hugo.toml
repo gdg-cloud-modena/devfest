@@ -64,6 +64,12 @@ weight = 2
 [menus.main.params]
 external = true
 
+[[menus.main]]
+identifier = "team"
+name = "Team"
+weight = 3
+url = "/2025/team/"
+
 # Footer menu
 
 [[menus.footer]]

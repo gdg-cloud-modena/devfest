@@ -26,3 +26,7 @@ $time: 0.15s;
 %transition-border {
   transition: border $time ease;
 }
+
+%transition-transform {
+  transition: transform $time ease;
+}

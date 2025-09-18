@@ -1,0 +1,165 @@
+@use "_responsive" as r;
+@use "_default/colors";
+@use "_default/spaces";
+@use "_default/effects";
+@use "_blocks/h2";
+@use "_blocks/h3";
+@if r.$core {
+  .team {
+    &-role {
+      text-align: center;
+      padding-top: spaces.$space-l;
+      margin-bottom: spaces.$space-m;
+    }
+
+    &-roleTitle {
+      @extend .h2;
+      margin-bottom: spaces.$space-m;
+      color: colors.$primary;
+      font-weight: 600;
+    }
+
+    &-people {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: spaces.$space-m;
+      padding-bottom: spaces.$space-m;
+      justify-items: center;
+      
+    }
+
+    &-peopleItem {
+      @extend %rounded;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      border: 1px solid rgba(colors.$gray, 0.2);
+      border-radius: 16px;
+      padding: spaces.$space-m;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+      min-height: 350px;
+      text-decoration: none;
+      color: inherit;
+      
+      // Enhanced hover and focus states
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);  
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: effects.$box-shadow; 
+        border-color: rgba(colors.$primary, 0.3);
+      }
+      
+      &:focus {
+        outline: 2px solid colors.$primary;
+        outline-offset: 2px;
+      }
+      
+      &:focus:not(:focus-visible) {
+        outline: none;
+      }
+      
+      &:active {
+        transform: translateY(-2px);
+      }
+    }
+
+    &-peopleImage {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin-bottom: spaces.$space-m;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      
+      border: 3px solid white;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        @extend %transition-transform;
+      }
+      
+      // Hover effect for image
+      .team-peopleItem:hover & > img {
+        transform: scale(1.05);
+      }
+    }
+
+    &-peopleDetail {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      
+      strong {
+        color: colors.$black;
+        word-wrap: break-word;
+        hyphens: auto;
+        text-align: center;
+        color: colors.$black;
+        font-weight: 700;
+
+      }
+      
+      > div {
+        text-align: center;
+        max-width: 280px;
+      }
+    }
+    // Loading state placeholder
+    &-peopleItem.loading {
+      .team-peopleImage {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      
+      .team-peopleDetail strong,
+      .team-peopleDetail > div {
+        background: #f0f0f0;
+        border-radius: 4px;
+        color: transparent;
+      }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 767px) {
+      &-people {
+        grid-template-columns: 1fr;
+        gap: spaces.$space-m;
+      }
+      
+      &-peopleItem {
+        max-width: 100%;
+        padding: spaces.$space-m;
+        min-height: 350px;
+      }
+      
+      &-peopleImage {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
+}
+
+// Loading animation keyframe
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
