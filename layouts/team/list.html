@@ -1,0 +1,88 @@
+{{ define "main" }}
+
+{{ $year := printf "%v" (.Param "year") }}
+{{ $currentData := index site.Data $year}}
+
+{{ $roles := index $currentData "roles" }}
+{{ $people := index $currentData "people"}}
+
+<main class="section section--padded">
+  <h1 class="h1">Team</h1>
+  <div class="content">
+    {{ .Content }}
+  </div>
+
+  {{/* Organizers*/}}
+  <div class="team">
+    {{ range $roles }}
+      {{$role := . }}
+      {{ $code := $role.code }}
+      {{ $peoples := where $people "role" $code }}
+      {{ if gt (len $peoples) 0 }}
+      <div class="team-role">
+
+        <h2 class="team-roleTitle"> {{ $role.title }} </h2>
+        <div class="team-people">
+        {{ range $peoples }}
+          {{ $person := .}}
+          {{ $personCode := $person.code}}
+          {{ $website := $person.website }}
+
+          {{/* Get image content */}}
+          {{ $img := resources.Get (printf "team/%s.jpg" $personCode) }}
+          {{ if not $img }}
+          {{ $img = resources.Get (printf "team/%s.png" $personCode) }}
+          {{ end }}
+          {{ if not $img }}
+          {{ $img = resources.Get (printf "speakers/%s.jpg" $personCode) }}
+          {{ end }}
+          {{ if not $img }}
+          {{ $img = resources.Get (printf "speakers/%s.png" $personCode) }}
+          {{ end }}
+          {{if not $img}}
+          {{ $img = resources.Get "team/profile.jpg" }}
+          {{ end }}
+
+          {{ $img := $img.Fit "200x200 q100 jpg" }}
+          {{ $link := printf "%s?%s" .website }}
+          {{ if $website }}
+          <a href="{{ $website }}" target="_blank" rel="noopener noreferrer" class="team-peopleItem" role="listitem"
+            aria-label="Visit {{ .name }}'s profile">
+            {{ template "team-member-content" (dict "person" . "img" $img "personCode" $personCode) }}
+          </a>
+          {{ else }}
+          <div class="team-peopleItem" role="listitem">
+            {{ template "team-member-content" (dict "person" . "img" $img "personCode" $personCode) }}
+          </div>
+          {{ end }}
+        {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</main>
+{{ end }}
+
+{{/* Reusable template for team member content */}}
+{{ define "team-member-content" }}
+{{ $person := .person }}
+{{ $img := .img }}
+{{ $personCode := .personCode }}
+
+<div class="team-peopleImage" aria-hidden="true">
+  {{ if $img }}
+  <img src="{{ $img.RelPermalink }}" alt="{{ $person.name }}" width="{{ $img.Width }}" height="{{ $img.Height }}"
+    loading="lazy" onerror="this.style.display='none'">
+  {{ else }}
+  {{/* Fallback content handled by CSS */}}
+  {{ end }}
+</div>
+
+<div class="team-peopleDetail">
+  <strong>{{ $person.name }}</strong>
+  {{ if $person.description }}
+  <div>{{ $person.description }}</div>
+  {{ end }}
+</div>
+{{ end }}
