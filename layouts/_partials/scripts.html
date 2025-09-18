@@ -1,20 +1,6 @@
 {{ $main := resources.Get "js/main.ts" | js.Build | minify | fingerprint }}
 <script src="{{ $main.RelPermalink }}" defer></script>
 
-<!-- Eventbrite -->
-<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-<script type="text/javascript">
-    window.EBWidgets.createWidget({
-        // Required
-        widgetType: 'checkout',
-        eventId: '1620558878229',
-        iframeContainerId: 'eventbrite-widget-container-1620558878229',
-
-        // Optional
-        iframeContainerHeight: 425
-    });
-</script>
-
 {{- if eq hugo.Environment "production" -}}
 <script data-collect-dnt="true" async defer src="https://{{ .Site.Params.SimpleAnalyticsDomain }}/latest.js"></script>
 <noscript><img src="https://{{ .Site.Params.SimpleAnalyticsDomain }}/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"></noscript>
