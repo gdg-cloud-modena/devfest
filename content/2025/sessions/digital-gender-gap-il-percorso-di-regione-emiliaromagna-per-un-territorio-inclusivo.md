@@ -6,8 +6,8 @@ draft = false
 [params]
 rooms = ["verde"]
 speakers = ["michela-de-biasio"]
-starts = 2025-10-05T09:30:00
-ends = 2025-10-04T10:15:00
+starts = 2025-10-04T17:00:00
+ends = 2025-10-04T17:45:00
 slidesURL = ""
 warning = ""
 +++
