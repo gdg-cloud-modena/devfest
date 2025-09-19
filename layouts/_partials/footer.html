@@ -3,12 +3,8 @@
 	<div class="footer-wrapper section">
 		<div class="footer-columns">
 			<div class="footer-column">
-				<p class="footer-logo"><img
-					class="footer-logo" src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}"
-					height="{{ div $logo.Height 2 }}" alt="DevFest Modena"
-				></p>
-				<p class="footer-description">Un grande evento di programmazione e di tecnologia al centro dell'Emilia, nato
-				                              dalle comunità locali.</p>
+				<p class="footer-logo"><img class="footer-logo" src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena"></p>
+				<p class="footer-description">Un grande evento di programmazione e di tecnologia al centro dell'Emilia, nato dalle comunità locali.</p>
 			</div>
 			<div class="footer-column">
 				<h4 class="footer-title">Eventi precedenti</h4>
@@ -26,35 +22,22 @@
 				<ul class="footer-menu footer-menu-socialRow">
 					{{ range $name, $url := .Site.Params.social }}
 					<li class="footer-menuItem footer-menuItem-social ">
-						<a
-							href="{{ $url }}"
-							target="_blank"
-							rel="noopener"
-							aria-label="{{ $name }}"
-						>
+						<a href="{{ $url }}"target="_blank" rel="noopener" aria-label="{{ $name }}">
 							{{ $iconName := lower $name }}
 							{{ $iconPath := printf "icons/logo-%s.svg" $iconName }}
-							<img
-								src="{{ relURL $iconPath }}"
-								width="24"
-								height="24"
-								alt="{{ $name }} icon"
-							/>
+							<img src="{{ relURL $iconPath }}" width="24" height="24" alt="{{ $name }} icon">
 						</a>
 					</li>
 					{{ end }}
-				
 				</ul>
 			</div>
-			
+
 			<div class="footer-column">
 				<h4 class="footer-title">Contatti</h4>
 				<p><a class="footer-link" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
 			</div>
 		</div>
 		<hr class="footer-hr">
-		<p class="footer-copy">Copyright © {{ if eq .Site.Params.CopyrightFromYear now.Year }}
-		                       {{.Site.Params.CopyrightFromYear }} {{ else }} {{ .Site.Params.CopyrightFromYear }}-{{
-		                       now.Year }} {{ end }} {{ .Site.Params.company }}</p>
+		<p class="footer-copy">Copyright © {{ if eq .Site.Params.CopyrightFromYear now.Year }} {{ .Site.Params.CopyrightFromYear }} {{ else }} {{ .Site.Params.CopyrightFromYear }}-{{ now.Year }} {{ end }} {{ .Site.Params.company }}</p>
 	</div>
 </footer>

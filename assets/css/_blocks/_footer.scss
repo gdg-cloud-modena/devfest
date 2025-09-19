@@ -8,6 +8,7 @@
 @use "_default/_spaces";
 
 @use "_blocks/_hr";
+@use "_blocks/_p";
 
 @if r.$core {
   .footer {
@@ -45,7 +46,7 @@
   }
 
   .footer-description {
-    text-align: justify;
+    @extend .p;
     font-size: fonts.$size--1;
   }
 
@@ -63,7 +64,7 @@
   .footer-menu {
     font-weight: 400;
   }
-  .footer-menu-socialRow{
+  .footer-menu-socialRow {
     display: flex;
     flex-direction: row;
   }
