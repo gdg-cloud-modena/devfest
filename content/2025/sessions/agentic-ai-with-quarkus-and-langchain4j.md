@@ -4,10 +4,10 @@ date = 2025-09-10
 draft = false
 
 [params]
-rooms = ["teatro"]
+rooms = ["cardinali"]
 speakers = ["mario-fusco"]
-starts = 2025-10-04T11:00:00
-ends = 2025-10-04T11:45:00
+starts = 2025-10-04T16:00:00
+ends = 2025-10-04T16:45:00
 slidesURL = ""
 warning = ""
 +++
