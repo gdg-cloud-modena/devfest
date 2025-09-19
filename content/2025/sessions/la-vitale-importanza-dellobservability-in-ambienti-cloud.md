@@ -15,6 +15,6 @@ Come un team di chirurgia quando opera ha bisogno di tutti gli strumenti che mon
 
 In ambienti Cloud questo è ancora più importante perché le policy di sicurezza e la natura stessa del Cloud ci impediscono di accedere direttamente alla macchina.
 
-Diventa quindi fondamentale avere a disposizione tutti gli strumenti che possano aiutarci a tenere sotto controllo la nostra applicazione con particolare attenzione ai tre pilastri dell'observability: Tracing, Metrics e Logs.
+Diventa quindi fondamentale avere a disposizione tutti gli strumenti che possano aiutarci a tenere sotto controllo la nostra applicazione con particolare attenzione ai tre pilastri dell’observability: Tracing, Metrics e Logs.
 
-In questo talk vedremo come fare un setup di Grafana per osservare, individuare e risolvere i problemi più comuni delle nostre applicazioni in cloud: Tracing delle chiamate, Profiling, individuazione dei colli di bottiglia, dei problemi di memoria e altro ancora.
+In questo talk vedremo cosa è OpenTelemetry e come fare un setup di base con Grafana per osservare, individuare e risolvere i problemi più comuni delle nostre applicazioni in cloud: Tracing delle chiamate, Profiling, individuazione dei colli di bottiglia, dei problemi di memoria e altro ancora.
