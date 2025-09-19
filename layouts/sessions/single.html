@@ -40,15 +40,16 @@
 	      {{ $image := $img.Resize "100x100 webp q65" }}
 	      <li class="relatedSpeakers-item">
 	        <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
+          <div class="relatedSpeakers-details">
+            <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+            <p class="relatedSpeakers-role">{{ .Params.company }} · {{ .Params.role }}.</p>
+          </div>
 	      </li>
 	    {{ else }}
-	      <li class="relatedSpeakers-item">
-	        <div class="relatedSpeakers-image relatedSpeakers-image--placeholder" aria-hidden="true"></div>
-	      </li>
+	      <li class="relatedSpeakers-item"><b>{{ $slug }}</b></li>
 	    {{ end }}
 	  {{ end }}
 	  {{ end }}
-  
   </ul>
 </main>
 {{ end }}
