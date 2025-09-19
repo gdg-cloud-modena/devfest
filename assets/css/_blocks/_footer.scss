@@ -63,10 +63,19 @@
   .footer-menu {
     font-weight: 400;
   }
+  .footer-menu-socialRow{
+    display: flex;
+    flex-direction: row;
+  }
 
   .footer-menuItem {
     margin-top: spaces.$space-2xs;
     margin-bottom: spaces.$space-2xs;
+  }
+
+  .footer-menuItem-social {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 
