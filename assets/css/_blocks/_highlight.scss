@@ -1,0 +1,17 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_spaces";
+
+@if r.$core {
+
+    .highlight {
+        background: linear-gradient(135deg, colors.$warning--2 0%, colors.$warning--1 100%);
+        padding: spaces.$space-3xs spaces.$space-2xs;
+        @extend %rounded;
+        font-weight: 600;
+        color: colors.$warning-contrast;
+    }
+
+}

@@ -1,0 +1,296 @@
+@use "_responsive" as r;
+@use "_default/colors";
+@use "_default/spaces";
+@use "_default/effects";
+@use "_blocks/h2";
+@use "_blocks/h3";
+@use "_blocks/link";
+
+
+%section-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin: spaces.$space-m 0;
+}
+%section-title {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: spaces.$space-xs;
+}
+
+
+%section-item {
+
+    padding: spaces.$space-m;
+    margin: spaces.$space-2xs 0;
+
+    @extend %rounded;
+    display: flex;
+    align-items: start;
+    text-align: start;
+    text-decoration: none;
+}
+%section-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-3xs;
+    width: 100%;
+}
+%section-item-heading {
+    font-weight: 600;
+    margin-bottom: spaces.$space-xs;
+}
+
+@if r.$core {
+    .location {
+
+        &-map {
+            @extend %rounded;
+            background-color: colors.$gray--1;
+            padding: spaces.$space-m;
+            outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+
+            &__header {
+                width: 100%;
+                text-align: center;
+                margin-bottom: spaces.$space-xs;
+
+                &-title {
+                    @extend %section-title;
+                }
+            }
+            
+        }
+
+        /** Navigation */
+        &-navigation {
+            width: 100%;
+            margin: 1rem 0;
+
+            &__list {
+                display: flex;
+                gap: spaces.$space-2xs;
+                flex-wrap: wrap;
+                flex-direction: row;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            &__item {
+                @extend %rounded;
+
+                color: colors.$primary-contrast;
+                padding: spaces.$space-2xs spaces.$space-xs;
+                  background-color: colors.$primary;
+                @extend %transition-background;
+            }
+            /* Responsive tweak: stack vertically on very small screens */
+            @media (max-width: 480px) {
+                &__list {
+                    flex-direction: column;
+                }
+
+                &__item {
+                    width: 100%;
+                    justify-content: flex-start;
+                }
+            }
+        }
+
+        &-introduction {
+            @extend %section-wrapper;
+
+            &__header {
+                width: 100%;
+                text-align: center;
+            }
+            &__subtitle {
+                color: colors.$gray-contrast;
+            }
+            &__item {
+                
+                @extend %section-item;
+                
+                gap: spaces.$space-m;
+                &-info {
+                    background-color: colors.$gray--1;
+                    outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+                    @extend %rounded;
+                    padding: spaces.$space-m;
+                    display: flex;
+                    flex-direction: column;
+                    gap: spaces.$space-m;
+                    width: 100%;
+                }
+                &-info-item {
+                    outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+                    background: colors.$primary-contrast;
+                    @extend %rounded;
+                    display: flex;
+                    padding: spaces.$space-xs;
+                    gap: spaces.$space-xs;
+                }
+                &-info-icon {
+                    width: 1rem;
+                    height: 1rem;
+                    background-color: colors.$primary-contrast;
+                    /* placeholder for icon */
+                    border-radius: 50%;
+                    flex-shrink: 0;
+                }
+                &-info-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: spaces.$space-xs;
+                    width: 100%;
+                }
+            }
+            &__description {
+                background: colors.$primary-contrast;
+                outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+
+                @extend %rounded;
+                padding: spaces.$space-m;
+                display: flex;
+                flex-direction: column;
+                gap: spaces.$space-m;
+                width: 100%;
+                &-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: spaces.$space-m;
+                    width: 100%;
+                }
+            }
+
+            &__photos {
+                display: flex;
+                flex-direction: row;
+                gap: spaces.$space-m;
+                width: 100%;
+
+                justify-content: center;
+                margin: spaces.$space-xs 0;
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                }
+                & img {
+                    width: 100%;
+                    @extend %rounded;
+                }
+            }
+
+        }
+
+        &-auto {
+           @extend %section-wrapper;
+
+            &__item-title {
+                @extend %section-title;
+            }
+
+            &-warning {
+                background-color: colors.$warning;
+                padding: spaces.$space-s;
+                outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+
+                @extend %rounded;
+                &__title {
+                    // color: colors.$warning;
+
+                    color: colors.$warning-contrast;
+                    font-weight: 600;
+                    width: 100%;
+                    margin-bottom: spaces.$space-s;
+                }
+            }
+
+            &__item {
+                @extend %section-item;
+                outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+
+                flex-direction: column;
+                background: colors.$primary-contrast;
+              
+                &-list {
+                  list-style: decimal; /* Keep semantic numbering */
+                  padding-left: 2rem; /* Space for custom marker */
+                }
+              
+                &-list li {
+                  position: relative;
+                  margin: 0.5rem 0;
+                }
+              
+                /* Hide the default number visually but keep it for screen readers */
+                &-list li::marker {
+                  color: transparent;
+                  font-size: 0; 
+                }
+              
+                /* Custom styled number */
+                &-list li::before {
+                  content: counter(list-item); /* Uses native <ol> counter */
+                  position: absolute;
+                  left: -2rem; /* aligns with padding-left */
+                  top: 0;
+                  background: #3b82f6;
+                  color: white;
+                  width: 1.5rem;
+                  height: 1.5rem;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.8rem;
+                  font-weight: bold;
+                }
+              }
+        }
+
+        &-parking,
+        &-public-transport,
+        &-airplane
+        {
+            @extend %section-wrapper;
+
+            &__item-title {
+                @extend %section-title;
+            }
+
+
+            &__item {
+                outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+
+                @extend %section-item;
+                background: colors.$primary-contrast;
+                &-content {
+                    @extend %section-item-content;
+                }
+                &-heading {
+                    @extend %section-item-heading;
+                }
+                &-address,
+                &-distance {
+                    color: colors.$gray-contrast;
+                    margin: 0;
+                }
+                &-extra {
+                    color: colors.$gray-contrast;
+                    margin: 0 0 spaces.$space-s 0;
+                }
+                &-link {
+                    @extend .link;
+                    font-weight: 500;
+                    color: colors.$primary;
+                    margin-top: auto; // pushes it to the bottom if card grows
+                }
+            }
+        }
+
+    }
+}
