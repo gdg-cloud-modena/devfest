@@ -7,46 +7,6 @@
 @use "_blocks/link";
 
 
-%section-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    margin: spaces.$space-m 0;
-}
-
-%section-title {
-    width: 100%;
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: spaces.$space-xs;
-}
-
-
-%section-item {
-
-    padding: spaces.$space-m;
-    margin: spaces.$space-2xs 0;
-
-    @extend %rounded;
-    display: flex;
-    align-items: start;
-    text-align: start;
-    text-decoration: none;
-}
-
-%section-item-content {
-    display: flex;
-    flex-direction: column;
-    gap: spaces.$space-3xs;
-    width: 100%;
-}
-
-%section-item-heading {
-    font-weight: 600;
-    margin-bottom: spaces.$space-xs;
-}
-
 @if r.$core {
     .location {
 
@@ -55,247 +15,126 @@
             width: 100%;
             margin: 1rem 0;
 
-            &-list {
+            &List {
                 display: flex;
                 gap: spaces.$space-2xs;
                 flex-wrap: wrap;
                 flex-direction: row;
                 list-style: none;
                 row-gap: spaces.$space-xs;
+            }
 
+            &Item {
+                @extend %rounded;
 
-                &--item {
-                    @extend %rounded;
-
-                    color: colors.$primary-contrast;
-                    padding: spaces.$space-2xs spaces.$space-xs;
-                    background-color: colors.$primary;
-                    @extend %transition-background;
-                }
+                color: colors.$primary-contrast;
+                padding: spaces.$space-2xs spaces.$space-xs;
+                background-color: colors.$primary;
+                @extend %transition-background;
             }
 
             @media (max-width: 480px) {
-                &-list {
+                &List {
                     flex-direction: column;
 
                     & li {
                         display: inline-grid;
                     }
 
-                    &--item {
-                        justify-content: flex-start;
-                    }
                 }
 
             }
         }
 
-        &-introduction {
-            @extend %section-wrapper;
-
-            &-header {
-                width: 100%;
-                text-align: center;
+        &-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: spaces.$space-m;
+            margin: spaces.$space-xs 0;
+            justify-content: center;
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
             }
-
-            &--item {
+            &Content {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-
-                gap: spaces.$space-m;
-
-                &-info {
-                    display: flex;
-                    flex-direction: column;
-                    background-color: colors.$gray--1;
-                    outline: 1px solid rgba(colors.$gray-contrast, 0.1);
-                    @extend %rounded;
-                    padding: spaces.$space-m;
-                    gap: spaces.$space-m;
-                    width: 100%;
-                }
-
-                &-info-item {
-                    outline: 1px solid rgba(colors.$gray-contrast, 0.1);
-                    display: flex;
-                    background: colors.$primary-contrast;
-                    @extend %rounded;
-                    padding: spaces.$space-xs;
-                    gap: spaces.$space-xs;
-                }
-
-                &-info-icon {
-                    width: 1rem;
-                    height: 1rem;
-                    background-color: colors.$primary-contrast;
-                    /* placeholder for icon */
-                    border-radius: 50%;
-                    flex-shrink: 0;
-                }
-
-                &-info-content {
-                    display: flex;
-                    flex-direction: column;
-                    gap: spaces.$space-xs;
-                    width: 100%;
-                }
-
-                &-map {
-                    @extend %rounded;
-                    background-color: colors.$gray--1;
-                    padding: spaces.$space-m;
-                    outline: 1px solid rgba(colors.$gray-contrast, 0.1);
-
-                    &-header {
-                        width: 100%;
-                        text-align: center;
-                        margin-bottom: spaces.$space-xs;
-
-                        &-title {
-                            @extend %section-title;
-                        }
-                    }
-
-                    & img {
-                        cursor: pointer;
-                    }
-
-                }
-
-                @media (max-width: 768px) {
-
-                    grid-template-columns: 1fr;
-                    gap: spaces.$space-m;
-                }
             }
+        }
+        
+        &-details {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            margin: spaces.$space-m 0;
+        }
 
-            &--description {
-                background: colors.$primary-contrast;
-                outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+        &-detail {
+            outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+            padding: spaces.$space-m;
+            margin: spaces.$space-2xs 0;
 
-                @extend %rounded;
-                padding: spaces.$space-m;
+            @extend %rounded;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            text-align: start;
+            text-decoration: none;
+            background: colors.$primary-contrast;
+
+            &Content {
                 display: flex;
                 flex-direction: column;
-                gap: spaces.$space-m;
+                gap: spaces.$space-3xs;
                 width: 100%;
-
-                &-content {
-                    display: flex;
-                    flex-direction: column;
-                    gap: spaces.$space-m;
-                    width: 100%;
-                }
             }
 
-            &--photos {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                justify-content: center;
-                gap: spaces.$space-m;
-                margin: spaces.$space-xs 0;
-
-                @media (max-width: 768px) {
-                    grid-template-columns: 1fr;
-                }
-
-                & img {
-                    @extend %rounded;
-                    height: 500px;
-                    width: auto;
-                    justify-self: center;
-                }
+            &Title {
+                width: 100%;
+                text-align: center;
+                margin-bottom: spaces.$space-xs;
             }
 
-        }
-
-        &-auto {
-            @extend %section-wrapper;
-
-            &--title {
-                @extend %section-title;
-            }
-
-            &--warning-title {
-
+            &WarningTitle {
                 color: colors.$warning-contrast;
-                font-weight: 600;
-                width: 100%;
-                margin-bottom: spaces.$space-s;
+
+            }
+            &Image {
+                @extend %rounded;
+                height: 500px;
+                width: auto;
+                justify-self: center;
             }
 
-
-            &--item {
-                @extend %section-item;
-                outline: 1px solid rgba(colors.$gray-contrast, 0.1);
-
-                flex-direction: column;
-                background: colors.$primary-contrast;
-
-                &-list {
-                    list-style: decimal;
-                    padding-left: 2rem;
-                }
-
-                &-list li {
-                    position: relative;
-                    margin: 0.5rem 0;
-                }
-
-                &-list li::marker {
-                    color: transparent;
-                    font-size: 0;
-                }
-
-                &-list li::before {
-                    content: counter(list-item);
-                    position: absolute;
-                    left: -2rem;
-                    top: 0;
-                    background: colors.$primary;
-                    color: colors.$primary-contrast;
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 0.8rem;
-                    font-weight: bold;
-                }
-            }
-        }
-
-        &-parking,
-        &-public-transport,
-        &-airplane {
-            @extend %section-wrapper;
-
-            &--item-title {
-                @extend %section-title;
+            &List {
+                list-style: decimal;
+                padding-left: 2rem;
             }
 
+            &List li {
+                position: relative;
+                margin: 0.5rem 0;
+            }
 
-            &--item {
-                outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+            &List li::marker {
+                color: transparent;
+                font-size: 0;
+            }
 
-                @extend %section-item;
-                background: colors.$primary-contrast;
-
-                &-content {
-                    @extend %section-item-content;
-                }
-
-                &-heading {
-                    @extend %section-item-heading;
-                }
-
-                &-link {
-                    @extend .link;
-                    font-weight: 600;
-                    color: colors.$primary;
-                    margin-top: auto;
-                }
+            &List li::before {
+                content: counter(list-item);
+                position: absolute;
+                left: -2rem;
+                top: 0;
+                background: colors.$primary;
+                color: colors.$primary-contrast;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.8rem;
+                font-weight: bold;
             }
         }
 

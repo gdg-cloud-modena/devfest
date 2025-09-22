@@ -5,170 +5,155 @@
     <div class="location">
         <!-- region navigation -->
         <nav class="location-navigation" aria-label="Sezioni della location">
-            <ul class="location-navigation-list">
+            <ul class="location-navigationList">
                 <li>
-                    <a href="#location-introduction" class="location-navigation-list--item">
-                        Mappa
-                    </a>
+                    <a href="#location-introduction" class="location-navigationItem">Mappa</a>
                 </li>
                 <li>
-                    <a href="#location-auto" class="location-navigation-list--item">
-                        In Auto
-                    </a>
+                    <a href="#location-auto" class="location-navigationItem">In Auto</a>
                 </li>
                 <li>
-                    <a href="#location-parking" class="location-navigation-list--item">
-                        Parcheggio
-                    </a>
+                    <a href="#location-parking" class="location-navigationItem">Parcheggio</a>
                 </li>
                 <li>
-                    <a href="#location-public-transport" class="location-navigation-list--item">
-                        Treno
-                    </a>
+                    <a href="#location-public-transport" class="location-navigationItem">Treno</a>
                 </li>
                 <li>
-                    <a href="#location-airplane" class="location-navigation-list--item">
-                        In Aereo
-                    </a>
+                    <a href="#location-airplane" class="location-navigationItem">In Aereo</a>
                 </li>
             </ul>
         </nav>
 
-        <!-- region introduction -->
-        <div class="location-introduction" id="location-introduction">
-            <div class="location-introduction-header">
-                <h2 class="h2">{{ .Params.introduction.title }}</h2>
-            </div>
-            <div class="location-introduction--item">
-                <div class="location-introduction--item-info">
-                    <div class="location-introduction--item-info-item">
-                        <div class="location-introduction--item-info-content">
-                            <h4><strong>Indirizzo:</strong></h4>
+        <div class="location" id="location-introduction">
+            <h2 class="location-detailTitle h2">{{ .Params.introduction.title }}</h2>
+            <!-- region position -->
+            <div class="location-grid">
+                <div class="location-gridContent">
+                    <div class="location-detail">
+                        <div class="location-detailContent">
+                            <p><strong>Indirizzo:</strong></p>
                             <p>{{ .Params.introduction.address }}</p>
                         </div>
                     </div>
-
-                    <div class="location-introduction--item-info-item">
-                        <div class="location-introduction--item-info-content">
-                            <h4><strong>Sito Ufficiale:</strong></h4>
-                            <p><a href="{{ .Params.introduction.website }}" target="_blank"> Fondazione San Carlo →</a>
-                            </p>
+                    <div class="location-detail">
+                        <div class="location-detailContent">
+                            <p><strong>Sito Ufficiale:</strong></p>
+                            <a class="link" href="{{ .Params.introduction.website }}" target="_blank"
+                                rel="noopener noreferrer"> Fondazione San Carlo →</a>
                         </div>
                     </div>
 
-                    <div class="location-introduction--item-info-item">
-                        <div class="location-introduction--item-info-content">
-                            <h4><strong>Accessibilità:</strong></h4>
+                    <div class="location-detail">
+                        <div class="location-detailContent">
+                            <p><strong>Accessibilità:</strong></p>
                             <p>Accesso privo di barriere architettoniche</p>
                         </div>
                     </div>
                 </div>
-                <div class="location-introduction--item-map">
-                    <div class="location-introduction--item-map-header">
-                        <h3 class="location-introduction--item-map-header-title h3">Posizione sulla Mappa</h3>
+                <div class="location-detail">
+                    <div class="location-detailContent">
+                        <h3 class="location-detailTitle h3">Posizione sulla Mappa</h3>
+
+                        {{- $locationImage:= (resources.Get "location/location.png").Resize "600x webp q85" -}}
+
+                        <a href="{{ .Params.introduction.link }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ $locationImage.RelPermalink }}" alt="Mappa della Fondazione San Carlo" width={{
+                                $locationImage.Width }} height={{ $locationImage.Height }}>
+                        </a>
                     </div>
-                    {{- $locationImage:= (resources.Get "location/location.png").Resize "600x webp q85" -}}
-
-                    <a href="{{ .Params.introduction.link }}" target="_blank">
-                        <img src="{{ $locationImage.RelPermalink }}" alt="Mappa della Fondazione San Carlo" width={{
-                            $locationImage.Width }} height={{ $locationImage.Height }}>
-                    </a>
-
-
                 </div>
             </div>
-            <div class="location-introduction--photos">
+            <!-- region photos -->
+            <div class="location-grid">
                 {{ range .Params.photos }}
                 {{ $img := (resources.Get (printf "location/%s" .link)).Resize "600x webp q85" }}
-                <img src="{{ $img.RelPermalink }}" alt="{{ .title }}" width={{ $img.Width }} height={{ $img.Height }}>
+                <img class="location-detailImage" src="{{ $img.RelPermalink }}" alt="{{ .title }}" width={{ $img.Width
+                    }} height={{ $img.Height }}>
                 {{ end }}
             </div>
 
-            <div class="location-introduction--description">
-                <h3 class="h3">Informazioni</h3>
-                <div class="location-introduction--description-content">
-                    <p>{{ .Params.introduction.description1 | safeHTML }}</p>
-                    <p>{{ .Params.introduction.description2 | safeHTML }}</p>
-                    <p>{{ .Params.introduction.description3 | safeHTML }}</p>
+            <!-- region description -->
+            <div class="location-detail">
+                <div class="location-detailContent">
+                    <h3 class="h3">Informazioni</h3>
+                    <p class="p">{{ .Params.introduction.description1 | safeHTML }}</p>
+                    <p class="p">{{ .Params.introduction.description2 | safeHTML }}</p>
+                    <p class="p">{{ .Params.introduction.description3 | safeHTML }}</p>
                 </div>
+
             </div>
 
-        </div>
+            <!-- region auto -->
+            <div class="location-details" id="location-auto">
+                <h2 class="location-detailTitle h2">In Auto</h2>
 
-        <!-- region auto -->
-        <div class="location-auto" id="location-auto">
-            <h2 class="location-auto--title h2">In Auto</h2>
+                <div class="callout callout--warning">
+                    <h3 class="location-detailWarningTitle h3"> ⚠️ Attenzione alla Zona a Traffico Limitato (ZTL)!</h3>
+                    <p>La Fondazione San Carlo si trova all'interno della Zona a Traffico Limitato (ZTL) di Modena. Per
+                        raggiungere la Fondazione San Carlo, abbiamo selezionato alcuni parcheggi consigliati</p>
+                </div>
 
-            <div class="callout callout--warning">
-                <h3 class="location-auto--warning-title h3"> ⚠️ Attenzione alla Zona a Traffico Limitato (ZTL)!</h3>
-                <p>La Fondazione San Carlo si trova all'interno della Zona a Traffico Limitato (ZTL) di Modena. Per
-                    raggiungere la Fondazione San Carlo, abbiamo selezionato alcuni parcheggi consigliati</p>
-            </div>
-
-            {{ range .Params.auto }}
-            <div class="location-auto--item">
-                <h3 class="h3">{{ .title }}</h3>
-                <ol class="location-auto--item-list">
-                    <li>{{ .step1 }}</li>
-                    <li>{{ .step2 }}</li>
-                    <li>{{ .step3 }}</li>
-                    <li>{{ .step4 }}</li>
-                </ol>
-            </div>
-            {{ end }}
-        </div>
-
-        <!-- region parking -->
-        <div class="location-parking" id="location-parking">
-            <h2 class="location-parking--item-title h2">Parcheggi Consigliati</h2>
-            {{ range .Params.parking }}
-            <div class="location-parking--item">
-                <div class="location-parking--item-content">
+                {{ range .Params.auto }}
+                <div class="location-detail">
                     <h3 class="h3">{{ .title }}</h3>
-                    <p><strong>Indirizzo:</strong> {{ .address }}</p>
-                    <p><strong>Distanza:</strong> {{ .distance }}</p>
-                    <p><strong>Extra:</strong> {{ .description }}</p>
-                    <a href="{{ .link }}" class="location-parking--item-link" target="_blank" rel="noopener noreferrer">
-                        Apri su Google Maps
-                    </a>
+                    <ol class="location-detailList">
+                        <li>{{ .step1 }}</li>
+                        <li>{{ .step2 }}</li>
+                        <li>{{ .step3 }}</li>
+                        <li>{{ .step4 }}</li>
+                    </ol>
                 </div>
+                {{ end }}
             </div>
-            {{ end }}
-        </div>
 
-        <!-- region train -->
-        <div class="location-public-transport" id="location-public-transport">
-            <h2 class="location-public-transport--item-title h2">Treno</h2>
-            {{ range .Params.train }}
-            <div class="location-public-transport--item">
-                <div class="location-public-transport--item-content">
-                    <h3 class="h3">{{ .title }}</h3>
-                    <p><strong>Distanza:</strong> {{ .distance }}</p>
-                    <p><strong>Tempo:</strong> {{ .time }}</p>
-                    <p><strong>Extra:</strong> {{ .description }}</p>
-                    <a href="{{ .link }}" class="location-public-transport--item-link" target="_blank"
-                        rel="noopener noreferrer">
-                        Apri percorso su Google Maps
-                    </a>
+            <!-- region parking -->
+            <div class="location-details" id="location-parking">
+                <h2 class="location-detailTitle h2">Parcheggi Consigliati</h2>
+                {{ range .Params.parking }}
+                <div class="location-detail">
+                    <div class="location-detailContent">
+                        <h3 class="h3">{{ .title }}</h3>
+                        <p><strong>Indirizzo:</strong> {{ .address }}</p>
+                        <p><strong>Distanza:</strong> {{ .distance }}</p>
+                        <p><strong>Extra:</strong> {{ .description }}</p>
+                        <a href="{{ .link }}" class="link" target="_blank" rel="noopener noreferrer">Apri
+                            su Google Maps</a>
+                    </div>
                 </div>
+                {{ end }}
             </div>
-            {{ end }}
-        </div>
 
-        <!-- region airplane -->
-        <div class="location-airplane" id="location-airplane">
-            <h2 class="location-airplane--item-title h2">In Aereo</h2>
-            {{ range .Params.airplane }}
-            <div class="location-airplane--item">
-                <div class="location-airplane--item-content">
-                    <h3 class="h3">{{ .title }}</h3>
-                    <p><strong>Distanza:</strong> {{ .distance }}</p>
-                    <p><strong>Indicazioni:</strong> {{ .suggestion }}</p>
+            <!-- region train -->
+            <div class="location-details" id="location-public-transport">
+                <h2 class="location-detailTitle h2">Treno</h2>
+                {{ range .Params.train }}
+                <div class="location-detail">
+                    <div class="location-detailContent">
+                        <h3 class="h3">{{ .title }}</h3>
+                        <p><strong>Distanza:</strong> {{ .distance }}</p>
+                        <p><strong>Tempo:</strong> {{ .time }}</p>
+                        <p><strong>Extra:</strong> {{ .description }}</p>
+                        <a href="{{ .link }}" class="link" target="_blank" rel="noopener noreferrer">Apri
+                            percorso su Google Maps</a>
+                    </div>
                 </div>
+                {{ end }}
             </div>
-            {{ end }}
-        </div>
 
-    </div>
+            <!-- region airplane -->
+            <div class="location-details" id="location-airplane">
+                <h2 class="location-detailTitle h2">In Aereo</h2>
+                {{ range .Params.airplane }}
+                <div class="location-detail">
+                    <div class="location-detailContent">
+                        <h3 class="h3">{{ .title }}</h3>
+                        <p><strong>Distanza:</strong> {{ .distance }}</p>
+                        <p><strong>Indicazioni:</strong> {{ .suggestion }}</p>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+
+        </div>
 </main>
 {{ end }}
