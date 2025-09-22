@@ -21,6 +21,14 @@ link = "https://maps.app.goo.gl/eQUSCZ2SaFHjgzzc6"
 distance = "Circa 13 minuti a piedi"
 description = "Parcheggio sotterraneo, multilivello."
 
+[[params.parking]]
+title = "Viali attorno al centro storico"
+address = "Viale delle Rimembranze, Modena (MO)"
+link = "https://maps.app.goo.gl/C2JgqRwioRWDaKho9"
+distance = "Dai 6 ai 12 minuti a piedi"
+description = "Parcheggi lungo i viali del centro storico."
+
+
 # Location Introduction
 
 [params.location-introduction]
