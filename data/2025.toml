@@ -202,13 +202,13 @@ code = "gold"
 weight = 3
 
 [[levels]]
-title = "Tech"
-code = "tech"
+title = "Silver"
+code = "silver"
 weight = 4
 
 [[levels]]
-title = "Silver"
-code = "silver"
+title = "Tech"
+code = "tech"
 weight = 5
 
 [[levels]]
