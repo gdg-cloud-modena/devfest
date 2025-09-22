@@ -1,0 +1,15 @@
+{{define "main"}}
+<main class="section section--padded">
+  <h1 class="h1">{{ .Title }} {{ .Params.year }}</h1>
+  <div class="content">{{ .Content }}</div>
+
+  <div class="faq-list">
+    {{ range .Site.Data.faq.qa }}
+    <details>
+      <summary>{{ .question }}</summary>
+      <div>{{ .answer }}</div>
+    </details>
+    {{ end }}
+  </div>
+</main>
+{{end}}

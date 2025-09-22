@@ -69,10 +69,16 @@ weight = 3
 url = "/2025/location/"
 
 [[menus.main]]
+identifier = "faq"
+name = "Faq"
+weight = 4
+url = "/faq"
+
+[[menus.main]]
 identifier = "tickets"
 name = "Biglietti"
 url = "https://devfest-modena-2025.eventbrite.it"
-weight = 4
+weight = 5
 [menus.main.params]
 external = true
 

@@ -1,0 +1,20 @@
+@use "_default/_spaces";
+@use "_default/_colors";
+
+$common-padding: spaces.$space-s spaces.$space-xs;
+
+.faq-list {
+  details {
+    margin-block-end: spaces.$space-2xs;
+    summary {
+      padding: $common-padding;
+      color: colors.$white;
+      font-weight: bold;
+      background-color: colors.$secondary;
+      cursor: pointer;
+    }
+    div {
+      padding: $common-padding;
+    }
+  }
+}
