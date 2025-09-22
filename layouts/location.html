@@ -7,44 +7,40 @@
 {{ $locationTrain := index .Params "location-train" }}
 {{ $locationAirplane := index .Params "location-airplane" }}
 
-{{- $img1 := (resources.Get "location/image1.jpg").Resize "500x webp q85" -}}
-{{- $img2 := (resources.Get "location/image2.jpg").Resize "500x webp q85" -}}
-{{- $img3 := (resources.Get "location/location.png").Resize "500x webp q85" -}}
+{{ $locationPhotos := index .Params "location-photos" }}
+
+{{- $img3 := (resources.Get "location/location.png").Resize "600x webp q85" -}}
 
 <main class="section section--padded">
     <h1 class="h1">Come raggiungerci</h1>
     <div class="location">
         <!-- region navigation -->
         <nav class="location-navigation" aria-label="Sezioni della location">
-            <ul class="location-navigation--list">
+            <ul class="location-navigation-list">
                 <li>
-                    <a href="#location-introduction" class="location-navigation--item">
-                        <span class="location-navigation--item-icon" aria-hidden="true"></span>
-                        <span class="location-navigation--item-text">Mappa</span>
+                    <a href="#location-introduction" class="location-navigation-list--item">
+                        Mappa
                     </a>
                 </li>
                 <li>
-                    <a href="#location-auto" class="location-navigation--item">
-                        <span class="location-navigation--item-icon" aria-hidden="true"></span>
-                        <span class="location-navigation--item-text">In Auto</span>
+                    <a href="#location-auto" class="location-navigation-list--item">
+                        In Auto
                     </a>
                 </li>
                 <li>
-                    <a href="#location-parking" class="location-navigation--item">
-                        <span class="location-navigation--item-icon" aria-hidden="true"></span>
-                        <span class="location-navigation--item-text">Parcheggio</span>
+                    <a href="#location-parking" class="location-navigation-list--item">
+                        Parcheggio
                     </a>
                 </li>
                 <li>
-                    <a href="#location-public-transport" class="location-navigation--item">
-                        <span class="location-navigation--item-icon" aria-hidden="true"></span>
-                        <span class="location-navigation--item-text">Treno</span>
+                    <a href="#location-public-transport" class="location-navigation-list--item">
+                        Treno
                     </a>
                 </li>
                 <li>
-                    <a href="#location-airplane" class="location-navigation--item">
-                        <span class="location-navigation--item-icon" aria-hidden="true"></span>
-                        <span class="location-navigation--item-text">In Aereo</span>
+                    <a href="#location-airplane" class="location-navigation-list--item">
+
+                       In Aereo</span>
                     </a>
                 </li>
             </ul>
@@ -52,7 +48,7 @@
 
         <!-- region introduction -->
         <div class="location-introduction" id="location-introduction">
-            <div class="location-introduction--header">
+            <div class="location-introduction-header">
                 <h2 class="h2">{{ $locationIntroduction.title }}</h2>
             </div>
             <div class="location-introduction--item">
@@ -67,7 +63,7 @@
                     <div class="location-introduction--item-info-item">
                         <div class="location-introduction--item-info-content">
                             <h4><strong>Sito Ufficiale:</strong></h4>
-                            <p><a href="{{ $locationIntroduction.website }}" target="_blank" class="website-link">{{
+                            <p><a href="{{ $locationIntroduction.website }}" target="_blank" >{{
                                     $locationIntroduction.website }} →</a></p>
                         </div>
                     </div>
@@ -83,17 +79,18 @@
                         <div class="location-introduction--item-map-header">
                             <h3 class="location-introduction--item-map-header-title h3">Posizione sulla Mappa</h3>
                         </div>
-                        <a href="{{ $locationIntroduction.link }}" target="_blank" class="website-link">
-                            <img src="{{ $img3.RelPermalink }}" alt="Interno della chiesa di San Carlo" width={{ $img3.Width }} height={{ $img3.Height }}>
+                        <a href="{{ $locationIntroduction.link }}" target="_blank">
+                            <img src="{{ $img3.RelPermalink }}" alt="Mappa della Fondazione San Carlo" width={{ $img3.Width }} height={{ $img3.Height }}>
                         </a>
 
                     
                 </div>
             </div>
             <div class="location-introduction--photos">
-
-                <img src="{{ $img2.RelPermalink }}" alt="Interno della chiesa di San Carlo" width={{ $img2.Width }} height={{ $img2.Height }}>
-                <img src="{{ $img1.RelPermalink }}" alt="Facciata storica del palazzo barocco" width={{ $img1.Width }} height={{ $img1.Height }}>
+                {{ range $locationPhotos }}
+                {{ $img := (resources.Get (printf "location/%s" .link)).Resize "600x webp q85" }}
+                <img src="{{ $img.RelPermalink }}" alt="{{ .title }}" width={{ $img.Width }} height={{ $img.Height }}>        
+                {{ end }}
             </div>
 
             <div class="location-introduction--description">
@@ -109,12 +106,12 @@
 
         <!-- region auto -->
         <div class="location-auto" id="location-auto">
-            <h2 class="location-auto--item-title h2">In Auto</h2>
+            <h2 class="location-auto--title h2">In Auto</h2>
 
             <div class="callout callout--warning">
-                <h3 class=""> ⚠️ Attenzione alla Zona a Traffico Limitato (ZTL)!</h3>
+                <h3 class="location-auto--warning-title h3"> ⚠️ Attenzione alla Zona a Traffico Limitato (ZTL)!</h3>
                 <p>La Fondazione San Carlo si trova all'interno della Zona a Traffico Limitato (ZTL) di Modena. Per
-                    raggiungere la Fondazione San Carlo, abbiamo selezionato alcuni parcheggi consigliati:</p>
+                    raggiungere la Fondazione San Carlo, abbiamo selezionato alcuni parcheggi consigliati</p>
             </div>
 
             {{ range $locationAuto }}
@@ -137,9 +134,9 @@
             <div class="location-parking--item">
                 <div class="location-parking--item-content">
                     <h3 class="h3">{{ .title }}</h3>
-                    <p class="location-parking--item-address"><strong>Indirizzo:</strong> {{ .address }}</p>
-                    <p class="location-parking--item-distance"><strong>Distanza:</strong> {{ .distance }}</p>
-                    <p class="location-parking--item-extra"><strong>Extra:</strong> {{ .description }}</p>
+                    <p><strong>Indirizzo:</strong> {{ .address }}</p>
+                    <p><strong>Distanza:</strong> {{ .distance }}</p>
+                    <p><strong>Extra:</strong> {{ .description }}</p>
                     <a href="{{ .link }}" class="location-parking--item-link" target="_blank" rel="noopener noreferrer">
                         Apri su Google Maps
                     </a>
@@ -155,9 +152,9 @@
             <div class="location-public-transport--item">
                 <div class="location-public-transport--item-content">
                     <h3 class="h3">{{ .title }}</h3>
-                    <p class="location-public-transport--item-distance"><strong>Distanza:</strong> {{ .distance }}</p>
-                    <p class="location-public-transport--item-address"><strong>Tempo:</strong> {{ .time }}</p>
-                    <p class="location-public-transport--item-extra"><strong>Extra:</strong> {{ .description }}</p>
+                    <p><strong>Distanza:</strong> {{ .distance }}</p>
+                    <p><strong>Tempo:</strong> {{ .time }}</p>
+                    <p><strong>Extra:</strong> {{ .description }}</p>
                     <a href="{{ .link }}" class="location-public-transport--item-link" target="_blank"
                         rel="noopener noreferrer">
                         Apri percorso su Google Maps
@@ -174,8 +171,8 @@
             <div class="location-airplane--item">
                 <div class="location-airplane--item-content">
                     <h3 class="h3">{{ .title }}</h3>
-                    <p class="location-airplane--item-distance"><strong>Distanza:</strong> {{ .distance }}</p>
-                    <p class="location-airplane--item-address"><strong>Indicazioni:</strong> {{ .suggestion }}</p>
+                    <p ><strong>Distanza:</strong> {{ .distance }}</p>
+                    <p ><strong>Indicazioni:</strong> {{ .suggestion }}</p>
                 </div>
             </div>
             {{ end }}

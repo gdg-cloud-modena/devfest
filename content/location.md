@@ -32,6 +32,16 @@ description1 = "La <span class='highlight'>Fondazione San Carlo</span> è un'ist
 description2 = "L'interno dell'edificio offre spazi raffinati e funzionali, ideali per eventi, workshop e conferenze. La <span class='highlight'>Chiesa di San Carlo</span>, situata al piano terra, può ospitare fino a 400 persone ed è dotata di impianto audio-video e accesso privo di barriere architettoniche."
 description3 = "La Fondazione rappresenta una cornice perfetta per momenti di formazione, socialità e cultura, unendo <strong>storia e innovazione</strong> in un ambiente facilmente accessibile e dotato di tutti i servizi necessari."
 
+# Location Photos
+
+[[params.location-photos]]
+title = "Facciata storica della Fondazione San Carlo"
+link = "image1.jpg"
+
+[[params.location-photos]]
+title = "Facciata storica della Fondazione San Carlo"
+link = "image2.jpg"
+
 # Location Auto
 
 [[params.location-auto]]

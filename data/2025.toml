@@ -184,7 +184,7 @@ communities = [
   "maker-dojo",
 ]
 
-# Spnsorship levels
+# Spnsorship levels, weight ascending
 
 [[levels]]
 title = "Main"
@@ -221,7 +221,13 @@ title = "Community"
 code = "community"
 weight = 7
 
-# Sponsors
+# Sponsors, alphabetical order
+
+[[sponsors]]
+name = "Allnet Italia"
+code = "allnet"
+link = "https://www.allnet-italia.it/"
+level = "bronze"
 
 [[sponsors]]
 name = "Google"
