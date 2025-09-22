@@ -230,6 +230,24 @@ link = "https://developers.google.com/community/devfest"
 level = "main"
 
 [[sponsors]]
+name = "Gruppo Credem"
+code = "gruppo-credem"
+link = "https://www.credem.it/"
+level = "gold"
+
+[[sponsors]]
+name = "Iungo"
+code = "iungo"
+link = "https://bit.ly/46j3dmU"
+level = "silver"
+
+[[sponsors]]
+name = "Netframe"
+code = "netframe"
+link = "https://www.netframe.it/"
+level = "tech"
+
+[[sponsors]]
 name = "QubicaAMF"
 code = "qubicaamf"
 link = "https://www.qubicaamf.com/company"
@@ -240,18 +258,6 @@ name = "Zuru"
 code = "zuru"
 link = "https://zuru.tech/"
 level = "gold"
-
-[[sponsors]]
-name = "Gruppo Credem"
-code = "gruppo-credem"
-link = "https://www.credem.it/"
-level = "gold"
-
-[[sponsors]]
-name = "Netframe"
-code = "netframe"
-link = "https://www.netframe.it/"
-level = "tech"
 
 # Parking
 
