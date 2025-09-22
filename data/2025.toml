@@ -170,7 +170,6 @@ name = "Dumitru Birsan"
 description = "Full stack developer"
 website = "https://www.linkedin.com/in/dumitru-birsan-6b58771bb/"
 
-
 # Community index
 
 communities = [
@@ -257,25 +256,18 @@ level = "tech"
 # Parking
 
 [[parking]]
-title = "Novi Park"
-address = "Viale Achille Fontanelli, 18, 41121 Modena MO"
-link = "https://maps.app.goo.gl/Xm4pykyhMTjMsQt36"
-distance = "Circa 2 minuti a piedi"
-description = "Parcheggio sotterraneo."
+title = "Parcheggio Zona Ex-Amcm"
+address = "Via Antonio Peretti, 9, 41124 Modena (MO)"
+link = "https://maps.app.goo.gl/9ivoFPMxXKnC7xHcA"
+distance = "Circa 14 minuti a piedi"
+description = "Parcheggio sotterraneo, appena costruito nuovo."
 
 [[parking]]
-title = "Laboratorio Aperto"
-address = "Via Antonio Peretti, 40/54"
-link = "https://maps.app.goo.gl/L1KC4ShzhaJLrbCG9"
-distance = "Circa 3 minuti a piedi"
-description = "Parcheggio sotterraneo"
-
-[[parking]]
-title = "Parcheggio Zenale"
-address = "Via Bernardino Zenale, 6, 20123 Milano MI"
-link = "https://maps.app.goo.gl/zTpj8jBrGbJD9FHB7"
-distance = "Circa 3 minuti a piedi"
-description = "Parcheggio sotterraneo"
+title = "Novi Park - Parcheggio del Centro"
+address = "Viale Achille Fontanelli, 18, 41121 Modena (MO)"
+link = "https://maps.app.goo.gl/eQUSCZ2SaFHjgzzc6"
+distance = "Circa 13 minuti a piedi"
+description = "Parcheggio sotterraneo, multilivello."
 
 # Location Introduction
 
@@ -287,7 +279,6 @@ website = " fondazionesancarlo.it"
 description1 = "La <span class='highlight'>Fondazione San Carlo</span> è un'istituzione culturale di grande prestigio, situata nel cuore di Modena. Ospitata in un palazzo barocco progettato da <strong>Bartolomeo Avanzini</strong> e completato nel <strong>1764</strong>, la sede è caratterizzata da un elegante portico di 32 colonne di marmo rosso di Verona, che si estende lungo Via Emilia e Corso Canal Grande."
 description2 = "L'interno dell'edificio offre spazi raffinati e funzionali, ideali per eventi, workshop e conferenze. La <span class='highlight'>Chiesa di San Carlo</span>, situata al piano terra, può ospitare fino a 400 persone ed è dotata di impianto audio-video e accesso privo di barriere architettoniche."
 description3 = "La Fondazione rappresenta una cornice perfetta per momenti di formazione, socialità e cultura, unendo <strong>storia e innovazione</strong> in un ambiente facilmente accessibile e dotato di tutti i servizi necessari."
-
 
 # Location Auto
 
