@@ -46,41 +46,21 @@
 
 @if r.$core {
     .location {
-
-        &-map {
-            @extend %rounded;
-            background-color: colors.$gray--1;
-            padding: spaces.$space-m;
-            outline: 1px solid rgba(colors.$gray-contrast, 0.1);
-
-            &__header {
-                width: 100%;
-                text-align: center;
-                margin-bottom: spaces.$space-xs;
-
-                &-title {
-                    @extend %section-title;
-                }
-            }
-            
-        }
-
         /** Navigation */
         &-navigation {
             width: 100%;
             margin: 1rem 0;
 
-            &__list {
+            &--list {
                 display: flex;
                 gap: spaces.$space-2xs;
                 flex-wrap: wrap;
                 flex-direction: row;
                 list-style: none;
-                padding: 0;
-                margin: 0;
+                row-gap: spaces.$space-xs;
             }
 
-            &__item {
+            &--item {
                 @extend %rounded;
 
                 color: colors.$primary-contrast;
@@ -90,12 +70,13 @@
             }
             /* Responsive tweak: stack vertically on very small screens */
             @media (max-width: 480px) {
-                &__list {
+                &--list {
                     flex-direction: column;
+                    width: 100%;
+
                 }
 
-                &__item {
-                    width: 100%;
+                &--item {
                     justify-content: flex-start;
                 }
             }
@@ -104,16 +85,18 @@
         &-introduction {
             @extend %section-wrapper;
 
-            &__header {
+            &--header {
                 width: 100%;
                 text-align: center;
             }
-            &__subtitle {
+            &--subtitle {
                 color: colors.$gray-contrast;
             }
-            &__item {
-                
-                @extend %section-item;
+            &--item {
+                // @extend %section-item;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                // grid-template-rows: 1fr 1fr;
                 
                 gap: spaces.$space-m;
                 &-info {
@@ -148,8 +131,34 @@
                     gap: spaces.$space-xs;
                     width: 100%;
                 }
+                &-map {
+                    @extend %rounded;
+                    background-color: colors.$gray--1;
+                    padding: spaces.$space-m;
+                    outline: 1px solid rgba(colors.$gray-contrast, 0.1);
+                    
+                    &-header {
+                        width: 100%;
+                        text-align: center;
+                        margin-bottom: spaces.$space-xs;
+        
+                        &-title {
+                            @extend %section-title;
+                        }
+                    }
+                    & img {
+                        cursor: pointer;
+                        object-fit: contain;
+                    }
+ 
+                }
+                @media (max-width: 768px) {
+
+                    grid-template-columns: 1fr;
+                    gap: spaces.$space-m;   
+                   }
             }
-            &__description {
+            &--description {
                 background: colors.$primary-contrast;
                 outline: 1px solid rgba(colors.$gray-contrast, 0.1);
 
@@ -167,20 +176,18 @@
                 }
             }
 
-            &__photos {
-                display: flex;
-                flex-direction: row;
-                gap: spaces.$space-m;
-                width: 100%;
-
+            &--photos {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
                 justify-content: center;
+                gap: spaces.$space-m;
                 margin: spaces.$space-xs 0;
                 @media (max-width: 768px) {
-                    flex-direction: column;
+                    grid-template-columns: 1fr;
                 }
                 & img {
-                    width: 100%;
                     @extend %rounded;
+                    justify-self: center;
                 }
             }
 
@@ -189,7 +196,7 @@
         &-auto {
            @extend %section-wrapper;
 
-            &__item-title {
+            &--item-title {
                 @extend %section-title;
             }
 
@@ -199,7 +206,7 @@
                 outline: 1px solid rgba(colors.$gray-contrast, 0.1);
 
                 @extend %rounded;
-                &__title {
+                &--title {
                     // color: colors.$warning;
 
                     color: colors.$warning-contrast;
@@ -209,7 +216,7 @@
                 }
             }
 
-            &__item {
+            &--item {
                 @extend %section-item;
                 outline: 1px solid rgba(colors.$gray-contrast, 0.1);
 
@@ -217,8 +224,8 @@
                 background: colors.$primary-contrast;
               
                 &-list {
-                  list-style: decimal; /* Keep semantic numbering */
-                  padding-left: 2rem; /* Space for custom marker */
+                  list-style: decimal;
+                  padding-left: 2rem; 
                 }
               
                 &-list li {
@@ -226,20 +233,18 @@
                   margin: 0.5rem 0;
                 }
               
-                /* Hide the default number visually but keep it for screen readers */
                 &-list li::marker {
                   color: transparent;
                   font-size: 0; 
                 }
               
-                /* Custom styled number */
                 &-list li::before {
-                  content: counter(list-item); /* Uses native <ol> counter */
+                  content: counter(list-item);
                   position: absolute;
-                  left: -2rem; /* aligns with padding-left */
+                  left: -2rem; 
                   top: 0;
-                  background: #3b82f6;
-                  color: white;
+                  background: colors.$primary;
+                  color: colors.$primary-contrast;
                   width: 1.5rem;
                   height: 1.5rem;
                   border-radius: 50%;
@@ -258,12 +263,12 @@
         {
             @extend %section-wrapper;
 
-            &__item-title {
+            &--item-title {
                 @extend %section-title;
             }
 
 
-            &__item {
+            &--item {
                 outline: 1px solid rgba(colors.$gray-contrast, 0.1);
 
                 @extend %section-item;
@@ -287,7 +292,7 @@
                     @extend .link;
                     font-weight: 500;
                     color: colors.$primary;
-                    margin-top: auto; // pushes it to the bottom if card grows
+                    margin-top: auto;
                 }
             }
         }
