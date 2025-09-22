@@ -1,0 +1,22 @@
+@use "_default/_spaces";
+@use "_default/_colors";
+@use "_default/_effects";
+
+$common-padding: spaces.$space-s spaces.$space-xs;
+
+.faq {
+  .faq__item {
+    margin-block-end: spaces.$space-2xs;
+    .faq__question {
+      padding: $common-padding;
+      color: colors.$white;
+      font-weight: bold;
+      background-color: color-mix(in hsl, colors.$secondary, #787878 70%);
+      cursor: pointer;
+      @extend %rounded;
+    }
+    .faq__answer {
+      padding: $common-padding;
+    }
+  }
+}

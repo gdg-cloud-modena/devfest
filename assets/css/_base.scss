@@ -32,6 +32,7 @@
 @use "_blocks/_highlight";
 @use "_blocks/team";
 @use "_blocks/_ul";
+@use "_blocks/faq";
 
 @if r.$core {
   body {

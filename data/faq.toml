@@ -1,0 +1,39 @@
+[[qa]]
+question = "Ho scoperto tardi di questo evento, posso partecipare lo stesso?"
+answer = "Certamente, potrai fare registrazione e check-in in qualunque momento della giornata."
+
+[[qa]]
+question = "Posso arrivare a metà mattina o anche soltanto al pomeriggio?"
+answer = "Certamente, l'ingresso è sempre aperto."
+
+[[qa]]
+question = "L'evento è gratuito?"
+answer = "Sì, l'evento è gratuito. L'evento è organizzato spontaneamente dalle comunità locali. Gli sponsor ci aiutano a coprire le spese in modo da renderlo accessibile per tutti."
+
+[[qa]]
+question = "Ho bisogno di un biglietto per partecipare al DevFest Modena?"
+answer = "Sì, la partecipazione al DevFest Modena è gratuita ma la registrazione è obbligatoria."
+
+[[qa]]
+question = "Ho preso un biglietto ma non posso più partecipare al DevFest Modena, cosa devo fare?"
+answer = "Se non puoi partecipare, ti chiediamo gentilmente di cancellare il tuo ordine tramite la piattaforma Eventbrite, oppure d'inviaci un'email a [info@devfest.modena.it](mailto:info@devfest.modena.it) (possiamo farlo per te)."
+
+[[qa]]
+question = "Devo stampare il mio biglietto?"
+answer = "No, non è necessario, puoi utilizzare il tuo smartphone per mostrarci il biglietto. Ci basta vedere l'email con il QR code del biglietto. Assicurati di averlo pronto all'ingresso per poter fare un check-in rapido."
+
+[[qa]]
+question = "Posso cedere il mio biglietto ad un amico?"
+answer = "Purtroppo no, non è possibile perché la location ci richiede un ingresso nominale. Se non hai intenzione di venire, per favore cancella il tuo biglietto e chiedi al tuo amico di registrarsi per prenderne uno tutto suo."
+
+[[qa]]
+question = "Posso lasciare la conferenza e tornare più tardi?"
+answer = "Sì, certamente, puoi sempre lasciare la conferenza e tornare quando vuoi. Per poter rientrare avrai bisogno del tuo badge, che ti daremo all'ingresso."
+
+[[qa]]
+question = "Cosa devo portare alla conferenza?"
+answer = "Il tuo biglietto...e tanta voglia di conoscere persone nuove! :)"
+
+[[qa]]
+question = "E' un evento di Google?"
+answer = "No, l'evento è delle diverse comunità locali di sviluppatori. Google fa comunque parte dei partner e ci fornisce supporto, ad esempio permettendo l'utilizzo del marchio a GDG Cloud Modena che fa da garante per tutti."
