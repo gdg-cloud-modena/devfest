@@ -3,17 +3,17 @@
 
 $common-padding: spaces.$space-s spaces.$space-xs;
 
-.faq-list {
-  details {
+.faq {
+  .faq__item {
     margin-block-end: spaces.$space-2xs;
-    summary {
+    .faq__question {
       padding: $common-padding;
       color: colors.$white;
       font-weight: bold;
       background-color: colors.$secondary;
       cursor: pointer;
     }
-    div {
+    .faq__answer {
       padding: $common-padding;
     }
   }
