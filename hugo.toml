@@ -57,22 +57,22 @@ url = "/2025/sessions/"
 weight = 1
 
 [[menus.main]]
+identifier = "faq"
+name = "FAQ"
+weight = 2
+url = "/faq"
+
+[[menus.main]]
 identifier = "team"
 name = "Team"
-weight = 2
+weight = 3
 url = "/2025/team/"
 
 [[menus.main]]
 identifier = "location"
 name = "Location"
-weight = 3
-url = "/2025/location/"
-
-[[menus.main]]
-identifier = "faq"
-name = "Faq"
 weight = 4
-url = "/faq"
+url = "/2025/location/"
 
 [[menus.main]]
 identifier = "tickets"
