@@ -72,7 +72,7 @@ url = "/2025/team/"
 identifier = "location"
 name = "Location"
 weight = 4
-url = "/2025/location/"
+url = "/location/"
 
 [[menus.main]]
 identifier = "tickets"

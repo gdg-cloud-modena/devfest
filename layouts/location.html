@@ -1,0 +1,183 @@
+{{ define "main" }}
+
+{{ $locationIntroduction := index .Params "location-introduction" }}
+{{ $locationAuto := index .Params "location-auto" }}
+{{ $location := index .Params "location" }}
+{{ $parking := index .Params "parking" }}
+{{ $locationTrain := index .Params "location-train" }}
+{{ $locationAirplane := index .Params "location-airplane" }}
+
+{{ $locationPhotos := index .Params "location-photos" }}
+
+{{- $img3 := (resources.Get "location/location.png").Resize "600x webp q85" -}}
+
+<main class="section section--padded">
+    <h1 class="h1">Come raggiungerci</h1>
+    <div class="location">
+        <!-- region navigation -->
+        <nav class="location-navigation" aria-label="Sezioni della location">
+            <ul class="location-navigation-list">
+                <li>
+                    <a href="#location-introduction" class="location-navigation-list--item">
+                        Mappa
+                    </a>
+                </li>
+                <li>
+                    <a href="#location-auto" class="location-navigation-list--item">
+                        In Auto
+                    </a>
+                </li>
+                <li>
+                    <a href="#location-parking" class="location-navigation-list--item">
+                        Parcheggio
+                    </a>
+                </li>
+                <li>
+                    <a href="#location-public-transport" class="location-navigation-list--item">
+                        Treno
+                    </a>
+                </li>
+                <li>
+                    <a href="#location-airplane" class="location-navigation-list--item">
+
+                       In Aereo</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- region introduction -->
+        <div class="location-introduction" id="location-introduction">
+            <div class="location-introduction-header">
+                <h2 class="h2">{{ $locationIntroduction.title }}</h2>
+            </div>
+            <div class="location-introduction--item">
+                <div class="location-introduction--item-info">
+                    <div class="location-introduction--item-info-item">
+                        <div class="location-introduction--item-info-content">
+                            <h4><strong>Indirizzo:</strong></h4>
+                            <p>{{ $locationIntroduction.address }}</p>
+                        </div>
+                    </div>
+
+                    <div class="location-introduction--item-info-item">
+                        <div class="location-introduction--item-info-content">
+                            <h4><strong>Sito Ufficiale:</strong></h4>
+                            <p><a href="{{ $locationIntroduction.website }}" target="_blank" >{{
+                                    $locationIntroduction.website }} →</a></p>
+                        </div>
+                    </div>
+
+                    <div class="location-introduction--item-info-item">
+                        <div class="location-introduction--item-info-content">
+                            <h4><strong>Accessibilità:</strong></h4>
+                            <p>Accesso privo di barriere architettoniche</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-introduction--item-map">
+                        <div class="location-introduction--item-map-header">
+                            <h3 class="location-introduction--item-map-header-title h3">Posizione sulla Mappa</h3>
+                        </div>
+                        <a href="{{ $locationIntroduction.link }}" target="_blank">
+                            <img src="{{ $img3.RelPermalink }}" alt="Mappa della Fondazione San Carlo" width={{ $img3.Width }} height={{ $img3.Height }}>
+                        </a>
+
+                    
+                </div>
+            </div>
+            <div class="location-introduction--photos">
+                {{ range $locationPhotos }}
+                {{ $img := (resources.Get (printf "location/%s" .link)).Resize "600x webp q85" }}
+                <img src="{{ $img.RelPermalink }}" alt="{{ .title }}" width={{ $img.Width }} height={{ $img.Height }}>        
+                {{ end }}
+            </div>
+
+            <div class="location-introduction--description">
+                <h3 class="h3">Informazioni</h3>
+                <div class="location-introduction--description-content">
+                    <p>{{ $locationIntroduction.description1 | safeHTML }}</p>
+                    <p>{{ $locationIntroduction.description2 | safeHTML }}</p>
+                    <p>{{ $locationIntroduction.description3 | safeHTML }}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- region auto -->
+        <div class="location-auto" id="location-auto">
+            <h2 class="location-auto--title h2">In Auto</h2>
+
+            <div class="callout callout--warning">
+                <h3 class="location-auto--warning-title h3"> ⚠️ Attenzione alla Zona a Traffico Limitato (ZTL)!</h3>
+                <p>La Fondazione San Carlo si trova all'interno della Zona a Traffico Limitato (ZTL) di Modena. Per
+                    raggiungere la Fondazione San Carlo, abbiamo selezionato alcuni parcheggi consigliati</p>
+            </div>
+
+            {{ range $locationAuto }}
+            <div class="location-auto--item">
+                <h3 class="h3">{{ .title }}</h3>
+                <ol class="location-auto--item-list">
+                    <li>{{ .step1 }}</li>
+                    <li>{{ .step2 }}</li>
+                    <li>{{ .step3 }}</li>
+                    <li>{{ .step4 }}</li>
+                </ol>
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- region parking -->
+        <div class="location-parking" id="location-parking">
+            <h2 class="location-parking--item-title h2">Parcheggi Consigliati</h2>
+            {{ range $parking }}
+            <div class="location-parking--item">
+                <div class="location-parking--item-content">
+                    <h3 class="h3">{{ .title }}</h3>
+                    <p><strong>Indirizzo:</strong> {{ .address }}</p>
+                    <p><strong>Distanza:</strong> {{ .distance }}</p>
+                    <p><strong>Extra:</strong> {{ .description }}</p>
+                    <a href="{{ .link }}" class="location-parking--item-link" target="_blank" rel="noopener noreferrer">
+                        Apri su Google Maps
+                    </a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- region train -->
+        <div class="location-public-transport" id="location-public-transport">
+            <h2 class="location-public-transport--item-title h2">Treno</h2>
+            {{ range $locationTrain }}
+            <div class="location-public-transport--item">
+                <div class="location-public-transport--item-content">
+                    <h3 class="h3">{{ .title }}</h3>
+                    <p><strong>Distanza:</strong> {{ .distance }}</p>
+                    <p><strong>Tempo:</strong> {{ .time }}</p>
+                    <p><strong>Extra:</strong> {{ .description }}</p>
+                    <a href="{{ .link }}" class="location-public-transport--item-link" target="_blank"
+                        rel="noopener noreferrer">
+                        Apri percorso su Google Maps
+                    </a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- region airplane -->
+        <div class="location-airplane" id="location-airplane">
+            <h2 class="location-airplane--item-title h2">In Aereo</h2>
+            {{ range $locationAirplane }}
+            <div class="location-airplane--item">
+                <div class="location-airplane--item-content">
+                    <h3 class="h3">{{ .title }}</h3>
+                    <p ><strong>Distanza:</strong> {{ .distance }}</p>
+                    <p ><strong>Indicazioni:</strong> {{ .suggestion }}</p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+
+    </div>
+</main>
+{{ end }}
