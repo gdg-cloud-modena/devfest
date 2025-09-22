@@ -5,9 +5,9 @@
 $common-padding: spaces.$space-s spaces.$space-xs;
 
 .faq {
-  .faq__item {
+  .faq-item {
     margin-block-end: spaces.$space-2xs;
-    .faq__question {
+    .faq-question {
       padding: $common-padding;
       color: colors.$white;
       font-weight: bold;
@@ -15,7 +15,7 @@ $common-padding: spaces.$space-s spaces.$space-xs;
       cursor: pointer;
       @extend %rounded;
     }
-    .faq__answer {
+    .faq-answer {
       padding: $common-padding;
     }
   }

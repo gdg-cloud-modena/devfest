@@ -5,9 +5,9 @@
 
   <div class="faq">
     {{ range .Site.Data.faq.qa }}
-    <details class="faq__item">
-      <summary class="faq__question">{{ .question }}</summary>
-      <div class="faq__answer">{{ .answer }}</div>
+    <details class="faq-item" name="faq">
+      <summary class="faq-question">{{ .question }}</summary>
+      <div class="faq-answer">{{ .answer }}</div>
     </details>
     {{ end }}
   </div>
