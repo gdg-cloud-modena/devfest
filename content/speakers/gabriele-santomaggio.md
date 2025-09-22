@@ -6,7 +6,7 @@ draft = false
 [params]
 language = "Italiano"
 company = ""
-role = "Senior Member of Technical Staff In Broadcom."
+role = "Senior Member of Technical Staff In Broadcom"
 male = true
 
 [params.social]
