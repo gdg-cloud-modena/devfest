@@ -5,5 +5,76 @@
   <div class="content">
     {{ .Content }}
   </div>
+  <h2 class="h2">Sessioni</h2>
+
+  {{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+
+  {{/* slug sala: se il file è index.md, prendi il nome della cartella; altrimenti BaseFileName */}}
+  {{- $roomSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
+
+  {{- $sessionsSec := site.GetPage (printf "/%s/sessions" $year) -}}
+
+  {{- $all := slice -}}
+  {{- if $sessionsSec -}}
+  {{- range where $sessionsSec.RegularPages "Params.starts" "ne" nil -}}
+  {{- if in .Params.rooms $roomSlug -}}
+  {{- $all = $all | append . -}}
+  {{- end -}}
+  {{- end -}}
+  {{- end -}}
+
+  {{- if gt (len $all) 0 -}}
+  {{- $all = sort $all "Params.starts" "asc" -}}
+
+  {{- $sat := slice -}}
+  {{- $sun := slice -}}
+  {{- range $s := $all -}}
+  {{- $dt := time ($s.Param "starts") -}}
+  {{- $weekday := $dt.Format "Monday" -}}
+  {{- if eq $weekday "Saturday" -}}
+  {{- $sat = $sat | append $s -}}
+  {{- else if eq $weekday "Sunday" -}}
+  {{- $sun = $sun | append $s -}}
+  {{- end -}}
+  {{- end -}}
+
+  {{- if gt (len $sat) 0 -}}
+  <h3 class="h3">{{ with site.Params.weekdays }}{{ index . "Saturday" | default "Sabato" }}{{ else }}Sabato{{ end }}
+  </h3>
+  <ul class="sessions">
+    {{- range $s := $sat -}}
+    {{- $dt := time ($s.Param "starts") -}}
+    <li class="sessions-item">
+      <p class="sessions-itemHead">
+        <a class="link" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>
+      </p>
+      <p class="sessions-itemDetails">
+        Data: {{ $dt.Format "02/01/2006" }} · Ora: {{ $dt.Format "15:04" }}
+      </p>
+    </li>
+    {{- end -}}
+  </ul>
+  {{- end -}}
+
+  {{- if gt (len $sun) 0 -}}
+  <h3 class="h3">{{ with site.Params.weekdays }}{{ index . "Sunday" | default "Domenica" }}{{ else }}Domenica{{ end }}
+  </h3>
+  <ul class="sessions">
+    {{- range $s := $sun -}}
+    {{- $dt := time ($s.Param "starts") -}}
+    <li class="sessions-item">
+      <p class="sessions-itemHead">
+        <a class="link" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>
+      </p>
+      <p class="sessions-itemDetails">
+        Data: {{ $dt.Format "02/01/2006" }} · Ora: {{ $dt.Format "15:04" }}
+      </p>
+    </li>
+    {{- end -}}
+  </ul>
+  {{- end -}}
+  {{- else -}}
+  <p class="p">Nessuna sessione trovata per {{ .Title }} nell’edizione {{ $year }}.</p>
+  {{- end -}}
 </main>
 {{ end }}
