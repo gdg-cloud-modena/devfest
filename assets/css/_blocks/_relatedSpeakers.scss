@@ -7,6 +7,7 @@
 
 @if r.$core {
   .relatedSpeakers-item {
+    margin: spaces.$space-xs 0;
     display: flex;
     justify-content: start;
     gap: spaces.$space-xs;
