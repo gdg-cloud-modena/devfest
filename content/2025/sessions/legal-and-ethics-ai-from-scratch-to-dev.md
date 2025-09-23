@@ -4,13 +4,14 @@ date = 2025-09-10
 draft = false
 
 [params]
-rooms = ["verde"]
+rooms = ["de-montis"]
 speakers = ["angela-petraglia"]
 starts = 2025-10-05T11:30:00
 ends = 2025-10-05T12:15:00
 slidesURL = ""
 warning = ""
 +++
+
 Gli sviluppatori dei sistemi di intelligenza artificiale sono chiamati a rispondere delle nuove sfide tecnologiche non solo da un punto di vista strettamente tecnico, matematico o ingegneristico ma anche sotto il profilo etico e giuridico.
 
 Sono loro i protagonisti del processo di creazione e implementazione del codice e gli unici detentori di sapere e verità in merito al funzionamento di ogni singolo segmento dei sistemi di intelligenza artificiale.

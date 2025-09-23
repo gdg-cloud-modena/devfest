@@ -4,13 +4,14 @@ date = 2025-09-10
 draft = false
 
 [params]
-rooms = ["verde"]
+rooms = ["de-montis"]
 speakers = ["eleonora-de-agostini"]
 starts = 2025-10-05T12:30:00
 ends = 2025-10-05T13:15:00
 slidesURL = ""
 warning = ""
 +++
+
 Workshop di Intelligenza Artificiale
 Un incontro introduttivo dedicato a giovani programmatori interessati a scoprire, sperimentare e sviluppare soluzioni innovative con l’utilizzo di Python e delle principali tecniche di deep learning, machine learning e computer vision.
 
