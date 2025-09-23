@@ -266,6 +266,12 @@ link = "https://www.qubicaamf.com/company"
 level = "diamond"
 
 [[sponsors]]
+name = "Storyblok"
+code = "storyblok"
+link = "https://www.storyblok.com"
+level = "tech"
+
+[[sponsors]]
 name = "Zuru"
 code = "zuru"
 link = "https://zuru.tech/"
