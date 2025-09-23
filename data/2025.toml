@@ -230,6 +230,12 @@ link = "https://www.allnet-italia.it/"
 level = "bronze"
 
 [[sponsors]]
+name = "Galvanina"
+code = "galvanina"
+link = "https://www.galvanina.it/"
+level = "tech"
+
+[[sponsors]]
 name = "Google"
 code = "google"
 link = "https://developers.google.com/community/devfest"
