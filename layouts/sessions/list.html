@@ -50,7 +50,7 @@
 
       {{/* Title of the day */}}
       {{ $weekday := $dayTime.Format "Monday" }}
-      <h2 class="h2">{{ with site.Params.weekdays }}{{ index . $weekday | default $weekday }}{{ else }}{{ $weekday }}{{ end }}</h2>
+      <h2 class="h2">{{ (time.Format "Monday" $dayTime) | title }}</h2>
     {{ end }}
 
     {{/* Loop over sessions for that day */}}

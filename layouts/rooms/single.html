@@ -5,76 +5,75 @@
   <div class="content">
     {{ .Content }}
   </div>
+
+  {{/* Year from cascade param in _index.md */}}
+  {{ $year := printf "%v" (.Param "year") }}
+  {{ $agenda := index site.Data $year }}
+
+  {{/* Load agenda data for that year */}}
+  {{ $days := cond $agenda $agenda.days (slice) }}
+  {{ $roomsData := cond $agenda $agenda.rooms (slice) }}
+
+  {{ $roomSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) }}
+
+  {{/* Sort sessions by date and time */}}
+  {{ $sessionsSec := site.GetPage (printf "/%s/sessions" $year) }}
+  {{ $sessions := slice }}
+  {{ if $sessionsSec }}
+    {{ $sessions = where $sessionsSec.Pages "Params.starts" "ne" nil }}
+    {{ $sessions = sort $sessions "Params.starts" "asc" }}
+  {{ end }}
+
   <h2 class="h2">Sessioni</h2>
 
-  {{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+  {{/* Loop over days */}}
+  {{ range $day := $days }}
+    {{ $dayTime := time.AsTime $day }}
+    {{ $dayKey := $dayTime.Format "2006-01-02" }}
 
-  {{/* slug sala: se il file è index.md, prendi il nome della cartella; altrimenti BaseFileName */}}
-  {{- $roomSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
+    {{/* Collect sessions for that day */}}
+    {{ $daySessions := slice }}
+    {{ range $session := $sessions }}
+      {{ $dt := time ($session.Param "starts") }}
+      {{ if and (eq ($dt.Format "2006-01-02") $dayKey) (in $session.Params.rooms $roomSlug) }}
+        {{ $daySessions = $daySessions | append $session }}
+      {{ end }}
+    {{ end }}
 
-  {{- $sessionsSec := site.GetPage (printf "/%s/sessions" $year) -}}
+    {{ if gt (len $daySessions) 0 }}
+      {{ $daySessions = sort $daySessions "Params.starts" "asc" }}
 
-  {{- $all := slice -}}
-  {{- if $sessionsSec -}}
-  {{- range where $sessionsSec.RegularPages "Params.starts" "ne" nil -}}
-  {{- if in .Params.rooms $roomSlug -}}
-  {{- $all = $all | append . -}}
-  {{- end -}}
-  {{- end -}}
-  {{- end -}}
+      {{/* Title of the day */}}
+      {{ $weekday := $dayTime.Format "Monday" }}
+      <h3 class="h3">{{ (time.Format "Monday" $dayTime) | title }}</h3>
+    {{ end }}
 
-  {{- if gt (len $all) 0 -}}
-  {{- $all = sort $all "Params.starts" "asc" -}}
+    {{/* Loop over sessions for that day */}}
+    <ul class="sessions">
+      {{ range $session := $daySessions }}
+        {{ $dt := time ($session.Param "starts") }}
 
-  {{- $sat := slice -}}
-  {{- $sun := slice -}}
-  {{- range $s := $all -}}
-  {{- $dt := time ($s.Param "starts") -}}
-  {{- $weekday := $dt.Format "Monday" -}}
-  {{- if eq $weekday "Saturday" -}}
-  {{- $sat = $sat | append $s -}}
-  {{- else if eq $weekday "Sunday" -}}
-  {{- $sun = $sun | append $s -}}
-  {{- end -}}
-  {{- end -}}
+        {{/* Prepare the speaker list */}}
+        {{ $speakers := slice }}
+        {{ $isMale := true }}
+        {{ range $slug := $session.Params.speakers }}
+          {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+            {{ $isMale = .Params.male }}
+            {{ $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) }}
+          {{ else }}
+            {{ $speakers = $speakers | append $slug }}
+          {{ end }}
+        {{ end }}
+        {{ $speakersHTML := delimit $speakers ", " }}
 
-  {{- if gt (len $sat) 0 -}}
-  <h3 class="h3">{{ with site.Params.weekdays }}{{ index . "Saturday" | default "Sabato" }}{{ else }}Sabato{{ end }}
-  </h3>
-  <ul class="sessions">
-    {{- range $s := $sat -}}
-    {{- $dt := time ($s.Param "starts") -}}
-    <li class="sessions-item">
-      <p class="sessions-itemHead">
-        <a class="link" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>
-      </p>
-      <p class="sessions-itemDetails">
-        Data: {{ $dt.Format "02/01/2006" }} · Ora: {{ $dt.Format "15:04" }}
-      </p>
-    </li>
-    {{- end -}}
-  </ul>
-  {{- end -}}
-
-  {{- if gt (len $sun) 0 -}}
-  <h3 class="h3">{{ with site.Params.weekdays }}{{ index . "Sunday" | default "Domenica" }}{{ else }}Domenica{{ end }}
-  </h3>
-  <ul class="sessions">
-    {{- range $s := $sun -}}
-    {{- $dt := time ($s.Param "starts") -}}
-    <li class="sessions-item">
-      <p class="sessions-itemHead">
-        <a class="link" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>
-      </p>
-      <p class="sessions-itemDetails">
-        Data: {{ $dt.Format "02/01/2006" }} · Ora: {{ $dt.Format "15:04" }}
-      </p>
-    </li>
-    {{- end -}}
-  </ul>
-  {{- end -}}
-  {{- else -}}
-  <p class="p">Nessuna sessione trovata per {{ .Title }} nell’edizione {{ $year }}.</p>
-  {{- end -}}
+        <li class="sessions-item">
+          <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
+          <p class="sessions-itemDetails">
+            {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }}
+          </p>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
 </main>
 {{ end }}

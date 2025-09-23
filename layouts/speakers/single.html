@@ -43,16 +43,50 @@
   {{- range $y := $years -}}
   {{- $sessions := index $groups $y -}}
   {{- $sessions = sort $sessions "Params.starts" "asc" -}}
+
+  {{- $rooms := dict -}}
+  {{- with site.GetPage (printf "/%s/rooms" $y) -}}
+  {{- range .Pages -}}
+  {{- $rooms = merge $rooms (dict .File.BaseFileName .) -}}
+  {{- end -}}
+  {{- end -}}
+
   <h3 class="h3">{{ $y }}</h3>
   <ul class="sessions">
-    {{- range $s := $sessions -}}
-    {{- $dt := time (or ($s.Param "starts") $s.Date) -}}
+    {{- range $session := $sessions -}}
+    {{ $dt := time ($session.Param "starts") }}
+
+    {{/* Prepare the speaker list */}}
+    {{ $speakers := slice }}
+    {{ $isMale := true }}
+    {{ range $slug := $session.Params.speakers }}
+    {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+    {{ $isMale = .Params.male }}
+    {{ $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) }}
+    {{ else }}
+    {{ $speakers = $speakers | append $slug }}
+    {{ end }}
+    {{ end }}
+    {{ $speakersHTML := delimit $speakers ", " }}
+
+    {{/* Prepare the room list */}}
+    {{ $roomNames := slice }}
+    {{ range $code := $session.Params.rooms }}
+    {{ $room := index $rooms $code }}
+    {{ $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) }}
+    {{ end }}
+    {{ $roomsHTML := delimit $roomNames ", " }}
+
     <li class="sessions-item">
-      <p class="sessions-itemHead">
-        <a class="link" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>
-      </p>
+      <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a
+          class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
       <p class="sessions-itemDetails">
-        Data: {{ $dt.Format "02/01/2006" }} · Ora: {{ $dt.Format "15:04" }}
+        {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in
+        contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
+        ·
+        {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML
+        }}{{
+        else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }}
       </p>
     </li>
     {{- end -}}
