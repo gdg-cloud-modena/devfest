@@ -4,7 +4,7 @@ date = 2025-09-10
 draft = false
 
 [params]
-rooms = ["de-montis"]
+rooms = ["demontis"]
 speakers = ["eleonora-de-agostini"]
 starts = 2025-10-05T12:30:00
 ends = 2025-10-05T13:15:00

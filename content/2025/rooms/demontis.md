@@ -1,12 +1,12 @@
 +++
-title = "De Montis"
+title = "Demontis"
 date = 2025-09-10
 draft = false
 summary = "Si colloca fra la chiesa e il cortile principale"
 weight = 2
 +++
 
-La Sala De Montis si colloca fra la chiesa e il cortile principale, nell’ala più
+La Sala Demontis si colloca fra la chiesa e il cortile principale, nell’ala più
 antica del palazzo. La platea è situata nell’ambiente che, in origine, ospitava
 l’oratorio della Congregazione del Rosario, un’accolita di fedeli che si riuniva
 in questo ambiente un tempo completo di altare e di immagini sacre alle pareti.
