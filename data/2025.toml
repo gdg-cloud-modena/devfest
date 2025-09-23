@@ -31,7 +31,7 @@ description = "Lead Google Cloud Trainer"
 website = "https://linkedin.com/in/maurizioipsale"
 
 [[people]]
-role = "organizer"
+role = "organizers"
 code = "mirko-gilioli"
 name = "Mirko Gilioli"
 description = "Lead Google Cloud Trainer"
