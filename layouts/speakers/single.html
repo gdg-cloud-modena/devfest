@@ -7,61 +7,46 @@
 
   <h2 class="h2">Sessioni</h2>
 
-  {{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
+  {{- $speakerSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
 
-  {{- $speakerSlug := .File.BaseFileName -}}
-
-  {{- $sessionsSec := site.GetPage (printf "/%s/sessions" $year) -}}
-
-  {{- $all := slice -}}
-  {{- if $sessionsSec -}}
-  {{- range where $sessionsSec.Pages "Params.starts" "ne" nil -}}
-  {{- if in .Params.speakers $speakerSlug -}}
-  {{- $all = $all | append . -}}
-  {{- end -}}
+  {{- $allSessions := slice -}}
+  {{- range site.RegularPages -}}
+  {{- if in .File.Dir "/sessions/" -}}
+  {{- $allSessions = $allSessions | append . -}}
   {{- end -}}
   {{- end -}}
 
-  {{- if gt (len $all) 0 -}}
-  {{- $all = sort $all "Params.starts" "asc" -}}
-
-  {{/* Split by day */}}
-  {{- $sat := slice -}}
-  {{- $sun := slice -}}
-  {{- range $s := $all -}}
-  {{- $dt := time ($s.Param "starts") -}}
-  {{- $weekday := $dt.Format "Monday" -}}
-  {{- if eq $weekday "Saturday" -}}
-  {{- $sat = $sat | append $s -}}
-  {{- else if eq $weekday "Sunday" -}}
-  {{- $sun = $sun | append $s -}}
+  {{- $bySpeaker := slice -}}
+  {{- range $s := $allSessions -}}
+  {{- $starts := or ($s.Param "starts") $s.Date -}}
+  {{- if and $starts (in $s.Params.speakers $speakerSlug) -}}
+  {{- $bySpeaker = $bySpeaker | append $s -}}
   {{- end -}}
   {{- end -}}
 
-  {{- if gt (len $sat) 0 -}}
-  <h3 class="h3">{{ with site.Params.weekdays }}{{ index . "Saturday" | default "Sabato" }}{{ else }}Sabato{{ end }}
-  </h3>
+  {{- if gt (len $bySpeaker) 0 -}}
+  {{- $groups := dict -}}
+  {{- range $s := $bySpeaker -}}
+  {{- $dt := time (or ($s.Param "starts") $s.Date) -}}
+  {{- $year := $dt.Format "2006" -}}
+  {{- $list := cond (isset $groups $year) (index $groups $year) (slice) -}}
+  {{- $list = $list | append $s -}}
+  {{- $groups = merge $groups (dict $year $list) -}}
+  {{- end -}}
+
+  {{- $years := slice -}}
+  {{- range $k, $_ := $groups -}}
+  {{- $years = $years | append $k -}}
+  {{- end -}}
+  {{- $years = sort $years "value" "desc" -}}
+
+  {{- range $y := $years -}}
+  {{- $sessions := index $groups $y -}}
+  {{- $sessions = sort $sessions "Params.starts" "asc" -}}
+  <h3 class="h3">{{ $y }}</h3>
   <ul class="sessions">
-    {{- range $s := $sat -}}
-    {{- $dt := time ($s.Param "starts") -}}
-    <li class="sessions-item">
-      <p class="sessions-itemHead">
-        <a class="link" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>
-      </p>
-      <p class="sessions-itemDetails">
-        Data: {{ $dt.Format "02/01/2006" }} · Ora: {{ $dt.Format "15:04" }}
-      </p>
-    </li>
-    {{- end -}}
-  </ul>
-  {{- end -}}
-
-  {{- if gt (len $sun) 0 -}}
-  <h3 class="h3">{{ with site.Params.weekdays }}{{ index . "Sunday" | default "Domenica" }}{{ else }}Domenica{{ end }}
-  </h3>
-  <ul class="sessions">
-    {{- range $s := $sun -}}
-    {{- $dt := time ($s.Param "starts") -}}
+    {{- range $s := $sessions -}}
+    {{- $dt := time (or ($s.Param "starts") $s.Date) -}}
     <li class="sessions-item">
       <p class="sessions-itemHead">
         <a class="link" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>
@@ -74,7 +59,7 @@
   </ul>
   {{- end -}}
   {{- else -}}
-  <p class="p">Nessuna sessione trovata per {{ .Title }} nell’edizione {{ $year }}.</p>
+  <p class="p">Nessuna sessione trovata per {{ .Title }}.</p>
   {{- end -}}
 </main>
 {{ end }}
