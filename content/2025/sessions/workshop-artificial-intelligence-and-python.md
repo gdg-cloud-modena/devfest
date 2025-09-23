@@ -1,13 +1,13 @@
 +++
-title = "Workshop Artificial Intelligence & Python"
+title = "[Workshop] Artificial Intelligence & Python"
 date = 2025-09-10
 draft = false
 
 [params]
-rooms = ["demontis"]
+rooms = ["periodici"]
 speakers = ["eleonora-de-agostini"]
-starts = 2025-10-05T12:30:00
-ends = 2025-10-05T13:15:00
+starts = 2025-10-05T09:30:00
+ends = 2025-10-05T11:15:00
 slidesURL = ""
 warning = ""
 +++

@@ -1,13 +1,13 @@
 +++
-title = "Sviluppare una app Angular da zero con i Signal"
+title = "[Workshop] Sviluppare una app Angular da zero con i Signal"
 date = 2025-09-10
 draft = false
 
 [params]
-rooms = ["40"]
+rooms = ["periodici"]
 speakers = ["davide-passafaro","giorgio-galassi","ryan-jherome-burgos"]
 starts = 2025-10-04T14:00:00
-ends = 2025-10-04T15:45:00
+ends = 2025-10-04T16:45:00
 slidesURL = ""
 warning = ""
 +++

@@ -1,5 +1,5 @@
 +++
-title = "Workshop: Rails + Gemini + MCP: Parla con il tuo DB, Crea Immagini Divertenti 🖼️"
+title = "[Workshop] Rails + Gemini + MCP: Parla con il tuo DB, Crea Immagini Divertenti 🖼️"
 date = 2025-09-10
 draft = false
 
@@ -7,7 +7,7 @@ draft = false
 rooms = ["biblioteca-antica"]
 speakers = ["riccardo-carlesso","emiliano-della-casa"]
 starts = 2025-10-04T14:00:00
-ends = 2025-10-04T15:45:00
+ends = 2025-10-04T16:45:00
 slidesURL = ""
 warning = ""
 +++

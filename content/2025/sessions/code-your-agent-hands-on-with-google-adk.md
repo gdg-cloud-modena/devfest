@@ -1,10 +1,10 @@
 +++
-title = "Code Your Agent: Hands-On with Google ADK"
+title = "[Workshop] Code Your Agent: Hands-On with Google ADK"
 date = 2025-09-10
 draft = false
 
 [params]
-rooms = ["40"]
+rooms = ["biblioteca-antica"]
 speakers = ["mirko-gilioli"]
 starts = 2025-10-05T09:30:00
 ends = 2025-10-05T11:15:00
