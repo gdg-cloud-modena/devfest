@@ -14,6 +14,9 @@
   {{- partial "header.html" . -}}
   {{ end }}
   {{- block "main" . }}{{- end }}
+  <section class="container">
+    {{- partial "cta-tickets.html" . -}}
+  </section>
   {{- partial "footer.html" . -}}
   {{- partial "scripts.html" . -}}
 </body>

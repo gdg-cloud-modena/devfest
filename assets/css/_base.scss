@@ -1,16 +1,17 @@
 @use "_responsive" as r;
 
-// Defaults
+// Defaults - keep alphabetical order
 @use "_default/_colors";
 @use "_default/_fonts";
 @use "_default/_spaces";
 
 // Widgets
 
-// Blocks
+// Blocks - keep alphabetical order
 @use "_blocks/_button";
 @use "_blocks/_callout";
 @use "_blocks/_content";
+@use "_blocks/_ctaTickets";
 @use "_blocks/_features";
 @use "_blocks/_footer";
 @use "_blocks/_h1";
@@ -20,21 +21,20 @@
 @use "_blocks/_h5";
 @use "_blocks/_header";
 @use "_blocks/_hero";
+@use "_blocks/_highlight";
 @use "_blocks/_hr";
 @use "_blocks/_link";
+@use "_blocks/_location";
 @use "_blocks/_ol";
 @use "_blocks/_p";
 @use "_blocks/_partners";
+@use "_blocks/_relatedSpeakers";
 @use "_blocks/_section";
 @use "_blocks/_sessions";
 @use "_blocks/_speakers";
-@use "_blocks/_relatedSpeakers";
-@use "_blocks/_location";
-@use "_blocks/_highlight";
-@use "_blocks/team";
 @use "_blocks/_ul";
 @use "_blocks/faq";
-@use "_blocks/_banner";
+@use "_blocks/team";
 
 @if r.$core {
   body {

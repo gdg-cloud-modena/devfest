@@ -1,0 +1,42 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@use "_blocks/_button";
+
+@if r.$core {
+  .ctaTickets {
+    background-color: colors.$tertiary--2;
+  }
+
+  .ctaTickets-content {
+    display: flex;
+    gap: spaces.$space-l;
+    align-items: center;
+    justify-content: center;
+    padding: spaces.$space-2xl spaces.$space-m;
+  }
+
+  .ctaTickets-title {
+    font-weight: bold;
+    font-size: fonts.$size-3;
+    margin-bottom: fonts.$margin-title;
+  }
+
+  .ctaTickets-titleHighlight {
+    color: colors.$primary;
+  }
+}
+
+@if r.$mobile or r.$tablet {
+  .ctaTickets-content {
+    flex-direction: column;
+  }
+
+  .ctaTickets-image {
+    display: none;
+  }
+}
