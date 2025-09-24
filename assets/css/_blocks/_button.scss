@@ -8,21 +8,33 @@
 @if r.$core {
   .button {
     display: inline-block;
-    padding: spaces.$space-3xs spaces.$space-s;
+    padding: spaces.$space-xs spaces.$space-m;
     border: none;
     @extend %rounded;
     background-color: colors.$primary;
-    color: colors.$black;
+    color: colors.$primary-contrast;
     text-decoration: none;
     transition:
       transform effects.$time,
       box-shadow effects.$time;
     background-color: colors.$primary;
+    color: colors.$primary-contrast;
     margin-left: spaces.$space-3xs;
     margin-right: spaces.$space-3xs;
-    font-size: fonts.$size--1;
+    font-size: fonts.$size-0;
+    font-weight: bold;
+    border: 2px solid transparent;
+    @extend %transition-border;
+
+    &:link,
+    &:visited {
+      color: colors.$primary-contrast;
+      text-decoration-color: transparent;
+    }
 
     &:hover {
+      border: 2px solid colors.$black;
+      @extend %transition-border;
     }
   }
 }
