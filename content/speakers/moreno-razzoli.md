@@ -15,7 +15,8 @@ instagram = ""
 x = "https://x.com/morrolinux/"
 facebook = ""
 github = ""
-website = ""
+youtube = "https://www.youtube.com/@morrolinux"
+website = "https://morrolinux.it/"
 +++
 
 Mi chiamo Moreno Razzoli,
