@@ -1,0 +1,92 @@
+@use "_responsive" as r;
+@use "_default/_spaces";
+@use "_default/_effects";
+
+@if r.$core {
+    .speaker {
+        display: flex;
+        align-items: flex-start;
+        gap: spaces.$space-l;
+    }
+
+    .speaker-sidebar {
+        flex: 0 0 340px;
+        max-width: 40vw;
+    }
+
+    .speaker-imageContainer {
+        width: 100%;
+    }
+
+    .speakerImage {
+        display: block;
+        width: 100%;
+        height: auto;
+        @extend %rounded;
+    }
+
+    .speaker-details {
+        margin-top: spaces.$space-xs;
+        display: grid;
+        row-gap: spaces.$space-xs;
+    }
+
+    .speaker-bio {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .speaker-title--sidebar {
+        display: none;
+    }
+
+    .speaker-title--bio {
+        display: block;
+    }
+}
+
+@if r.$tablet {
+    .speaker {
+        gap: spaces.$space-m;
+    }
+
+    .speaker-sidebar {
+        flex: 0 0 300px;
+        max-width: 45vw;
+    }
+}
+
+/* Mobile */
+@if r.$mobile {
+    .speaker {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .speaker-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .speaker-imageContainer {
+        width: 100%;
+    }
+
+    .speakerImage {
+        display: block;
+        width: 100%;
+        /* “bella grande” su mobile: occupa tutta la larghezza */
+        height: auto;
+        @extend %rounded;
+        /* o border-radius: 16px; */
+    }
+
+    .speaker-title--sidebar {
+        display: block;
+        margin-bottom: spaces.$space-s;
+    }
+
+    .speaker-title--bio {
+        display: none;
+    }
+}

@@ -1,99 +1,156 @@
 {{ define "main" }}
 <main class="section section--padded">
-  <h1 class="h1">{{ .Title }}</h1>
-  <div class="content">
-    {{ .Content }}
+  <div class="speaker">
+    {{- $speakerSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
+
+    <div class="speaker-sidebar">
+      <div class="speaker-title--sidebar">
+        <h1 class="h1">{{ .Title }}</h1>
+      </div>
+      <div class="speaker-imageContainer">
+        {{ $img := resources.Get (printf "speakers/%s.jpg" $speakerSlug) }}
+        {{ if not $img }}
+        {{ $img = resources.Get (printf "speakers/%s.png" $speakerSlug) }}
+        {{ end }}
+
+        {{ if $img }}
+        {{ $processedImage := $img.Fit "600x600 q100" }}
+        <img class="speakerImage" src="{{ $processedImage.RelPermalink }}" alt="{{ .Title }}">
+        {{ end }}
+      </div>
+
+      <div class="speaker-details">
+        {{- with .Params.company -}}
+        <div class="speaker-details--company">
+          <strong>Azienda:</strong> {{ . }}
+        </div>
+        {{- end }}
+
+        {{- with .Params.role -}}
+        <div class="speaker-details--role">
+          <strong>Ruolo:</strong> {{ . }}
+        </div>
+        {{- end }}
+
+        {{- with .Params.social -}}
+        <div class="speaker-details--social">
+          {{- with .twitter -}}
+          <a class="link" href="{{ . }}" target="_blank" rel="noopener">
+            {{ $iconPath := printf "icons/logo-%s.svg" "twitter" }}
+            <img src="{{ $iconPath }}" alt="Twitter" />
+          </a>
+          {{- end -}}
+          {{- with .linkedin -}}
+          <a class="link" href="{{ . }}" target="_blank" rel="noopener">
+            {{ $iconPath := printf "icons/logo-%s-black.svg" "linkedin" }}
+            <img src="{{ relURL $iconPath }}" width="32" height="32" alt="LinkedIn" />
+          </a>
+          {{- end -}}
+        </div>
+        {{- end -}}
+      </div>
+
+    </div>
+
+    <div class="speaker-bio">
+      <div class="speaker-title--bio">
+        <h1 class="h1">{{ .Title }}</h1>
+      </div>
+      <div class="content">
+        {{ .Content }}
+      </div>
+
+      <h2 class="h2">Sessioni</h2>
+
+      {{- $allSessions := slice -}}
+      {{- range site.RegularPages -}}
+      {{- if in .File.Dir "/sessions/" -}}
+      {{- $allSessions = $allSessions | append . -}}
+      {{- end -}}
+      {{- end -}}
+
+      {{- $bySpeaker := slice -}}
+      {{- range $s := $allSessions -}}
+      {{- $starts := or ($s.Param "starts") $s.Date -}}
+      {{- if and $starts (in $s.Params.speakers $speakerSlug) -}}
+      {{- $bySpeaker = $bySpeaker | append $s -}}
+      {{- end -}}
+      {{- end -}}
+
+      {{- if gt (len $bySpeaker) 0 -}}
+      {{- $groups := dict -}}
+      {{- range $s := $bySpeaker -}}
+      {{- $dt := time (or ($s.Param "starts") $s.Date) -}}
+      {{- $year := $dt.Format "2006" -}}
+      {{- $list := cond (isset $groups $year) (index $groups $year) (slice) -}}
+      {{- $list = $list | append $s -}}
+      {{- $groups = merge $groups (dict $year $list) -}}
+      {{- end -}}
+
+      {{- $years := slice -}}
+      {{- range $k, $_ := $groups -}}
+      {{- $years = $years | append $k -}}
+      {{- end -}}
+      {{- $years = sort $years "value" "desc" -}}
+
+      {{- range $y := $years -}}
+      {{- $sessions := index $groups $y -}}
+      {{- $sessions = sort $sessions "Params.starts" "asc" -}}
+
+      {{- $rooms := dict -}}
+      {{- with site.GetPage (printf "/%s/rooms" $y) -}}
+      {{- range .Pages -}}
+      {{- $rooms = merge $rooms (dict .File.BaseFileName .) -}}
+      {{- end -}}
+      {{- end -}}
+
+      <h3 class="h3">{{ $y }}</h3>
+      <ul class="sessions">
+        {{- range $session := $sessions -}}
+        {{ $dt := time ($session.Param "starts") }}
+
+        {{/* Prepare the speaker list */}}
+        {{ $speakers := slice }}
+        {{ $isMale := true }}
+        {{ range $slug := $session.Params.speakers }}
+        {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+        {{ $isMale = .Params.male }}
+        {{ $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) }}
+        {{ else }}
+        {{ $speakers = $speakers | append $slug }}
+        {{ end }}
+        {{ end }}
+        {{ $speakersHTML := delimit $speakers ", " }}
+
+        {{/* Prepare the room list */}}
+        {{ $roomNames := slice }}
+        {{ range $code := $session.Params.rooms }}
+        {{ $room := index $rooms $code }}
+        {{ $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title)
+        }}
+        {{ end }}
+        {{ $roomsHTML := delimit $roomNames ", " }}
+
+        <li class="sessions-item">
+          <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a
+              class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
+          <p class="sessions-itemDetails">
+            {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in
+            contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
+            ·
+            {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML |
+            safeHTML
+            }}{{
+            else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }}
+          </p>
+        </li>
+        {{- end -}}
+      </ul>
+      {{- end -}}
+      {{- else -}}
+      <p class="p">Nessuna sessione trovata per {{ .Title }}.</p>
+      {{- end -}}
+    </div>
   </div>
-
-  <h2 class="h2">Sessioni</h2>
-
-  {{- $speakerSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
-
-  {{- $allSessions := slice -}}
-  {{- range site.RegularPages -}}
-  {{- if in .File.Dir "/sessions/" -}}
-  {{- $allSessions = $allSessions | append . -}}
-  {{- end -}}
-  {{- end -}}
-
-  {{- $bySpeaker := slice -}}
-  {{- range $s := $allSessions -}}
-  {{- $starts := or ($s.Param "starts") $s.Date -}}
-  {{- if and $starts (in $s.Params.speakers $speakerSlug) -}}
-  {{- $bySpeaker = $bySpeaker | append $s -}}
-  {{- end -}}
-  {{- end -}}
-
-  {{- if gt (len $bySpeaker) 0 -}}
-  {{- $groups := dict -}}
-  {{- range $s := $bySpeaker -}}
-  {{- $dt := time (or ($s.Param "starts") $s.Date) -}}
-  {{- $year := $dt.Format "2006" -}}
-  {{- $list := cond (isset $groups $year) (index $groups $year) (slice) -}}
-  {{- $list = $list | append $s -}}
-  {{- $groups = merge $groups (dict $year $list) -}}
-  {{- end -}}
-
-  {{- $years := slice -}}
-  {{- range $k, $_ := $groups -}}
-  {{- $years = $years | append $k -}}
-  {{- end -}}
-  {{- $years = sort $years "value" "desc" -}}
-
-  {{- range $y := $years -}}
-  {{- $sessions := index $groups $y -}}
-  {{- $sessions = sort $sessions "Params.starts" "asc" -}}
-
-  {{- $rooms := dict -}}
-  {{- with site.GetPage (printf "/%s/rooms" $y) -}}
-  {{- range .Pages -}}
-  {{- $rooms = merge $rooms (dict .File.BaseFileName .) -}}
-  {{- end -}}
-  {{- end -}}
-
-  <h3 class="h3">{{ $y }}</h3>
-  <ul class="sessions">
-    {{- range $session := $sessions -}}
-    {{ $dt := time ($session.Param "starts") }}
-
-    {{/* Prepare the speaker list */}}
-    {{ $speakers := slice }}
-    {{ $isMale := true }}
-    {{ range $slug := $session.Params.speakers }}
-    {{ with site.GetPage (printf "/speakers/%s" $slug) }}
-    {{ $isMale = .Params.male }}
-    {{ $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) }}
-    {{ else }}
-    {{ $speakers = $speakers | append $slug }}
-    {{ end }}
-    {{ end }}
-    {{ $speakersHTML := delimit $speakers ", " }}
-
-    {{/* Prepare the room list */}}
-    {{ $roomNames := slice }}
-    {{ range $code := $session.Params.rooms }}
-    {{ $room := index $rooms $code }}
-    {{ $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) }}
-    {{ end }}
-    {{ $roomsHTML := delimit $roomNames ", " }}
-
-    <li class="sessions-item">
-      <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a
-          class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
-      <p class="sessions-itemDetails">
-        {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in
-        contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
-        ·
-        {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML
-        }}{{
-        else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }}
-      </p>
-    </li>
-    {{- end -}}
-  </ul>
-  {{- end -}}
-  {{- else -}}
-  <p class="p">Nessuna sessione trovata per {{ .Title }}.</p>
-  {{- end -}}
 </main>
 {{ end }}
