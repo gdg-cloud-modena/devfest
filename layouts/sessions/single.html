@@ -43,7 +43,7 @@
 	        <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
           <div class="relatedSpeakers-details">
             <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
-            <p class="relatedSpeakers-role">{{ .Params.company }} · {{ .Params.role }}.</p>
+            <p class="relatedSpeakers-role">{{ .Params.company }}{{ if and .Params.company .Params.role }} · {{ end }}{{ .Params.role }}.</p>
           </div>
 	      </li>
 	    {{ else }}
