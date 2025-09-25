@@ -8,7 +8,6 @@
 
 {{ $yearCommunities := index $dataset "communities" }}
 {{ if or (not $yearCommunities) (eq (len $yearCommunities) 0) }}
-{{$dataset | jsonify }}
   {{/* No communities for this year  */}}
   {{ return }}
 {{ end }}
