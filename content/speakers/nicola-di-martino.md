@@ -1,13 +1,13 @@
 +++
-title = "Eleonora De Agostini"
+title = "Nicola Di Martino"
 date = 2025-09-10
 draft = false
 
 [params]
 language = "Italiano"
-company = ""
-role = "MAKERDOJO, OPEN LAB, TALENTI@MO"
-male = false
+company = "QubicaAMF"
+role = "Software Engineer"
+male = true
 
 [params.social]
 linkedin = ""
@@ -17,3 +17,4 @@ facebook = ""
 github = ""
 website = ""
 +++
+Backend Software Engineer in QubicaAMF dal 2021

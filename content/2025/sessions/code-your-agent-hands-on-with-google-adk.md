@@ -6,8 +6,8 @@ draft = false
 [params]
 rooms = ["biblioteca-antica"]
 speakers = ["mirko-gilioli"]
-starts = 2025-10-05T09:30:00
-ends = 2025-10-05T11:15:00
+starts = 2025-10-05T10:30:00
+ends = 2025-10-05T12:15:00
 slidesURL = ""
 warning = ""
 workshop = true
