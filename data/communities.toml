@@ -27,7 +27,7 @@ code = "flutter-modena"
 website = "https://blog.fluttermodena.dev/"
 
 [[community]]
-name = "Conoscerelinux"
+name = "Conoscere Linux"
 code = "conoscere-linux"
 website = "https://conoscerelinux.org/"
 
@@ -45,3 +45,8 @@ website = "https://www.linkedin.com/company/designing-success-community"
 name = "Maker Dojo"
 code = "maker-dojo"
 website = "https://www.makerdojo.it/"
+
+[[community]]
+name = "Ruby Modena"
+code = "ruby-modena"
+website = "https://modena.rb/"

@@ -1,6 +1,22 @@
 days = [2025-10-04, 2025-10-05]
 participants= 600
 
+
+# Community index
+
+communities = [
+  "gdg-cloud-modena",
+  "modena-full-stack",
+  "reggio-emilia-full-stack",
+  "ml-modena",
+  "flutter-modena",
+  "conoscere-linux",
+  "she-is-a-scientist",
+  "designing-success",
+  "maker-dojo",
+  "ruby-modena",
+]
+
 # People roles
 
 [[roles]]
@@ -171,19 +187,7 @@ name = "Dumitru Birsan"
 description = "Full stack developer"
 website = "https://www.linkedin.com/in/dumitru-birsan-6b58771bb/"
 
-# Community index
 
-communities = [
-  "gdg-cloud-modena",
-  "modena-full-stack",
-  "reggio-emilia-full-stack",
-  "ml-modena",
-  "flutter-modena",
-  "conoscere-linux",
-  "she-is-a-scientist",
-  "designing-success",
-  "maker-dojo",
-]
 
 # Spnsorship levels, weight ascending
 
