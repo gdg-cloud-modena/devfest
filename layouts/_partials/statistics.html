@@ -13,31 +13,24 @@
 <div class="statistics">
 
   <div class="statistic statistic--rooms"> 
-    <div class="statistic-icon">
-      {{ readFile "/static/icons/room.svg" | safeHTML }}
-    </div>
+    <img src="icons/room.svg" alt="Room">
     <div class="statistic-number">{{ $rooms }}</div>
     <div class="statistic-title">Sale</div>
   </div>
   <div class="statistic statistic--speakers"> 
-    <div class="statistic-icon">
-      {{ readFile "/static/icons/speakers.svg" | safeHTML }}
-    </div>
+      <img src="icons/speakers.svg" alt="Speakers">
     <div class="statistic-number">{{ $speakers}}</div>
     <div class="statistic-title">Relatori</div>
   </div>
   <div class="statistic statistic--workshops">
-    <div class="statistic-icon">
-      {{ readFile "/static/icons/workshop.svg" | safeHTML }}
-    </div>
+      <img src="icons/workshop.svg" alt="Workshops">
     <div class="statistic-number">{{ $workshopLen }}</div>
     <div class="statistic-title">Workshop</div>
   </div>
 
   <div class="statistic statistic--participants"  >
-    <div class="statistic-icon">
-      {{ readFile "/static/icons/people.svg" | safeHTML }}
-    </div>
+      <img src="icons/people.svg" alt="Participants">
+
     <div class="statistic-number">{{ $participants}}+</div>
     <div class="statistic-title">Partecipanti</div>
   </div>
