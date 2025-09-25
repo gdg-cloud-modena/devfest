@@ -231,6 +231,12 @@ link = "https://www.allnet-italia.it/"
 level = "bronze"
 
 [[sponsors]]
+name = "BizzyNow"
+code = "bizzynow"
+link = "https://www.bizzynow.com/"
+level = "bronze"
+
+[[sponsors]]
 name = "Galvanina"
 code = "galvanina"
 link = "https://www.galvanina.it/"
@@ -271,6 +277,12 @@ name = "Storyblok"
 code = "storyblok"
 link = "https://www.storyblok.com"
 level = "tech"
+
+[[sponsors]]
+name = "Webranking"
+code = "webranking"
+link = "https://webranking.it/"
+level = "bronze"
 
 [[sponsors]]
 name = "Zuru"
