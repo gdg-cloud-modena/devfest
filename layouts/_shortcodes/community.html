@@ -1,0 +1,39 @@
+{{ $year := site.Params.currentEdition | default (now.Format "2006") }}
+{{ $yearStr := printf "%v" $year }}
+{{ $dataset := index site.Data $yearStr }}
+{{ if not $dataset }}
+  {{/* No data for year - nothing to render */}}
+  {{ return }}
+{{ end }}
+
+{{ $yearCommunities := index $dataset "communities" }}
+{{ if or (not $yearCommunities) (eq (len $yearCommunities) 0) }}
+{{$dataset | jsonify }}
+  {{/* No communities for this year  */}}
+  {{ return }}
+{{ end }}
+{{- $utm := site.Params.utm | safeURL -}}
+
+<div class="communities">
+  <div class="communities-grid">
+    {{- range $yearCommunities -}}
+      {{- $community_data := where site.Data.communities.community "code" . -}}
+      {{- if $community_data -}}
+        {{- with index $community_data 0 -}}
+          <a class="communities-item" href="{{ .website }}{{ $utm }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}">
+            {{- $logo := resources.Get (printf "communities/%s.png" .code) -}}
+            {{- if $logo -}}
+              {{- $image := $logo.Fit "200x200 webp q80" -}}
+              <img class="communities-logo" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Logo {{ .name }}" loading="lazy"/>
+            {{- else -}}
+              <span class="communities-logo communities-logo--placeholder" role="img" aria-label="{{ .name }} logo placeholder">
+                <span class="communities-name">{{ .name }}</span>
+              </span>
+            {{- end -}}
+            <span class="communities-name">{{ .name }}</span>
+          </a>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  </div>
+</div>
