@@ -10,6 +10,7 @@ starts = 2025-10-04T14:00:00
 ends = 2025-10-04T16:45:00
 slidesURL = ""
 warning = ""
+workshop = true
 +++
 In questo workshop di 2 ore partiremo da zero per creare un’app Angular moderna sfruttando le nuove Signal API, pensate per migliorare performance e gestione dello stato.
 

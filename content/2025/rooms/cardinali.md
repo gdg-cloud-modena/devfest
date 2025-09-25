@@ -4,6 +4,7 @@ date = 2025-09-10
 draft = false
 summary = "Ospita i banchetti ed è il posto migliore dove fare networking"
 weight = 6
+forSessions = false
 +++
 
 Al piano Nobile. Ospita i banchetti ed è il posto migliore dove fare networking.

@@ -4,6 +4,7 @@ date = 2025-09-10
 draft = false
 summary = "Chiesa con ingresso dall'esterno"
 weight = 1
+forSessions = true
 +++
 
 L'accesso alla Sala Chiesa è dall'esterno, a fianco del portone principale.

@@ -10,6 +10,7 @@ starts = 2025-10-05T09:30:00
 ends = 2025-10-05T11:15:00
 slidesURL = ""
 warning = ""
+workshop = true
 +++
 Ready to move beyond basic chatbots and build truly intelligent, autonomous agents? This hands-on workshop is your entry point to Google's Agent Development Kit (ADK). In just two hours, we'll dive into the code-first, modular framework that's changing how developers build AI applications. You'll not only learn the fundamentals of ADK but also build, test, and run your very own AI agent from scratch.
 

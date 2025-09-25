@@ -10,6 +10,7 @@ starts = 2025-10-04T14:00:00
 ends = 2025-10-04T14:45:00
 slidesURL = ""
 warning = ""
+workshop = true
 +++
 Ognuno ha talenti unici, ma come riconoscerli? Con lo strumento del Work Model Canvas puoi creare il tuo business model personale che tu stia cercando un cambiamento di carriera, voglia lanciare una startup o semplicemente desideri allineare le tue passioni con il lavoro.
 

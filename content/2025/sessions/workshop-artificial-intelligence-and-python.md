@@ -10,6 +10,7 @@ starts = 2025-10-05T09:30:00
 ends = 2025-10-05T11:15:00
 slidesURL = ""
 warning = ""
+workshop = true
 +++
 
 Workshop di Intelligenza Artificiale
