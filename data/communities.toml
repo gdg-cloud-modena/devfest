@@ -47,6 +47,6 @@ code = "maker-dojo"
 website = "https://www.makerdojo.it/"
 
 [[community]]
-name = "Ruby Modena"
-code = "ruby-modena"
-website = "https://modena.rb/"
+name = "Modena.rb"
+code = "modena-rb"
+website = "https://www.meetup.com/modena-rb/"
