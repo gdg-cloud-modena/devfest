@@ -32,7 +32,7 @@
             {{- $logo := resources.Get (printf "communities/%s.png" .code) -}}
             {{- if $logo -}}
               {{- $image := $logo.Fit "200x200 webp q80" -}}
-              <img class="communities-logo" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Logo {{ .name }}" loading="lazy"/>
+	            <img class="communities-logo" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Logo {{ .name }}" loading="lazy" >
             {{- else -}}
               <span class="communities-logo communities-logo--placeholder" role="img" aria-label="{{ .name }} logo placeholder">
                 <span class="communities-name">{{ .name }}</span>
