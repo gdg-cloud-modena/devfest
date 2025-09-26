@@ -235,7 +235,7 @@ level = "bronze"
 name = "BizzyNow"
 code = "bizzynow"
 link = "https://www.bizzynow.com/"
-level = "bronze"
+level = "silver"
 
 [[sponsors]]
 name = "DevPunks"
