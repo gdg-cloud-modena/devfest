@@ -10,6 +10,7 @@ starts = 2025-10-04T11:00:00
 ends = 2025-10-04T12:45:00
 slidesURL = ""
 warning = ""
+workshop = true
 +++
 I container semplificano la distribuzione del software racchiudendo un'app e tutte le sue dipendenze in un'unica unità portabile, eliminando così la complessità della gestione delle dipendenze su diverse piattaforme.
 

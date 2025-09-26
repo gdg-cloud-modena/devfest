@@ -1,0 +1,39 @@
+{{ $year := printf "%v" (.Param "year") }}
+{{ $workshopLen := len (where (site.GetPage (printf "/%s/sessions" $year)).Pages "Params.workshop" true)}}
+{{ $agenda := index site.Data $year }}
+{{/*  {{ $speakers := where (site.GetPage (printf "/%s/speakers" $year)).Pages "Params.speaker" true }}  */}}
+{{ $speakers := len (where (site.GetPage (printf "/speakers" )).Pages "Params" "ne" nil ) }}
+{{ $rooms := len (where (site.GetPage (printf "/%s/rooms" $year)).Pages "Params.forSessions" true) }}
+
+{{/* Load agenda data for that year */}}
+{{ $participants := $agenda.participants }}
+
+{{/* Debugging line to inspect the $Workshops variable */}}
+
+<div class="statistics">
+
+  <div class="statistic statistic--rooms"> 
+    <img src="icons/room.svg" alt="Room">
+    <div class="statistic-number">{{ $rooms }}</div>
+    <div class="statistic-title">Sale</div>
+  </div>
+  <div class="statistic statistic--speakers"> 
+      <img src="icons/speakers.svg" alt="Speakers">
+    <div class="statistic-number">{{ $speakers}}</div>
+    <div class="statistic-title">Relatori</div>
+  </div>
+  <div class="statistic statistic--workshops">
+      <img src="icons/workshop.svg" alt="Workshops">
+    <div class="statistic-number">{{ $workshopLen }}</div>
+    <div class="statistic-title">Workshop</div>
+  </div>
+
+  <div class="statistic statistic--participants"  >
+      <img src="icons/people.svg" alt="Participants">
+
+    <div class="statistic-number">{{ $participants}}+</div>
+    <div class="statistic-title">Partecipanti</div>
+  </div>
+
+
+</div>

@@ -1,5 +1,5 @@
 days = [2025-10-04, 2025-10-05]
-
+participants = 600
 
 # Community index
 
@@ -186,8 +186,6 @@ name = "Dumitru Birsan"
 description = "Full stack developer"
 website = "https://www.linkedin.com/in/dumitru-birsan-6b58771bb/"
 
-
-
 # Spnsorship levels, weight ascending
 
 [[levels]]
@@ -237,6 +235,12 @@ level = "bronze"
 name = "BizzyNow"
 code = "bizzynow"
 link = "https://www.bizzynow.com/"
+level = "bronze"
+
+[[sponsors]]
+name = "DevPunks"
+code = "devpunks"
+link = "https://www.devpunks.com/"
 level = "bronze"
 
 [[sponsors]]

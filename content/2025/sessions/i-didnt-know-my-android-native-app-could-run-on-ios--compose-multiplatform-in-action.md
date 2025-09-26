@@ -11,7 +11,7 @@ ends = 2025-10-04T17:45:00
 slidesURL = ""
 warning = ""
 +++
-What if you, as an Android developer, could suddenly develop for iOS without learning a new language or framework? This isn't a fantasy; it's the reality that Compose Multiplatform brings to the table. 
+What if you, as an Android developer, could suddenly develop for iOS without learning a new language or framework? This isn't a fantasy; it's the reality that Compose Multiplatform brings to the table.
 
 We will see how, thanks to the adoption of Kotlin Multiplatform by Google, it is possibile to actually write an Android app that runs on iOS without knowing almost anything about iOS development. 
 

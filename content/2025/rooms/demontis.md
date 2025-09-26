@@ -4,6 +4,7 @@ date = 2025-09-10
 draft = false
 summary = "Si colloca fra la chiesa e il cortile principale"
 weight = 2
+forSessions = true
 +++
 
 La Sala Demontis si colloca fra la chiesa e il cortile principale, nell’ala più

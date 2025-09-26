@@ -36,6 +36,7 @@
 @use "_blocks/_ul";
 @use "_blocks/faq";
 @use "_blocks/team";
+@use "_blocks/_statistics";
 
 @if r.$core {
   body {

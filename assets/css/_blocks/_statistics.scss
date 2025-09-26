@@ -1,0 +1,49 @@
+@use "_responsive" as r;
+
+@use "_default/_spaces";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_colors";
+@use "_blocks/_h3";
+
+
+@if r.$core {
+
+    .statistics {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: spaces.$space-m;
+    }
+
+    .statistic {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .statistic-title,
+    .statistic-number {
+        font-weight: bold;
+        font-size: fonts.$size-1;
+    }
+
+    .statistic--rooms {
+        color: colors.$danger !important;
+    }
+    .statistic--speakers {
+        color: colors.$tertiary !important;
+    }
+    .statistic--workshops {
+        color: colors.$secondary !important;
+    }
+    .statistic--participants {
+        color: colors.$primary !important;
+    }
+}
+
+@if r.$mobile or r.$tablet {
+    .statistics {
+        flex-direction: column;
+    }
+}

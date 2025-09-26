@@ -4,6 +4,7 @@ date = 2025-09-10
 draft = false
 summary = "Teatro al primo piano, a destra della Sala Cardinali"
 weight = 4
+forSessions = true
 +++
 
 Al piano Nobile. Teatro a destra della Sala Cardinali.

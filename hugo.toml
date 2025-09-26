@@ -69,16 +69,22 @@ weight = 3
 url = "/2025/team/"
 
 [[menus.main]]
+identifier = "communities"
+name = "Community"
+weight = 4
+url = "/2025/communities/"
+
+[[menus.main]]
 identifier = "location"
 name = "Location"
-weight = 4
+weight = 5
 url = "/location/"
 
 [[menus.main]]
 identifier = "tickets"
 name = "Biglietti"
 url = "https://devfest-modena-2025.eventbrite.it"
-weight = 5
+weight = 6
 [menus.main.params]
 external = true
 
