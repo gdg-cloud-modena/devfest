@@ -16,15 +16,17 @@
       <h1 class="hero-title">4-5 ottobre 2025</h1>
     </div>
   </section>
-  <section class="content section section--padded">
-    {{ .Content }}
+  <section class="section section--padded">
+    <div class="content">
+      {{ .Content }}
+    </div>
+    {{ partial "statistics.html" . }}
   </section>
   <section class="section section--padded">
     <h2 class="h2">Biglietti</h2>
     <p class="p">I biglietti sono separati per sabato 4 e domenica 5 ottobre 2025. Puoi scegliere entrambi per goderti tutto l'evento oppure anche solo uno per un singolo giorno.</p>
     <p class="p">Ordinali su <a class="link" href="{{ .Site.Params.ticketsUrl }}" target="_blank">Eventbrite</a>.</p>
   </section>
-	{{/* Partners section */}}
   {{ partial "partners.html" . }}
 </main>
 {{ end }}
