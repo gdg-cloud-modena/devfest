@@ -250,6 +250,12 @@ link = "https://www.galvanina.it/"
 level = "tech"
 
 [[sponsors]]
+name = "GeeksCreations"
+code = "geeks-creations"
+link = "https://geekscreations.com/"
+level = "bronze"
+
+[[sponsors]]
 name = "Google"
 code = "google"
 link = "https://developers.google.com/community/devfest"
