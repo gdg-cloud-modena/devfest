@@ -20,6 +20,12 @@
     padding: spaces.$space-2xl spaces.$space-m;
   }
 
+  .ctaTickets-info {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
   .ctaTickets-title {
     font-weight: bold;
     font-size: fonts.$size-3;
@@ -39,4 +45,9 @@
   .ctaTickets-image {
     display: none;
   }
+  .ctaTickets-info {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
 }

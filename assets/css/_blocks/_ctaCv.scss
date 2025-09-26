@@ -1,0 +1,39 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@use "_blocks/_button";
+
+@if r.$core {
+  .ctaCv {
+    background-color: colors.$tertiary--2;
+  }
+
+  .ctaCv-content {
+    display: flex;
+   // flex-direction: column;
+    gap: spaces.$space-s;
+    align-items: center;
+    justify-content: center;
+    padding: spaces.$space-xl spaces.$space-m;
+  }
+  .ctaCv-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ctaCv-title {
+    font-weight: bold;
+    font-size: fonts.$size-1;
+  }
+}
+
+@if r.$mobile or r.$tablet {
+  .ctaCv-content {
+    flex-direction: column;
+  }
+}
