@@ -7,13 +7,13 @@ communities = [
   "gdg-cloud-modena",
   "modena-full-stack",
   "reggio-emilia-full-stack",
-  "ml-modena",
   "flutter-modena",
   "conoscere-linux",
+  "maker-dojo",
+  "modena-rb",
+  "ml-modena",
   "she-is-a-scientist",
   "designing-success",
-  "maker-dojo",
-  "ruby-modena",
 ]
 
 # People roles
