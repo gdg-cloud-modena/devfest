@@ -377,6 +377,11 @@ title = "Community"
 code = "community"
 weight = 7
 
+[[levels]]
+title = "Media Partner"
+code = "media"
+weight = 9
+
 # Sponsors, alphabetical order
 
 [[sponsors]]
@@ -456,3 +461,33 @@ name = "Zuru"
 code = "zuru"
 link = "https://zuru.tech/"
 level = "gold"
+
+[[sponsors]]
+name = "GDG Catania"
+code = "gdg-catania"
+link = "https://gdg.community.dev/gdg-catania/"
+level = "media"
+
+[[sponsors]]
+name = "GDG Cloud Torino"
+code = "gdg-cloud-torino"
+link = "https://gdg.community.dev/gdg-torino/"
+level = "media"
+
+[[sponsors]]
+name = "GDG Pescara"
+code = "gdg-pescara"
+link = "https://gdgpescara.it/it/"
+level = "media"
+
+[[sponsors]]
+name = "GDG Pisa"
+code = "gdg-pisa"
+link = "https://gdgpisa.it/"
+level = "media"
+
+[[sponsors]]
+name = "GDG Roma Città"
+code = "gdg-roma-citta"
+link = "https://gdg.community.dev/gdg-roma-citta/"
+level = "media"
