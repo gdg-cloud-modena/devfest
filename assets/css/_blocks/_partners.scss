@@ -1,7 +1,4 @@
 @use "_responsive" as r;
-
-@use "_default/_colors";
-@use "_default/_effects";
 @use "_default/_spaces";
 
 @if r.$core {
@@ -23,62 +20,7 @@
     align-items: center;
   }
 
-  .partners-partner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: spaces.$space-s;
-    text-decoration: none;
-    background-color: colors.$gray--1;
-    border-radius: effects.$radius;
-    transition:
-      transform effects.$time ease,
-      box-shadow effects.$time ease;
-    flex: 0 1 calc(200px + spaces.$space-s); /* Set flexible sizing */
 
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-  }
-
-  .partners-logo {
-    display: block;
-    width: 200px;
-    height: 200px;
-    max-width: 200px;
-    max-height: 200px;
-    margin: auto;
-    object-fit: contain;
-    padding: spaces.$space-xs;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    align-self: center; /* Ensures alignment within flexible parents */
-    justify-self: center; /* Centers within grid parents */
-    background-color: #fff;
-    border-radius: effects.$radius;
-  }
-
-  .partners-logo--placeholder {
-    width: 200px;
-    height: 200px;
-    border-radius: effects.$radius;
-    background: #fff; /* Slightly lighter background for distinction */
-    border: 2px dashed #999; /* Dashed border to indicate missing content */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* Ensure multi-line names are centered */
-    color: #666666; /* Slightly darker text for readability */
-    font-size: 1rem; /* Slightly larger text for visibility */
-    font-weight: bold; /* Highlight text */
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); /* Adds depth */
-  }
-
-  .partners-name {
-    padding: spaces.$space-2xs spaces.$space-2xs 0 spaces.$space-2xs;
-    text-align: center;
-  }
 }
 
 @if r.$mobile {

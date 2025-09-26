@@ -53,16 +53,16 @@
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.jpg" $code)) }}{{ end }}
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.webp" $code)) }}{{ end }}
 
-            <a class="partners-partner" href="{{ $link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $name }}">
+            <a class="card-body" href="{{ $link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $name }}">
               {{ if $img }}
                 {{ $res := $img.Fit "320x160 webp q80" }}
-                <img class="partners-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
+                <img class="card-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
               {{ else }}
-                <span class="partners-logo partners-logo--placeholder" role="img" aria-label="{{ $name }} logo placeholder">
-                  <span class="partners-name">{{ $name }}</span>
+                <span class="card-logo card-logo--placeholder" role="img" aria-label="{{ $name }} logo placeholder">
+                  <span class="card-name">{{ $name }}</span>
                 </span>
               {{ end }}
-	            <span class="partners-name">{{ $name }}</span>
+	            <span class="card-name">{{ $name }}</span>
             </a>
           {{ end }}
         </div>

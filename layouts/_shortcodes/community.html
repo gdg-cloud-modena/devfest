@@ -28,17 +28,17 @@
 		      {{ if in .website "?" }}{{ $sep = "&" }}{{ end }}
 		      {{ $website = printf "%s%s%s" .website $sep $utm }}
 		    {{ end }}
-          <a class="communities-item" href="{{ $website }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}">
+          <a class="card-body" href="{{ $website }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}">
             {{- $logo := resources.Get (printf "communities/%s.png" .code) -}}
             {{- if $logo -}}
               {{- $image := $logo.Fit "200x200 webp q80" -}}
-	            <img class="communities-logo" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Logo {{ .name }}" loading="lazy" >
+	            <img class="card-logo" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Logo {{ .name }}" loading="lazy" >
             {{- else -}}
-              <span class="communities-logo communities-logo--placeholder" role="img" aria-label="{{ .name }} logo placeholder">
-                <span class="communities-name">{{ .name }}</span>
+              <span class="card-logo card-logo--placeholder" role="img" aria-label="{{ .name }} logo placeholder">
+                <span class="card-name">{{ .name }}</span>
               </span>
             {{- end -}}
-            <span class="communities-name">{{ .name }}</span>
+            <span class="card-name">{{ .name }}</span>
           </a>
         {{- end -}}
       {{- end -}}

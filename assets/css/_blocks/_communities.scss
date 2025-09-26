@@ -1,9 +1,6 @@
 @use "_responsive" as r;
 
-@use "_default/_colors";
-@use "_default/_effects";
 @use "_default/_spaces";
-@use "_default/_fonts";
 
 @if r.$core {
   .communities {
@@ -15,73 +12,7 @@
     flex-wrap: wrap;
     gap: spaces.$space-s;
     justify-content: center;
-    align-items: stretch;
-  }
-
-  .communities-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: spaces.$space-s;
-    text-decoration: none;
-    background-color: colors.$gray--1;
-    border-radius: effects.$radius;
-    transition:
-      transform effects.$time ease,
-      box-shadow effects.$time ease;
-    flex: 0 1 calc(200px + spaces.$space-s);
-
-    &:hover,
-    &:focus {
-      transform: scale(1.03);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    }
-  }
-
-  .communities-logo {
-    display: block;
-    width: 200px;
-    height: 200px;
-    max-width: 200px;
-    max-height: 200px;
-    margin: auto;
-    object-fit: contain;
-    padding: spaces.$space-xs;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    align-self: center; /* Ensures alignment within flexible parents */
-    justify-self: center; /* Centers within grid parents */
-    background-color: #fff;
-    border-radius: effects.$radius;
-  }
-
-  .communities-logo--placeholder {
-    width: 150px;
-    height: 150px;
-    border-radius: effects.$radius;
-    background: #fff;
-    border: 2px dashed #999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #666;
-    font-size: fonts.$size-0;
-    font-weight: bold;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.08);
-  }
-
-  .communities-name {
-    padding: spaces.$space-2xs 0 0 0;
-    text-align: center;
-    font-size: fonts.$size-1;
-    color: colors.$black;
-  }
-
-  .communities-actions {
-    margin-top: spaces.$space-xs;
-    display: flex;
-    justify-content: center;
   }
 }
 
