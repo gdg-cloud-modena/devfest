@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["biblioteca-antica"]
 speakers = ["mirko-gilioli"]
+language = "Italiano"
 starts = 2025-10-05T10:30:00
 ends = 2025-10-05T12:15:00
 slidesURL = ""

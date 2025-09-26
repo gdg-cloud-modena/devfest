@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["teatro"]
 speakers = ["luca-del-puppo"]
+language = "Italiano"
 starts = 2025-10-04T16:00:00
 ends = 2025-10-04T16:45:00
 slidesURL = ""

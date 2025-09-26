@@ -21,7 +21,7 @@
   {{ if .Params.warning }}
   <p class="callout callout--warning">{{ .Params.warning }}</p>
   {{ end }}
-  <p class="p"><b>{{ .Params.starts | time.Format "Monday" | title }}</b> dalle <b>{{ .Params.starts | time.Format "15:04" }}</b> alle {{ .Params.ends | time.Format "15:04" }} {{ if eq (len $roomNames) 1 }}nella sala {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}nelle sale {{ $roomsHTML | safeHTML }} in contemporanea{{ end }}.</p>
+  <p class="p"><b>{{ .Params.starts | time.Format "Monday" | title }}</b> dalle <b>{{ .Params.starts | time.Format "15:04" }}</b> alle {{ .Params.ends | time.Format "15:04" }} {{ if eq (len $roomNames) 1 }}nella sala {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}nelle sale {{ $roomsHTML | safeHTML }} in contemporanea{{ end }}. Lingua: <b>{{ .Params.language }}</b></p>
   {{ if .Params.slidesURL }}
   <p class="p">Consulta le <a class="link" href="{{ .Params.slidesURL }}" target="_blank">slide</a>.</p>
   {{ end }}

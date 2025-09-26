@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = "Datatonic"
 role = "Lead Google Cloud Instructor | Google Cloud Champion Innovator"
 male = true

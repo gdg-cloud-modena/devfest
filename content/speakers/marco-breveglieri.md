@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "A long time positive and confident Software Developer, Trainer and Consultant."
 male = true

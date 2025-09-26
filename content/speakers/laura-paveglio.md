@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "UX/UI Designer Senior Freelance"
 male = true

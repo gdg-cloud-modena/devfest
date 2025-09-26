@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["biblioteca-antica"]
 speakers = ["riccardo-carlesso","emiliano-della-casa"]
+language = "Italiano"
 starts = 2025-10-04T14:00:00
 ends = 2025-10-04T16:45:00
 slidesURL = ""

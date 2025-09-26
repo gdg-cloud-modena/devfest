@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = "NIXINN"
 role = "Co-CEO, Innovation in action"
 male = false

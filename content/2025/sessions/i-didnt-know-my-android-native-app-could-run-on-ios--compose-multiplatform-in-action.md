@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["teatro"]
 speakers = ["fabio-catinella"]
+language = "Italiano"
 starts = 2025-10-04T17:00:00
 ends = 2025-10-04T17:45:00
 slidesURL = ""

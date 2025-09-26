@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "GDE for AI, ML & Cloud - Lead SDE @ TIW Group Ltd"
 male = true

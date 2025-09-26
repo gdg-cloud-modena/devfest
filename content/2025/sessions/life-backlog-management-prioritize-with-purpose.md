@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["demontis"]
 speakers = ["giovanna-galleno-malaga"]
+language = "Italiano"
 starts = 2025-10-04T11:00:00
 ends = 2025-10-05T11:45:00
 slidesURL = ""

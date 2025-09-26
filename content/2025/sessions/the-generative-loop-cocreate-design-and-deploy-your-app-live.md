@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["chiesa"]
 speakers = ["gregorio-palama"]
+language = "Italiano"
 starts = 2025-10-04T16:00:00
 ends = 2025-10-04T16:45:00
 slidesURL = ""

@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["cardinali"]
 speakers = ["martina-tisselli","nicola-di-martino","francesco-catania"]
+language = "Italiano"
 starts = 2025-10-04T11:15:00
 ends = 2025-10-04T11:45:00
 slidesURL = ""

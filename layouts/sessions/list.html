@@ -85,6 +85,7 @@
             {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
             {{ if $speakers }}· {{ end }}
             {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }}
+            {{ if $session.Params.language }}· {{ end }}Lingua: <b>{{ $session.Params.language }}</b>
           </p>
         </li>
       {{ end }}

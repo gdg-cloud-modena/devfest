@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["cardinali"]
 speakers = ["gianni-forlastro","francesco-pirrone"]
+language = "Italiano"
 starts = 2025-10-04T14:00:00
 ends = 2025-10-04T14:45:00
 slidesURL = ""

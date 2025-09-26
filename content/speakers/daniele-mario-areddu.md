@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "Freelance Full-Stack Developer | AI-ML Developer & Data Analyst| Compter Science Student @ University of Calabria | Change Model Specialist @ UNIDEA |Community Lead @ Velletri-Dev | Author"
 male = true

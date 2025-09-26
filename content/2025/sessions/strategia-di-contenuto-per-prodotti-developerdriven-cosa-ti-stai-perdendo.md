@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["demontis"]
 speakers = ["katarina-zivkovic"]
+language = "Italiano"
 starts = 2025-10-05T10:30:00
 ends = 2025-10-05T11:15:00
 slidesURL = ""

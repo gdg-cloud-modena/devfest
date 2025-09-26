@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["chiesa"]
 speakers = ["gabriele-santomaggio"]
+language = "Italiano"
 starts = 2025-10-05T09:30:00
 ends = 2025-10-04T10:15:00
 slidesURL = ""

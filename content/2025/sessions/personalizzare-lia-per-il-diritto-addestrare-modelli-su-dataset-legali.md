@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["40"]
 speakers = ["daniele-mario-areddu"]
+language = "Italiano"
 starts = 2025-10-04T15:00:00
 ends = 2025-10-04T15:45:00
 slidesURL = ""

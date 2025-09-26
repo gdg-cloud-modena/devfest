@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "GDE Cloud, CTO@Finwave, GDG Cloud Torino & Flutter Torino Community Lead"
 male = true

@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["40"]
 speakers = ["raffaele-berzoini","federico-fustini"]
+language = "Italiano"
 starts = 2025-10-04T12:00:00
 ends = 2025-10-04T12:30:00
 slidesURL = ""

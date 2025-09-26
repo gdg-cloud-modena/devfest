@@ -6,6 +6,7 @@ draft = false
 [params]
 rooms = ["periodici"]
 speakers = ["davide-passafaro","giorgio-galassi","ryan-jherome-burgos"]
+language = "Italiano"
 starts = 2025-10-04T14:00:00
 ends = 2025-10-04T16:45:00
 slidesURL = ""

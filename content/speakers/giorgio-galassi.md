@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "Senior Frontend Engineer @ Onpier | GDG Roma Città Organizer"
 male = true

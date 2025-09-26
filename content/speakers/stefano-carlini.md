@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "Business Development Manager | Cloud & AI Strategy | Digital Transformation | Customer Success | Google Cloud Professional | Partnership & Strategic Alliances | Speaker & Innovator"
 male = true

@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "DevOps Culture, IT Project Manager (Scrum Master | Senior Software Engineer)"
 male = true

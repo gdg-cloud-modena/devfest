@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = "Company"
 role = "GDE Cloud | Mia-Platform Expert | Senior Enterprise Architect @ Adesso | Community Manager @ GDG Pescara"
 male = true

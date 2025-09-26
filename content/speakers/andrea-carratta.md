@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "Cloud Developer & Architect 📈 Creo Soluzioni Cloud Scalabili e Configurabili per Aziende e Start Up 🐛 Risolvo bug come affronto le maratone: con determinazione e precisione"
 male = true

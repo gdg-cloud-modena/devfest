@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "English"
 company = "QuantumBlack"
 role = "Staff Software Engineer, Google Developer Expert, Google Womens Techmakers Ambassador"
 male = false

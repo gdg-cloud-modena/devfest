@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-language = "Italiano"
 company = ""
 role = "Developer Advocate @ Vonage / GDE for Firebase, ML and Cloud"
 male = true
