@@ -6,44 +6,53 @@
 @use "_default/_colors";
 @use "_blocks/_h3";
 
-
 @if r.$core {
+  .statistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: spaces.$space-l;
+  }
 
-    .statistics {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: spaces.$space-m;
-    }
+  .statistics-item {
+    text-align: center;
+    font-weight: bold;
+    font-size: fonts.$size-1;
+  }
 
-    .statistic {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .statistic-title,
-    .statistic-number {
-        font-weight: bold;
-        font-size: fonts.$size-1;
-    }
+  .statistics-item--rooms {
+    color: colors.$danger !important;
+  }
 
-    .statistic--rooms {
-        color: colors.$danger !important;
-    }
-    .statistic--speakers {
-        color: colors.$tertiary !important;
-    }
-    .statistic--workshops {
-        color: colors.$secondary !important;
-    }
-    .statistic--participants {
-        color: colors.$primary !important;
-    }
+  .statistics-item--speakers {
+    color: colors.$tertiary !important;
+  }
+
+  .statistics-item--workshops {
+    color: colors.$secondary !important;
+  }
+
+  .statistics-item--participants {
+    color: colors.$primary !important;
+  }
+
+  .statistics-img {
+    display: inline;
+  }
 }
 
-@if r.$mobile or r.$tablet {
-    .statistics {
-        flex-direction: column;
-    }
+@if r.$tablet {
+  .statistics {
+    flex-wrap: wrap;
+  }
+
+  .statistics-item {
+    flex: 0 0 40%;
+  }
+}
+
+@if r.$mobile {
+  .statistics {
+    flex-direction: column;
+  }
 }

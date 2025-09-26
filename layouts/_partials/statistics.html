@@ -1,39 +1,29 @@
 {{ $year := printf "%v" (.Param "year") }}
 {{ $workshopLen := len (where (site.GetPage (printf "/%s/sessions" $year)).Pages "Params.workshop" true)}}
 {{ $agenda := index site.Data $year }}
-{{/*  {{ $speakers := where (site.GetPage (printf "/%s/speakers" $year)).Pages "Params.speaker" true }}  */}}
 {{ $speakers := len (where (site.GetPage (printf "/speakers" )).Pages "Params" "ne" nil ) }}
 {{ $rooms := len (where (site.GetPage (printf "/%s/rooms" $year)).Pages "Params.forSessions" true) }}
-
-{{/* Load agenda data for that year */}}
 {{ $participants := $agenda.participants }}
 
-{{/* Debugging line to inspect the $Workshops variable */}}
-
 <div class="statistics">
-
-  <div class="statistic statistic--rooms"> 
-    <img src="icons/room.svg" alt="Room">
-    <div class="statistic-number">{{ $rooms }}</div>
-    <div class="statistic-title">Sale</div>
-  </div>
-  <div class="statistic statistic--speakers"> 
-      <img src="icons/speakers.svg" alt="Speakers">
-    <div class="statistic-number">{{ $speakers}}</div>
-    <div class="statistic-title">Relatori</div>
-  </div>
-  <div class="statistic statistic--workshops">
-      <img src="icons/workshop.svg" alt="Workshops">
-    <div class="statistic-number">{{ $workshopLen }}</div>
-    <div class="statistic-title">Workshop</div>
-  </div>
-
-  <div class="statistic statistic--participants"  >
-      <img src="icons/people.svg" alt="Participants">
-
-    <div class="statistic-number">{{ $participants}}+</div>
-    <div class="statistic-title">Partecipanti</div>
-  </div>
-
-
+  <p class="statistics-item statistics-item--rooms">
+    <img class="statistics-img" src="/icons/room.svg" alt="Room" height="40">
+    <br>{{ $rooms }}
+    <br>Sale
+  </p>
+  <p class="statistics-item statistics-item--speakers">
+    <img class="statistics-img" src="/icons/speakers.svg" alt="Speakers" height="40">
+    <br>{{ $speakers}}
+    <br>Relatori
+  </p>
+  <p class="statistics-item statistics-item--workshops">
+    <img class="statistics-img" src="/icons/workshop.svg" alt="Workshops" height="40">
+    <br>{{ $workshopLen }}
+    <br>Workshop
+  </p>
+  <p class="statistics-item statistics-item--participants">
+    <img class="statistics-img" src="/icons/people.svg" alt="Participants" height="40">
+    <br>{{ $participants}}+
+    <br>Partecipanti
+  </p>
 </div>
