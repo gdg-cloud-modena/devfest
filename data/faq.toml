@@ -11,6 +11,14 @@ question = "L'evento è gratuito?"
 answer = "Sì, l'evento è gratuito. L'evento è organizzato spontaneamente dalle comunità locali. Gli sponsor ci aiutano a coprire le spese in modo da renderlo accessibile per tutti."
 
 [[qa]]
+question = "Il pranzo è gratuito?"
+answer = "Sì, il pranzo di sabato è gratuito per tutti i partecipanti."
+
+[[qa]]
+question = "Ho allergie o intolleranze alimentari, come faccio?"
+answer = "Siamo preparati per questo. In fase di acquisto del biglietto ti verrà chiesto di indicare eventuali allergie o intolleranze alimentari. Se non l'hai fatto, puoi comunque inviarci una email a [info@devfest.modena.it](mailto:info@devfest.modena.it) e ti risponderemo al più presto."
+
+[[qa]]
 question = "Ho bisogno di un biglietto per partecipare al DevFest Modena?"
 answer = "Sì, la partecipazione al DevFest Modena è gratuita ma la registrazione è obbligatoria."
 
