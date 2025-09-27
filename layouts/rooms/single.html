@@ -21,6 +21,7 @@
   {{ $sessions := slice }}
   {{ if $sessionsSec }}
     {{ $sessions = where $sessionsSec.Pages "Params.starts" "ne" nil }}
+    {{ $sessions = sort $sessions "Params.ends" "asc" }}
     {{ $sessions = sort $sessions "Params.starts" "asc" }}
   {{ end }}
 
