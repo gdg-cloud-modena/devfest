@@ -5,7 +5,7 @@ draft = false
 
 [params]
 rooms = ["cappella"]
-speakers = ["Partecipanti spontanei"]
+speakers = []
 starts = 2025-10-04T16:00:00
 ends = 2025-10-04T17:15:00
 slidesURL = ""
