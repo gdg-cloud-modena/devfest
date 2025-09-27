@@ -68,6 +68,26 @@
     display: flex;
     flex-direction: row;
   }
+  .footer-menu-tickets {
+    margin-top: spaces.$space-s;
+    display: flex;
+    gap: clamp(1.69rem,1.34rem + .93vw,2rem);
+    font-variant: small-caps;
+      font-family: google sans display,sans-serif;
+      font-size: clamp(1.125rem,.986rem + .37vi,1.25rem);
+      font-optical-sizing: auto;
+  }
+
+  .footer-menu-tickets-button {
+    text-decoration: none;
+    position: relative;
+    padding: 0.5em 0.75em 0.5em 0.75em;
+    background: colors.$tertiary--1;
+    border: 2px solid transparent;
+    color: colors.$black;
+    @extend %rounded;
+    @extend %transition-border;
+  }
 
   .footer-menuItem {
     margin-top: spaces.$space-2xs;

@@ -40,6 +40,12 @@
 					{{ end }}
 				</ul>
 			</div>
+			<div class="footer-column">
+				<h4 class="footer-title">Vieni a trovarci</h4>
+				<div class="footer-menu footer-menu-tickets">
+					<a class="footer-menu-tickets-button" href="{{ .Site.Params.ticketsUrl }}">Biglietti gratuiti</a>
+				</div>
+			</div>
 		</div>
 		<hr class="footer-hr">
 		<p class="footer-copy">Copyright © {{ if eq .Site.Params.CopyrightFromYear now.Year }} {{ .Site.Params.CopyrightFromYear }} {{ else }} {{ .Site.Params.CopyrightFromYear }}-{{ now.Year }} {{ end }} {{ .Site.Params.company }}</p>
