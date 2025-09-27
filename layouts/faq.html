@@ -7,7 +7,7 @@
     {{ range .Site.Data.faq.qa }}
     <details class="faq-item" name="faq">
       <summary class="faq-question">{{ .question }}</summary>
-      <div class="faq-answer">{{ .answer }}</div>
+      <div class="faq-answer content">{{ .answer | markdownify }}</div>
     </details>
     {{ end }}
   </div>
