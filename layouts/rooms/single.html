@@ -69,7 +69,7 @@
         <li class="sessions-item" data-starts="{{ $session.Params.starts }}" data-ends="{{ $session.Params.ends }}">
           <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
           <p class="sessions-itemDetails">
-            {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }} {{ if $session.Params.language }}Lingua: <b>{{ $session.Params.language }}</b>{{ end }}
+            {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }} {{ if ne (lower $session.Params.language) "italiano" }}· {{ $session.Params.language }}{{ end }}
           </p>
         </li>
       {{ end }}
