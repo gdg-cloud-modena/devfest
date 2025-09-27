@@ -195,13 +195,6 @@ website = "https://www.linkedin.com/in/aasalman/"
 
 [[people]]
 role = "staff"
-code = "assessore-zanca"
-name = "Assessore Zanca"
-description = ""
-website = ""
-
-[[people]]
-role = "staff"
 code = "davide-pollastri"
 name = "Davide Pollastri"
 description = ""
@@ -234,13 +227,6 @@ code = "massimiliano-rosi"
 name = "Massimiliano Rosi"
 description = "Software developer and BI analist"
 website = "https://www.linkedin.com/in/massimiliano-rosi-92430535/"
-
-[[people]]
-role = "staff"
-code = "sergio-duretti"
-name = "Sergio Duretti"
-description = "Direttore Azioni strategiche & speciali"
-website = "https://www.linkedin.com/in/sergio-duretti-65811a/"
 
 [[people]]
 role = "staff"
@@ -377,7 +363,6 @@ title = "Community"
 code = "community"
 weight = 7
 
-
 [[levels]]
 title = "Patrocini"
 code = "patrocini"
@@ -497,7 +482,6 @@ name = "GDG Roma Città"
 code = "gdg-roma-citta"
 link = "https://gdg.community.dev/gdg-roma-citta/"
 level = "media"
-
 
 [[sponsors]]
 name = "Comune di Modena "
