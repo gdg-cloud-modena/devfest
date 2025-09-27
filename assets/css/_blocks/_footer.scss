@@ -69,6 +69,81 @@
     flex-direction: row;
   }
 
+  /* Minimal styles for patrocini strip */
+  .footer-menu-patrocini {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  .footer-menu-patrocini-text {
+
+  }
+
+  .footer-menu-patrocini-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.9;
+    width: 100%;
+  }
+
+  .footer-menu-patrocini-item:hover,
+  .footer-menu-patrocini-item:focus {
+    opacity: 1;
+  }
+
+  .footer-menu-patrocini-item-img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: scale-down;
+    align-items: center;
+    justify-content: center;
+    padding: spaces.$space-xs;
+    background: colors.$white;
+    filter: grayscale(10%);
+  }
+
+  .footer-menu-patrocini-item-img--placeholder {
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.08);
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-menu-patrocini-item-name {
+   text-wrap: auto;
+  }
+
+  .footer-menu-tickets {
+    margin-top: spaces.$space-s;
+    display: flex;
+    gap: clamp(1.69rem,1.34rem + .93vw,2rem);
+    font-variant: small-caps;
+      font-family: google sans display,sans-serif;
+      font-size: clamp(1.125rem,.986rem + .37vi,1.25rem);
+      font-optical-sizing: auto;
+  }
+
+  .footer-menu-tickets-button {
+    text-decoration: none;
+    position: relative;
+    padding: 0.5em 0.75em 0.5em 0.75em;
+    background: colors.$tertiary--1;
+    border: 2px solid transparent;
+    color: colors.$black;
+    @extend %rounded;
+    @extend %transition-border;
+  }
+
   .footer-menuItem {
     margin-top: spaces.$space-2xs;
     margin-bottom: spaces.$space-2xs;
