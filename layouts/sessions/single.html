@@ -39,7 +39,7 @@
 	    {{ end }}
 	    {{ if $img }}
 	      {{ $image := $img.Resize "100x100 webp q65" }}
-	      <li class="relatedSpeakers-item">
+	      <li class="relatedSpeakers-item" data-starts="{{ .Params.starts }}" data-ends="{{ .Params.ends }}">
 	        <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
           <div class="relatedSpeakers-details">
             <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>

@@ -79,7 +79,7 @@
         {{ end }}
         {{ $roomsHTML := delimit $roomNames ", " }}
 
-        <li class="sessions-item">
+        <li class="sessions-item" data-starts="{{ $session.Params.starts }}" data-ends="{{ $session.Params.ends }}">
           <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
           <p class="sessions-itemDetails">
             {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}

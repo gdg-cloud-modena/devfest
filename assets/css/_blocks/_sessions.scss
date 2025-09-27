@@ -27,4 +27,14 @@
   .sessions-itemDetails {
     font-size: fonts.$size--1;
   }
+
+  .sessions-item--current {
+    border: 2px solid colors.$secondary--1;
+    border-radius: spaces.$space-2xs;
+    padding: spaces.$space-2xs;
+  }
+  
+  .sessions-item--past {
+    opacity: 0.6;
+  }
 }
