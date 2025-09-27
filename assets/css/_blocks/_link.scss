@@ -10,19 +10,19 @@
 
 @if r.$core {
   .link {
-    color: colors.$tertiary;
+    color: colors.$secondary;
     text-decoration: underline;
     text-decoration-color: transparent;
     transition: text-decoration-color effects.$time ease;
 
     &:link,
     &:visited {
-      color: colors.$tertiary;
+      color: colors.$secondary;
       text-decoration-color: transparent;
     }
 
     &:hover {
-      text-decoration-color: colors.$tertiary;
+      text-decoration-color: colors.$secondary;
       text-decoration: underline;
       transition: text-decoration-color effects.$time ease;
     }
