@@ -68,6 +68,61 @@
     display: flex;
     flex-direction: row;
   }
+
+  /* Minimal styles for patrocini strip */
+  .footer-menu-patrocini {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  .footer-menu-patrocini-text {
+
+  }
+
+  .footer-menu-patrocini-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.9;
+    width: 100%;
+  }
+
+  .footer-menu-patrocini-item:hover,
+  .footer-menu-patrocini-item:focus {
+    opacity: 1;
+  }
+
+  .footer-menu-patrocini-item-img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: scale-down;
+    align-items: center;
+    justify-content: center;
+    padding: spaces.$space-xs;
+    background: colors.$white;
+    filter: grayscale(10%);
+  }
+
+  .footer-menu-patrocini-item-img--placeholder {
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.08);
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-menu-patrocini-item-name {
+   text-wrap: auto;
+  }
+
   .footer-menu-tickets {
     margin-top: spaces.$space-s;
     display: flex;

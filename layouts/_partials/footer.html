@@ -39,6 +39,46 @@
 					</li>
 					{{ end }}
 				</ul>
+				<div class="footer-menu-patrocini">
+					<div class="footer-menu-patrocini-text">
+						Con il patrocinio di:
+					</div>
+					{{/* Read current edition data and filter patrocini */}}
+					{{ $year := .Site.Params.currentEdition | default (now.Format "2006") }}
+					{{ $dataset := index site.Data (printf "%v" $year) }}
+					{{ if and $dataset (index $dataset "sponsors") }}
+					{{ $sponsors := index $dataset "sponsors" }}
+					{{ $patrocini := where $sponsors "level" "patrocini" }}
+					
+					{{/* Ensure Comune di Modena appears first */}}
+					{{ $first := where $patrocini "code" "comune-modena" }}
+					{{ $rest := where $patrocini "code" "ne" "comune-modena" }}
+					{{ $ordered := $first | append $rest }}
+					
+					{{ range $ordered }}
+					{{ $name := .name }}
+					{{ $code := .code }}
+					{{ $link := .link }}
+					
+					{{/* Try to load logo for the partner (prefer png/jpg/webp) */}}
+					{{ $img := resources.Get (printf "%v/partners/%s.png" $year $code) }}
+					{{ if not $img }}{{ $img = resources.Get (printf "%v/partners/%s.jpg" $year $code) }}{{ end }}
+					{{ if not $img }}{{ $img = resources.Get (printf "%v/partners/%s.webp" $year $code) }}{{ end }}
+					
+					<a class="footer-menu-patrocini-item" href="{{ $link }}" target="_blank" rel="noopener">
+						{{ if $img }}
+						{{ $res := $img.Fit "240x120 webp q80" }}
+						<img class="footer-menu-patrocini-item-img" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
+						{{ else }}
+						<span class="footer-menu-patrocini-item-img footer-menu-patrocini-item-img--placeholder" role="img" aria-label="{{ $name }} logo placeholder">
+							<span class="footer-menu-patrocini-item-name">{{ $name }}</span>
+						</span>
+						{{ end }}
+						<div class="footer-menu-patrocini-item-name">{{ $name }}</div>
+					</a>
+					{{ end }}
+					{{ end }}
+				</div>
 			</div>
 			<div class="footer-column">
 				<h4 class="footer-title">Vieni a trovarci</h4>

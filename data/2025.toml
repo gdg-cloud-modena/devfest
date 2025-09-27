@@ -377,6 +377,12 @@ title = "Community"
 code = "community"
 weight = 7
 
+
+[[levels]]
+title = "Patrocini"
+code = "patrocini"
+weight = 8
+
 [[levels]]
 title = "Media Partner"
 code = "media"
@@ -491,3 +497,16 @@ name = "GDG Roma Città"
 code = "gdg-roma-citta"
 link = "https://gdg.community.dev/gdg-roma-citta/"
 level = "media"
+
+
+[[sponsors]]
+name = "Comune di Modena "
+code = "comune-modena"
+link = "https://www.comune.modena.it"
+level = "patrocini"
+
+[[sponsors]]
+name = "Regione Emilia-Romagna"
+code = "regione-emilia-romagna"
+link = "https://www.regione.emilia-romagna.it"
+level = "patrocini"
