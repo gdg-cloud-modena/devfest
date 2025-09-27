@@ -1,7 +1,7 @@
 /**
  * Check the current state of the sessions
  */
-const checkSessionTime = (time:number) => {
+function checkSessionTime(time:number) {
     //test date
     // const currentDate = new Date("2025-10-04T11:46:00")
     
@@ -25,6 +25,5 @@ const checkSessionTime = (time:number) => {
     })
     setTimeout(() => checkSessionTime(time), time)
 }
-
 
 checkSessionTime(60_000)
