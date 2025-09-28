@@ -46,6 +46,7 @@
     {{ end }}
 
     {{ if gt (len $daySessions) 0 }}
+      {{ $daySessions = sort $daySessions "Params.ends" "asc" }}
       {{ $daySessions = sort $daySessions "Params.starts" "asc" }}
 
       {{/* Title of the day */}}
@@ -85,7 +86,7 @@
             {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
             {{ if $speakers }}· {{ end }}
             {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }}
-            {{ if $session.Params.language }}· {{ end }}Lingua: <b>{{ $session.Params.language }}</b>
+            {{ if ne (lower $session.Params.language) "italiano" }}· {{ $session.Params.language }}{{ end }}
           </p>
         </li>
       {{ end }}

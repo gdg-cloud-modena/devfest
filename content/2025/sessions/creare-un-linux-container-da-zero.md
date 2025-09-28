@@ -17,4 +17,4 @@ Ma come funzionano i container in Linux a basso livello?
 In questo talk creiamo un container partendo zero senza docker o altri tools.
 Entriamo nel magico mondo dei namespaces e cgroups!
 Anche una rapida occhiata a come funzionano su macOS.
-Poche slides e modo codice! 
+Poche slides e modo codice!
