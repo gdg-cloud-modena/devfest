@@ -4,7 +4,7 @@
 
 {{- $allSessions := slice -}}
 {{- range site.RegularPages -}}
-    {{- if in .File.Dir (printf "%s\\sessions\\" $year) -}}
+    {{- if in .File.Dir (printf "%s/sessions/" $year) -}}
         {{- $allSessions = $allSessions | append . -}}
     {{- end -}}
 {{- end -}}
@@ -26,7 +26,7 @@
 {{- $speakers = sort $speakers "code" "asc" -}}
 
 <main class="section section--padded">
-  <h1 class="h1">Speakers</h1>
+  <h1 class="h1">Speaker</h1>
   <div class="content">
     {{ .Content }}
   </div>
@@ -43,11 +43,10 @@
     {{- $img := $img.Fit "200x200 q85 jpg" -}}
     {{- $slug := .code -}}
     {{- $person := dict "name" .Title "company" .company "description" .role -}}
-        <a  class="team-peopleItem"  href=" {{ relURL (printf "/speakers/%s" $slug) }}" target="_blank" role="listitem" aria-label="Visit Speaker {{ .Title }}'s profile">
-            {{ partial "team-member" (dict "person" $person "img" $img) }}
-        </a>
+      <a  class="team-peopleItem"  href=" {{ relURL (printf "/speakers/%s" $slug) }}" target="_blank" role="listitem" aria-label="Visit Speaker {{ .Title }}'s profile">
+        {{ partial "team-member" (dict "person" $person "img" $img) }}
+      </a>
     {{- end -}}
   </div>
 </main>
 {{- end -}}
-
