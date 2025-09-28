@@ -109,19 +109,6 @@
         {{- range $session := $sessions -}}
         {{ $dt := time ($session.Param "starts") }}
 
-        {{/* Prepare the speaker list */}}
-        {{ $speakers := slice }}
-        {{ $isMale := true }}
-        {{ range $slug := $session.Params.speakers }}
-        {{ with site.GetPage (printf "/speakers/%s" $slug) }}
-        {{ $isMale = .Params.male }}
-        {{ $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) }}
-        {{ else }}
-        {{ $speakers = $speakers | append $slug }}
-        {{ end }}
-        {{ end }}
-        {{ $speakersHTML := delimit $speakers ", " }}
-
         {{/* Prepare the room list */}}
         {{ $roomNames := slice }}
         {{ range $code := $session.Params.rooms }}
@@ -137,11 +124,6 @@
           <p class="sessions-itemDetails">
             {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in
             contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
-            ·
-            {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML |
-            safeHTML
-            }}{{
-            else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }}
           </p>
         </li>
         {{- end -}}
