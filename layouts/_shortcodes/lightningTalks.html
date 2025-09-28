@@ -1,0 +1,9 @@
+{{ if .Page.Params.lightningTalks }}
+<ul class="lightningTalks">
+  {{ range $talk := .Page.Params.lightningTalks }}
+  <li class="lightningTalks-talk {{if $talk.done}}lightningTalks-talk--done{{end}}"><span class="lightningTalks-title">{{ $talk.title }}</span> — <span class="lightningTalks-speaker">{{ $talk.speaker }}</span></li>
+  {{ end }}
+</ul>
+{{ else }}
+<p><i>~ Coming soon ~</i></p>
+{{ end }}
