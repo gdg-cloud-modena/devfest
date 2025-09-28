@@ -1,30 +1,54 @@
 {{ define "main" }}
+
+{{/* Year from cascade param in _index.md */}}
+{{- $year := printf "%v" (.Param "year") -}}
+
+{{- $agenda := index site.Data $year -}}
+
+{{/* Load agenda data for that year */}}
+{{- $days := cond $agenda $agenda.days (slice) -}}
+{{- $roomsData := cond $agenda $agenda.rooms (slice) -}}
+{{- $roomSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
+
+{{/* Sort sessions by date and time */}}
+{{- $sessionsSec := site.GetPage (printf "/%s/sessions" $year) -}}
+{{- $sessions := slice -}}
+{{- if $sessionsSec -}}
+  {{- $sessions = where $sessionsSec.Pages "Params.starts" "ne" nil -}}
+  {{- $sessions = sort $sessions "Params.ends" "asc" -}}
+  {{- $sessions = sort $sessions "Params.starts" "asc" -}}
+{{ end }}
+
+{{- $rooms := (site.GetPage (printf "/%s/rooms" $year)).Pages -}}
+{{- $pageTitle := .Page.Title -}}
+
+
 <main class="section section--padded">
   {{ partial "previous-edition" . }}
   <h1 class="h1">Sala {{ .Title }}</h1>
-  <div class="content">
-    {{ .Content }}
+
+  <div class="sessions-rooms">
+    {{ range $rooms }}
+      {{- /** check if the room is for sessions and not the current room */ -}}
+      {{- if and (ne .Title $pageTitle) .Params.forSessions -}}
+          <a class="button" href="{{ .RelPermalink }}" target="_blank">{{ .Title }}</a>
+      {{- end -}}
+    {{ end }}
   </div>
 
-  {{/* Year from cascade param in _index.md */}}
-  {{ $year := printf "%v" (.Param "year") }}
-  {{ $agenda := index site.Data $year }}
-
-  {{/* Load agenda data for that year */}}
-  {{ $days := cond $agenda $agenda.days (slice) }}
-  {{ $roomsData := cond $agenda $agenda.rooms (slice) }}
-
-  {{ $roomSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) }}
-
-  {{/* Sort sessions by date and time */}}
-  {{ $sessionsSec := site.GetPage (printf "/%s/sessions" $year) }}
-  {{ $sessions := slice }}
-  {{ if $sessionsSec }}
-    {{ $sessions = where $sessionsSec.Pages "Params.starts" "ne" nil }}
-    {{ $sessions = sort $sessions "Params.ends" "asc" }}
-    {{ $sessions = sort $sessions "Params.starts" "asc" }}
-  {{ end }}
-
+  <div class="content">
+    {{- $imagePath := printf "%s/rooms/%s.jpg" $year $roomSlug -}}
+    {{- $roomImage := resources.Get $imagePath -}}
+    {{- if $roomImage -}}
+    {{- $img := $roomImage.Resize "600x webp q85" -}}
+    <div class="sessions-content">
+      <div>
+        {{ .Content }}
+      </div>
+      <img class="sessions-contentImage" width="{{ $img.Width }}" height="{{ $img.Height }}" src="{{ $img.Permalink }}" alt="{{ .Title }} image">
+    </div>
+    {{ end }}
+  </div>
   <h2 class="h2">Sessioni</h2>
 
   {{/* Loop over days */}}
