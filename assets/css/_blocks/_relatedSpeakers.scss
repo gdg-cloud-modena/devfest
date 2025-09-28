@@ -16,6 +16,8 @@
 
   .relatedSpeakers-image {
     border-radius: 50%;
+    border: 2px solid colors.$white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
 }
 
