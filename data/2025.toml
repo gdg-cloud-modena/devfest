@@ -55,111 +55,6 @@ website = "https://www.linkedin.com/in/mirko-gilioli/"
 
 [[people]]
 role = "staff"
-code = "eleonora-mistro"
-name = "Eleonora Mistro"
-description = "Career Coach | HR Designer"
-website = "https://www.linkedin.com/in/eleonora-mistro/"
-
-[[people]]
-role = "staff"
-code = "alberto-avallone"
-name = "Alberto Avallone"
-description = "Computer Engineer focused on Artificial Intelligence"
-website = "https://www.linkedin.com/in/alberto-avallone-5bbbb22ba/"
-
-[[people]]
-role = "staff"
-code = "dario-varriale"
-name = "Dario Varriale"
-description = "iOS Developer && Flutter Developer"
-website = "https://www.linkedin.com/in/dario-varriale/"
-
-[[people]]
-role = "staff"
-code = "emanuele-caruso"
-name = "Emanuele Caruso"
-description = "Software Engineer"
-website = "https://www.linkedin.com/in/emanuele-caruso-942bb6232/"
-
-[[people]]
-role = "staff"
-code = "emanuele-verlanti"
-name = "Emanuele Verlanti"
-description = "Ethical Hacker"
-website = "https://www.linkedin.com/in/emanuele-verlanti/"
-
-[[people]]
-role = "staff"
-code = "emiliano-della-casa"
-name = "Emiliano Della Casa"
-description = "Independent Consultant"
-website = "https://www.linkedin.com/in/emilianodellacasa/"
-
-[[people]]
-role = "staff"
-code = "francesco-grandi"
-name = "Francesco Grandi"
-description = "CTO @Bisy"
-website = ""
-
-[[people]]
-role = "staff"
-code = "federico-marchesi"
-name = "Federico Marchesi"
-description = "AI Software Engineer @Prima"
-website = "https://www.linkedin.com/in/federico-marchesi-669692169/"
-
-[[people]]
-role = "staff"
-code = "luca-bonetti"
-name = "Luca Bonetti"
-description = "Web Software Developer"
-website = "https://www.linkedin.com/in/lb-luca-bonetti/"
-
-[[people]]
-role = "staff"
-code = "marco-breveglieri"
-name = "Marco Breveglieri"
-description = "Developer"
-website = "https://www.linkedin.com/in/marcobreveglieri/"
-
-[[people]]
-role = "staff"
-code = "marco-pollacci"
-name = "Marco Pollacci"
-description = "FrontEnd Javascript Enthusiast"
-website = "https://www.linkedin.com/in/marcopollacci/"
-
-[[people]]
-role = "staff"
-code = "maya-shah"
-name = "Maya Shah"
-description = "AI Developer | Freelance"
-website = "https://www.linkedin.com/in/memoonashah/"
-
-[[people]]
-role = "staff"
-code = "natalia-orlandi"
-name = "Natalia Orlandi"
-description = "Product Manager in 20tab"
-website = "https://www.linkedin.com/in/nataliaorlandi/"
-
-[[people]]
-role = "staff"
-code = "nelson-cipriano"
-name = "Nelson Cipriano"
-description = "Senior Full Stack Developer"
-website = "https://www.linkedin.com/in/nelson-cipriano/"
-
-[[people]]
-role = "staff"
-code = "paolo-caleffi"
-name = "Paolo Caleffi"
-description = "Vue/Quasar, Laravel, Angular and Android developer. "
-website = "https://www.linkedin.com/in/paolocaleffi/"
-
-[[people]]
-role = "staff"
 code = "pia-grandi"
 name = "Pia Grandi"
 description = "Sentire. Connettere. Crescere."
@@ -195,6 +90,125 @@ website = "https://www.linkedin.com/in/dumitru-birsan-6b58771bb/"
 
 [[people]]
 role = "staff"
+code = "eleonora-mistro"
+name = "Eleonora Mistro"
+description = "Career Coach | HR Designer"
+website = "https://www.linkedin.com/in/eleonora-mistro/"
+
+[[people]]
+role = "staff"
+code = "fabio-casolari"
+name = "Fabio Casolari"
+description = "Media Production Specialist"
+website = "https://www.linkedin.com/in/fabiocasolari/"
+
+[[people]]
+role = "staff"
+code = "natalia-orlandi"
+name = "Natalia Orlandi"
+description = "Product Manager in 20tab"
+website = "https://www.linkedin.com/in/nataliaorlandi/"
+
+[[people]]
+role = "staff"
+code = "emiliano-della-casa"
+name = "Emiliano Della Casa"
+description = "Independent Consultant"
+website = "https://www.linkedin.com/in/emilianodellacasa/"
+
+[[people]]
+role = "staff"
+code = "dario-varriale"
+name = "Dario Varriale"
+description = "iOS Developer && Flutter Developer"
+website = "https://www.linkedin.com/in/dario-varriale/"
+
+[[people]]
+role = "staff"
+code = "emanuele-caruso"
+name = "Emanuele Caruso"
+description = "Software Engineer"
+website = "https://www.linkedin.com/in/emanuele-caruso-942bb6232/"
+
+[[people]]
+role = "staff"
+code = "francesco-grandi"
+name = "Francesco Grandi"
+description = "CTO @Bisy"
+website = ""
+
+[[people]]
+role = "staff"
+code = "marco-pollacci"
+name = "Marco Pollacci"
+description = "FrontEnd Javascript Enthusiast"
+website = "https://www.linkedin.com/in/marcopollacci/"
+
+[[people]]
+role = "staff"
+code = "maya-shah"
+name = "Maya Shah"
+description = "AI Developer | Freelance"
+website = "https://www.linkedin.com/in/memoonashah/"
+
+[[people]]
+role = "staff"
+code = "paolo-caleffi"
+name = "Paolo Caleffi"
+description = "Vue/Quasar, Laravel, Angular and Android developer. "
+website = "https://www.linkedin.com/in/paolocaleffi/"
+
+[[people]]
+role = "staff"
+code = "elia-giacobazzi"
+name = "Elia Giacobazzi"
+description = "Machine Learning Specialist"
+website = "https://www.linkedin.com/in/eliagiacobazzi/"
+
+[[people]]
+role = "staff"
+code = "federico-marchesi"
+name = "Federico Marchesi"
+description = "AI Software Engineer @Prima"
+website = "https://www.linkedin.com/in/federico-marchesi-669692169/"
+
+[[people]]
+role = "staff"
+code = "luca-bonetti"
+name = "Luca Bonetti"
+description = "Web Software Developer"
+website = "https://www.linkedin.com/in/lb-luca-bonetti/"
+
+[[people]]
+role = "staff"
+code = "marco-breveglieri"
+name = "Marco Breveglieri"
+description = "Developer"
+website = "https://www.linkedin.com/in/marcobreveglieri/"
+
+[[people]]
+role = "staff"
+code = "alberto-avallone"
+name = "Alberto Avallone"
+description = "Computer Engineer focused on Artificial Intelligence"
+website = "https://www.linkedin.com/in/alberto-avallone-5bbbb22ba/"
+
+[[people]]
+role = "staff"
+code = "emanuele-verlanti"
+name = "Emanuele Verlanti"
+description = "Ethical Hacker"
+website = "https://www.linkedin.com/in/emanuele-verlanti/"
+
+[[people]]
+role = "staff"
+code = "nelson-cipriano"
+name = "Nelson Cipriano"
+description = "Senior Full Stack Developer"
+website = "https://www.linkedin.com/in/nelson-cipriano/"
+
+[[people]]
+role = "staff"
 code = "alessio-salman"
 name = "Alessio Salman"
 description = ""
@@ -223,24 +237,10 @@ website = ""
 
 [[people]]
 role = "staff"
-code = "fabio-casolari"
-name = "Fabio Casolari"
-description = "Media Production Specialist"
-website = "https://www.linkedin.com/in/fabiocasolari/"
-
-[[people]]
-role = "staff"
 code = "massimiliano-rosi"
 name = "Massimiliano Rosi"
 description = "Software developer and BI analist"
 website = "https://www.linkedin.com/in/massimiliano-rosi-92430535/"
-
-[[people]]
-role = "staff"
-code = "elia-giacobazzi"
-name = "Elia Giacobazzi"
-description = "Machine Learning Specialist"
-website = "https://www.linkedin.com/in/eliagiacobazzi/"
 
 [[people]]
 role = "staff"
