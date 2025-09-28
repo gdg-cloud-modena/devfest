@@ -146,6 +146,13 @@ website = "https://www.linkedin.com/in/nataliaorlandi/"
 
 [[people]]
 role = "staff"
+code = "nelson-cipriano"
+name = "Nelson Cipriano"
+description = "Senior Full Stack Developer"
+website = "https://www.linkedin.com/in/nelson-cipriano/"
+
+[[people]]
+role = "staff"
 code = "paolo-caleffi"
 name = "Paolo Caleffi"
 description = "Vue/Quasar, Laravel, Angular and Android developer. "
