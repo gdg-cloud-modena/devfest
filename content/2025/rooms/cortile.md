@@ -9,6 +9,6 @@ forSessions = false
 
 Il cortile interno è dedicato a:
 
-- Speed dating, per fare networking.
+- [Speed networking](/speed-networking/), per conoscere nuove persone.
 - Coffe break durante la giornata.
-- Pausa pranzo, offerta dagli sponsor.
+- [Pausa pranzo](/2025/sessions/lunch/), offerta dagli sponsor.

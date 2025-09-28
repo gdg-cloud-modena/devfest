@@ -4,10 +4,10 @@ date = 2025-09-10
 draft = false
 summary = "Ospita i banchetti ed è il posto migliore dove fare networking"
 weight = 6
-forSessions = false
+forSessions = true
 +++
 
-Al piano Nobile. Ospita i banchetti ed è il posto migliore dove fare networking.
+Al primo piano Nobile.
 
 La settecentesca Sala Grande del Collegio, oggi chiamata Sala dei Cardinali
 perché ospita alle pareti numerosi ritratti di porporati già stati allievi del
