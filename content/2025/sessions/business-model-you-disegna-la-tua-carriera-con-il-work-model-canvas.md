@@ -1,5 +1,5 @@
 +++
-title = "Business Model You: Disegna la tua carriera con il Work Model Canvas"
+title = "[Workshop] Business Model You: Disegna la tua carriera con il Work Model Canvas"
 date = 2025-09-10
 draft = false
 
