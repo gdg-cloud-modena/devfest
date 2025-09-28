@@ -9,8 +9,6 @@ draft = false
 
 ## Cos'è il DevFest
 
-2 giorni, 51 speaker, 6 sale, 9 comunità, +600 partecipanti.
-
 DevFest è un evento dedicato agli sviluppatori, ospitato dai Google Developer Groups di tutto il mondo.
 
 L'evento nasce dal lavoro congiunto delle communities locali: GDG Cloud Modena, Modena Full Stack, Reggio Emilia Full Stack, Flutter Modena, Conoscere Linux, ML Modena.
