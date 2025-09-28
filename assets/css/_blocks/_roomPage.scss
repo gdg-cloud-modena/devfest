@@ -1,0 +1,32 @@
+// Room page.
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .roomPage-description {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: spaces.$space-m;
+  }
+
+  .roomPage-image {
+    @extend %rounded;
+    display: inline-block;
+  }
+}
+
+@if r.$mobile or r.$tablet {
+  .roomPage-description {
+    flex-direction: column;
+  }
+  .roomPage-image {
+    align-self: center;
+    order: -1;
+  }
+}

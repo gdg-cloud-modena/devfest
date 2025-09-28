@@ -23,32 +23,27 @@
 {{- $pageTitle := .Page.Title -}}
 
 
-<main class="section section--padded">
+<main class="section section--padded roomPage">
   {{ partial "previous-edition" . }}
-  <h1 class="h1">Sala {{ .Title }}</h1>
 
-  <div class="sessions-rooms">
-    {{ range $rooms }}
-      {{- /** check if the room is for sessions and not the current room */ -}}
-      {{- if and (ne .Title $pageTitle) .Params.forSessions -}}
-          <a class="button" href="{{ .RelPermalink }}" target="_blank">{{ .Title }}</a>
-      {{- end -}}
-    {{ end }}
-  </div>
+  {{ $rooms = where $rooms ".Params.forSessions" true }}
+  {{ $numRooms := len $rooms }}
+  {{ $currentRoom := . }}
+  <p class="p">Sale con sessioni: {{ range $i, $room := $rooms }}{{ if ne $room.File.BaseFileName $currentRoom.File.BaseFileName }}<a class="link" href="{{ $room.RelPermalink }}">{{ $room.Title }}</a>{{ else }}{{ $room.Title }}{{ end }}{{ if ne (add $i 1) $numRooms }}, {{ end }}{{ end }}.</p>
 
-  <div class="content">
-    {{- $imagePath := printf "%s/rooms/%s.jpg" $year $roomSlug -}}
-    {{- $roomImage := resources.Get $imagePath -}}
-    {{- if $roomImage -}}
-    {{- $img := $roomImage.Resize "600x webp q85" -}}
-    <div class="sessions-content">
-      <div>
-        {{ .Content }}
-      </div>
-      <img class="sessions-contentImage" width="{{ $img.Width }}" height="{{ $img.Height }}" src="{{ $img.Permalink }}" alt="{{ .Title }} image">
+  <h1 class="h1">{{ if .Params.forSessions }}Sala {{ end }}{{ .Title }}</h1>
+
+  <div class="roomPage-description">
+    <div class="content">
+      {{ .Content }}
     </div>
+    {{ $roomImage := resources.Get (printf "%s/rooms/%s.jpg" $year $roomSlug) }}
+    {{ if $roomImage }}
+    {{ $img := $roomImage.Resize "x300 webp q85" }}
+    <img class="roomPage-image" width="{{ $img.Width }}" height="{{ $img.Height }}" src="{{ $img.Permalink }}" alt="{{ .Title }} image">
     {{ end }}
   </div>
+
   <h2 class="h2">Sessioni</h2>
 
   {{/* Loop over days */}}
