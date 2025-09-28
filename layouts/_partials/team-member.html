@@ -14,10 +14,10 @@
   <strong>{{ $person.name }}</strong>
 
   {{ if $person.company }}
-  <div>Azienda <strong>{{ $person.company }}</strong></div>
+  <i>{{ $person.company }}</i>
   {{ end }}
 
   {{ if $person.description }}
-  <div>{{ $person.description }}</div>
+  <div class="team-description">{{ $person.description }}</div>
   {{ end }}
 </div>
