@@ -5,7 +5,7 @@ draft = false
 
 [params]
 company = "Datatonic"
-role = "Lead Google Cloud Instructor | Google Cloud Champion Innovator"
+role = "Lead Google Cloud Instructor | Google Developer Expert (GDE) AI / Cloud"
 male = true
 
 [params.social]
@@ -27,4 +27,5 @@ Since 2022, he's leading a team of trainers in Datatonic Academy, a Google Cloud
 
 He is co-author of the book “Google Cloud Certified Professional Cloud Network Engineer Guide: Design, implement, manage, and secure a network architecture in Google Cloud”, published by Packt Publishing.
 
-In 2023 he founded GDG Cloud Modena and, in 2024 he was recognized as Google Champion Innovator for Cloud AI/ML track.
+In 2023 he founded GDG Cloud Modena and in 2024 he was recognized as Google Champion Innovator for Cloud AI/ML track.
+In 2025 he was recognized as Google Developer Expert (GDE) for Cloud and AI/ML.
