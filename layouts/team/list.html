@@ -48,11 +48,11 @@
           {{ if $website }}
           <a href="{{ $website }}" target="_blank" rel="noopener noreferrer" class="team-peopleItem" role="listitem"
             aria-label="Visit {{ .name }}'s profile">
-            {{ template "team-member-content" (dict "person" . "img" $img "personCode" $personCode) }}
+            {{ partial "team-member" (dict "person" . "img" $img "personCode" $personCode) }}
           </a>
           {{ else }}
           <div class="team-peopleItem" role="listitem">
-            {{ template "team-member-content" (dict "person" . "img" $img "personCode" $personCode) }}
+            {{ partial "team-member" (dict "person" . "img" $img "personCode" $personCode) }}
           </div>
           {{ end }}
         {{ end }}

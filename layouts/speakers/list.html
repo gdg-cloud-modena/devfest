@@ -1,0 +1,53 @@
+{{ define "main" }}
+
+{{ $year := printf "%v" (.Param "year") }}
+
+{{- $allSessions := slice -}}
+{{- range site.RegularPages -}}
+    {{- if in .File.Dir (printf "%s\\sessions\\" $year) -}}
+        {{- $allSessions = $allSessions | append . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $speakers := dict -}}
+
+{{- range $allSessions -}}
+    {{- if gt (len .Params.speakers) 0 }}
+        {{- range .Params.speakers }}
+            {{- if not (in $speakers .) }}
+                {{$code := dict "code" .}}
+                {{ $info := site.GetPage (printf "/speakers/%s" .)}}
+                {{ $code = merge $code $info.Params}}
+                {{- $speakers = merge $speakers (dict . $code) -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- $speakers = sort $speakers "code" "asc" -}}
+
+<main class="section section--padded">
+  <h1 class="h1">Speakers</h1>
+  <div class="content">
+    {{ .Content }}
+  </div>
+  <div class="team-people">
+    {{- range $speakers -}}
+
+    {{- $img := resources.Get (printf "speakers/%s.jpg" .code) -}}
+    {{- if not $img -}}
+    {{- $img = resources.Get (printf "speakers/%s.png" .code) -}}
+    {{- end -}}
+    {{-  if not $img -}}
+    {{- $img = resources.Get "team/profile.jpg" -}}
+    {{- end -}}
+    {{- $img := $img.Fit "200x200 q85 jpg" -}}
+    {{- $slug := .code -}}
+    {{- $person := dict "name" .Title "company" .company "description" .role -}}
+        <a  class="team-peopleItem"  href=" {{ relURL (printf "/speakers/%s" $slug) }}" target="_blank" role="listitem" aria-label="Visit Speaker {{ .Title }}'s profile">
+            {{ partial "team-member" (dict "person" $person "img" $img) }}
+        </a>
+    {{- end -}}
+  </div>
+</main>
+{{- end -}}
+

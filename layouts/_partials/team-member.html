@@ -1,0 +1,23 @@
+{{ $person := .person }}
+{{ $img := .img }}
+{{ $personCode := .personCode }}
+
+<div class="team-peopleImage" aria-hidden="true">
+  {{ if $img }}
+  <img src="{{ $img.RelPermalink }}" alt="{{ $person.name }}" width="{{ $img.Width }}" height="{{ $img.Height }}"
+    loading="lazy" onerror="this.style.display='none'">
+  {{ else }}
+  {{/* Fallback content handled by CSS */}}
+  {{ end }}
+</div>
+<div class="team-peopleDetail">
+  <strong>{{ $person.name }}</strong>
+
+  {{ if $person.company }}
+  <div>Azienda <strong>{{ $person.company }}</strong></div>
+  {{ end }}
+
+  {{ if $person.description }}
+  <div>{{ $person.description }}</div>
+  {{ end }}
+</div>
