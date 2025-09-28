@@ -14,9 +14,16 @@
   {{ $days := cond $agenda $agenda.days (slice) }}
   {{ $roomsData := cond $agenda $agenda.rooms (slice) }}
 
-  <p class="p">Ogni sala è segnata con un cartello:</p>
+  <p class="p">Tutte le sale dedicate alle sessioni:</p>
   <ul class="ul">
-    {{ range $page := (site.GetPage (printf "/%s/rooms" $year)).Pages }}
+    {{ range $page := where ((site.GetPage (printf "/%s/rooms" $year)).Pages) ".Params.forSessions" true }}
+    <li class="li"><b><a class="link" href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></b>: {{ $page.Summary }}.</li>
+    {{ end }}
+  </ul>
+
+  <p class="p">Altri ambienti:</p>
+  <ul class="ul">
+    {{ range $page := where ((site.GetPage (printf "/%s/rooms" $year)).Pages) ".Params.forSessions" false }}
     <li class="li"><b><a class="link" href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></b>: {{ $page.Summary }}.</li>
     {{ end }}
   </ul>
