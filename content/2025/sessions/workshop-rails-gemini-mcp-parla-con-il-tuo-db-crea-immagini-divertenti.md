@@ -14,3 +14,5 @@ warning = ""
 workshop = true
 +++
 Hai mai desiderato creare il tuo gemini.google.com, ma con molta più personalità? ✨ In questo workshop, prenderai un'app Rails di esempio e le infonderai la magia di Gemini. Inizieremo aggiungendo un "tocco di brio" generando immagini divertenti 🖼️. Poi, costruiremo il cuore tecnico: il tuo server "Model Context Protocol" (MCP). Questo MCP 🔌 esporrà le tue entità ActiveRecord, permettendo al tuo editor locale (o a Gemini CLI) di interrogare il tuo database usando nient'altro che il linguaggio naturale!
+
+Vai alla pagina con le [istruzioni](/workshops/) per partecipare al workshop.

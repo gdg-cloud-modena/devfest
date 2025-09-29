@@ -25,3 +25,5 @@ LINK UTILI:
 - Installazione di Ubuntu su VirtualBox (per Windows e MacOS Intel): https://www.wikihow.it/Installare-Ubuntu-su-VirtualBox
 - Installazione di Docker Engine su Linux: https://docs.docker.com/engine/install/#supported-platforms
 - Installazione di Podman (più semplice): https://podman.io/docs/installation#installing-on-linux
+
+Vai alla pagina con le [istruzioni](/workshops/) per partecipare al workshop.

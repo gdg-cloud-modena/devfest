@@ -23,3 +23,5 @@ To ensure a smooth and productive session, please come prepared with the followi
 
 1) Laptop
 2) Personal Gmail account: Required to set up a Gemini API Key and to access to other tools
+
+Vai alla pagina con le [istruzioni](/workshops/) per partecipare al workshop.

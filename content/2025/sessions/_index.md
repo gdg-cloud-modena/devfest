@@ -12,4 +12,6 @@ Qui trovi tutte le informazioni sugli interventi in programma, con dettagli sugl
 
 Esplora il programma, scopri le storie e le competenze di chi salirà sul palco.
 
+Se desideri partecipare ai workshop, leggi la pagina delle [istruzioni](/workshops/).
+
 **Attenzione, l'agenda potrebbe subire piccoli aggiustamenti prima dell'evento.**

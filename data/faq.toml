@@ -43,5 +43,9 @@ question = "Cosa devo portare alla conferenza?"
 answer = "Il tuo biglietto...e tanta voglia di conoscere persone nuove! :)"
 
 [[qa]]
+question = "Come partecipo ai workshop?"
+answer = "Puoi fare riferimento alla [pagina dedicata](/workshops/)."
+
+[[qa]]
 question = "E' un evento di Google?"
 answer = "No, l'evento è delle diverse comunità locali di sviluppatori. Google fa comunque parte dei partner e ci fornisce supporto, ad esempio permettendo l'utilizzo del marchio a GDG Cloud Modena che fa da garante per tutti."

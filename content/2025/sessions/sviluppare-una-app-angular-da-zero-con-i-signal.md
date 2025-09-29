@@ -30,3 +30,5 @@ Cosa imparerai?
 Il workshop sarà ricco di hands-on, con esercizi pratici per mettere subito in pratica ciò che impari.
 
 Non perdere l’occasione di portare le tue skill Angular al livello successivo! 🎯
+
+Vai alla pagina con le [istruzioni](/workshops/) per partecipare al workshop.

@@ -33,3 +33,5 @@ Il confronto con gli altri sarà parte integrante del percorso: potrai ricevere 
 - Stai lanciando una nuova attività o freelance
 - Sei in un momento di ridefinizione professionale
 - Vuoi fare chiarezza
+
+Vai alla pagina con le [istruzioni](/workshops/) per partecipare al workshop.
