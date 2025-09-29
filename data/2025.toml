@@ -436,6 +436,12 @@ link = "https://www.qubicaamf.com/company"
 level = "diamond"
 
 [[sponsors]]
+name = "Quix"
+code = "quix"
+link = "https://quix.it/"
+level = "bronze"
+
+[[sponsors]]
 name = "Storyblok"
 code = "storyblok"
 link = "https://www.storyblok.com"
