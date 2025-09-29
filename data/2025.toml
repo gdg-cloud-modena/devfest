@@ -167,6 +167,13 @@ website = "https://www.linkedin.com/in/eliagiacobazzi/"
 
 [[people]]
 role = "staff"
+code = "ornella-zino"
+name = "Ornella Zino"
+description = "UX/UI Designer presso RE:Lab s.r.l"
+website = "https://www.linkedin.com/in/ornella-ziino-202b08151/"
+
+[[people]]
+role = "staff"
 code = "federico-marchesi"
 name = "Federico Marchesi"
 description = "AI Software Engineer @Prima"
