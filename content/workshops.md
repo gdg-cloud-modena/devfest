@@ -8,7 +8,7 @@ layout = "single.html"
 
 I workshop hanno un numero di posti limitato indicativamente a 20-25 a seconda della sessione.
 
-Invieremo un form via email per la registrazione ai workshop pochi giorni prima dell'evento.
+Ti invieremo un form via email per la registrazione ai workshop pochi giorni prima dell'evento, all'indirizzo email col quale hai preso i biglietti.
 
 Sul form potrai scegliere quali seguire, dando un ordine di priorità.
 
