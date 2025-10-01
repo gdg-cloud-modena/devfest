@@ -1,14 +1,13 @@
 +++
-title = "GDG Cloud Torino"
+title = "Comune di Modena"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "gdg-cloud-torino"
-level = "media"
+code = "comune-modena"
+level = "patrocini"
 country = "Italy"
-link = "https://gdg.community.dev/gdg-torino/"
+link = "https://www.comune.modena.it/"
 
 [params.social]
 linkedin = ""
@@ -18,3 +17,4 @@ facebook = ""
 github = ""
 youtube = ""
 +++
+

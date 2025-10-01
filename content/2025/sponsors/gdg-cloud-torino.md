@@ -1,14 +1,13 @@
 +++
-title = "Google"
+title = "GDG Cloud Torino"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "Google"
-level = "main"
+code = "gdg-cloud-torino"
+level = "media"
 country = "Italy"
-link = "https://developers.google.com/community/devfest"
+link = "https://gdg.community.dev/gdg-torino/"
 
 [params.social]
 linkedin = ""

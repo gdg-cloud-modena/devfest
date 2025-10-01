@@ -4,7 +4,6 @@ date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
 code = "storyblok"
 level = "tech"
 country = "Italy"

@@ -1,14 +1,13 @@
 +++
-title = "Regione Emilia Romagna"
+title = "Netframe"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "regione-emilia-romagna"
-level = "patrocini"
+code = "netframe"
+level = "tech"
 country = "Italy"
-link = "https://www.regione.emilia-romagna.it/"
+link = "https://www.netframe.it/"
 
 [params.social]
 linkedin = ""
@@ -18,4 +17,3 @@ facebook = ""
 github = ""
 youtube = ""
 +++
-

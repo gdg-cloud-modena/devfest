@@ -1,14 +1,13 @@
 +++
-title = "GDG Pescara"
+title = "GDG Roma Città"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "gdg-pescara"
+code = "gdg-roma-citta"
 level = "media"
 country = "Italy"
-link = "https://gdgpescara.it/it/"
+link = "https://gdg.community.dev/gdg-roma-citta/"
 
 [params.social]
 linkedin = ""
@@ -19,3 +18,4 @@ github = ""
 youtube = ""
 +++
 
+Description.

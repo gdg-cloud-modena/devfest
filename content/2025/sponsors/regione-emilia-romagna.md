@@ -1,14 +1,13 @@
 +++
-title = "GDG Roma Città"
+title = "Regione Emilia Romagna"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "gdg-roma-citta"
-level = "media"
+code = "regione-emilia-romagna"
+level = "patrocini"
 country = "Italy"
-link = "https://gdg.community.dev/gdg-roma-citta/"
+link = "https://www.regione.emilia-romagna.it/"
 
 [params.social]
 linkedin = ""
@@ -19,4 +18,3 @@ github = ""
 youtube = ""
 +++
 
-Description.

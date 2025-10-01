@@ -1,14 +1,13 @@
 +++
-title = "Netframe"
+title = "GDG Catania"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "netframe"
-level = "tech"
+code = "gdg-catania"
+level = "media"
 country = "Italy"
-link = "https://www.netframe.it/"
+link = "https://gdg.community.dev/gdg-catania/"
 
 [params.social]
 linkedin = ""
@@ -18,3 +17,4 @@ facebook = ""
 github = ""
 youtube = ""
 +++
+

@@ -1,14 +1,13 @@
 +++
-title = "Galvanina"
+title = "GDG Pescara"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "galvanina"
-level = "tech"
+code = "gdg-pescara"
+level = "media"
 country = "Italy"
-link = "https://www.galvanina.it/"
+link = "https://gdgpescara.it/it/"
 
 [params.social]
 linkedin = ""
@@ -18,3 +17,4 @@ facebook = ""
 github = ""
 youtube = ""
 +++
+

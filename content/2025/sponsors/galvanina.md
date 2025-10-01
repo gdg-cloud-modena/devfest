@@ -1,14 +1,13 @@
 +++
-title = "Comune di Modena"
+title = "Galvanina"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "comune-modena"
-level = "patrocini"
+code = "galvanina"
+level = "tech"
 country = "Italy"
-link = "https://www.comune.modena.it/"
+link = "https://www.galvanina.it/"
 
 [params.social]
 linkedin = ""
@@ -18,4 +17,3 @@ facebook = ""
 github = ""
 youtube = ""
 +++
-

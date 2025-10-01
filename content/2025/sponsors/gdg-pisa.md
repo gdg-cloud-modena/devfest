@@ -1,14 +1,13 @@
 +++
-title = "GDG Catania"
+title = "GDG Pisa"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "gdg-catania"
+code = "gdg-pisa"
 level = "media"
 country = "Italy"
-link = "https://gdg.community.dev/gdg-catania/"
+link = "https://gdgpisa.it/"
 
 [params.social]
 linkedin = ""

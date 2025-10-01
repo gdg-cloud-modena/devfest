@@ -1,14 +1,13 @@
 +++
-title = "GDG Pisa"
+title = "Google"
 date = 2025-09-10
 draft = false
 
 [params]
-year = 2025
-code = "gdg-pisa"
-level = "media"
+code = "Google"
+level = "main"
 country = "Italy"
-link = "https://gdgpisa.it/"
+link = "https://developers.google.com/community/devfest"
 
 [params.social]
 linkedin = ""
@@ -18,4 +17,3 @@ facebook = ""
 github = ""
 youtube = ""
 +++
-
