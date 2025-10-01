@@ -380,7 +380,7 @@ title = "Media Partner"
 code = "media"
 weight = 9
 
-# Sponsors, alphabetical order
+# Sponsors, put new ones at the end of the list
 
 [[sponsors]]
 name = "Allnet Italia"
@@ -519,3 +519,9 @@ name = "Linux Day Modena"
 code = "linuxday"
 link = "https://makeitmodena.comune.modena.it/makeitmodena/eventi/linux-day-2025-talk-e-lab"
 level = "media"
+
+[[sponsors]]
+name = "NetAi"
+code = "netai"
+link = "https://netai.it/"
+level = "bronze"
