@@ -513,3 +513,9 @@ name = "Rubycon Italia"
 code = "rubycon"
 link = "https://rubycon.it/"
 level = "media"
+
+[[sponsors]]
+name = "Linux Day Modena"
+code = "linuxday"
+link = "https://makeitmodena.comune.modena.it/makeitmodena/eventi/linux-day-2025-talk-e-lab"
+level = "media"
