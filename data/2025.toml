@@ -507,3 +507,9 @@ name = "Regione Emilia-Romagna"
 code = "regione-emilia-romagna"
 link = "https://www.regione.emilia-romagna.it"
 level = "patrocini"
+
+[[sponsors]]
+name = "Rubycon Italia"
+code = "rubycon"
+link = "https://rubycon.it/"
+level = "media"
