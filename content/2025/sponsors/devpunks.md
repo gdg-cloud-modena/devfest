@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "devpunks"
 level = "bronze"
-country = "Italy"
 link = "https://www.devpunks.com/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 Devpunks è un’azienda basata su un collettivo di sviluppatori freelance full-stack, con sedi a Torino, Milano, Lugano e Sofia. Riuniamo professionisti esperti che collaborano in modo flessibile e coordinato per supportare le aziende nella crescita tecnologica.

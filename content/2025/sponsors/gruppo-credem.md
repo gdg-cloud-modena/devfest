@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "gruppo-credem"
 level = "gold"
-country = "Italy"
 link = "https://www.credem.it/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 Credem è una fra le principali banche private italiane, presente a livello nazionale in 19 regioni.

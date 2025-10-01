@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "allnet"
 level = "bronze"
-country = "Italy"
 link = "https://www.allnet-italia.it/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 Chi siamo

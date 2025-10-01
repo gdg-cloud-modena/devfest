@@ -4,17 +4,8 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "gdg-pescara"
 level = "media"
-country = "Italy"
 link = "https://gdgpescara.it/it/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 

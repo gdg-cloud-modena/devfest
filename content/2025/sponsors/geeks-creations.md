@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "geeks-creations"
 level = "bronze"
-country = "Italy"
 link = "https://geekscreations.com/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 Trasformiamo Idee in Esperienze Digitali Uniche

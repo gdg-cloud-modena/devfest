@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "webranking"
 level = "bronze"
-country = "Italy"
 link = "https://webranking.it/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 Webranking è la più grande agenzia indipendente di digital marketing in Italia, con oltre 25 anni di esperienza e un team in costante crescita di oltre 250 professionisti.

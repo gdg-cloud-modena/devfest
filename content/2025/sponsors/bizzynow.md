@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "bizzynow"
 level = "silver"
-country = "Italy"
 link = "https://www.bizzynow.com/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 Quest’anno il Modena DevFest fa un passo in avanti nell’esperienza di community: BizzyNow, la startup italiana che sta rivoluzionando il networking professionale, sarà l’app ufficiale dell’evento. 

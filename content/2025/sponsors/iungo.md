@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "iungo"
 level = "silver"
-country = "Italy"
 link = "https://bit.ly/46j3dmU"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 L’avventura di IUNGO Spa nasce nel 2001 da un’idea di Andrea Tinti. Classe 1972, Andrea aveva alle spalle un’esperienza consolidata in ambito consulenziale su progetti di supply chain collaboration. Quello che aveva intuito era che la tecnologia utilizzata all’epoca, l’EDI, non garantiva il raggiungimento del risultato sperato. Da qui l’intuizione di rendere più semplice ma soprattutto efficace l’interazione tra cliente e fornitore con una tecnologia alternativa: la IUNGOmail.

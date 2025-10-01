@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "quix"
 level = "bronze"
-country = "Italy"
 link = "https://quix.it/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 In un mercato in cui la tecnologia evolve a ritmi sempre più rapidi e l’innovazione rappresenta la chiave per restare competitivi, Quix si propone come partner strategico nella trasformazione digitale. 

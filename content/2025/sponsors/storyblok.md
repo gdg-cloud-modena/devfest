@@ -4,18 +4,9 @@ date = 2025-09-10
 draft = false
 
 [params]
-code = "storyblok"
 level = "tech"
-country = "Italy"
 link = "https://www.storyblok.com/"
 
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-youtube = ""
 +++
 
 Storyblok is a headless CMS that enables marketers and developers to create with joy and succeed in the AI-driven content era. It empowers you to deliver structured and consistent content everywhere: websites, apps, AI search, and beyond.
