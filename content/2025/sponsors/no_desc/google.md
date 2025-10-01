@@ -1,14 +1,14 @@
 +++
-title = "Company Name"
+title = "Google"
 date = 2025-09-10
 draft = false
 
 [params]
 year = 2025
-code = "company-code"
-level = "Gold"
+code = "Google"
+level = "main"
 country = "Italy"
-link = ""
+link = "https://developers.google.com/community/devfest"
 
 [params.social]
 linkedin = ""
@@ -18,5 +18,3 @@ facebook = ""
 github = ""
 youtube = ""
 +++
-
-Description.
