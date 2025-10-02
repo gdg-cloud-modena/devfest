@@ -4,7 +4,7 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = "Company"
+company = "adesso.it"
 role = "GDE Cloud | Mia-Platform Expert | Senior Enterprise Architect @ Adesso | Community Manager @ GDG Pescara"
 male = true
 

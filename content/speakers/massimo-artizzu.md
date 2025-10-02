@@ -4,7 +4,7 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
+company = "GELLIFY"
 role = "Architect"
 male = true
 
