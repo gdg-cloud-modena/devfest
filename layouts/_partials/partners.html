@@ -41,6 +41,15 @@
 
             {{ $page := site.GetPage (printf "%s/partners/%s" $yearStr $code) }}
             {{ $hasContent := and $page (gt $page.WordCount 0) }}
+
+            {{ $utm := site.Params.utm | default "" }}
+            {{ $utm = replaceRE `\b20\d{2}\b` $yearStr $utm }}
+            {{ if $utm }}
+            {{ $sep := "?" }}
+            {{ if in $external "?" }}{{ $sep = "&" }}{{ end }}
+            {{ $external = printf "%s%s%s" $external $sep $utm }}
+            {{ end }}
+
             {{ $url := cond $hasContent $page.RelPermalink $external }}
 
             {{/* Try to load logo (png, jpg, webp) */}}
