@@ -34,4 +34,6 @@ Il confronto con gli altri sarà parte integrante del percorso: potrai ricevere 
 - Sei in un momento di ridefinizione professionale
 - Vuoi fare chiarezza
 
+Unico **requisito**: portare una penna con sè perché ci sarà da scrivere. I post-it verranno forniti in sala.
+
 Vai alla pagina con le [istruzioni](/workshops/) per partecipare al workshop.
