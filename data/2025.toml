@@ -382,145 +382,145 @@ weight = 9
 
 # Sponsors, put new ones at the end of the list
 
-[[sponsors]]
+[[partners]]
 name = "Allnet Italia"
 code = "allnet"
 link = "https://www.allnet-italia.it/"
 level = "bronze"
 
-[[sponsors]]
+[[partners]]
 name = "BizzyNow"
 code = "bizzynow"
 link = "https://www.bizzynow.com/"
 level = "silver"
 
-[[sponsors]]
+[[partners]]
 name = "DevPunks"
 code = "devpunks"
 link = "https://www.devpunks.com/"
 level = "bronze"
 
-[[sponsors]]
+[[partners]]
 name = "Galvanina"
 code = "galvanina"
 link = "https://www.galvanina.it/"
 level = "tech"
 
-[[sponsors]]
+[[partners]]
 name = "GeeksCreations"
 code = "geeks-creations"
 link = "https://geekscreations.com/"
 level = "bronze"
 
-[[sponsors]]
+[[partners]]
 name = "Google"
 code = "google"
 link = "https://developers.google.com/community/devfest"
 level = "main"
 
-[[sponsors]]
+[[partners]]
 name = "Gruppo Credem"
 code = "gruppo-credem"
 link = "https://www.credem.it/"
 level = "gold"
 
-[[sponsors]]
+[[partners]]
 name = "Iungo"
 code = "iungo"
 link = "https://bit.ly/46j3dmU"
 level = "silver"
 
-[[sponsors]]
+[[partners]]
 name = "Netframe"
 code = "netframe"
 link = "https://www.netframe.it/"
 level = "tech"
 
-[[sponsors]]
+[[partners]]
 name = "QubicaAMF"
 code = "qubicaamf"
 link = "https://www.qubicaamf.com/company"
 level = "diamond"
 
-[[sponsors]]
+[[partners]]
 name = "Quix"
 code = "quix"
 link = "https://quix.it/"
 level = "bronze"
 
-[[sponsors]]
+[[partners]]
 name = "Storyblok"
 code = "storyblok"
 link = "https://www.storyblok.com"
 level = "tech"
 
-[[sponsors]]
+[[partners]]
 name = "Webranking"
 code = "webranking"
 link = "https://webranking.it/"
 level = "bronze"
 
-[[sponsors]]
+[[partners]]
 name = "Zuru"
 code = "zuru"
 link = "https://zuru.tech/"
 level = "gold"
 
-[[sponsors]]
+[[partners]]
 name = "GDG Catania"
 code = "gdg-catania"
 link = "https://gdg.community.dev/gdg-catania/"
 level = "media"
 
-[[sponsors]]
+[[partners]]
 name = "GDG Cloud Torino"
 code = "gdg-cloud-torino"
 link = "https://gdg.community.dev/gdg-torino/"
 level = "media"
 
-[[sponsors]]
+[[partners]]
 name = "GDG Pescara"
 code = "gdg-pescara"
 link = "https://gdgpescara.it/it/"
 level = "media"
 
-[[sponsors]]
+[[partners]]
 name = "GDG Pisa"
 code = "gdg-pisa"
 link = "https://gdgpisa.it/"
 level = "media"
 
-[[sponsors]]
+[[partners]]
 name = "GDG Roma Città"
 code = "gdg-roma-citta"
 link = "https://gdg.community.dev/gdg-roma-citta/"
 level = "media"
 
-[[sponsors]]
+[[partners]]
 name = "Comune di Modena "
 code = "comune-modena"
 link = "https://www.comune.modena.it"
 level = "patrocini"
 
-[[sponsors]]
+[[partners]]
 name = "Regione Emilia-Romagna"
 code = "regione-emilia-romagna"
 link = "https://www.regione.emilia-romagna.it"
 level = "patrocini"
 
-[[sponsors]]
+[[partners]]
 name = "Rubycon Italia"
 code = "rubycon"
 link = "https://rubycon.it/"
 level = "media"
 
-[[sponsors]]
+[[partners]]
 name = "Linux Day Modena"
 code = "linuxday"
 link = "https://makeitmodena.comune.modena.it/makeitmodena/eventi/linux-day-2025-talk-e-lab"
 level = "media"
 
-[[sponsors]]
+[[partners]]
 name = "NetAi"
 code = "netai"
 link = "https://netai.it/"

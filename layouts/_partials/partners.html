@@ -1,8 +1,9 @@
 {{/*
   Renders the partners grid for the current edition.
   Conventions:
-  - Data is in site.Data[year] with .levels and .sponsors
-  - Logos path (when available): assets/{year}/partners/{code}.{png|jpg|webp}
+  - Data is in site.Data[year] with .levels and .partners
+  - Sponsors now are in content/partners
+  - Logos path (when available): assets/${year}/partners/{code}.{png|jpg|webp}
   - When logo not found, render a placeholder.
 */}}
 
@@ -16,11 +17,10 @@
 
 {{/* Access via index to avoid type issues, then sort */}}
 {{ $levelsRaw := index $dataset "levels" }}
-{{ $partners := index $dataset "sponsors" }}
+{{ $partners := index $dataset "partners" }}
 {{ if not $levelsRaw }}{{ return }}{{ end }}
 {{ if not $partners }}{{ return }}{{ end }}
 {{ $levels := sort $levelsRaw "weight" "asc" }}
-
 
 <section class="partner-section section section--padded">
   <h2 class="h2 partner-title-section">Partner</h2>
@@ -37,23 +37,18 @@
           {{ range $items }}
             {{ $name := .name }}
             {{ $code := .code }}
-            {{ $link := .link }}
+            {{ $external := .link }}
 
-            {{/* Build outbound link with UTM containing the current year */}}
-            {{ $utm := site.Params.utm | default "" }}
-            {{ $utm = replaceRE `\b20\d{2}\b` $yearStr $utm }}
-            {{ if $utm }}
-              {{ $sep := "?" }}
-              {{ if in $link "?" }}{{ $sep = "&" }}{{ end }}
-              {{ $link = printf "%s%s%s" $link $sep $utm }}
-            {{ end }}
+            {{ $page := site.GetPage (printf "%s/partners/%s" $yearStr $code) }}
+            {{ $hasContent := and $page (gt $page.WordCount 0) }}
+            {{ $url := cond $hasContent $page.RelPermalink $external }}
 
             {{/* Try to load logo (png, jpg, webp) */}}
             {{ $img := resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.png" $code)) }}
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.jpg" $code)) }}{{ end }}
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.webp" $code)) }}{{ end }}
 
-            <a class="card-body" href="{{ $link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $name }}">
+            <a class="card-body" href="{{ $url }}" aria-label="{{ $name }}">
               {{ if $img }}
                 {{ $res := $img.Fit "320x160 webp q80" }}
                 <img class="card-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
