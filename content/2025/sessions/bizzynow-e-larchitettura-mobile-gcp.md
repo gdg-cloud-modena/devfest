@@ -5,7 +5,7 @@ draft = false
 
 [params]
 rooms = ["cardinali"]
-speakers = ["tommaso-fe"]
+speakers = ["tommaso-fe","andrea-failli"]
 language = "Italiano"
 starts = 2025-10-04T11:35:00
 ends = 2025-10-04T11:45:00
