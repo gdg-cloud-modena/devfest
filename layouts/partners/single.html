@@ -2,23 +2,21 @@
 {{- $slug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
 {{- $year := printf "%v" (.Param "year") -}}
 {{- $yearStr := printf "%v" $year -}}
+{{ $utm := (index (index site.Data $yearStr) "utm") }}
+{{ $linkWithUtm := printf "%s?%s" .Params.link $utm }}
 
 <main class="section section--padded">
-  <h1 class="h1">{{ .Title }}</h1>
-
+  <h1 class="h1"><a href="{{ $linkWithUtm }}" target="_blank">{{ .Title }}</a></h1>
+  <p class="p"><a class="link" href="{{ $linkWithUtm }}" target="_blank">{{ .Params.link }}</a></p>
   <div class="partnerPage-description">
     <div class="content">
       {{ .Content }}
     </div>
-    {{ $img := resources.Get (printf "%s/partners/%s.jpg" $yearStr $slug) }}
-    {{ if not $img }}{{ $img = resources.Get (printf "%s/partners/%s.png" $yearStr $slug) }}{{ end }}
-    {{ if not $img }}{{ $img = resources.Get (printf "%s/partners/%s.webp" $yearStr $slug) }}{{ end }}
-    {{ if $img }}
-    {{ $img := $img.Fit "400x400 webp q85" }}
-    <img class="partnerPage-image" width="{{ $img.Width }}" height="{{ $img.Height }}" src="{{ $img.Permalink }}"
-      alt="{{ .Title }} image">
+    {{ with $img := resources.Get (printf "%s/partners/%s.png" $yearStr $slug) }}
+    {{ $img = $img.Fit "400x400 webp q85" }}
+    <img class="partnerPage-image" width="{{ $img.Width }}" height="{{ $img.Height }}" src="{{ $img.Permalink }}" alt="{{ .Title }} logo">
     {{ end }}
   </div>
-
+  <a class="button" href="{{ $linkWithUtm }}" target="_blank">Visita il sito</a>
 </main>
 {{ end }}

@@ -8,26 +8,25 @@
 @use "_default/_spaces";
 
 @if r.$core {
-    .partnerPage-description {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-        gap: spaces.$space-m;
-    }
+  .partnerPage-description {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: spaces.$space-m;
+  }
 
-    .partnerPage-image {
-        @extend %rounded;
-        display: inline-block;
-    }
+  .partnerPage-image {
+    @extend %rounded;
+  }
 }
 
 @if r.$mobile or r.$tablet {
-    .partnerPage-description {
-        flex-direction: column;
-    }
+  .partnerPage-description {
+    flex-direction: column;
+  }
 
-    .partnerPage-image {
-        align-self: center;
-        order: -1;
-    }
+  .partnerPage-image {
+    align-self: center;
+    order: -1;
+  }
 }
