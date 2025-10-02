@@ -35,4 +35,4 @@ Gli interventi scelti verranno comunicati all'orario di pranzo di sabato, sempre
 
 E' importante che gli speaker di ventura arrivino con leggero anticipo rispetto all'orario d'inizio, così da preparare le sessioni.
 
-Attenzione: il limite massimo di 10 minuti è tassativo 😉
+Attenzione: il limite massimo di 10 minuti è tassativo 😉 e non sono ammessi talk pubblicitari.
