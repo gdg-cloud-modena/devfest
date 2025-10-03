@@ -4,6 +4,13 @@
 		<div class="footer-columns">
 			<div class="footer-column">
 				<p class="footer-logo"><img class="footer-logo" src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena"></p>
+				<p class="footer-logo">
+					{{ with $img := resources.Get "communities/gdg-cloud-modena.png" }}
+					{{ $img = $img.Resize "300x300 png" }} {{/* genera lossless @2x */}}
+					<img class="partnerPage-image" src="{{ $img.RelPermalink }}" width="{{ div $logo.Width 2 }}" height="auto"
+					 alt="gdg-cloud-modena logo">
+					{{ end }}
+					</p>
 				<p class="footer-description">Un grande evento di programmazione e di tecnologia al centro dell'Emilia, nato dalle comunità locali.</p>
 			</div>
 			<div class="footer-column">
@@ -48,9 +55,9 @@
 					{{/* Read current edition data and filter patrocini */}}
 					{{ $year := .Site.Params.currentEdition | default (now.Format "2006") }}
 					{{ $dataset := index site.Data (printf "%v" $year) }}
-					{{ if and $dataset (index $dataset "sponsors") }}
-					{{ $sponsors := index $dataset "sponsors" }}
-					{{ $patrocini := where $sponsors "level" "patrocini" }}
+					{{ if and $dataset (index $dataset "partners") }}
+					{{ $partners := index $dataset "partners" }}
+					{{ $patrocini := where $partners "level" "patrocini" }}
 
 					{{/* Ensure Comune di Modena appears first */}}
 					{{ $first := where $patrocini "code" "comune-modena" }}

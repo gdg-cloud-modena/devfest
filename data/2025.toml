@@ -468,12 +468,6 @@ link = "https://zuru.tech/"
 level = "gold"
 
 [[partners]]
-name = "GDG Cloud Modena"
-code = "gdg-cloud-modena"
-link = "https://gdg.community.dev/gdg-cloud-modena/"
-level = "media"
-
-[[partners]]
 name = "GDG Catania"
 code = "gdg-catania"
 link = "https://gdg.community.dev/gdg-catania/"
