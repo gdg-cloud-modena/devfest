@@ -4,11 +4,11 @@ date = 2025-09-10
 draft = false
 
 [params]
-rooms = ["40"]
+rooms = ["cardinali"]
 speakers = ["raffaele-berzoini","federico-fustini"]
 language = "Italiano"
-starts = 2025-10-04T15:00:00
-ends = 2025-10-04T15:30:00
+starts = 2025-10-04T11:00:00
+ends = 2025-10-04T11:30:00
 slidesURL = ""
 warning = ""
 workshop = false
