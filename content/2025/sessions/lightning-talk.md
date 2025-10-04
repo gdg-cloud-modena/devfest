@@ -15,6 +15,12 @@ warning = ""
 # title = "Talk"
 # speaker = "Nome Cognome"
 # done = false
+
+[[params.lightningTalks]]
+title = "Il Kubernetes per Frontend esiste, ed è open source"
+speaker = "Lorenzo De Francesco"
+description = "I microfrontend vengono spesso presentati come la soluzione per scalare i team e accelerare lo sviluppo. Ma chi ci lavora davvero sa che la promessa rischia di trasformarsi in caos: repository dispersi, versioni incompatibili, deployment che si sovrascrivono, configurazioni che sfuggono di mano. Non basta saper usare Module Federation o Web Components: serve una vera piattaforma che governi l’ecosistema dall’interno, come Kubernetes ha fatto per il backend. In questo lightning talk vedremo perché quel “Kubernetes per il frontend” esiste già, è open source… ed è l’unica via per riportare ordine nel disordine."
+done = false
 +++
 
 I lightning talk sono sessioni di 10 minuti proposte dai partecipanti.
@@ -23,7 +29,7 @@ Chiunque può [proporre](#how) un proprio talk.
 
 ### In scaletta
 
-I talk sono proposti in questo ordine, fino ad esaurimento di tempo:
+I talk proposti, fino ad esaurimento di tempo:
 
 {{< lightningTalks >}}
 

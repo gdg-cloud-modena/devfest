@@ -8,22 +8,22 @@
 
 @if r.$core {
   .lightningTalks {
-    @extend .ol;
-    margin-left: 1em !important;
+    list-style-type: none;
+    padding-left: 1em;
   }
 
-  .lightningTalks-talk {
+  .lightningTalks-title {
   }
 
-  .lightningTalks-talk--done {
+  .lightningTalks-title--done {
     text-decoration: line-through;
     opacity: 0.6;
   }
 
   .lightningTalks-title {
-    font-weight: bold;
   }
 
-  .lightningTalks-speaker {
+  .lightningTalks-description {
+    margin-left: 1em;
   }
 }
