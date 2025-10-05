@@ -7,8 +7,8 @@ draft = false
 rooms = ["cardinali"]
 speakers = ["maurizio-argoneto"]
 language = "Italiano"
-starts = 2025-10-05T09:30:00
-ends = 2025-10-05T10:15:00
+starts = 2025-10-05T09:45:00
+ends = 2025-10-05T10:30:00
 slidesURL = ""
 warning = ""
 +++

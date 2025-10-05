@@ -7,8 +7,8 @@ draft = false
 rooms = ["40"]
 speakers = ["luca-bonetti"]
 language = "Italiano"
-starts = 2025-10-05T12:30:00
-ends = 2025-10-05T13:15:00
+starts = 2025-10-05T12:45:00
+ends = 2025-10-05T13:30:00
 slidesURL = ""
 warning = ""
 +++

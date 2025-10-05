@@ -7,8 +7,8 @@ draft = false
 rooms = ["demontis"]
 speakers = ["angela-petraglia"]
 language = "Italiano"
-starts = 2025-10-05T11:30:00
-ends = 2025-10-05T12:15:00
+starts = 2025-10-05T11:45:00
+ends = 2025-10-05T12:30:00
 slidesURL = ""
 warning = ""
 +++

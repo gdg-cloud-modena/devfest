@@ -7,8 +7,8 @@ draft = false
 rooms = ["chiesa"]
 speakers = ["valeria-salis"]
 language = "Italiano"
-starts = 2025-10-05T10:30:00
-ends = 2025-10-05T11:15:00
+starts = 2025-10-05T10:45:00
+ends = 2025-10-05T11:30:00
 slidesURL = ""
 warning = ""
 +++

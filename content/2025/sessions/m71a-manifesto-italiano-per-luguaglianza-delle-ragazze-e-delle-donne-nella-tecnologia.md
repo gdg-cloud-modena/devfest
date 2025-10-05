@@ -7,8 +7,8 @@ draft = false
 rooms = ["chiesa"]
 speakers = ["valeria-salis","ludovico-besana","jessica-corrias","emiliano-pisu","pia-grandi","maria-pina-di-cataldo","maurizio-argoneto","gabriele-santomaggio"]
 language = "Italiano"
-starts = 2025-10-05T11:30:00
-ends = 2025-10-05T12:45:00
+starts = 2025-10-05T11:45:00
+ends = 2025-10-05T13:00:00
 slidesURL = ""
 warning = ""
 +++
