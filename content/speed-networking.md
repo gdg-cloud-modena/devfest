@@ -2,7 +2,10 @@
 title = "Speed networking"
 description = "Il modo più rapido per espandere la propria rete."
 layout = "single.html"
+warning = "Lo speed networking è stato spostato alla Sala 40 al primo piano, fino alle ore 11:35" 
 +++
+
+**Lo speed networking è stato spostato alla Sala 40 al primo piano, fino alle ore 11:35.**
 
 # Speed networking
 
@@ -16,4 +19,4 @@ I partecipanti si alternano in brevi conversazioni one-to-one, 3 minuti ciascuna
 - entrare in contatto con persone altrimenti difficili da raggiungere;
 - creare opportunità di collaborazione in poco tempo.
 
-L'attività è fatta nel gazebo in [Cortile](/2025/rooms/cortile/).
+L'attività è fatta nella [Sala 40](/2025/rooms/40/).
