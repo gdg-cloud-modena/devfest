@@ -1,9 +1,12 @@
 {{ if .Page.Params.lightningTalks }}
 
 {{ range $talk := .Page.Params.lightningTalks }}
-  <details class="lightningTalks-talk" name="lightningTalks">
-    <summary class="lightningTalks-title {{if $talk.done}}lightningTalks-title--done{{end}}"><b class="link">{{ $talk.title }}</b> — {{ $talk.speaker }}</summary>
-    <p class="lightningTalks-description">{{ $talk.description }}</p>
+  <details class="lightningTalk" name="lightningTalks">
+    <summary class="lightningTalk-title {{if $talk.done}}lightningTalk-title--done{{end}}"><b class="link">{{ $talk.title }}</b> — {{ $talk.speaker }}</summary>
+    <div class="lightningTalk-description">
+      <p>{{ $talk.description }}</p>
+      {{ if $talk.slidesURL }}<p>Guarda le <a href="{{ $talk.slidesURL }}" target="_blank">slide</a>.</p>{{ end }}
+    </div>
   </details>
 {{ end }}
 {{ else }}

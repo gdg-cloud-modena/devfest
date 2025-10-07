@@ -1,0 +1,36 @@
+// List of lightning talks
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+@use "_blocks/_ol";
+
+@if r.$core {
+  .lightningTalk {
+    list-style-type: none;
+    padding-left: 1em;
+    @extend %rounded;
+    border: 2px solid transparent;
+  }
+
+  .lightningTalk[open] {
+    padding-left: 1em;
+    border: 2px solid colors.$secondary;
+  }
+
+  .lightningTalk-title--done {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  .lightningTalk-title:hover {
+    cursor: pointer;
+  }
+
+  .lightningTalk-description {
+    padding-left: 1em;
+  }
+}
