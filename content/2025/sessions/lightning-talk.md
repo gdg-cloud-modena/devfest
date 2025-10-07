@@ -59,7 +59,7 @@ I talk proposti, fino ad esaurimento di tempo:
 
 ### Come proporre il tuo lightning talk {#how}
 
-Proponi il tuo talk su [Telegram](https://t.me/devfest_modena/300) nel canale "Lightning talk", indicando: **Titolo**, **Nome** e **Cognome**.
+Proponi il tuo talk su [Telegram](https://t.me/devfest_modena/300) nel canale "Lightning talk", indicando: **Titolo**, **Nome**, **Cognome** e una breve **Descrizione**.
 
 Gli interventi scelti verranno comunicati all'orario di pranzo di sabato, sempre su Telegram, e compariranno in questa pagina.
 
