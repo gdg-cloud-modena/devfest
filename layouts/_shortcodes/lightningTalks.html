@@ -6,6 +6,7 @@
     <div class="lightningTalk-description">
       <p>{{ $talk.description }}</p>
       {{ if $talk.slidesURL }}<p>Guarda le <a href="{{ $talk.slidesURL }}" target="_blank">slide</a>.</p>{{ end }}
+      {{ if $talk.profileURL }}<p>Visita il profilo di <a href="{{ $talk.profileURL }}" target="_blank">{{ $talk.speaker }}</a>.{{ end }}
     </div>
   </details>
 {{ end }}
