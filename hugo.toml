@@ -36,7 +36,7 @@ hidden = false
 simpleAnalyticsDomain = "sa.devfest.modena.it"
 utm = "utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2025"
 ticketsUrl = "https://devfest-modena-2025.eventbrite.it"
-currentEdition = 2025
+currentEdition = 2026
 cvFormUrl = "https://form.asana.com/?k=qpheZ_rD3DLkDmIjsJaKVA&d=588515525965352"
 
 [params.social]
@@ -87,11 +87,11 @@ name = "Location"
 weight = 7
 url = "/location/"
 
-[[menus.main]]
-identifier = "tickets"
-name = "Biglietti"
-url = "https://devfest-modena-2025.eventbrite.it"
-weight = 8
+# [[menus.main]]
+# identifier = "tickets"
+# name = "Biglietti"
+# url = "https://devfest-modena-2025.eventbrite.it"
+# weight = 8
 [menus.main.params]
 external = true
 

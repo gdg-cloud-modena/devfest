@@ -11,9 +11,9 @@
     </picture>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      {{- $icon := (resources.Get "images/logo-simple-year.png").Resize "x100 webp q45" -}}
+      {{- $icon := (resources.Get "images/logo-horizontal-year.png").Resize "x100 webp q45" -}}
       <img class="hero-icon" src="{{ $icon.Permalink }}" width="{{ $icon.Width }}" height="{{ $icon.Height }}" alt="DevFest Modena 2025">
-      <h1 class="hero-title">4-5 ottobre 2025</h1>
+      <h1 class="hero-title">3 ottobre 2026</h1>
     </div>
   </section>
   <section class="section section--padded">
@@ -24,9 +24,10 @@
   </section>
   <section class="section section--padded">
     <h2 class="h2">Biglietti</h2>
-    <p class="p">I biglietti sono separati per sabato 4 e domenica 5 ottobre 2025. Puoi scegliere entrambi per goderti tutto l'evento oppure anche solo uno per un singolo giorno.</p>
+    <p class="p">I biglietti non sono ancora disponibili, però puoi inviare una mail a
+      <a class="footer-link" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+    per chiedere di rimanere aggiornato.</p>
     <p class="p">Il pranzo è offerto dai partner. Durante la giornata ci saranno coffee break e speed matching.</p>
-    <p class="p">Ordina i biglietti su <a class="link" href="{{ .Site.Params.ticketsUrl }}" target="_blank">Eventbrite</a>.</p>
   </section>
   {{ partial "partners.html" . }}
 </main>

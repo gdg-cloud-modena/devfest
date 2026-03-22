@@ -1,11 +1,14 @@
-{{ $img := (resources.Get "images/logo.png").Resize "500x webp q85" }}
+{{ $img := (resources.Get "images/logo-simple.png").Resize "500x webp q85" }}
 
 <section class="ctaTickets">
   <div class="ctaTickets-content">
     <div class="ctaTickets-info">
-      <h2 class="ctaTickets-title">Richiedi il <span class="ctaTickets-titleHighlight">Biglietto</span></h2>
-      <p class="p">Participa anche tu al DevFest Modena il 4-5 ottobre 2025.</p>
-      <a class="button" href="{{ .Site.Params.ticketsUrl }}" target="_blank">Richiedi biglietto</a>
+      <h2 class="ctaTickets-title">Biglietti non ancora disponibili</h2>
+      <p class="p">Oooops, ci hai trovato troppo presto! I biglietti non sono ancora usciti.</p>
+      <p class="p">Puoi scriverci una email e noi ti notificheremo quando apriranno le preotazioni.</p>
+      <a class="button" href="mailto:{{ .Site.Params.email }}" target="_blank">
+        Rimani informato
+      </a>
     </div>
     <img class="ctaTickets-image" src="{{ $img.Permalink }}" alt="Devfest Modena Logo" width="{{ $img.Width }}" height="{{ $img.Height }}">
   </div>
