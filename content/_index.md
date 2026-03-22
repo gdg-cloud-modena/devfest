@@ -1,5 +1,5 @@
 +++
-title = "DevFest Modena 2025"
+title = "DevFest Modena 2026"
 description = ""
 layout = "home"
 date = 2025-08-22
