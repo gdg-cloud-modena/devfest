@@ -20,7 +20,6 @@
     <div class="content">
       {{ .Content }}
     </div>
-    {{ partial "statistics.html" . }}
   </section>
   <section class="section section--padded">
     <h2 class="h2">Biglietti</h2>
@@ -28,6 +27,9 @@
       <a class="footer-link" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
     per chiedere di rimanere aggiornato.</p>
     <p class="p">Il pranzo è offerto dai partner. Durante la giornata ci saranno coffee break e speed matching.</p>
+  </section>
+  <section class="section section--padded">
+    {{ partial "statistics.html" . }}
   </section>
   {{ partial "partners.html" . }}
 </main>

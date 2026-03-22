@@ -244,10 +244,88 @@ weight = 9
 # Sponsors, put new ones at the end of the list
 
 [[partners]]
+name = "Allnet Italia"
+code = "allnet"
+link = "https://www.allnet-italia.it/"
+level = "bronze"
+
+[[partners]]
+name = "BizzyNow"
+code = "bizzynow"
+link = "https://www.bizzynow.com/"
+level = "silver"
+
+[[partners]]
+name = "DevPunks"
+code = "devpunks"
+link = "https://www.devpunks.com/"
+level = "bronze"
+
+[[partners]]
+name = "Galvanina"
+code = "galvanina"
+link = "https://www.galvanina.it/"
+level = "tech"
+
+[[partners]]
+name = "GeeksCreations"
+code = "geeks-creations"
+link = "https://geekscreations.com/"
+level = "bronze"
+
+[[partners]]
 name = "Google"
 code = "google"
 link = "https://developers.google.com/community/devfest"
 level = "main"
+
+[[partners]]
+name = "Gruppo Credem"
+code = "gruppo-credem"
+link = "https://www.credem.it/"
+level = "gold"
+
+[[partners]]
+name = "Iungo"
+code = "iungo"
+link = "https://bit.ly/46j3dmU"
+level = "silver"
+
+[[partners]]
+name = "Netframe"
+code = "netframe"
+link = "https://www.netframe.it/"
+level = "tech"
+
+[[partners]]
+name = "QubicaAMF"
+code = "qubicaamf"
+link = "https://www.qubicaamf.com/company"
+level = "diamond"
+
+[[partners]]
+name = "Quix"
+code = "quix"
+link = "https://quix.it/"
+level = "bronze"
+
+[[partners]]
+name = "Storyblok"
+code = "storyblok"
+link = "https://www.storyblok.com"
+level = "tech"
+
+[[partners]]
+name = "Webranking"
+code = "webranking"
+link = "https://webranking.it/"
+level = "bronze"
+
+[[partners]]
+name = "Zuru"
+code = "zuru"
+link = "https://zuru.tech/"
+level = "gold"
 
 [[partners]]
 name = "GDG Catania"
@@ -302,3 +380,10 @@ name = "Linux Day Modena"
 code = "linuxday"
 link = "https://makeitmodena.comune.modena.it/makeitmodena/eventi/linux-day-2025-talk-e-lab"
 level = "media"
+
+[[partners]]
+name = "NetAi"
+code = "netai"
+link = "https://netai.it/"
+level = "bronze"
+

@@ -5,6 +5,9 @@
 {{ $rooms := len (where (site.GetPage (printf "/%s/rooms" $year)).Pages "Params.forSessions" true) }}
 {{ $participants := $agenda.participants }}
 
+<h2 class="h2">
+  Il nostro 2025
+</h2>
 <div class="statistics">
   <p class="statistics-item statistics-item--rooms">
     <img class="statistics-img" src="/icons/room.svg" alt="Room" height="40">
