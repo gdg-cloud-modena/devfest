@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--devfest-modena-font-family);
+}
+
+body {
+  margin: var(--devfest-modena-base-unit);
+}
+
+main {
+  min-height: 100dvh;
+}

@@ -1,0 +1,13 @@
+@property --devfest-modena-font-family {
+  syntax: "<string>";
+  initial-value: "sans-serif";
+}
+
+@property --devfest-modena-primary {
+  syntax: "<color>";
+  initial-value: #ff5722;
+}
+
+:root {
+  --devfest-modena-base-unit: calc(8rem / 16);
+}

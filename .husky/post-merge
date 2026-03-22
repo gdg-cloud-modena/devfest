@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+echo "Script started"
+
+if git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep 'pnpm-lock.yaml'; then
+  echo "🔄 pnpm-lock.yaml changed, running pnpm install..."
+  pnpm install
+else
+  echo "No changes in pnpm-lock.yaml"
+fi
+
+echo "Script ended"
