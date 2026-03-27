@@ -1,5 +1,5 @@
+import { SITE_URL } from "@configs/site";
 import type { APIRoute } from "astro";
-import { SITE_URL } from "../../config/site";
 
 export const GET: APIRoute = async () => {
   const pages = [`${SITE_URL}en/`];

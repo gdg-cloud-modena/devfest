@@ -1,8 +1,9 @@
 ---
 //example page for dynamic routing, to list all the years of the archive.
 const yearPages = import.meta.glob("./[0-9][0-9][0-9][0-9]/index.astro");
-
+const currentYear = new Date().getFullYear().toString();
 const years = Object.keys(yearPages)
+  .filter((path) => !path.includes(currentYear))
   .map((path) => path.match(/\.\/(\d{4})\/index\.astro$/)?.[1])
   .filter(Boolean)
   .sort((a, b) => Number(b) - Number(a));

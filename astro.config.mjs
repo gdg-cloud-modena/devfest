@@ -2,8 +2,7 @@
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
-
-import { SITE_URL } from "./src/config/site";
+import { SITE_URL } from "./src/configs/site";
 
 // https://astro.build/config
 export default defineConfig({

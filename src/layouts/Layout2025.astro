@@ -1,22 +1,26 @@
 ---
 interface Props {
-  year: string;
   title: string;
   lang?: string;
 }
-
-const { year, title, lang = 'it-IT' } = Astro.props;
+import { SITE_URL } from "@configs/site";
 import "@styles/global.css";
+
+const { title, lang = "it-IT" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={`${lang}`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={`${title} - DevFest Modena`} />
-    <meta name="keywords" content="devfest, modena, google, developers, conference" />
+    <meta
+      name="keywords"
+      content="devfest, modena, google, developers, conference"
+    />
     <meta name="author" content="GDG Modena" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={`${SITE_URL}`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -24,7 +28,6 @@ import "@styles/global.css";
   </head>
   <body>
     <header>
-      <!-- <img src={`/assets/${year}/logo.svg`} alt={title} /> -->
       <h1>{title}</h1>
     </header>
 
