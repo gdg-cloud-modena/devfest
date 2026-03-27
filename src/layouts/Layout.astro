@@ -2,16 +2,20 @@
 interface Props {
   year: string;
   title: string;
+  lang?: string;
 }
 
-const { year, title } = Astro.props;
+const { year, title, lang = 'it-IT' } = Astro.props;
 import "@styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content={`${title} - DevFest Modena`} />
+    <meta name="keywords" content="devfest, modena, google, developers, conference" />
+    <meta name="author" content="GDG Modena" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
