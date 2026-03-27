@@ -1,0 +1,83 @@
+@property --devfest-modena-google-blue-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #4285f4;
+}
+
+@property --devfest-modena-google-green-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #34a853;
+}
+
+@property --devfest-modena-google-yellow-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fbbc04;
+}
+
+@property --devfest-modena-google-red-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ea4335;
+}
+
+@property --devfest-modena-google-halftone-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #57caff;
+}
+
+@property --devfest-modena-google-halftone-green {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5cdb6d;
+}
+
+@property --devfest-modena-google-halftone-yellow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffd427;
+}
+
+@property --devfest-modena-google-halftone-red {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f28b82;
+}
+
+@property --devfest-modena-google-off-white {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f0f0f0;
+}
+
+@property --devfest-modena-google-pastel-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #c3ecf6;
+}
+
+@property --devfest-modena-google-pastel-green {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ccf6c5;
+}
+
+@property --devfest-modena-google-pastel-yellow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffe7a5;
+}
+
+@property --devfest-modena-google-pastel-red {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ff746c;
+}
+
+@property --devfest-modena-google-black-02 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1e1e1e;
+}

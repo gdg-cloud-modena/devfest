@@ -1,15 +1,9 @@
-@import "./tokens/primary.css";
+@import "./tokens/google.css";
 
 @property --devfest-modena-font-family {
   syntax: "<string>";
   inherits: true;
   initial-value: "sans-serif"; /* need to change this! */
-}
-
-@property --devfest-modena-primary {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: oklch(0.6304 0.18 259.96);
 }
 
 :root {
