@@ -12,8 +12,8 @@ importers:
         specifier: ^3.7.2
         version: 3.7.2
       astro:
-        specifier: ^6.1.1
-        version: 6.1.1(@types/node@24.12.0)(rollup@4.60.0)
+        specifier: ^6.1.2
+        version: 6.1.2(@types/node@24.12.0)(rollup@4.60.0)
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
@@ -626,8 +626,8 @@ packages:
   astro-robots-txt@1.0.0:
     resolution: {integrity: sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==}
 
-  astro@6.1.1:
-    resolution: {integrity: sha512-vq8sHpu1JsY1fWAunn+tdKNbVDmLQNiVdyuGsVT2csgITdFGXXVAyEXFWc1DzkMN0ehElPeiHnqItyQOJK+GqA==}
+  astro@6.1.2:
+    resolution: {integrity: sha512-r3iIvmB6JvQxsdJLvapybKKq7Bojd1iQK6CCx5P55eRnXJIyUpHx/1UB/GdMm+em/lwaCUasxHCmIO0lCLV2uA==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1928,7 +1928,7 @@ snapshots:
       valid-filename: 4.0.0
       zod: 3.25.76
 
-  astro@6.1.1(@types/node@24.12.0)(rollup@4.60.0):
+  astro@6.1.2(@types/node@24.12.0)(rollup@4.60.0):
     dependencies:
       '@astrojs/compiler': 3.0.1
       '@astrojs/internal-helpers': 0.8.0
