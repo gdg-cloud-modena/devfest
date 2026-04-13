@@ -16,12 +16,12 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.1.2",
+    "astro": "^6.1.5",
     "astro-robots-txt": "^1.0.0"
   },
   "devDependencies": {
     "husky": "^9.1.7",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "prettier-plugin-astro": "^0.14.1"
   }
 }
