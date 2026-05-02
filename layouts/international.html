@@ -1,0 +1,125 @@
+{{ define "main" }}
+{{ $heroImage := resources.Get (.Params.hero.image | default "images/home-hero.webp") }}
+{{ $heroSmall := $heroImage.Fill "720x900 Center webp q70" }}
+{{ $heroLarge := $heroImage.Fill "1800x1000 Center webp q85" }}
+{{ $logo := (resources.Get "images/logo-simple.png").Resize "x120 webp q65" }}
+{{ $map := (resources.Get "location/location.png").Fit "900x600 webp q85" }}
+{{ $gallery := slice }}
+{{ range $pattern := slice "international/gallery/*.jpg" "international/gallery/*.jpeg" "international/gallery/*.png" "international/gallery/*.webp" }}
+  {{ range resources.Match $pattern }}
+    {{ $gallery = $gallery | append . }}
+  {{ end }}
+{{ end }}
+{{ if not $gallery }}
+  {{ $gallery = slice (resources.Get "location/image1.jpg") (resources.Get "location/image2.jpg") (resources.Get "images/home-hero.webp") }}
+{{ end }}
+
+<main class="international">
+  <nav class="section internationalNav" aria-label="International page sections">
+    <a class="internationalNav-brand" href="/international">
+      <img src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena">
+    </a>
+    <div class="internationalNav-links">
+      <a href="#location">Location</a>
+      <a href="#faq">FAQ</a>
+      <a href="#tickets">Tickets</a>
+    </div>
+  </nav>
+
+  <section class="internationalHero">
+    <picture class="internationalHero-bg">
+      <source srcset="{{ $heroSmall.RelPermalink }}" media="(max-width: 44em)">
+      <img class="internationalHero-bgImg" src="{{ $heroLarge.RelPermalink }}" width="{{ $heroLarge.Width }}" height="{{ $heroLarge.Height }}" alt="" fetchpriority="high">
+    </picture>
+    <div class="internationalHero-overlay"></div>
+    <div class="internationalHero-content">
+      <h1 class="internationalHero-title">{{ .Params.hero.title }}</h1>
+      <p class="internationalHero-subtitle">{{ .Params.hero.subtitle }}</p>
+      <dl class="internationalHero-meta">
+        <div>
+          <dt>Date</dt>
+          <dd>{{ .Params.hero.date }}</dd>
+        </div>
+        <div>
+          <dt>Place</dt>
+          <dd>{{ .Params.hero.place }}</dd>
+        </div>
+      </dl>
+      <div class="internationalHero-actions">
+        <a class="button" href="{{ .Params.hero.primaryUrl }}">{{ .Params.hero.primaryLabel }}</a>
+        <a class="internationalHero-link" href="{{ .Params.hero.secondaryUrl }}">{{ .Params.hero.secondaryLabel }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--padded" id="overview">
+    <h2 class="h2">2025 numbers</h2>
+    <div class="internationalStats">
+      {{ range .Params.stats }}
+      <article class="internationalStats-item">
+        <strong class="internationalStats-value">{{ .value }}</strong>
+        <span class="internationalStats-label">{{ .label }}</span>
+        <p>{{ .description }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="internationalBand">
+    <div class="section section--padded internationalEvent">
+      <div class="internationalEvent-copy">
+        <h2 class="h2">{{ .Params.event.title }}</h2>
+        <p class="internationalEvent-lead">{{ .Params.event.lead }}</p>
+        <p class="p">{{ .Params.event.body }}</p>
+      </div>
+      <div class="internationalGallery">
+        {{ range $index, $image := first 6 $gallery }}
+          {{ $thumb := $image.Fill "640x520 Center webp q82" }}
+          {{ $alt := replace (path.BaseName $image.Name) "-" " " | humanize }}
+          <img class="internationalGallery-img internationalGallery-img--{{ add $index 1 }}" src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ $alt }}" loading="lazy">
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--padded internationalLocation" id="location">
+    <div class="internationalLocation-copy">
+      <h2 class="h2">{{ .Params.location.title }}</h2>
+      <p class="internationalLocation-venue">{{ .Params.location.venue }}</p>
+      <p class="p">{{ .Params.location.address }}</p>
+      <p class="p">{{ .Params.location.description }}</p>
+      <a class="link" href="{{ .Params.location.mapUrl }}" target="_blank" rel="noopener noreferrer">{{ .Params.location.mapLabel }}</a>
+    </div>
+    <a class="internationalLocation-map" href="{{ .Params.location.mapUrl }}" target="_blank" rel="noopener noreferrer">
+      <img src="{{ $map.RelPermalink }}" width="{{ $map.Width }}" height="{{ $map.Height }}" alt="Map of Fondazione Collegio San Carlo in Modena" loading="lazy">
+    </a>
+  </section>
+
+  <section class="internationalBand" id="faq">
+    <div class="section section--padded">
+      <h2 class="h2">FAQ</h2>
+      <div class="faq internationalFaq">
+        {{ range .Params.faq }}
+        <details class="faq-item" name="international-faq">
+          <summary class="faq-question">{{ .question }}</summary>
+          <div class="faq-answer content">{{ .answer | markdownify }}</div>
+        </details>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--padded internationalTickets" id="tickets">
+    <div class="internationalTickets-copy">
+      <h2 class="h2">{{ .Params.tickets.title }}</h2>
+      <p class="p">{{ .Params.tickets.description }}</p>
+    </div>
+    <a class="button" href="{{ .Params.tickets.buttonUrl }}">{{ .Params.tickets.buttonLabel }}</a>
+  </section>
+
+  <footer class="internationalFooter">
+    <p>DevFest Modena is organized by GDG Cloud Modena and local tech communities.</p>
+    <a class="footer-link" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+  </footer>
+</main>
+{{ end }}

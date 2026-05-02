@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ $.Site.LanguageCode }}" dir="ltr">
+<html class="no-js" lang="{{ .Param "pageLang" | default $.Site.LanguageCode }}" dir="ltr">
 
 <head>
   {{- partial "head.html" . -}}
@@ -8,17 +8,21 @@
 </head>
 
 <body>
-  {{ if eq .Layout "landing" }}
+  {{ if or (eq .Layout "landing") (.Param "hideSiteHeader") }}
 
   {{ else }}
   {{- partial "header.html" . -}}
   {{ end }}
   {{- block "main" . }}{{- end }}
+  {{ if not (.Param "hideSiteCtas") }}
   <section class="container">
     {{- partial "cta-tickets.html" . -}}
     {{- partial "cta-cv.html" . -}}
   </section>
+  {{ end }}
+  {{ if not (.Param "hideSiteFooter") }}
   {{- partial "footer.html" . -}}
+  {{ end }}
   {{- partial "scripts.html" . -}}
 </body>
 

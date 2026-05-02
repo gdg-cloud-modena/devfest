@@ -1,0 +1,302 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .international {
+    background: colors.$gray;
+  }
+
+  .internationalNav {
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: spaces.$space-s;
+    padding: spaces.$space-xs spaces.$space-s;
+    background: rgba(colors.$gray, 0.96);
+    border-bottom: 1px solid rgba(colors.$black, 0.08);
+  }
+
+  .internationalNav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: spaces.$space-2xs;
+    color: colors.$black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .internationalNav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spaces.$space-xs;
+    justify-content: flex-end;
+  }
+
+  .internationalNav-links a,
+  .internationalHero-link {
+    color: currentColor;
+    font-weight: bold;
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 0.2em;
+  }
+
+  .internationalHero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 70svh;
+    overflow: hidden;
+    color: colors.$white;
+  }
+
+  .internationalHero-bg,
+  .internationalHero-bgImg,
+  .internationalHero-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .internationalHero-bgImg {
+    object-fit: cover;
+  }
+
+  .internationalHero-overlay {
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(colors.$black, 0.78), rgba(colors.$black, 0.36));
+  }
+
+  .internationalHero-content {
+    position: relative;
+    z-index: 2;
+    width: min(56rem, 100%);
+    padding: spaces.$space-xl spaces.$space-s;
+    margin-inline: auto;
+  }
+
+  .internationalHero-eyebrow {
+    margin-block-end: spaces.$space-xs;
+    color: colors.$tertiary--1;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .internationalHero-title {
+    max-width: 12ch;
+    font-size: fonts.$size-6;
+    line-height: fonts.$solid;
+    font-weight: bold;
+  }
+
+  .internationalHero-subtitle {
+    max-width: 42rem;
+    margin-block-start: spaces.$space-s;
+    font-size: fonts.$size-1;
+    line-height: fonts.$copy;
+  }
+
+  .internationalHero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spaces.$space-s;
+    margin-block: spaces.$space-m;
+  }
+
+  .internationalHero-meta div {
+    min-width: 11rem;
+    padding: spaces.$space-xs;
+    background: rgba(colors.$black, 0.36);
+    border: 1px solid rgba(colors.$white, 0.26);
+    @extend %rounded;
+  }
+
+  .internationalHero-meta dt {
+    font-size: fonts.$size--1;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: colors.$primary--2;
+  }
+
+  .internationalHero-meta dd {
+    margin: 0;
+    font-size: fonts.$size-1;
+    font-weight: bold;
+  }
+
+  .internationalHero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: spaces.$space-s;
+  }
+
+  .internationalStats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: spaces.$space-s;
+  }
+
+  .internationalStats-item {
+    padding-block: spaces.$space-s;
+    border-top: 0.35rem solid colors.$primary;
+  }
+
+  .internationalStats-item:nth-child(2) {
+    border-color: colors.$secondary;
+  }
+
+  .internationalStats-item:nth-child(3) {
+    border-color: colors.$tertiary;
+  }
+
+  .internationalStats-item:nth-child(4) {
+    border-color: colors.$quaternary;
+  }
+
+  .internationalStats-value {
+    display: block;
+    color: colors.$black;
+    font-size: fonts.$size-5;
+    line-height: fonts.$solid;
+  }
+
+  .internationalStats-label {
+    display: block;
+    margin-block-end: spaces.$space-xs;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .internationalBand {
+    background: colors.$white;
+  }
+
+  .internationalEvent,
+  .internationalLocation,
+  .internationalTickets {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
+    gap: spaces.$space-l;
+    align-items: center;
+  }
+
+  .internationalEvent-lead {
+    margin-block-end: spaces.$space-s;
+    font-size: fonts.$size-1;
+    line-height: fonts.$copy;
+  }
+
+  .internationalGallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 7rem;
+    gap: spaces.$space-2xs;
+  }
+
+  .internationalGallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @extend %rounded;
+  }
+
+  .internationalGallery-img--1,
+  .internationalGallery-img--4 {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
+  .internationalGallery-img--2,
+  .internationalGallery-img--3,
+  .internationalGallery-img--5,
+  .internationalGallery-img--6 {
+    grid-column: span 3;
+  }
+
+  .internationalLocation-venue {
+    margin-block-end: spaces.$space-2xs;
+    font-size: fonts.$size-2;
+    font-weight: bold;
+  }
+
+  .internationalLocation-map img {
+    width: 100%;
+    height: auto;
+    background: colors.$white;
+    @extend %rounded;
+  }
+
+  .internationalFaq {
+    max-width: 52rem;
+  }
+
+  .internationalTickets {
+    padding-block: spaces.$space-xl;
+  }
+
+  .internationalFooter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: spaces.$space-xs;
+    padding: spaces.$space-m spaces.$space-s;
+    color: colors.$white;
+    background: colors.$black;
+    text-align: center;
+  }
+}
+
+@if r.$tablet {
+  .internationalStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .internationalEvent,
+  .internationalLocation,
+  .internationalTickets {
+    grid-template-columns: 1fr;
+  }
+}
+
+@if r.$mobile {
+  .internationalNav {
+    position: static;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .internationalNav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: spaces.$space-2xs;
+  }
+
+  .internationalHero {
+    min-height: 76svh;
+  }
+
+  .internationalHero-title {
+    font-size: fonts.$size-4;
+  }
+
+  .internationalHero-meta {
+    flex-direction: column;
+  }
+
+  .internationalStats,
+  .internationalEvent,
+  .internationalLocation,
+  .internationalTickets {
+    grid-template-columns: 1fr;
+  }
+
+  .internationalGallery {
+    grid-auto-rows: 6rem;
+  }
+}
