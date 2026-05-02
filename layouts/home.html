@@ -21,6 +21,13 @@
       {{ .Content }}
     </div>
   </section>
+  {{ if .Site.Params.callForSpeakersEnabled }}
+    <section class="section section--padded">
+      <h2 class="h2">Call4Speakers</h2>
+      <p class="p">Vuoi salire sul palco del DevFest Modena 2026? La call for speakers è aperta: fatti avanti!</p>
+      <a class="button" href="{{ .Site.Params.sessionizeUrl }}" target="_blank" rel="noopener">Proponi una sessione</a>
+    </section>
+  {{ end }}
   <section class="section section--padded">
     <h2 class="h2">Biglietti</h2>
     <p class="p">I biglietti non sono ancora disponibili, però puoi inviare una mail a

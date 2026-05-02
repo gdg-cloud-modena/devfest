@@ -22,6 +22,9 @@
     <div class="internationalNav-links">
       <a href="#location">Location</a>
       <a href="#faq">FAQ</a>
+      {{ if .Site.Params.callForSpeakersEnabled }}
+        <a href="#call-for-speakers">{{ .Params.callForSpeakers.navLabel }}</a>
+      {{ end }}
       <a href="#tickets">Tickets</a>
     </div>
   </nav>
@@ -51,6 +54,16 @@
       </div>
     </div>
   </section>
+
+  {{ if .Site.Params.callForSpeakersEnabled }}
+    <section class="section section--padded internationalTickets" id="call-for-speakers">
+      <div class="internationalTickets-copy">
+        <h2 class="h2">{{ .Params.callForSpeakers.title }}</h2>
+        <p class="p">{{ .Params.callForSpeakers.description }}</p>
+      </div>
+      <a class="button" href="{{ .Site.Params.sessionizeUrl }}" target="_blank" rel="noopener">{{ .Params.callForSpeakers.buttonLabel }}</a>
+    </section>
+  {{ end }}
 
   <section class="section section--padded" id="overview">
     <h2 class="h2">2025 numbers</h2>

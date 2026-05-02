@@ -55,6 +55,12 @@ description = "The venue is in Modena's historic centre, within walking distance
 mapLabel = "Open in Google Maps"
 mapUrl = "https://maps.app.goo.gl/7pLxqnFZMdP6RfXE8"
 
+[params.callForSpeakers]
+navLabel = "Call for speakers"
+title = "Call for speakers"
+description = "Would you like to speak at DevFest Modena 2026? Submit your talk or workshop."
+buttonLabel = "Submit a proposal"
+
 [[params.faq]]
 question = "Is the event free?"
 answer = "Yes, DevFest Modena is a free event organized on a non-profit basis by local tech communities. Sponsorships and partnerships help us cover all the costs and keep the event free for attendees."

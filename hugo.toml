@@ -38,6 +38,8 @@ utm = "utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2025"
 ticketsUrl = "https://devfest-modena-2025.eventbrite.it"
 currentEdition = 2026
 cvFormUrl = "https://form.asana.com/?k=qpheZ_rD3DLkDmIjsJaKVA&d=588515525965352"
+callForSpeakersEnabled = true
+sessionizeUrl = "https://sessionize.com/devfest-modena-2026"
 
 [params.social]
 LinkedIn = "https://www.linkedin.com/showcase/devfest-modena/"
