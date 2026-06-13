@@ -3,7 +3,7 @@ type = "partner"
 title= "Our Partners"
 slug= "partners"
 draft= false
-date = "2025-09-18"
+date = "2026-06-13"
 description = """
 Il supporto dei nostri partner è essenziale per il successo del DevFest, fornendo il supporto
 necessario per portare avanti un evento che ispira e connette la nostra community tech. Scopri i partner che hanno

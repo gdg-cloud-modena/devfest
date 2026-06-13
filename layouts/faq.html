@@ -1,6 +1,6 @@
 {{define "main"}}
 <main class="section section--padded">
-  <h1 class="h1">{{ .Title }} {{ .Params.year }}</h1>
+  <h1 class="h1">{{ .Title }} {{ or (.Param "year") .Site.Params.currentEdition }}</h1>
   <div class="content">{{ .Content }}</div>
 
   <div class="faq">

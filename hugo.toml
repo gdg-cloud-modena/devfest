@@ -34,8 +34,8 @@ copyrightFromYear = 2024
 favicon = true
 hidden = false
 simpleAnalyticsDomain = "sa.devfest.modena.it"
-utm = "utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2025"
-ticketsUrl = "https://devfest-modena-2025.eventbrite.it"
+utm = "utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2026"
+ticketsUrl = ""
 currentEdition = 2026
 cvFormUrl = "https://form.asana.com/?k=qpheZ_rD3DLkDmIjsJaKVA&d=588515525965352"
 callForSpeakersEnabled = true
@@ -56,7 +56,7 @@ Telegram = "https://t.me/devfest_modena"
 [[menus.main]]
 identifier = "agenda"
 name = "Agenda"
-url = "/2025/sessions/"
+url = "/2026/sessions/"
 weight = 1
 
 [[menus.main]]
@@ -69,19 +69,19 @@ url = "/faq"
 identifier = "team"
 name = "Team"
 weight = 3
-url = "/2025/team/"
+url = "/2026/team/"
 
 [[menus.main]]
 identifier = "speakers"
 name = "Speaker"
 weight = 5
-url = "/2025/speakers/"
+url = "/2026/speakers/"
 
 [[menus.main]]
 identifier = "communities"
 name = "Community"
 weight = 6
-url = "/2025/communities/"
+url = "/2026/communities/"
 
 [[menus.main]]
 identifier = "location"
@@ -92,10 +92,8 @@ url = "/location/"
 # [[menus.main]]
 # identifier = "tickets"
 # name = "Biglietti"
-# url = "https://devfest-modena-2025.eventbrite.it"
+# url = "https://devfest-modena-2026.eventbrite.it"
 # weight = 8
-[menus.main.params]
-external = true
 
 # Footer menu
 

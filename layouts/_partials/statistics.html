@@ -1,4 +1,4 @@
-{{ $year := printf "%v" (.Param "year") }}
+{{ $year := "2025" }}
 {{ $workshopLen := len (where (site.GetPage (printf "/%s/sessions" $year)).Pages "Params.workshop" true)}}
 {{ $agenda := index site.Data $year }}
 {{ $speakers := len (where (site.GetPage (printf "/speakers" )).Pages "Params" "ne" nil ) }}

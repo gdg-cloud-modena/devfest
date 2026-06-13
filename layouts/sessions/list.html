@@ -1,13 +1,13 @@
 {{ define "main" }}
+{{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
 <main class="section section--padded">
-  <h1 class="h1">Agenda {{ .Params.year }}</h1>
+  <h1 class="h1">Agenda {{ $year }}</h1>
 
   <div class="content">
     {{ .Content }}
   </div>
 
   {{/* Year from cascade param in _index.md */}}
-  {{ $year := printf "%v" (.Param "year") }}
   {{ $agenda := index site.Data $year }}
 
   {{/* Load agenda data for that year */}}

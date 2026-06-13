@@ -2,8 +2,8 @@
 title = "DevFest Modena 2026"
 description = ""
 layout = "home"
-date = 2025-08-22
-year = 2025
+date = 2026-06-13
+year = 2026
 draft = false
 +++
 
@@ -17,4 +17,4 @@ Durante la giornata si potrà fare [speed networking](/speed-networking/), per a
 
 C'è spazio anche proporre il proprio [lightning talk](/2025/sessions/lightning-talk/).
 
-Consulta tutte le [sessioni](/2025/sessions/) in programma.
+Consulta tutte le [sessioni](/2026/sessions/) in programma.

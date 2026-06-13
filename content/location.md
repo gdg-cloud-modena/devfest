@@ -3,7 +3,7 @@ type = "location"
 layout = "location"
 title = "Come raggiungerci"
 draft = false
-date = "2025-09-18"
+date = "2026-06-13"
 
 # Parking
 

@@ -1,6 +1,7 @@
 {{ define "main" }}
 
-{{ $year := printf "%v" (.Param "year") }}
+{{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
+{{ $currentYear := printf "%v" site.Params.currentEdition }}
 
 {{- $allSessions := slice -}}
 {{- range site.RegularPages -}}
@@ -14,11 +15,14 @@
 {{- range $allSessions -}}
     {{- if gt (len .Params.speakers) 0 }}
         {{- range .Params.speakers }}
-            {{- if not (in $speakers .) }}
-                {{$code := dict "code" .}}
-                {{ $info := site.GetPage (printf "/speakers/%s" .)}}
-                {{ $code = merge $code $info.Params}}
-                {{- $speakers = merge $speakers (dict . $code) -}}
+            {{- $speakerCode := . -}}
+            {{- if not (in $speakers $speakerCode) }}
+                {{$code := dict "code" $speakerCode "Title" $speakerCode}}
+                {{ with site.GetPage (printf "/speakers/%s" $speakerCode) }}
+                  {{ $code = merge $code (dict "Title" .Title) }}
+                  {{ $code = merge $code .Params}}
+                {{ end }}
+                {{- $speakers = merge $speakers (dict $speakerCode $code) -}}
             {{- end -}}
         {{- end -}}
     {{- end -}}
@@ -26,16 +30,17 @@
 {{- $speakers = sort $speakers "code" "asc" -}}
 
 <main class="section section--padded">
-  <p>Oooops, ci hai trovato troppo presto!</p>
-  <p>Gli speaker del 2026 non sono ancora pubblici, qui sotto però puoi trovare quelli dell'anno scorso! Magari qualche volto lo rivedrai a ottobre ;)</p>
-  {{ if .Site.Params.callForSpeakersEnabled }}
+  {{ if eq $year $currentYear }}
+  <p>Gli speaker del 2026 non sono ancora annunciati tutti, qui sotto però ecco qualche anticipazione!</p>
+  {{ if site.Params.callForSpeakersEnabled }}
   <div class="callout callout--info">
-    <p class="p">Vuoi salire sul palco del DevFest Modena 2026? La call for speakers è aperta.</p>
-    <a class="button" href="{{ .Site.Params.sessionizeUrl }}" target="_blank" rel="noopener">Proponi una sessione</a>
+    <p class="p">Vuoi salire sul palco del DevFest Modena {{ $year }}? La call for speakers è ancora aperta.</p>
+    <a class="button" href="{{ site.Params.sessionizeUrl }}" target="_blank" rel="noopener">Proponi una sessione</a>
   </div>
   {{ end }}
   <br/>
-  <h1 class="h1">Speaker 2025</h1>
+  {{ end }}
+  <h1 class="h1">Speaker {{$year}}</h1>
   <div class="content">
     {{ .Content }}
   </div>

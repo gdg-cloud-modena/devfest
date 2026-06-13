@@ -1,6 +1,6 @@
 +++
 title = "Codice di Condotta"
-date = 2025-09-23
+date = 2026-06-13
 draft = false
 layout = "code-of-conduct"
 +++
@@ -13,7 +13,7 @@ GDG Cloud Modena si impegna a garantire un'esperienza inclusiva e priva di moles
 
 ### Policy
 
-Tutti i partecipanti al Devfest Modena 2025 devono attenersi alla seguente policy:
+Tutti i partecipanti al Devfest Modena 2026 devono attenersi alla seguente policy:
 
 1. Siate ineccepibili gli uni con gli altri. Vogliamo che l'evento sia un'esperienza non solo positiva ma eccellente, per tutte e tutti, indipendentemente dall'identità e dall'espressione di genere, dall'orientamento sessuale, dalle disabilità, dalla neurodiversità, dall'aspetto fisico, dalla corporatura, dall'etnia, dalla nazionalità, dalla razza, dall'età, dalla religione o da altre categorie protette. Trattate tutti con rispetto. Partecipate con la consapevolezza che tutti meritano di essere qui e che ognuno di noi ha il diritto di godersi la propria esperienza senza timore di molestie, discriminazioni o atteggiamenti di condiscendenza, siano palesi o sotto forma di micro aggressioni. Le battute non devono sminuire gli altri. Riflettete su ciò che dite e come vi sentireste se fosse detto a voi o su di voi.
 
@@ -25,7 +25,7 @@ Tutti i partecipanti al Devfest Modena 2025 devono attenersi alla seguente polic
 
 ### Ambito di applicazione
 
-La presente policy si applica a conferenze, forum, workshop, codelab, social media, feste, talk informali, tutti i partecipanti, partner, sponsor, volontari, personale dell'evento, ecc. Il concetto è chiaro. GDG Cloud Modena si riserva il diritto di rifiutare l'ammissione o di allontanare qualsiasi persona dal Devfest Modena 2025 in qualsiasi momento a sua esclusiva discrezione. Ciò include, ma non è limitato a, partecipanti che si comportano in modo disordinato o che non rispettano la presente policy e i termini e le condizioni qui riportati. Se un partecipante si rende responsabile di comportamenti molesti o sgradevoli, gli organizzatori dell'evento possono intraprendere qualsiasi azione ritengano opportuna, compreso l'ammonimento o l'espulsione dell'autore del reato dall'evento senza alcun rimborso.
+La presente policy si applica a conferenze, forum, workshop, codelab, social media, feste, talk informali, tutti i partecipanti, partner, sponsor, volontari, personale dell'evento, ecc. Il concetto è chiaro. GDG Cloud Modena si riserva il diritto di rifiutare l'ammissione o di allontanare qualsiasi persona dal Devfest Modena 2026 in qualsiasi momento a sua esclusiva discrezione. Ciò include, ma non è limitato a, partecipanti che si comportano in modo disordinato o che non rispettano la presente policy e i termini e le condizioni qui riportati. Se un partecipante si rende responsabile di comportamenti molesti o sgradevoli, gli organizzatori dell'evento possono intraprendere qualsiasi azione ritengano opportuna, compreso l'ammonimento o l'espulsione dell'autore del reato dall'evento senza alcun rimborso.
 
 Il nostro staff addetto agli eventi è solitamente identificabile grazie a badge/abbigliamento speciali. La nostra politica di tolleranza zero implica che esamineremo e valuteremo ogni segnalazione di violazione delle nostre Linee guida per la comunità degli eventi e della Politica anti-molestie, rispondendo in modo adeguato. Si prega di notare che, pur prendendo sul serio tutte le segnalazioni ricevute, useremo la nostra discrezionalità nel determinare quando e come dare seguito agli incidenti segnalati e potremo decidere di non intraprendere ulteriori azioni e/o indirizzare il partecipante ad altre risorse per la risoluzione del problema.
 

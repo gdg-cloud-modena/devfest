@@ -1,6 +1,6 @@
 +++
 title = "Name Surname"
-date = 2025-09-10
+date = 2026-06-13
 draft = false
 
 [params]

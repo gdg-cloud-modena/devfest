@@ -1,4 +1,4 @@
-days = [2025-10-03]
+days = [2026-10-03, 2026-10-04]
 participants = 600
 utm = "utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2026"
 
@@ -386,4 +386,3 @@ name = "NetAi"
 code = "netai"
 link = "https://netai.it/"
 level = "bronze"
-
