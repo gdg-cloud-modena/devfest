@@ -1,6 +1,17 @@
 {{ define "main" }}
 {{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
+{{ $currentYear := printf "%v" site.Params.currentEdition }}
 <main class="section section--padded">
+  {{ if eq $year $currentYear }}
+  <p>Gli speaker del 2026 non sono ancora annunciati tutti, qui sotto però ecco qualche anticipazione!</p>
+  {{ if site.Params.callForSpeakersEnabled }}
+  <div class="callout callout--info">
+    <p class="p">Vuoi salire sul palco del DevFest Modena {{ $year }}? La call for speakers è ancora aperta.</p>
+    <a class="button" href="{{ site.Params.sessionizeUrl }}" target="_blank" rel="noopener">Proponi una sessione</a>
+  </div>
+  {{ end }}
+  <br/>
+  {{ end }}
   <h1 class="h1">Agenda {{ $year }}</h1>
 
   <div class="content">
