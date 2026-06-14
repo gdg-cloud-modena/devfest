@@ -13,6 +13,23 @@
 {{ if not $gallery }}
   {{ $gallery = slice (resources.Get "location/image1.jpg") (resources.Get "location/image2.jpg") (resources.Get "images/home-hero.webp") }}
 {{ end }}
+{{ $year := printf "%v" .Site.Params.currentEdition }}
+{{ $featuredSpeakers := slice }}
+{{ $speakerCodes := dict }}
+{{ with site.GetPage (printf "/%s/sessions" $year) }}
+  {{ range .Pages }}
+    {{ range .Params.speakers }}
+      {{ $speakerCode := . }}
+      {{ if not (in $speakerCodes $speakerCode) }}
+        {{ with site.GetPage (printf "/speakers/%s" $speakerCode) }}
+          {{ $featuredSpeakers = $featuredSpeakers | append (dict "code" $speakerCode "name" .Title "company" .Params.company "role" .Params.role "url" .RelPermalink) }}
+          {{ $speakerCodes = merge $speakerCodes (dict $speakerCode true) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $featuredSpeakers = sort $featuredSpeakers "name" "asc" }}
 
 <main class="international">
   <nav class="section internationalNav" aria-label="International page sections">
@@ -20,6 +37,9 @@
       <img src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena">
     </a>
     <div class="internationalNav-links">
+      {{ if gt (len $featuredSpeakers) 0 }}
+        <a href="#speakers">{{ .Params.speakers.navLabel }}</a>
+      {{ end }}
       <a href="#location">Location</a>
       <a href="#faq">FAQ</a>
       {{ if .Site.Params.callForSpeakersEnabled }}
@@ -65,8 +85,38 @@
     </section>
   {{ end }}
 
+  {{ if gt (len $featuredSpeakers) 0 }}
+  <section class="section section--padded internationalSpeakers" id="speakers">
+    <div class="internationalSpeakers-head">
+      <h2 class="h2">{{ .Params.speakers.title }}</h2>
+      <p class="p">{{ .Params.speakers.description }}</p>
+    </div>
+    <div class="internationalSpeakers-grid">
+      {{ range $featuredSpeakers }}
+        {{ $img := resources.Get (printf "speakers/%s.jpg" .code) }}
+        {{ if not $img }}
+          {{ $img = resources.Get (printf "speakers/%s.png" .code) }}
+        {{ end }}
+        {{ if not $img }}
+          {{ $img = resources.Get "team/profile.jpg" }}
+        {{ end }}
+        {{ $thumb := $img.Fill "480x420 Center webp q82" }}
+        <a class="internationalSpeaker" href="{{ .url }}">
+          <img class="internationalSpeaker-image" src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ .name }}" loading="lazy">
+          <span class="internationalSpeaker-body">
+            <strong class="internationalSpeaker-name">{{ .name }}</strong>
+            {{ if or .company .role }}
+            <span class="internationalSpeaker-meta">{{ .role }}{{ if and .role .company }} · {{ end }}{{ .company }}</span>
+            {{ end }}
+          </span>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
   <section class="section section--padded" id="overview">
-    <h2 class="h2">2025 numbers</h2>
+    <h2 class="h2">{{ .Site.Params.currentEdition }} numbers</h2>
     <div class="internationalStats">
       {{ range .Params.stats }}
       <article class="internationalStats-item">

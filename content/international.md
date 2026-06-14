@@ -61,6 +61,11 @@ title = "Call for speakers"
 description = "Would you like to speak at DevFest Modena 2026? Submit your talk or workshop."
 buttonLabel = "Submit a proposal"
 
+[params.speakers]
+navLabel = "Speakers"
+title = "Some of our speakers"
+description = "The full lineup is still taking shape. Here are some of the speakers already announced for DevFest Modena 2026."
+
 [[params.faq]]
 question = "Is the event free?"
 answer = "Yes, DevFest Modena is a free event organized on a non-profit basis by local tech communities. Sponsorships and partnerships help us cover all the costs and keep the event free for attendees."

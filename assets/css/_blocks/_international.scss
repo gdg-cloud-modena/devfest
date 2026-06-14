@@ -142,6 +142,69 @@
     gap: spaces.$space-s;
   }
 
+  .internationalSpeakers-head {
+    max-width: 44rem;
+    margin-block-end: spaces.$space-m;
+  }
+
+  .internationalSpeakers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: spaces.$space-s;
+  }
+
+  .internationalSpeaker {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    color: colors.$black;
+    background: colors.$white;
+    border: 1px solid rgba(colors.$black, 0.08);
+    text-decoration: none;
+    box-shadow: 0 0.5rem 1.5rem rgba(colors.$black, 0.06);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+    @extend %rounded;
+  }
+
+  .internationalSpeaker:hover,
+  .internationalSpeaker:focus {
+    transform: translateY(-0.18rem);
+    border-color: rgba(colors.$primary, 0.42);
+    box-shadow: 0 0.85rem 2rem rgba(colors.$black, 0.1);
+  }
+
+  .internationalSpeaker:focus {
+    outline: 2px solid colors.$primary;
+    outline-offset: 0.18rem;
+  }
+
+  .internationalSpeaker-image {
+    width: 100%;
+    aspect-ratio: 8 / 7;
+    object-fit: cover;
+    background: colors.$gray;
+  }
+
+  .internationalSpeaker-body {
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-2xs;
+    padding: spaces.$space-s;
+  }
+
+  .internationalSpeaker-name {
+    font-size: fonts.$size-1;
+    line-height: fonts.$title;
+  }
+
+  .internationalSpeaker-meta {
+    color: rgba(colors.$black, 0.68);
+    line-height: fonts.$copy;
+  }
+
   .internationalStats-item {
     padding-block: spaces.$space-s;
     border-top: 0.35rem solid colors.$primary;
@@ -257,6 +320,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .internationalSpeakers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .internationalEvent,
   .internationalLocation,
   .internationalTickets {
@@ -290,6 +357,7 @@
   }
 
   .internationalStats,
+  .internationalSpeakers-grid,
   .internationalEvent,
   .internationalLocation,
   .internationalTickets {
