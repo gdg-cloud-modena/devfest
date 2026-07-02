@@ -3,11 +3,11 @@
 <section class="ctaTickets">
   <div class="ctaTickets-content">
     <div class="ctaTickets-info">
-      <h2 class="ctaTickets-title">Biglietti non ancora disponibili</h2>
-      <p class="p">Oooops, ci hai trovato troppo presto! I biglietti non sono ancora usciti.</p>
-      <p class="p">Puoi scriverci una email e noi ti notificheremo quando apriranno le prenotazioni.</p>
-      <a class="button" href="mailto:{{ .Site.Params.email }}" target="_blank">
-        Rimani informato
+      <h2 class="ctaTickets-title">Biglietti disponibili</h2>
+      <p class="p">Le registrazioni per DevFest Modena 2026 sono aperte.</p>
+      <p class="p">Prendi il tuo biglietto gratuito e assicurati un posto all'evento.</p>
+      <a class="button" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+        Prendi il biglietto
       </a>
     </div>
     <img class="ctaTickets-image" src="{{ $img.Permalink }}" alt="Devfest Modena Logo" width="{{ $img.Width }}" height="{{ $img.Height }}">

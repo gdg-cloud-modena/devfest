@@ -100,7 +100,7 @@ answer = "No, Google helps us with the DevFest format and provides support, but 
 
 [params.tickets]
 title = "Tickets"
-description = "Tickets for DevFest Modena 2026 are not available yet, but you can ask for updates to be the first to know when they will be released!"
-buttonLabel = "Request ticket updates"
-buttonUrl = "mailto:info@devfest.modena.it?subject=DevFest%20Modena%202026%20ticket%20updates"
+description = "Tickets for DevFest Modena 2026 are available. Participation is free, but registration is required."
+buttonLabel = "Get your ticket"
+buttonUrl = "https://gdg.community.dev/e/m6u46s/"
 +++

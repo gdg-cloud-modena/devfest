@@ -84,6 +84,14 @@
       <a class="button" href="{{ .Site.Params.sessionizeUrl }}" target="_blank" rel="noopener">{{ .Params.callForSpeakers.buttonLabel }}</a>
     </section>
   {{ end }}
+  <section class="section section--padded internationalTickets" id="tickets">
+    <div class="internationalTickets-copy">
+      <h2 class="h2">{{ .Params.tickets.title }}</h2>
+      <p class="p">{{ .Params.tickets.description }}</p>
+    </div>
+    <a class="button" href="{{ .Params.tickets.buttonUrl }}">{{ .Params.tickets.buttonLabel }}</a>
+  </section>
+
 
   {{ if gt (len $featuredSpeakers) 0 }}
   <section class="section section--padded internationalSpeakers" id="speakers">
@@ -170,14 +178,6 @@
         {{ end }}
       </div>
     </div>
-  </section>
-
-  <section class="section section--padded internationalTickets" id="tickets">
-    <div class="internationalTickets-copy">
-      <h2 class="h2">{{ .Params.tickets.title }}</h2>
-      <p class="p">{{ .Params.tickets.description }}</p>
-    </div>
-    <a class="button" href="{{ .Params.tickets.buttonUrl }}">{{ .Params.tickets.buttonLabel }}</a>
   </section>
 
   <footer class="internationalFooter">

@@ -35,10 +35,10 @@ favicon = true
 hidden = false
 simpleAnalyticsDomain = "sa.devfest.modena.it"
 utm = "utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2026"
-ticketsUrl = ""
+ticketsUrl = "https://gdg.community.dev/e/m6u46s/"
 currentEdition = 2026
 cvFormUrl = "https://form.asana.com/?k=qpheZ_rD3DLkDmIjsJaKVA&d=588515525965352"
-callForSpeakersEnabled = true
+callForSpeakersEnabled = false
 sessionizeUrl = "https://sessionize.com/devfest-modena-2026"
 
 [params.social]
@@ -89,11 +89,13 @@ name = "Location"
 weight = 7
 url = "/location/"
 
-# [[menus.main]]
-# identifier = "tickets"
-# name = "Biglietti"
-# url = "https://devfest-modena-2026.eventbrite.it"
-# weight = 8
+[[menus.main]]
+identifier = "tickets"
+name = "Biglietti"
+url = "https://gdg.community.dev/e/m6u46s/"
+weight = 8
+[menus.main.params]
+external = true
 
 # Footer menu
 
