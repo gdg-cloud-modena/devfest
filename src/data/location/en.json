@@ -1,0 +1,88 @@
+{
+  "introduction": {
+    "title": "Fondazione San Carlo",
+    "address": "Via S. Carlo, 5, 41121 Modena MO — Italy",
+    "link": "https://maps.app.goo.gl/7pLxqnFZMdP6RfXE8",
+    "website": "https://fondazionesancarlo.it",
+    "description1": "The <span class='highlight'>Fondazione San Carlo</span> is a prestigious cultural institution in the heart of Modena. Hosted in a baroque palace designed by <strong>Bartolomeo Avanzini</strong> and completed in <strong>1764</strong>, the venue features an elegant portico of 32 red Verona marble columns stretching along Via Emilia and Corso Canal Grande.",
+    "description2": "The interior offers refined, functional spaces ideal for events, workshops and conferences. The <span class='highlight'>San Carlo Church</span>, on the ground floor, seats up to 400 people and is equipped with an audio-video system and barrier-free access.",
+    "description3": "The Fondazione is a perfect setting for learning, socialising and culture, combining <strong>history and innovation</strong> in an easily accessible venue with all the services you need."
+  },
+  "photos": [
+    {
+      "title": "Historic façade of the Fondazione San Carlo",
+      "link": "image1.jpg"
+    },
+    {
+      "title": "Historic façade of the Fondazione San Carlo",
+      "link": "image2.jpg"
+    }
+  ],
+  "auto": [
+    {
+      "title": "From Bologna (A1 motorway, ring road)",
+      "step1": "Take the A1 motorway towards Modena",
+      "step2": "Exit at Modena Nord or Modena Sud",
+      "step3": "Follow the signs for the city centre (Via Emilia)",
+      "step4": "Once in the centre, head towards Via San Carlo / a recommended parking"
+    },
+    {
+      "title": "From Reggio Emilia (A1 motorway, SP467)",
+      "step1": "Take the A1 motorway towards Modena",
+      "step2": "Exit at Modena Nord",
+      "step3": "Follow the signs for the city centre",
+      "step4": "Once in the centre, head towards Via San Carlo / a recommended parking"
+    }
+  ],
+  "parking": [
+    {
+      "title": "Ex-Amcm district parking",
+      "address": "Via Antonio Peretti, 9, 41124 Modena (MO)",
+      "link": "https://maps.app.goo.gl/9ivoFPMxXKnC7xHcA",
+      "distance": "About a 14-minute walk",
+      "description": "Underground parking, newly built."
+    },
+    {
+      "title": "Novi Park - city centre parking",
+      "address": "Viale Achille Fontanelli, 18, 41121 Modena (MO)",
+      "link": "https://maps.app.goo.gl/eQUSCZ2SaFHjgzzc6",
+      "distance": "About a 13-minute walk",
+      "description": "Underground, multi-level parking."
+    },
+    {
+      "title": "Avenues around the historic centre",
+      "address": "Viale delle Rimembranze, Modena (MO)",
+      "link": "https://maps.app.goo.gl/C2JgqRwioRWDaKho9",
+      "distance": "6 to 12 minutes on foot",
+      "description": "Street parking along the avenues surrounding the old town."
+    }
+  ],
+  "train": [
+    {
+      "title": "Modena railway station (main)",
+      "distance": "About 1.2 km from the venue",
+      "time": "About a 15-minute walk",
+      "description": "A pleasant walk through the historic centre",
+      "link": "https://maps.app.goo.gl/ncd6xz43CqNQwc5fA"
+    },
+    {
+      "title": "Modena Policlinico station",
+      "distance": "About 1.6 km from the venue",
+      "time": "About a 22-minute walk",
+      "description": "A pleasant walk along Via Emilia",
+      "link": "https://maps.app.goo.gl/PtsAucZXp92QnFLV8"
+    }
+  ],
+  "airplane": [
+    {
+      "title": "Bologna Guglielmo Marconi Airport (BLQ)",
+      "distance": "About 40 km from the venue",
+      "suggestion": "Take the Marconi Express shuttle to Bologna Centrale, then a train to Modena"
+    },
+    {
+      "title": "Verona Villafranca Airport (VRN)",
+      "distance": "About 90 km from the venue",
+      "suggestion": "Take the shuttle to Verona Porta Nuova, then a train to Modena"
+    }
+  ]
+}
