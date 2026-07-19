@@ -8,7 +8,8 @@
 - **Package Manager:** pnpm (committed `pnpm-lock.yaml`). Node.js ≥ 22.12.0.
 - **Dev Server:** `pnpm dev` → `http://localhost:4321`.
 - **Build:** `pnpm build` → static output in `./dist/`.
-- **Structure:** Year-based page routing (`/2026/`, `/archive`) with a shared `Layout.astro` wrapper that exposes a `<slot />`.
+- **Structure:** Edition-driven routing: `src/pages/[year]/…` generates every edition listed in `src/configs/editions.ts` (`CURRENT_YEAR` controls `/`), English mirrors live under `src/pages/en/…`. Content lives in content collections (`src/content/`, `src/data/`, schemas in `src/content.config.ts`); the shared HTML shell is `src/layouts/BaseLayout.astro`. To publish a new edition follow the checklist in `README.md`.
+- **i18n:** Italian default (no URL prefix), English under `/en/`. UI strings in `src/i18n/ui.ts`, localized paths via `localizePath()` from `@i18n/index`.
 
 ## 2. Mandatory Tool Usage (MCP)
 
@@ -66,13 +67,17 @@ You must prioritize the use of the following Model Context Protocol (MCP) tools 
 
 All aliases are defined in `tsconfig.json` under `compilerOptions.paths`. **Always** use these aliases instead of relative paths when importing from `src/`.
 
-| Alias           | Maps to              | Usage                                                         |
-| --------------- | -------------------- | ------------------------------------------------------------- |
-| `@styles/*`     | `./src/styles/*`     | CSS files: `import "@styles/global.css"`                      |
-| `@components/*` | `./src/components/*` | Components: `import Welcome from "@components/Welcome.astro"` |
-| `@layouts/*`    | `./src/layouts/*`    | Layouts: `import Layout from "@layouts/Layout.astro"`         |
-| `@pages/*`      | `./src/pages/*`      | Page components (rare)                                        |
-| `@assets/*`     | `./src/assets/*`     | Static assets: `import logo from "@assets/astro.svg"`         |
+| Alias           | Maps to              | Usage                                                                   |
+| --------------- | -------------------- | ----------------------------------------------------------------------- |
+| `@configs/*`    | `./src/configs/*`    | Site/edition config: `import { CURRENT_YEAR } from "@configs/editions"` |
+| `@styles/*`     | `./src/styles/*`     | CSS files: `import "@styles/global.css"`                                |
+| `@components/*` | `./src/components/*` | Components: `import Header from "@components/Header.astro"`             |
+| `@layouts/*`    | `./src/layouts/*`    | Layouts: `import BaseLayout from "@layouts/BaseLayout.astro"`           |
+| `@pages/*`      | `./src/pages/*`      | Page components (rare)                                                  |
+| `@assets/*`     | `./src/assets/*`     | Static assets: `import logo from "@assets/images/logo.png"`             |
+| `@i18n/*`       | `./src/i18n/*`       | Translations: `import { useTranslations } from "@i18n/index"`           |
+| `@lib/*`        | `./src/lib/*`        | Helpers: `import { getSessionsOfYear } from "@lib/content"`             |
+| `@data/*`       | `./src/data/*`       | Structured data (editions, FAQ, location)                               |
 
 ## 5. Git Commit Guidelines
 

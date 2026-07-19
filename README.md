@@ -2,6 +2,8 @@
 
 Official static website for DevFest Modena, built with [Astro v6](https://astro.build).
 
+Fully static HTML output, bilingual (Italian default, English under `/en/`), no client-side frameworks, no cookies (Simple Analytics is cookieless), dark mode via `prefers-color-scheme`.
+
 ---
 
 ## Prerequisites
@@ -13,16 +15,9 @@ Official static website for DevFest Modena, built with [Astro v6](https://astro.
 
 > **Important:** always use **pnpm**. The `pnpm-lock.yaml` lockfile is committed to the repository; using npm or yarn will generate a conflicting lockfile.
 
-Check your Node.js version:
-
 ```bash
-node -v   # must return v22.12.0 or higher
-```
-
-If you don't have pnpm installed:
-
-```bash
-npm install -g pnpm
+node -v                # must return v22.12.0 or higher
+npm install -g pnpm    # if you don't have pnpm
 ```
 
 ---
@@ -39,41 +34,7 @@ The Husky `post-merge` hook is set up automatically by `pnpm install` via the `p
 
 ---
 
-## Development
-
-Start the local dev server:
-
-```bash
-pnpm dev
-```
-
-The site will be available at [http://localhost:4321](http://localhost:4321).
-
----
-
 ## Available Commands
-
-All commands are run from the root of the project:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-## Available Commands
-
-All commands are run from the root of the project:
 
 | Command                      | Description                          |
 | ---------------------------- | ------------------------------------ |
@@ -85,7 +46,59 @@ All commands are run from the root of the project:
 | `pnpm astro:enable-toolbar`  | Enable the Astro dev toolbar         |
 | `pnpm astro:disable-toolbar` | Disable the Astro dev toolbar        |
 
-**Composition pattern:** `pages/` uses layouts → layouts expose `<slot />` → components render inside slots.
+---
+
+## Project structure
+
+```text
+src/
+├── configs/
+│   ├── site.ts             # site-wide constants (URL, social, email, UTM)
+│   └── editions.ts         # ⭐ edition registry + CURRENT_YEAR
+├── content.config.ts       # content-collection schemas (Zod)
+├── content/
+│   ├── speakers/           # speaker profiles, shared across editions
+│   ├── sessions/<year>/    # talks & workshops of an edition
+│   ├── rooms/<year>/       # venue rooms of an edition
+│   ├── partners/<year>/    # optional partner presentation pages
+│   └── pages/{it,en}/      # localized editorial pages (FAQ intro, CoC…)
+├── data/
+│   ├── editions/<year>.json  # per-edition data (days, team, partners, levels)
+│   ├── communities.json      # community registry
+│   ├── faq/{it,en}.json      # FAQ entries per locale
+│   └── location/{it,en}.json # venue & travel info per locale
+├── i18n/                   # locale helpers + UI dictionaries (it/en)
+├── layouts/BaseLayout.astro  # HTML shell: SEO, hreflang, JSON-LD, header/footer
+├── components/             # shared components + components/pages/* (page bodies)
+├── pages/                  # routes (thin wrappers); pages/en/* mirrors for English
+├── styles/                 # variables.css (tokens), themes.css, global.css
+└── assets/                 # images: speakers/, team/, partners/<year>/, rooms/<year>/…
+```
+
+Routing is **edition-driven**: `src/pages/[year]/…` generates the pages of every edition listed in the registry, `/` always shows the current edition, `/archive/` lists the past ones.
+
+---
+
+## ⭐ Publishing a new edition
+
+Everything is driven by `src/configs/editions.ts` and the content folders. To add e.g. **2027**:
+
+1. **Data** — create `src/data/editions/2027.json` (days, participants, communities, roles, people, levels, partners).
+2. **Content** — create `src/content/sessions/2027/`, `src/content/rooms/2027/` (Markdown; see the Zod schemas in `src/content.config.ts`) and, if needed, `src/content/partners/2027/`.
+3. **Assets** — add logos/photos under `src/assets/partners/2027/` and `src/assets/rooms/2027/`. Speaker photos are global in `src/assets/speakers/`.
+4. **Registry** — add the `"2027"` entry in `src/configs/editions.ts` (venue, ticketsUrl, call for speakers, stats source) and bump `CURRENT_YEAR`.
+5. **Theme (optional)** — add a `[data-edition="2027"]` block in `src/styles/themes.css` to re-tint the edition.
+
+Home page, menu, hub pages, archive, footer and sitemap update automatically. `pnpm build` fails if a session references a missing speaker — schemas validate all cross-references.
+
+---
+
+## Content model in short
+
+- **Speakers** are global (`/speakers/<slug>/`) and shared across editions; a session references them by slug.
+- **Sessions** live in `/​<year>/sessions/<slug>/` and reference rooms of the same year.
+- **Editorial pages** (`faq`, `workshops`, `code-of-conduct`…) exist per locale in `src/content/pages/{it,en}/` — the English page falls back to Italian when missing.
+- **UI strings** live in `src/i18n/ui.ts` (`t("nav.agenda")`), URLs are localized with `localizePath()`.
 
 ---
 
@@ -111,12 +124,12 @@ pnpm build    # generates the static site in ./dist/
 pnpm preview  # local preview of the production build
 ```
 
-The `./dist/` output is a fully static site ready to be deployed on any hosting platform (Netlify, Vercel, GitHub Pages, etc.).
+The `./dist/` output is a fully static site ready to be deployed on any hosting platform (Netlify, Vercel, GitHub Pages, etc.). `robots.txt`, `sitemap-index.xml` (with `hreflang` alternates) and the `/international/ → /en/` redirect are generated at build time.
 
 ---
 
 ## Resources
 
 - [Astro documentation](https://docs.astro.build)
-- [Astro project structure guide](https://docs.astro.build/en/basics/project-structure/)
+- [Astro content collections](https://docs.astro.build/en/guides/content-collections/)
 - [GDG Cloud Modena](https://gdg.community.dev/gdg-cloud-modena/)
