@@ -1,0 +1,127 @@
+---
+import SectionHeading from "@components/SectionHeading.astro";
+import { CURRENT_YEAR } from "@configs/editions";
+import { useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getEntry } from "astro:content";
+import { marked } from "marked";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const faq = (await getEntry("faq", locale)) ?? (await getEntry("faq", "it"));
+const items = faq?.data.items ?? [];
+
+/** Answers are markdown snippets (links, bold…): render them at build time. */
+const rendered = await Promise.all(
+  items.map(async (item) => ({
+    question: item.question,
+    answer: await marked.parse(item.answer),
+  })),
+);
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout title={`${t("faq.title")} ${CURRENT_YEAR}`} {locale} {jsonLd}>
+  <div class="container section">
+    <SectionHeading
+      as="h1"
+      title={`${t("faq.title")} ${CURRENT_YEAR}`}
+      kicker="FAQ"
+    />
+    <p class="lead">{t("faq.intro")}</p>
+
+    <div class="faq">
+      {
+        rendered.map((item) => (
+          <details class="item" name="faq">
+            <summary>{item.question}</summary>
+            <div class="answer prose" set:html={item.answer} />
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lead {
+    margin-block: calc(-1 * var(--space-xs)) var(--space-m);
+    color: var(--color-text-muted);
+  }
+
+  .faq {
+    display: grid;
+    gap: var(--space-2xs);
+    max-width: var(--container-narrow);
+  }
+
+  .item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+    background: var(--color-surface);
+    transition: border-color var(--transition);
+  }
+
+  .item[open] {
+    border-color: var(--edition-accent);
+    background: var(--color-bg);
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--color-ink);
+    padding: var(--space-s);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: "+";
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 50%;
+    background: var(--edition-accent-soft);
+    color: var(--color-ink);
+    font-weight: 400;
+    transition: rotate var(--transition);
+  }
+
+  .item[open] summary::after {
+    rotate: 45deg;
+  }
+
+  .answer {
+    padding: 0 var(--space-s) var(--space-s);
+  }
+
+  .answer :global(p:first-child) {
+    margin-top: 0;
+  }
+</style>

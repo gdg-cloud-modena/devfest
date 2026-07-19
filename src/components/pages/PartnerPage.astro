@@ -1,0 +1,136 @@
+---
+import EditionNotice from "@components/EditionNotice.astro";
+import { withUtm } from "@configs/site";
+import { isCurrent } from "@configs/editions";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getEdition } from "@lib/content";
+import { partnerLogo } from "@lib/images";
+import { Image } from "astro:assets";
+import { getEntry, render } from "astro:content";
+
+interface Props {
+  year: string;
+  code: string;
+  locale: Locale;
+}
+
+const { year, code, locale } = Astro.props;
+const t = useTranslations(locale);
+
+const edition = await getEdition(year);
+const partner = edition.data.partners.find((p) => p.code === code);
+if (!partner) throw new Error(`Unknown partner ${code} for ${year}`);
+
+const level = edition.data.levels.find((lv) => lv.code === partner.level);
+const page = await getEntry("partners", `${year}/${code}`);
+const Content = page ? (await render(page)).Content : null;
+
+const logo = partnerLogo(year, code);
+const link = withUtm(partner.link, year);
+---
+
+<BaseLayout title={partner.name} {locale} {year} noCtas={!isCurrent(year)}>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <p class="back">
+      <a href={localizePath(locale, `/${year}/partners/`)}
+        >← {t("partners.title")} {year}</a
+      >
+    </p>
+
+    <div class="head">
+      {
+        logo && (
+          <span class="logo">
+            <Image
+              src={logo}
+              alt=""
+              width="360"
+              densities={[1, 2]}
+              loading="eager"
+            />
+          </span>
+        )
+      }
+      <div>
+        <h1>{partner.name}</h1>
+        {level && <p class="chip chip--yellow">{level.title}</p>}
+        <p class="link">
+          <a href={link} target="_blank" rel="noopener"
+            >{partner.link.replace(/^https?:\/\//, "").replace(/\/$/, "")} ↗</a
+          >
+        </p>
+      </div>
+    </div>
+
+    {
+      Content && (
+        <div class="prose">
+          <Content />
+        </div>
+      )
+    }
+
+    <p class="visit">
+      <a class="button" href={link} target="_blank" rel="noopener">
+        {t("partner.visit")}
+      </a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .back {
+    font-size: var(--text--1);
+    margin-bottom: var(--space-m);
+  }
+
+  .back a {
+    text-decoration: none;
+  }
+
+  .back a:hover {
+    text-decoration: underline;
+  }
+
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-m);
+    margin-bottom: var(--space-m);
+  }
+
+  .logo {
+    display: grid;
+    place-items: center;
+    width: 14rem;
+    aspect-ratio: 3 / 2;
+    background: oklch(99% 0 0);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-l);
+    padding: var(--space-s);
+  }
+
+  .logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  h1 {
+    font-size: var(--text-3);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .link {
+    margin-top: var(--space-2xs);
+  }
+
+  .visit {
+    margin-top: var(--space-m);
+  }
+</style>

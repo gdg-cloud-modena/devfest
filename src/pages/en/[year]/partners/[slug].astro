@@ -1,0 +1,12 @@
+---
+import PartnerPage from "@components/pages/PartnerPage.astro";
+import { partnerPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return partnerPaths();
+}
+
+const { year, slug } = Astro.params;
+---
+
+<PartnerPage {year} code={slug} locale="en" />

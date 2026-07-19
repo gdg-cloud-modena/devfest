@@ -1,0 +1,235 @@
+---
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import { slugOf, type Room, type Session, type Speaker } from "@lib/content";
+import { fmtTime, isoAtVenue } from "@lib/dates";
+
+/**
+ * Time-ordered list of sessions. `data-starts/ends` attributes let the
+ * agenda page highlight the sessions happening right now.
+ */
+interface Props {
+  sessions: Session[];
+  year: string | number;
+  locale: Locale;
+  roomsBySlug: Map<string, Room>;
+  speakersById: Map<string, Speaker>;
+  showRooms?: boolean;
+  showSpeakers?: boolean;
+  headingLevel?: "h3" | "h4";
+}
+
+const {
+  sessions,
+  year,
+  locale,
+  roomsBySlug,
+  speakersById,
+  showRooms = true,
+  showSpeakers = true,
+  headingLevel: Heading = "h3",
+} = Astro.props;
+
+const t = useTranslations(locale);
+const l = (path: string) => localizePath(locale, path);
+
+function speakerLabel(session: Session): string {
+  const refs = session.data.speakers;
+  if (refs.length > 1) return t("agenda.speakers");
+  const one = refs[0] && speakersById.get(refs[0].id);
+  return one?.data.female ? t("agenda.speaker.f") : t("agenda.speaker.m");
+}
+---
+
+<ol class="sessions" role="list">
+  {
+    sessions.map((session) => {
+      const rooms = session.data.rooms
+        .map((slug) => roomsBySlug.get(slug))
+        .filter((r) => r !== undefined);
+      const speakers = session.data.speakers
+        .map((ref) => speakersById.get(ref.id))
+        .filter((s) => s !== undefined);
+      return (
+        <li
+          class="session"
+          data-starts={isoAtVenue(session.data.starts)}
+          data-ends={isoAtVenue(session.data.ends)}
+        >
+          <p class="time">
+            <time datetime={isoAtVenue(session.data.starts)}>
+              {fmtTime(session.data.starts, locale)}
+            </time>
+            <span class="time-end">{fmtTime(session.data.ends, locale)}</span>
+            <span class="chip chip--red now">{t("agenda.now")}</span>
+          </p>
+          <div class="body">
+            <Heading class="title">
+              <a href={l(`/${year}/sessions/${slugOf(session)}/`)}>
+                {session.data.title}
+              </a>
+              {session.data.workshop && (
+                <span class="chip chip--green">{t("agenda.workshop")}</span>
+              )}
+              {session.data.lang === "en" && locale === "it" && (
+                <span class="chip chip--blue" title={t("session.lang.en")}>
+                  EN
+                </span>
+              )}
+              {session.data.lang === "it" && locale === "en" && (
+                <span class="chip chip--blue" title={t("session.lang.it")}>
+                  IT
+                </span>
+              )}
+            </Heading>
+            {(showRooms || showSpeakers) && (
+              <p class="meta">
+                {showRooms && rooms.length > 0 && (
+                  <span>
+                    {rooms.length === 1
+                      ? t("agenda.room")
+                      : t("agenda.rooms.simultaneous")}
+                    :{" "}
+                    {rooms.map((room, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={l(`/${year}/rooms/${slugOf(room)}/`)}>
+                          {room.data.name}
+                        </a>
+                      </>
+                    ))}
+                  </span>
+                )}
+                {showSpeakers && speakers.length > 0 && (
+                  <span>
+                    {speakerLabel(session)}:{" "}
+                    {speakers.map((speaker, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={l(`/speakers/${speaker.id}/`)}>
+                          {speaker.data.name}
+                        </a>
+                      </>
+                    ))}
+                  </span>
+                )}
+              </p>
+            )}
+            {session.data.warning && (
+              <p class="warning">⚠️ {session.data.warning}</p>
+            )}
+          </div>
+        </li>
+      );
+    })
+  }
+</ol>
+
+<style>
+  .sessions {
+    list-style: none;
+    padding: 0;
+    display: grid;
+  }
+
+  .session {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: var(--space-s);
+    padding-block: var(--space-s);
+    border-bottom: 1px solid var(--color-border);
+    transition: opacity var(--transition);
+  }
+
+  .session:last-child {
+    border-bottom: none;
+  }
+
+  .time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    line-height: var(--leading-title);
+  }
+
+  .time-end {
+    font-weight: 400;
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
+  }
+
+  .time-end::before {
+    content: "→ ";
+  }
+
+  .now {
+    display: none;
+    margin-top: 0.3rem;
+  }
+
+  .title {
+    font-size: var(--text-0);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .title a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .title a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--edition-accent);
+    text-decoration-thickness: 2px;
+  }
+
+  .meta {
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
+    margin-top: 0.25rem;
+  }
+
+  .meta > span:not(:first-child)::before {
+    content: " · ";
+  }
+
+  .warning {
+    margin-top: 0.35rem;
+    font-size: var(--text--1);
+    color: light-dark(oklch(45% 0.15 30), oklch(80% 0.12 40));
+  }
+
+  /* States toggled by the agenda enhancement script */
+  :global(.session--past) {
+    opacity: 0.55;
+  }
+
+  :global(.session--current) {
+    background: var(--g-green-soft);
+    border-radius: var(--radius-m);
+    padding-inline: var(--space-s);
+    border-bottom-color: transparent;
+  }
+
+  :global(.session--current) .now {
+    display: inline-flex;
+  }
+
+  @media (max-width: 39.9375em) {
+    .session {
+      grid-template-columns: 1fr;
+      gap: var(--space-3xs);
+    }
+
+    .time {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+  }
+</style>

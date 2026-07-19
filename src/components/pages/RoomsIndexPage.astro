@@ -1,0 +1,123 @@
+---
+import EditionNotice from "@components/EditionNotice.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import { isCurrent } from "@configs/editions";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getRoomsOfYear, slugOf } from "@lib/content";
+import { roomImage } from "@lib/images";
+import { Image } from "astro:assets";
+
+interface Props {
+  year: string;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+const t = useTranslations(locale);
+const l = (path: string) => localizePath(locale, path);
+
+const rooms = await getRoomsOfYear(year);
+const sessionRooms = rooms.filter((r) => r.data.forSessions);
+const otherRooms = rooms.filter((r) => !r.data.forSessions);
+---
+
+<BaseLayout
+  title={`${t("rooms.title")} ${year}`}
+  {locale}
+  {year}
+  noCtas={!isCurrent(year)}
+>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <SectionHeading
+      as="h1"
+      title={t("rooms.title")}
+      kicker={`DevFest Modena ${year}`}
+    />
+
+    {
+      [
+        { title: t("agenda.rooms.sessions"), items: sessionRooms },
+        { title: t("agenda.rooms.other"), items: otherRooms },
+      ]
+        .filter((g) => g.items.length > 0)
+        .map((group) => (
+          <section class="group">
+            <h2>{group.title}</h2>
+            <ul class="grid" role="list">
+              {group.items.map((room) => {
+                const image = roomImage(year, slugOf(room));
+                return (
+                  <li>
+                    <a
+                      class="card room"
+                      href={l(`/${year}/rooms/${slugOf(room)}/`)}
+                    >
+                      {image && (
+                        <Image
+                          class="photo"
+                          src={image}
+                          alt=""
+                          width="480"
+                          height="280"
+                          densities={[1, 2]}
+                        />
+                      )}
+                      <span class="name">{room.data.name}</span>
+                      {room.data.summary && (
+                        <span class="summary">{room.data.summary}</span>
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .group {
+    margin-block: var(--space-l);
+  }
+
+  .group h2 {
+    font-size: var(--text-2);
+    margin-bottom: var(--space-s);
+  }
+
+  .grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: var(--space-s);
+  }
+
+  .room {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .room :global(.photo) {
+    width: 100%;
+    aspect-ratio: 12 / 7;
+    object-fit: cover;
+    border-radius: var(--radius-m);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .name {
+    font-weight: 700;
+    color: var(--color-ink);
+    font-size: var(--text-0);
+  }
+
+  .summary {
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import Callout from "@components/Callout.astro";
+import EditionNotice from "@components/EditionNotice.astro";
+import PersonCard from "@components/PersonCard.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import { editionOf, isCurrent } from "@configs/editions";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getSpeakersOfYear } from "@lib/content";
+import { speakerImage } from "@lib/images";
+
+interface Props {
+  year: string;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+const t = useTranslations(locale);
+const speakers = await getSpeakersOfYear(year);
+
+const current = isCurrent(year);
+const cfs = current ? editionOf(year).callForSpeakers : undefined;
+---
+
+<BaseLayout
+  title={t("speakers.title", { year })}
+  {locale}
+  {year}
+  noCtas={!current}
+>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <SectionHeading
+      as="h1"
+      title={t("speakers.title", { year })}
+      kicker="DevFest Modena"
+    />
+
+    {current && <p class="teaser">{t("speakers.teaser", { year })}</p>}
+
+    {
+      cfs?.open && (
+        <Callout variant="info">
+          <p>{t("cfs.text", { year })}</p>
+          <p>
+            <a class="button" href={cfs.url} target="_blank" rel="noopener">
+              {t("cfs.button")}
+            </a>
+          </p>
+        </Callout>
+      )
+    }
+
+    <ul class="grid" role="list">
+      {
+        speakers.map((speaker) => (
+          <li>
+            <PersonCard
+              name={speaker.data.name}
+              image={speakerImage(speaker.id)}
+              meta={speaker.data.company}
+              detail={speaker.data.role}
+              href={localizePath(locale, `/speakers/${speaker.id}/`)}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .teaser {
+    margin-block: calc(-1 * var(--space-xs)) var(--space-m);
+    color: var(--color-text-muted);
+    max-width: 60ch;
+  }
+
+  .grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: var(--space-s);
+    margin-top: var(--space-m);
+  }
+</style>

@@ -1,0 +1,113 @@
+---
+import EditionNotice from "@components/EditionNotice.astro";
+import PersonCard from "@components/PersonCard.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import { isCurrent } from "@configs/editions";
+import { useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getEdition, getPage } from "@lib/content";
+import { teamImage } from "@lib/images";
+import { getCollection, render } from "astro:content";
+
+interface Props {
+  year: string;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+const t = useTranslations(locale);
+
+const edition = await getEdition(year);
+const registry = new Map(
+  (await getCollection("team")).map((p) => [p.id, p.data]),
+);
+
+const intro = await getPage(locale, `team-intro-${year}`);
+const IntroContent = intro ? (await render(intro)).Content : null;
+
+const groups = edition.data.roles
+  .map((role) => ({
+    role,
+    people: edition.data.people
+      .filter((p) => p.role === role.code)
+      .map((p) => ({
+        code: p.code,
+        // fall back to the global team registry for editions that only list codes
+        name: p.name ?? registry.get(p.code)?.name ?? p.code,
+        description: p.description ?? registry.get(p.code)?.title,
+        website: p.website || registry.get(p.code)?.linkedin,
+      })),
+  }))
+  .filter((g) => g.people.length > 0);
+---
+
+<BaseLayout
+  title={t("team.title", { year })}
+  {locale}
+  {year}
+  noCtas={!isCurrent(year)}
+>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <SectionHeading
+      as="h1"
+      title={t("team.title", { year })}
+      kicker="DevFest Modena"
+    />
+
+    {
+      IntroContent && (
+        <div class="prose intro">
+          <IntroContent />
+        </div>
+      )
+    }
+
+    {
+      groups.map(({ role, people }) => (
+        <section class="group">
+          <h2>{role.title}</h2>
+          <ul class="grid" role="list">
+            {people.map((person) => (
+              <li>
+                <PersonCard
+                  name={person.name}
+                  image={teamImage(person.code)}
+                  detail={person.description}
+                  href={person.website || undefined}
+                  external
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-m);
+  }
+
+  .group {
+    margin-block: var(--space-l);
+  }
+
+  .group h2 {
+    font-size: var(--text-2);
+    margin-bottom: var(--space-s);
+    padding-bottom: var(--space-3xs);
+    border-bottom: 3px solid var(--edition-accent);
+    display: inline-block;
+  }
+
+  .grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: var(--space-s);
+  }
+</style>

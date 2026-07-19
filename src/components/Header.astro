@@ -1,0 +1,370 @@
+---
+import logoSimple from "@assets/images/logo-simple.png";
+import { CURRENT_EDITION, CURRENT_YEAR } from "@configs/editions";
+import {
+  localizePath,
+  switchLocalePath,
+  useTranslations,
+  type Locale,
+} from "@i18n/index";
+import { Image } from "astro:assets";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const items = [
+  { key: "nav.agenda", href: `/${CURRENT_YEAR}/sessions/` },
+  { key: "nav.speakers", href: `/${CURRENT_YEAR}/speakers/` },
+  { key: "nav.team", href: `/${CURRENT_YEAR}/team/` },
+  { key: "nav.communities", href: `/${CURRENT_YEAR}/communities/` },
+  { key: "nav.location", href: "/location/" },
+  { key: "nav.faq", href: "/faq/" },
+] as const;
+
+const current = Astro.url.pathname.replace(/\/$/, "") + "/";
+const isActive = (href: string) => current === localizePath(locale, href);
+const ticketsUrl = CURRENT_EDITION.ticketsUrl;
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href={localizePath(locale, "/")}>
+      <Image
+        src={logoSimple}
+        alt=""
+        width="88"
+        densities={[1, 2]}
+        loading="eager"
+      />
+      <span class="brand-text">
+        DevFest <span class="brand-city">Modena</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label={t("nav.menu.label")}>
+      {
+        items.map((item) => (
+          <a
+            class:list={[
+              "nav-item",
+              { "nav-item--active": isActive(item.href) },
+            ]}
+            aria-current={isActive(item.href) ? "page" : undefined}
+            href={localizePath(locale, item.href)}
+          >
+            {t(item.key)}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="actions">
+      <nav class="lang" aria-label={t("nav.lang.label")}>
+        <a
+          class:list={["lang-item", { "lang-item--active": locale === "it" }]}
+          aria-current={locale === "it" ? "true" : undefined}
+          href={switchLocalePath("it", Astro.url.pathname)}
+          lang="it">IT</a
+        >
+        <span aria-hidden="true">/</span>
+        <a
+          class:list={["lang-item", { "lang-item--active": locale === "en" }]}
+          aria-current={locale === "en" ? "true" : undefined}
+          href={switchLocalePath("en", Astro.url.pathname)}
+          lang="en">EN</a
+        >
+      </nav>
+
+      {
+        ticketsUrl && (
+          <a
+            class="button tickets"
+            href={ticketsUrl}
+            target="_blank"
+            rel="noopener"
+          >
+            {t("nav.tickets")}
+          </a>
+        )
+      }
+
+      <details class="burger">
+        <summary aria-label={t("nav.menu.open")}>
+          <span class="burger-lines" aria-hidden="true"
+            ><i></i><i></i><i></i></span
+          >
+        </summary>
+        <nav class="burger-menu" aria-label={t("nav.menu.label")}>
+          {
+            items.map((item) => (
+              <a
+                class:list={[
+                  "burger-item",
+                  { "burger-item--active": isActive(item.href) },
+                ]}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                href={localizePath(locale, item.href)}
+              >
+                {t(item.key)}
+              </a>
+            ))
+          }
+          {
+            ticketsUrl && (
+              <a
+                class="button burger-tickets"
+                href={ticketsUrl}
+                target="_blank"
+                rel="noopener"
+              >
+                {t("nav.tickets")}
+              </a>
+            )
+          }
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Progressive enhancement only: close the mobile menu on Escape,
+  // on outside click and after choosing a link.
+  const burger = document.querySelector<HTMLDetailsElement>(".burger");
+  if (burger) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && burger.open) {
+        burger.open = false;
+        burger.querySelector("summary")?.focus();
+      }
+    });
+    document.addEventListener("click", (e) => {
+      if (burger.open && !burger.contains(e.target as Node))
+        burger.open = false;
+    });
+    burger
+      .querySelectorAll("a")
+      .forEach((a) => a.addEventListener("click", () => (burger.open = false)));
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklch, var(--color-bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    padding-block: var(--space-2xs);
+    min-height: 4.25rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    text-decoration: none;
+    margin-inline-end: auto;
+  }
+
+  .brand img {
+    width: 2.75rem;
+    height: auto;
+    background: oklch(99% 0 0);
+    border-radius: var(--radius-s);
+    padding: 0.2rem;
+  }
+
+  .brand-text {
+    font-weight: 700;
+    font-size: var(--text-1);
+    color: var(--color-ink);
+    line-height: var(--leading-solid);
+    white-space: nowrap;
+  }
+
+  .brand-city {
+    color: var(--edition-accent);
+  }
+
+  .nav {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .nav-item {
+    padding: 0.45em 0.9em;
+    border-radius: var(--radius-full);
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 400;
+    transition: background var(--transition);
+  }
+
+  .nav-item:hover {
+    background: var(--color-surface-2);
+  }
+
+  .nav-item--active {
+    background: var(--g-yellow-soft);
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .lang {
+    display: flex;
+    gap: 0.35em;
+    font-size: var(--text--1);
+    color: var(--color-text-muted);
+  }
+
+  .lang-item {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: 0.2em 0.3em;
+  }
+
+  .lang-item--active {
+    color: var(--color-ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--edition-accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.25em;
+  }
+
+  .tickets {
+    font-size: var(--text--1);
+    padding: 0.5em 1.2em;
+  }
+
+  /* ---- Mobile burger ---- */
+
+  .burger {
+    display: none;
+    position: relative;
+  }
+
+  .burger summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-s);
+    border: 1px solid var(--color-border);
+  }
+
+  .burger summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .burger-lines {
+    display: grid;
+    gap: 5px;
+    width: 1.25rem;
+  }
+
+  .burger-lines i {
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition:
+      transform var(--transition),
+      opacity var(--transition);
+  }
+
+  .burger[open] .burger-lines i:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .burger[open] .burger-lines i:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger[open] .burger-lines i:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .burger-menu {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 0.5rem);
+    display: grid;
+    gap: 0.25rem;
+    min-width: 14rem;
+    padding: var(--space-xs);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-2);
+  }
+
+  .burger-item {
+    padding: 0.55em 0.9em;
+    border-radius: var(--radius-s);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .burger-item:hover {
+    background: var(--color-surface-2);
+  }
+
+  .burger-item--active {
+    background: var(--g-yellow-soft);
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+
+  .burger-tickets {
+    margin-top: var(--space-2xs);
+  }
+
+  @media (max-width: 63.9375em) {
+    .nav,
+    .tickets {
+      display: none;
+    }
+
+    .burger {
+      display: block;
+    }
+  }
+
+  @media (max-width: 39.9375em) {
+    .bar {
+      gap: var(--space-xs);
+    }
+
+    .brand {
+      gap: 0.4rem;
+    }
+
+    .brand img {
+      width: 2.25rem;
+    }
+
+    .brand-text {
+      font-size: var(--text-0);
+    }
+  }
+</style>

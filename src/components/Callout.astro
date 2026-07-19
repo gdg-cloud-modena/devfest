@@ -1,0 +1,35 @@
+---
+interface Props {
+  variant?: "info" | "warning";
+  role?: "status" | "alert";
+}
+
+const { variant = "info", role } = Astro.props;
+---
+
+<div class:list={["callout", `callout--${variant}`]} {role}>
+  <slot />
+</div>
+
+<style>
+  .callout {
+    padding: var(--space-s) var(--space-m);
+    border-radius: var(--radius-m);
+    border: 1px solid var(--color-border);
+    margin-block: var(--space-s);
+  }
+
+  .callout--info {
+    background: var(--g-blue-soft);
+    border-inline-start: 5px solid var(--g-blue);
+  }
+
+  .callout--warning {
+    background: var(--g-yellow-soft);
+    border-inline-start: 5px solid var(--g-yellow);
+  }
+
+  .callout :global(p) {
+    margin-block: 0.25em;
+  }
+</style>

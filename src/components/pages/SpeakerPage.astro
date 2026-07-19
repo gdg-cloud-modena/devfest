@@ -1,0 +1,295 @@
+---
+import Icon from "@components/Icon.astro";
+import SessionList from "@components/SessionList.astro";
+import { SITE_URL } from "@configs/site";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import {
+  getRoomsOfYear,
+  getSessionsOfSpeaker,
+  slugOf,
+  type Speaker,
+} from "@lib/content";
+import { speakerImage } from "@lib/images";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+
+interface Props {
+  speaker: Speaker;
+  locale: Locale;
+}
+
+const { speaker, locale } = Astro.props;
+const t = useTranslations(locale);
+
+const { Content } = await render(speaker);
+const image = speakerImage(speaker.id);
+const sessionsByYear = await getSessionsOfSpeaker(speaker.id);
+
+const roomsByYear = new Map(
+  await Promise.all(
+    sessionsByYear.map(async ({ year }) => {
+      const rooms = await getRoomsOfYear(year);
+      return [year, new Map(rooms.map((r) => [slugOf(r), r]))] as const;
+    }),
+  ),
+);
+const speakersById = new Map([[speaker.id, speaker]]);
+
+const social = speaker.data.social ?? {};
+const socialEntries = Object.entries(social) as [keyof typeof social, string][];
+
+const description = [speaker.data.name, speaker.data.role, speaker.data.company]
+  .filter(Boolean)
+  .join(" – ");
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: speaker.data.name,
+    jobTitle: speaker.data.role || undefined,
+    worksFor: speaker.data.company
+      ? { "@type": "Organization", name: speaker.data.company }
+      : undefined,
+    image: image ? new URL(image.src, SITE_URL).href : undefined,
+    sameAs: socialEntries.map(([, url]) => url),
+  },
+];
+---
+
+<BaseLayout
+  title={speaker.data.name}
+  {description}
+  {locale}
+  {jsonLd}
+  image={image?.src}
+>
+  <div class="container section speaker">
+    <aside class="sidebar">
+      {
+        image && (
+          <Image
+            class="photo"
+            src={image}
+            alt={speaker.data.name}
+            width="480"
+            height="480"
+            densities={[1, 2]}
+            loading="eager"
+          />
+        )
+      }
+      <dl class="details">
+        {
+          speaker.data.company && (
+            <div>
+              <dt>{t("speaker.company")}</dt>
+              <dd>{speaker.data.company}</dd>
+            </div>
+          )
+        }
+        {
+          speaker.data.role && (
+            <div>
+              <dt>{t("speaker.role")}</dt>
+              <dd>{speaker.data.role}</dd>
+            </div>
+          )
+        }
+      </dl>
+      {
+        socialEntries.length > 0 && (
+          <ul class="social" role="list">
+            {socialEntries.map(([name, url]) => (
+              <li>
+                <a href={url} target="_blank" rel="noopener" aria-label={name}>
+                  <Icon name={name} size={22} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </aside>
+
+    <div class="main">
+      <p class="back">
+        <a href={localizePath(locale, `/speakers/`)}>← {t("speaker.all")}</a>
+      </p>
+      <h1>{speaker.data.name}</h1>
+      <div class="prose bio">
+        <Content />
+      </div>
+
+      <section class="sessions">
+        <h2>{t("speaker.sessions")}</h2>
+        {
+          sessionsByYear.length === 0 && (
+            <p>{t("speaker.sessions.none", { name: speaker.data.name })}</p>
+          )
+        }
+        {
+          sessionsByYear.map(({ year, sessions }) => (
+            <section class="year">
+              <h3>
+                <a href={localizePath(locale, `/${year}/sessions/`)}>
+                  DevFest Modena {year}
+                </a>
+              </h3>
+              <SessionList
+                {sessions}
+                {year}
+                {locale}
+                roomsBySlug={roomsByYear.get(year) ?? new Map()}
+                {speakersById}
+                showSpeakers={false}
+                headingLevel="h4"
+              />
+            </section>
+          ))
+        }
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .speaker {
+    display: grid;
+    grid-template-columns: minmax(14rem, 18rem) 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 6rem;
+    display: grid;
+    gap: var(--space-s);
+  }
+
+  .sidebar :global(.photo) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-l);
+    border: 4px solid var(--edition-accent-soft);
+  }
+
+  .details {
+    display: grid;
+    gap: var(--space-2xs);
+    margin: 0;
+  }
+
+  .details dt {
+    font-size: var(--text--2);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-text-muted);
+  }
+
+  .details dd {
+    margin: 0;
+    color: var(--color-ink);
+    font-weight: 400;
+  }
+
+  .social {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .social a {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    transition:
+      background var(--transition),
+      border-color var(--transition);
+  }
+
+  .social a:hover {
+    background: var(--color-surface-2);
+    border-color: var(--color-border-strong);
+  }
+
+  .back {
+    font-size: var(--text--1);
+    margin-bottom: var(--space-s);
+  }
+
+  .back a {
+    text-decoration: none;
+  }
+
+  .back a:hover {
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: var(--text-4);
+    margin-bottom: var(--space-s);
+  }
+
+  .sessions {
+    margin-top: var(--space-l);
+  }
+
+  .sessions h2 {
+    font-size: var(--text-2);
+  }
+
+  .year {
+    margin-top: var(--space-s);
+  }
+
+  .year h3 {
+    font-size: var(--text-1);
+  }
+
+  .year h3 a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .year h3 a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 63.9375em) {
+    .speaker {
+      grid-template-columns: 1fr;
+      gap: var(--space-m);
+    }
+
+    .sidebar {
+      position: static;
+      grid-template-columns: minmax(10rem, 14rem) 1fr;
+      align-items: start;
+    }
+
+    .sidebar :global(.photo) {
+      grid-row: span 2;
+    }
+  }
+
+  @media (max-width: 39.9375em) {
+    .sidebar {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .sidebar :global(.photo) {
+      max-width: 14rem;
+    }
+  }
+</style>

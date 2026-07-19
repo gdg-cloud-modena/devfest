@@ -1,0 +1,218 @@
+---
+import Callout from "@components/Callout.astro";
+import EditionNotice from "@components/EditionNotice.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import SessionList from "@components/SessionList.astro";
+import { editionOf, isCurrent } from "@configs/editions";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import {
+  getEdition,
+  getPage,
+  getRoomsOfYear,
+  getSessionsOfYear,
+  getSpeakersOfYear,
+  groupByDay,
+  slugOf,
+} from "@lib/content";
+import { fmtWeekdayDate } from "@lib/dates";
+import { render } from "astro:content";
+
+interface Props {
+  year: string;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+const t = useTranslations(locale);
+const l = (path: string) => localizePath(locale, path);
+
+const [edition, sessions, rooms, speakers] = await Promise.all([
+  getEdition(year),
+  getSessionsOfYear(year),
+  getRoomsOfYear(year),
+  getSpeakersOfYear(year),
+]);
+
+const roomsBySlug = new Map(rooms.map((r) => [slugOf(r), r]));
+const speakersById = new Map(speakers.map((s) => [s.id, s]));
+const days = groupByDay(sessions, edition.data.days);
+
+const sessionRooms = rooms.filter((r) => r.data.forSessions);
+const otherRooms = rooms.filter((r) => !r.data.forSessions);
+
+const current = isCurrent(year);
+const cfs = current ? editionOf(year).callForSpeakers : undefined;
+const intro = current ? await getPage(locale, "agenda-intro") : undefined;
+const IntroContent = intro ? (await render(intro)).Content : null;
+---
+
+<BaseLayout
+  title={t("agenda.title", { year })}
+  {locale}
+  {year}
+  noCtas={!current}
+>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <SectionHeading as="h1" title={t("agenda.title", { year })} kicker="DevFest Modena" />
+
+    {
+      IntroContent && (
+        <div class="prose intro">
+          <IntroContent />
+        </div>
+      )
+    }
+
+    {
+      cfs?.open && (
+        <Callout variant="info">
+          <p>{t("cfs.text", { year })}</p>
+          <p>
+            <a class="button" href={cfs.url} target="_blank" rel="noopener">
+              {t("cfs.button")}
+            </a>
+          </p>
+        </Callout>
+      )
+    }
+
+    {
+      days.length > 1 && (
+        <nav class="day-nav" aria-label={t("agenda.day")}>
+          {days.map((day) => (
+            <a class="chip" href={`#day-${day.key}`}>
+              {fmtWeekdayDate(day.date, locale)}
+            </a>
+          ))}
+        </nav>
+      )
+    }
+
+    {
+      days.map((day) => (
+        <section class="day" aria-labelledby={`day-${day.key}`}>
+          <h2 class="day-title" id={`day-${day.key}`}>
+            {fmtWeekdayDate(day.date, locale)}
+          </h2>
+          <SessionList
+            sessions={day.sessions}
+            {year}
+            {locale}
+            {roomsBySlug}
+            {speakersById}
+          />
+        </section>
+      ))
+    }
+
+    <section class="rooms">
+      <h2>{t("agenda.rooms.sessions")}</h2>
+      <ul>
+        {
+          sessionRooms.map((room) => (
+            <li>
+              <a href={l(`/${year}/rooms/${slugOf(room)}/`)}>
+                <strong>{room.data.name}</strong>
+              </a>
+              {room.data.summary && <>: {room.data.summary}</>}
+            </li>
+          ))
+        }
+      </ul>
+      {
+        otherRooms.length > 0 && (
+          <>
+            <h2>{t("agenda.rooms.other")}</h2>
+            <ul>
+              {otherRooms.map((room) => (
+                <li>
+                  <a href={l(`/${year}/rooms/${slugOf(room)}/`)}>
+                    <strong>{room.data.name}</strong>
+                  </a>
+                  {room.data.summary && <>: {room.data.summary}</>}
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+    </section>
+  </div>
+
+  {
+    current && (
+      <script>
+        // Progressive enhancement: highlight sessions happening right now,
+        // fade the ones already over. Works only while the event is running.
+        const OFFSET = 15 * 60 * 1000; // highlight 15 minutes early
+        function refresh() {
+          const now = Date.now();
+          let any = false;
+          document.querySelectorAll<HTMLElement>(".session[data-starts]").forEach((el) => {
+            const starts = Date.parse(el.dataset.starts ?? "") - OFFSET;
+            const ends = Date.parse(el.dataset.ends ?? "");
+            if (Number.isNaN(starts) || Number.isNaN(ends)) return;
+            el.classList.toggle("session--current", now >= starts && now < ends);
+            el.classList.toggle("session--past", now >= ends);
+            any = true;
+          });
+          if (any) setTimeout(refresh, 60 * 1000);
+        }
+        refresh();
+      </script>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-m);
+  }
+
+  .day-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-m);
+  }
+
+  .day-nav .chip {
+    text-transform: capitalize;
+  }
+
+  .day {
+    margin-block: var(--space-l);
+  }
+
+  .day-title {
+    font-size: var(--text-2);
+    text-transform: capitalize;
+    padding-bottom: var(--space-2xs);
+    border-bottom: 3px solid var(--edition-accent);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .rooms {
+    margin-top: var(--space-xl);
+  }
+
+  .rooms h2 {
+    font-size: var(--text-1);
+    margin-bottom: var(--space-2xs);
+    margin-top: var(--space-m);
+  }
+
+  .rooms ul {
+    padding-inline-start: 1.2em;
+  }
+
+  .rooms li {
+    margin-block: 0.3em;
+  }
+
+  .rooms li::marker {
+    color: var(--edition-accent);
+  }
+</style>

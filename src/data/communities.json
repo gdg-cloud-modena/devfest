@@ -1,0 +1,52 @@
+[
+  {
+    "id": "gdg-cloud-modena",
+    "name": "GDG Cloud Modena",
+    "website": "https://gdgcloudmodena.it/"
+  },
+  {
+    "id": "modena-full-stack",
+    "name": "Modena Full Stack",
+    "website": "https://www.meetup.com/it-IT/Modena-Full-Stack/"
+  },
+  {
+    "id": "reggio-emilia-full-stack",
+    "name": "Reggio Emilia Full Stack",
+    "website": "https://www.meetup.com/reggio-emilia-full-stack/"
+  },
+  {
+    "id": "ml-modena",
+    "name": "ML Modena",
+    "website": "https://mlmodena.it/"
+  },
+  {
+    "id": "flutter-modena",
+    "name": "Flutter Modena",
+    "website": "https://blog.fluttermodena.dev/"
+  },
+  {
+    "id": "conoscere-linux",
+    "name": "Conoscere Linux",
+    "website": "https://conoscerelinux.org/"
+  },
+  {
+    "id": "she-is-a-scientist",
+    "name": "She Is a Scientist",
+    "website": "https://sheisascientist.com/"
+  },
+  {
+    "id": "designing-success",
+    "name": "Designing Success",
+    "website": "https://www.linkedin.com/company/designing-success-community"
+  },
+  {
+    "id": "maker-dojo",
+    "name": "Maker Dojo",
+    "website": "https://www.makerdojo.it/"
+  },
+  {
+    "id": "modena-rb",
+    "name": "Modena.rb",
+    "website": "https://www.meetup.com/modena-rb/"
+  }
+]

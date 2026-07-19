@@ -1,0 +1,347 @@
+---
+import mapImage from "@assets/location/location.png";
+import Callout from "@components/Callout.astro";
+import Icon from "@components/Icon.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import { useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const entry =
+  (await getEntry("location", locale)) ?? (await getEntry("location", "it"));
+if (!entry) throw new Error("Missing location data");
+const loc = entry.data;
+
+const photoModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/location/*.{jpg,jpeg,png,webp}",
+  { eager: true },
+);
+const photoBySlug = new Map(
+  Object.entries(photoModules).map(([path, mod]) => [
+    path.split("/").pop()!,
+    mod.default,
+  ]),
+);
+
+const sections = [
+  { id: "map", label: t("location.map") },
+  { id: "car", label: t("location.byCar") },
+  { id: "parking", label: t("location.parking") },
+  { id: "train", label: t("location.train") },
+  { id: "plane", label: t("location.plane") },
+];
+---
+
+<BaseLayout title={t("location.title")} {locale}>
+  <div class="container section">
+    <SectionHeading
+      as="h1"
+      title={t("location.title")}
+      kicker={loc.introduction.title}
+    />
+
+    <nav class="page-nav" aria-label={t("location.nav.label")}>
+      {
+        sections.map((s) => (
+          <a class="chip" href={`#${s.id}`}>
+            {s.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <section class="venue" id="map">
+      <div class="venue-info">
+        <h2>{loc.introduction.title}</h2>
+        <dl class="facts">
+          <div>
+            <dt><Icon name="pin" size={18} /> {t("location.address")}</dt>
+            <dd>{loc.introduction.address}</dd>
+          </div>
+          <div>
+            <dt><Icon name="website" size={18} /> {t("location.website")}</dt>
+            <dd>
+              <a href={loc.introduction.website} target="_blank" rel="noopener">
+                {loc.introduction.website.replace(/^https?:\/\//, "")} ↗
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <Icon name="people" size={18} />
+              {t("location.accessibility")}
+            </dt>
+            <dd>{t("location.accessibility.text")}</dd>
+          </div>
+        </dl>
+        <div class="prose descriptions">
+          <p set:html={loc.introduction.description1} />
+          <p set:html={loc.introduction.description2} />
+          <p set:html={loc.introduction.description3} />
+        </div>
+      </div>
+      <a
+        class="venue-map card"
+        href={loc.introduction.link}
+        target="_blank"
+        rel="noopener"
+        aria-label={t("location.openMaps")}
+      >
+        <Image
+          src={mapImage}
+          alt={t("location.mapTitle")}
+          width="640"
+          densities={[1, 2]}
+        />
+        <span class="venue-mapLabel">{t("location.openMaps")} ↗</span>
+      </a>
+    </section>
+
+    <div class="photos">
+      {
+        loc.photos.map((photo) => {
+          const img = photoBySlug.get(photo.link);
+          return (
+            img && (
+              <Image
+                src={img}
+                alt={photo.title}
+                width="800"
+                densities={[1, 2]}
+                class="photo"
+              />
+            )
+          );
+        })
+      }
+    </div>
+
+    <section class="block" id="car">
+      <h2>{t("location.byCar")}</h2>
+      <Callout variant="warning">
+        <p><strong>{t("location.ztl.title")}</strong></p>
+        <p>{t("location.ztl.text")}</p>
+      </Callout>
+      <div class="cards">
+        {
+          loc.auto.map((route) => (
+            <div class="card">
+              <h3>{route.title}</h3>
+              <ol>
+                <li>{route.step1}</li>
+                <li>{route.step2}</li>
+                <li>{route.step3}</li>
+                <li>{route.step4}</li>
+              </ol>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="block" id="parking">
+      <h2>{t("location.parking")}</h2>
+      <div class="cards">
+        {
+          loc.parking.map((parking) => (
+            <div class="card">
+              <h3>{parking.title}</h3>
+              <p class="muted">{parking.address}</p>
+              <p>
+                <strong>{t("location.distance")}:</strong> {parking.distance}
+              </p>
+              <p>{parking.description}</p>
+              <p>
+                <a href={parking.link} target="_blank" rel="noopener">
+                  {t("location.openMaps")} ↗
+                </a>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="block" id="train">
+      <h2>{t("location.train")}</h2>
+      <div class="cards">
+        {
+          loc.train.map((station) => (
+            <div class="card">
+              <h3>{station.title}</h3>
+              <p>
+                <strong>{t("location.distance")}:</strong> {station.distance}
+              </p>
+              <p>
+                <strong>{t("location.time")}:</strong> {station.time}
+              </p>
+              <p>{station.description}</p>
+              <p>
+                <a href={station.link} target="_blank" rel="noopener">
+                  {t("location.openRoute")} ↗
+                </a>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="block" id="plane">
+      <h2>{t("location.plane")}</h2>
+      <div class="cards">
+        {
+          loc.airplane.map((airport) => (
+            <div class="card">
+              <h3>{airport.title}</h3>
+              <p>
+                <strong>{t("location.distance")}:</strong> {airport.distance}
+              </p>
+              <p>
+                <strong>{t("location.suggestion")}:</strong>{" "}
+                {airport.suggestion}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-l);
+  }
+
+  .venue {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-l);
+    align-items: start;
+  }
+
+  .venue-info h2 {
+    font-size: var(--text-2);
+    margin-bottom: var(--space-s);
+  }
+
+  .facts {
+    display: grid;
+    gap: var(--space-2xs);
+    margin: 0 0 var(--space-s);
+  }
+
+  .facts dt {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: var(--text--2);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-text-muted);
+  }
+
+  .facts dt :global(svg) {
+    color: var(--edition-accent);
+  }
+
+  .facts dd {
+    margin: 0;
+    color: var(--color-ink);
+  }
+
+  .venue-map {
+    padding: var(--space-2xs);
+    text-align: center;
+  }
+
+  .venue-map img {
+    border-radius: var(--radius-m);
+    width: 100%;
+    height: auto;
+  }
+
+  .venue-mapLabel {
+    display: block;
+    padding: var(--space-2xs);
+    font-weight: 700;
+    color: var(--color-link);
+  }
+
+  .photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--space-s);
+    margin-block: var(--space-l);
+  }
+
+  .photos :global(.photo) {
+    border-radius: var(--radius-l);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+  }
+
+  .block {
+    margin-block: var(--space-xl);
+  }
+
+  .block h2 {
+    font-size: var(--text-2);
+    margin-bottom: var(--space-s);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: var(--space-s);
+  }
+
+  .cards h3 {
+    font-size: var(--text-0);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .cards p,
+  .cards ol {
+    font-size: var(--text--1);
+    margin-block: 0.35em;
+  }
+
+  .cards ol {
+    padding-inline-start: 1.2em;
+  }
+
+  .cards li {
+    margin-block: 0.3em;
+  }
+
+  .cards li::marker {
+    color: var(--edition-accent);
+    font-weight: 700;
+  }
+
+  .muted {
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 63.9375em) {
+    .venue {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

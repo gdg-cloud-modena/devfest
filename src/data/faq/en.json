@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "question": "I found out about this event late, can I still attend?",
+      "answer": "Of course: you can register and check in at any time of the day."
+    },
+    {
+      "question": "Can I arrive mid-morning or only in the afternoon?",
+      "answer": "Of course, the entrance is always open."
+    },
+    {
+      "question": "Is the event free?",
+      "answer": "Yes, the event is free. It is organized on a non-profit basis by local tech communities, and sponsors help us cover the costs so it stays accessible to everyone."
+    },
+    {
+      "question": "Is lunch free?",
+      "answer": "Yes, Saturday's lunch is free for all attendees."
+    },
+    {
+      "question": "I have food allergies or intolerances, what should I do?",
+      "answer": "We are prepared for that. When you get your ticket you will be asked to report any allergies or intolerances. If you didn't, you can always email us at [info@devfest.modena.it](mailto:info@devfest.modena.it) and we will get back to you as soon as possible."
+    },
+    {
+      "question": "Do I need a ticket to attend DevFest Modena?",
+      "answer": "Yes: attending DevFest Modena is free, but registration is required."
+    },
+    {
+      "question": "I got a ticket but I can no longer attend, what should I do?",
+      "answer": "If you can't make it, please cancel your order on the ticketing platform, or email us at [info@devfest.modena.it](mailto:info@devfest.modena.it) and we will do it for you."
+    },
+    {
+      "question": "Do I have to print my ticket?",
+      "answer": "No, there's no need: you can show the ticket on your smartphone. Seeing the email with the ticket QR code is enough — have it ready at the entrance for a quick check-in."
+    },
+    {
+      "question": "Can I give my ticket to a friend?",
+      "answer": "Unfortunately not: the venue requires named admissions. If you don't plan to come, please cancel your ticket and ask your friend to register for one of their own."
+    },
+    {
+      "question": "Can I leave the conference and come back later?",
+      "answer": "Yes, of course — you can leave and come back whenever you want. To re-enter you will need the badge we give you at the entrance."
+    },
+    {
+      "question": "What should I bring to the conference?",
+      "answer": "Your ticket... and plenty of enthusiasm for meeting new people! :)"
+    },
+    {
+      "question": "How do I join the workshops?",
+      "answer": "Please refer to the [dedicated page](/en/workshops/)."
+    },
+    {
+      "question": "Is this a Google event?",
+      "answer": "No, the event belongs to the local developer communities. Google is one of the partners and provides support, for example by allowing GDG Cloud Modena — who vouches for everyone — to use the brand."
+    }
+  ]
+}

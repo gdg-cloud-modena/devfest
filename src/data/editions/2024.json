@@ -1,0 +1,67 @@
+{
+  "year": 2024,
+  "days": ["2024-10-12"],
+  "communities": [],
+  "roles": [
+    {
+      "title": "Organizzatori",
+      "code": "organizers"
+    },
+    {
+      "title": "Staff",
+      "code": "staff"
+    },
+    {
+      "title": "Supporter",
+      "code": "supporter"
+    }
+  ],
+  "people": [
+    {
+      "role": "organizers",
+      "code": "davide-muzzarelli"
+    },
+    {
+      "role": "organizers",
+      "code": "maurizio-ipsale"
+    }
+  ],
+  "levels": [
+    {
+      "title": "Main",
+      "code": "main",
+      "weight": 1
+    },
+    {
+      "title": "Diamond",
+      "code": "diamond",
+      "weight": 2
+    },
+    {
+      "title": "Gold",
+      "code": "gold",
+      "weight": 3
+    },
+    {
+      "title": "Tech",
+      "code": "tech",
+      "weight": 4
+    },
+    {
+      "title": "Silver",
+      "code": "silver",
+      "weight": 5
+    },
+    {
+      "title": "Bronze",
+      "code": "bronze",
+      "weight": 6
+    },
+    {
+      "title": "Community",
+      "code": "community",
+      "weight": 7
+    }
+  ],
+  "partners": []
+}

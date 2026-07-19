@@ -1,0 +1,331 @@
+---
+import heroImage from "@assets/images/home-hero.webp";
+import logoHorizontal from "@assets/images/logo-horizontal-year.png";
+import Callout from "@components/Callout.astro";
+import CommunitiesGrid from "@components/CommunitiesGrid.astro";
+import PartnerGrid from "@components/PartnerGrid.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import Statistics from "@components/Statistics.astro";
+import {
+  ARCHIVED_YEARS,
+  CURRENT_EDITION,
+  CURRENT_YEAR,
+} from "@configs/editions";
+import { SITE_NAME, SITE_URL } from "@configs/site";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getEdition, getPage, getStats } from "@lib/content";
+import { daysRangeLabel } from "@lib/dates";
+import { Image, Picture } from "astro:assets";
+import { render } from "astro:content";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const l = (path: string) => localizePath(locale, path);
+
+const edition = await getEdition(CURRENT_YEAR);
+const statsYear = CURRENT_EDITION.statsFromYear ?? CURRENT_YEAR;
+const stats = await getStats(statsYear);
+const intro = await getPage(locale, "home-intro");
+const IntroContent = intro ? (await render(intro)).Content : null;
+
+const cfs = CURRENT_EDITION.callForSpeakers;
+const dateLabel = daysRangeLabel(edition.data.days, locale);
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: `${SITE_NAME} ${CURRENT_YEAR}`,
+    startDate: edition.data.days[0],
+    endDate: edition.data.days.at(-1),
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: CURRENT_EDITION.venue.name,
+      address: CURRENT_EDITION.venue.address,
+    },
+    isAccessibleForFree: true,
+    offers: CURRENT_EDITION.ticketsUrl
+      ? {
+          "@type": "Offer",
+          url: CURRENT_EDITION.ticketsUrl,
+          price: 0,
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+        }
+      : undefined,
+    organizer: {
+      "@type": "Organization",
+      name: "GDG Cloud Modena",
+      url: SITE_URL,
+    },
+    image: new URL(heroImage.src, SITE_URL).href,
+    description: t("meta.description"),
+  },
+];
+---
+
+<BaseLayout
+  title={`${SITE_NAME} ${CURRENT_YEAR}`}
+  {locale}
+  year={CURRENT_YEAR}
+  {jsonLd}
+>
+  <section class="hero">
+    <Picture
+      class="hero-bg"
+      src={heroImage}
+      alt=""
+      widths={[480, 900, 1440, 1920]}
+      sizes="100vw"
+      formats={["avif"]}
+      fallbackFormat="webp"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-content container">
+      <span class="hero-logo">
+        <Image
+          src={logoHorizontal}
+          alt={`${SITE_NAME} ${CURRENT_YEAR}`}
+          height={92}
+          densities={[1, 2]}
+          loading="eager"
+        />
+      </span>
+      <h1 class="hero-title">{dateLabel}</h1>
+      <p class="hero-claim">{t("home.claim")}</p>
+      <p class="hero-meta">
+        <span class="chip chip--yellow">{t("home.free")}</span>
+        <a
+          class="chip hero-venue"
+          href={CURRENT_EDITION.venue.mapsUrl}
+          target="_blank"
+          rel="noopener"
+        >
+          📍 {CURRENT_EDITION.venue.name}
+        </a>
+      </p>
+      <p class="hero-actions">
+        {
+          CURRENT_EDITION.ticketsUrl && (
+            <a
+              class="button"
+              href={CURRENT_EDITION.ticketsUrl}
+              target="_blank"
+              rel="noopener"
+            >
+              {t("home.hero.tickets")}
+            </a>
+          )
+        }
+        <a class="button button--light" href={l(`/${CURRENT_YEAR}/sessions/`)}>
+          {t("home.hero.agenda")}
+        </a>
+      </p>
+    </div>
+  </section>
+
+  {
+    IntroContent && (
+      <section class="section container">
+        <div class="prose intro">
+          <IntroContent />
+        </div>
+      </section>
+    )
+  }
+
+  {
+    cfs?.open && (
+      <section class="section--tight container">
+        <Callout variant="info">
+          <h2>{t("cfs.title")}</h2>
+          <p>{t("cfs.text", { year: CURRENT_YEAR })}</p>
+          <p>
+            <a class="button" href={cfs.url} target="_blank" rel="noopener">
+              {t("cfs.button")}
+            </a>
+          </p>
+        </Callout>
+      </section>
+    )
+  }
+
+  <section class="section container">
+    <SectionHeading
+      title={t("home.stats.title", { year: statsYear })}
+      kicker="DevFest"
+    />
+    <Statistics {stats} {locale} />
+  </section>
+
+  <section class="section container">
+    <SectionHeading
+      title={t("home.communities.title")}
+      kicker={t("nav.communities")}
+    />
+    <p class="section-lead">{t("home.communities.text")}</p>
+    <CommunitiesGrid year={CURRENT_YEAR} codes={edition.data.communities} />
+  </section>
+
+  <section class="section container">
+    <SectionHeading title={t("partners.title")} kicker="Sponsor" />
+    <PartnerGrid year={CURRENT_YEAR} {locale} />
+  </section>
+
+  <section class="section container">
+    <SectionHeading
+      title={t("home.editions.title")}
+      kicker={t("nav.archive")}
+    />
+    <ul class="editions" role="list">
+      {
+        ARCHIVED_YEARS.map((y) => (
+          <li>
+            <a class="card edition-card" href={l(`/${y}/`)}>
+              <span class="edition-year">{y}</span>
+              <span class="edition-name">DevFest Modena</span>
+              <span class="edition-cta">{t("archive.visit")} →</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: min(82vh, 46rem);
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero :global(.hero-bg) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        oklch(15% 0.02 270 / 0.55),
+        oklch(15% 0.02 270 / 0.25) 45%,
+        oklch(15% 0.02 270 / 0.7)
+      ),
+      oklch(20% 0.02 270 / 0.2);
+  }
+
+  .hero-content {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: var(--space-s);
+    padding-block: var(--space-2xl);
+  }
+
+  .hero-logo {
+    background: oklch(99% 0 0);
+    border-radius: var(--radius-l);
+    padding: var(--space-xs) var(--space-m);
+    box-shadow: var(--shadow-2);
+  }
+
+  .hero-logo img {
+    height: clamp(3.2rem, 8vi, 5.75rem);
+    width: auto;
+  }
+
+  .hero-title {
+    color: oklch(99% 0 0);
+    font-size: var(--text-5);
+    line-height: var(--leading-solid);
+    text-shadow: 0 2px 24px oklch(0% 0 0 / 0.4);
+  }
+
+  .hero-claim {
+    color: oklch(96% 0.005 90);
+    font-size: var(--text-1);
+    max-width: 34ch;
+    text-shadow: 0 1px 12px oklch(0% 0 0 / 0.5);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2xs);
+  }
+
+  .hero-venue {
+    background: oklch(99% 0 0 / 0.92);
+    color: oklch(24% 0.004 270);
+    border-color: transparent;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-2xs);
+  }
+
+  .intro :global(h2) {
+    font-size: var(--text-3);
+  }
+
+  .section-lead {
+    margin-block: calc(-1 * var(--space-xs)) var(--space-s);
+    color: var(--color-text-muted);
+    max-width: 60ch;
+  }
+
+  .editions {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: var(--space-s);
+  }
+
+  .edition-card {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .edition-year {
+    font-size: var(--text-4);
+    font-weight: 700;
+    color: var(--edition-accent);
+    line-height: var(--leading-solid);
+  }
+
+  .edition-name {
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+
+  .edition-cta {
+    margin-top: var(--space-2xs);
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+/** Section heading with optional kicker and the four-color DevFest dots. */
+interface Props {
+  title: string;
+  kicker?: string;
+  /** Heading level, defaults to h2. */
+  as?: "h1" | "h2" | "h3";
+  id?: string;
+}
+
+const { title, kicker, as: Tag = "h2", id } = Astro.props;
+---
+
+<div class="section-heading">
+  {kicker && <p class="kicker">{kicker}</p>}
+  <Tag {id}>{title}</Tag>
+  <span class="four-dots" aria-hidden="true"><i></i><i></i></span>
+</div>
+
+<style>
+  .section-heading {
+    display: grid;
+    gap: var(--space-3xs);
+    margin-bottom: var(--space-m);
+  }
+
+  h1 {
+    font-size: var(--text-4);
+  }
+
+  h2 {
+    font-size: var(--text-3);
+  }
+
+  h3 {
+    font-size: var(--text-2);
+  }
+
+  .four-dots {
+    margin-top: var(--space-2xs);
+  }
+</style>

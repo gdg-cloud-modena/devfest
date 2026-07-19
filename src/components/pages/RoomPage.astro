@@ -1,0 +1,193 @@
+---
+import EditionNotice from "@components/EditionNotice.astro";
+import SessionList from "@components/SessionList.astro";
+import { isCurrent } from "@configs/editions";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import {
+  getEdition,
+  getRoomsOfYear,
+  getSessionsOfYear,
+  getSpeakersOfYear,
+  groupByDay,
+  slugOf,
+  type Room,
+} from "@lib/content";
+import { fmtWeekdayDate } from "@lib/dates";
+import { roomImage } from "@lib/images";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+
+interface Props {
+  room: Room;
+  locale: Locale;
+}
+
+const { room, locale } = Astro.props;
+const year = room.id.split("/")[0]!;
+const slug = slugOf(room);
+const t = useTranslations(locale);
+const l = (path: string) => localizePath(locale, path);
+
+const { Content } = await render(room);
+const image = roomImage(year, slug);
+
+const [edition, allSessions, rooms, speakers] = await Promise.all([
+  getEdition(year),
+  getSessionsOfYear(year),
+  getRoomsOfYear(year),
+  getSpeakersOfYear(year),
+]);
+
+const roomsBySlug = new Map(rooms.map((r) => [slugOf(r), r]));
+const speakersById = new Map(speakers.map((s) => [s.id, s]));
+const sessions = allSessions.filter((s) => s.data.rooms.includes(slug));
+const days = groupByDay(sessions, edition.data.days);
+
+const otherRooms = rooms.filter(
+  (r) => r.data.forSessions && slugOf(r) !== slug,
+);
+const title = room.data.forSessions
+  ? t("room.title", { name: room.data.name })
+  : room.data.name;
+---
+
+<BaseLayout
+  {title}
+  description={room.data.summary}
+  {locale}
+  {year}
+  noCtas={!isCurrent(year)}
+>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <p class="back">
+      <a href={l(`/${year}/rooms/`)}>← {t("rooms.title")} {year}</a>
+    </p>
+
+    <div class="head">
+      <div>
+        <h1>{title}</h1>
+        {room.data.summary && <p class="summary">{room.data.summary}</p>}
+        <div class="prose description">
+          <Content />
+        </div>
+      </div>
+      {
+        image && (
+          <Image
+            class="photo"
+            src={image}
+            alt={room.data.name}
+            width="640"
+            densities={[1, 2]}
+            loading="eager"
+          />
+        )
+      }
+    </div>
+
+    {
+      days.length > 0 && (
+        <section class="sessions">
+          <h2>{t("room.sessions")}</h2>
+          {days.map((day) => (
+            <section>
+              <h3 class="day">{fmtWeekdayDate(day.date, locale)}</h3>
+              <SessionList
+                sessions={day.sessions}
+                {year}
+                {locale}
+                {roomsBySlug}
+                {speakersById}
+                showRooms={false}
+                headingLevel="h4"
+              />
+            </section>
+          ))}
+        </section>
+      )
+    }
+
+    {
+      otherRooms.length > 0 && (
+        <p class="others">
+          {t("room.others")}:{" "}
+          {otherRooms.map((r, i) => (
+            <>
+              {i > 0 && ", "}
+              <a href={l(`/${year}/rooms/${slugOf(r)}/`)}>{r.data.name}</a>
+            </>
+          ))}
+        </p>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .back {
+    font-size: var(--text--1);
+    margin-bottom: var(--space-m);
+  }
+
+  .back a {
+    text-decoration: none;
+  }
+
+  .back a:hover {
+    text-decoration: underline;
+  }
+
+  .head {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-l);
+    align-items: start;
+  }
+
+  h1 {
+    font-size: var(--text-3);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .summary {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-s);
+  }
+
+  .head :global(.photo) {
+    border-radius: var(--radius-l);
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-border);
+  }
+
+  .sessions {
+    margin-top: var(--space-l);
+  }
+
+  .sessions h2 {
+    font-size: var(--text-2);
+  }
+
+  .day {
+    font-size: var(--text-1);
+    text-transform: capitalize;
+    margin-top: var(--space-s);
+    padding-bottom: var(--space-3xs);
+    border-bottom: 3px solid var(--edition-accent);
+    display: inline-block;
+  }
+
+  .others {
+    margin-top: var(--space-l);
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 63.9375em) {
+    .head {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
