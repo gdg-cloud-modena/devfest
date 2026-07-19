@@ -1,0 +1,12 @@
+---
+import SessionPage from "@components/pages/SessionPage.astro";
+import { sessionPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return sessionPaths();
+}
+
+const { session } = Astro.props;
+---
+
+<SessionPage {session} locale="en" />

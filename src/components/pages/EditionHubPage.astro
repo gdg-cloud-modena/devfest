@@ -1,0 +1,171 @@
+---
+import EditionNotice from "@components/EditionNotice.astro";
+import PartnerGrid from "@components/PartnerGrid.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import Statistics from "@components/Statistics.astro";
+import { isCurrent } from "@configs/editions";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import {
+  getEdition,
+  getRoomsOfYear,
+  getSessionsOfYear,
+  getStats,
+} from "@lib/content";
+import { daysRangeLabel } from "@lib/dates";
+
+/** Overview page of a single edition (/2025/, /2024/…). */
+interface Props {
+  year: string;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+const t = useTranslations(locale);
+const l = (path: string) => localizePath(locale, path);
+
+const [edition, stats, sessions, rooms] = await Promise.all([
+  getEdition(year),
+  getStats(year),
+  getSessionsOfYear(year),
+  getRoomsOfYear(year),
+]);
+
+const links = [
+  {
+    label: t("edition.hub.agenda"),
+    href: `/${year}/sessions/`,
+    show: sessions.length > 0,
+    color: "blue",
+  },
+  {
+    label: t("edition.hub.speakers"),
+    href: `/${year}/speakers/`,
+    show: sessions.length > 0,
+    color: "yellow",
+  },
+  {
+    label: t("edition.hub.team"),
+    href: `/${year}/team/`,
+    show: edition.data.people.length > 0,
+    color: "green",
+  },
+  {
+    label: t("edition.hub.communities"),
+    href: `/${year}/communities/`,
+    show: edition.data.communities.length > 0,
+    color: "red",
+  },
+  {
+    label: t("edition.hub.rooms"),
+    href: `/${year}/rooms/`,
+    show: rooms.length > 0,
+    color: "blue",
+  },
+  {
+    label: t("edition.hub.partners"),
+    href: `/${year}/partners/`,
+    show: edition.data.partners.length > 0,
+    color: "yellow",
+  },
+].filter((link) => link.show);
+
+const hasStats = stats.rooms > 0 || stats.speakers > 0 || stats.workshops > 0;
+---
+
+<BaseLayout
+  title={`DevFest Modena ${year}`}
+  {locale}
+  {year}
+  noCtas={!isCurrent(year)}
+>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <SectionHeading
+      as="h1"
+      title={`DevFest Modena ${year}`}
+      kicker={daysRangeLabel(edition.data.days, locale)}
+    />
+
+    <ul class="links" role="list">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              class:list={["card", "link-card", `link-card--${link.color}`]}
+              href={l(link.href)}
+            >
+              <span>{link.label}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    {
+      hasStats && (
+        <section class="stats">
+          <h2>{t("home.stats.title", { year })}</h2>
+          <Statistics {stats} {locale} />
+        </section>
+      )
+    }
+
+    {
+      edition.data.partners.length > 0 && (
+        <section class="partners">
+          <h2>{t("partners.title")}</h2>
+          <PartnerGrid {year} {locale} />
+        </section>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .links {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: var(--space-s);
+    margin-top: var(--space-m);
+  }
+
+  .link-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--color-ink);
+    font-size: var(--text-1);
+  }
+
+  .link-card--blue {
+    background: var(--g-blue-soft);
+  }
+
+  .link-card--yellow {
+    background: var(--g-yellow-soft);
+  }
+
+  .link-card--green {
+    background: var(--g-green-soft);
+  }
+
+  .link-card--red {
+    background: var(--g-red-soft);
+  }
+
+  .stats,
+  .partners {
+    margin-top: var(--space-xl);
+  }
+
+  .stats h2,
+  .partners h2 {
+    font-size: var(--text-2);
+    margin-bottom: var(--space-s);
+  }
+</style>

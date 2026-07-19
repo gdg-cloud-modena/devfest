@@ -1,0 +1,106 @@
+---
+import { withUtm } from "@configs/site";
+import { communityLogo } from "@lib/images";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+/** Logos of the communities taking part in an edition. */
+interface Props {
+  year: string | number;
+  /** Community codes; when omitted, every known community is shown. */
+  codes?: string[];
+}
+
+const { year, codes } = Astro.props;
+
+const all = await getCollection("communities");
+const communities = (
+  codes
+    ? codes
+        .map((c) => all.find((e) => e.id === c))
+        .filter((e) => e !== undefined)
+    : all
+).map((entry) => ({
+  ...entry.data,
+  code: entry.id,
+  logo: communityLogo(entry.id),
+}));
+---
+
+<ul class="grid" role="list">
+  {
+    communities.map((community) => (
+      <li>
+        <a
+          class="card community"
+          href={withUtm(community.website, year)}
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="logo">
+            {community.logo ? (
+              <Image
+                src={community.logo}
+                alt=""
+                width="200"
+                densities={[1, 2]}
+              />
+            ) : (
+              <span class="logo-placeholder" aria-hidden="true">
+                {community.name.charAt(0)}
+              </span>
+            )}
+          </span>
+          <span class="name">{community.name}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: var(--space-s);
+  }
+
+  .community {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-2xs);
+    text-align: center;
+  }
+
+  .logo {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    background: oklch(99% 0 0);
+    border-radius: var(--radius-m);
+    padding: var(--space-2xs);
+  }
+
+  .logo img {
+    max-width: 82%;
+    max-height: 82%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .logo-placeholder {
+    font-size: var(--text-4);
+    font-weight: 700;
+    color: oklch(60% 0.02 270);
+  }
+
+  .name {
+    color: var(--color-text);
+    font-size: var(--text--1);
+    font-weight: 400;
+  }
+</style>

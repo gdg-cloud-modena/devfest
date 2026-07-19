@@ -1,0 +1,12 @@
+---
+import EditionHubPage from "@components/pages/EditionHubPage.astro";
+import { editionPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return editionPaths();
+}
+
+const { year } = Astro.params;
+---
+
+<EditionHubPage {year} locale="it" />

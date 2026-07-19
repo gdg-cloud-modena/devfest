@@ -1,0 +1,21 @@
+/*
+ * Per-edition theming hook.
+ * The layout stamps data-edition="<year>" on <html>; each edition can
+ * re-tint the site by overriding the accent tokens here, without touching
+ * components. Add a block when a new edition wants its own look.
+ */
+
+[data-edition="2026"] {
+  --edition-accent: var(--g-blue);
+  --edition-accent-soft: var(--g-blue-soft);
+}
+
+[data-edition="2025"] {
+  --edition-accent: var(--g-green);
+  --edition-accent-soft: var(--g-green-soft);
+}
+
+[data-edition="2024"] {
+  --edition-accent: var(--g-red);
+  --edition-accent-soft: var(--g-red-soft);
+}

@@ -1,0 +1,171 @@
+---
+import { withUtm } from "@configs/site";
+import { localizePath, type Locale } from "@i18n/index";
+import { getEdition } from "@lib/content";
+import { partnerLogo } from "@lib/images";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+/**
+ * Partner logos of an edition, grouped by sponsorship level.
+ * Cards link to the partner page when it has content, otherwise straight
+ * to the partner website (with UTM), like the old site did.
+ */
+interface Props {
+  year: string | number;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+
+const edition = await getEdition(year);
+const withPage = new Set(
+  (await getCollection("partners", ({ id }) => id.startsWith(`${year}/`))).map(
+    (p) => p.id.split("/")[1],
+  ),
+);
+
+const levels = [...edition.data.levels].sort((a, b) => a.weight - b.weight);
+const groups = levels
+  .map((level) => ({
+    level,
+    partners: edition.data.partners.filter((p) => p.level === level.code),
+  }))
+  .filter((g) => g.partners.length > 0);
+
+const levelColor: Record<string, string> = {
+  main: "blue",
+  diamond: "blue",
+  gold: "yellow",
+  silver: "yellow",
+  tech: "green",
+  bronze: "red",
+  community: "green",
+  patrocini: "plain",
+  media: "plain",
+};
+---
+
+<div class="partner-groups">
+  {
+    groups.map(({ level, partners }) => (
+      <section class="level" aria-label={level.title}>
+        <h3
+          class:list={[
+            "level-title",
+            `level-title--${levelColor[level.code] ?? "plain"}`,
+          ]}
+        >
+          {level.title}
+        </h3>
+        <ul class="grid" role="list">
+          {partners.map((partner) => {
+            const logo = partnerLogo(year, partner.code);
+            const href = withPage.has(partner.code)
+              ? localizePath(locale, `/${year}/partners/${partner.code}/`)
+              : withUtm(partner.link, year);
+            const external = !withPage.has(partner.code);
+            return (
+              <li>
+                <a
+                  class="card partner"
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener" : undefined}
+                >
+                  <span class="logo">
+                    {logo ? (
+                      <Image src={logo} alt="" width="240" densities={[1, 2]} />
+                    ) : (
+                      <span class="logo-placeholder" aria-hidden="true">
+                        {partner.name.charAt(0)}
+                      </span>
+                    )}
+                  </span>
+                  <span class="name">{partner.name}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .partner-groups {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  .level-title {
+    display: inline-block;
+    font-size: var(--text-0);
+    padding: 0.2em 0.9em;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    margin-bottom: var(--space-s);
+    background: var(--color-surface);
+  }
+
+  .level-title--blue {
+    background: var(--g-blue-soft);
+  }
+
+  .level-title--yellow {
+    background: var(--g-yellow-soft);
+  }
+
+  .level-title--green {
+    background: var(--g-green-soft);
+  }
+
+  .level-title--red {
+    background: var(--g-red-soft);
+  }
+
+  .grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: var(--space-s);
+  }
+
+  .partner {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-2xs);
+    text-align: center;
+  }
+
+  .logo {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    background: oklch(99% 0 0);
+    border-radius: var(--radius-m);
+    padding: var(--space-2xs);
+  }
+
+  .logo img {
+    max-width: 85%;
+    max-height: 85%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .logo-placeholder {
+    font-size: var(--text-4);
+    font-weight: 700;
+    color: oklch(60% 0.02 270);
+  }
+
+  .name {
+    color: var(--color-text);
+    font-size: var(--text--1);
+  }
+</style>

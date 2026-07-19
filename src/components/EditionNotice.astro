@@ -1,0 +1,27 @@
+---
+import Callout from "@components/Callout.astro";
+import { CURRENT_YEAR, isCurrent } from "@configs/editions";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+
+/** Banner shown on pages that belong to an archived edition. */
+interface Props {
+  year: string | number;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+{
+  !isCurrent(year) && (
+    <Callout variant="warning" role="status">
+      <p>
+        {t("edition.notice", { year })}{" "}
+        <a href={localizePath(locale, `/${CURRENT_YEAR}/`)}>
+          {t("edition.notice.link")} →
+        </a>
+      </p>
+    </Callout>
+  )
+}

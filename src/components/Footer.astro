@@ -1,0 +1,337 @@
+---
+import logoGdg from "@assets/communities/gdg-cloud-modena.png";
+import logoSimple from "@assets/images/logo-simple.png";
+import Icon from "@components/Icon.astro";
+import {
+  CURRENT_EDITION,
+  CURRENT_YEAR,
+  EDITION_YEARS,
+} from "@configs/editions";
+import {
+  COPYRIGHT_FROM_YEAR,
+  EMAIL,
+  ORGANIZER,
+  SOCIAL,
+  withUtm,
+  WTM_URL,
+} from "@configs/site";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import { getEdition } from "@lib/content";
+import { partnerLogo } from "@lib/images";
+import { Image } from "astro:assets";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const l = (path: string) => localizePath(locale, path);
+
+const edition = await getEdition(CURRENT_YEAR);
+const patrocini = edition.data.partners
+  .filter((p) => p.level === "patrocini")
+  .sort((a, b) =>
+    a.code === "comune-modena" ? -1 : b.code === "comune-modena" ? 1 : 0,
+  );
+
+const year = new Date().getFullYear();
+const copyright =
+  year === COPYRIGHT_FROM_YEAR
+    ? `${COPYRIGHT_FROM_YEAR}`
+    : `${COPYRIGHT_FROM_YEAR}–${year}`;
+
+const socialIcons = {
+  linkedin: "linkedin",
+  instagram: "instagram",
+  facebook: "facebook",
+  telegram: "telegram",
+} as const;
+
+const sitemapLinks = [
+  { label: t("nav.agenda"), href: `/${CURRENT_YEAR}/sessions/` },
+  { label: t("nav.speakers"), href: `/${CURRENT_YEAR}/speakers/` },
+  { label: t("nav.team"), href: `/${CURRENT_YEAR}/team/` },
+  { label: t("nav.communities"), href: `/${CURRENT_YEAR}/communities/` },
+  { label: t("footer.partners"), href: "/partners/" },
+  { label: t("nav.location"), href: "/location/" },
+  { label: t("nav.faq"), href: "/faq/" },
+  { label: t("footer.workshops"), href: "/workshops/" },
+  { label: t("footer.speedNetworking"), href: "/speed-networking/" },
+  { label: t("footer.coc"), href: "/code-of-conduct/" },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="columns">
+      <div class="col col--brand">
+        <div class="logos">
+          <span class="logo-tile">
+            <Image
+              src={logoSimple}
+              alt="DevFest Modena"
+              width="96"
+              densities={[1, 2]}
+            />
+          </span>
+          <span class="logo-tile">
+            <Image
+              src={logoGdg}
+              alt={ORGANIZER}
+              width="96"
+              densities={[1, 2]}
+            />
+          </span>
+        </div>
+        <p class="description">{t("footer.description")}</p>
+        <ul class="social" role="list">
+          {
+            Object.entries(SOCIAL).map(([name, url]) => (
+              <li>
+                <a href={url} target="_blank" rel="noopener" aria-label={name}>
+                  <Icon
+                    name={socialIcons[name as keyof typeof socialIcons]}
+                    size={22}
+                  />
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a href={`mailto:${EMAIL}`} aria-label="Email">
+              <Icon name="email" size={22} />
+            </a>
+          </li>
+        </ul>
+        <p><a class="footer-link" href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+      </div>
+
+      <nav class="col" aria-label={t("footer.sitemap")}>
+        <h2 class="title">{t("footer.sitemap")}</h2>
+        <ul role="list">
+          {
+            sitemapLinks.map((link) => (
+              <li>
+                <a class="footer-link" href={l(link.href)}>
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav class="col" aria-label={t("footer.editions")}>
+        <h2 class="title">{t("footer.editions")}</h2>
+        <ul role="list">
+          {
+            EDITION_YEARS.map((y) => (
+              <li>
+                <a class="footer-link" href={l(`/${y}/`)}>
+                  DevFest Modena {y}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a class="footer-link" href={l("/archive/")}>{t("nav.archive")}</a>
+          </li>
+          <li>
+            <a
+              class="footer-link"
+              href={WTM_URL}
+              target="_blank"
+              rel="noopener"
+            >
+              Women Techmakers Modena
+            </a>
+          </li>
+        </ul>
+        {
+          CURRENT_EDITION.ticketsUrl && (
+            <p class="tickets">
+              <a
+                class="button"
+                href={CURRENT_EDITION.ticketsUrl}
+                target="_blank"
+                rel="noopener"
+              >
+                {t("nav.tickets")}
+              </a>
+            </p>
+          )
+        }
+      </nav>
+
+      <div class="col">
+        <h2 class="title">{t("footer.patronage")}</h2>
+        <ul class="patrocini" role="list">
+          {
+            patrocini.map((p) => {
+              const logo = partnerLogo(CURRENT_YEAR, p.code);
+              return (
+                <li>
+                  <a
+                    class="patrocini-item"
+                    href={withUtm(p.link, CURRENT_YEAR)}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {logo && (
+                      <span class="logo-tile logo-tile--small">
+                        <Image
+                          src={logo}
+                          alt=""
+                          width="120"
+                          densities={[1, 2]}
+                        />
+                      </span>
+                    )}
+                    <span>{p.name}</span>
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </div>
+
+    <p class="copy">© {copyright} {ORGANIZER}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding-block: var(--space-xl) var(--space-l);
+    margin-top: var(--space-2xl);
+    font-size: var(--text--1);
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: var(--space-l);
+  }
+
+  .col ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.45em;
+  }
+
+  .title {
+    font-size: var(--text-0);
+    color: var(--g-yellow);
+    margin-bottom: var(--space-xs);
+  }
+
+  .logos {
+    display: flex;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-s);
+  }
+
+  .logo-tile {
+    display: inline-block;
+    background: oklch(99% 0 0);
+    border-radius: var(--radius-m);
+    padding: 0.5rem;
+  }
+
+  .logo-tile img {
+    width: 4.5rem;
+    height: 4.5rem;
+    object-fit: contain;
+  }
+
+  .logo-tile--small img {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .description {
+    margin-bottom: var(--space-s);
+    max-width: 32ch;
+  }
+
+  .footer-link {
+    color: var(--color-footer-text);
+    text-decoration: none;
+  }
+
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+
+  .social {
+    display: flex !important;
+    grid-auto-flow: column;
+    gap: 0.75rem !important;
+    margin-bottom: var(--space-xs);
+  }
+
+  .social a {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    border: 1px solid oklch(100% 0 0 / 0.25);
+    color: var(--color-footer-text);
+    transition:
+      background var(--transition),
+      border-color var(--transition);
+  }
+
+  .social a:hover {
+    background: oklch(100% 0 0 / 0.12);
+    border-color: oklch(100% 0 0 / 0.5);
+  }
+
+  .patrocini {
+    gap: var(--space-xs) !important;
+  }
+
+  .patrocini-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-footer-text);
+    text-decoration: none;
+    opacity: 0.92;
+  }
+
+  .patrocini-item:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .tickets {
+    margin-top: var(--space-s);
+  }
+
+  .copy {
+    margin-top: var(--space-l);
+    padding-top: var(--space-s);
+    border-top: 1px solid oklch(100% 0 0 / 0.15);
+    text-align: center;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 63.9375em) {
+    .columns {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 39.9375em) {
+    .columns {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

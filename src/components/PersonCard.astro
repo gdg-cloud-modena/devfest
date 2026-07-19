@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+/** Card used for speakers and team members. */
+interface Props {
+  name: string;
+  image?: ImageMetadata;
+  /** Company or main affiliation. */
+  meta?: string;
+  /** Role or short description. */
+  detail?: string;
+  href?: string;
+  external?: boolean;
+}
+
+const { name, image, meta, detail, href, external = false } = Astro.props;
+const Tag = href ? "a" : "div";
+---
+
+<Tag
+  class="card person"
+  {href}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener" : undefined}
+>
+  <span class="photo">
+    {
+      image ? (
+        <Image src={image} alt="" width="200" height="200" densities={[1, 2]} />
+      ) : (
+        <span class="placeholder" aria-hidden="true">
+          {name.charAt(0)}
+        </span>
+      )
+    }
+  </span>
+  <span class="name">{name}</span>
+  {meta && <span class="meta">{meta}</span>}
+  {detail && <span class="detail">{detail}</span>}
+</Tag>
+
+<style>
+  .person {
+    display: grid;
+    justify-items: center;
+    gap: 0.15rem;
+    text-align: center;
+    padding: var(--space-s);
+  }
+
+  .photo {
+    margin-bottom: var(--space-2xs);
+  }
+
+  .photo img,
+  .placeholder {
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--edition-accent-soft);
+  }
+
+  .placeholder {
+    display: grid;
+    place-items: center;
+    background: var(--color-surface-2);
+    font-size: var(--text-4);
+    font-weight: 700;
+    color: var(--color-text-muted);
+  }
+
+  .name {
+    font-weight: 700;
+    color: var(--color-ink);
+    line-height: var(--leading-title);
+  }
+
+  .meta {
+    color: var(--color-text);
+    font-style: italic;
+    font-size: var(--text--1);
+  }
+
+  .detail {
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
+    line-height: 1.35;
+  }
+</style>

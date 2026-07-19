@@ -1,0 +1,143 @@
+---
+import heroImage from "@assets/images/home-hero.webp";
+import CtaCv from "@components/CtaCv.astro";
+import CtaTickets from "@components/CtaTickets.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import { CURRENT_YEAR } from "@configs/editions";
+import { SIMPLE_ANALYTICS_DOMAIN, SITE_NAME, SITE_URL } from "@configs/site";
+import {
+  langTag,
+  switchLocalePath,
+  useTranslations,
+  type Locale,
+} from "@i18n/index";
+import "@styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  locale?: Locale;
+  /** Edition the page belongs to; drives the per-edition theme. */
+  year?: string | number;
+  /** Absolute or root-relative URL of the Open Graph image. */
+  image?: string;
+  /** Hide the tickets/CV calls to action at the bottom of the page. */
+  noCtas?: boolean;
+  noIndex?: boolean;
+  /** JSON-LD payloads to embed (Event, Person, FAQPage…). */
+  jsonLd?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  locale = "it",
+  year = CURRENT_YEAR,
+  image,
+  noCtas = false,
+  noIndex = false,
+  jsonLd = [],
+} = Astro.props;
+
+const t = useTranslations(locale);
+const metaDescription = description ?? t("meta.description");
+const fullTitle = title === SITE_NAME ? title : `${title} – ${SITE_NAME}`;
+
+const canonical = new URL(Astro.url.pathname, SITE_URL);
+const altIt = new URL(switchLocalePath("it", Astro.url.pathname), SITE_URL);
+const altEn = new URL(switchLocalePath("en", Astro.url.pathname), SITE_URL);
+const ogImage = new URL(image ?? heroImage.src, SITE_URL);
+---
+
+<!doctype html>
+<html lang={langTag(locale)} dir="ltr" data-edition={String(year)}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="author" content="GDG Cloud Modena" />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="it" href={altIt} />
+    <link rel="alternate" hreflang="en" href={altEn} />
+    <link rel="alternate" hreflang="x-default" href={altIt} />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DevFest Modena" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link
+      rel="preload"
+      href="/fonts/google-sans-display/regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/google-sans-display/bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={langTag(locale).replace("-", "_")} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="generator" content={Astro.generator} />
+
+    {
+      jsonLd.map((data) => (
+        <script type="application/ld+json" set:html={JSON.stringify(data)} />
+      ))
+    }
+
+    {
+      import.meta.env.PROD && (
+        <>
+          <script
+            data-collect-dnt="true"
+            async
+            src={`https://${SIMPLE_ANALYTICS_DOMAIN}/latest.js`}
+          />
+          <noscript>
+            <img
+              src={`https://${SIMPLE_ANALYTICS_DOMAIN}/noscript.gif?collect-dnt=true`}
+              alt=""
+              referrerpolicy="no-referrer-when-downgrade"
+            />
+          </noscript>
+        </>
+      )
+    }
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t("skip.content")}</a>
+    <Header {locale} />
+    <main id="main">
+      <slot />
+    </main>
+    {
+      !noCtas && (
+        <div class="container">
+          <CtaTickets {locale} />
+          <CtaCv {locale} />
+        </div>
+      )
+    }
+    <Footer {locale} />
+  </body>
+</html>

@@ -1,0 +1,42 @@
+---
+import EditionNotice from "@components/EditionNotice.astro";
+import PartnerGrid from "@components/PartnerGrid.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import { isCurrent } from "@configs/editions";
+import { useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+interface Props {
+  year: string;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<BaseLayout
+  title={`${t("partners.title")} ${year}`}
+  {locale}
+  {year}
+  noCtas={!isCurrent(year)}
+>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <SectionHeading
+      as="h1"
+      title={t("partners.title")}
+      kicker={`DevFest Modena ${year}`}
+    />
+    <p class="lead">{t("partners.intro")}</p>
+    <PartnerGrid {year} {locale} />
+  </div>
+</BaseLayout>
+
+<style>
+  .lead {
+    margin-block: calc(-1 * var(--space-xs)) var(--space-m);
+    color: var(--color-text-muted);
+    max-width: 65ch;
+  }
+</style>

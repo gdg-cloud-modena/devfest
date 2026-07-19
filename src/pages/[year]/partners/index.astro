@@ -1,0 +1,12 @@
+---
+import PartnersIndexPage from "@components/pages/PartnersIndexPage.astro";
+import { partnersIndexPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return partnersIndexPaths();
+}
+
+const { year } = Astro.params;
+---
+
+<PartnersIndexPage {year} locale="it" />

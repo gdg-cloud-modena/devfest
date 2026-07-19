@@ -1,0 +1,85 @@
+---
+import SectionHeading from "@components/SectionHeading.astro";
+import { CURRENT_YEAR } from "@configs/editions";
+import { useTranslations } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const t = useTranslations("it");
+const links = [
+  { label: t("nav.agenda"), href: `/${CURRENT_YEAR}/sessions/` },
+  { label: t("nav.speakers"), href: `/${CURRENT_YEAR}/speakers/` },
+  { label: t("nav.faq"), href: "/faq/" },
+  { label: t("nav.archive"), href: "/archive/" },
+];
+---
+
+<BaseLayout title={t("notfound.title")} locale="it" noCtas noIndex>
+  <div class="container section wrap">
+    <p class="code" aria-hidden="true">4<span class="o"></span>4</p>
+    <SectionHeading as="h1" title={t("notfound.title")} />
+    <p>{t("notfound.text")}</p>
+    <p lang="en" class="muted">{t("notfound.text")} · Page not found.</p>
+    <p class="actions">
+      <a class="button" href="/">{t("notfound.home")}</a>
+    </p>
+    <p class="muted">{t("notfound.links")}:</p>
+    <ul class="links">
+      {
+        links.map((link) => (
+          <li>
+            <a class="chip" href={link.href}>
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrap {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    min-height: 55vh;
+    align-content: center;
+  }
+
+  .code {
+    display: flex;
+    align-items: center;
+    gap: 0.1em;
+    font-size: var(--text-6);
+    font-weight: 700;
+    color: var(--color-ink);
+    line-height: 1;
+  }
+
+  .o {
+    width: 0.75em;
+    height: 0.75em;
+    border-radius: 50%;
+    border: 0.16em solid var(--g-red);
+    display: inline-block;
+  }
+
+  .actions {
+    margin-block: var(--space-s);
+  }
+
+  .muted {
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
+  }
+
+  .links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2xs);
+    margin-top: var(--space-2xs);
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+import SectionHeading from "@components/SectionHeading.astro";
+import { defaultLocale, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getPage } from "@lib/content";
+import { render } from "astro:content";
+
+/** Generic editorial page rendered from the localized `pages` collection. */
+interface Props {
+  slug: string;
+  locale: Locale;
+  /** Override the page title (defaults to the frontmatter title). */
+  title?: string;
+  kicker?: string;
+}
+
+const { slug, locale, title, kicker = "DevFest Modena" } = Astro.props;
+const t = useTranslations(locale);
+
+const page = await getPage(locale, slug);
+if (!page) throw new Error(`Missing editorial page "${slug}"`);
+const { Content } = await render(page);
+
+/** True when we fell back to the Italian body for an English visitor. */
+const fallback =
+  locale !== defaultLocale && page.id.startsWith(`${defaultLocale}/`);
+const pageTitle = title ?? page.data.title;
+---
+
+<BaseLayout title={pageTitle} description={page.data.description} {locale}>
+  <div class="container section">
+    <SectionHeading as="h1" title={pageTitle} {kicker} />
+    {fallback && <p class="fallback-note">{t("lang.only.it")}</p>}
+    <div class="prose">
+      <Content />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .fallback-note {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: var(--space-s);
+  }
+</style>

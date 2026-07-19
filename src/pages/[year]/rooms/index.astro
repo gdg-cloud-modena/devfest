@@ -1,0 +1,12 @@
+---
+import RoomsIndexPage from "@components/pages/RoomsIndexPage.astro";
+import { roomsIndexPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return roomsIndexPaths();
+}
+
+const { year } = Astro.params;
+---
+
+<RoomsIndexPage {year} locale="it" />

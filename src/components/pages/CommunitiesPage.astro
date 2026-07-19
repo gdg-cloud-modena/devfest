@@ -1,0 +1,54 @@
+---
+import CommunitiesGrid from "@components/CommunitiesGrid.astro";
+import EditionNotice from "@components/EditionNotice.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import { isCurrent } from "@configs/editions";
+import { useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getEdition, getPage } from "@lib/content";
+import { render } from "astro:content";
+
+interface Props {
+  year: string;
+  locale: Locale;
+}
+
+const { year, locale } = Astro.props;
+const t = useTranslations(locale);
+
+const edition = await getEdition(year);
+const intro = await getPage(locale, "communities-intro");
+const IntroContent = intro ? (await render(intro)).Content : null;
+---
+
+<BaseLayout
+  title={t("communities.title")}
+  {locale}
+  {year}
+  noCtas={!isCurrent(year)}
+>
+  <div class="container section">
+    <EditionNotice {year} {locale} />
+    <SectionHeading
+      as="h1"
+      title={t("communities.title")}
+      kicker={`DevFest Modena ${year}`}
+    />
+
+    {
+      IntroContent && (
+        <div class="prose intro">
+          <IntroContent />
+        </div>
+      )
+    }
+
+    <CommunitiesGrid {year} codes={edition.data.communities} />
+  </div>
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-m);
+  }
+</style>

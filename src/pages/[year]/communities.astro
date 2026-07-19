@@ -1,0 +1,12 @@
+---
+import CommunitiesPage from "@components/pages/CommunitiesPage.astro";
+import { communitiesPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return communitiesPaths();
+}
+
+const { year } = Astro.params;
+---
+
+<CommunitiesPage {year} locale="it" />

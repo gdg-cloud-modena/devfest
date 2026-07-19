@@ -1,0 +1,294 @@
+---
+import Callout from "@components/Callout.astro";
+import EditionNotice from "@components/EditionNotice.astro";
+import Icon from "@components/Icon.astro";
+import PersonCard from "@components/PersonCard.astro";
+import { SITE_URL } from "@configs/site";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getRoomsOfYear, slugOf, yearOf, type Session } from "@lib/content";
+import { fmtTime, fmtWeekdayDate, isoAtVenue } from "@lib/dates";
+import { speakerImage } from "@lib/images";
+import { render } from "astro:content";
+import { getEntries } from "astro:content";
+
+interface Props {
+  session: Session;
+  locale: Locale;
+}
+
+const { session, locale } = Astro.props;
+const year = yearOf(session);
+const t = useTranslations(locale);
+const l = (path: string) => localizePath(locale, path);
+
+const { Content } = await render(session);
+const rooms = await getRoomsOfYear(year);
+const roomsBySlug = new Map(rooms.map((r) => [slugOf(r), r]));
+const sessionRooms = session.data.rooms
+  .map((slug) => roomsBySlug.get(slug))
+  .filter((r) => r !== undefined);
+const speakers = await getEntries(session.data.speakers);
+
+const description = session.body?.trim().split("\n")[0]?.slice(0, 160);
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: session.data.title,
+    startDate: isoAtVenue(session.data.starts),
+    endDate: isoAtVenue(session.data.ends),
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: {
+      "@type": "Place",
+      name: sessionRooms.map((r) => r.data.name).join(", ") || "DevFest Modena",
+      address: "Via San Carlo 5, 41121 Modena",
+    },
+    performer: speakers.map((s) => ({ "@type": "Person", name: s.data.name })),
+    inLanguage: session.data.lang,
+    superEvent: {
+      "@type": "Event",
+      name: `DevFest Modena ${year}`,
+      url: new URL(`/${year}/`, SITE_URL).href,
+    },
+  },
+];
+---
+
+<BaseLayout title={session.data.title} {description} {locale} {year} {jsonLd}>
+  <article class="container section">
+    <EditionNotice {year} {locale} />
+    <p class="back">
+      <a href={l(`/${year}/sessions/`)}>← {t("session.back")}</a>
+    </p>
+
+    <h1 class="title">{session.data.title}</h1>
+
+    {
+      session.data.warning && (
+        <Callout variant="warning" role="alert">
+          <p>{session.data.warning}</p>
+        </Callout>
+      )
+    }
+
+    <dl class="facts">
+      <div class="fact">
+        <dt><Icon name="calendar" size={20} /> {t("session.when")}</dt>
+        <dd>
+          <span class="fact-strong"
+            >{fmtWeekdayDate(session.data.starts, locale)}</span
+          >
+          <time datetime={isoAtVenue(session.data.starts)}>
+            {fmtTime(session.data.starts, locale)}
+          </time>
+          –
+          <time datetime={isoAtVenue(session.data.ends)}>
+            {fmtTime(session.data.ends, locale)}
+          </time>
+        </dd>
+      </div>
+      {
+        sessionRooms.length > 0 && (
+          <div class="fact">
+            <dt>
+              <Icon name="pin" size={20} />
+              {sessionRooms.length === 1
+                ? t("agenda.room")
+                : t("agenda.rooms.simultaneous")}
+            </dt>
+            <dd>
+              {sessionRooms.map((room, i) => (
+                <>
+                  {i > 0 && ", "}
+                  <a href={l(`/${year}/rooms/${slugOf(room)}/`)}>
+                    {room.data.name}
+                  </a>
+                </>
+              ))}
+            </dd>
+          </div>
+        )
+      }
+      <div class="fact">
+        <dt><Icon name="website" size={20} /> {t("session.language")}</dt>
+        <dd>
+          {
+            t(
+              session.data.lang === "en"
+                ? "session.lang.en"
+                : "session.lang.it",
+            )
+          }
+        </dd>
+      </div>
+      {
+        session.data.workshop && (
+          <div class="fact">
+            <dt>
+              <Icon name="workshop" size={20} />
+              Workshop
+            </dt>
+            <dd>
+              <a href={l("/workshops/")}>{t("footer.workshops")} →</a>
+            </dd>
+          </div>
+        )
+      }
+    </dl>
+
+    {
+      session.data.slides && (
+        <p class="slides">
+          <a
+            class="button button--secondary"
+            href={session.data.slides}
+            target="_blank"
+            rel="noopener"
+          >
+            {t("session.slides")} ↗
+          </a>
+        </p>
+      )
+    }
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {
+      (session.data.lightningTalks?.length ?? 0) > 0 && (
+        <div class="prose lightning">
+          {session.data.lightningTalks!.map((talk) => (
+            <details name="lightningTalks">
+              <summary>
+                <strong>{talk.title}</strong> — {talk.speaker}
+              </summary>
+              <div>
+                {talk.description && <p>{talk.description}</p>}
+                {talk.slidesURL && (
+                  <p>
+                    <a href={talk.slidesURL} target="_blank" rel="noopener">
+                      Slides ↗
+                    </a>
+                  </p>
+                )}
+              </div>
+            </details>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      speakers.length > 0 && (
+        <section class="speakers">
+          <h2>
+            {speakers.length === 1
+              ? t("session.speakers.one")
+              : t("session.speakers.many")}
+          </h2>
+          <ul class="speakers-grid" role="list">
+            {speakers.map((speaker) => (
+              <li>
+                <PersonCard
+                  name={speaker.data.name}
+                  image={speakerImage(speaker.id)}
+                  meta={speaker.data.company}
+                  detail={speaker.data.role}
+                  href={l(`/speakers/${speaker.id}/`)}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>
+
+<style>
+  .back {
+    margin-bottom: var(--space-s);
+    font-size: var(--text--1);
+  }
+
+  .back a {
+    text-decoration: none;
+  }
+
+  .back a:hover {
+    text-decoration: underline;
+  }
+
+  .title {
+    font-size: var(--text-3);
+    max-width: 26ch;
+    margin-bottom: var(--space-m);
+  }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    margin-block: var(--space-m);
+  }
+
+  .fact {
+    display: grid;
+    gap: 0.2rem;
+    padding: var(--space-xs) var(--space-s);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+    background: var(--color-surface);
+    min-width: 12rem;
+  }
+
+  .fact dt {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: var(--text--2);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-text-muted);
+  }
+
+  .fact dt :global(svg) {
+    color: var(--edition-accent);
+  }
+
+  .fact dd {
+    margin: 0;
+    font-weight: 400;
+    color: var(--color-ink);
+  }
+
+  .fact-strong {
+    font-weight: 700;
+    text-transform: capitalize;
+    display: block;
+  }
+
+  .slides {
+    margin-block: var(--space-s);
+  }
+
+  .speakers {
+    margin-top: var(--space-xl);
+  }
+
+  .speakers h2 {
+    font-size: var(--text-2);
+    margin-bottom: var(--space-s);
+  }
+
+  .speakers-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: var(--space-s);
+  }
+</style>

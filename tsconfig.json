@@ -9,7 +9,10 @@
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@pages/*": ["./src/pages/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@i18n/*": ["./src/i18n/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@data/*": ["./src/data/*"]
     }
   }
 }

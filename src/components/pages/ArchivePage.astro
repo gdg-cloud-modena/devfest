@@ -1,0 +1,132 @@
+---
+import SectionHeading from "@components/SectionHeading.astro";
+import { ARCHIVED_YEARS } from "@configs/editions";
+import { localizePath, useTranslations, type Locale } from "@i18n/index";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getEdition, getStats } from "@lib/content";
+import { daysRangeLabel } from "@lib/dates";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const editions = await Promise.all(
+  ARCHIVED_YEARS.map(async (year) => ({
+    year,
+    edition: await getEdition(year),
+    stats: await getStats(year),
+  })),
+);
+---
+
+<BaseLayout title={t("archive.title")} {locale}>
+  <div class="container section">
+    <SectionHeading
+      as="h1"
+      title={t("archive.title")}
+      kicker="DevFest Modena"
+    />
+    <p class="lead">{t("archive.intro")}</p>
+
+    <ul class="list" role="list">
+      {
+        editions.map(({ year, edition, stats }) => (
+          <li>
+            <a class="card edition" href={localizePath(locale, `/${year}/`)}>
+              <span class="year">{year}</span>
+              <span class="date">
+                {daysRangeLabel(edition.data.days, locale)}
+              </span>
+              <span class="stats">
+                {stats.speakers > 0 && (
+                  <span class="chip chip--yellow">
+                    {stats.speakers} {t("home.stats.speakers").toLowerCase()}
+                  </span>
+                )}
+                {stats.rooms > 0 && (
+                  <span class="chip chip--red">
+                    {stats.rooms} {t("home.stats.rooms").toLowerCase()}
+                  </span>
+                )}
+                {(stats.participants ?? 0) > 0 && (
+                  <span class="chip chip--blue">
+                    {stats.participants}+{" "}
+                    {t("home.stats.participants").toLowerCase()}
+                  </span>
+                )}
+              </span>
+              <span class="cta">{t("archive.visit")} →</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .lead {
+    margin-block: calc(-1 * var(--space-xs)) var(--space-m);
+    color: var(--color-text-muted);
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-s);
+    max-width: var(--container-narrow);
+  }
+
+  .edition {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "year date cta"
+      "year stats cta";
+    align-items: center;
+    column-gap: var(--space-m);
+    row-gap: var(--space-2xs);
+  }
+
+  .year {
+    grid-area: year;
+    font-size: var(--text-4);
+    font-weight: 700;
+    color: var(--edition-accent);
+    line-height: var(--leading-solid);
+  }
+
+  .date {
+    grid-area: date;
+    font-weight: 700;
+    color: var(--color-ink);
+    text-transform: capitalize;
+  }
+
+  .stats {
+    grid-area: stats;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3xs);
+  }
+
+  .cta {
+    grid-area: cta;
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
+  }
+
+  @media (max-width: 39.9375em) {
+    .edition {
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "year date"
+        "stats stats"
+        "cta cta";
+    }
+  }
+</style>

@@ -1,0 +1,12 @@
+---
+import SpeakerPage from "@components/pages/SpeakerPage.astro";
+import { speakerPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return speakerPaths();
+}
+
+const { speaker } = Astro.props;
+---
+
+<SpeakerPage {speaker} locale="en" />

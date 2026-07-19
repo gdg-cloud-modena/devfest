@@ -1,0 +1,12 @@
+---
+import TeamPage from "@components/pages/TeamPage.astro";
+import { teamPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return teamPaths();
+}
+
+const { year } = Astro.params;
+---
+
+<TeamPage {year} locale="it" />

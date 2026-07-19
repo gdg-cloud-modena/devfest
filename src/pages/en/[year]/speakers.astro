@@ -1,0 +1,12 @@
+---
+import SpeakersPage from "@components/pages/SpeakersPage.astro";
+import { agendaPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return agendaPaths();
+}
+
+const { year } = Astro.params;
+---
+
+<SpeakersPage {year} locale="en" />

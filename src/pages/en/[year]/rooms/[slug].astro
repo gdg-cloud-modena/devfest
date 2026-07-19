@@ -1,0 +1,12 @@
+---
+import RoomPage from "@components/pages/RoomPage.astro";
+import { roomPaths } from "@lib/paths";
+
+export async function getStaticPaths() {
+  return roomPaths();
+}
+
+const { room } = Astro.props;
+---
+
+<RoomPage {room} locale="en" />
