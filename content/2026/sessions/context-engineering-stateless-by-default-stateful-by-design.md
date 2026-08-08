@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["giorgio-galassi"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 Every time you start a new AI-assisted session, your agents start blind. No memory of last week's architectural decision. No knowledge of why you chose that pattern three projects ago. No awareness that the session ended before you finished. So you explain everything from scratch.

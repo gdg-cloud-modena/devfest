@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["eleonora-mistro"]
 language = "Italiano"
-topic = "Physical AI & Robotica"
+topic = "AI & Machine Intelligence"
 +++
 
 Una conversazione 1:1 dedicata alla tua carriera.

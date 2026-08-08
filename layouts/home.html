@@ -1,36 +1,47 @@
 {{ define "main" }}
 <main>
+  {{/* ── HERO ── */}}
   <section class="hero hero--home">
     <picture class="hero-bg">
-       {{- $hero := (resources.Get "images/home-hero.webp").Resize "300x webp q45" -}}
+      {{- $hero := (resources.Get "images/home-hero.webp").Resize "300x webp q45" -}}
       <source srcset="{{ $hero.Permalink }}" media="(max-width: 300px)">
       {{- $hero = (resources.Get "images/home-hero.webp").Resize "600x webp q70" -}}
       <source srcset="{{ $hero.Permalink }}" media="(max-width: 600px)">
       {{- $hero = (resources.Get "images/home-hero.webp").Resize "1080x webp q85" -}}
-      <img  class="hero-bgImg" src="{{ $hero.Permalink }}" alt="Acetaia">
+      <img class="hero-bgImg" src="{{ $hero.Permalink }}" alt="Acetaia Modena">
     </picture>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       {{- $icon := (resources.Get "images/logo-horizontal-year.png").Resize "x100 webp q45" -}}
       <img class="hero-icon" src="{{ $icon.Permalink }}" width="{{ $icon.Width }}" height="{{ $icon.Height }}" alt="DevFest Modena {{ .Site.Params.currentEdition }}">
-      <h1 class="hero-title">3 e 4 ottobre 2026</h1>
+      <p class="hero-title">3 e 4 ottobre 2026</p>
+      <p class="hero-tagline">La più grande conferenza tech dell&rsquo;Emilia-Romagna</p>
+      <div class="hero-actions">
+        <a class="button button--hero" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+          Prendi il biglietto gratuito
+        </a>
+        <a class="button button--heroSecondary" href="/{{ .Site.Params.currentEdition }}/sessions/">
+          Scopri le sessioni
+        </a>
+      </div>
     </div>
   </section>
-  <section class="section section--padded">
-    <div class="content">
-      {{ .Content }}
-    </div>
-  </section>
-  {{ if .Site.Params.callForSpeakersEnabled }}
-    <section class="section section--padded">
-      <h2 class="h2">Call4Speakers</h2>
-      <p class="p">Vuoi salire sul palco del DevFest Modena 2026? La call for speakers è aperta: fatti avanti!</p>
-      <a class="button" href="{{ .Site.Params.sessionizeUrl }}" target="_blank" rel="noopener">Proponi una sessione</a>
-    </section>
-  {{ end }}
+
+  {{/* ── SESSIONS TEASER ── */}}
+  {{ partial "sessions-teaser.html" . }}
+
+  {{/* ── SPEAKERS WALL ── */}}
+  {{ partial "speakers-wall.html" . }}
+
+  {{/* ── STATS from previous edition ── */}}
   <section class="section section--padded">
     {{ partial "statistics.html" . }}
   </section>
+
+  {{/* ── TICKET CTA ── */}}
+  {{ partial "cta-tickets.html" . }}
+
+  {{/* ── PARTNERS ── */}}
   {{ partial "partners.html" . }}
 </main>
 {{ end }}

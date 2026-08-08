@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["marco-breveglieri"]
 language = "Italiano"
-topic = "Web, Mobile & Tooling"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 Strumenti come Claude Code, Lazygit (76k stelle su GitHub), Codex, OpenCode e molti altri hanno scelto il terminale come interfaccia utente. Non è una scelta nostalgica, ma dettata da ottime valide ragioni: avvio istantaneo, zero dipendenze, piena compatibilità SSH, footprint bassissimo.

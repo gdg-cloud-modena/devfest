@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["giulia-scalaberni"]
 language = "English"
-topic = "Cultura Dev & Leadership"
+topic = "AI & Machine Intelligence"
 +++
 
 Working in international teams, what seems like a “bug” is often a cultural default. 

@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["riccardo-carlesso"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 It was February 5th. I was boarding a flight to South Africa, leaving behind nothing but a beefy Linux machine named pupurabbux and a restless curiosity about automation. Little did I know that by February 7th, my entire world would shift on its axis.

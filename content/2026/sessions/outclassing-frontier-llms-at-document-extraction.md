@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["etienne-bernard"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 Accurately extracting information from documents has been a decades-old dream. Many important workflows — from automated back-office processing to enterprise RAG — depend on it.

@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["matthew-christiansen"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "Cloud & Platform Engineering"
 +++
 
 In this session, we move past simple code generation to explore the "Developer-as-Architect" mindset. We will build a functioning Angular application live, but with a twist: we’ll establish structured AI rules and instruction layers to ensure every line of code meets strict review standards.

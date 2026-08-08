@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["irene-scalisi"]
 language = "Italiano"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 Scegliere di partecipare al DevFest durante questo weekend dice già qualcosa di te: l'ambizione non è un'opzione, ma il tuo standard. L’eccellenza non è una possibilità, ma l'unica strada.

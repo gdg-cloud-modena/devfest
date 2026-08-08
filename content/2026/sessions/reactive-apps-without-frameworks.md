@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["emiliano-pisu"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 Meet a framework-free, zero-deps app stack powered by the near-future web: a tiny signal-based store, DOM-first rendering, and tagged template literals for expressive, safe views.

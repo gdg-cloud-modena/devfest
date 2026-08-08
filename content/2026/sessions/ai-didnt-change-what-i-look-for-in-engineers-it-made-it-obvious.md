@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["nuno-rocha"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 AI is changing software engineering, but perhaps not in the way we first expected. It is not simply replacing tasks or accelerating workflows. It is exposing what has always mattered most in great engineering work.

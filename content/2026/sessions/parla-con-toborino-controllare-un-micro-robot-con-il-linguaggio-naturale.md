@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["soumaya-erradi"]
 language = "Italiano"
-topic = "Physical AI & Robotica"
+topic = "AI & Machine Intelligence"
 +++
 
 Toborino è un piccolo robot su ruote costruito con Arduino, sensori e componenti elettronici. Può muoversi, rilevare ostacoli, fermarsi in caso di emergenza e comunicare con una dashboard web in tempo reale.

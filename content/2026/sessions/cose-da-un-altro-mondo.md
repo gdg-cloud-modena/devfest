@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["francesco-sciuti"]
 language = "Italiano"
-topic = "Web, Mobile & Tooling"
+topic = "AI & Machine Intelligence"
 +++
 
 A volte, per fare un salto evolutivo, basta un tizio solo con un computer, un sacco di tempo e una quantità industriale di ostinazione.

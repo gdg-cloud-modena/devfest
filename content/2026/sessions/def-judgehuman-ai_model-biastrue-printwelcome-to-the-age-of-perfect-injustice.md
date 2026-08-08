@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["celeste-andreano"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 What happens when bugs don't just cause a crash, but destroy human lives? In a world that increasingly delegates critical decisions to algorithms, the line between "statistical optimization" and "systemic injustice" has become dangerously thin. In this talk, we'll explore the fine line between cognitive error and computational bias, analyzing how justice is sliding toward opaque automation.

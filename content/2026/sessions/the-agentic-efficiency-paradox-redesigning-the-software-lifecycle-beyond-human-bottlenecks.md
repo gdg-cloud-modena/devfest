@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["gregorio-palama"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "Cloud & Platform Engineering"
 +++
 
 Agentic swarms are shifting the development bottleneck from code generation to validation. This leads to the "Agentic Efficiency Paradox": accelerating output without evolving our review process creates cognitive saturation and wasted resources.

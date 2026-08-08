@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["lara-lombardi"]
 language = "Italiano"
-topic = "Physical AI & Robotica"
+topic = "AI & Machine Intelligence"
 +++
 
 Pochissimo tempo fa, in una galassia non tanto lontana, l’impero del Male ha iniziato a costruire una pericolosissima arma: l’intelligenza artificiale. Gruppi di ribelli studiano i piani con cui sono progettate le viscere di questo pericoloso strumento per impedire che distrugga milioni di vite.

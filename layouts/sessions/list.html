@@ -108,17 +108,15 @@
     </div>
 
     {{ $allSessions := .Pages }}
-    {{ $topics := slice "AI Agents & Generative AI" "Physical AI & Robotica" "Cloud, Security & Infra" "Web, Mobile & Tooling" "Cultura Dev & Leadership" }}
+    {{ $topics := slice "AI & Machine Intelligence" "Cloud & Platform Engineering" "Web, Mobile & Dev Experience" }}
 
     {{ range $topic := $topics }}
       {{ $topicSessions := where $allSessions "Params.topic" $topic }}
       {{ if gt (len $topicSessions) 0 }}
-        <h2 class="h2" style="margin-top: 2.5rem; border-bottom: 2px solid #57caff; padding-bottom: 0.25rem;">
-          {{ if eq $topic "AI Agents & Generative AI" }}🤖 AI Agents & Generative AI
-          {{ else if eq $topic "Physical AI & Robotica" }}🦾 Physical AI & Robotica
-          {{ else if eq $topic "Cloud, Security & Infra" }}☁️ Cloud, Security & Infrastructure
-          {{ else if eq $topic "Web, Mobile & Tooling" }}📱 Web, Mobile & Developer Tools
-          {{ else if eq $topic "Cultura Dev & Leadership" }}💡 Cultura Dev, Leadership & Etica
+        <h2 class="h2" style="margin-top: 2.5rem; border-bottom: 2px solid #57caff; padding-bottom: 0.25rem; text-align: center;">
+          {{ if eq $topic "AI & Machine Intelligence" }}🤖 AI & Machine Intelligence
+          {{ else if eq $topic "Cloud & Platform Engineering" }}☁️ Cloud & Platform Engineering
+          {{ else if eq $topic "Web, Mobile & Dev Experience" }}📱 Web, Mobile & Dev Experience
           {{ else }}{{ $topic }}{{ end }}
         </h2>
 

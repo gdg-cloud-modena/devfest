@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["giorgia-gibellini"]
 language = "Italiano"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 A giugno 2026, oltre il 57% del traffico web globale è generato da bot e sistemi basati su AI, superando quello umano. 

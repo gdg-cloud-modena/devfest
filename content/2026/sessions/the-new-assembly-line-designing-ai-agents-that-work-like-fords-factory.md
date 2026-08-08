@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["zelda-ailine-luconi"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 After its debut at Coderful 2026 in Catania — where it was met with great enthusiasm and strong technical engagement — this talk now brings its mission to the GDG Modena community: a full immersion into the world of AI Design Architecture applied to multi-agent systems.

@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["camillo-bucciarelli"]
 language = "Italiano"
-topic = "AI Agents & Generative AI"
+topic = "Cloud & Platform Engineering"
 +++
 
 I Large Language Models sono oggi quasi sempre utilizzati tramite servizi cloud, con costi, latenza e implicazioni sulla privacy.

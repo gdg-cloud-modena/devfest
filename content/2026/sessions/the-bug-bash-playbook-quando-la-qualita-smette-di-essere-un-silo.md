@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["ludovico-besana"]
 language = "Italiano"
-topic = "AI Agents & Generative AI"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 La CI è verde, i test passano e il deploy è pronto. Poi qualcuno apre il prodotto da un vecchio tablet, con una connessione lenta o seguendo un percorso mai previsto. Ed ecco il problema che nessuno aveva visto.

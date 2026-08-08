@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["fabio-trigari"]
 language = "Italiano"
-topic = "AI Agents & Generative AI"
+topic = "Cloud & Platform Engineering"
 +++
 
 Tutti noi abbiamo scritto automazioni semplici:

@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["adi-mazor-kario"]
 language = "English"
-topic = "Physical AI & Robotica"
+topic = "AI & Machine Intelligence"
 +++
 
 For years, we’ve said "hardware is hard" to explain why robots haven’t taken over the world yet. But in 2026, the script has flipped. AI is finally giving robotics its "iPhone moment"—turning clunky machines into smart, adaptable agents that can actually understand the physical world.

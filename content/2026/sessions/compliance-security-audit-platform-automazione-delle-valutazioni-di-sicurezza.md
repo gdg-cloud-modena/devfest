@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["giada-salvatori"]
 language = "Italiano"
-topic = "Physical AI & Robotica"
+topic = "Cloud & Platform Engineering"
 +++
 
 Oggigiorno avere una corretta gestione dei dati e degli ambienti diventa fondamentale, su di essi si basano previsioni aziendali, budget, strategie decisionali e molto altro. La gestione della sicurezza e della compliance normativa rappresenta una priorità concreta per qualsiasi organizzazione moderna. La configurazione e l'utilizzo diventano sempre più complesse, e la corretta gestione è indispensabile per fare previsioni aziendali. Basilare è garantire gli standard normativi e le best practice di sicurezza in modo da proteggere il valore aziendale.

@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["stefano-carlini"]
 language = "Italiano"
-topic = "AI Agents & Generative AI"
+topic = "Cloud & Platform Engineering"
 +++
 
 In concomitanza con lo Smart Life Festival, Modena si interroga sul tema delle "Intelligenze". Per chi si occupa di tecnologia, questa non è solo una sfida etica, ma una sfida di progettazione: come possiamo usare l'Intelligenza Artificiale per elevare lo sviluppo professionale senza compromettere l'integrità e l'autorevolezza del sapere umano?

@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["katya-vinnichenko"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 In 2026, building smart AI isn't enough anymore – it also has to be secure and compliant. With regulations like the EU AI Act now in full effect, security can no longer be an afterthought. But how do you meet strict legal rules without slowing down your developers?  

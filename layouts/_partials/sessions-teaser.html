@@ -1,0 +1,55 @@
+{{/* Sessions Teaser — 3 tracks, no speaker avatar */}}
+{{ $year := printf "%v" site.Params.currentEdition }}
+{{ $sessionsPage := site.GetPage (printf "/%s/sessions" $year) }}
+{{ $allSessions := $sessionsPage.Pages }}
+
+{{ $topics := slice
+  (dict
+    "key"         "AI & Machine Intelligence"
+    "label"       "AI & Machine Intelligence"
+    "description" "Agenti AI, GenAI, Robotica, LLM, etica e futuro dello sviluppo"
+    "emoji"       "🤖"
+    "color"       "primary"
+  )
+  (dict
+    "key"         "Cloud & Platform Engineering"
+    "label"       "Cloud & Platform Engineering"
+    "description" "Cloud, DevOps, Infrastructure as Code, Security e affidabilità"
+    "emoji"       "☁️"
+    "color"       "tertiary"
+  )
+  (dict
+    "key"         "Web, Mobile & Dev Experience"
+    "label"       "Web, Mobile & Dev Experience"
+    "description" "Web moderno, Mobile nativo, Developer tools e qualità del codice"
+    "emoji"       "📱"
+    "color"       "secondary"
+  )
+}}
+
+<section class="section section--padded homeSessions">
+  <div class="homeSessions-header">
+    <h2 class="h2 homeSessions-title">Le Tracce del DevFest 2026</h2>
+    <p class="p homeSessions-subtitle">
+      {{ len $allSessions }} sessioni su 3 aree tematiche &mdash; trovi il tuo argomento.
+    </p>
+  </div>
+
+  <div class="homeSessions-grid homeSessions-grid--3col">
+    {{ range $topic := $topics }}
+      {{ $topicSessions := where $allSessions "Params.topic" $topic.key }}
+
+      <a class="homeSessions-card homeSessions-card--{{ $topic.color }}" href="/{{ $year }}/sessions/">
+        <div class="homeSessions-cardEmoji" aria-hidden="true">{{ $topic.emoji }}</div>
+        <div class="homeSessions-cardTrack">{{ len $topicSessions }} sessioni</div>
+        <h3 class="homeSessions-cardTitle">{{ $topic.label }}</h3>
+        <p class="homeSessions-cardDesc">{{ $topic.description }}</p>
+        <span class="homeSessions-cardCta">Scopri &rarr;</span>
+      </a>
+    {{ end }}
+  </div>
+
+  <div class="homeSessions-footer">
+    <a class="button" href="/{{ $year }}/sessions/">Esplora tutte le {{ len $allSessions }} sessioni</a>
+  </div>
+</section>

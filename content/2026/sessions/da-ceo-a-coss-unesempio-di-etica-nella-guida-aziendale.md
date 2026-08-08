@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["lisa-trigiante"]
 language = "Italiano"
-topic = "Web, Mobile & Tooling"
+topic = "AI & Machine Intelligence"
 +++
 
 Il percorso di maturazione personale e professionale che mi sta portando ad elaborare una visione unica di un’ambiente aziendale nuovo.

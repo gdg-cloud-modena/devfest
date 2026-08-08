@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["marcos-manuel-ortega-gonzalez"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "Cloud & Platform Engineering"
 +++
 
 Why keep managing your cloud infrastructure with rigid HCL when you can use the power of Python?

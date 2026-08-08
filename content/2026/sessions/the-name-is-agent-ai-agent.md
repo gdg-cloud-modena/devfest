@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["tamas-piros"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 The AI agent hype is deafening. The actual understanding of what an agent is: near silence.

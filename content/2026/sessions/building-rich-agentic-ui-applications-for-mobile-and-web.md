@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["ashita-prasad"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 We’ve spent decades teaching users how to navigate applications through menus, tabs, buttons, and forms. But what if your users didn't need to navigate at all?

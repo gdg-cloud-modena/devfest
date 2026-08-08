@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["marco-picone"]
 language = "English"
-topic = "Physical AI & Robotica"
+topic = "AI & Machine Intelligence"
 +++
 
 The physical world is becoming increasingly complex, and the rise of Physical AI, autonomous robots, intelligent sensors, and embedded decision-making, will only accelerate this trend. 

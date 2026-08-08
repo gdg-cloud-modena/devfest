@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["davide-passafaro"]
 language = "Italiano"
-topic = "Physical AI & Robotica"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 Per anni il browser è stato un terreno di gioco sicuro ma isolato. Se volevi comunicare con un dispositivo Bluetooth, modificare file locali o accedere a una porta seriale, l'unica strada era lo sviluppo nativo. Ora non è più così. Vi presento il Progetto Fugu: l'iniziativa cross-company nata per colmare, una volta per tutte, il divario di funzionalità tra il Web e le applicazioni Native.

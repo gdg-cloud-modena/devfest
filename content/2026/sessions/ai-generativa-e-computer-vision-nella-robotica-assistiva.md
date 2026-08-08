@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["federico-biagi"]
 language = "Italiano"
-topic = "Physical AI & Robotica"
+topic = "AI & Machine Intelligence"
 +++
 
 Come possiamo rendere i robot strumenti accessibili e utili per tutti? In questo talk racconterò parte del mio percorso di dottorato svolto al Dipartimento di Ingegneria "Enzo Ferrari" nell'ambito della Robotica Assistiva. Partiremo da un caso d'uso reale al Policlinico di Modena, dove è stato utilizzato un Large Language Model (LLM) per permettere ai medici di controllare il robot sociale NAO tramite linguaggio naturale, supportando visite a bambini con disturbo dello spettro autistico.

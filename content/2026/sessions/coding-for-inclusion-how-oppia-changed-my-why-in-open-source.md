@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["muhammad-patel"]
 language = "English"
-topic = "Cloud, Security & Infra"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 Many students enter open source hoping to build a resume and earn a stipend. When I joined Google Summer of Code (GSoC) 2023, I was no different. However, my work with the Oppia Foundation fundamentally transformed my perspective.

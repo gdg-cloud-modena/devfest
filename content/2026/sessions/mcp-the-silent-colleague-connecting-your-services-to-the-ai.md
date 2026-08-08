@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["marco-pollacci"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 You have an AI that wants to do things, and services that know how to do them, but they don't talk to each other. 

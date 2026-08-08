@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["julien-salvi"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 Validating a Jira ticket on a real Android device takes thirty minutes on a good day but can be days of hands-on testing when every edge case matters. What if the agent could do it for you? 

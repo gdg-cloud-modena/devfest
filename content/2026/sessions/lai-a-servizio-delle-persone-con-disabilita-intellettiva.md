@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["giacomo-sergio", "guido-marangoni"]
 language = "Italiano"
-topic = "Physical AI & Robotica"
+topic = "Web, Mobile & Dev Experience"
 +++
 
 L'Intelligenza Artificiale viene spesso celebrata per la sua capacità di ottimizzare processi industriali o generare contenuti creativi. Ma cosa succede quando mettiamo questa straordinaria potenza al servizio della fragilità e dell'inclusione?

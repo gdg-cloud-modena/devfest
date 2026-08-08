@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["luca-bonetti", "marika-silvestri"]
 language = "Italiano"
-topic = "Web, Mobile & Tooling"
+topic = "AI & Machine Intelligence"
 +++
 
 Tratto da (più di) una storia vera: come possiamo sopravvivere come lavoratori del settore tecnologico nel 2026? Quali sono le difficoltà che riscontriamo giorno per giorno? Quali sono i rischi? Quali sono le strategie che possiamo adottare per gestire la quotidianità?

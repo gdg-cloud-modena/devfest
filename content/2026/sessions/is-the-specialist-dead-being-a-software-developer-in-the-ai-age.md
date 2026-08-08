@@ -6,7 +6,7 @@ draft = false
 [params]
 speakers = ["danny-preussler"]
 language = "English"
-topic = "AI Agents & Generative AI"
+topic = "AI & Machine Intelligence"
 +++
 
 The world of software engineering is undergoing a drastic and rapid transformation. And many developers are asking themselves if they will become obsolete very soon.
