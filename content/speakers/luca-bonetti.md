@@ -1,21 +1,16 @@
 +++
 title = "Luca Bonetti"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
-company = "IUNGO"
-role = "Senior Developer"
-male = true
-
-[params.social]
-linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-website = ""
+company = "Web software developer"
+role = "Speaker"
+website = "https://www.linkedin.com/in/lb-luca-bonetti"
 +++
 
-Sono uno sviluppatore di software web appassionato ed entusiasta, con un focus sul backend ma con un occhio di riguardo anche al frontend.
-Mi piace imparare e condividere con le persone con cui lavoro.
+"How would you describe yourself?"_x000D_
+"Half a Pokémon, half a margherita pizza"_x000D_
+_x000D_
+I am a passionate and enthusiastic web software developer, mostly focused on the backend but with a keen eye on the frontend as well._x000D_
+I enjoy learning and sharing with people I work with.

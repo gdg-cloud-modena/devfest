@@ -1,20 +1,14 @@
 +++
 title = "Camillo Bucciarelli"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
-company = "Sopra Steria"
-role = "Technical manager"
-male = true
-
-[params.social]
-linkedin = "https://www.linkedin.com/in/camillo-bucciarelli/"
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-website = ""
+company = "Manager @ Sopra Steria"
+role = "Speaker"
+website = "https://www.linkedin.com/in/camillo-bucciarelli/"
 +++
 
-Passionate about technology work in the IT industry since 2015. From Android through the web to Flutter helps companies to get their target.
+Manager e sviluppatore software specializzato nello sviluppo mobile e applicazioni cross-platform con oltre 10 anni di esperienza nel settore IT. Attualmente ricopro il ruolo di Manager @ Sopra Steria e mi occupo di architetture, sviluppo e strategie tecnologiche per prodotti software moderni. Ho una solida esperienza su Android nativo, Flutter e Firebase, e supporto team e aziende nel raggiungere obiettivi di trasformazione digitale, usabilità e scalabilità._x000D_
+_x000D_
+Parallelamente alla mia attività professionale, contribuisco attivamente alla community tecnologia come membro GDG, insegno e faccio mentoring presso ITS Lanciano, e partecipo come speaker in conferenze nazionali su temi legati a Flutter, Firebase e buone pratiche di sviluppo software.

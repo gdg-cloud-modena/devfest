@@ -4,13 +4,9 @@ date = 2026-06-13
 draft = false
 
 [params]
-rooms = ["chiesa"]
 speakers = ["giacomo-sergio", "guido-marangoni"]
 language = "Italiano"
-starts = 2026-10-03T14:00:00
-ends = 2026-10-03T14:45:00
-slidesURL = ""
-warning = ""
+topic = "Physical AI & Robotica"
 +++
 
 L'Intelligenza Artificiale viene spesso celebrata per la sua capacità di ottimizzare processi industriali o generare contenuti creativi. Ma cosa succede quando mettiamo questa straordinaria potenza al servizio della fragilità e dell'inclusione?

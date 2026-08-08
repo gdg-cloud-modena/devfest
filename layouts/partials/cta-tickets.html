@@ -1,0 +1,15 @@
+{{ $img := (resources.Get "images/logo-simple.png").Resize "500x webp q85" }}
+
+<section class="ctaTickets">
+  <div class="ctaTickets-content">
+    <div class="ctaTickets-info">
+      <h2 class="ctaTickets-title">Biglietti disponibili</h2>
+      <p class="p">Le registrazioni per DevFest Modena 2026 sono aperte.</p>
+      <p class="p">Prendi il tuo biglietto gratuito e assicurati un posto all'evento.</p>
+      <a class="button" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+        Prendi il biglietto
+      </a>
+    </div>
+    <img class="ctaTickets-image" src="{{ $img.Permalink }}" alt="Devfest Modena Logo" width="{{ $img.Width }}" height="{{ $img.Height }}">
+  </div>
+</section>

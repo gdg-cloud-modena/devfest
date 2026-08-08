@@ -4,13 +4,9 @@ date = 2026-06-13
 draft = false
 
 [params]
-rooms = ["chiesa"]
 speakers = ["matthew-christiansen"]
 language = "English"
-starts = 2026-10-03T15:00:00
-ends = 2026-10-03T15:45:00
-slidesURL = ""
-warning = ""
+topic = "AI Agents & Generative AI"
 +++
 
 In this session, we move past simple code generation to explore the "Developer-as-Architect" mindset. We will build a functioning Angular application live, but with a twist: we’ll establish structured AI rules and instruction layers to ensure every line of code meets strict review standards.

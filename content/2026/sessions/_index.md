@@ -1,17 +1,14 @@
 +++
+title = "Sessioni & Talk DevFest Modena 2026"
 type = "sessions"
 
 [cascade]
 type = "sessions"
 +++
 
+Durante la due giorni di **DevFest Modena 2026**, avrai l'opportunità unica di ascoltare e incontrare esperti del settore, innovatori internazionali e professionisti di livello mondiale.
 
-Durante questo evento, avrai l'opportunità di ascoltare e incontrare esperti del settore, innovatori e professionisti.
+Qui sotto trovi la panoramica di tutte le sessioni confermate, suddivise per area tematica: dagli **Agenti AI** alla **Robotica**, dal **Cloud** al **Frontend/Mobile** e alla **Cultura Dev**.
 
-Qui trovi tutte le informazioni sugli interventi in programma, con dettagli sugli argomenti trattati e i profili degli speaker che li presenteranno.
+Esplora gli argomenti, scopri chi salirà sul palco e **assicurati il tuo biglietto** prima dell'esaurimento dei posti!
 
-Esplora il programma, scopri le storie e le competenze di chi salirà sul palco.
-
-Se desideri partecipare ai workshop, leggi la pagina delle [istruzioni](/workshops/).
-
-**Attenzione, l'agenda potrebbe subire piccoli aggiustamenti prima dell'evento.**

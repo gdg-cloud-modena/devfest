@@ -107,8 +107,7 @@
       <h3 class="h3">{{ $y }}</h3>
       <ul class="sessions">
         {{- range $session := $sessions -}}
-        {{ $dt := time ($session.Param "starts") }}
-
+        {{ $starts := $session.Param "starts" }}
         {{/* Prepare the room list */}}
         {{ $roomNames := slice }}
         {{ range $code := $session.Params.rooms }}
@@ -119,12 +118,19 @@
         {{ $roomsHTML := delimit $roomNames ", " }}
 
         <li class="sessions-item">
+          {{ if $starts }}
+          {{ $dt := time $starts }}
           <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a
               class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
+          {{ else }}
+          <p class="sessions-itemHead"><a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
+          {{ end }}
+          {{ if gt (len $roomNames) 0 }}
           <p class="sessions-itemDetails">
             {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in
             contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
           </p>
+          {{ end }}
         </li>
         {{- end -}}
       </ul>

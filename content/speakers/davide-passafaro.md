@@ -1,24 +1,16 @@
 +++
 title = "Davide Passafaro"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
-company = ""
-role = "Angular GDE | Senior Frontend Engineer @ awork"
-male = true
-
-[params.social]
-linkedin = "https://www.linkedin.com/in/davide-passafaro"
-instagram = "https://www.instagram.com/davidepassafaro/"
-x = "https://x.com/DavidePassafaro"
-facebook = ""
-github = ""
-website = ""
+company = "Google Developer Expert in Angular ❮ ❯ | Senior Software Engineer 💻📱 | GDG Roma Città Organizer 📣"
+role = "Speaker"
+website = "https://www.linkedin.com/in/davide-passafaro"
 +++
 
-As a Senior Frontend Engineer, I lead two developer communities in Rome: GDG Roma Città and Angular Roma. I am passionate about contributing to the tech community as a writer and speaker.
-
-Specializing in Angular, I also have extensive experience in mobile and desktop app development using Capacitor and Electron. Over the years, I’ve built high-performing applications leveraging technologies like Nx, NgRx, and NGXS.
-
-Outside of work, I love playing board games or practicing archery. I’m also a fan of escape rooms and enjoy creating funny memes.
+Senior Frontend Engineer and Google Developer Expert in Angular, Davide leads the GDG Roma Città and Angular Roma communities._x000D_
+_x000D_
+While rooted in Angular, he is currently expanding his horizons into Node.js, React, and AI experimentation to share fresh insights through talks and workshops._x000D_
+_x000D_
+Outside of coding, he is an archery enthusiast, a board game strategist, and a fan of escape rooms.

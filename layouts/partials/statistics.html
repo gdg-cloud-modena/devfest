@@ -1,0 +1,32 @@
+{{ $year := "2025" }}
+{{ $workshopLen := len (where (site.GetPage (printf "/%s/sessions" $year)).Pages "Params.workshop" true)}}
+{{ $agenda := index site.Data $year }}
+{{ $speakers := len (where (site.GetPage (printf "/speakers" )).Pages "Params" "ne" nil ) }}
+{{ $rooms := len (where (site.GetPage (printf "/%s/rooms" $year)).Pages "Params.forSessions" true) }}
+{{ $participants := $agenda.participants }}
+
+<h2 class="h2">
+  Il nostro 2025
+</h2>
+<div class="statistics">
+  <p class="statistics-item statistics-item--rooms">
+    <img class="statistics-img" src="/icons/room.svg" alt="Room" height="40">
+    <br>{{ $rooms }}
+    <br>Sale
+  </p>
+  <p class="statistics-item statistics-item--speakers">
+    <img class="statistics-img" src="/icons/speakers.svg" alt="Speakers" height="40">
+    <br>{{ $speakers}}
+    <br>Relatori
+  </p>
+  <p class="statistics-item statistics-item--workshops">
+    <img class="statistics-img" src="/icons/workshop.svg" alt="Workshops" height="40">
+    <br>{{ $workshopLen }}
+    <br>Workshop
+  </p>
+  <p class="statistics-item statistics-item--participants">
+    <img class="statistics-img" src="/icons/people.svg" alt="Participants" height="40">
+    <br>{{ $participants}}+
+    <br>Partecipanti
+  </p>
+</div>

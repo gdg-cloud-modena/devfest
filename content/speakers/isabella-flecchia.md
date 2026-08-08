@@ -1,20 +1,12 @@
 +++
 title = "Isabella Flecchia"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
-company = "SiamoForesta"
-role = "People & Organization People Expert"
-male = true
-
-[params.social]
-linkedin = "https://www.linkedin.com/in/isabellaflecchia/"
-instagram = ""
-x = ""
-facebook = ""
-github = ""
-website = ""
+company = "Founder ImpulsoFuturo"
+role = "Speaker"
+website = "https://www.linkedin.com/in/isabellaflecchia/"
 +++
 
-Psicologa, coach e SuperVisor, a + di 40 anni aiuto persone e organizzazioni a scoprire come possono fiorire in modo per loro sostenibile, facilitando la collaborazione tra team con percorsi di connessione e comunicazione interfunzionale, costruendo percorsi di sviluppo per Manager ed Executive, aiutando le organizzazioni a sviluppare una cultura di consapevolezza, coinvolgimento e change, progettando esperienze di formazione e team building.
+Laurea in Psicologia del Lavoro. Oltre 40 anni di esperienza in consulenza organizzativa, coaching e change management. Credenziale PCC di ICF, 4.000+ ore di Business Coaching. Non sono un'esperta di AI. Sono esperta dell'impatto dei cambiamenti sulle persone — incluso quello tecnologico. Ho lavorato con aziende in trasformazione per quattro decenni: ho visto cosa blocca davvero il cambiamento, e cosa può aiutare a sbloccarlo.

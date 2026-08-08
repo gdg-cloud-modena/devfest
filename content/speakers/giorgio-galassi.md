@@ -1,22 +1,16 @@
 +++
 title = "Giorgio Galassi"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
-company = ""
-role = "Senior Frontend Engineer @ Onpier | GDG Roma Città Organizer"
-male = true
-
-[params.social]
-linkedin = "https://www.linkedin.com/in/giorgiogalassi/"
-instagram = "https://www.instagram.com/giogio.galassi/"
-x = ""
-facebook = ""
-github = ""
-website = ""
+company = "Senior Frontend Engineer @ Freelancer | GDG Roma Città Organizer"
+role = "Speaker"
+website = "https://www.linkedin.com/in/giorgiogalassi/"
 +++
 
-Giorgio is a Senior Frontend Developer with nearly 8 years of experience building dynamic, user-focused web applications. Specialized in Angular, he also keeps an eye on other frontend frameworks and technologies, always seeking innovative approaches to problem-solving.
-
-Beyond coding, Giorgio is deeply involved in the developer community. As a proud Organizer of GDG Roma Città, he fosters knowledge-sharing and collaboration among peers. He enjoys making complex topics more accessible and helping others sharpen their technical skills.
+Senior Frontend Engineer with 10+ years of experience building large-scale, production-grade web applications. Specialized in Angular, TypeScript, NgRx, RxJS, and Nx, with a strong focus on component architecture, state management, micro-frontend patterns, and modular monorepos._x000D_
+_x000D_
+Most of my career has been spent in complex, multi-team environments where scalability and maintainability aren't optional. I think about frontend not just as UI delivery, but as a platform: shared libraries, design systems, DX tooling, and architecture that lets teams move fast without breaking each other's work._x000D_
+_x000D_
+Beyond code, I care deeply about the developer community. I'm co-founder of GDG Roma Città and co-organizer of NgRome. I write regularly on Angular topics and speak at conferences across Italy and Europe, including DevFest events and NgRome.
