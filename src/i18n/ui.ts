@@ -17,11 +17,13 @@ export const ui = {
     "nav.lang.label": "Lingua",
 
     "home.claim":
-      "Due giornate di talk, workshop e community nel cuore dell'Emilia.",
-    "home.hero.tickets": "Prendi il biglietto",
+      "Due giorni di conferenze multidisciplinari, workshop e collaborazione. Unisciti a sviluppatori, designer e appassionati per plasmare il futuro del digitale.",
+    "home.hero.tickets": "Riserva biglietto",
     "home.hero.agenda": "Scopri l'agenda",
     "home.free": "Evento gratuito",
-    "home.stats.title": "Il nostro {year}",
+    "home.gallery": "Momenti dalle edizioni passate",
+    "home.intro.cta": "Consulta agenda",
+    "home.stats.title": "Il nostro DevFest {year}",
     "home.stats.rooms": "Sale",
     "home.stats.speakers": "Speaker",
     "home.stats.workshops": "Workshop",
@@ -32,7 +34,8 @@ export const ui = {
     "home.communities.all": "Tutte le community",
     "home.editions.title": "Edizioni precedenti",
 
-    "cfs.title": "Call for speakers",
+    "cfs.badge": "Diventa speaker",
+    "cfs.title": "Call4Speakers",
     "cfs.text":
       "Vuoi salire sul palco del DevFest Modena {year}? La call for speakers è aperta: fatti avanti!",
     "cfs.button": "Proponi una sessione",
@@ -43,10 +46,11 @@ export const ui = {
     "cta.tickets.text2":
       "Prendi il tuo biglietto gratuito e assicurati un posto all'evento.",
     "cta.tickets.button": "Prendi il biglietto",
+    "cta.cv.badge": "Estendi la tua rete",
     "cta.cv.title": "Manda il curriculum",
     "cta.cv.text":
       "Invia il tuo curriculum, lo condivideremo con le aziende in cerca di collaboratori.",
-    "cta.cv.button": "Invia qui",
+    "cta.cv.button": "Invia il tuo CV",
 
     "footer.description":
       "Un grande evento di programmazione e di tecnologia al centro dell'Emilia, nato dalle comunità locali.",
@@ -176,11 +180,13 @@ export const ui = {
     "nav.lang.label": "Language",
 
     "home.claim":
-      "Two days of talks, workshops and community in the heart of Emilia, Italy.",
-    "home.hero.tickets": "Get your ticket",
+      "Two days of multidisciplinary conferences, workshops and collaboration. Join developers, designers and enthusiasts shaping the future of digital.",
+    "home.hero.tickets": "Book your ticket",
     "home.hero.agenda": "Browse the agenda",
     "home.free": "Free event",
-    "home.stats.title": "Our {year}",
+    "home.gallery": "Moments from past editions",
+    "home.intro.cta": "Browse the agenda",
+    "home.stats.title": "Our DevFest {year}",
     "home.stats.rooms": "Rooms",
     "home.stats.speakers": "Speakers",
     "home.stats.workshops": "Workshops",
@@ -191,7 +197,8 @@ export const ui = {
     "home.communities.all": "All communities",
     "home.editions.title": "Previous editions",
 
-    "cfs.title": "Call for speakers",
+    "cfs.badge": "Become a speaker",
+    "cfs.title": "Call4Speakers",
     "cfs.text":
       "Would you like to speak at DevFest Modena {year}? The call for speakers is open: step forward!",
     "cfs.button": "Submit a session",
@@ -200,10 +207,11 @@ export const ui = {
     "cta.tickets.text1": "Registrations for DevFest Modena {year} are open.",
     "cta.tickets.text2": "Get your free ticket and secure your seat.",
     "cta.tickets.button": "Get your ticket",
+    "cta.cv.badge": "Grow your network",
     "cta.cv.title": "Send your resume",
     "cta.cv.text":
       "Share your resume with us: we will pass it on to companies looking for talent.",
-    "cta.cv.button": "Send it here",
+    "cta.cv.button": "Send your CV",
 
     "footer.description":
       "A great programming and technology event in the heart of Emilia, born from local communities.",

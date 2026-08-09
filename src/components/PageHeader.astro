@@ -1,0 +1,49 @@
+---
+/**
+ * Header of an interior page: pastel badge, title, optional lead and slot
+ * for extra actions. Mirrors the centered rhythm of the home sections.
+ */
+interface Props {
+  title: string;
+  /** Small pill above the title, usually the edition or the section name. */
+  badge?: string;
+  lead?: string;
+  align?: "center" | "start";
+}
+
+const { title, badge, lead, align = "center" }: Props = Astro.props;
+---
+
+<header class:list={["page-header", `page-header--${align}`]}>
+  {badge && <p class="badge badge--accent">{badge}</p>}
+  <h1>{title}</h1>
+  {lead && <p class="lead">{lead}</p>}
+  <slot />
+</header>
+
+<style>
+  .page-header {
+    display: grid;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-l);
+  }
+
+  .page-header--center {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .page-header--start {
+    justify-items: start;
+  }
+
+  h1 {
+    font-size: var(--text-5);
+    max-width: 18ch;
+  }
+
+  .lead {
+    color: var(--color-text-muted);
+    max-width: 62ch;
+  }
+</style>

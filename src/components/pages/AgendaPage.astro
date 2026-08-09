@@ -1,7 +1,7 @@
 ---
-import Callout from "@components/Callout.astro";
 import EditionNotice from "@components/EditionNotice.astro";
-import SectionHeading from "@components/SectionHeading.astro";
+import PageHeader from "@components/PageHeader.astro";
+import PromoCard from "@components/PromoCard.astro";
 import SessionList from "@components/SessionList.astro";
 import { editionOf, isCurrent } from "@configs/editions";
 import { localizePath, useTranslations, type Locale } from "@i18n/index";
@@ -15,7 +15,7 @@ import {
   groupByDay,
   slugOf,
 } from "@lib/content";
-import { fmtWeekdayDate } from "@lib/dates";
+import { daysRangeLabel, fmtWeekdayDate, sentenceCase } from "@lib/dates";
 import { render } from "astro:content";
 
 interface Props {
@@ -53,13 +53,19 @@ const IntroContent = intro ? (await render(intro)).Content : null;
   {year}
   noCtas={!current}
 >
-  <div class="container section">
+  <div
+    class="container container--inset section"
+    data-agenda-live={current ? "" : undefined}
+  >
     <EditionNotice {year} {locale} />
-    <SectionHeading as="h1" title={t("agenda.title", { year })} kicker="DevFest Modena" />
+    <PageHeader
+      title={t("agenda.title", { year })}
+      badge={daysRangeLabel(edition.data.days, locale)}
+    />
 
     {
       IntroContent && (
-        <div class="prose intro">
+        <div class="prose prose--center intro">
           <IntroContent />
         </div>
       )
@@ -67,14 +73,15 @@ const IntroContent = intro ? (await render(intro)).Content : null;
 
     {
       cfs?.open && (
-        <Callout variant="info">
-          <p>{t("cfs.text", { year })}</p>
-          <p>
-            <a class="button" href={cfs.url} target="_blank" rel="noopener">
-              {t("cfs.button")}
-            </a>
-          </p>
-        </Callout>
+        <div class="cfs">
+          <PromoCard
+            badge={t("cfs.badge")}
+            title={t("cfs.title")}
+            text={t("cfs.text", { year })}
+            action={{ label: t("cfs.button"), href: cfs.url, external: true }}
+            decor={{ shape: "cross", tone: "pink" }}
+          />
+        </div>
       )
     }
 
@@ -83,7 +90,7 @@ const IntroContent = intro ? (await render(intro)).Content : null;
         <nav class="day-nav" aria-label={t("agenda.day")}>
           {days.map((day) => (
             <a class="chip" href={`#day-${day.key}`}>
-              {fmtWeekdayDate(day.date, locale)}
+              {sentenceCase(fmtWeekdayDate(day.date, locale))}
             </a>
           ))}
         </nav>
@@ -94,7 +101,7 @@ const IntroContent = intro ? (await render(intro)).Content : null;
       days.map((day) => (
         <section class="day" aria-labelledby={`day-${day.key}`}>
           <h2 class="day-title" id={`day-${day.key}`}>
-            {fmtWeekdayDate(day.date, locale)}
+            {sentenceCase(fmtWeekdayDate(day.date, locale))}
           </h2>
           <SessionList
             sessions={day.sessions}
@@ -107,79 +114,75 @@ const IntroContent = intro ? (await render(intro)).Content : null;
       ))
     }
 
-    <section class="rooms">
-      <h2>{t("agenda.rooms.sessions")}</h2>
-      <ul>
-        {
-          sessionRooms.map((room) => (
-            <li>
-              <a href={l(`/${year}/rooms/${slugOf(room)}/`)}>
-                <strong>{room.data.name}</strong>
-              </a>
-              {room.data.summary && <>: {room.data.summary}</>}
-            </li>
-          ))
-        }
-      </ul>
-      {
-        otherRooms.length > 0 && (
-          <>
-            <h2>{t("agenda.rooms.other")}</h2>
-            <ul>
-              {otherRooms.map((room) => (
+    {
+      [
+        { title: t("agenda.rooms.sessions"), items: sessionRooms },
+        { title: t("agenda.rooms.other"), items: otherRooms },
+      ]
+        .filter((group) => group.items.length > 0)
+        .map((group) => (
+          <section class="rooms">
+            <h2>{group.title}</h2>
+            <ul role="list">
+              {group.items.map((room) => (
                 <li>
-                  <a href={l(`/${year}/rooms/${slugOf(room)}/`)}>
-                    <strong>{room.data.name}</strong>
+                  <a
+                    class="card room"
+                    href={l(`/${year}/rooms/${slugOf(room)}/`)}
+                  >
+                    <span class="room-name">{room.data.name}</span>
+                    {room.data.summary && (
+                      <span class="room-summary">{room.data.summary}</span>
+                    )}
                   </a>
-                  {room.data.summary && <>: {room.data.summary}</>}
                 </li>
               ))}
             </ul>
-          </>
-        )
-      }
-    </section>
+          </section>
+        ))
+    }
   </div>
 
-  {
-    current && (
-      <script>
-        // Progressive enhancement: highlight sessions happening right now,
-        // fade the ones already over. Works only while the event is running.
-        const OFFSET = 15 * 60 * 1000; // highlight 15 minutes early
-        function refresh() {
-          const now = Date.now();
-          let any = false;
-          document.querySelectorAll<HTMLElement>(".session[data-starts]").forEach((el) => {
-            const starts = Date.parse(el.dataset.starts ?? "") - OFFSET;
-            const ends = Date.parse(el.dataset.ends ?? "");
-            if (Number.isNaN(starts) || Number.isNaN(ends)) return;
-            el.classList.toggle("session--current", now >= starts && now < ends);
-            el.classList.toggle("session--past", now >= ends);
-            any = true;
-          });
-          if (any) setTimeout(refresh, 60 * 1000);
+  <script>
+    // Progressive enhancement: highlight the sessions happening right now and
+    // fade the ones already over. Only the current edition opts in, via the
+    // data-agenda-live flag on the page wrapper.
+    if (document.querySelector("[data-agenda-live]")) {
+      const OFFSET = 15 * 60 * 1000; // highlight 15 minutes early
+      const refresh = () => {
+        const now = Date.now();
+        let any = false;
+        for (const el of document.querySelectorAll(".session[data-starts]")) {
+          if (!(el instanceof HTMLElement)) continue;
+          const starts = Date.parse(el.dataset.starts ?? "") - OFFSET;
+          const ends = Date.parse(el.dataset.ends ?? "");
+          if (Number.isNaN(starts) || Number.isNaN(ends)) continue;
+          el.classList.toggle("session--current", now >= starts && now < ends);
+          el.classList.toggle("session--past", now >= ends);
+          any = true;
         }
-        refresh();
-      </script>
-    )
-  }
+        if (any) setTimeout(refresh, 60 * 1000);
+      };
+      refresh();
+    }
+  </script>
 </BaseLayout>
 
 <style>
   .intro {
-    margin-bottom: var(--space-m);
+    margin-bottom: var(--space-l);
+  }
+
+  .cfs {
+    margin-bottom: var(--space-l);
   }
 
   .day-nav {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-2xs);
-    margin-bottom: var(--space-m);
-  }
-
-  .day-nav .chip {
-    text-transform: capitalize;
+    margin-bottom: var(--space-l);
   }
 
   .day {
@@ -188,31 +191,38 @@ const IntroContent = intro ? (await render(intro)).Content : null;
 
   .day-title {
     font-size: var(--text-2);
-    text-transform: capitalize;
-    padding-bottom: var(--space-2xs);
-    border-bottom: 3px solid var(--edition-accent);
-    margin-bottom: var(--space-2xs);
+    margin-bottom: var(--space-s);
   }
 
   .rooms {
-    margin-top: var(--space-xl);
+    margin-top: var(--space-l);
   }
 
   .rooms h2 {
     font-size: var(--text-1);
-    margin-bottom: var(--space-2xs);
-    margin-top: var(--space-m);
+    margin-bottom: var(--space-xs);
   }
 
   .rooms ul {
-    padding-inline-start: 1.2em;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: var(--space-2xs);
   }
 
-  .rooms li {
-    margin-block: 0.3em;
+  .room {
+    display: grid;
+    gap: 0.1rem;
   }
 
-  .rooms li::marker {
-    color: var(--edition-accent);
+  .room-name {
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  .room-summary {
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
   }
 </style>

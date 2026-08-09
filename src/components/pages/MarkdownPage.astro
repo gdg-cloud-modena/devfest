@@ -1,5 +1,5 @@
 ---
-import SectionHeading from "@components/SectionHeading.astro";
+import PageHeader from "@components/PageHeader.astro";
 import { defaultLocale, useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getPage } from "@lib/content";
@@ -11,10 +11,10 @@ interface Props {
   locale: Locale;
   /** Override the page title (defaults to the frontmatter title). */
   title?: string;
-  kicker?: string;
+  badge?: string;
 }
 
-const { slug, locale, title, kicker = "DevFest Modena" } = Astro.props;
+const { slug, locale, title, badge = "DevFest Modena" } = Astro.props;
 const t = useTranslations(locale);
 
 const page = await getPage(locale, slug);
@@ -28,8 +28,8 @@ const pageTitle = title ?? page.data.title;
 ---
 
 <BaseLayout title={pageTitle} description={page.data.description} {locale}>
-  <div class="container section">
-    <SectionHeading as="h1" title={pageTitle} {kicker} />
+  <div class="container container--narrow section">
+    <PageHeader title={pageTitle} {badge} lead={page.data.description} />
     {fallback && <p class="fallback-note">{t("lang.only.it")}</p>}
     <div class="prose">
       <Content />
@@ -42,5 +42,6 @@ const pageTitle = title ?? page.data.title;
     color: var(--color-text-muted);
     font-style: italic;
     margin-bottom: var(--space-s);
+    text-align: center;
   }
 </style>

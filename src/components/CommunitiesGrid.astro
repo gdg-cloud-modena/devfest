@@ -32,12 +32,12 @@ const communities = (
     communities.map((community) => (
       <li>
         <a
-          class="card community"
+          class="community"
           href={withUtm(community.website, year)}
           target="_blank"
           rel="noopener"
         >
-          <span class="logo">
+          <span class="logo-tile">
             {community.logo ? (
               <Image
                 src={community.logo}
@@ -63,7 +63,7 @@ const communities = (
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
     gap: var(--space-s);
   }
 
@@ -72,35 +72,35 @@ const communities = (
     justify-items: center;
     gap: var(--space-2xs);
     text-align: center;
+    text-decoration: none;
   }
 
-  .logo {
-    display: grid;
-    place-items: center;
+  .community .logo-tile {
     width: 100%;
     aspect-ratio: 1;
-    background: oklch(99% 0 0);
-    border-radius: var(--radius-m);
-    padding: var(--space-2xs);
+    transition:
+      border-color var(--transition),
+      transform var(--transition);
   }
 
-  .logo img {
-    max-width: 82%;
-    max-height: 82%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+  .community:hover .logo-tile {
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
+  }
+
+  .community img {
+    max-width: 78%;
+    max-height: 78%;
   }
 
   .logo-placeholder {
     font-size: var(--text-4);
     font-weight: 700;
-    color: oklch(60% 0.02 270);
+    color: var(--color-text-muted);
   }
 
   .name {
     color: var(--color-text);
     font-size: var(--text--1);
-    font-weight: 400;
   }
 </style>

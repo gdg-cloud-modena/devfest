@@ -4,6 +4,14 @@ import { langTag } from "@i18n/index";
 /** All event times are wall-clock times at the venue. */
 export const EVENT_TZ = "Europe/Rome";
 
+/**
+ * Sentence-case a formatted date. Italian weekdays and months are lower
+ * case, so only the first letter is lifted (never `text-transform`).
+ */
+export function sentenceCase(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 export function fmtTime(date: Date, locale: Locale): string {
   return new Intl.DateTimeFormat(langTag(locale), {
     hour: "2-digit",

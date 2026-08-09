@@ -1,4 +1,5 @@
 ---
+import PromoCard from "@components/PromoCard.astro";
 import { CURRENT_EDITION } from "@configs/editions";
 import { useTranslations, type Locale } from "@i18n/index";
 
@@ -13,44 +14,24 @@ const cvFormUrl = CURRENT_EDITION.cvFormUrl;
 
 {
   cvFormUrl && (
-    <section class="cta-cv" aria-label={t("cta.cv.title")}>
-      <h2>{t("cta.cv.title")}</h2>
-      <p>{t("cta.cv.text")}</p>
-      <a
-        class="button button--secondary"
-        href={cvFormUrl}
-        target="_blank"
-        rel="noopener"
-      >
-        {t("cta.cv.button")}
-      </a>
-    </section>
+    <div class="cta-cv">
+      <PromoCard
+        badge={t("cta.cv.badge")}
+        title={t("cta.cv.title")}
+        text={t("cta.cv.text")}
+        action={{
+          label: t("cta.cv.button"),
+          href: cvFormUrl,
+          external: true,
+        }}
+        decor={{ shape: "squares", tone: "yellow" }}
+      />
+    </div>
   )
 }
 
 <style>
   .cta-cv {
-    display: grid;
-    justify-items: center;
-    text-align: center;
-    gap: var(--space-2xs);
-    margin-block: var(--space-l);
-    padding: var(--space-l);
-    border-radius: var(--radius-l);
-    border: 1px dashed var(--color-border-strong);
-    background: var(--g-green-soft);
-  }
-
-  h2 {
-    font-size: var(--text-2);
-  }
-
-  p {
-    max-width: 52ch;
-  }
-
-  .button {
-    margin-top: var(--space-2xs);
-    background: var(--color-bg);
+    margin-block: var(--space-2xl) var(--space-l);
   }
 </style>

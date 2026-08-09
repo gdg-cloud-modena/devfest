@@ -1,7 +1,7 @@
 ---
 import EditionNotice from "@components/EditionNotice.astro";
+import PageHeader from "@components/PageHeader.astro";
 import PartnerGrid from "@components/PartnerGrid.astro";
-import SectionHeading from "@components/SectionHeading.astro";
 import { isCurrent } from "@configs/editions";
 import { useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -23,20 +23,11 @@ const t = useTranslations(locale);
 >
   <div class="container section">
     <EditionNotice {year} {locale} />
-    <SectionHeading
-      as="h1"
+    <PageHeader
       title={t("partners.title")}
-      kicker={`DevFest Modena ${year}`}
+      badge={`DevFest Modena ${year}`}
+      lead={t("partners.intro")}
     />
-    <p class="lead">{t("partners.intro")}</p>
     <PartnerGrid {year} {locale} />
   </div>
 </BaseLayout>
-
-<style>
-  .lead {
-    margin-block: calc(-1 * var(--space-xs)) var(--space-m);
-    color: var(--color-text-muted);
-    max-width: 65ch;
-  }
-</style>

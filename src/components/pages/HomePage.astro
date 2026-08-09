@@ -1,9 +1,16 @@
 ---
+import galleryOutside1 from "@assets/gallery/outisde-1.jpeg";
+import galleryOutside2 from "@assets/gallery/outisde-2.jpeg";
+import galleryPeople from "@assets/gallery/people.jpg";
+import galleryRuby from "@assets/gallery/ruby.jpg";
+import galleryNetworking from "@assets/gallery/sp_networking.jpg";
+import galleryTheater from "@assets/gallery/theater.jpg";
 import heroImage from "@assets/images/home-hero.webp";
-import logoHorizontal from "@assets/images/logo-horizontal-year.png";
-import Callout from "@components/Callout.astro";
 import CommunitiesGrid from "@components/CommunitiesGrid.astro";
+import Decor from "@components/Decor.astro";
+import Gallery from "@components/Gallery.astro";
 import PartnerGrid from "@components/PartnerGrid.astro";
+import PromoCard from "@components/PromoCard.astro";
 import SectionHeading from "@components/SectionHeading.astro";
 import Statistics from "@components/Statistics.astro";
 import {
@@ -16,7 +23,6 @@ import { localizePath, useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getEdition, getPage, getStats } from "@lib/content";
 import { daysRangeLabel } from "@lib/dates";
-import { Image, Picture } from "astro:assets";
 import { render } from "astro:content";
 
 interface Props {
@@ -35,6 +41,15 @@ const IntroContent = intro ? (await render(intro)).Content : null;
 
 const cfs = CURRENT_EDITION.callForSpeakers;
 const dateLabel = daysRangeLabel(edition.data.days, locale);
+
+const photos = [
+  { image: galleryNetworking, alt: "" },
+  { image: galleryTheater, alt: "" },
+  { image: galleryOutside1, alt: "" },
+  { image: galleryPeople, alt: "" },
+  { image: galleryRuby, alt: "" },
+  { image: galleryOutside2, alt: "" },
+];
 
 const jsonLd = [
   {
@@ -77,115 +92,97 @@ const jsonLd = [
   year={CURRENT_YEAR}
   {jsonLd}
 >
-  <section class="hero">
-    <Picture
-      class="hero-bg"
-      src={heroImage}
-      alt=""
-      widths={[480, 900, 1440, 1920]}
-      sizes="100vw"
-      formats={["avif"]}
-      fallbackFormat="webp"
-      loading="eager"
-      fetchpriority="high"
-    />
-    <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="hero-content container">
-      <span class="hero-logo">
-        <Image
-          src={logoHorizontal}
-          alt={`${SITE_NAME} ${CURRENT_YEAR}`}
-          height={92}
-          densities={[1, 2]}
-          loading="eager"
-        />
+  <section class="hero container" aria-labelledby="hero-title">
+    <p class="hero-tag">
+      <Decor shape="arrow" tone="yellow" size={2.75} />
+      <span class="badge badge--accent">
+        {dateLabel}
+        <span aria-hidden="true">—</span>
+        <a href={l("/location/")}>{t("nav.location")}</a>
       </span>
-      <h1 class="hero-title">{dateLabel}</h1>
-      <p class="hero-claim">{t("home.claim")}</p>
-      <p class="hero-meta">
-        <span class="chip chip--yellow">{t("home.free")}</span>
-        <a
-          class="chip hero-venue"
-          href={CURRENT_EDITION.venue.mapsUrl}
-          target="_blank"
-          rel="noopener"
-        >
-          📍 {CURRENT_EDITION.venue.name}
-        </a>
-      </p>
-      <p class="hero-actions">
-        {
-          CURRENT_EDITION.ticketsUrl && (
-            <a
-              class="button"
-              href={CURRENT_EDITION.ticketsUrl}
-              target="_blank"
-              rel="noopener"
-            >
-              {t("home.hero.tickets")}
-            </a>
-          )
-        }
-        <a class="button button--light" href={l(`/${CURRENT_YEAR}/sessions/`)}>
-          {t("home.hero.agenda")}
-        </a>
-      </p>
+    </p>
+
+    <h1 class="hero-title" id="hero-title">DevFest <span>Modena</span></h1>
+
+    <div class="hero-lead">
+      <p>{t("home.claim")}</p>
+      {
+        CURRENT_EDITION.ticketsUrl && (
+          <a
+            class="button"
+            href={CURRENT_EDITION.ticketsUrl}
+            target="_blank"
+            rel="noopener"
+          >
+            {t("home.hero.tickets")}
+          </a>
+        )
+      }
     </div>
   </section>
 
   {
     IntroContent && (
-      <section class="section container">
-        <div class="prose intro">
-          <IntroContent />
-        </div>
-      </section>
+      <div class="container">
+        <section class="panel panel--center intro">
+          <div class="prose prose--center">
+            <IntroContent />
+          </div>
+          <a
+            class="button button--secondary"
+            href={l(`/${CURRENT_YEAR}/sessions/`)}
+          >
+            {t("home.intro.cta")}
+          </a>
+          <span class="dot-divider" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+            <i />
+          </span>
+        </section>
+      </div>
     )
   }
+
+  <div class="section--tight container">
+    <Gallery {photos} label={t("home.gallery")} />
+  </div>
 
   {
     cfs?.open && (
-      <section class="section--tight container">
-        <Callout variant="info">
-          <h2>{t("cfs.title")}</h2>
-          <p>{t("cfs.text", { year: CURRENT_YEAR })}</p>
-          <p>
-            <a class="button" href={cfs.url} target="_blank" rel="noopener">
-              {t("cfs.button")}
-            </a>
-          </p>
-        </Callout>
+      <section class="section--tight container container--inset">
+        <PromoCard
+          badge={t("cfs.badge")}
+          title={t("cfs.title")}
+          text={t("cfs.text", { year: CURRENT_YEAR })}
+          action={{ label: t("cfs.button"), href: cfs.url, external: true }}
+          decor={{ shape: "cross", tone: "pink" }}
+        />
       </section>
     )
   }
 
-  <section class="section container">
-    <SectionHeading
-      title={t("home.stats.title", { year: statsYear })}
-      kicker="DevFest"
-    />
+  <section class="section container container--inset">
+    <SectionHeading title={t("home.stats.title", { year: statsYear })} />
     <Statistics {stats} {locale} />
   </section>
 
   <section class="section container">
-    <SectionHeading
-      title={t("home.communities.title")}
-      kicker={t("nav.communities")}
-    />
-    <p class="section-lead">{t("home.communities.text")}</p>
-    <CommunitiesGrid year={CURRENT_YEAR} codes={edition.data.communities} />
-  </section>
-
-  <section class="section container">
-    <SectionHeading title={t("partners.title")} kicker="Sponsor" />
+    <SectionHeading title={t("partners.title")} />
     <PartnerGrid year={CURRENT_YEAR} {locale} />
   </section>
 
-  <section class="section container">
+  <section class="section container container--inset">
     <SectionHeading
-      title={t("home.editions.title")}
-      kicker={t("nav.archive")}
+      title={t("home.communities.title")}
+      lead={t("home.communities.text")}
     />
+    <CommunitiesGrid year={CURRENT_YEAR} codes={edition.data.communities} />
+  </section>
+
+  <section class="section container container--inset">
+    <SectionHeading title={t("home.editions.title")} />
     <ul class="editions" role="list">
       {
         ARCHIVED_YEARS.map((y) => (
@@ -203,112 +200,103 @@ const jsonLd = [
 </BaseLayout>
 
 <style>
+  /* ---- Hero ---- */
+
   .hero {
-    position: relative;
-    min-height: min(82vh, 46rem);
     display: grid;
+    grid-template-columns: 1fr minmax(0, 24rem);
+    grid-template-areas:
+      "tag lead"
+      "title lead";
+    align-items: start;
+    column-gap: var(--space-l);
+    padding-block: var(--space-l) var(--space-2xl);
+  }
+
+  .hero-tag {
+    grid-area: tag;
+    display: flex;
     align-items: center;
-    overflow: hidden;
-  }
-
-  .hero :global(.hero-bg) {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .hero-scrim {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(
-        180deg,
-        oklch(15% 0.02 270 / 0.55),
-        oklch(15% 0.02 270 / 0.25) 45%,
-        oklch(15% 0.02 270 / 0.7)
-      ),
-      oklch(20% 0.02 270 / 0.2);
-  }
-
-  .hero-content {
-    position: relative;
-    display: grid;
-    justify-items: center;
-    text-align: center;
     gap: var(--space-s);
-    padding-block: var(--space-2xl);
+    margin-bottom: var(--space-s);
   }
 
-  .hero-logo {
-    background: oklch(99% 0 0);
-    border-radius: var(--radius-l);
-    padding: var(--space-xs) var(--space-m);
-    box-shadow: var(--shadow-2);
+  .hero-tag .badge {
+    font-size: var(--text--1);
+    padding: 0.5em 1.1em;
+    gap: 0.5em;
   }
 
-  .hero-logo img {
-    height: clamp(3.2rem, 8vi, 5.75rem);
-    width: auto;
+  .hero-tag a {
+    color: inherit;
   }
 
   .hero-title {
-    color: oklch(99% 0 0);
-    font-size: var(--text-5);
+    grid-area: title;
+    font-size: var(--text-display);
     line-height: var(--leading-solid);
-    text-shadow: 0 2px 24px oklch(0% 0 0 / 0.4);
+    letter-spacing: -0.035em;
   }
 
-  .hero-claim {
-    color: oklch(96% 0.005 90);
-    font-size: var(--text-1);
-    max-width: 34ch;
-    text-shadow: 0 1px 12px oklch(0% 0 0 / 0.5);
+  /* "Modena" always sits on its own line, without breaking the a11y name. */
+  .hero-title span {
+    display: block;
   }
 
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-2xs);
+  .hero-lead {
+    grid-area: lead;
+    display: grid;
+    justify-items: start;
+    gap: var(--space-s);
+    font-size: var(--text--1);
+    color: var(--color-text);
   }
 
-  .hero-venue {
-    background: oklch(99% 0 0 / 0.92);
-    color: oklch(24% 0.004 270);
-    border-color: transparent;
+  @media (max-width: 63.9375em) {
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "tag"
+        "title"
+        "lead";
+      row-gap: var(--space-m);
+      padding-block: var(--space-m) var(--space-xl);
+    }
+
+    .hero-lead p {
+      max-width: 46ch;
+    }
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-xs);
-    margin-top: var(--space-2xs);
-  }
+  /* ---- Intro panel ---- */
 
   .intro :global(h2) {
     font-size: var(--text-3);
+    margin-top: 0;
   }
 
-  .section-lead {
-    margin-block: calc(-1 * var(--space-xs)) var(--space-s);
-    color: var(--color-text-muted);
-    max-width: 60ch;
+  .intro .button {
+    margin-top: var(--space-s);
   }
+
+  .intro .dot-divider {
+    margin-top: var(--space-l);
+  }
+
+  /* ---- Previous editions ---- */
 
   .editions {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     gap: var(--space-s);
   }
 
   .edition-card {
     display: grid;
-    gap: 0.15rem;
+    gap: 0.1rem;
+    padding: var(--space-m) var(--space-s);
   }
 
   .edition-year {
@@ -316,6 +304,7 @@ const jsonLd = [
     font-weight: 700;
     color: var(--edition-accent);
     line-height: var(--leading-solid);
+    letter-spacing: var(--tracking-tight);
   }
 
   .edition-name {

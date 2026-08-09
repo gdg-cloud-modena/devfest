@@ -3,8 +3,6 @@ title: Workshops
 description: Learn by getting your hands dirty.
 ---
 
-# Workshops
-
 Workshops have a limited number of seats, roughly 20–25 depending on the session.
 
 A few days before the event we will email a registration form to the address you used for your ticket.

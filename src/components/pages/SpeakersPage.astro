@@ -1,8 +1,8 @@
 ---
-import Callout from "@components/Callout.astro";
 import EditionNotice from "@components/EditionNotice.astro";
+import PageHeader from "@components/PageHeader.astro";
 import PersonCard from "@components/PersonCard.astro";
-import SectionHeading from "@components/SectionHeading.astro";
+import PromoCard from "@components/PromoCard.astro";
 import { editionOf, isCurrent } from "@configs/editions";
 import { localizePath, useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -28,26 +28,25 @@ const cfs = current ? editionOf(year).callForSpeakers : undefined;
   {year}
   noCtas={!current}
 >
-  <div class="container section">
+  <div class="container container--inset section">
     <EditionNotice {year} {locale} />
-    <SectionHeading
-      as="h1"
+    <PageHeader
       title={t("speakers.title", { year })}
-      kicker="DevFest Modena"
+      badge={`DevFest Modena ${year}`}
+      lead={current ? t("speakers.teaser", { year }) : undefined}
     />
-
-    {current && <p class="teaser">{t("speakers.teaser", { year })}</p>}
 
     {
       cfs?.open && (
-        <Callout variant="info">
-          <p>{t("cfs.text", { year })}</p>
-          <p>
-            <a class="button" href={cfs.url} target="_blank" rel="noopener">
-              {t("cfs.button")}
-            </a>
-          </p>
-        </Callout>
+        <div class="cfs">
+          <PromoCard
+            badge={t("cfs.badge")}
+            title={t("cfs.title")}
+            text={t("cfs.text", { year })}
+            action={{ label: t("cfs.button"), href: cfs.url, external: true }}
+            decor={{ shape: "cross", tone: "pink" }}
+          />
+        </div>
       )
     }
 
@@ -70,18 +69,15 @@ const cfs = current ? editionOf(year).callForSpeakers : undefined;
 </BaseLayout>
 
 <style>
-  .teaser {
-    margin-block: calc(-1 * var(--space-xs)) var(--space-m);
-    color: var(--color-text-muted);
-    max-width: 60ch;
+  .cfs {
+    margin-bottom: var(--space-l);
   }
 
   .grid {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
     gap: var(--space-s);
-    margin-top: var(--space-m);
   }
 </style>

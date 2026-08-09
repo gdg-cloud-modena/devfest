@@ -15,18 +15,26 @@ const { variant = "info", role } = Astro.props;
   .callout {
     padding: var(--space-s) var(--space-m);
     border-radius: var(--radius-m);
-    border: 1px solid var(--color-border);
     margin-block: var(--space-s);
+    font-size: var(--text--1);
   }
 
   .callout--info {
     background: var(--g-blue-soft);
-    border-inline-start: 5px solid var(--g-blue);
+    color: var(--g-blue-ink);
   }
 
   .callout--warning {
     background: var(--g-yellow-soft);
-    border-inline-start: 5px solid var(--g-yellow);
+    color: var(--g-yellow-ink);
+  }
+
+  .callout :global(a) {
+    color: inherit;
+  }
+
+  .callout :global(strong) {
+    color: inherit;
   }
 
   .callout :global(p) {

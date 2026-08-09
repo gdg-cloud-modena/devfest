@@ -1,6 +1,7 @@
 ---
 import logoSimple from "@assets/images/logo-simple.png";
 import { CURRENT_EDITION, CURRENT_YEAR } from "@configs/editions";
+import { SITE_NAME } from "@configs/site";
 import {
   localizePath,
   switchLocalePath,
@@ -18,11 +19,11 @@ const t = useTranslations(locale);
 
 const items = [
   { key: "nav.agenda", href: `/${CURRENT_YEAR}/sessions/` },
-  { key: "nav.speakers", href: `/${CURRENT_YEAR}/speakers/` },
+  { key: "nav.faq", href: "/faq/" },
   { key: "nav.team", href: `/${CURRENT_YEAR}/team/` },
+  { key: "nav.speakers", href: `/${CURRENT_YEAR}/speakers/` },
   { key: "nav.communities", href: `/${CURRENT_YEAR}/communities/` },
   { key: "nav.location", href: "/location/" },
-  { key: "nav.faq", href: "/faq/" },
 ] as const;
 
 const current = Astro.url.pathname.replace(/\/$/, "") + "/";
@@ -35,14 +36,11 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
     <a class="brand" href={localizePath(locale, "/")}>
       <Image
         src={logoSimple}
-        alt=""
-        width="88"
+        alt={SITE_NAME}
+        width="112"
         densities={[1, 2]}
         loading="eager"
       />
-      <span class="brand-text">
-        DevFest <span class="brand-city">Modena</span>
-      </span>
     </a>
 
     <nav class="nav" aria-label={t("nav.menu.label")}>
@@ -157,67 +155,56 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
     position: sticky;
     top: 0;
     z-index: 50;
-    background: color-mix(in oklch, var(--color-bg) 88%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--color-border);
+    background: color-mix(in oklch, var(--color-bg) 90%, transparent);
+    backdrop-filter: blur(12px);
   }
 
   .bar {
     display: flex;
     align-items: center;
     gap: var(--space-m);
-    padding-block: var(--space-2xs);
-    min-height: 4.25rem;
+    padding-block: var(--space-xs);
+    min-height: 4.5rem;
   }
 
   .brand {
     display: flex;
     align-items: center;
-    gap: var(--space-2xs);
     text-decoration: none;
     margin-inline-end: auto;
   }
 
+  /* The wordmark is dark ink on transparent: give it a plate on dark themes. */
   .brand img {
-    width: 2.75rem;
+    width: 6.5rem;
     height: auto;
-    background: oklch(99% 0 0);
+    padding: 0.35rem 0.5rem;
     border-radius: var(--radius-s);
-    padding: 0.2rem;
-  }
-
-  .brand-text {
-    font-weight: 700;
-    font-size: var(--text-1);
-    color: var(--color-ink);
-    line-height: var(--leading-solid);
-    white-space: nowrap;
-  }
-
-  .brand-city {
-    color: var(--edition-accent);
+    background: light-dark(transparent, var(--color-logo-tile));
   }
 
   .nav {
     display: flex;
-    gap: 0.25rem;
+    gap: 0.35rem;
   }
 
   .nav-item {
-    padding: 0.45em 0.9em;
+    padding: 0.4em 0.75em;
     border-radius: var(--radius-full);
     color: var(--color-text);
     text-decoration: none;
-    font-weight: 400;
-    transition: background var(--transition);
+    font-size: var(--text--1);
+    transition:
+      background var(--transition),
+      color var(--transition);
   }
 
   .nav-item:hover {
     background: var(--color-surface-2);
+    color: var(--color-ink);
   }
 
   .nav-item--active {
-    background: var(--g-yellow-soft);
     color: var(--color-ink);
     font-weight: 700;
   }
@@ -230,29 +217,29 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
 
   .lang {
     display: flex;
-    gap: 0.35em;
-    font-size: var(--text--1);
+    align-items: center;
+    gap: 0.3em;
+    font-size: var(--text--2);
     color: var(--color-text-muted);
   }
 
   .lang-item {
     color: var(--color-text-muted);
     text-decoration: none;
-    padding: 0.2em 0.3em;
+    padding: 0.2em 0.25em;
+  }
+
+  .lang-item:hover {
+    color: var(--color-ink);
   }
 
   .lang-item--active {
     color: var(--color-ink);
     font-weight: 700;
-    text-decoration: underline;
-    text-decoration-color: var(--edition-accent);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.25em;
   }
 
   .tickets {
-    font-size: var(--text--1);
-    padding: 0.5em 1.2em;
+    padding: 0.7em 1.35em;
   }
 
   /* ---- Mobile burger ---- */
@@ -269,7 +256,7 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
     place-items: center;
     width: 2.75rem;
     height: 2.75rem;
-    border-radius: var(--radius-s);
+    border-radius: var(--radius-full);
     border: 1px solid var(--color-border);
   }
 
@@ -280,7 +267,7 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
   .burger-lines {
     display: grid;
     gap: 5px;
-    width: 1.25rem;
+    width: 1.15rem;
   }
 
   .burger-lines i {
@@ -307,9 +294,9 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
   .burger-menu {
     position: absolute;
     inset-inline-end: 0;
-    top: calc(100% + 0.5rem);
+    top: calc(100% + 0.6rem);
     display: grid;
-    gap: 0.25rem;
+    gap: 0.2rem;
     min-width: 14rem;
     padding: var(--space-xs);
     background: var(--color-bg);
@@ -319,7 +306,7 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
   }
 
   .burger-item {
-    padding: 0.55em 0.9em;
+    padding: 0.6em 0.9em;
     border-radius: var(--radius-s);
     text-decoration: none;
     color: var(--color-text);
@@ -330,7 +317,6 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
   }
 
   .burger-item--active {
-    background: var(--g-yellow-soft);
     color: var(--color-ink);
     font-weight: 700;
   }
@@ -355,16 +341,8 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
       gap: var(--space-xs);
     }
 
-    .brand {
-      gap: 0.4rem;
-    }
-
     .brand img {
-      width: 2.25rem;
-    }
-
-    .brand-text {
-      font-size: var(--text-0);
+      width: 5.25rem;
     }
   }
 </style>
