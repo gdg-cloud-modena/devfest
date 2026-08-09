@@ -1,6 +1,8 @@
 /*
  * DevFest Modena design tokens.
  * Colors are oklch and adapt to the OS theme via light-dark().
+ * The design is authored light-first: the dark values are derived so the
+ * same components keep working, never the other way round.
  * Per-edition accents can be overridden in themes.css ([data-edition="…"]).
  */
 
@@ -9,35 +11,56 @@
 
   /* ---- Google brand palette (primitives) ---- */
   --g-blue: oklch(62% 0.19 260);
-  --g-green: oklch(64% 0.17 150);
-  --g-yellow: oklch(83% 0.16 85);
-  --g-red: oklch(64% 0.2 27);
+  --g-green: oklch(63% 0.16 149);
+  --g-yellow: oklch(82% 0.16 83);
+  --g-red: oklch(63% 0.21 29);
+  /* Extra DevFest accent, only used by the ornamental shapes */
+  --g-pink: oklch(72% 0.17 5);
+
+  /* Readable-on-pastel versions, used for badge text */
+  --g-blue-ink: light-dark(oklch(45% 0.17 262), oklch(85% 0.09 250));
+  --g-green-ink: light-dark(oklch(48% 0.13 150), oklch(85% 0.09 150));
+  --g-yellow-ink: light-dark(oklch(52% 0.11 75), oklch(88% 0.09 90));
+  --g-red-ink: light-dark(oklch(48% 0.17 28), oklch(85% 0.09 25));
 
   /* Pastel halftones, dimmed on dark backgrounds */
-  --g-blue-soft: light-dark(oklch(92% 0.05 215), oklch(34% 0.05 240));
-  --g-green-soft: light-dark(oklch(93% 0.07 145), oklch(34% 0.06 150));
-  --g-yellow-soft: light-dark(oklch(93% 0.08 92), oklch(36% 0.06 85));
-  --g-red-soft: light-dark(oklch(90% 0.045 20), oklch(34% 0.05 25));
+  --g-blue-soft: light-dark(oklch(95% 0.025 260), oklch(31% 0.05 260));
+  --g-green-soft: light-dark(oklch(95.5% 0.03 155), oklch(30% 0.05 155));
+  --g-yellow-soft: light-dark(oklch(97% 0.035 95), oklch(32% 0.05 88));
+  --g-red-soft: light-dark(oklch(94% 0.025 25), oklch(31% 0.05 25));
 
   /* ---- Semantic colors ---- */
-  --color-bg: light-dark(oklch(99% 0.002 90), oklch(19% 0.008 270));
-  --color-surface: light-dark(oklch(97.5% 0.003 90), oklch(24% 0.01 270));
-  --color-surface-2: light-dark(oklch(95.5% 0.004 90), oklch(28% 0.012 270));
-  --color-ink: light-dark(oklch(24% 0.004 270), oklch(93% 0.004 90));
-  --color-text: light-dark(oklch(30% 0.004 270), oklch(88% 0.004 90));
-  --color-text-muted: light-dark(oklch(47% 0.006 270), oklch(72% 0.008 270));
-  --color-border: light-dark(oklch(88% 0.005 270), oklch(34% 0.01 270));
-  --color-border-strong: light-dark(oklch(30% 0.004 270), oklch(80% 0.005 90));
-  --color-link: light-dark(oklch(50% 0.19 262), oklch(78% 0.11 245));
-  --color-on-accent: oklch(99% 0 0);
+  --color-bg: light-dark(oklch(100% 0 0), oklch(16% 0.008 275));
+  /* Large rounded content blocks (hero panels, tickets, intro) */
+  --color-panel: light-dark(oklch(94.5% 0.022 278), oklch(22% 0.018 275));
+  /* Cards sitting on either the page or a panel */
+  --color-card: light-dark(oklch(100% 0 0), oklch(21% 0.012 275));
+  --color-surface: light-dark(oklch(97.5% 0.003 280), oklch(24% 0.012 275));
+  --color-surface-2: light-dark(oklch(95% 0.004 280), oklch(28% 0.014 275));
+  --color-ink: light-dark(oklch(19% 0.004 270), oklch(97% 0.002 90));
+  --color-text: light-dark(oklch(38% 0.006 270), oklch(88% 0.004 90));
+  --color-text-muted: light-dark(oklch(52% 0.008 270), oklch(72% 0.008 270));
+  --color-border: light-dark(oklch(92% 0.004 280), oklch(30% 0.012 275));
+  --color-border-strong: light-dark(oklch(82% 0.006 280), oklch(45% 0.014 275));
+  --color-link: light-dark(oklch(48% 0.19 262), oklch(80% 0.11 245));
+
+  /* Primary action: ink on light, inverted on dark so it stays legible */
+  --color-action: light-dark(oklch(19% 0.004 270), oklch(97% 0.002 90));
+  --color-on-action: light-dark(oklch(100% 0 0), oklch(16% 0.008 275));
 
   /* Footer keeps the "ink" identity in both schemes */
-  --color-footer-bg: light-dark(oklch(24% 0.01 270), oklch(15% 0.008 270));
-  --color-footer-text: oklch(90% 0.004 90);
+  --color-footer-bg: light-dark(oklch(21% 0.004 270), oklch(13% 0.008 275));
+  --color-footer-text: oklch(91% 0.003 90);
+  --color-footer-muted: oklch(74% 0.005 270);
+  --color-footer-border: oklch(100% 0 0 / 0.14);
+
+  /* Neutral tile behind logos, white in both schemes (logos assume it) */
+  --color-logo-tile: oklch(100% 0 0);
 
   /* Per-edition accent (see themes.css) */
   --edition-accent: var(--g-blue);
   --edition-accent-soft: var(--g-blue-soft);
+  --edition-accent-ink: var(--g-blue-ink);
 
   /* ---- Typography ---- */
   /* Fluid scale, Utopia 600px→1140px (18→20px base, 1.2→1.25 ratio) */
@@ -45,18 +68,23 @@
     "Google Sans Display", "Google Sans", system-ui, -apple-system, "Segoe UI",
     Roboto, sans-serif;
   --text--2: clamp(0.781rem, 0.76rem + 0.056vi, 0.8rem);
-  --text--1: clamp(0.938rem, 0.868rem + 0.185vi, 1rem);
-  --text-0: clamp(1.125rem, 0.986rem + 0.37vi, 1.25rem);
-  --text-1: clamp(1.35rem, 1.114rem + 0.63vi, 1.563rem);
-  --text-2: clamp(1.62rem, 1.25rem + 0.987vi, 1.953rem);
-  --text-3: clamp(1.944rem, 1.391rem + 1.474vi, 2.441rem);
-  --text-4: clamp(2.333rem, 1.534rem + 2.13vi, 3.052rem);
-  --text-5: clamp(2.799rem, 1.671rem + 3.008vi, 3.815rem);
-  --text-6: clamp(3.359rem, 1.794rem + 4.175vi, 4.768rem);
+  --text--1: clamp(0.875rem, 0.83rem + 0.12vi, 0.938rem);
+  --text-0: clamp(1rem, 0.958rem + 0.111vi, 1.063rem);
+  --text-1: clamp(1.125rem, 1.028rem + 0.259vi, 1.266rem);
+  --text-2: clamp(1.35rem, 1.163rem + 0.5vi, 1.62rem);
+  --text-3: clamp(1.62rem, 1.31rem + 0.827vi, 2.074rem);
+  --text-4: clamp(1.944rem, 1.464rem + 1.28vi, 2.653rem);
+  --text-5: clamp(2.333rem, 1.617rem + 1.91vi, 3.397rem);
+  --text-6: clamp(2.8rem, 1.75rem + 2.8vi, 4.348rem);
+  /* Display size, only for the home hero */
+  --text-display: clamp(3.25rem, 1.55rem + 4.53vi, 5.75rem);
 
-  --leading-solid: 1.05;
-  --leading-title: 1.2;
-  --leading-copy: 1.55;
+  --leading-solid: 0.98;
+  --leading-title: 1.15;
+  --leading-copy: 1.6;
+
+  --tracking-tight: -0.025em;
+  --tracking-wide: 0.06em;
 
   /* ---- Space (fluid) ---- */
   --space-3xs: 0.31rem;
@@ -70,17 +98,20 @@
   --space-3xl: clamp(6.75rem, 5.5rem + 3.33vi, 7.88rem);
 
   /* ---- Shape & effects ---- */
-  --radius-s: 0.625rem;
-  --radius-m: 1rem;
-  --radius-l: 1.5rem;
+  --radius-s: 0.75rem;
+  --radius-m: 1.25rem;
+  --radius-l: 1.75rem;
   --radius-full: 999rem;
-  --shadow-1:
-    0 1px 2px oklch(20% 0.01 270 / 0.08), 0 2px 8px oklch(20% 0.01 270 / 0.08);
+  --shadow-1: 0 1px 2px oklch(20% 0.01 270 / 0.06);
   --shadow-2:
-    0 2px 4px oklch(20% 0.01 270 / 0.1), 0 12px 28px oklch(20% 0.01 270 / 0.14);
+    0 2px 4px oklch(20% 0.01 270 / 0.06), 0 12px 28px oklch(20% 0.01 270 / 0.1);
   --transition: 160ms ease;
 
   /* ---- Layout ---- */
-  --container: 74rem;
-  --container-narrow: 48rem;
+  /* Outer width: panels, footer and the photo strip reach this edge. */
+  --container: 72rem;
+  /* Inner width: cards and copy sit slightly inside the panels. */
+  --container-inset: 64rem;
+  --container-narrow: 46rem;
+  --gutter: var(--space-s);
 }

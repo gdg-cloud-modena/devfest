@@ -8,14 +8,17 @@
 [data-edition="2026"] {
   --edition-accent: var(--g-blue);
   --edition-accent-soft: var(--g-blue-soft);
+  --edition-accent-ink: var(--g-blue-ink);
 }
 
 [data-edition="2025"] {
   --edition-accent: var(--g-green);
   --edition-accent-soft: var(--g-green-soft);
+  --edition-accent-ink: var(--g-green-ink);
 }
 
 [data-edition="2024"] {
   --edition-accent: var(--g-red);
   --edition-accent-soft: var(--g-red-soft);
+  --edition-accent-ink: var(--g-red-ink);
 }

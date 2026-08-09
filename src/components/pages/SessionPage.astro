@@ -7,7 +7,7 @@ import { SITE_URL } from "@configs/site";
 import { localizePath, useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getRoomsOfYear, slugOf, yearOf, type Session } from "@lib/content";
-import { fmtTime, fmtWeekdayDate, isoAtVenue } from "@lib/dates";
+import { fmtTime, fmtWeekdayDate, isoAtVenue, sentenceCase } from "@lib/dates";
 import { speakerImage } from "@lib/images";
 import { render } from "astro:content";
 import { getEntries } from "astro:content";
@@ -57,7 +57,7 @@ const jsonLd = [
 ---
 
 <BaseLayout title={session.data.title} {description} {locale} {year} {jsonLd}>
-  <article class="container section">
+  <article class="container container--inset section">
     <EditionNotice {year} {locale} />
     <p class="back">
       <a href={l(`/${year}/sessions/`)}>← {t("session.back")}</a>
@@ -78,7 +78,7 @@ const jsonLd = [
         <dt><Icon name="calendar" size={20} /> {t("session.when")}</dt>
         <dd>
           <span class="fact-strong"
-            >{fmtWeekdayDate(session.data.starts, locale)}</span
+            >{sentenceCase(fmtWeekdayDate(session.data.starts, locale))}</span
           >
           <time datetime={isoAtVenue(session.data.starts)}>
             {fmtTime(session.data.starts, locale)}
@@ -98,15 +98,11 @@ const jsonLd = [
                 ? t("agenda.room")
                 : t("agenda.rooms.simultaneous")}
             </dt>
-            <dd>
-              {sessionRooms.map((room, i) => (
-                <>
-                  {i > 0 && ", "}
-                  <a href={l(`/${year}/rooms/${slugOf(room)}/`)}>
-                    {room.data.name}
-                  </a>
-                </>
-              ))}
+            <dd class="inline-list">
+              {sessionRooms.map((room) => {
+                const href = l(`/${year}/rooms/${slugOf(room)}/`);
+                return <a {href}>{room.data.name}</a>;
+              })}
             </dd>
           </div>
         )
@@ -223,15 +219,15 @@ const jsonLd = [
   }
 
   .title {
-    font-size: var(--text-3);
-    max-width: 26ch;
+    font-size: var(--text-4);
+    max-width: 24ch;
     margin-bottom: var(--space-m);
   }
 
   .facts {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-s);
+    gap: var(--space-2xs);
     margin-block: var(--space-m);
   }
 
@@ -241,7 +237,7 @@ const jsonLd = [
     padding: var(--space-xs) var(--space-s);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-m);
-    background: var(--color-surface);
+    background: var(--color-card);
     min-width: 12rem;
   }
 
@@ -267,7 +263,6 @@ const jsonLd = [
 
   .fact-strong {
     font-weight: 700;
-    text-transform: capitalize;
     display: block;
   }
 
@@ -288,7 +283,7 @@ const jsonLd = [
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
     gap: var(--space-s);
   }
 </style>

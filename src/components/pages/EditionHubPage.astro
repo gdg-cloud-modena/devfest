@@ -1,5 +1,6 @@
 ---
 import EditionNotice from "@components/EditionNotice.astro";
+import PageHeader from "@components/PageHeader.astro";
 import PartnerGrid from "@components/PartnerGrid.astro";
 import SectionHeading from "@components/SectionHeading.astro";
 import Statistics from "@components/Statistics.astro";
@@ -79,12 +80,11 @@ const hasStats = stats.rooms > 0 || stats.speakers > 0 || stats.workshops > 0;
   {year}
   noCtas={!isCurrent(year)}
 >
-  <div class="container section">
+  <div class="container container--inset section">
     <EditionNotice {year} {locale} />
-    <SectionHeading
-      as="h1"
+    <PageHeader
       title={`DevFest Modena ${year}`}
-      kicker={daysRangeLabel(edition.data.days, locale)}
+      badge={daysRangeLabel(edition.data.days, locale)}
     />
 
     <ul class="links" role="list">
@@ -105,8 +105,8 @@ const hasStats = stats.rooms > 0 || stats.speakers > 0 || stats.workshops > 0;
 
     {
       hasStats && (
-        <section class="stats">
-          <h2>{t("home.stats.title", { year })}</h2>
+        <section class="block">
+          <SectionHeading title={t("home.stats.title", { year })} />
           <Statistics {stats} {locale} />
         </section>
       )
@@ -114,8 +114,8 @@ const hasStats = stats.rooms > 0 || stats.speakers > 0 || stats.workshops > 0;
 
     {
       edition.data.partners.length > 0 && (
-        <section class="partners">
-          <h2>{t("partners.title")}</h2>
+        <section class="block">
+          <SectionHeading title={t("partners.title")} />
           <PartnerGrid {year} {locale} />
         </section>
       )
@@ -137,9 +137,12 @@ const hasStats = stats.rooms > 0 || stats.speakers > 0 || stats.workshops > 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--space-s);
     font-weight: 700;
     color: var(--color-ink);
     font-size: var(--text-1);
+    border-color: transparent;
+    padding: var(--space-s) var(--space-m);
   }
 
   .link-card--blue {
@@ -158,14 +161,7 @@ const hasStats = stats.rooms > 0 || stats.speakers > 0 || stats.workshops > 0;
     background: var(--g-red-soft);
   }
 
-  .stats,
-  .partners {
+  .block {
     margin-top: var(--space-xl);
-  }
-
-  .stats h2,
-  .partners h2 {
-    font-size: var(--text-2);
-    margin-bottom: var(--space-s);
   }
 </style>

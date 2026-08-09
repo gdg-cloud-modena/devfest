@@ -2,7 +2,7 @@
 import mapImage from "@assets/location/location.png";
 import Callout from "@components/Callout.astro";
 import Icon from "@components/Icon.astro";
-import SectionHeading from "@components/SectionHeading.astro";
+import PageHeader from "@components/PageHeader.astro";
 import { useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
@@ -43,11 +43,7 @@ const sections = [
 
 <BaseLayout title={t("location.title")} {locale}>
   <div class="container section">
-    <SectionHeading
-      as="h1"
-      title={t("location.title")}
-      kicker={loc.introduction.title}
-    />
+    <PageHeader title={t("location.title")} badge={loc.introduction.title} />
 
     <nav class="page-nav" aria-label={t("location.nav.label")}>
       {
@@ -222,8 +218,9 @@ const sections = [
   .page-nav {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-2xs);
-    margin-bottom: var(--space-l);
+    margin-bottom: var(--space-xl);
   }
 
   .venue {
@@ -269,7 +266,7 @@ const sections = [
   }
 
   .venue-map img {
-    border-radius: var(--radius-m);
+    border-radius: var(--radius-s);
     width: 100%;
     height: auto;
   }
@@ -289,11 +286,10 @@ const sections = [
   }
 
   .photos :global(.photo) {
-    border-radius: var(--radius-l);
+    border-radius: var(--radius-m);
     width: 100%;
-    height: 100%;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
-    border: 1px solid var(--color-border);
   }
 
   .block {
@@ -303,6 +299,7 @@ const sections = [
   .block h2 {
     font-size: var(--text-2);
     margin-bottom: var(--space-s);
+    text-align: center;
   }
 
   .cards {

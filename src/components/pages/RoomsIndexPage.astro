@@ -1,6 +1,6 @@
 ---
 import EditionNotice from "@components/EditionNotice.astro";
-import SectionHeading from "@components/SectionHeading.astro";
+import PageHeader from "@components/PageHeader.astro";
 import { isCurrent } from "@configs/editions";
 import { localizePath, useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -28,13 +28,9 @@ const otherRooms = rooms.filter((r) => !r.data.forSessions);
   {year}
   noCtas={!isCurrent(year)}
 >
-  <div class="container section">
+  <div class="container container--inset section">
     <EditionNotice {year} {locale} />
-    <SectionHeading
-      as="h1"
-      title={t("rooms.title")}
-      kicker={`DevFest Modena ${year}`}
-    />
+    <PageHeader title={t("rooms.title")} badge={`DevFest Modena ${year}`} />
 
     {
       [
@@ -87,6 +83,7 @@ const otherRooms = rooms.filter((r) => !r.data.forSessions);
   .group h2 {
     font-size: var(--text-2);
     margin-bottom: var(--space-s);
+    text-align: center;
   }
 
   .grid {

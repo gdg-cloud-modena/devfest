@@ -27,7 +27,7 @@ const Tag = href ? "a" : "div";
   <span class="photo">
     {
       image ? (
-        <Image src={image} alt="" width="200" height="200" densities={[1, 2]} />
+        <Image src={image} alt="" width="240" height="240" densities={[1, 2]} />
       ) : (
         <span class="placeholder" aria-hidden="true">
           {name.charAt(0)}
@@ -44,22 +44,22 @@ const Tag = href ? "a" : "div";
   .person {
     display: grid;
     justify-items: center;
-    gap: 0.15rem;
+    gap: 0.1rem;
     text-align: center;
-    padding: var(--space-s);
+    padding: var(--space-s) var(--space-xs) var(--space-m);
   }
 
   .photo {
-    margin-bottom: var(--space-2xs);
+    margin-bottom: var(--space-xs);
   }
 
   .photo img,
   .placeholder {
-    width: 7.5rem;
-    height: 7.5rem;
-    border-radius: 50%;
+    width: 100%;
+    max-width: 8rem;
+    aspect-ratio: 1;
+    border-radius: var(--radius-m);
     object-fit: cover;
-    border: 3px solid var(--edition-accent-soft);
   }
 
   .placeholder {
@@ -75,17 +75,17 @@ const Tag = href ? "a" : "div";
     font-weight: 700;
     color: var(--color-ink);
     line-height: var(--leading-title);
+    letter-spacing: var(--tracking-tight);
   }
 
   .meta {
     color: var(--color-text);
-    font-style: italic;
     font-size: var(--text--1);
   }
 
   .detail {
     color: var(--color-text-muted);
-    font-size: var(--text--1);
-    line-height: 1.35;
+    font-size: var(--text--2);
+    line-height: 1.4;
   }
 </style>

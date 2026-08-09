@@ -1,16 +1,12 @@
 ---
 import logoGdg from "@assets/communities/gdg-cloud-modena.png";
-import logoSimple from "@assets/images/logo-simple.png";
 import Icon from "@components/Icon.astro";
-import {
-  CURRENT_EDITION,
-  CURRENT_YEAR,
-  EDITION_YEARS,
-} from "@configs/editions";
+import { CURRENT_YEAR, EDITION_YEARS } from "@configs/editions";
 import {
   COPYRIGHT_FROM_YEAR,
   EMAIL,
   ORGANIZER,
+  SITE_NAME,
   SOCIAL,
   withUtm,
   WTM_URL,
@@ -50,155 +46,114 @@ const socialIcons = {
 
 const sitemapLinks = [
   { label: t("nav.agenda"), href: `/${CURRENT_YEAR}/sessions/` },
-  { label: t("nav.speakers"), href: `/${CURRENT_YEAR}/speakers/` },
+  { label: t("nav.faq"), href: "/faq/" },
   { label: t("nav.team"), href: `/${CURRENT_YEAR}/team/` },
+  { label: t("nav.speakers"), href: `/${CURRENT_YEAR}/speakers/` },
   { label: t("nav.communities"), href: `/${CURRENT_YEAR}/communities/` },
   { label: t("footer.partners"), href: "/partners/" },
-  { label: t("nav.location"), href: "/location/" },
-  { label: t("nav.faq"), href: "/faq/" },
   { label: t("footer.workshops"), href: "/workshops/" },
   { label: t("footer.speedNetworking"), href: "/speed-networking/" },
+  { label: t("nav.location"), href: "/location/" },
   { label: t("footer.coc"), href: "/code-of-conduct/" },
 ];
 ---
 
 <footer class="site-footer">
-  <div class="container">
-    <div class="columns">
-      <div class="col col--brand">
-        <div class="logos">
-          <span class="logo-tile">
-            <Image
-              src={logoSimple}
-              alt="DevFest Modena"
-              width="96"
-              densities={[1, 2]}
-            />
-          </span>
-          <span class="logo-tile">
-            <Image
-              src={logoGdg}
-              alt={ORGANIZER}
-              width="96"
-              densities={[1, 2]}
-            />
-          </span>
-        </div>
-        <p class="description">{t("footer.description")}</p>
-        <ul class="social" role="list">
-          {
-            Object.entries(SOCIAL).map(([name, url]) => (
-              <li>
-                <a href={url} target="_blank" rel="noopener" aria-label={name}>
-                  <Icon
-                    name={socialIcons[name as keyof typeof socialIcons]}
-                    size={22}
-                  />
-                </a>
-              </li>
-            ))
-          }
-          <li>
-            <a href={`mailto:${EMAIL}`} aria-label="Email">
-              <Icon name="email" size={22} />
-            </a>
-          </li>
-        </ul>
-        <p><a class="footer-link" href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
-      </div>
-
-      <nav class="col" aria-label={t("footer.sitemap")}>
-        <h2 class="title">{t("footer.sitemap")}</h2>
-        <ul role="list">
-          {
-            sitemapLinks.map((link) => (
-              <li>
-                <a class="footer-link" href={l(link.href)}>
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-
-      <nav class="col" aria-label={t("footer.editions")}>
-        <h2 class="title">{t("footer.editions")}</h2>
-        <ul role="list">
-          {
-            EDITION_YEARS.map((y) => (
-              <li>
-                <a class="footer-link" href={l(`/${y}/`)}>
-                  DevFest Modena {y}
-                </a>
-              </li>
-            ))
-          }
-          <li>
-            <a class="footer-link" href={l("/archive/")}>{t("nav.archive")}</a>
-          </li>
-          <li>
-            <a
-              class="footer-link"
-              href={WTM_URL}
-              target="_blank"
-              rel="noopener"
-            >
-              Women Techmakers Modena
-            </a>
-          </li>
-        </ul>
-        {
-          CURRENT_EDITION.ticketsUrl && (
-            <p class="tickets">
-              <a
-                class="button"
-                href={CURRENT_EDITION.ticketsUrl}
-                target="_blank"
-                rel="noopener"
-              >
-                {t("nav.tickets")}
-              </a>
-            </p>
-          )
-        }
-      </nav>
-
-      <div class="col">
-        <h2 class="title">{t("footer.patronage")}</h2>
-        <ul class="patrocini" role="list">
-          {
-            patrocini.map((p) => {
-              const logo = partnerLogo(CURRENT_YEAR, p.code);
-              return (
-                <li>
-                  <a
-                    class="patrocini-item"
-                    href={withUtm(p.link, CURRENT_YEAR)}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    {logo && (
-                      <span class="logo-tile logo-tile--small">
-                        <Image
-                          src={logo}
-                          alt=""
-                          width="120"
-                          densities={[1, 2]}
-                        />
-                      </span>
-                    )}
-                    <span>{p.name}</span>
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </div>
+  <div class="container columns">
+    <div class="col col--brand">
+      <a class="wordmark" href={l("/")} aria-label={SITE_NAME}>
+        <span aria-hidden="true">&#123;</span>DevFest<span aria-hidden="true"
+          >&#125;</span
+        >
+      </a>
+      <p class="description">{t("footer.description")}</p>
+      <span class="logo-tile organizer">
+        <Image src={logoGdg} alt={ORGANIZER} width="96" densities={[1, 2]} />
+      </span>
     </div>
 
+    <nav class="col" aria-label={t("footer.sitemap")}>
+      <h2 class="title">{t("footer.sitemap")}</h2>
+      <ul role="list">
+        {
+          sitemapLinks.map((link) => (
+            <li>
+              <a class="footer-link" href={l(link.href)}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="col">
+      <h2 class="title">{t("footer.patronage")}</h2>
+      <ul class="patrocini" role="list">
+        {
+          patrocini.map((p) => {
+            const logo = partnerLogo(CURRENT_YEAR, p.code);
+            return (
+              <li>
+                <a
+                  class="patrocini-item"
+                  href={withUtm(p.link, CURRENT_YEAR)}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {logo && (
+                    <span class="logo-tile">
+                      <Image src={logo} alt="" width="120" densities={[1, 2]} />
+                    </span>
+                  )}
+                  <span>{p.name}</span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+
+    <div class="col">
+      <h2 class="title">{t("footer.contacts")}</h2>
+      <p>
+        <a class="footer-link" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      </p>
+      <ul class="social" role="list">
+        {
+          Object.entries(SOCIAL).map(([name, url]) => (
+            <li>
+              <a href={url} target="_blank" rel="noopener" aria-label={name}>
+                <Icon
+                  name={socialIcons[name as keyof typeof socialIcons]}
+                  size={20}
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <p>
+        <a class="footer-link" href={WTM_URL} target="_blank" rel="noopener">
+          Women Techmakers Modena
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <div class="container bottom">
     <p class="copy">© {copyright} {ORGANIZER}</p>
+    <nav class="editions" aria-label={t("footer.editions")}>
+      {
+        EDITION_YEARS.map((y) => (
+          <a class="footer-link" href={l(`/${y}/`)}>
+            {y}
+          </a>
+        ))
+      }
+      <a class="footer-link" href={l("/archive/")}>{t("nav.archive")}</a>
+    </nav>
   </div>
 </footer>
 
@@ -206,14 +161,14 @@ const sitemapLinks = [
   .site-footer {
     background: var(--color-footer-bg);
     color: var(--color-footer-text);
-    padding-block: var(--space-xl) var(--space-l);
+    padding-block: var(--space-xl) var(--space-m);
     margin-top: var(--space-2xl);
     font-size: var(--text--1);
   }
 
   .columns {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: var(--space-l);
   }
 
@@ -221,42 +176,42 @@ const sitemapLinks = [
     list-style: none;
     padding: 0;
     display: grid;
-    gap: 0.45em;
+    gap: 0.5em;
   }
 
   .title {
-    font-size: var(--text-0);
-    color: var(--g-yellow);
+    font-size: var(--text--1);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-footer-muted);
     margin-bottom: var(--space-xs);
   }
 
-  .logos {
-    display: flex;
-    gap: var(--space-2xs);
-    margin-bottom: var(--space-s);
-  }
-
-  .logo-tile {
+  .wordmark {
     display: inline-block;
-    background: oklch(99% 0 0);
-    border-radius: var(--radius-m);
-    padding: 0.5rem;
+    font-size: var(--text-2);
+    font-weight: 700;
+    letter-spacing: var(--tracking-tight);
+    color: oklch(100% 0 0);
+    text-decoration: none;
   }
 
-  .logo-tile img {
-    width: 4.5rem;
-    height: 4.5rem;
-    object-fit: contain;
-  }
-
-  .logo-tile--small img {
-    width: 3.25rem;
-    height: 3.25rem;
+  .wordmark span {
+    color: var(--g-yellow);
   }
 
   .description {
-    margin-bottom: var(--space-s);
-    max-width: 32ch;
+    margin-block: var(--space-xs) var(--space-s);
+    color: var(--color-footer-muted);
+    max-width: 34ch;
+  }
+
+  .organizer {
+    width: 5.5rem;
+    aspect-ratio: 1;
+    padding: 0.6rem;
+    border-color: transparent;
   }
 
   .footer-link {
@@ -270,9 +225,9 @@ const sitemapLinks = [
 
   .social {
     display: flex !important;
-    grid-auto-flow: column;
-    gap: 0.75rem !important;
-    margin-bottom: var(--space-xs);
+    flex-wrap: wrap;
+    gap: 0.6rem !important;
+    margin-block: var(--space-xs);
   }
 
   .social a {
@@ -281,7 +236,7 @@ const sitemapLinks = [
     width: 2.4rem;
     height: 2.4rem;
     border-radius: 50%;
-    border: 1px solid oklch(100% 0 0 / 0.25);
+    border: 1px solid var(--color-footer-border);
     color: var(--color-footer-text);
     transition:
       background var(--transition),
@@ -298,29 +253,41 @@ const sitemapLinks = [
   }
 
   .patrocini-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
+    display: grid;
+    justify-items: start;
+    gap: 0.4rem;
     color: var(--color-footer-text);
     text-decoration: none;
-    opacity: 0.92;
   }
 
-  .patrocini-item:hover {
-    opacity: 1;
+  .patrocini-item:hover span:last-child {
     text-decoration: underline;
   }
 
-  .tickets {
-    margin-top: var(--space-s);
+  .patrocini .logo-tile {
+    width: 5.5rem;
+    aspect-ratio: 3 / 2;
+    padding: 0.5rem;
+    border-color: transparent;
   }
 
-  .copy {
-    margin-top: var(--space-l);
+  .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xs);
+    margin-top: var(--space-xl);
     padding-top: var(--space-s);
-    border-top: 1px solid oklch(100% 0 0 / 0.15);
-    text-align: center;
-    opacity: 0.85;
+    border-top: 1px solid var(--color-footer-border);
+    color: var(--color-footer-muted);
+    font-size: var(--text--2);
+  }
+
+  .editions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
   }
 
   @media (max-width: 63.9375em) {

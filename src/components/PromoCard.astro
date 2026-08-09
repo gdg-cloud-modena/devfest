@@ -1,0 +1,96 @@
+---
+import Decor from "@components/Decor.astro";
+
+/**
+ * White card with a pastel badge, a short pitch and a single action
+ * (call for speakers, "send your CV"…).
+ */
+interface Props {
+  badge: string;
+  title: string;
+  text: string;
+  action: { label: string; href: string; external?: boolean };
+  tone?: "green" | "blue" | "yellow" | "red";
+  /** Ornament floated over the top corner of the card. */
+  decor?: { shape: "cross" | "squares"; tone: "pink" | "yellow" | "blue" };
+  /** Heading level, so the card fits the surrounding outline. */
+  as?: "h2" | "h3";
+}
+
+const {
+  badge,
+  title,
+  text,
+  action,
+  tone = "green",
+  decor,
+  as: Tag = "h2",
+}: Props = Astro.props;
+---
+
+<div class="promo">
+  {
+    decor && (
+      <span class="promo-decor">
+        <Decor shape={decor.shape} tone={decor.tone} size={2.75} />
+      </span>
+    )
+  }
+  <div class="promo-body">
+    <p class:list={["badge", `badge--${tone}`]}>{badge}</p>
+    <Tag class="promo-title">{title}</Tag>
+    <p class="promo-text">{text}</p>
+  </div>
+  <a
+    class="button button--secondary"
+    href={action.href}
+    target={action.external ? "_blank" : undefined}
+    rel={action.external ? "noopener" : undefined}
+  >
+    {action.label}
+  </a>
+</div>
+
+<style>
+  .promo {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-m);
+    padding: var(--space-m);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+  }
+
+  .promo-decor {
+    position: absolute;
+    top: 0;
+    inset-inline-end: var(--space-m);
+    translate: 0 -55%;
+  }
+
+  .promo-body {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-3xs);
+  }
+
+  .promo-title {
+    font-size: var(--text-2);
+  }
+
+  .promo-text {
+    color: var(--color-text-muted);
+    font-size: var(--text--1);
+    max-width: 60ch;
+  }
+
+  @media (max-width: 47.9375em) {
+    .promo {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+  }
+</style>

@@ -1,7 +1,7 @@
 ---
 import CommunitiesGrid from "@components/CommunitiesGrid.astro";
 import EditionNotice from "@components/EditionNotice.astro";
-import SectionHeading from "@components/SectionHeading.astro";
+import PageHeader from "@components/PageHeader.astro";
 import { isCurrent } from "@configs/editions";
 import { useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -27,17 +27,16 @@ const IntroContent = intro ? (await render(intro)).Content : null;
   {year}
   noCtas={!isCurrent(year)}
 >
-  <div class="container section">
+  <div class="container container--inset section">
     <EditionNotice {year} {locale} />
-    <SectionHeading
-      as="h1"
+    <PageHeader
       title={t("communities.title")}
-      kicker={`DevFest Modena ${year}`}
+      badge={`DevFest Modena ${year}`}
     />
 
     {
       IntroContent && (
-        <div class="prose intro">
+        <div class="prose prose--center intro">
           <IntroContent />
         </div>
       )
@@ -49,6 +48,6 @@ const IntroContent = intro ? (await render(intro)).Content : null;
 
 <style>
   .intro {
-    margin-bottom: var(--space-m);
+    margin-bottom: var(--space-l);
   }
 </style>

@@ -1,31 +1,45 @@
 ---
-/** Section heading with optional kicker and the four-color DevFest dots. */
+/** Heading of an in-page section, with an optional kicker and lead. */
 interface Props {
   title: string;
   kicker?: string;
+  lead?: string;
   /** Heading level, defaults to h2. */
-  as?: "h1" | "h2" | "h3";
+  as?: "h2" | "h3";
+  align?: "center" | "start";
   id?: string;
 }
 
-const { title, kicker, as: Tag = "h2", id } = Astro.props;
+const {
+  title,
+  kicker,
+  lead,
+  as: Tag = "h2",
+  align = "center",
+  id,
+}: Props = Astro.props;
 ---
 
-<div class="section-heading">
+<div class:list={["section-heading", `section-heading--${align}`]}>
   {kicker && <p class="kicker">{kicker}</p>}
   <Tag {id}>{title}</Tag>
-  <span class="four-dots" aria-hidden="true"><i></i><i></i></span>
+  {lead && <p class="lead">{lead}</p>}
 </div>
 
 <style>
   .section-heading {
     display: grid;
-    gap: var(--space-3xs);
+    gap: var(--space-2xs);
     margin-bottom: var(--space-m);
   }
 
-  h1 {
-    font-size: var(--text-4);
+  .section-heading--center {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .section-heading--start {
+    justify-items: start;
   }
 
   h2 {
@@ -36,7 +50,8 @@ const { title, kicker, as: Tag = "h2", id } = Astro.props;
     font-size: var(--text-2);
   }
 
-  .four-dots {
-    margin-top: var(--space-2xs);
+  .lead {
+    color: var(--color-text-muted);
+    max-width: 62ch;
   }
 </style>

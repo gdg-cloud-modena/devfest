@@ -1,5 +1,5 @@
 ---
-import logoSimple from "@assets/images/logo-simple.png";
+import ticketsPhoto from "@assets/gallery/sp_networking.jpg";
 import { CURRENT_EDITION, CURRENT_YEAR } from "@configs/editions";
 import { useTranslations, type Locale } from "@i18n/index";
 import { Image } from "astro:assets";
@@ -15,26 +15,26 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
 
 {
   ticketsUrl && (
-    <section class="cta-tickets" aria-label={t("cta.tickets.title")}>
+    <section
+      class="panel panel--split cta-tickets"
+      aria-label={t("cta.tickets.title")}
+    >
       <div class="content">
         <h2>{t("cta.tickets.title")}</h2>
         <p>{t("cta.tickets.text1", { year: CURRENT_YEAR })}</p>
         <p>{t("cta.tickets.text2")}</p>
-        <a
-          class="button button--light"
-          href={ticketsUrl}
-          target="_blank"
-          rel="noopener"
-        >
+        <a class="button" href={ticketsUrl} target="_blank" rel="noopener">
           {t("cta.tickets.button")}
         </a>
       </div>
       <Image
-        class="logo"
-        src={logoSimple}
+        class="photo"
+        src={ticketsPhoto}
         alt=""
-        width="340"
+        width={640}
+        height={440}
         densities={[1, 2]}
+        loading="lazy"
       />
     </section>
   )
@@ -42,63 +42,32 @@ const ticketsUrl = CURRENT_EDITION.ticketsUrl;
 
 <style>
   .cta-tickets {
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    align-items: center;
-    gap: var(--space-m);
     margin-block: var(--space-l);
-    padding: var(--space-l) var(--space-m-l, var(--space-l));
-    border-radius: var(--radius-l);
-    background:
-      radial-gradient(
-        120% 160% at 100% 0%,
-        oklch(70% 0.14 250 / 0.55),
-        transparent 55%
-      ),
-      radial-gradient(
-        100% 140% at 0% 100%,
-        oklch(55% 0.15 150 / 0.4),
-        transparent 50%
-      ),
-      var(--color-footer-bg);
-    color: var(--color-footer-text);
+  }
+
+  .content {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-2xs);
   }
 
   h2 {
-    color: oklch(99% 0 0);
     font-size: var(--text-3);
-    margin-bottom: var(--space-xs);
   }
 
   p {
-    margin-bottom: 0.35em;
-    max-width: 44ch;
+    max-width: 46ch;
+    font-size: var(--text--1);
   }
 
   .button {
     margin-top: var(--space-s);
   }
 
-  .logo {
-    justify-self: center;
-    width: min(14rem, 60%);
-    height: auto;
-    rotate: -6deg;
-    border-radius: var(--radius-l);
-    background: oklch(99% 0 0);
-    padding: 1rem;
-    box-shadow: var(--shadow-2);
-  }
-
-  @media (max-width: 39.9375em) {
-    .cta-tickets {
-      grid-template-columns: 1fr;
-    }
-
-    .logo {
-      display: none;
-    }
+  .photo {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius-m);
   }
 </style>

@@ -42,7 +42,7 @@ const link = withUtm(partner.link, year);
     <div class="head">
       {
         logo && (
-          <span class="logo">
+          <span class="logo-tile logo">
             <Image
               src={logo}
               alt=""
@@ -55,7 +55,7 @@ const link = withUtm(partner.link, year);
       }
       <div>
         <h1>{partner.name}</h1>
-        {level && <p class="chip chip--yellow">{level.title}</p>}
+        {level && <p class="badge badge--yellow">{level.title}</p>}
         <p class="link">
           <a href={link} target="_blank" rel="noopener"
             >{partner.link.replace(/^https?:\/\//, "").replace(/\/$/, "")} ↗</a
@@ -103,22 +103,8 @@ const link = withUtm(partner.link, year);
   }
 
   .logo {
-    display: grid;
-    place-items: center;
-    width: 14rem;
-    aspect-ratio: 3 / 2;
-    background: oklch(99% 0 0);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-l);
-    padding: var(--space-s);
-  }
-
-  .logo img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    width: 12rem;
+    aspect-ratio: 1;
   }
 
   h1 {

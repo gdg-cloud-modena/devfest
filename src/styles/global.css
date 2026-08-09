@@ -61,6 +61,7 @@ h3,
 h4 {
   color: var(--color-ink);
   line-height: var(--leading-title);
+  letter-spacing: var(--tracking-tight);
   text-wrap: balance;
   font-weight: 700;
 }
@@ -87,14 +88,24 @@ a:hover {
 
 ::selection {
   background: var(--g-yellow-soft);
-  color: light-dark(oklch(24% 0.004 270), oklch(93% 0.004 90));
+  color: var(--color-ink);
 }
 
 /* ---- Layout primitives ---- */
 
+/* Outer rail: panels, the footer and the photo strip reach this edge. */
 .container {
-  width: min(100% - 2 * var(--space-s), var(--container));
+  width: min(100% - 2 * var(--gutter), var(--container));
   margin-inline: auto;
+}
+
+/* Copy and card grids breathe a little inside the panels above them. */
+.container--inset {
+  max-width: var(--container-inset);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
 }
 
 .section {
@@ -105,58 +116,106 @@ a:hover {
   padding-block: var(--space-l);
 }
 
-/* ---- Headings with the four-color DevFest accent ---- */
+.section--flush {
+  padding-block: 0;
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-s);
+}
+
+/*
+ * Comma-separated run of links. Flex drops the whitespace-only text nodes
+ * the template indentation would otherwise render before each comma.
+ */
+.inline-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 0.3em;
+}
+
+.inline-list > *:not(:last-child)::after {
+  content: ",";
+}
+
+/* ---- Panels: the periwinkle blocks that carry the key messages ---- */
+
+.panel {
+  background: var(--color-panel);
+  border-radius: var(--radius-l);
+  padding: clamp(var(--space-m), 4vi, var(--space-2xl)) var(--space-m);
+}
+
+/* Stacked, centered content (the default reading of a panel). */
+.panel--center {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+/* Copy on one side, media on the other. */
+.panel--split {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 20rem);
+  align-items: center;
+  gap: var(--space-l);
+  padding-block: var(--space-l);
+}
+
+@media (max-width: 47.9375em) {
+  .panel--split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Section headings ---- */
 
 .kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  font-size: var(--text--1);
+  display: inline-block;
+  font-size: var(--text--2);
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
-.kicker::before {
-  content: "";
-  width: 0.55em;
-  height: 0.55em;
-  border-radius: 50%;
-  background: var(--edition-accent);
-}
-
-.four-dots {
+/* Hairline rule punctuated by the four Google dots. */
+.dot-divider {
   display: flex;
-  gap: 0.45rem;
+  align-items: center;
+  gap: 0.4rem;
+  width: min(100%, 22rem);
+  color: var(--color-border-strong);
 }
 
-.four-dots::before,
-.four-dots::after {
+.dot-divider::before,
+.dot-divider::after {
   content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
 }
 
-.four-dots::before,
-.four-dots::after,
-.four-dots i {
-  width: 0.55rem;
-  height: 0.55rem;
+.dot-divider i {
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
 }
 
-.four-dots::before {
+.dot-divider i:nth-of-type(1) {
   background: var(--g-blue);
 }
 
-.four-dots i:nth-of-type(1) {
+.dot-divider i:nth-of-type(2) {
   background: var(--g-red);
 }
 
-.four-dots i:nth-of-type(2) {
+.dot-divider i:nth-of-type(3) {
   background: var(--g-yellow);
 }
 
-.four-dots::after {
+.dot-divider i:nth-of-type(4) {
   background: var(--g-green);
 }
 
@@ -167,97 +226,129 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 0.5em;
-  padding: 0.7em 1.5em;
-  border: 2px solid transparent;
+  padding: 0.85em 1.6em;
+  border: 1px solid transparent;
   border-radius: var(--radius-full);
-  background: var(--g-blue);
-  color: var(--color-on-accent);
+  background: var(--color-action);
+  color: var(--color-on-action);
   font: inherit;
-  font-size: var(--text-0);
+  font-size: var(--text--1);
   font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
   transition:
-    transform var(--transition),
-    box-shadow var(--transition),
     background var(--transition),
-    border-color var(--transition);
+    border-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition);
 }
 
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-2);
   text-decoration: none;
 }
 
-.button:active {
-  transform: translateY(0);
-}
-
 .button--secondary {
-  background: transparent;
+  background: var(--color-card);
   border-color: var(--color-border-strong);
   color: var(--color-ink);
 }
 
 .button--secondary:hover {
-  background: var(--color-surface);
+  border-color: var(--color-ink);
+  box-shadow: none;
 }
 
+/* For use on the dark footer / ink surfaces */
 .button--light {
-  background: oklch(99% 0 0);
-  color: oklch(24% 0.004 270);
+  background: oklch(100% 0 0);
+  color: oklch(19% 0.004 270);
 }
 
-/* ---- Chips & badges ---- */
+.button--block {
+  width: 100%;
+}
+
+/* ---- Badges (static pills) & chips (interactive pills) ---- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.35em 0.85em;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: var(--text--2);
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.badge--accent {
+  background: var(--edition-accent-soft);
+  color: var(--edition-accent-ink);
+}
+
+.badge--blue {
+  background: var(--g-blue-soft);
+  color: var(--g-blue-ink);
+}
+
+.badge--green {
+  background: var(--g-green-soft);
+  color: var(--g-green-ink);
+}
+
+.badge--yellow {
+  background: var(--g-yellow-soft);
+  color: var(--g-yellow-ink);
+}
+
+.badge--red {
+  background: var(--g-red-soft);
+  color: var(--g-red-ink);
+}
 
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
-  padding: 0.2em 0.75em;
+  padding: 0.45em 1em;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
-  background: var(--color-surface);
+  background: var(--color-card);
   color: var(--color-text);
   font-size: var(--text--1);
   font-weight: 400;
   text-decoration: none;
   white-space: nowrap;
+  transition:
+    border-color var(--transition),
+    color var(--transition);
 }
 
 a.chip:hover {
-  border-color: var(--color-border-strong);
+  border-color: var(--color-ink);
+  color: var(--color-ink);
   text-decoration: none;
 }
 
-.chip--blue {
-  background: var(--g-blue-soft);
-  border-color: transparent;
-}
-
-.chip--green {
-  background: var(--g-green-soft);
-  border-color: transparent;
-}
-
-.chip--yellow {
-  background: var(--g-yellow-soft);
-  border-color: transparent;
-}
-
-.chip--red {
-  background: var(--g-red-soft);
-  border-color: transparent;
+.chip--active {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+  font-weight: 700;
 }
 
 /* ---- Cards ---- */
 
 .card {
   display: block;
-  background: var(--color-surface);
+  background: var(--color-card);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-l);
+  border-radius: var(--radius-m);
   padding: var(--space-s);
   text-decoration: none;
   color: inherit;
@@ -268,10 +359,28 @@ a.chip:hover {
 }
 
 a.card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-2);
   border-color: var(--color-border-strong);
   text-decoration: none;
+}
+
+/* Neutral white plate behind a logo, whatever the theme. */
+.logo-tile {
+  display: grid;
+  place-items: center;
+  background: var(--color-logo-tile);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  padding: var(--space-xs);
+}
+
+.logo-tile img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 /* ---- Markdown content ---- */
@@ -297,6 +406,10 @@ a.card:hover {
 
 .prose h3 {
   font-size: var(--text-1);
+}
+
+.prose > :first-child {
+  margin-top: 0;
 }
 
 .prose p,
@@ -343,12 +456,26 @@ a.card:hover {
   border-radius: var(--radius-m);
   padding: var(--space-2xs) var(--space-s);
   margin-block: 0.6em;
-  background: var(--color-surface);
+  background: var(--color-card);
 }
 
 .prose summary {
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+/* Centred copy inside panels. */
+.prose--center {
+  max-width: 62ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.prose--center ul,
+.prose--center ol {
+  list-style-position: inside;
+  padding-inline-start: 0;
 }
 
 /* ---- Accessibility helpers ---- */
@@ -409,6 +536,7 @@ a.card:hover {
   .site-footer,
   .cta-tickets,
   .cta-cv,
+  .decor,
   .skip-link {
     display: none !important;
   }

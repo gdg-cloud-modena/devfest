@@ -1,10 +1,10 @@
 ---
-import SectionHeading from "@components/SectionHeading.astro";
+import PageHeader from "@components/PageHeader.astro";
 import { ARCHIVED_YEARS } from "@configs/editions";
 import { localizePath, useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getEdition, getStats } from "@lib/content";
-import { daysRangeLabel } from "@lib/dates";
+import { daysRangeLabel, sentenceCase } from "@lib/dates";
 
 interface Props {
   locale: Locale;
@@ -23,13 +23,12 @@ const editions = await Promise.all(
 ---
 
 <BaseLayout title={t("archive.title")} {locale}>
-  <div class="container section">
-    <SectionHeading
-      as="h1"
+  <div class="container container--narrow section">
+    <PageHeader
       title={t("archive.title")}
-      kicker="DevFest Modena"
+      badge="DevFest Modena"
+      lead={t("archive.intro")}
     />
-    <p class="lead">{t("archive.intro")}</p>
 
     <ul class="list" role="list">
       {
@@ -38,21 +37,21 @@ const editions = await Promise.all(
             <a class="card edition" href={localizePath(locale, `/${year}/`)}>
               <span class="year">{year}</span>
               <span class="date">
-                {daysRangeLabel(edition.data.days, locale)}
+                {sentenceCase(daysRangeLabel(edition.data.days, locale))}
               </span>
               <span class="stats">
                 {stats.speakers > 0 && (
-                  <span class="chip chip--yellow">
+                  <span class="badge badge--yellow">
                     {stats.speakers} {t("home.stats.speakers").toLowerCase()}
                   </span>
                 )}
                 {stats.rooms > 0 && (
-                  <span class="chip chip--red">
+                  <span class="badge badge--red">
                     {stats.rooms} {t("home.stats.rooms").toLowerCase()}
                   </span>
                 )}
                 {(stats.participants ?? 0) > 0 && (
-                  <span class="chip chip--blue">
+                  <span class="badge badge--blue">
                     {stats.participants}+{" "}
                     {t("home.stats.participants").toLowerCase()}
                   </span>
@@ -68,17 +67,11 @@ const editions = await Promise.all(
 </BaseLayout>
 
 <style>
-  .lead {
-    margin-block: calc(-1 * var(--space-xs)) var(--space-m);
-    color: var(--color-text-muted);
-  }
-
   .list {
     list-style: none;
     padding: 0;
     display: grid;
     gap: var(--space-s);
-    max-width: var(--container-narrow);
   }
 
   .edition {
@@ -90,12 +83,14 @@ const editions = await Promise.all(
     align-items: center;
     column-gap: var(--space-m);
     row-gap: var(--space-2xs);
+    padding: var(--space-s) var(--space-m);
   }
 
   .year {
     grid-area: year;
     font-size: var(--text-4);
     font-weight: 700;
+    letter-spacing: var(--tracking-tight);
     color: var(--edition-accent);
     line-height: var(--leading-solid);
   }
@@ -104,7 +99,6 @@ const editions = await Promise.all(
     grid-area: date;
     font-weight: 700;
     color: var(--color-ink);
-    text-transform: capitalize;
   }
 
   .stats {

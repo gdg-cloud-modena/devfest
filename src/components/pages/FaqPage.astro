@@ -1,5 +1,5 @@
 ---
-import SectionHeading from "@components/SectionHeading.astro";
+import PageHeader from "@components/PageHeader.astro";
 import { CURRENT_YEAR } from "@configs/editions";
 import { useTranslations, type Locale } from "@i18n/index";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -38,13 +38,12 @@ const jsonLd = [
 ---
 
 <BaseLayout title={`${t("faq.title")} ${CURRENT_YEAR}`} {locale} {jsonLd}>
-  <div class="container section">
-    <SectionHeading
-      as="h1"
-      title={`${t("faq.title")} ${CURRENT_YEAR}`}
-      kicker="FAQ"
+  <div class="container container--narrow section">
+    <PageHeader
+      title={t("faq.title")}
+      badge={`DevFest Modena ${CURRENT_YEAR}`}
+      lead={t("faq.intro")}
     />
-    <p class="lead">{t("faq.intro")}</p>
 
     <div class="faq">
       {
@@ -60,34 +59,27 @@ const jsonLd = [
 </BaseLayout>
 
 <style>
-  .lead {
-    margin-block: calc(-1 * var(--space-xs)) var(--space-m);
-    color: var(--color-text-muted);
-  }
-
   .faq {
     display: grid;
     gap: var(--space-2xs);
-    max-width: var(--container-narrow);
   }
 
   .item {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-m);
-    background: var(--color-surface);
+    background: var(--color-card);
     transition: border-color var(--transition);
   }
 
   .item[open] {
-    border-color: var(--edition-accent);
-    background: var(--color-bg);
+    border-color: var(--color-border-strong);
   }
 
   summary {
     cursor: pointer;
     font-weight: 700;
     color: var(--color-ink);
-    padding: var(--space-s);
+    padding: var(--space-s) var(--space-m);
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -104,11 +96,11 @@ const jsonLd = [
     flex-shrink: 0;
     display: grid;
     place-items: center;
-    width: 1.6em;
-    height: 1.6em;
+    width: 1.7em;
+    height: 1.7em;
     border-radius: 50%;
     background: var(--edition-accent-soft);
-    color: var(--color-ink);
+    color: var(--edition-accent-ink);
     font-weight: 400;
     transition: rotate var(--transition);
   }
@@ -118,7 +110,8 @@ const jsonLd = [
   }
 
   .answer {
-    padding: 0 var(--space-s) var(--space-s);
+    padding: 0 var(--space-m) var(--space-s);
+    font-size: var(--text--1);
   }
 
   .answer :global(p:first-child) {

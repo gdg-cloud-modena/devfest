@@ -13,7 +13,7 @@ import {
   slugOf,
   type Room,
 } from "@lib/content";
-import { fmtWeekdayDate } from "@lib/dates";
+import { fmtWeekdayDate, sentenceCase } from "@lib/dates";
 import { roomImage } from "@lib/images";
 import { Image } from "astro:assets";
 import { render } from "astro:content";
@@ -93,7 +93,9 @@ const title = room.data.forSessions
           <h2>{t("room.sessions")}</h2>
           {days.map((day) => (
             <section>
-              <h3 class="day">{fmtWeekdayDate(day.date, locale)}</h3>
+              <h3 class="day">
+                {sentenceCase(fmtWeekdayDate(day.date, locale))}
+              </h3>
               <SessionList
                 sessions={day.sessions}
                 {year}
@@ -112,13 +114,13 @@ const title = room.data.forSessions
     {
       otherRooms.length > 0 && (
         <p class="others">
-          {t("room.others")}:{" "}
-          {otherRooms.map((r, i) => (
-            <>
-              {i > 0 && ", "}
-              <a href={l(`/${year}/rooms/${slugOf(r)}/`)}>{r.data.name}</a>
-            </>
-          ))}
+          {`${t("room.others")}: `}
+          <span class="inline-list">
+            {otherRooms.map((r) => {
+              const href = l(`/${year}/rooms/${slugOf(r)}/`);
+              return <a {href}>{r.data.name}</a>;
+            })}
+          </span>
         </p>
       )
     }
@@ -173,7 +175,6 @@ const title = room.data.forSessions
 
   .day {
     font-size: var(--text-1);
-    text-transform: capitalize;
     margin-top: var(--space-s);
     padding-bottom: var(--space-3xs);
     border-bottom: 3px solid var(--edition-accent);

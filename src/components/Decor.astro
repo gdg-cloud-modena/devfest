@@ -1,0 +1,77 @@
+---
+/**
+ * Flat geometric ornaments from the design language (arrow, cross, squares).
+ * Purely decorative: always rendered aria-hidden and hidden in print.
+ */
+/**
+ * Position it from the outside by wrapping it in an element you own:
+ * Astro scoped styles do not reach a class passed to a child component.
+ */
+interface Props {
+  shape: keyof typeof shapes;
+  tone?: "yellow" | "pink" | "blue" | "green" | "red";
+  /** Rendered width in rem; the height follows the shape's aspect ratio. */
+  size?: number;
+}
+
+const shapes = {
+  /** Stubby right arrow next to the hero title. */
+  arrow: {
+    viewBox: "0 0 64 32",
+    ratio: 32 / 64,
+    path: "M0 12h34V2a2 2 0 0 1 3.4-1.4l25 14.2a2 2 0 0 1 0 2.4l-25 14.2A2 2 0 0 1 34 30V20H0z",
+  },
+  /** Rounded X used as a punctuation mark between sections. */
+  cross: {
+    viewBox: "0 0 40 40",
+    ratio: 1,
+    path: "M8.6 2.5 20 13.9 31.4 2.5a4.3 4.3 0 0 1 6.1 6.1L26.1 20l11.4 11.4a4.3 4.3 0 0 1-6.1 6.1L20 26.1 8.6 37.5a4.3 4.3 0 0 1-6.1-6.1L13.9 20 2.5 8.6a4.3 4.3 0 0 1 6.1-6.1Z",
+  },
+  /** Two overlapping outlined squares. */
+  squares: {
+    viewBox: "0 0 48 48",
+    ratio: 1,
+    path: "M17.7 3.5 32.9 8.6a2 2 0 0 1 1.3 2.5l-5.1 15.2a2 2 0 0 1-2.5 1.3L11.4 22.5a2 2 0 0 1-1.3-2.5l5.1-15.2a2 2 0 0 1 2.5-1.3Zm-1.2 4.9-3.9 11.4 11.4 3.9 3.9-11.4-11.4-3.9ZM31 19.6l13.9 7.7a2 2 0 0 1 .8 2.7L38 43.9a2 2 0 0 1-2.7.8l-13.9-7.7a2 2 0 0 1-.8-2.7l7.7-13.9a2 2 0 0 1 2.7-.8Zm-.4 4.9-5.8 10.4 10.4 5.8 5.8-10.4-10.4-5.8Z",
+  },
+} as const;
+
+const { shape, tone = "yellow", size = 4 }: Props = Astro.props;
+const { viewBox, ratio, path } = shapes[shape];
+---
+
+<svg
+  class:list={["decor", `decor--${tone}`]}
+  width={`${size}rem`}
+  height={`${size * ratio}rem`}
+  {viewBox}
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path d={path}></path>
+</svg>
+
+<style>
+  .decor {
+    flex-shrink: 0;
+  }
+
+  .decor--yellow {
+    color: var(--g-yellow);
+  }
+
+  .decor--pink {
+    color: var(--g-pink);
+  }
+
+  .decor--blue {
+    color: var(--g-blue);
+  }
+
+  .decor--green {
+    color: var(--g-green);
+  }
+
+  .decor--red {
+    color: var(--g-red);
+  }
+</style>

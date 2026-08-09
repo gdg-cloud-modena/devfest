@@ -60,56 +60,51 @@ function speakerLabel(session: Session): string {
               {fmtTime(session.data.starts, locale)}
             </time>
             <span class="time-end">{fmtTime(session.data.ends, locale)}</span>
-            <span class="chip chip--red now">{t("agenda.now")}</span>
+            <span class="badge badge--red now">{t("agenda.now")}</span>
           </p>
           <div class="body">
             <Heading class="title">
               <a href={l(`/${year}/sessions/${slugOf(session)}/`)}>
                 {session.data.title}
               </a>
+            </Heading>
+            <p class="tags">
               {session.data.workshop && (
-                <span class="chip chip--green">{t("agenda.workshop")}</span>
+                <span class="badge badge--green">{t("agenda.workshop")}</span>
               )}
               {session.data.lang === "en" && locale === "it" && (
-                <span class="chip chip--blue" title={t("session.lang.en")}>
+                <span class="badge badge--blue" title={t("session.lang.en")}>
                   EN
                 </span>
               )}
               {session.data.lang === "it" && locale === "en" && (
-                <span class="chip chip--blue" title={t("session.lang.it")}>
+                <span class="badge badge--blue" title={t("session.lang.it")}>
                   IT
                 </span>
               )}
-            </Heading>
+            </p>
             {(showRooms || showSpeakers) && (
               <p class="meta">
                 {showRooms && rooms.length > 0 && (
                   <span>
-                    {rooms.length === 1
-                      ? t("agenda.room")
-                      : t("agenda.rooms.simultaneous")}
-                    :{" "}
-                    {rooms.map((room, i) => (
-                      <>
-                        {i > 0 && ", "}
-                        <a href={l(`/${year}/rooms/${slugOf(room)}/`)}>
-                          {room.data.name}
-                        </a>
-                      </>
-                    ))}
+                    {`${rooms.length === 1 ? t("agenda.room") : t("agenda.rooms.simultaneous")}: `}
+                    <span class="inline-list">
+                      {rooms.map((room) => {
+                        const href = l(`/${year}/rooms/${slugOf(room)}/`);
+                        return <a {href}>{room.data.name}</a>;
+                      })}
+                    </span>
                   </span>
                 )}
                 {showSpeakers && speakers.length > 0 && (
                   <span>
-                    {speakerLabel(session)}:{" "}
-                    {speakers.map((speaker, i) => (
-                      <>
-                        {i > 0 && ", "}
-                        <a href={l(`/speakers/${speaker.id}/`)}>
-                          {speaker.data.name}
-                        </a>
-                      </>
-                    ))}
+                    {`${speakerLabel(session)}: `}
+                    <span class="inline-list">
+                      {speakers.map((speaker) => {
+                        const href = l(`/speakers/${speaker.id}/`);
+                        return <a {href}>{speaker.data.name}</a>;
+                      })}
+                    </span>
                   </span>
                 )}
               </p>
@@ -129,26 +124,27 @@ function speakerLabel(session: Session): string {
     list-style: none;
     padding: 0;
     display: grid;
+    gap: var(--space-2xs);
   }
 
   .session {
     display: grid;
-    grid-template-columns: 6.5rem 1fr;
+    grid-template-columns: 6rem 1fr;
     gap: var(--space-s);
-    padding-block: var(--space-s);
-    border-bottom: 1px solid var(--color-border);
-    transition: opacity var(--transition);
-  }
-
-  .session:last-child {
-    border-bottom: none;
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+    background: var(--color-card);
+    transition:
+      opacity var(--transition),
+      border-color var(--transition);
   }
 
   .time {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.15rem;
+    gap: 0.1rem;
     font-weight: 700;
     color: var(--color-ink);
     line-height: var(--leading-title);
@@ -170,11 +166,7 @@ function speakerLabel(session: Session): string {
   }
 
   .title {
-    font-size: var(--text-0);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5em;
+    font-size: var(--text-1);
   }
 
   .title a {
@@ -188,10 +180,24 @@ function speakerLabel(session: Session): string {
     text-decoration-thickness: 2px;
   }
 
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tags:empty {
+    display: none;
+  }
+
   .meta {
     color: var(--color-text-muted);
     font-size: var(--text--1);
-    margin-top: 0.25rem;
+    margin-top: 0.35rem;
+  }
+
+  .meta a {
+    color: inherit;
   }
 
   .meta > span:not(:first-child)::before {
@@ -201,7 +207,7 @@ function speakerLabel(session: Session): string {
   .warning {
     margin-top: 0.35rem;
     font-size: var(--text--1);
-    color: light-dark(oklch(45% 0.15 30), oklch(80% 0.12 40));
+    color: var(--g-red-ink);
   }
 
   /* States toggled by the agenda enhancement script */
@@ -210,10 +216,8 @@ function speakerLabel(session: Session): string {
   }
 
   :global(.session--current) {
+    border-color: var(--g-green);
     background: var(--g-green-soft);
-    border-radius: var(--radius-m);
-    padding-inline: var(--space-s);
-    border-bottom-color: transparent;
   }
 
   :global(.session--current) .now {
@@ -224,6 +228,7 @@ function speakerLabel(session: Session): string {
     .session {
       grid-template-columns: 1fr;
       gap: var(--space-3xs);
+      padding: var(--space-s);
     }
 
     .time {

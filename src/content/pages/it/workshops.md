@@ -3,8 +3,6 @@ title: Workshop
 description: Per imparare mettendo le mani in pasta.
 ---
 
-# Workshop
-
 I workshop hanno un numero di posti limitato indicativamente a 20-25 a seconda della sessione.
 
 Ti invieremo un form via email per la registrazione ai workshop pochi giorni prima dell'evento, all'indirizzo email col quale hai preso i biglietti.
