@@ -23,17 +23,24 @@
 {{ $levels := sort $levelsRaw "weight" "asc" }}
 
 <section class="partner-section section section--padded">
-  <h2 class="h2 partner-title-section">Partner</h2>
+  <div class="partner-header">
+    <h2 class="h2 partner-title-section">I Nostri Partner & Sponsor</h2>
+    <p class="p partner-subtitle-section">
+      I partner e gli sponsor che hanno sostenuto l'edizione 2025 del DevFest Modena:
+    </p>
+  </div>
 
-		{{ range $level := $levels }}
+  {{ range $level := $levels }}
     {{ $code := $level.code }}
     {{ $items := where $partners "level" $code }}
 
     {{ if gt (len $items) 0 }}
-      <div class="partners">
-        <p class="partners-level">{{ $level.title }}</p>
+      <div class="partners partners--{{ $code }}">
+        <div class="partners-levelHeader">
+          <span class="partners-levelBadge partners-levelBadge--{{ $code }}">{{ $level.title }}</span>
+        </div>
 
-        <div class="partners-grid">
+        <div class="partners-grid partners-grid--{{ $code }}">
           {{ range $items }}
             {{ $name := .name }}
             {{ $code := .code }}
@@ -45,9 +52,9 @@
             {{ $utm := site.Params.utm | default "" }}
             {{ $utm = replaceRE `\b20\d{2}\b` $yearStr $utm }}
             {{ if $utm }}
-            {{ $sep := "?" }}
-            {{ if in $external "?" }}{{ $sep = "&" }}{{ end }}
-            {{ $external = printf "%s%s%s" $external $sep $utm }}
+              {{ $sep := "?" }}
+              {{ if in $external "?" }}{{ $sep = "&" }}{{ end }}
+              {{ $external = printf "%s%s%s" $external $sep $utm }}
             {{ end }}
 
             {{ $url := cond $hasContent $page.RelPermalink $external }}
@@ -57,16 +64,18 @@
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.jpg" $code)) }}{{ end }}
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.webp" $code)) }}{{ end }}
 
-            <a class="card-body" href="{{ $url }}" aria-label="{{ $name }}">
-              {{ if $img }}
-                {{ $res := $img.Fit "320x160 webp q80" }}
-                <img class="card-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
-              {{ else }}
-                <span class="card-logo card-logo--placeholder" role="img" aria-label="{{ $name }} logo placeholder">
-                  <span class="card-name">{{ $name }}</span>
-                </span>
-              {{ end }}
-	            <span class="card-name">{{ $name }}</span>
+            <a class="partner-card" href="{{ $url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $name }}" title="{{ $name }}">
+              <div class="partner-logoWrapper">
+                {{ if $img }}
+                  {{ $res := $img.Fit "360x180 webp q85" }}
+                  <img class="partner-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
+                {{ else }}
+                  <span class="partner-logoPlaceholder">
+                    {{ $name }}
+                  </span>
+                {{ end }}
+              </div>
+              <span class="partner-name">{{ $name }}</span>
             </a>
           {{ end }}
         </div>

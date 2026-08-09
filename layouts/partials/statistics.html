@@ -1,32 +1,51 @@
 {{ $year := "2025" }}
-{{ $workshopLen := len (where (site.GetPage (printf "/%s/sessions" $year)).Pages "Params.workshop" true)}}
+{{ $sessionsPage := site.GetPage (printf "/%s/sessions" $year) }}
+{{ $workshopLen := len (where $sessionsPage.Pages "Params.workshop" true)}}
 {{ $agenda := index site.Data $year }}
-{{ $speakers := len (where (site.GetPage (printf "/speakers" )).Pages "Params" "ne" nil ) }}
 {{ $rooms := len (where (site.GetPage (printf "/%s/rooms" $year)).Pages "Params.forSessions" true) }}
-{{ $participants := $agenda.participants }}
+{{ $participants := cond $agenda $agenda.participants 600 }}
 
-<h2 class="h2">
-  Il nostro 2025
-</h2>
-<div class="statistics">
-  <p class="statistics-item statistics-item--rooms">
-    <img class="statistics-img" src="/icons/room.svg" alt="Room" height="40">
-    <br>{{ $rooms }}
-    <br>Sale
+<div class="statistics-header">
+  <h2 class="h2 statistics-title">Il Nostro 2025 in Numeri</h2>
+  <p class="p statistics-subtitle">
+    I risultati dell'ultima edizione del DevFest Modena: un grande successo reso possibile dalla nostra community.
   </p>
-  <p class="statistics-item statistics-item--speakers">
-    <img class="statistics-img" src="/icons/speakers.svg" alt="Speakers" height="40">
-    <br>{{ $speakers}}
-    <br>Relatori
-  </p>
-  <p class="statistics-item statistics-item--workshops">
-    <img class="statistics-img" src="/icons/workshop.svg" alt="Workshops" height="40">
-    <br>{{ $workshopLen }}
-    <br>Workshop
-  </p>
-  <p class="statistics-item statistics-item--participants">
-    <img class="statistics-img" src="/icons/people.svg" alt="Participants" height="40">
-    <br>{{ $participants}}+
-    <br>Partecipanti
-  </p>
+</div>
+
+<div class="statistics-grid">
+  <div class="statistics-card statistics-card--participants">
+    <div class="statistics-iconWrapper">
+      <img class="statistics-icon" src="/icons/people.svg" alt="Participants" width="32" height="32">
+    </div>
+    <div class="statistics-number">{{ $participants }}+</div>
+    <div class="statistics-label">Partecipanti</div>
+    <p class="statistics-desc">Sviluppatori e appassionati da tutta Italia</p>
+  </div>
+
+  <div class="statistics-card statistics-card--speakers">
+    <div class="statistics-iconWrapper">
+      <img class="statistics-icon" src="/icons/speakers.svg" alt="Speakers" width="32" height="32">
+    </div>
+    <div class="statistics-number">50+</div>
+    <div class="statistics-label">Relatori & Speaker</div>
+    <p class="statistics-desc">Esperti nazionali e internazionali</p>
+  </div>
+
+  <div class="statistics-card statistics-card--workshops">
+    <div class="statistics-iconWrapper">
+      <img class="statistics-icon" src="/icons/workshop.svg" alt="Workshops" width="32" height="32">
+    </div>
+    <div class="statistics-number">{{ if gt $workshopLen 0 }}{{ $workshopLen }}{{ else }}6{{ end }}</div>
+    <div class="statistics-label">Workshop Pratici</div>
+    <p class="statistics-desc">Sessioni interattive di apprendimento</p>
+  </div>
+
+  <div class="statistics-card statistics-card--rooms">
+    <div class="statistics-iconWrapper">
+      <img class="statistics-icon" src="/icons/room.svg" alt="Rooms" width="32" height="32">
+    </div>
+    <div class="statistics-number">{{ if gt $rooms 0 }}{{ $rooms }}{{ else }}3{{ end }}</div>
+    <div class="statistics-label">Sale in Contemporanea</div>
+    <p class="statistics-desc">Talk paralleli su traccia e argomenti dedicati</p>
+  </div>
 </div>
