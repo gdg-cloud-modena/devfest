@@ -38,10 +38,62 @@
     opacity: 0.6;
   }
 
+  // Track section headers
+  .sessions-trackSection {
+    margin-top: spaces.$space-l;
+    margin-bottom: spaces.$space-xl;
+  }
+
+  .sessions-trackHeader {
+    padding: spaces.$space-s spaces.$space-m;
+    border-radius: effects.$radius;
+    border-left: 6px solid colors.$primary;
+    background-color: colors.$white;
+    margin-bottom: spaces.$space-m;
+  }
+
+  .sessions-trackHeader--primary {
+    border-left-color: colors.$primary;
+    background-color: colors.$primary--2;
+  }
+
+  .sessions-trackHeader--tertiary {
+    border-left-color: colors.$tertiary;
+    background-color: colors.$tertiary--2;
+  }
+
+  .sessions-trackHeader--secondary {
+    border-left-color: colors.$secondary;
+    background-color: colors.$secondary--2;
+  }
+
+  .sessions-trackTitleGroup {
+    display: flex;
+    align-items: center;
+    gap: spaces.$space-xs;
+  }
+
+  .sessions-trackEmoji {
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .sessions-trackTitle {
+    margin: 0;
+    font-size: fonts.$size-1;
+  }
+
+  .sessions-trackDesc {
+    margin-top: spaces.$space-2xs;
+    margin-bottom: 0;
+    font-size: fonts.$size--1;
+    opacity: 0.85;
+  }
+
   // Session Showcase styles
   .sessions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: spaces.$space-m;
     margin-top: spaces.$space-m;
     margin-bottom: spaces.$space-xl;

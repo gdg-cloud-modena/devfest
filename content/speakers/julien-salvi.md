@@ -9,8 +9,8 @@ role = "Speaker"
 website = "https://www.linkedin.com/in/salvijulien/"
 +++
 
-With over a decade in the Android world, I’ve lived the fast-paced startup life in California before returning to France. Today, I’m leading and managing the Android team at Aircall, where we're building the best phone system for modern businesses._x000D_
-_x000D_
-Beyond Android, I’m passionate about backend development with Kotlin and exploring the possibilities of AR/VR. In 2021, I was honored to become an Android GDE—continuing my mission to share knowledge and grow alongside the amazing Android community._x000D_
-_x000D_
+With over a decade in the Android world, I’ve lived the fast-paced startup life in California before returning to France. Today, I’m leading and managing the Android team at Aircall, where we're building the best phone system for modern businesses.
+
+Beyond Android, I’m passionate about backend development with Kotlin and exploring the possibilities of AR/VR. In 2021, I was honored to become an Android GDE—continuing my mission to share knowledge and grow alongside the amazing Android community.
+
 Outside of work, you’ll find me traveling the globe or on the hunt for the perfect IPA.

@@ -2,141 +2,239 @@
 @use "_default/colors";
 @use "_default/spaces";
 @use "_default/effects";
-@use "_blocks/h2";
-@use "_blocks/h3";
-@use "_blocks/link";
-
+@use "_default/fonts";
 
 @if r.$core {
-    .location {
+  .location {
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-l;
+  }
 
-        /** Navigation */
-        &-navigation {
-            width: 100%;
-            margin: 1rem 0;
+  /* Navigation Pills */
+  .location-navigation {
+    padding: spaces.$space-xs 0;
+    margin-bottom: spaces.$space-m;
+    border-bottom: 1px solid colors.$gray;
+  }
 
-            &List {
-                display: flex;
-                gap: spaces.$space-2xs;
-                flex-wrap: wrap;
-                flex-direction: row;
-                list-style: none;
-                row-gap: spaces.$space-xs;
-            }
+  .location-navigationList {
+    display: flex;
+    gap: spaces.$space-2xs;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-            &Item {
-                @extend %rounded;
+  .location-navigationItem {
+    display: inline-block;
+    padding: spaces.$space-2xs spaces.$space-s;
+    border-radius: effects.$radius;
+    background-color: colors.$gray;
+    color: colors.$black;
+    text-decoration: none;
+    font-size: fonts.$size--1;
+    font-weight: bold;
+    transition: background-color effects.$time ease, color effects.$time ease, transform effects.$time ease;
 
-                color: colors.$primary-contrast;
-                padding: spaces.$space-2xs spaces.$space-xs;
-                background-color: colors.$primary;
-                @extend %transition-background;
-            }
-
-            @media (max-width: 480px) {
-                &List {
-                    flex-direction: column;
-
-                    & li {
-                        display: inline-grid;
-                    }
-
-                }
-
-            }
-        }
-
-        &-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: spaces.$space-m;
-            margin: spaces.$space-xs 0;
-            justify-content: center;
-            @media (max-width: 768px) {
-                grid-template-columns: 1fr;
-            }
-            &Content {
-                display: grid;
-            }
-        }
-        
-        &-details {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            justify-content: center;
-            margin: spaces.$space-m 0;
-        }
-
-        &-detail {
-            outline: 1px solid rgba(colors.$gray-contrast, 0.1);
-            padding: spaces.$space-m;
-            margin: spaces.$space-2xs 0;
-
-            @extend %rounded;
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            text-align: start;
-            text-decoration: none;
-            background: colors.$primary-contrast;
-
-            &Content {
-                display: flex;
-                flex-direction: column;
-                gap: spaces.$space-3xs;
-                width: 100%;
-            }
-
-            &Title {
-                width: 100%;
-                text-align: center;
-                margin-bottom: spaces.$space-xs;
-            }
-
-            &WarningTitle {
-                color: colors.$warning-contrast;
-
-            }
-            &Image {
-                @extend %rounded;
-                height: 500px;
-                width: auto;
-                justify-self: center;
-            }
-
-            &List {
-                list-style: decimal;
-                padding-left: 2rem;
-            }
-
-            &List li {
-                position: relative;
-                margin: 0.5rem 0;
-            }
-
-            &List li::marker {
-                color: transparent;
-                font-size: 0;
-            }
-
-            &List li::before {
-                content: counter(list-item);
-                position: absolute;
-                left: -2rem;
-                top: 0;
-                background: colors.$primary;
-                color: colors.$primary-contrast;
-                width: 1.5rem;
-                height: 1.5rem;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 0.8rem;
-                font-weight: bold;
-            }
-        }
-
+    &:hover {
+      background-color: colors.$primary;
+      color: colors.$white;
+      transform: translateY(-2px);
+      text-decoration: none;
     }
+  }
+
+  /* Sections */
+  .location-section {
+    scroll-margin-top: spaces.$space-m;
+  }
+
+  .location-sectionTitle {
+    margin-bottom: spaces.$space-m;
+  }
+
+  /* Intro Grid (Info + Map) */
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: spaces.$space-m;
+    align-items: stretch;
+  }
+
+  .location-infoCard,
+  .location-descriptionCard {
+    background-color: colors.$white;
+    border-radius: effects.$radius;
+    padding: spaces.$space-m;
+    border: 1px solid colors.$gray;
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-s;
+  }
+
+  .location-descriptionCard {
+    margin-top: spaces.$space-m;
+  }
+
+  .location-infoItem {
+    strong {
+      display: block;
+      font-size: fonts.$size--1;
+      color: colors.$black;
+      opacity: 0.7;
+      margin-bottom: 2px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  /* Map Card */
+  .location-mapCard {
+    background-color: colors.$white;
+    border-radius: effects.$radius;
+    border: 1px solid colors.$gray;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+
+  .location-mapLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+
+    &:hover .location-mapOverlay {
+      opacity: 1;
+    }
+  }
+
+  .location-mapImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: effects.$radius;
+  }
+
+  .location-mapOverlay {
+    position: absolute;
+    bottom: spaces.$space-s;
+    right: spaces.$space-s;
+    background-color: colors.$black;
+    color: colors.$white;
+    padding: spaces.$space-2xs spaces.$space-xs;
+    border-radius: 6px;
+    font-size: fonts.$size--1;
+    font-weight: bold;
+    opacity: 0.85;
+    transition: opacity effects.$time ease;
+  }
+
+  /* Photos Grid */
+  .location-photosGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: spaces.$space-m;
+    margin-top: spaces.$space-m;
+  }
+
+  .location-photoCard {
+    border-radius: effects.$radius;
+    overflow: hidden;
+    background-color: colors.$white;
+    border: 1px solid colors.$gray;
+  }
+
+  .location-photoImg {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ZTL Callout */
+  .location-ztlCallout {
+    margin-bottom: spaces.$space-m;
+  }
+
+  /* Cards Grid (Parking, Transport, Auto) */
+  .location-cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: spaces.$space-m;
+  }
+
+  .location-card {
+    background-color: colors.$white;
+    border-radius: effects.$radius;
+    padding: spaces.$space-m;
+    border: 1px solid colors.$gray;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform effects.$time ease, box-shadow effects.$time ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .location-cardTitle {
+    margin-top: 0;
+    margin-bottom: spaces.$space-xs;
+    font-size: fonts.$size-0;
+  }
+
+  .location-cardLink {
+    margin-top: spaces.$space-s;
+    font-weight: bold;
+    font-size: fonts.$size--1;
+  }
+
+  /* Step-by-step driving list */
+  .location-stepsList {
+    margin: 0;
+    padding-left: 1.5rem;
+
+    li {
+      margin-bottom: spaces.$space-2xs;
+      line-height: 1.4;
+
+      &::marker {
+        color: colors.$primary;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@if r.$mobile or r.$tablet {
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-navigation {
+    position: static;
+  }
+}
+
+@if r.$mobile {
+  .location-navigationList {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: spaces.$space-2xs;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .location-navigationItem {
+    white-space: nowrap;
+  }
 }

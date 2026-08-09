@@ -1,5 +1,6 @@
 ---
 title: "Domande frequenti"
+type: "faq"
 layout: "faq"
 year: 2026
 ---

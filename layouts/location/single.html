@@ -1,0 +1,149 @@
+{{ define "main" }}
+
+<main class="section section--padded">
+    <h1 class="h1">Come raggiungerci</h1>
+
+    <!-- Sub-navigation sticky / pills -->
+    <nav class="location-navigation" aria-label="Sezioni della location">
+        <ul class="location-navigationList">
+            <li><a href="#location-introduction" class="location-navigationItem">📍 Mappa & Venue</a></li>
+            <li><a href="#location-auto" class="location-navigationItem">🚗 In Auto</a></li>
+            <li><a href="#location-parking" class="location-navigationItem">🅿️ Parcheggi</a></li>
+            <li><a href="#location-public-transport" class="location-navigationItem">🚆 Treno</a></li>
+            <li><a href="#location-airplane" class="location-navigationItem">✈️ In Aereo</a></li>
+        </ul>
+    </nav>
+
+    <div class="location">
+        <!-- ── INTRODUCTION & MAP ── -->
+        <section id="location-introduction" class="location-section">
+            <h2 class="h2 location-sectionTitle">{{ .Params.introduction.title }}</h2>
+
+            <div class="location-grid">
+                <div class="location-infoCard">
+                    <div class="location-infoItem">
+                        <strong>Indirizzo:</strong>
+                        <p class="p">{{ .Params.introduction.address }}</p>
+                    </div>
+                    <div class="location-infoItem">
+                        <strong>Sito Ufficiale:</strong>
+                        <p><a class="link" href="{{ .Params.introduction.website }}" target="_blank" rel="noopener noreferrer">Fondazione San Carlo &rarr;</a></p>
+                    </div>
+                    <div class="location-infoItem">
+                        <strong>Accessibilità:</strong>
+                        <p class="p">Accesso privo di barriere architettoniche</p>
+                    </div>
+                    <div class="location-infoItem" style="margin-top: auto;">
+                        <a class="button button--small" href="{{ .Params.introduction.link }}" target="_blank" rel="noopener noreferrer">
+                            Apri in Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <div class="location-mapCard">
+                    {{- $locationImage := (resources.Get "location/location.png").Resize "600x webp q85" -}}
+                    <a href="{{ .Params.introduction.link }}" target="_blank" rel="noopener noreferrer" class="location-mapLink">
+                        <img class="location-mapImg" src="{{ $locationImage.RelPermalink }}" alt="Mappa della Fondazione San Carlo" width="{{ $locationImage.Width }}" height="{{ $locationImage.Height }}">
+                        <span class="location-mapOverlay">Clicca per aprire la mappa &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Photos -->
+            <div class="location-photosGrid">
+                {{ range .Params.photos }}
+                {{ $img := (resources.Get (printf "location/%s" .link)).Resize "600x webp q85" }}
+                <div class="location-photoCard">
+                    <img class="location-photoImg" src="{{ $img.RelPermalink }}" alt="{{ .title }}" width="{{ $img.Width }}" height="{{ $img.Height }}" loading="lazy">
+                </div>
+                {{ end }}
+            </div>
+
+            <!-- Description -->
+            <div class="location-descriptionCard">
+                <h3 class="h3">Informazioni sulla sede</h3>
+                <p class="p">{{ .Params.introduction.description1 | safeHTML }}</p>
+                <p class="p">{{ .Params.introduction.description2 | safeHTML }}</p>
+                <p class="p">{{ .Params.introduction.description3 | safeHTML }}</p>
+            </div>
+        </section>
+
+        <!-- ── IN AUTO ── -->
+        <section id="location-auto" class="location-section">
+            <h2 class="h2 location-sectionTitle">🚗 In Auto</h2>
+
+            <div class="callout callout--warning location-ztlCallout">
+                <h3 class="h3">⚠️ Attenzione alla Zona a Traffico Limitato (ZTL)!</h3>
+                <p class="p">
+                    La Fondazione San Carlo si trova all'interno del centro storico e della ZTL di Modena.
+                    I varchi ZTL sono sorvegliati da telecamere attive 24/7. Consigliamo di lasciare l'auto in uno dei parcheggi elencati qui sotto, tutti a pochi minuti a piedi dalla sede.
+                </p>
+            </div>
+
+            <div class="location-cardsGrid">
+                {{ range .Params.auto }}
+                <div class="location-card">
+                    <h3 class="h3 location-cardTitle">{{ .title }}</h3>
+                    <ol class="location-stepsList">
+                        <li>{{ .step1 }}</li>
+                        <li>{{ .step2 }}</li>
+                        <li>{{ .step3 }}</li>
+                        <li>{{ .step4 }}</li>
+                    </ol>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+
+        <!-- ── PARCHEGGI ── -->
+        <section id="location-parking" class="location-section">
+            <h2 class="h2 location-sectionTitle">🅿️ Parcheggi Consigliati</h2>
+            <div class="location-cardsGrid">
+                {{ range .Params.parking }}
+                <div class="location-card">
+                    <div>
+                        <h3 class="h3 location-cardTitle">{{ .title }}</h3>
+                        <p class="p"><strong>Indirizzo:</strong> {{ .address }}</p>
+                        <p class="p"><strong>Distanza a piedi:</strong> {{ .distance }}</p>
+                        <p class="p"><strong>Note:</strong> {{ .description }}</p>
+                    </div>
+                    <a href="{{ .link }}" class="link location-cardLink" target="_blank" rel="noopener noreferrer">Apri su Google Maps &rarr;</a>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+
+        <!-- ── TRENO ── -->
+        <section id="location-public-transport" class="location-section">
+            <h2 class="h2 location-sectionTitle">🚆 In Treno</h2>
+            <div class="location-cardsGrid">
+                {{ range .Params.train }}
+                <div class="location-card">
+                    <div>
+                        <h3 class="h3 location-cardTitle">{{ .title }}</h3>
+                        <p class="p"><strong>Distanza:</strong> {{ .distance }}</p>
+                        <p class="p"><strong>Tempo a piedi:</strong> {{ .time }}</p>
+                        <p class="p"><strong>Percorso:</strong> {{ .description }}</p>
+                    </div>
+                    <a href="{{ .link }}" class="link location-cardLink" target="_blank" rel="noopener noreferrer">Percorso su Google Maps &rarr;</a>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+
+        <!-- ── AEREO ── -->
+        <section id="location-airplane" class="location-section">
+            <h2 class="h2 location-sectionTitle">✈️ In Aereo</h2>
+            <div class="location-cardsGrid">
+                {{ range .Params.airplane }}
+                <div class="location-card">
+                    <h3 class="h3 location-cardTitle">{{ .title }}</h3>
+                    <p class="p"><strong>Distanza:</strong> {{ .distance }}</p>
+                    <p class="p"><strong>Indicazioni:</strong> {{ .suggestion }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+    </div>
+</main>
+{{ end }}

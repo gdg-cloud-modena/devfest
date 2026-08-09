@@ -6,25 +6,86 @@
 @use "_default/_spaces";
 
 @if r.$core {
-  .features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2rem;
+  .features-header {
+    text-align: center;
+    margin-bottom: spaces.$space-l;
   }
 
-  .features-item {
-    flex: 1 1 250px;
-    min-width: 200px;
-    max-width: 300px;
-    padding: spaces.$space-xs;
-    border: 1px solid colors.$primary;
-    @extend %rounded;
+  .features-mainTitle {
+    margin-bottom: spaces.$space-xs;
+  }
+
+  .features-mainSubtitle {
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: spaces.$space-m;
+    justify-content: center;
+  }
+
+  .features-card {
+    background-color: colors.$white;
+    border-radius: effects.$radius;
+    padding: spaces.$space-m;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-xs;
+    transition: transform effects.$time ease, box-shadow effects.$time ease, border-color effects.$time ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .features-card--primary {
+    background-color: colors.$primary--2;
+    &:hover { border-color: colors.$primary; }
+  }
+
+  .features-card--secondary {
+    background-color: colors.$secondary--2;
+    &:hover { border-color: colors.$secondary; }
+  }
+
+  .features-card--tertiary {
+    background-color: colors.$tertiary--2;
+    &:hover { border-color: colors.$tertiary; }
+  }
+
+  .features-card--quaternary {
+    background-color: colors.$quaternary--2;
+    &:hover { border-color: colors.$quaternary; }
+  }
+
+  .features-icon {
+    font-size: 2.2rem;
+    line-height: 1;
   }
 
   .features-title {
-    font-family: fonts.$titles;
-    font-size: fonts.$size-2;
+    font-size: fonts.$size-1;
     font-weight: bold;
+    margin: 0;
+  }
+
+  .features-desc {
+    margin: 0;
+    font-size: fonts.$size--1;
+    line-height: 1.5;
+    color: colors.$black;
+    opacity: 0.9;
+  }
+}
+
+@if r.$mobile {
+  .features-grid {
+    grid-template-columns: 1fr;
   }
 }

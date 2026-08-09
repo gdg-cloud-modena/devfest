@@ -9,5 +9,5 @@ role = "Speaker"
 website = "https://www.linkedin.com/in/laralombardi/"
 +++
 
-Mi occupo di marketing e comunicazione per un'azienda che organizza eventi in ambito sviluppo web._x000D_
+Mi occupo di marketing e comunicazione per un'azienda che organizza eventi in ambito sviluppo web.
 Faccio docenze di alfabetizzazione informatica e all'uso degli strumenti digitali.

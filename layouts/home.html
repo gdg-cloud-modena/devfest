@@ -4,16 +4,16 @@
   <section class="hero hero--home">
     <picture class="hero-bg">
       {{- $hero := (resources.Get "images/home-hero.webp").Resize "300x webp q45" -}}
-      <source srcset="{{ $hero.Permalink }}" media="(max-width: 300px)">
+      <source srcset="{{ $hero.RelPermalink }}" media="(max-width: 300px)">
       {{- $hero = (resources.Get "images/home-hero.webp").Resize "600x webp q70" -}}
-      <source srcset="{{ $hero.Permalink }}" media="(max-width: 600px)">
+      <source srcset="{{ $hero.RelPermalink }}" media="(max-width: 600px)">
       {{- $hero = (resources.Get "images/home-hero.webp").Resize "1080x webp q85" -}}
-      <img class="hero-bgImg" src="{{ $hero.Permalink }}" alt="Acetaia Modena">
+      <img class="hero-bgImg" src="{{ $hero.RelPermalink }}" alt="Acetaia Modena">
     </picture>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       {{- $icon := (resources.Get "images/logo-horizontal-year.png").Resize "x100 webp q45" -}}
-      <img class="hero-icon" src="{{ $icon.Permalink }}" width="{{ $icon.Width }}" height="{{ $icon.Height }}" alt="DevFest Modena {{ .Site.Params.currentEdition }}">
+      <img class="hero-icon" src="{{ $icon.RelPermalink }}" width="{{ $icon.Width }}" height="{{ $icon.Height }}" alt="DevFest Modena {{ .Site.Params.currentEdition }}">
       <p class="hero-title">3 e 4 ottobre 2026</p>
       <p class="hero-tagline">La più grande conferenza tech dell&rsquo;Emilia-Romagna</p>
       <div class="hero-actions">
@@ -26,6 +26,9 @@
       </div>
     </div>
   </section>
+
+  {{/* ── WHY ATTEND / FEATURES ── */}}
+  {{ partial "features.html" . }}
 
   {{/* ── SESSIONS TEASER ── */}}
   {{ partial "sessions-teaser.html" . }}

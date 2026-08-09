@@ -1,0 +1,32 @@
+{{ define "main" }}
+<main class="section section--padded">
+  <h1 class="h1">{{ .Title }} {{ or (.Param "year") .Site.Params.currentEdition }}</h1>
+  
+  <div class="content" style="margin-bottom: 2rem;">
+    {{ .Content }}
+  </div>
+
+  <div class="faq">
+    {{ range $index, $item := .Site.Data.faq.qa }}
+    <details class="faq-item" name="faq">
+      <summary class="faq-question">
+        <span class="faq-questionText">{{ .question }}</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq-answer content">
+        {{ .answer | markdownify }}
+      </div>
+    </details>
+    {{ end }}
+  </div>
+
+  <div class="callout callout--info" style="margin-top: 3rem;">
+    <h3 class="h3">Hai altre domande?</h3>
+    <p class="p">
+      Se non hai trovato la risposta che cercavi, puoi scriverci direttamente via email a 
+      <a class="link" href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a> 
+      oppure sul nostro canale <a class="link" href="{{ site.Params.social.Telegram }}" target="_blank" rel="noopener">Telegram ufficiale</a>.
+    </p>
+  </div>
+</main>
+{{ end }}
