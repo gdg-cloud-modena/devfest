@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "Software Architect Independent Consultant"
+company = "Independent"
+role = "Software Architect Consultant"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/emilianodellacasa/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

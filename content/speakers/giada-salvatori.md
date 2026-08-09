@@ -5,8 +5,12 @@ draft = false
 
 [params]
 company = "Cloudmetrix"
-role = "Speaker"
-website = "https://www.linkedin.com/in/giada-salvatori-505657159/"
+role = "Cloud Engineer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/giada-salvatori-505657159/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Mi chiamo Giada Salvatori e, dopo aver conseguito la laurea in Informatica per il Management presso l’Università di Bologna nell’ottobre 2018, ho intrapreso il mio percorso professionale nel settore IT.

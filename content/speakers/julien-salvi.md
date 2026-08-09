@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Lead Android Engineer @ Aircall"
-role = "Speaker"
-website = "https://www.linkedin.com/in/salvijulien/"
+company = "Aircall"
+role = "Lead Android Engineer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/salvijulien/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 With over a decade in the Android world, I’ve lived the fast-paced startup life in California before returning to France. Today, I’m leading and managing the Android team at Aircall, where we're building the best phone system for modern businesses.

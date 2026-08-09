@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = ""
-role = "UX/UI Designer & Frontend Developer - WTM Ambassador"
+role = "UX/UI Designer & Frontend Developer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/loredana-frontino-0a2367132/"
-instagram = "https://www.instagram.com/lory_front?igsh=aHJwemVkd3FucG0w"
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Product, Design & Gen AI Expert"
-role = "Speaker"
-website = "https://www.linkedin.com/in/adimazorkario/"
+company = "Google Accelerator / Reichman Univ"
+role = "Product, Design & Gen AI Expert"
+[params.social]
+linkedin = "https://www.linkedin.com/in/adimazorkario/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 With over 20 years in the tech industry, Adi is an expert at the intersection of AI, tech startups, and entrepreneurship. Her work is centered on helping startups build successful products and grow, always maintaining a deep focus on the humans behind the users.

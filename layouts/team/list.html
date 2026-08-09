@@ -31,6 +31,9 @@
           {{/* Get image content */}}
           {{ $img := resources.Get (printf "team/%s.jpg" $personCode) }}
           {{ if not $img }}
+          {{ $img = resources.Get (printf "team/%s.jpeg" $personCode) }}
+          {{ end }}
+          {{ if not $img }}
           {{ $img = resources.Get (printf "team/%s.png" $personCode) }}
           {{ end }}
           {{ if not $img }}

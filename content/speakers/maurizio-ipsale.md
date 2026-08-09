@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = "Datatonic"
-role = "Lead Google Cloud Instructor | Google Developer Expert (GDE) AI / Cloud"
+role = "Lead Google Cloud Instructor | GDE AI/Cloud"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/maurizioipsale/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

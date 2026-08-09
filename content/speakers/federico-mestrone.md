@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = ""
-role = "Speaker and Tech Traning Consultant"
+role = "Tech Training Consultant"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/federico-mestrone"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

@@ -7,13 +7,10 @@ draft = false
 company = ""
 role = "Avvocato"
 male = false
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/avv-angela-petraglia/"
-instagram = "https://www.instagram.com/angelapetraglia_legaltech"
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

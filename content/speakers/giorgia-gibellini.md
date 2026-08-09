@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Complex UX Specialist"
-role = "Speaker"
-website = "https://www.linkedin.com/in/giorgia-gibellini/"
+company = ""
+role = "Complex UX Specialist"
+[params.social]
+linkedin = "https://www.linkedin.com/in/giorgia-gibellini/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Sono una UX Designer & Researcher che lavora su sistemi complessi nel mondo dei macchinari industriali per il packaging. 

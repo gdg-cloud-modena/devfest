@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "Developer Advocate @ Vonage / GDE for Firebase, ML and Cloud"
+company = "Vonage"
+role = "Developer Advocate | GDE Firebase, ML & Cloud"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/amandacavallaro/"
-instagram = ""
-x = "https://twitter.com/amdcavallaro"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/amdcavallaro"
 website = ""
 +++
 

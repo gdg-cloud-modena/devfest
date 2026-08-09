@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Marketing and social media manager"
-role = "Speaker"
-website = "https://www.linkedin.com/in/laralombardi/"
+company = ""
+role = "Marketing & Social Media Manager"
+[params.social]
+linkedin = "https://www.linkedin.com/in/laralombardi/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Mi occupo di marketing e comunicazione per un'azienda che organizza eventi in ambito sviluppo web.

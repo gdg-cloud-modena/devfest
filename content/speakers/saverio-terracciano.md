@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "GDE for AI, ML & Cloud - Lead SDE @ TIW Group Ltd"
+company = "TIW Group Ltd"
+role = "Lead SDE | GDE AI & Cloud"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/saverioterracciano/"
-instagram = ""
-x = "https://x.com/TetsuoRyuu"
-facebook = ""
 github = ""
+twitter = "https://x.com/TetsuoRyuu"
 website = ""
 +++
 

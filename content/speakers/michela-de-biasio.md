@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = "Lepida"
-role = ""
+role = "Project Manager"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/michela-de-biasio-39a512a3/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

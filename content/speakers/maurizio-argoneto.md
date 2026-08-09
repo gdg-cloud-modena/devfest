@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = ""
-role = "DevOps Culture, IT Project Manager (Scrum Master | Senior Software Engineer)"
+role = "DevOps Culture & IT Project Manager"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/argomauro/"
-instagram = ""
-x = "https://twitter.com/argomauro"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/argomauro"
 website = ""
 +++
 

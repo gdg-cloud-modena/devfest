@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "Senior Frontend Engineer | GDG Roma Città Organizer"
+company = "GDG Roma Città"
+role = "Senior Frontend Engineer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/ryan-jherome-burgos/"
-instagram = "https://www.instagram.com/ryan_jherome_burgos"
-x = "https://x.com/ryanjpburgos"
-facebook = ""
 github = ""
+twitter = "https://x.com/ryanjpburgos"
 website = ""
 +++
 

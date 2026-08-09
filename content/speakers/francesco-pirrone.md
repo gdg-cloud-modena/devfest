@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Fullstack developer presso Finwave"
-role = "Speaker"
-website = "https://www.linkedin.com/in/francesco-pirrone-c01/"
+company = "Finwave"
+role = "Fullstack Developer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/francesco-pirrone-c01/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Graduated in Computer Science from the University of Turin, he is a full-stack developer at Finwave, where he is responsible for the design and development of distributed systems.

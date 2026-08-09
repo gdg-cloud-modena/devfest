@@ -7,13 +7,10 @@ draft = false
 company = ""
 role = "Community Designer & Manager"
 male = false
-
 [params.social]
 linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

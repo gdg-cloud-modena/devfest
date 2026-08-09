@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = ""
-role = "Software Developer, general specialist, motorbike enthusiast"
+role = "Software Developer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/enrico-sasdelli/"
-instagram = ""
-x = "https://twitter.com/ilsasdo"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/ilsasdo"
 website = ""
 +++
 

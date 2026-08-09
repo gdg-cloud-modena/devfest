@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Analista Programmatore"
-role = "Speaker"
-website = "https://www.linkedin.com/in/flavio-basile-87556041/"
+company = ""
+role = "Analista Programmatore"
+[params.social]
+linkedin = "https://www.linkedin.com/in/flavio-basile-87556041/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Sono Flavio Basile, sono un Informatico laureatosi all’Università degli studi di Catania e dal 2006 mi occupo professionalmente di progettazione e sviluppo software applicativo desktop.

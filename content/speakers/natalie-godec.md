@@ -7,13 +7,10 @@ draft = false
 company = ""
 role = "Cloud Architect | Google Dev Expert in Cloud | GCP Champion Innovator"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/nataliia-godec/"
-instagram = "https://www.instagram.com/ouvessvit/"
-x = "https://twitter.com/ouvessvit"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/ouvessvit"
 website = ""
 +++
 

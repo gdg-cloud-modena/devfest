@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "QA Lead @Doctolib"
-role = "Speaker"
-website = "https://www.linkedin.com/in/ludovicobesana/"
+company = "Doctolib"
+role = "QA Lead"
+[params.social]
+linkedin = "https://www.linkedin.com/in/ludovicobesana/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Ludovico, born as a Full Stack Developer, discovered his true passion for quality later in his career. With a background in Full Stack Development, he possessed a strong technical foundation and a deep understanding of software systems.

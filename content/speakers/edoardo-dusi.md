@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
+company = "Google"
 role = "Senior Developer Relations Engineer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/edoardodusi/"
-instagram = "https://www.instagram.com/edodusi/"
-x = "https://twitter.com/edodusi"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/edodusi"
 website = ""
 +++
 

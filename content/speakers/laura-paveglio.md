@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "UX/UI Designer Senior Freelance"
+company = "Freelance"
+role = "UX/UI Designer Senior"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/laurapaveglio/"
-instagram = "https://www.instagram.com/laurapaveglio/"
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "FrontEnd Javascript Enthusiast"
-role = "Speaker"
-website = "https://www.linkedin.com/in/marcopollacci/"
+company = "Aruba S.p.A"
+role = "Senior Software Engineer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/marcopollacci/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Hi! I’m a frontend developer with a long-standing love affair with JavaScript, CSS, and the magic they bring to the web.

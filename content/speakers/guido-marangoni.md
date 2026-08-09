@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "YouDoTools - CEO & Founder | Author | University Lecturer"
-role = "Speaker"
-website = "https://www.linkedin.com/in/guidomarangoni/"
+company = "YouDoTools"
+role = "CEO & Founder | Lecturer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/guidomarangoni/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Guido Marangoni è ingegnere informatico, speaker e autore. Insegna Informatica all'Università di Padova e ha tenuto oltre 800 interventi su diversità, inclusione e tecnologia accessibile.

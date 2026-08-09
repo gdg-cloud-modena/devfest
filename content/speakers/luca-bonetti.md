@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Web software developer"
-role = "Speaker"
-website = "https://www.linkedin.com/in/lb-luca-bonetti"
+company = ""
+role = "Web Software Developer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/lb-luca-bonetti"
+github = ""
+twitter = ""
+website = ""
 +++
 
 "How would you describe yourself?"

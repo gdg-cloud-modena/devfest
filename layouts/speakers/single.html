@@ -20,31 +20,67 @@
       </div>
 
       <div class="speaker-details">
-        {{- with .Params.company -}}
-        <div class="speaker-details--company">
-          <strong>Azienda:</strong> {{ . }}
-        </div>
-        {{- end }}
-
         {{- with .Params.role -}}
         <div class="speaker-details--role">
           <strong>Ruolo:</strong> {{ . }}
         </div>
         {{- end }}
 
+        {{- with .Params.company -}}
+        <div class="speaker-details--company">
+          <strong>Azienda:</strong> {{ . }}
+        </div>
+        {{- end }}
+
         {{- with .Params.social -}}
         <div class="speaker-details--social">
-          {{- with .twitter -}}
-          <a class="link" href="{{ . }}" target="_blank" rel="noopener">
-            {{ $iconPath := printf "icons/logo-%s.svg" "twitter" }}
-            <img src="{{ $iconPath }}" alt="Twitter" />
-          </a>
-          {{- end -}}
           {{- with .linkedin -}}
-          <a class="link" href="{{ . }}" target="_blank" rel="noopener">
-            {{ $iconPath := printf "icons/logo-%s-black.svg" "linkedin" }}
-            <img src="{{ relURL $iconPath }}" width="32" height="32" alt="LinkedIn" />
+          {{ if ne . "" }}
+          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="/icons/logo-linkedin-black.svg" width="24" height="24" alt="LinkedIn" />
           </a>
+          {{ end }}
+          {{- end -}}
+
+          {{- with .github -}}
+          {{ if ne . "" }}
+          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="GitHub">
+            <img src="/icons/logo-github-black.svg" width="24" height="24" alt="GitHub" />
+          </a>
+          {{ end }}
+          {{- end -}}
+
+          {{- $twitter := or .twitter .x -}}
+          {{- with $twitter -}}
+          {{ if ne . "" }}
+          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="X / Twitter">
+            <img src="/icons/logo-twitter-black.svg" width="24" height="24" alt="Twitter" />
+          </a>
+          {{ end }}
+          {{- end -}}
+
+          {{- with .website -}}
+          {{ if ne . "" }}
+          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="Website">
+            <img src="/icons/logo-website-black.svg" width="24" height="24" alt="Website" />
+          </a>
+          {{ end }}
+          {{- end -}}
+
+          {{- with .facebook -}}
+          {{ if ne . "" }}
+          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="/icons/logo-facebook-black.svg" width="24" height="24" alt="Facebook" />
+          </a>
+          {{ end }}
+          {{- end -}}
+
+          {{- with .instagram -}}
+          {{ if ne . "" }}
+          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="/icons/logo-instagram-black.svg" width="24" height="24" alt="Instagram" />
+          </a>
+          {{ end }}
           {{- end -}}
         </div>
         {{- end -}}

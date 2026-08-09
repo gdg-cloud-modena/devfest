@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = ""
-role = "Green Software Advocate, Public speaker & Organizer"
+role = "Green Software Advocate & Speaker"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/valeria-salis/"
-instagram = "https://www.instagram.com/_valls_/"
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "CEO @ Devmy - Google Developer Expert, Microsoft MVP, Google Certified Developer & AWS UG Lead"
-role = "Speaker"
-website = "https://www.linkedin.com/in/francescosciuti/"
+company = "Devmy"
+role = "CEO & Founder | GDE & Microsoft MVP"
+[params.social]
+linkedin = "https://www.linkedin.com/in/francescosciuti/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Francesco (Google Developer Expert, Microsoft MVP, Google Certified Developer & AWS UG Lead), is a programmer with several years of experience in enterprise programming , high skilled in web development (frontend and backend) and in team project management.

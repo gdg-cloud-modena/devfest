@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "CEO MOMOVA, ICT PhD"
-role = "Speaker"
-website = "https://it.linkedin.com/company/momova"
+company = "MOMOVA"
+role = "CEO & ICT PhD"
+[params.social]
+linkedin = "https://it.linkedin.com/company/momova"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Lisa Trigiante 

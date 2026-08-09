@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Google GDE Cloud, Cloud Architect, GDG Cloud Torino & Flutter Torino Community Lead"
-role = "Speaker"
-website = "https://www.linkedin.com/in/giovanni-forlastro/"
+company = "GDG Cloud Torino"
+role = "Cloud Architect | GDE Cloud"
+[params.social]
+linkedin = "https://www.linkedin.com/in/giovanni-forlastro/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Inizia la sua avventura con un Intel 80386 e si laurea in Informatica all'Università di Torino che completa con due master: Comunicazione Digitale/Web Marketing e Social Media Management, il secondo in Cloud Computing. 

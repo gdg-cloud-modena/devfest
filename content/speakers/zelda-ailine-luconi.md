@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Datwave, Senior Cloud Architect and Data Engineer"
-role = "Speaker"
-website = "https://www.linkedin.com/in/zelda-ailine-luconi-051625123/"
+company = "Datwave"
+role = "Senior Cloud Architect & Data Engineer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/zelda-ailine-luconi-051625123/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Zelda is a dynamic force at the intersection of AI, Data Engineering, and Cloud Architecture, bringing over 8+ years of experience to the technical landscape.

@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "AI Consultant"
-role = "Speaker"
-website = "https://www.linkedin.com/in/tpiros"
+company = ""
+role = "AI Consultant"
+[params.social]
+linkedin = "https://www.linkedin.com/in/tpiros"
+github = ""
+twitter = ""
+website = ""
 +++
 
 I help teams and leaders get genuinely good at using AI. Not the "watched a webinar" kind of good. The "transformed how we work" kind.

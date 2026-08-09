@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Senior Design Engineer, Sensei & Co-Host @ DevDojoIT"
-role = "Speaker"
-website = "https://www.linkedin.com/in/pixu1980"
+company = "DevDojoIT"
+role = "Senior Design Engineer & Co-Host"
+[params.social]
+linkedin = "https://www.linkedin.com/in/pixu1980"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Hi 👋 Folks!

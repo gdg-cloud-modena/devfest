@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Developer Advocate, google cloud"
-role = "Speaker"
-website = "https://www.linkedin.com/in/riccardocarlesso/"
+company = "Google Cloud"
+role = "Developer Advocate"
+[params.social]
+linkedin = "https://www.linkedin.com/in/riccardocarlesso/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Riccardo loves caipirinhas and 🍷 Amarone, playing 🎹 piano and 🏊🏻🚴🏿🏃♀️ triathlons; he's been passionate about Mathematics since he was 4. He's still in love with Ruby and Rails.

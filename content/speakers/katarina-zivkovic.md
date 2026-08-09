@@ -7,13 +7,10 @@ draft = false
 company = ""
 role = "Brand & Content Strategist"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/kat-zivkovic-5b2465117/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

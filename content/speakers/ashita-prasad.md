@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "SDE / Dev Advocate @ AWS"
-role = "Speaker"
-website = "https://linkedin.com/in/ashitaprasad"
+company = "AWS"
+role = "SDE / Dev Advocate"
+[params.social]
+linkedin = "https://linkedin.com/in/ashitaprasad"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Ashita works as a developer advocate at AWS with a strong focus on frontend and AI technologies. With 10+ years of experience in full stack development, she is passionate about building impactful products and equally loves empowering & engaging with fellow developers in the community.

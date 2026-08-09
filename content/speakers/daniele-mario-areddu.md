@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "Freelance Full-Stack Developer | AI-ML Developer & Data Analyst| Compter Science Student @ University of Calabria | Change Model Specialist @ UNIDEA |Community Lead @ Velletri-Dev | Author"
+company = "Velletri-Dev"
+role = "Freelance Full-Stack Developer & AI-ML Specialist"
 male = true
-
 [params.social]
 linkedin = "https://it.linkedin.com/in/daniele-mario-areddu-67729b260"
-instagram = "https://www.instagram.com/danieleareddu_/"
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

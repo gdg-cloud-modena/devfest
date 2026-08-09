@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Senior Frontend Engineer @ Freelancer | GDG Roma Città Organizer"
-role = "Speaker"
-website = "https://www.linkedin.com/in/giorgiogalassi/"
+company = "GDG Roma Città"
+role = "Senior Frontend Engineer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/giorgiogalassi/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Senior Frontend Engineer with 10+ years of experience building large-scale, production-grade web applications. Specialized in Angular, TypeScript, NgRx, RxJS, and Nx, with a strong focus on component architecture, state management, micro-frontend patterns, and modular monorepos.

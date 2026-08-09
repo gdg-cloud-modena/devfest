@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Google Developer Expert in Angular ❮ ❯ | Senior Software Engineer 💻📱 | GDG Roma Città Organizer 📣"
-role = "Speaker"
-website = "https://www.linkedin.com/in/davide-passafaro"
+company = "GDG Roma Città"
+role = "Senior Software Engineer | GDE Angular"
+[params.social]
+linkedin = "https://www.linkedin.com/in/davide-passafaro"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Senior Frontend Engineer and Google Developer Expert in Angular, Davide leads the GDG Roma Città and Angular Roma communities.

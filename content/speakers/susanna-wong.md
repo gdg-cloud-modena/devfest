@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = "QuantumBlack"
-role = "Staff Software Engineer, Google Developer Expert, Google Womens Techmakers Ambassador"
+role = "Staff Software Engineer | GDE"
 male = false
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/susanna-wong-london/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

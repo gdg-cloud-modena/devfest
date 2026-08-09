@@ -7,14 +7,10 @@ draft = false
 company = "Morrolinux"
 role = "Consultant & Instructor"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/morenorazzoli/"
-instagram = ""
-x = "https://x.com/morrolinux/"
-facebook = ""
 github = ""
-youtube = "https://www.youtube.com/@morrolinux"
+twitter = "https://x.com/morrolinux/"
 website = "https://morrolinux.it/"
 +++
 

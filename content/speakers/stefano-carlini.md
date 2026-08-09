@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Business Development Manager | Cloud & AI Strategy | Digital Transformation | Customer Success | GDG Cloud Modena Member | Partnership & Strategic Alliances | Speaker & Innovator | 3x Startup Founder"
-role = "Speaker"
-website = "https://www.linkedin.com/in/stefanocarlini/"
+company = "GDG Cloud Modena"
+role = "Business Development Manager & Startup Founder"
+[params.social]
+linkedin = "https://www.linkedin.com/in/stefanocarlini/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Business Development in the cloud and AI sector, with extensive experience managing strategic partnerships and promoting innovative solutions.

@@ -7,13 +7,10 @@ draft = false
 company = "GELLIFY"
 role = "Architect"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/massimoartizzu/"
-instagram = ""
-x = "https://twitter.com/MaxArt2501"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/MaxArt2501"
 website = ""
 +++
 

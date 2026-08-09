@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = ""
-role = "Empathy-based, AI-powered, Tech Marketing Manager"
+role = "Tech Marketing Manager"
 male = false
-
 [params.social]
 linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

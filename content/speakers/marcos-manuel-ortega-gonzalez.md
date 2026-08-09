@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Google Cloud Authorized Trainer, Google Developer Expert in Google Cloud"
-role = "Speaker"
-website = "https://www.linkedin.com/in/marcosmanuelortega/"
+company = "Google Cloud"
+role = "Authorized Trainer & GDE"
+[params.social]
+linkedin = "https://www.linkedin.com/in/marcosmanuelortega/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 - Consultant, architect & IT trainer

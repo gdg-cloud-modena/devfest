@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Rivoluzione Digitale, head of development"
-role = "Speaker"
-website = "https://www.linkedin.com/in/matteobaccan/"
+company = ""
+role = "Senior Software Engineer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/matteobaccan/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Matteo Baccan is a professional software engineer and trainer with over 35 years of experience in the IT industry.

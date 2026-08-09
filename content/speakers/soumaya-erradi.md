@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Senior Software Developer @ Atlantis"
-role = "Speaker"
-website = "https://www.linkedin.com/in/soumaya-erradi"
+company = "Atlantis"
+role = "Senior Software Developer"
+[params.social]
+linkedin = "https://www.linkedin.com/in/soumaya-erradi"
+github = ""
+twitter = ""
+website = ""
 +++
 
 I'm an experienced web developer and a passionate IT and electronics trainer, specializing in frontend development and enterprise applications built with Angular.

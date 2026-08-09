@@ -4,8 +4,12 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "University of Modena and Reggio Emilia"
-role = "Speaker"
+company = "Università di Modena e Reggio Emilia"
+role = "Professor & Researcher"
+[params.social]
+linkedin = ""
+github = ""
+twitter = ""
 website = ""
 +++
 

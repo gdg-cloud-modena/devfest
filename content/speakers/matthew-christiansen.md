@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Google Developer Expert | Angular Innovator"
-role = "Speaker"
-website = "https://www.linkedin.com/in/matthewbchristiansen/"
+company = ""
+role = "GDE Angular Innovator"
+[params.social]
+linkedin = "https://www.linkedin.com/in/matthewbchristiansen/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Matthew Christiansen is the founder and former CEO/CTO of Bright Bridge Web, a certified Google Developer Expert, software engineer, community leader, and full stack engineer who is all-in on everything AI. He is a Co-Organizer of the Google Developer Group (GDG) Salt Lake City and the official Angular Community Meetup, where he helps build and inspire developer communities through talks, workshops, and mentoring.

@@ -4,9 +4,13 @@ date = 2026-01-01
 draft = false
 
 [params]
-company = "Program Manager @ Google"
-role = "Speaker"
-website = "https://www.linkedin.com/in/katya-vinnichenko/"
+company = "Google"
+role = "Program Manager"
+[params.social]
+linkedin = "https://www.linkedin.com/in/katya-vinnichenko/"
+github = ""
+twitter = ""
+website = ""
 +++
 
 Katya is a Program Manager at Google Developer Relations team.

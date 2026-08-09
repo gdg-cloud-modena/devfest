@@ -7,13 +7,10 @@ draft = false
 company = "Zuru Tech"
 role = "Ingegnere Di Simulazione"
 male = true
-
 [params.social]
 linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 
