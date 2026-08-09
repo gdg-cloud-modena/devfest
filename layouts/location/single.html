@@ -19,6 +19,14 @@
         <section id="location-introduction" class="location-section">
             <h2 class="h2 location-sectionTitle">{{ .Params.introduction.title }}</h2>
 
+            <!-- Featured Venue Hero Card -->
+            {{- with .Params.introduction.featured_photo -}}
+            {{- $featured := (resources.Get (printf "location/%s" .)).Resize "1200x webp q85" -}}
+            <div class="location-featuredCard">
+                <img class="location-featuredImg" src="{{ $featured.RelPermalink }}" alt="Chiesa di San Carlo - Sede DevFest Modena" width="{{ $featured.Width }}" height="{{ $featured.Height }}">
+            </div>
+            {{- end -}}
+
             <div class="location-grid">
                 <div class="location-infoCard">
                     <div class="location-infoItem">

@@ -55,6 +55,42 @@
     margin-bottom: spaces.$space-m;
   }
 
+  /* Featured Venue Hero Card */
+  .location-featuredCard {
+    position: relative;
+    border-radius: effects.$radius;
+    overflow: hidden;
+    margin-bottom: spaces.$space-m;
+    border: 1px solid colors.$gray;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .location-featuredImg {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    display: block;
+    transition: transform effects.$time ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  .location-featuredBadge {
+    position: absolute;
+    bottom: spaces.$space-m;
+    left: spaces.$space-m;
+    background-color: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+    color: colors.$white;
+    padding: spaces.$space-2xs spaces.$space-m;
+    border-radius: effects.$radius;
+    font-size: fonts.$size-0;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
   /* Intro Grid (Info + Map) */
   .location-grid {
     display: grid;
@@ -227,6 +263,17 @@
 }
 
 @if r.$mobile {
+  .location-featuredImg {
+    height: 260px;
+  }
+
+  .location-featuredBadge {
+    font-size: fonts.$size--1;
+    padding: spaces.$space-2xs spaces.$space-s;
+    left: spaces.$space-s;
+    bottom: spaces.$space-s;
+  }
+
   .location-navigationList {
     flex-wrap: nowrap;
     overflow-x: auto;
