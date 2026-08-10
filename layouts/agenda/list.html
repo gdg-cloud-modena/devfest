@@ -1,0 +1,131 @@
+{{ define "main" }}
+{{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
+{{ $currentYear := printf "%v" site.Params.currentEdition }}
+{{ $sessionsPage := site.GetPage (printf "/%s/sessions" $year) }}
+{{ $allSessions := $sessionsPage.Pages }}
+{{ $scheduledSessions := where $allSessions "Params.starts" "ne" nil }}
+
+<main class="section section--padded agenda-main">
+  <div class="agenda-header">
+    <h1 class="h1 agenda-title">Agenda DevFest Modena {{ $year }}</h1>
+    <p class="p agenda-subtitle">
+      Il programma degli orari e delle sale per orientarti durante le giornate dell'evento.
+    </p>
+    <div class="agenda-actions">
+      <a class="button button--secondary button--small" href="/{{ $year }}/sessions/">
+        🔍 Sfoglia Catalogo Sessioni
+      </a>
+    </div>
+  </div>
+
+  {{ if gt (len $scheduledSessions) 0 }}
+    {{/* AGENDA TIMELINE (When start times are published) */}}
+    {{ $agenda := index site.Data $year }}
+    {{ $days := cond $agenda $agenda.days (slice) }}
+
+    {{ $rooms := dict }}
+    {{ range $page := (site.GetPage (printf "/%s/rooms" $year)).Pages }}
+      {{ $rooms = merge $rooms (dict $page.File.BaseFileName $page) }}
+    {{ end }}
+
+    {{ $sessions := sort $scheduledSessions "Params.starts" "asc" }}
+
+    {{ range $dayIndex, $day := $days }}
+      {{ $dayTime := time.AsTime $day }}
+      {{ $dayKey := $dayTime.Format "2006-01-02" }}
+
+      {{ $daySessions := slice }}
+      {{ range $session := $sessions }}
+        {{ $dt := time (.Param "starts") }}
+        {{ if eq ($dt.Format "2006-01-02") $dayKey }}
+          {{ $daySessions = $daySessions | append $session }}
+        {{ end }}
+      {{ end }}
+
+      {{ if gt (len $daySessions) 0 }}
+        {{ $daySessions = sort $daySessions "Params.ends" "asc" }}
+        {{ $daySessions = sort $daySessions "Params.starts" "asc" }}
+
+        <div class="agenda-daySection" id="day-{{ $dayKey }}">
+          <h2 class="h2 agenda-dayTitle">
+            📅 {{ (time.Format "Monday 2 January" $dayTime) | title }}
+          </h2>
+
+          <div class="agenda-timeline">
+            {{ range $session := $daySessions }}
+              {{ $dt := time ($session.Param "starts") }}
+              {{ $ends := time ($session.Param "ends") }}
+              
+              {{ $topicColor := "primary" }}
+              {{ if eq $session.Params.topic "Cloud & Platform Engineering" }}{{ $topicColor = "tertiary" }}{{ end }}
+              {{ if eq $session.Params.topic "Web, Mobile & Dev Experience" }}{{ $topicColor = "secondary" }}{{ end }}
+
+              <div class="agenda-card agenda-card--{{ $topicColor }}">
+                <div class="agenda-timeCol">
+                  <span class="agenda-timeSlot">{{ $dt.Format "15:04" }} - {{ $ends.Format "15:04" }}</span>
+                  {{ range $code := $session.Params.rooms }}
+                    {{ with index $rooms $code }}
+                      <span class="agenda-roomBadge">📍 {{ .Title }}</span>
+                    {{ end }}
+                  {{ end }}
+                </div>
+
+                <div class="agenda-contentCol">
+                  <div class="agenda-cardMeta">
+                    {{ if $session.Params.topic }}
+                      <span class="agenda-topicBadge agenda-topicBadge--{{ $topicColor }}">{{ $session.Params.topic }}</span>
+                    {{ end }}
+                    <span class="agenda-langBadge">{{ $session.Params.language }}</span>
+                  </div>
+
+                  <h3 class="h3 agenda-cardTitle">
+                    <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
+                  </h3>
+
+                  <div class="agenda-speakers">
+                    {{ range $slug := $session.Params.speakers }}
+                      {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+                        {{ $img := resources.Get (printf "speakers/%s.jpg" $slug) }}
+                        {{ if not $img }}{{ $img = resources.Get (printf "speakers/%s.png" $slug) }}{{ end }}
+                        {{ if not $img }}{{ $img = resources.Get "team/profile.jpg" }}{{ end }}
+                        {{ $imgResized := $img.Fit "60x60 q85 jpg" }}
+                        <a class="agenda-speakerItem" href="{{ .RelPermalink }}">
+                          <img class="agenda-speakerAvatar" src="{{ $imgResized.RelPermalink }}" alt="{{ .Title }}" width="30" height="30">
+                          <span class="agenda-speakerName">{{ .Title }}</span>
+                        </a>
+                      {{ end }}
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+
+  {{ else }}
+    {{/* AGENDA COMING SOON CALLOUT (Mobile Optimized) */}}
+    <div class="agenda-comingSoonCard">
+      <div class="agenda-comingSoonEmoji">🗓️</div>
+      <h2 class="h2 agenda-comingSoonTitle">Agenda in Arrivo!</h2>
+      <p class="p agenda-comingSoonText">
+        L'orario e l'assegnazione delle sale per le singole sessioni verranno pubblicati a breve.
+        Durante l'evento potrai consultare qui la timeline in tempo reale da smartphone.
+      </p>
+
+      <div class="agenda-comingSoonBox">
+        <p class="p"><b>{{ len $allSessions }} sessioni confermate</b> sono già disponibili nel nostro catalogo suddiviso per tracce tematiche:</p>
+        <div class="agenda-comingSoonButtons">
+          <a class="button" href="/{{ $year }}/sessions/">
+            📚 Consulta il Catalogo Sessioni
+          </a>
+          <a class="button button--secondary" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+            🎟️ Prendi il Biglietto Gratuito
+          </a>
+        </div>
+      </div>
+    </div>
+  {{ end }}
+</main>
+{{ end }}

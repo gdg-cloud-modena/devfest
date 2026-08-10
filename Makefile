@@ -1,7 +1,10 @@
+export PATH := $(CURDIR)/bin:$(PATH)
+
 SSH_USER=devfest
 HOST=devfest.modena.it
 DESTINATION=~/httpdocs/
 HUGO_VERSION=0.148
+HUGO=$(CURDIR)/bin/hugo-$(HUGO_VERSION)
 
 
 .PHONY: help
@@ -16,12 +19,12 @@ help:
 
 .PHONY: build
 build: ## Build with Hugo
-	hugo-$(HUGO_VERSION) --minify
+	$(HUGO) --minify
 
 
 .PHONY: serve
 serve: ## Run Hugo server
-	hugo-$(HUGO_VERSION) serve --minify --disableFastRender
+	$(HUGO) serve --minify --disableFastRender
 
 
 .PHONY: upload
