@@ -64,3 +64,6 @@ nosetests.xml
 # User content
 /static/share/
 /static/media/
+
+# bin
+/bin/
