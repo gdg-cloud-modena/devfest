@@ -31,70 +31,44 @@
   .partners-levelHeader {
     text-align: center;
     margin-bottom: spaces.$space-m;
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(colors.$gray, 0.4), transparent);
-      z-index: 1;
-    }
   }
 
   .partners-levelBadge {
-    position: relative;
-    z-index: 2;
+    @extend %rounded;
+
     display: inline-block;
-    padding: spaces.$space-2xs spaces.$space-m;
-    border-radius: 20px;
-    font-size: fonts.$size-0;
-    font-weight: 700;
+    padding: spaces.$space-3xs spaces.$space-s;
+    font-size: fonts.$size--1;
+    font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: colors.$white;
+    letter-spacing: 0.06em;
+    background-color: colors.$gray;
     color: colors.$black;
-    border: 1px solid rgba(colors.$gray, 0.4);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   .partners-levelBadge--main {
     background-color: colors.$primary;
-    color: colors.$white;
-    border-color: colors.$primary;
+    color: colors.$primary-contrast;
   }
 
   .partners-levelBadge--diamond {
-    background-color: colors.$tertiary--2;
-    color: colors.$tertiary;
-    border-color: colors.$tertiary;
+    background-color: colors.$primary--2;
   }
 
   .partners-levelBadge--gold {
-    background-color: #fef9c3;
-    color: #a16207;
-    border-color: #fde047;
+    background-color: colors.$tertiary--2;
   }
 
   .partners-levelBadge--silver {
-    background-color: #f1f5f9;
-    color: #475569;
-    border-color: #cbd5e1;
+    background-color: colors.$gray;
   }
 
   .partners-levelBadge--tech {
     background-color: colors.$secondary--2;
-    color: colors.$secondary;
-    border-color: colors.$secondary;
   }
 
   .partners-levelBadge--bronze {
-    background-color: #ffedd5;
-    color: #c2410c;
-    border-color: #fdba74;
+    background-color: colors.$quaternary--2;
   }
 
   .partners-grid {
