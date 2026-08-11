@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "GDE Security & Ops - Google Cloud Instructor - Tech Communicator"
+company = "Google Cloud"
+role = "GDE Security & Ops"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/riccardo-mestrone/"
-instagram = "https://www.instagram.com/ricmest"
-x = "https://x.com/ricmest"
-facebook = ""
 github = ""
+twitter = "https://x.com/ricmest"
 website = ""
 +++
 

@@ -39,7 +39,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.52);
     z-index: 1;
   }
 
@@ -52,13 +52,66 @@
     align-items: center;
     justify-content: center;
     gap: spaces.$space-m;
-    max-width: 40em;
+    max-width: 44em;
   }
 
   .hero-title {
     font-size: fonts.$size-6;
     font-weight: bold;
     line-height: fonts.$solid;
+    margin: 0;
+  }
+
+  .hero-tagline {
+    font-size: fonts.$size-1;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.92;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: spaces.$space-s;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: spaces.$space-xs;
+  }
+
+  // Primary hero button — solid yellow/tertiary for maximum contrast
+  .button--hero {
+    background-color: colors.$tertiary;
+    color: colors.$black;
+    font-size: fonts.$size-1;
+    padding: spaces.$space-s spaces.$space-l;
+
+    &:link,
+    &:visited {
+      color: colors.$black;
+    }
+
+    &:hover {
+      border-color: colors.$white;
+    }
+  }
+
+  // Secondary hero button — ghost/outline on dark background
+  .button--heroSecondary {
+    background-color: transparent;
+    color: colors.$white;
+    border: 2px solid colors.$white;
+    font-size: fonts.$size-1;
+    padding: spaces.$space-s spaces.$space-l;
+
+    &:link,
+    &:visited {
+      color: colors.$white;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: colors.$white;
+    }
   }
 
   .hero-title--variant {
@@ -77,3 +130,19 @@
     @extend %rounded;
   }
 }
+
+@if r.$mobile {
+  .hero-title {
+    font-size: fonts.$size-4;
+  }
+
+  .hero-tagline {
+    font-size: fonts.$size-0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+

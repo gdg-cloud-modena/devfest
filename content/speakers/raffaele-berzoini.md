@@ -7,13 +7,10 @@ draft = false
 company = "QubicaAMF"
 role = "Edge Software Engineer"
 male = true
-
 [params.social]
 linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 Ingegnere biomedico convertito al C++, Software Engineer Edge da 2 anni, Techno lover & Bachata beginner

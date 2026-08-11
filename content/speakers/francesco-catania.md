@@ -7,13 +7,10 @@ draft = false
 company = "QubicaAMF"
 role = "Software Engineer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/catania-francesco/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 Lavoro come sviluppatore Frontend da 7 anni.

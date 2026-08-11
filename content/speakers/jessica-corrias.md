@@ -7,13 +7,10 @@ draft = false
 company = "GeeksCreations"
 role = "Foundress & Frontend Developer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/jessica-corrias/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

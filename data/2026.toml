@@ -8,11 +8,9 @@ communities = [
   "gdg-cloud-modena",
   "modena-full-stack",
   "reggio-emilia-full-stack",
-  "flutter-modena",
   "conoscere-linux",
   "maker-dojo",
   "modena-rb",
-  "ml-modena",
   "she-is-a-scientist",
   "designing-success",
 ]
@@ -53,6 +51,13 @@ code = "mirko-gilioli"
 name = "Mirko Gilioli"
 description = "GDE, Lead Google Cloud Trainer"
 website = "https://www.linkedin.com/in/mirko-gilioli/"
+
+[[people]]
+role = "organizers"
+code = "alessio-miranda"
+name = "Alessio Miranda"
+description = "Netframe Founder"
+website = "https://www.linkedin.com/in/alessiomiranda/"
 
 [[people]]
 role = "staff"
@@ -191,8 +196,15 @@ website = "https://www.linkedin.com/in/nelson-cipriano/"
 role = "staff"
 code = "davide-cavallini"
 name = "Davide Cavallini"
-description = ""
-website = ""
+description = "Full Stack Developer"
+website = "https://www.linkedin.com/in/davide-cavallini-full-stack-developer/"
+
+[[people]]
+role = "staff"
+code = "fabio-fasulo"
+name = "Fabio Fasulo"
+description = "Direttore Artistico del Cinematic Motor Fest"
+website = "https://www.linkedin.com/in/fabio-fasulo-b212b586"
 
 # Sponsorship levels, weight ascending
 

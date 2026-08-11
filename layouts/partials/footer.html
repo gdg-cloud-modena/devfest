@@ -1,0 +1,105 @@
+{{- $logo := (resources.Get "images/logo-simple.png").Resize "x120 webp q65" -}}
+<footer class="footer">
+	<div class="footer-wrapper section">
+		<div class="footer-columns">
+			<div class="footer-column">
+				<p class="footer-logo"><img class="footer-logo" src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena"></p>
+				<p class="footer-logo">
+					{{ with $img := resources.Get "communities/gdg-cloud-modena.png" }}
+					{{ $img = $img.Resize "300x300 png" }} {{/* genera lossless @2x */}}
+					<img class="partnerPage-image" src="{{ $img.RelPermalink }}" width="{{ div $logo.Width 2 }}" height="auto"
+					 alt="gdg-cloud-modena logo">
+					{{ end }}
+					</p>
+				<p class="footer-description">Un grande evento di programmazione e di tecnologia al centro dell'Emilia, nato dalle comunità locali.</p>
+			</div>
+			<div class="footer-column">
+				<h4 class="footer-title">Eventi precedenti</h4>
+				<ul class="footer-menu">
+					<li class="footer-menuItem">DevFest Modena 2025<br>(back online soon)</li>
+					<li class="footer-menuItem">DevFest Modena 2024<br>(back online soon)</li>
+					{{ range .Site.Menus.footer }}
+					<li class="footer-menuItem"><a
+						href="{{ .URL | relLangURL }}" {{ if .Params.external }}target="_blank" {{ end }}
+					>{{ .Name }}</a></li>
+					{{ end }}
+				</ul>
+			</div>
+      <div class="footer-column">
+        <h4 class="footer-title">Sitemap</h4>
+        {{ range .Site.Menus.main }}
+        <p><a class="footer-link"
+          href="{{ .URL  | relLangURL }}" {{ if .Params.external }}target="_blank" {{ end }}>{{ .Name }}</a></p>
+        {{ end }}
+        <p><a class="footer-link" href="/workshops/">Workshop</a></p>
+        <p><a class="footer-link" href="/speed-networking/">Speed networking</a></p>
+        <p><a class="footer-link" href="/code-of-conduct/">Codice di condotta</a></p>
+      </div>
+			<div class="footer-column">
+				<h4 class="footer-title">Contatti</h4>
+				<p><a class="footer-link" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+				<ul class="footer-menu footer-menu-socialRow">
+					{{ range $name, $url := .Site.Params.social }}
+					<li class="footer-menuItem footer-menuItem-social ">
+						<a href="{{ $url }}"target="_blank" rel="noopener" aria-label="{{ $name }}">
+							{{ $iconName := lower $name }}
+							{{ $iconPath := printf "icons/logo-%s-white.svg" $iconName }}
+							<img src="{{ relURL $iconPath }}" width="24" height="24" alt="{{ $name }} icon">
+						</a>
+					</li>
+					{{ end }}
+				</ul>
+				<div class="footer-menu-patrocini">
+					<div class="footer-menu-patrocini-text">
+						Con il patrocinio di:
+					</div>
+					{{/* Read current edition data and filter patrocini */}}
+					{{ $year := .Site.Params.currentEdition | default (now.Format "2006") }}
+					{{ $dataset := index site.Data (printf "%v" $year) }}
+					{{ if and $dataset (index $dataset "partners") }}
+					{{ $partners := index $dataset "partners" }}
+					{{ $patrocini := where $partners "level" "patrocini" }}
+
+					{{/* Ensure Comune di Modena appears first */}}
+					{{ $first := where $patrocini "code" "comune-modena" }}
+					{{ $rest := where $patrocini "code" "ne" "comune-modena" }}
+					{{ $ordered := $first | append $rest }}
+
+					{{ range $ordered }}
+					{{ $name := .name }}
+					{{ $code := .code }}
+					{{ $link := .link }}
+
+					{{/* Try to load logo for the partner (prefer png/jpg/webp) */}}
+					{{ $img := resources.Get (printf "%v/partners/%s.png" $year $code) }}
+					{{ if not $img }}{{ $img = resources.Get (printf "%v/partners/%s.jpg" $year $code) }}{{ end }}
+					{{ if not $img }}{{ $img = resources.Get (printf "%v/partners/%s.webp" $year $code) }}{{ end }}
+
+					<a class="footer-menu-patrocini-item" href="{{ $link }}" target="_blank" rel="noopener">
+						{{ if $img }}
+						{{ $res := $img.Fit "240x120 webp q80" }}
+						<img class="footer-menu-patrocini-item-img" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
+						{{ else }}
+						<span class="footer-menu-patrocini-item-img footer-menu-patrocini-item-img--placeholder" role="img" aria-label="{{ $name }} logo placeholder">
+							<span class="footer-menu-patrocini-item-name">{{ $name }}</span>
+						</span>
+						{{ end }}
+						<div class="footer-menu-patrocini-item-name">{{ $name }}</div>
+					</a>
+					{{ end }}
+					{{ end }}
+				</div>
+			</div>
+			<div class="footer-column">
+				<h4 class="footer-title">Vieni a trovarci</h4>
+				<div class="footer-menu footer-menu-tickets">
+				      <a class="button" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+					Biglietti
+				      </a>
+				</div>
+			</div>
+		</div>
+		<hr class="footer-hr">
+		<p class="footer-copy">Copyright © {{ if eq .Site.Params.CopyrightFromYear now.Year }} {{ .Site.Params.CopyrightFromYear }} {{ else }} {{ .Site.Params.CopyrightFromYear }}-{{ now.Year }} {{ end }} {{ .Site.Params.company }}</p>
+	</div>
+</footer>

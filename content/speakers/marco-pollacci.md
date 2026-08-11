@@ -1,19 +1,15 @@
 +++
 title = "Marco Pollacci"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
-company = "40Factory"
-role = "FrontEnd Javascript Enthusiast"
-male = true
-
+company = "Aruba S.p.A"
+role = "Senior Software Engineer"
 [params.social]
 linkedin = "https://www.linkedin.com/in/marcopollacci/"
-instagram = ""
-x = "https://x.com/Cerins_Marco"
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

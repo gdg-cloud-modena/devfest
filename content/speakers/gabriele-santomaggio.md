@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "Senior Member of Technical Staff In Broadcom"
+company = "Broadcom"
+role = "Senior Member of Technical Staff"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/santomaggio/"
-instagram = "https://www.instagram.com/g.santomaggio/"
-x = "https://twitter.com/GSantomaggio"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/GSantomaggio"
 website = ""
 +++
 

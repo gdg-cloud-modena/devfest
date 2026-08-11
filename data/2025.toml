@@ -55,6 +55,13 @@ description = "GDE, Lead Google Cloud Trainer"
 website = "https://www.linkedin.com/in/mirko-gilioli/"
 
 [[people]]
+role = "organizers"
+code = "alessio-miranda"
+name = "Alessio Miranda"
+description = "Netframe Founder"
+website = "https://www.linkedin.com/in/alessiomiranda/"
+
+[[people]]
 role = "staff"
 code = "pia-grandi"
 name = "Pia Grandi"
@@ -240,8 +247,15 @@ website = "https://www.linkedin.com/in/duran-gunasegaran/"
 role = "staff"
 code = "davide-cavallini"
 name = "Davide Cavallini"
-description = ""
-website = ""
+description = "Full Stack Developer"
+website = "https://www.linkedin.com/in/davide-cavallini-full-stack-developer/"
+
+[[people]]
+role = "staff"
+code = "fabio-fasulo"
+name = "Fabio Fasulo"
+description = "Direttore Artistico del Cinematic Motor Fest"
+website = "https://www.linkedin.com/in/fabio-fasulo-b212b586"
 
 [[people]]
 role = "staff"

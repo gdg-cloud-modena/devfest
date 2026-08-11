@@ -1,114 +1,147 @@
 {{ define "main" }}
 {{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
 {{ $currentYear := printf "%v" site.Params.currentEdition }}
+
+{{ $topics := slice
+  (dict
+    "key"         "AI & Machine Intelligence"
+    "label"       "AI & Machine Intelligence"
+    "description" "Agenti AI, GenAI, Robotica, LLM, etica e futuro dello sviluppo"
+    "emoji"       "🤖"
+    "color"       "primary"
+  )
+  (dict
+    "key"         "Cloud & Platform Engineering"
+    "label"       "Cloud & Platform Engineering"
+    "description" "Cloud, DevOps, Infrastructure as Code, Security e affidabilità"
+    "emoji"       "☁️"
+    "color"       "tertiary"
+  )
+  (dict
+    "key"         "Web, Mobile & Dev Experience"
+    "label"       "Web, Mobile & Dev Experience"
+    "description" "Web moderno, Mobile nativo, Developer tools e qualità del codice"
+    "emoji"       "📱"
+    "color"       "secondary"
+  )
+}}
+
 <main class="section section--padded">
   {{ if eq $year $currentYear }}
-  <p>Gli speaker del 2026 non sono ancora annunciati tutti, qui sotto però ecco qualche anticipazione!</p>
-  {{ if site.Params.callForSpeakersEnabled }}
-  <div class="callout callout--info">
-    <p class="p">Vuoi salire sul palco del DevFest Modena {{ $year }}? La call for speakers è ancora aperta.</p>
-    <a class="button" href="{{ site.Params.sessionizeUrl }}" target="_blank" rel="noopener">Proponi una sessione</a>
+  <div class="ctaTickets">
+    <div class="ctaTickets-content">
+      <div class="ctaTickets-info">
+        <h2 class="ctaTickets-title">Catalogo Sessioni <span class="ctaTickets-titleHighlight">DevFest Modena {{ $year }}</span></h2>
+        <p class="p">
+          Esplora tutti i talk e i workshop confermati per l'edizione {{ $year }}!
+          Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>.
+        </p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px;">
+          <a class="button" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+            Prendi il tuo Biglietto Ora
+          </a>
+          <a class="button button--secondary" href="/{{ $year }}/agenda/">
+            🗓️ Programma Orario & Agenda
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
   {{ end }}
-  <br/>
-  {{ end }}
-  <h1 class="h1">Agenda {{ $year }}</h1>
+
+  <h1 class="h1">Sessioni {{ $year }}</h1>
 
   <div class="content">
     {{ .Content }}
   </div>
 
-  {{/* Year from cascade param in _index.md */}}
-  {{ $agenda := index site.Data $year }}
+  {{/* SHOWCASE MODE — 3 TRACKS CATALOG */}}
+  <div class="callout callout--info" style="margin-bottom: 24px;">
+    <p class="p"><b>Benvenuto nel Catalogo Sessioni!</b> Qui sotto trovi tutte le {{ len .Pages }} sessioni già confermate per il DevFest Modena {{ $year }}, suddivise per area tematica. Per la vista oraria per sala, visita la pagina <a class="link" href="/{{ $year }}/agenda/">Agenda {{ $year }}</a>.</p>
+  </div>
 
-  {{/* Load agenda data for that year */}}
-  {{ $days := cond $agenda $agenda.days (slice) }}
-  {{ $roomsData := cond $agenda $agenda.rooms (slice) }}
-
-  <p class="p">Tutte le sale dedicate alle sessioni:</p>
-  <ul class="ul">
-    {{ range $page := where ((site.GetPage (printf "/%s/rooms" $year)).Pages) ".Params.forSessions" true }}
-    <li class="li"><b><a class="link" href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></b>: {{ $page.Summary }}.</li>
+  {{/* Track Summary Grid */}}
+  <div class="homeSessions-grid homeSessions-grid--3col">
+    {{ range $topic := $topics }}
+      {{ $topicSessions := where $.Pages "Params.topic" $topic.key }}
+      <a class="homeSessions-card homeSessions-card--{{ $topic.color }}" href="#track-{{ urlize $topic.key }}">
+        <div class="homeSessions-cardEmoji" aria-hidden="true">{{ $topic.emoji }}</div>
+        <div class="homeSessions-cardTrack">{{ len $topicSessions }} sessioni</div>
+        <h3 class="homeSessions-cardTitle">{{ $topic.label }}</h3>
+        <p class="homeSessions-cardDesc">{{ $topic.description }}</p>
+      </a>
     {{ end }}
-  </ul>
+  </div>
 
-  <p class="p">Altri ambienti:</p>
-  <ul class="ul">
-    {{ range $page := where ((site.GetPage (printf "/%s/rooms" $year)).Pages) ".Params.forSessions" false }}
-    <li class="li"><b><a class="link" href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></b>: {{ $page.Summary }}.</li>
-    {{ end }}
-  </ul>
+  {{ $allSessions := .Pages }}
 
-  {{/* Build rooms map: slug -> name */}}
-  {{ $rooms := dict }}
-  {{ range $page := (site.GetPage (printf "/%s/rooms" $year)).Pages }}
-    {{ $rooms = merge $rooms (dict $page.File.BaseFileName $page) }}
-  {{ end }}
+  {{ range $topic := $topics }}
+    {{ $topicSessions := where $allSessions "Params.topic" $topic.key }}
+    {{ if gt (len $topicSessions) 0 }}
+      <section id="track-{{ urlize $topic.key }}" class="sessions-trackSection">
+        <div class="sessions-trackHeader sessions-trackHeader--{{ $topic.color }}">
+          <div class="sessions-trackTitleGroup">
+            <span class="sessions-trackEmoji" aria-hidden="true">{{ $topic.emoji }}</span>
+            <h2 class="h2 sessions-trackTitle">{{ $topic.label }}</h2>
+          </div>
+          <p class="sessions-trackDesc">{{ $topic.description }}</p>
+        </div>
 
-  {{/* Sort sessions by date and time */}}
-  {{ $sessions := where .Pages "Params.starts" "ne" nil }}
-  {{ $sessions = sort $sessions "Params.starts" "asc" }}
+        <div class="sessions-grid">
+          {{ range $session := $topicSessions }}
+            <div class="sessions-card">
+              <div>
+                <div class="sessions-cardHeader">
+                  <span class="sessions-badge {{ if eq (lower $session.Params.language) "english" }}sessions-badge--english{{ end }}">{{ $session.Params.language }}</span>
+                </div>
+                <h3 class="h3 sessions-cardTitle">
+                  <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
+                </h3>
+                
+                <div class="sessions-speakers">
+                  {{ range $slug := $session.Params.speakers }}
+                    {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+                      {{ $img := resources.Get (printf "speakers/%s.jpg" $slug) }}
+                      {{ if not $img }}{{ $img = resources.Get (printf "speakers/%s.png" $slug) }}{{ end }}
+                      {{ if not $img }}{{ $img = resources.Get "team/profile.jpg" }}{{ end }}
+                      {{ $imgResized := $img.Fit "80x80 q85 jpg" }}
+                      <a class="sessions-speakerLink" href="{{ .RelPermalink }}">
+                        <img class="sessions-speakerAvatar" src="{{ $imgResized.RelPermalink }}" alt="{{ .Title }}" width="36" height="36">
+                        <span class="sessions-speakerName">{{ .Title }}</span>
+                      </a>
+                    {{ else }}
+                      <span class="sessions-speakerName">{{ $slug }}</span>
+                    {{ end }}
+                  {{ end }}
+                </div>
 
-  {{/* Loop over days */}}
-  {{ range $day := $days }}
-    {{ $dayTime := time.AsTime $day }}
-    {{ $dayKey := $dayTime.Format "2006-01-02" }}
-
-    {{/* Collect sessions for that day */}}
-    {{ $daySessions := slice }}
-    {{ range $session := $sessions }}
-      {{ $dt := time (.Param "starts") }}
-      {{ if eq ($dt.Format "2006-01-02") $dayKey }}
-        {{ $daySessions = $daySessions | append $session }}
-      {{ end }}
-    {{ end }}
-
-    {{ if gt (len $daySessions) 0 }}
-      {{ $daySessions = sort $daySessions "Params.ends" "asc" }}
-      {{ $daySessions = sort $daySessions "Params.starts" "asc" }}
-
-      {{/* Title of the day */}}
-      {{ $weekday := $dayTime.Format "Monday" }}
-      <h2 class="h2">{{ (time.Format "Monday" $dayTime) | title }}</h2>
-    {{ end }}
-
-    {{/* Loop over sessions for that day */}}
-    <ul class="sessions">
-      {{ range $session := $daySessions }}
-        {{ $dt := time ($session.Param "starts") }}
-
-        {{/* Prepare the speaker list */}}
-        {{ $speakers := slice }}
-        {{ $isMale := true }}
-        {{ range $slug := $session.Params.speakers }}
-          {{ with site.GetPage (printf "/speakers/%s" $slug) }}
-            {{ $isMale = .Params.male }}
-            {{ $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) }}
-          {{ else }}
-            {{ $speakers = $speakers | append $slug }}
+                <p class="sessions-cardDesc">
+                  {{ $session.Summary | truncate 200 }}
+                </p>
+              </div>
+              
+              <div class="sessions-cardFooter">
+                <a class="link" href="{{ $session.RelPermalink }}">Scopri la sessione &rarr;</a>
+              </div>
+            </div>
           {{ end }}
-        {{ end }}
-        {{ $speakersHTML := delimit $speakers ", " }}
-
-        {{/* Prepare the room list */}}
-        {{ $roomNames := slice }}
-        {{ range $code := $session.Params.rooms }}
-          {{ $room := index $rooms $code }}
-          {{ $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) }}
-        {{ end }}
-        {{ $roomsHTML := delimit $roomNames ", " }}
-
-        <li class="sessions-item" data-starts="{{ $session.Params.starts }}" data-ends="{{ $session.Params.ends }}">
-          <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
-          <p class="sessions-itemDetails">
-            {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
-            {{ if $speakers }}· {{ end }}
-            {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }}
-            {{ if ne (lower $session.Params.language) "italiano" }}· {{ $session.Params.language }}{{ end }}
-          </p>
-        </li>
-      {{ end }}
-    </ul>
+        </div>
+      </section>
+    {{ end }}
   {{ end }}
+
+  <div class="ctaTickets">
+    <div class="ctaTickets-content">
+      <div class="ctaTickets-info">
+        <h2 class="ctaTickets-title">Non perdere queste sessioni al <span class="ctaTickets-titleHighlight">DevFest Modena {{ $year }}</span>!</h2>
+        <p class="p">
+          Assicurati subito un posto per partecipare ai talk, incontrare i relatori e fare networking con la community.
+        </p>
+        <a class="button" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+          Acquista Ora il Biglietto
+        </a>
+      </div>
+    </div>
+  </div>
 </main>
 {{ end }}

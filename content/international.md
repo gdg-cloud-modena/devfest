@@ -44,7 +44,7 @@ description = "Hands-on sessions on technical and product topics, hosted by comp
 
 [params.event]
 title = "What DevFest Modena is"
-lead = "DevFest is the global conference format organized by Google Developer Groups. The Modena edition is built by local tech communities: GDG Cloud Modena, Modena Full Stack, Reggio Emilia Full Stack, Flutter Modena, Conoscere Linux, ML Modena."
+lead = "DevFest is the global conference format organized by Google Developer Groups. The Modena edition is built by local tech communities: GDG Cloud Modena, Modena Full Stack, Reggio Emilia Full Stack, Conoscere Linux."
 body = "During the day, you won't find just talks and workshops, but also spaces for speed networking and stages where you can propose your own lightning talk. The event is designed to be a welcoming and inclusive space for learning, sharing, and connecting with other tech enthusiasts."
 
 [params.location]

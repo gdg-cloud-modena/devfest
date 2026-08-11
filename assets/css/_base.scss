@@ -8,6 +8,7 @@
 // Widgets
 
 // Blocks - keep alphabetical order
+@use "_blocks/_agenda";
 @use "_blocks/_button";
 @use "_blocks/_callout";
 @use "_blocks/_card";
@@ -24,6 +25,8 @@
 @use "_blocks/_h5";
 @use "_blocks/_header";
 @use "_blocks/_hero";
+@use "_blocks/_homeSessions";
+@use "_blocks/_homeSpeakers";
 @use "_blocks/_highlight";
 @use "_blocks/_international";
 @use "_blocks/_hr";

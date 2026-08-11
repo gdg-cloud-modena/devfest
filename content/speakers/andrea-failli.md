@@ -7,13 +7,10 @@ draft = false
 company = "BizzyNow"
 role = "CTO & Co-Founder"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/andreafailli"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

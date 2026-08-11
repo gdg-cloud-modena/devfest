@@ -37,4 +37,155 @@
   .sessions-item--past {
     opacity: 0.6;
   }
+
+  // Track section headers
+  .sessions-trackSection {
+    margin-top: spaces.$space-l;
+    margin-bottom: spaces.$space-xl;
+    scroll-margin-top: 90px;
+  }
+
+  .sessions-trackHeader {
+    padding: spaces.$space-s spaces.$space-m;
+    border-radius: effects.$radius;
+    border-left: 6px solid colors.$primary;
+    background-color: colors.$white;
+    margin-bottom: spaces.$space-m;
+  }
+
+  .sessions-trackHeader--primary {
+    border-left-color: colors.$primary;
+    background-color: colors.$primary--2;
+  }
+
+  .sessions-trackHeader--tertiary {
+    border-left-color: colors.$tertiary;
+    background-color: colors.$tertiary--2;
+  }
+
+  .sessions-trackHeader--secondary {
+    border-left-color: colors.$secondary;
+    background-color: colors.$secondary--2;
+  }
+
+  .sessions-trackTitleGroup {
+    display: flex;
+    align-items: center;
+    gap: spaces.$space-xs;
+  }
+
+  .sessions-trackEmoji {
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .sessions-trackTitle {
+    margin: 0;
+    font-size: fonts.$size-1;
+  }
+
+  .sessions-trackDesc {
+    margin-top: spaces.$space-2xs;
+    margin-bottom: 0;
+    font-size: fonts.$size--1;
+    opacity: 0.85;
+  }
+
+  // Session Showcase styles
+  .sessions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: spaces.$space-m;
+    margin-top: spaces.$space-m;
+    margin-bottom: spaces.$space-xl;
+  }
+
+  .sessions-card {
+    background-color: colors.$white;
+    border-radius: effects.$radius;
+    padding: spaces.$space-m;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform effects.$time ease, box-shadow effects.$time ease;
+    border: 1px solid colors.$gray;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .sessions-cardHeader {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: spaces.$space-2xs;
+  }
+
+  .sessions-badge {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    font-size: fonts.$size--2;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color: colors.$primary--2;
+    color: colors.$black;
+  }
+
+  .sessions-badge--english {
+    background-color: colors.$tertiary--2;
+  }
+
+  .sessions-cardTitle {
+    font-size: fonts.$size-0;
+    margin-top: 0;
+    margin-bottom: spaces.$space-xs;
+    line-height: 1.3;
+  }
+
+  .sessions-speakers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spaces.$space-xs;
+    align-items: center;
+    margin-bottom: spaces.$space-xs;
+  }
+
+  .sessions-speakerLink {
+    display: flex;
+    align-items: center;
+    gap: spaces.$space-2xs;
+    text-decoration: none;
+    color: colors.$black;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .sessions-speakerAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .sessions-speakerName {
+    font-size: fonts.$size--1;
+    font-weight: bold;
+  }
+
+  .sessions-cardDesc {
+    font-size: fonts.$size--1;
+    color: #444444;
+    line-height: 1.5;
+    margin-bottom: spaces.$space-m;
+    flex-grow: 1;
+  }
+
+  .sessions-cardFooter {
+    margin-top: auto;
+  }
 }
+

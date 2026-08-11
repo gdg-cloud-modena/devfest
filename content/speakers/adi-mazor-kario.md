@@ -1,20 +1,16 @@
 +++
 title = "Adi Mazor Kario"
-date = 2026-06-13
+date = 2026-01-01
 draft = false
 
 [params]
-company = "Invincible Innovation"
+company = "Google Accelerator / Reichman Univ"
 role = "Product, Design & Gen AI Expert"
-male = false
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/adimazorkario/"
-instagram = ""
-x = "https://twitter.com/AdiMazorKario"
-facebook = ""
 github = ""
-website = "https://www.youtube.com/@invincibleinnovation4575"
+twitter = ""
+website = ""
 +++
 
 With over 20 years in the tech industry, Adi is an expert at the intersection of AI, tech startups, and entrepreneurship. Her work is centered on helping startups build successful products and grow, always maintaining a deep focus on the humans behind the users.

@@ -1,30 +1,22 @@
 +++
 title = "Gianni Forlastro"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
-company = ""
-role = "GDE Cloud, CTO@Finwave, GDG Cloud Torino & Flutter Torino Community Lead"
-male = true
-
+company = "GDG Cloud Torino"
+role = "Cloud Architect | GDE Cloud"
 [params.social]
 linkedin = "https://www.linkedin.com/in/giovanni-forlastro/"
-instagram = "https://www.instagram.com/mosquitoman81/"
-x = "https://www.twitter.com/mosquitoman81"
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 
-Inizia la sua avventura nell'informatica con il suo primo Intel 80386 per poi laurearsi in Informatica presso l'Università degli Studi di Torino. 
-Prosegue la sua formazione con due master, uno in "Comunicazione Digitale, Web Marketing e Social Media Management" e il secondo in "Cloud Computing". 
+Inizia la sua avventura con un Intel 80386 e si laurea in Informatica all'Università di Torino che completa con due master: Comunicazione Digitale/Web Marketing e Social Media Management, il secondo in Cloud Computing. 
 
-Dopo esser stato sviluppatore web & mobile, attualmente è CTO presso Finwave, docente di corsi tecnici e assistente universitario.
-Inoltre è co-organizzatore del droidcon italy, Swift Heroes e Flutter Heroes dalle loro prime edizioni. 
+Dopo esperienze come sviluppatore web e mobile, oggi è Cloud Architect, docente e assistente universitario, co-organizzatore di droidcon Italy, Swift Heroes e Flutter Heroes. 
 
-Nel 2018 fonda il GDG Cloud a Torino dove, con entusiasmo, organizza sessioni, meetup e workshop in ambito cloud. 
+Lato community nel 2018 fonda il GDG Cloud Torino, diventa Google Champion Innovator nel 2023 e Google GDE Cloud nel 2025. 
 
-Nel 2023 diventa Google Champion Innovator in ambito Cloud "Serverless App Development" e GDE Cloud nel 2025.
-
-Nel tempo libero è uno dei content creator Italiani più seguiti su Instagram in ambito giochi da tavolo, videogiochi e fiere ludiche con il nickname @mosquitoman81.
+Su Instagram è noto come @mosquitoman81, tra i creator italiani più seguiti su giochi e fiere.

@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "Cloud Developer & Architect 📈 Creo Soluzioni Cloud Scalabili e Configurabili per Aziende e Start Up 🐛 Risolvo bug come affronto le maratone: con determinazione e precisione"
+company = "Freelance"
+role = "Cloud Developer & Architect"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/acarratta/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

@@ -1,0 +1,5 @@
+{{ $currentEdition := printf "%v" .Site.Params.currentEdition }}
+{{ $pageEdition := .Param "year" }}
+{{ if and $pageEdition (ne $currentEdition (printf "%v" $pageEdition)) }}
+<p class="callout callout--warning" role="status" aria-live="polite">Questa pagina fa riferimento all'edizione {{ $pageEdition }}.</p>
+{{ end }}

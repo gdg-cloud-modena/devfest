@@ -1,0 +1,160 @@
+// Home page – sessions teaser section
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .homeSessions {
+    background-color: colors.$white;
+  }
+
+  .homeSessions-header {
+    text-align: center;
+    margin-bottom: spaces.$space-l;
+  }
+
+  .homeSessions-title {
+    margin-bottom: spaces.$space-xs;
+  }
+
+  .homeSessions-subtitle {
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .homeSessions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: spaces.$space-m;
+    justify-content: center;
+  }
+
+  .homeSessions-grid--3col {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  // Base card
+  .homeSessions-card {
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-xs;
+    padding: spaces.$space-m;
+    border-radius: effects.$radius;
+    text-decoration: none;
+    color: colors.$black;
+    border: 2px solid transparent;
+    transition:
+      transform effects.$time ease,
+      box-shadow effects.$time ease,
+      border-color effects.$time ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      text-decoration: none;
+      color: colors.$black;
+    }
+
+    &:visited {
+      color: colors.$black;
+    }
+  }
+
+  // Track colour variants
+  .homeSessions-card--primary {
+    background-color: colors.$primary--2;
+    &:hover { border-color: colors.$primary; }
+  }
+
+  .homeSessions-card--secondary {
+    background-color: colors.$secondary--2;
+    &:hover { border-color: colors.$secondary; }
+  }
+
+  .homeSessions-card--tertiary {
+    background-color: colors.$tertiary--2;
+    &:hover { border-color: colors.$tertiary; }
+  }
+
+  .homeSessions-card--quaternary {
+    background-color: colors.$quaternary--2;
+    &:hover { border-color: colors.$quaternary; }
+  }
+
+  .homeSessions-card--info {
+    background-color: colors.$info--2;
+    &:hover { border-color: colors.$info; }
+  }
+
+  .homeSessions-cardEmoji {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .homeSessions-cardTrack {
+    font-size: fonts.$size--2;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+
+  .homeSessions-cardTitle {
+    font-size: fonts.$size-0;
+    font-weight: bold;
+    line-height: 1.3;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .homeSessions-cardSpeaker {
+    display: flex;
+    align-items: center;
+    gap: spaces.$space-2xs;
+    margin-top: spaces.$space-xs;
+  }
+
+  .homeSessions-cardAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .homeSessions-cardSpeakerName {
+    font-size: fonts.$size--1;
+    font-weight: bold;
+  }
+
+  .homeSessions-cardCta {
+    margin-top: spaces.$space-xs;
+    font-size: fonts.$size--1;
+    font-weight: bold;
+    color: colors.$black;
+    opacity: 0.65;
+  }
+
+  .homeSessions-footer {
+    text-align: center;
+    margin-top: spaces.$space-xl;
+  }
+}
+
+@if r.$tablet {
+  .homeSessions-grid--3col {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@if r.$mobile {
+  .homeSessions-grid,
+  .homeSessions-grid--3col {
+    grid-template-columns: 1fr;
+  }
+}

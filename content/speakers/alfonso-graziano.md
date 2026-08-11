@@ -7,13 +7,10 @@ draft = false
 company = "Nearform"
 role = "Tech Lead"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/alfonso-graziano/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

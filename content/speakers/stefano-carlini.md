@@ -1,19 +1,15 @@
 +++
 title = "Stefano Carlini"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
-company = ""
-role = "Business Development Manager | Cloud & AI Strategy | Digital Transformation | Customer Success | Google Cloud Professional | Partnership & Strategic Alliances | Speaker & Innovator"
-male = true
-
+company = "GDG Cloud Modena"
+role = "Business Development Manager & Startup Founder"
 [params.social]
 linkedin = "https://www.linkedin.com/in/stefanocarlini/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

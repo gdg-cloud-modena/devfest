@@ -17,11 +17,11 @@
 
 <main class="section section--padded">
   {{ partial "previous-edition" . }}
-  <h1 class="h1">{{ .Title }}</h1>
-  {{ if .Params.warning }}
-  <p class="callout callout--warning">{{ .Params.warning }}</p>
+  {{ if .Params.starts }}
+  <p class="p"><b>{{ .Params.starts | time.Format "Monday" | title }}</b> dalle <b>{{ .Params.starts | time.Format "15:04" }}</b> alle {{ .Params.ends | time.Format "15:04" }} {{ if eq (len $roomNames) 1 }}nella sala {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}nelle sale {{ $roomsHTML | safeHTML }} in contemporanea{{ end }}. {{ if .Params.topic }}Traccia: <b>{{ .Params.topic }}</b> · {{ end }}{{ if .Params.language }}Lingua: <b>{{ .Params.language }}</b>{{ end }}</p>
+  {{ else }}
+  <p class="p">{{ if .Params.topic }}Traccia: <b>{{ .Params.topic }}</b> · {{ end }}{{ if .Params.language }}Lingua: <b>{{ .Params.language }}</b> · {{ end }}<i>Orari e sala saranno annunciati a breve nell'agenda ufficiale!</i></p>
   {{ end }}
-  <p class="p"><b>{{ .Params.starts | time.Format "Monday" | title }}</b> dalle <b>{{ .Params.starts | time.Format "15:04" }}</b> alle {{ .Params.ends | time.Format "15:04" }} {{ if eq (len $roomNames) 1 }}nella sala {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}nelle sale {{ $roomsHTML | safeHTML }} in contemporanea{{ end }}. {{ if .Params.language }}Lingua: <b>{{ .Params.language }}</b>{{ end }}</p>
   {{ if .Params.slidesURL }}
   <p class="p">Consulta le <a class="link" href="{{ .Params.slidesURL }}" target="_blank">slide</a>.</p>
   {{ end }}
@@ -43,7 +43,7 @@
 	        <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
           <div class="relatedSpeakers-details">
             <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
-            <p class="relatedSpeakers-role">{{ .Params.company }}{{ if and .Params.company .Params.role }} · {{ end }}{{ .Params.role }}.</p>
+            <p class="relatedSpeakers-role">{{ .Params.role }}{{ if and .Params.role .Params.company }} @ {{ end }}{{ .Params.company }}</p>
           </div>
 	      </li>
 	    {{ else }}

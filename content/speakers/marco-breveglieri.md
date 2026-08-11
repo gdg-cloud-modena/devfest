@@ -1,19 +1,15 @@
 +++
 title = "Marco Breveglieri"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
 company = ""
-role = "A long time positive and confident Software Developer, Trainer and Consultant."
-male = true
-
+role = "Software Developer & Trainer"
 [params.social]
 linkedin = "https://www.linkedin.com/in/marcobreveglieri"
-instagram = "https://www.instagram.com/compilaquindiva"
-x = "https://x.com/mbreveglieri"
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

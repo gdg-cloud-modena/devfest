@@ -7,13 +7,10 @@ draft = false
 company = "Nearform"
 role = "Senior Software Developer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/lucadelpuppo/"
-instagram = ""
-x = "https://twitter.com/puppo92"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/puppo92"
 website = ""
 +++
 

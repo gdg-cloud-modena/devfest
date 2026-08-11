@@ -1,19 +1,15 @@
 +++
 title = "Soumaya Erradi"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
 company = "Atlantis"
 role = "Senior Software Developer"
-male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/soumaya-erradi"
-instagram = "https://www.instagram.com/sumyerradi/"
-x = "https://twitter.com/sumy92"
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

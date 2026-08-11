@@ -7,13 +7,10 @@ draft = false
 company = "QubicaAMF"
 role = "Test Automation Engineer"
 male = false
-
 [params.social]
 linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 Nata a Rimini ma vivo in provincia di Bologna.

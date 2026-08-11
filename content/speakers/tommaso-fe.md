@@ -7,13 +7,10 @@ draft = false
 company = "BizzyNow"
 role = "CEO & Founder"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/fetommaso/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 Tommaso Fè è un imprenditore e innovatore con oltre dieci anni di esperienza nel settore tecnologico e digitale. Nel corso della sua carriera ha guidato team commerciali e tecnici, contribuendo alla crescita di soluzioni software in ambito cloud, sicurezza e gestione dei dati, e ha fondato una startup innovativa focalizzata sul networking professionale.

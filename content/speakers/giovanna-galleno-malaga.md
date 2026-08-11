@@ -7,13 +7,10 @@ draft = false
 company = ""
 role = "Soft Skills Trainer & IT Project Manager"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/giovannagalleno/"
-instagram = ""
-x = "https://x.com/GallenoGiovanna"
-facebook = ""
 github = ""
+twitter = "https://x.com/GallenoGiovanna"
 website = ""
 +++
 

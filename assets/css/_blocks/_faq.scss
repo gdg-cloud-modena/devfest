@@ -1,22 +1,85 @@
 @use "_default/_spaces";
 @use "_default/_colors";
 @use "_default/_effects";
-
-$common-padding: spaces.$space-s spaces.$space-xs;
+@use "_default/_fonts";
 
 .faq {
-  .faq-item {
-    margin-block-end: spaces.$space-2xs;
+  display: flex;
+  flex-direction: column;
+  gap: spaces.$space-xs;
+}
+
+.faq-item {
+  background-color: colors.$white;
+  border: 1px solid colors.$gray;
+  border-radius: effects.$radius;
+  overflow: hidden;
+  transition: box-shadow effects.$time ease, border-color effects.$time ease;
+
+  &[open] {
+    border-color: colors.$primary;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
     .faq-question {
-      padding: $common-padding;
-      color: colors.$white;
-      font-weight: bold;
-      background-color: color-mix(in hsl, colors.$secondary, #787878 70%);
-      cursor: pointer;
-      @extend %rounded;
+      background-color: colors.$primary--2;
+      color: colors.$black;
     }
-    .faq-answer {
-      padding: $common-padding;
+
+    .faq-icon {
+      transform: rotate(45deg);
     }
+  }
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: spaces.$space-s spaces.$space-m;
+  font-weight: bold;
+  font-size: fonts.$size-0;
+  color: colors.$black;
+  background-color: colors.$white;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  transition: background-color effects.$time ease;
+
+  &::-webkit-details-marker,
+  &::marker {
+    display: none;
+  }
+
+  &:hover {
+    background-color: colors.$primary--2;
+  }
+}
+
+.faq-questionText {
+  flex-grow: 1;
+  padding-right: spaces.$space-s;
+}
+
+.faq-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: bold;
+  color: colors.$primary;
+  transition: transform effects.$time ease;
+  flex-shrink: 0;
+}
+
+.faq-answer {
+  padding: spaces.$space-s spaces.$space-m spaces.$space-m;
+  color: colors.$black;
+  line-height: 1.6;
+  border-top: 1px solid colors.$gray;
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
   }
 }

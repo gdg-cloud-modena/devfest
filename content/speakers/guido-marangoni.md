@@ -1,22 +1,15 @@
 +++
 title = "Guido Marangoni"
-date = 2026-06-13
+date = 2026-01-01
 draft = false
 
 [params]
-language = "Italiano"
 company = "YouDoTools"
-role = "CEO & Founder | Author | University Lecturer"
-male = true
-
+role = "CEO & Founder | Lecturer"
 [params.social]
-email="guido.marangoni@youdotools.com"
 linkedin = "https://www.linkedin.com/in/guidomarangoni/"
-instagram = "https://www.instagram.com/guidomarangoni/"
-x = "https://x.com/guidomarangoni"
-facebook = ""
 github = ""
-youtube = ""
+twitter = ""
 website = ""
 +++
 

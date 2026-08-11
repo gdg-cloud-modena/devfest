@@ -1,19 +1,15 @@
 +++
 title = "Emiliano Pisu"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
 company = "DevDojoIT"
-role = "Sensei & Co-Host"
-male = true
-
+role = "Senior Design Engineer & Co-Host"
 [params.social]
 linkedin = "https://www.linkedin.com/in/pixu1980"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 
@@ -28,4 +24,4 @@ My core approach is to develop with zero dependencies, fostering creativity, lea
 
 I am deeply committed to knowledge sharing and mentorship: through my experience as Sensei @ Dev Dojo IT, I actively support those who want to grow in the frontend world and in designing accessible and scalable interfaces.
 
-In conclusion, I’m the right person if you need a bridge between Design and Development. I live to simplify my colleagues' DevX, which is why I focus on advocating for the core technologies of the web—strictly vanilla.
+In conclusion, I’m the right person if you need a bridge between Design and Development. I live to simplify my colleagues' DevX, which is why I focus on advocating for the core technologies of the web, strictly vanilla.

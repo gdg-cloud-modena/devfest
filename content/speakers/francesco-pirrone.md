@@ -1,19 +1,15 @@
 +++
 title = "Francesco Pirrone"
-date = 2025-09-10
+date = 2026-01-01
 draft = false
 
 [params]
 company = "Finwave"
-role = "Fullstack developer"
-male = true
-
+role = "Fullstack Developer"
 [params.social]
 linkedin = "https://www.linkedin.com/in/francesco-pirrone-c01/"
-instagram = ""
-x = "https://twitter.com/cfrancescop"
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

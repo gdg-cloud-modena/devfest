@@ -4,16 +4,13 @@ date = 2025-09-10
 draft = false
 
 [params]
-company = ""
-role = "Product Manager @20tab | Founder @IMAPP | Owner @GEMGARDEN.MODENA"
+company = "20tab"
+role = "Product Manager & Founder"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/nataliaorlandi/"
-instagram = "https://www.instagram.com/natalyorl"
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 

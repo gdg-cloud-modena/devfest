@@ -1,4 +1,5 @@
 @use "_responsive" as r;
+@use "_default/_colors";
 @use "_default/_spaces";
 @use "_default/_effects";
 
@@ -29,6 +30,37 @@
         margin-top: spaces.$space-xs;
         display: grid;
         row-gap: spaces.$space-xs;
+    }
+
+    .speaker-details--social {
+        display: flex;
+        gap: spaces.$space-xs;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: spaces.$space-2xs;
+    }
+
+    .speaker-socialLink {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color: colors.$gray;
+        transition: background-color effects.$time ease, transform effects.$time ease, box-shadow effects.$time ease;
+
+        &:hover {
+            background-color: colors.$primary--2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
     }
 
     .speaker-bio {

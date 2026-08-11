@@ -7,13 +7,10 @@ draft = false
 company = "QubicaAMF"
 role = "Software Engineer"
 male = true
-
 [params.social]
 linkedin = ""
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 Backend Software Engineer in QubicaAMF dal 2021

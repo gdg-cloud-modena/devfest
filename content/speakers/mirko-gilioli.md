@@ -8,13 +8,10 @@ draft = false
 company = "Datatonic"
 role = "Lead Google Cloud Instructor | Google Cloud Champion Innovator"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/mirko-gilioli/"
-instagram = ""
-x = "https://x.com/MirkoGilioli"
-facebook = ""
 github = ""
+twitter = "https://x.com/MirkoGilioli"
 website = ""
 +++
 

@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = "NIXINN"
-role = "Co-CEO, Innovation in action"
+role = "Co-CEO"
 male = false
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/cristina-nizzoli-95392a3"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 il mio profilo linkedin parla per me

@@ -5,15 +5,12 @@ draft = false
 
 [params]
 company = "Red Hat"
-role = ""
+role = "Principal Software Engineer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/mario-fusco-3467213/"
-instagram = ""
-x = "https://twitter.com/mariofusco"
-facebook = ""
 github = ""
+twitter = "https://twitter.com/mariofusco"
 website = ""
 +++
 

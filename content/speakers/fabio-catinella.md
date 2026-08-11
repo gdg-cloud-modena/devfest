@@ -7,13 +7,10 @@ draft = false
 company = "Twinkly"
 role = "Senior Android Developer"
 male = true
-
 [params.social]
 linkedin = "https://www.linkedin.com/in/fabio-catinella/"
-instagram = ""
-x = ""
-facebook = ""
 github = ""
+twitter = ""
 website = ""
 +++
 
