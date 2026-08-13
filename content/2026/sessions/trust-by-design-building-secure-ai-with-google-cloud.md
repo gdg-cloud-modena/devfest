@@ -4,7 +4,7 @@ date = 2026-06-13
 draft = false
 
 [params]
-speakers = ["katya-vinnichenko"]
+speakers = ["katya-vinnichenko", "rustam-mehmandarov"]
 language = "English"
 topic = "AI & Machine Intelligence"
 +++

@@ -105,9 +105,9 @@
       strong {
         color: colors.$black;
         word-wrap: break-word;
-        hyphens: auto;
+        hyphens: none;
+        word-break: normal;
         text-align: center;
-        color: colors.$black;
         font-weight: 700;
       }
 
