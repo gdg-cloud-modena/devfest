@@ -224,66 +224,16 @@ code = "gold"
 weight = 3
 
 [[levels]]
-title = "Silver"
-code = "silver"
+title = "Startup"
+code = "startup"
 weight = 4
-
-[[levels]]
-title = "Tech"
-code = "tech"
-weight = 5
-
-[[levels]]
-title = "Bronze"
-code = "bronze"
-weight = 6
-
-[[levels]]
-title = "Community"
-code = "community"
-weight = 7
-
-[[levels]]
-title = "Patrocini"
-code = "patrocini"
-weight = 8
 
 [[levels]]
 title = "Media Partner"
 code = "media"
-weight = 9
+weight = 5
 
 # Sponsors, put new ones at the end of the list
-
-[[partners]]
-name = "Allnet Italia"
-code = "allnet"
-link = "https://www.allnet-italia.it/"
-level = "bronze"
-
-[[partners]]
-name = "BizzyNow"
-code = "bizzynow"
-link = "https://www.bizzynow.com/"
-level = "silver"
-
-[[partners]]
-name = "DevPunks"
-code = "devpunks"
-link = "https://www.devpunks.com/"
-level = "bronze"
-
-[[partners]]
-name = "Galvanina"
-code = "galvanina"
-link = "https://www.galvanina.it/"
-level = "tech"
-
-[[partners]]
-name = "GeeksCreations"
-code = "geeks-creations"
-link = "https://geekscreations.com/"
-level = "bronze"
 
 [[partners]]
 name = "Google"
@@ -292,52 +242,34 @@ link = "https://developers.google.com/community/devfest"
 level = "main"
 
 [[partners]]
-name = "Gruppo Credem"
-code = "gruppo-credem"
-link = "https://www.credem.it/"
-level = "gold"
-
-[[partners]]
-name = "Iungo"
-code = "iungo"
-link = "https://bit.ly/46j3dmU"
-level = "silver"
-
-[[partners]]
 name = "Netframe"
 code = "netframe"
 link = "https://www.netframe.it/"
-level = "tech"
+level = "gold"
 
 [[partners]]
 name = "QubicaAMF"
 code = "qubicaamf"
-link = "https://www.qubicaamf.com/company"
+link = "https://it.qubicaamf.com"
 level = "diamond"
 
 [[partners]]
-name = "Quix"
-code = "quix"
-link = "https://quix.it/"
-level = "bronze"
+name = "NetAi"
+code = "netai"
+link = "https://netai.it/"
+level = "startup"
 
 [[partners]]
-name = "Storyblok"
-code = "storyblok"
-link = "https://www.storyblok.com"
-level = "tech"
+name = "UPark"
+code = "upark"
+link = "https://upark.it/"
+level = "startup"
 
 [[partners]]
-name = "Webranking"
-code = "webranking"
-link = "https://webranking.it/"
-level = "bronze"
-
-[[partners]]
-name = "Zuru"
-code = "zuru"
-link = "https://zuru.tech/"
-level = "gold"
+name = "Beeapro"
+code = "beeapro"
+link = "https://www.beeapro.academy"
+level = "startup"
 
 [[partners]]
 name = "GDG Catania"
@@ -370,18 +302,6 @@ link = "https://gdg.community.dev/gdg-roma-citta/"
 level = "media"
 
 [[partners]]
-name = "Comune di Modena "
-code = "comune-modena"
-link = "https://www.comune.modena.it"
-level = "patrocini"
-
-[[partners]]
-name = "Regione Emilia-Romagna"
-code = "regione-emilia-romagna"
-link = "https://www.regione.emilia-romagna.it"
-level = "patrocini"
-
-[[partners]]
 name = "Rubycon Italia"
 code = "rubycon"
 link = "https://rubycon.it/"
@@ -390,11 +310,7 @@ level = "media"
 [[partners]]
 name = "Linux Day Modena"
 code = "linuxday"
-link = "https://makeitmodena.comune.modena.it/makeitmodena/eventi/linux-day-2025-talk-e-lab"
+link = "https://makeitmodena.comune.modena.it"
 level = "media"
 
-[[partners]]
-name = "NetAi"
-code = "netai"
-link = "https://netai.it/"
-level = "bronze"
+

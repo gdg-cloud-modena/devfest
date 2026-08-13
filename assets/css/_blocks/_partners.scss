@@ -55,12 +55,20 @@
     background-color: colors.$primary--2;
   }
 
+  .partners-levelBadge--hackathon {
+    background-color: colors.$info--2;
+  }
+
   .partners-levelBadge--gold {
     background-color: colors.$tertiary--2;
   }
 
   .partners-levelBadge--silver {
     background-color: colors.$gray;
+  }
+
+  .partners-levelBadge--startup {
+    background-color: colors.$secondary--2;
   }
 
   .partners-levelBadge--tech {
