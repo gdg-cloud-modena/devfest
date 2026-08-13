@@ -23,9 +23,9 @@
 
         <h2 class="team-roleTitle"> {{ $role.title }} </h2>
         <div class="team-people">
-        {{ range $peoples }}
-          {{ $person := .}}
-          {{ $personCode := $person.code}}
+        {{ range $index, $element := $peoples }}
+          {{ $person := $element }}
+          {{ $personCode := $person.code }}
           {{ $website := $person.website }}
 
           {{/* Get image content */}}
@@ -57,6 +57,10 @@
           <div class="team-peopleItem" role="listitem">
             {{ partial "team-member" (dict "person" . "img" $img "personCode" $personCode) }}
           </div>
+          {{ end }}
+
+          {{ if and (eq $code "organizers") (eq $index 2) }}
+          <div class="team-break"></div>
           {{ end }}
         {{ end }}
         </div>

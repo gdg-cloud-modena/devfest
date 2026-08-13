@@ -28,6 +28,13 @@
       justify-items: center;
     }
 
+    &-break {
+      flex-basis: 100%;
+      width: 100%;
+      height: 0;
+      margin: 0;
+    }
+
     &-peopleItem {
       @extend %rounded;
       display: flex;

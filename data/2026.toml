@@ -60,18 +60,18 @@ description = "Netframe Founder"
 website = "https://www.linkedin.com/in/alessiomiranda/"
 
 [[people]]
+role = "organizers"
+code = "stefano-carlini"
+name = "Stefano Carlini"
+description = "Cloud & AI Strategy, Google Cloud Expert"
+website = "https://www.linkedin.com/in/stefanocarlini/"
+
+[[people]]
 role = "staff"
 code = "pia-grandi"
 name = "Pia Grandi"
 description = "Sentire. Connettere. Crescere."
 website = "https://www.linkedin.com/in/mariapiagrandi/"
-
-[[people]]
-role = "staff"
-code = "stefano-carlini"
-name = "Stefano Carlini"
-description = "Cloud & AI Strategy, Google Cloud Expert"
-website = "https://www.linkedin.com/in/stefanocarlini/"
 
 [[people]]
 role = "staff"
