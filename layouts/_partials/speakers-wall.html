@@ -14,7 +14,7 @@
 {{ end }}
 
 {{/* Feature these speakers first, in this order, on the wall */}}
-{{ $featuredSlugs := slice "riccardo-carlesso" "ashita-prasad" "adi-mazor-kario" "katya-vinnichenko" "danny-preussler" "etienne-bernard" "matthew-christiansen" "gregorio-palama" "francesco-sciuti" "tamas-piros" }}
+{{ $featuredSlugs := slice "riccardo-carlesso" "ashita-prasad" "adi-mazor-kario" "katya-vinnichenko" "danny-preussler" "etienne-bernard" "matthew-christiansen" "gregorio-palama" "francesco-sciuti" "tamas-piros" "rustam-mehmandarov" }}
 {{ $speakerSlugs := slice }}
 {{ range $slug := $featuredSlugs }}
   {{ if in $collectedSlugs $slug }}

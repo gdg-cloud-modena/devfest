@@ -28,6 +28,13 @@
       justify-items: center;
     }
 
+    &-break {
+      flex-basis: 100%;
+      width: 100%;
+      height: 0;
+      margin: 0;
+    }
+
     &-peopleItem {
       @extend %rounded;
       display: flex;
@@ -105,9 +112,9 @@
       strong {
         color: colors.$black;
         word-wrap: break-word;
-        hyphens: auto;
+        hyphens: none;
+        word-break: normal;
         text-align: center;
-        color: colors.$black;
         font-weight: 700;
       }
 

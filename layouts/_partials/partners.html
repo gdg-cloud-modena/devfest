@@ -34,12 +34,12 @@
     {{ $code := $level.code }}
     {{ $items := where $partners "level" $code }}
 
-    {{ if gt (len $items) 0 }}
-      <div class="partners partners--{{ $code }}">
-        <div class="partners-levelHeader">
-          <span class="partners-levelBadge partners-levelBadge--{{ $code }}">{{ $level.title }}</span>
-        </div>
+    <div class="partners partners--{{ $code }}">
+      <div class="partners-levelHeader">
+        <span class="partners-levelBadge partners-levelBadge--{{ $code }}">{{ $level.title }}</span>
+      </div>
 
+      {{ if gt (len $items) 0 }}
         <div class="partners-grid partners-grid--{{ $code }}">
           {{ range $items }}
             {{ $name := .name }}
@@ -52,9 +52,9 @@
             {{ $utm := site.Params.utm | default "" }}
             {{ $utm = replaceRE `\b20\d{2}\b` $yearStr $utm }}
             {{ if $utm }}
-            {{ $sep := "?" }}
-            {{ if in $external "?" }}{{ $sep = "&" }}{{ end }}
-            {{ $external = printf "%s%s%s" $external $sep $utm }}
+              {{ $sep := "?" }}
+              {{ if in $external "?" }}{{ $sep = "&" }}{{ end }}
+              {{ $external = printf "%s%s%s" $external $sep $utm }}
             {{ end }}
 
             {{ $url := cond $hasContent $page.RelPermalink $external }}
@@ -64,20 +64,22 @@
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.jpg" $code)) }}{{ end }}
             {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.webp" $code)) }}{{ end }}
 
-            <a class="partner-card" href="{{ $url }}" aria-label="{{ $name }}" title="{{ $name }}">
+            <a class="partner-card" href="{{ $url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $name }}" title="{{ $name }}">
               <div class="partner-logoWrapper">
                 {{ if $img }}
                   {{ $res := $img.Fit "360x180 webp q85" }}
                   <img class="partner-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
                 {{ else }}
-                  <span class="partner-logoPlaceholder">{{ $name }}</span>
+                  <span class="partner-logoPlaceholder">
+                    {{ $name }}
+                  </span>
                 {{ end }}
               </div>
               <span class="partner-name">{{ $name }}</span>
             </a>
           {{ end }}
         </div>
-      </div>
-    {{ end }}
+      {{ end }}
+    </div>
   {{ end }}
 </section>

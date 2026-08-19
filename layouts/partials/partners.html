@@ -24,9 +24,9 @@
 
 <section class="partner-section section section--padded">
   <div class="partner-header">
-    <h2 class="h2 partner-title-section">I Nostri Partner & Sponsor</h2>
+    <h2 class="h2 partner-title-section">I Nostri Partner &amp; Sponsor</h2>
     <p class="p partner-subtitle-section">
-      I partner e gli sponsor che hanno sostenuto l'edizione 2025 del DevFest Modena:
+      I partner e gli sponsor che sostengono l'edizione {{ $yearStr }} del DevFest Modena:
     </p>
   </div>
 
@@ -34,12 +34,12 @@
     {{ $code := $level.code }}
     {{ $items := where $partners "level" $code }}
 
-    {{ if gt (len $items) 0 }}
-      <div class="partners partners--{{ $code }}">
-        <div class="partners-levelHeader">
-          <span class="partners-levelBadge partners-levelBadge--{{ $code }}">{{ $level.title }}</span>
-        </div>
+    <div class="partners partners--{{ $code }}">
+      <div class="partners-levelHeader">
+        <span class="partners-levelBadge partners-levelBadge--{{ $code }}">{{ $level.title }}</span>
+      </div>
 
+      {{ if gt (len $items) 0 }}
         <div class="partners-grid partners-grid--{{ $code }}">
           {{ range $items }}
             {{ $name := .name }}
@@ -79,7 +79,7 @@
             </a>
           {{ end }}
         </div>
-      </div>
-    {{ end }}
+      {{ end }}
+    </div>
   {{ end }}
 </section>
