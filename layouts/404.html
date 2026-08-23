@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="content section section--padded">
-  <h1>Pagina non trovata</h1>
-  <p>Spiacente, la pagina che stai cercando non esiste oppure è stata rimossa.</p>
-  <p>Clicca per tornare alla <a href="/">home page</a>.</p>
+  <h1>{{ i18n "pageNotFound" }}</h1>
+  <p>{{ i18n "pageNotFoundText" }}</p>
+  <p>{{ printf (i18n "backToHome") .Site.Home.RelPermalink | safeHTML }}</p>
 </main>
 {{ end }}

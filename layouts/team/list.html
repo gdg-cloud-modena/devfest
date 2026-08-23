@@ -21,7 +21,7 @@
       {{ if gt (len $peoples) 0 }}
       <div class="team-role">
 
-        <h2 class="team-roleTitle"> {{ $role.title }} </h2>
+        <h2 class="team-roleTitle"> {{ i18n (printf "role_%s" $role.code) | default $role.title }} </h2>
         <div class="team-people">
         {{ range $index, $element := $peoples }}
           {{ $person := $element }}

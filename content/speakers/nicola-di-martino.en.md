@@ -1,0 +1,17 @@
++++
+title = "Nicola Di Martino"
+date = 2025-09-10
+draft = false
+
+[params]
+company = "QubicaAMF"
+role = "Software Engineer"
+male = true
+[params.social]
+linkedin = ""
+github = ""
+twitter = ""
+website = ""
++++
+
+Backend Software Engineer at QubicaAMF since 2021

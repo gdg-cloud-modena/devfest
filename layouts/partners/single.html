@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{- $slug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
+{{- $slug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
 {{- $year := printf "%v" (.Param "year") -}}
 {{- $yearStr := printf "%v" $year -}}
 {{ $utm := (index (index site.Data $yearStr) "utm") }}
@@ -17,6 +17,6 @@
     <img class="partnerPage-image" width="{{ $img.Width }}" height="{{ $img.Height }}" src="{{ $img.Permalink }}" alt="{{ .Title }} logo">
     {{ end }}
   </div>
-  <a class="button" href="{{ $linkWithUtm }}" target="_blank">Visita il sito</a>
+  <a class="button" href="{{ $linkWithUtm }}" target="_blank">{{ i18n "visitWebsite" }}</a>
 </main>
 {{ end }}

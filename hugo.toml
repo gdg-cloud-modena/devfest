@@ -3,7 +3,7 @@ title = "DevFest Modena 2026"
 
 # Language
 defaultContentLanguage = "it"
-languageCode = "it-IT"
+defaultContentLanguageInSubdir = false
 
 # Output
 disableKinds = ["taxonomy"]
@@ -47,60 +47,125 @@ Instagram = "https://www.instagram.com/devfest.modena/"
 Facebook = "https://www.facebook.com/events/1308374207349867"
 Telegram = "https://t.me/devfest_modena"
 
-# Memu
+# Languages and Menus
 
-[menus]
+[languages]
+  [languages.it]
+    languageCode = "it-IT"
+    languageName = "Italiano"
+    languageDirection = "ltr"
+    title = "DevFest Modena 2026"
+    weight = 1
+    [languages.it.params]
+      brand = "DevFest Modena"
+      tagline = "La grande conferenza tech a Modena"
+    [languages.it.menus]
+      [[languages.it.menus.main]]
+      identifier = "agenda"
+      name = "Agenda"
+      url = "/2026/agenda/"
+      weight = 1
 
-# Main menu
+      [[languages.it.menus.main]]
+      identifier = "sessions"
+      name = "Sessioni"
+      url = "/2026/sessions/"
+      weight = 2
 
-[[menus.main]]
-identifier = "agenda"
-name = "Agenda"
-url = "/2026/agenda/"
-weight = 1
+      [[languages.it.menus.main]]
+      identifier = "speakers"
+      name = "Speaker"
+      url = "/2026/speakers/"
+      weight = 3
 
-[[menus.main]]
-identifier = "sessions"
-name = "Sessioni"
-url = "/2026/sessions/"
-weight = 2
+      [[languages.it.menus.main]]
+      identifier = "location"
+      name = "Location"
+      url = "/location/"
+      weight = 4
 
-[[menus.main]]
-identifier = "speakers"
-name = "Speaker"
-url = "/2026/speakers/"
-weight = 3
+      [[languages.it.menus.main]]
+      identifier = "communities"
+      name = "Community"
+      url = "/2026/communities/"
+      weight = 5
 
-[[menus.main]]
-identifier = "location"
-name = "Location"
-url = "/location/"
-weight = 4
+      [[languages.it.menus.main]]
+      identifier = "team"
+      name = "Team"
+      url = "/2026/team/"
+      weight = 6
 
-[[menus.main]]
-identifier = "communities"
-name = "Community"
-url = "/2026/communities/"
-weight = 5
+      [[languages.it.menus.main]]
+      identifier = "faq"
+      name = "FAQ"
+      url = "/faq/"
+      weight = 7
 
-[[menus.main]]
-identifier = "team"
-name = "Team"
-url = "/2026/team/"
-weight = 6
+      [[languages.it.menus.footer]]
+      identifier = "wtm"
+      name = "Women Techmakers Modena"
+      url = "https://wtm.modena.it"
+      weight = 1
+      [languages.it.menus.footer.params]
+      external = true
 
-[[menus.main]]
-identifier = "faq"
-name = "FAQ"
-url = "/faq"
-weight = 7
+  [languages.en]
+    languageCode = "en-US"
+    languageName = "English"
+    languageDirection = "ltr"
+    title = "DevFest Modena 2026"
+    weight = 2
+    [languages.en.params]
+      brand = "DevFest Modena"
+      tagline = "The community tech conference in Modena"
+    [languages.en.menus]
+      [[languages.en.menus.main]]
+      identifier = "agenda"
+      name = "Agenda"
+      url = "/2026/agenda/"
+      weight = 1
 
-# Footer menu
+      [[languages.en.menus.main]]
+      identifier = "sessions"
+      name = "Sessions"
+      url = "/2026/sessions/"
+      weight = 2
 
-[[menus.footer]]
-identifier = "wtm"
-name = "Women Techmakers Modena"
-url = "https://wtm.modena.it"
-weight = 1
-[menus.footer.params]
-external = true
+      [[languages.en.menus.main]]
+      identifier = "speakers"
+      name = "Speakers"
+      url = "/2026/speakers/"
+      weight = 3
+
+      [[languages.en.menus.main]]
+      identifier = "location"
+      name = "Location"
+      url = "/location/"
+      weight = 4
+
+      [[languages.en.menus.main]]
+      identifier = "communities"
+      name = "Communities"
+      url = "/2026/communities/"
+      weight = 5
+
+      [[languages.en.menus.main]]
+      identifier = "team"
+      name = "Team"
+      url = "/2026/team/"
+      weight = 6
+
+      [[languages.en.menus.main]]
+      identifier = "faq"
+      name = "FAQ"
+      url = "/faq/"
+      weight = 7
+
+      [[languages.en.menus.footer]]
+      identifier = "wtm"
+      name = "Women Techmakers Modena"
+      url = "https://wtm.modena.it"
+      weight = 1
+      [languages.en.menus.footer.params]
+      external = true

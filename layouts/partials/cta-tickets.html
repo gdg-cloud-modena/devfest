@@ -3,11 +3,11 @@
 <section class="ctaTickets">
   <div class="ctaTickets-content">
     <div class="ctaTickets-info">
-      <h2 class="ctaTickets-title">Biglietti disponibili</h2>
-      <p class="p">Le registrazioni per DevFest Modena 2026 sono aperte.</p>
-      <p class="p">Prendi il tuo biglietto gratuito e assicurati un posto all'evento.</p>
+      <h2 class="ctaTickets-title">{{ i18n "ctaTicketsTitle" }}</h2>
+      <p class="p">{{ printf (i18n "ctaTicketsText1") (printf "%v" .Site.Params.currentEdition) }}</p>
+      <p class="p">{{ i18n "ctaTicketsText2" }}</p>
       <a class="button" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
-        Prendi il biglietto
+        {{ i18n "ctaTicketsBtn" | default (i18n "getTicket") }}
       </a>
     </div>
     <img class="ctaTickets-image" src="{{ $img.RelPermalink }}" alt="Devfest Modena Logo" width="{{ $img.Width }}" height="{{ $img.Height }}">

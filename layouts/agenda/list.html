@@ -2,18 +2,24 @@
 {{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
 {{ $currentYear := printf "%v" site.Params.currentEdition }}
 {{ $sessionsPage := site.GetPage (printf "/%s/sessions" $year) }}
-{{ $allSessions := $sessionsPage.Pages }}
+{{ $allSessions := slice }}
+{{ if $sessionsPage }}{{ $allSessions = $sessionsPage.Pages }}{{ end }}
+{{ if eq (len $allSessions) 0 }}
+  {{ with (index site.Sites 0).GetPage (printf "/%s/sessions" $year) }}
+    {{ $allSessions = .Pages }}
+  {{ end }}
+{{ end }}
 {{ $scheduledSessions := where $allSessions "Params.starts" "ne" nil }}
 
 <main class="section section--padded agenda-main">
   <div class="agenda-header">
-    <h1 class="h1 agenda-title">Agenda DevFest Modena {{ $year }}</h1>
+    <h1 class="h1 agenda-title">{{ printf (i18n "agendaTitle") $year }}</h1>
     <p class="p agenda-subtitle">
-      Il programma degli orari e delle sale per orientarti durante le giornate dell'evento.
+      {{ i18n "agendaSubtitle" }}
     </p>
     <div class="agenda-actions">
-      <a class="button button--secondary button--small" href="/{{ $year }}/sessions/">
-        🔍 Sfoglia Catalogo Sessioni
+      <a class="button button--secondary button--small" href="{{ printf "/%s/sessions/" $year | relLangURL }}">
+        {{ i18n "browseSessionsCatalog" }}
       </a>
     </div>
   </div>
@@ -24,8 +30,12 @@
     {{ $days := cond $agenda $agenda.days (slice) }}
 
     {{ $rooms := dict }}
-    {{ range $page := (site.GetPage (printf "/%s/rooms" $year)).Pages }}
-      {{ $rooms = merge $rooms (dict $page.File.BaseFileName $page) }}
+    {{ $roomsPage := site.GetPage (printf "/%s/rooms" $year) }}
+    {{ if not $roomsPage }}{{ $roomsPage = (index site.Sites 0).GetPage (printf "/%s/rooms" $year) }}{{ end }}
+    {{ with $roomsPage }}
+      {{ range $page := .Pages }}
+        {{ $rooms = merge $rooms (dict $page.File.TranslationBaseName $page) }}
+      {{ end }}
     {{ end }}
 
     {{ $sessions := sort $scheduledSessions "Params.starts" "asc" }}
@@ -84,7 +94,9 @@
 
                   <div class="agenda-speakers">
                     {{ range $slug := $session.Params.speakers }}
-                      {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+                      {{ $speakerPage := site.GetPage (printf "/speakers/%s" $slug) }}
+                      {{ if not $speakerPage }}{{ $speakerPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $slug) }}{{ end }}
+                      {{ with $speakerPage }}
                         {{ $img := resources.Get (printf "speakers/%s.jpg" $slug) }}
                         {{ if not $img }}{{ $img = resources.Get (printf "speakers/%s.png" $slug) }}{{ end }}
                         {{ if not $img }}{{ $img = resources.Get "team/profile.jpg" }}{{ end }}
@@ -108,20 +120,19 @@
     {{/* AGENDA COMING SOON CALLOUT (Mobile Optimized) */}}
     <div class="agenda-comingSoonCard">
       <div class="agenda-comingSoonEmoji">🗓️</div>
-      <h2 class="h2 agenda-comingSoonTitle">Agenda in Arrivo!</h2>
+      <h2 class="h2 agenda-comingSoonTitle">{{ i18n "agendaComingSoonTitle" }}</h2>
       <p class="p agenda-comingSoonText">
-        L'orario e l'assegnazione delle sale per le singole sessioni verranno pubblicati a breve.
-        Durante l'evento potrai consultare qui la timeline in tempo reale da smartphone.
+        {{ i18n "agendaComingSoonDesc" }}
       </p>
 
       <div class="agenda-comingSoonBox">
-        <p class="p"><b>{{ len $allSessions }} sessioni confermate</b> sono già disponibili nel nostro catalogo suddiviso per tracce tematiche:</p>
+        <p class="p">{{ printf (i18n "agendaConfirmedSessions") (len $allSessions) | safeHTML }}</p>
         <div class="agenda-comingSoonButtons">
-          <a class="button" href="/{{ $year }}/sessions/">
-            📚 Consulta il Catalogo Sessioni
+          <a class="button" href="{{ printf "/%s/sessions/" $year | relLangURL }}">
+            {{ i18n "browseSessionsCatalog" }}
           </a>
           <a class="button button--secondary" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
-            🎟️ Prendi il Biglietto Gratuito
+            {{ i18n "getFreeTicket" }}
           </a>
         </div>
       </div>

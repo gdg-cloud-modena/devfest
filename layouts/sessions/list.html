@@ -2,25 +2,32 @@
 {{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
 {{ $currentYear := printf "%v" site.Params.currentEdition }}
 
+{{ $allSessions := .Pages }}
+{{ if eq (len $allSessions) 0 }}
+  {{ with (index site.Sites 0).GetPage (printf "/%s/sessions" $year) }}
+    {{ $allSessions = .Pages }}
+  {{ end }}
+{{ end }}
+
 {{ $topics := slice
   (dict
     "key"         "AI & Machine Intelligence"
     "label"       "AI & Machine Intelligence"
-    "description" "Agenti AI, GenAI, Robotica, LLM, etica e futuro dello sviluppo"
+    "description" (i18n "topic_ai_desc" | default "Agenti AI, GenAI, Robotica, LLM, etica e futuro dello sviluppo")
     "emoji"       "🤖"
     "color"       "primary"
   )
   (dict
     "key"         "Cloud & Platform Engineering"
     "label"       "Cloud & Platform Engineering"
-    "description" "Cloud, DevOps, Infrastructure as Code, Security e affidabilità"
+    "description" (i18n "topic_cloud_desc" | default "Cloud, DevOps, Infrastructure as Code, Security e affidabilità")
     "emoji"       "☁️"
     "color"       "tertiary"
   )
   (dict
     "key"         "Web, Mobile & Dev Experience"
     "label"       "Web, Mobile & Dev Experience"
-    "description" "Web moderno, Mobile nativo, Developer tools e qualità del codice"
+    "description" (i18n "topic_web_desc" | default "Web moderno, Mobile nativo, Developer tools e qualità del codice")
     "emoji"       "📱"
     "color"       "secondary"
   )
@@ -31,17 +38,16 @@
   <div class="ctaTickets">
     <div class="ctaTickets-content">
       <div class="ctaTickets-info">
-        <h2 class="ctaTickets-title">Catalogo Sessioni <span class="ctaTickets-titleHighlight">DevFest Modena {{ $year }}</span></h2>
+        <h2 class="ctaTickets-title">{{ i18n "sessionsCatalogHeroTitle" }} <span class="ctaTickets-titleHighlight">DevFest Modena {{ $year }}</span></h2>
         <p class="p">
-          Esplora tutti i talk e i workshop confermati per l'edizione {{ $year }}!
-          Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>.
+          {{ printf (i18n "sessionsCatalogHeroDesc") $year | safeHTML }}
         </p>
         <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px;">
           <a class="button" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
-            Prendi il tuo Biglietto Ora
+            {{ i18n "getTicketNow" }}
           </a>
-          <a class="button button--secondary" href="/{{ $year }}/agenda/">
-            🗓️ Programma Orario & Agenda
+          <a class="button button--secondary" href="{{ printf "/%s/agenda/" $year | relLangURL }}">
+            {{ printf (i18n "agendaBtn") $year }}
           </a>
         </div>
       </div>
@@ -49,7 +55,7 @@
   </div>
   {{ end }}
 
-  <h1 class="h1">Sessioni {{ $year }}</h1>
+  <h1 class="h1">{{ printf (i18n "sessionsTitle") $year }}</h1>
 
   <div class="content">
     {{ .Content }}
@@ -57,23 +63,21 @@
 
   {{/* SHOWCASE MODE — 3 TRACKS CATALOG */}}
   <div class="callout callout--info" style="margin-bottom: 24px;">
-    <p class="p"><b>Benvenuto nel Catalogo Sessioni!</b> Qui sotto trovi tutte le {{ len .Pages }} sessioni già confermate per il DevFest Modena {{ $year }}, suddivise per area tematica. Per la vista oraria per sala, visita la pagina <a class="link" href="/{{ $year }}/agenda/">Agenda {{ $year }}</a>.</p>
+    <p class="p">{{ printf (i18n "sessionsWelcomeCallout") (len $allSessions) $year (printf "/%s/agenda/" $year | relLangURL) $year | safeHTML }}</p>
   </div>
 
   {{/* Track Summary Grid */}}
   <div class="homeSessions-grid homeSessions-grid--3col">
     {{ range $topic := $topics }}
-      {{ $topicSessions := where $.Pages "Params.topic" $topic.key }}
+      {{ $topicSessions := where $allSessions "Params.topic" $topic.key }}
       <a class="homeSessions-card homeSessions-card--{{ $topic.color }}" href="#track-{{ urlize $topic.key }}">
         <div class="homeSessions-cardEmoji" aria-hidden="true">{{ $topic.emoji }}</div>
-        <div class="homeSessions-cardTrack">{{ len $topicSessions }} sessioni</div>
+        <div class="homeSessions-cardTrack">{{ printf (i18n "sessionCount") (len $topicSessions) }}</div>
         <h3 class="homeSessions-cardTitle">{{ $topic.label }}</h3>
         <p class="homeSessions-cardDesc">{{ $topic.description }}</p>
       </a>
     {{ end }}
   </div>
-
-  {{ $allSessions := .Pages }}
 
   {{ range $topic := $topics }}
     {{ $topicSessions := where $allSessions "Params.topic" $topic.key }}
@@ -100,7 +104,9 @@
                 
                 <div class="sessions-speakers">
                   {{ range $slug := $session.Params.speakers }}
-                    {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+                    {{ $speakerPage := site.GetPage (printf "/speakers/%s" $slug) }}
+                    {{ if not $speakerPage }}{{ $speakerPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $slug) }}{{ end }}
+                    {{ with $speakerPage }}
                       {{ $img := resources.Get (printf "speakers/%s.jpg" $slug) }}
                       {{ if not $img }}{{ $img = resources.Get (printf "speakers/%s.png" $slug) }}{{ end }}
                       {{ if not $img }}{{ $img = resources.Get "team/profile.jpg" }}{{ end }}
@@ -121,7 +127,7 @@
               </div>
               
               <div class="sessions-cardFooter">
-                <a class="link" href="{{ $session.RelPermalink }}">Scopri la sessione &rarr;</a>
+                <a class="link" href="{{ $session.RelPermalink }}">{{ i18n "discoverSession" }} &rarr;</a>
               </div>
             </div>
           {{ end }}
@@ -133,12 +139,12 @@
   <div class="ctaTickets">
     <div class="ctaTickets-content">
       <div class="ctaTickets-info">
-        <h2 class="ctaTickets-title">Non perdere queste sessioni al <span class="ctaTickets-titleHighlight">DevFest Modena {{ $year }}</span>!</h2>
+        <h2 class="ctaTickets-title">{{ i18n "sessionsBottomCtaTitle" }} <span class="ctaTickets-titleHighlight">DevFest Modena {{ $year }}</span>!</h2>
         <p class="p">
-          Assicurati subito un posto per partecipare ai talk, incontrare i relatori e fare networking con la community.
+          {{ i18n "sessionsBottomCtaDesc" }}
         </p>
         <a class="button" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
-          Acquista Ora il Biglietto
+          {{ i18n "getTicketNow" }}
         </a>
       </div>
     </div>

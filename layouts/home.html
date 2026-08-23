@@ -14,14 +14,14 @@
     <div class="hero-content">
       {{- $icon := (resources.Get "images/logo-horizontal-year.png").Resize "x100 webp q45" -}}
       <img class="hero-icon" src="{{ $icon.RelPermalink }}" width="{{ $icon.Width }}" height="{{ $icon.Height }}" alt="DevFest Modena {{ .Site.Params.currentEdition }}">
-      <p class="hero-title">3 e 4 ottobre 2026</p>
-      <p class="hero-tagline">La più grande conferenza tech dell&rsquo;Emilia-Romagna</p>
+      <p class="hero-title">{{ i18n "heroDate" }}</p>
+      <p class="hero-tagline">{{ i18n "heroTagline" }}</p>
       <div class="hero-actions">
         <a class="button button--hero" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
-          Prendi il biglietto gratuito
+          {{ i18n "getFreeTicket" }}
         </a>
-        <a class="button button--heroSecondary" href="/{{ .Site.Params.currentEdition }}/sessions/">
-          Scopri le sessioni
+        <a class="button button--heroSecondary" href="{{ printf "/%v/sessions/" .Site.Params.currentEdition | relLangURL }}">
+          {{ i18n "exploreSessions" }}
         </a>
       </div>
     </div>

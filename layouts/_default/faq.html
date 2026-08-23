@@ -6,8 +6,9 @@
     {{ .Content }}
   </div>
 
+  {{ $faqList := cond (eq site.Language.Lang "en") .Site.Data.faq.en .Site.Data.faq.it | default .Site.Data.faq.qa }}
   <div class="faq">
-    {{ range $index, $item := .Site.Data.faq.qa }}
+    {{ range $faqList }}
     <details class="faq-item" name="faq">
       <summary class="faq-question">
         <span class="faq-questionText">{{ .question }}</span>
@@ -21,11 +22,9 @@
   </div>
 
   <div class="callout callout--info" style="margin-top: 3rem;">
-    <h3 class="h3">Hai altre domande?</h3>
+    <h3 class="h3">{{ i18n "faqMoreQuestionsTitle" }}</h3>
     <p class="p">
-      Se non hai trovato la risposta che cercavi, puoi scriverci direttamente via email a 
-      <a class="link" href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a> 
-      oppure sul nostro canale <a class="link" href="{{ site.Params.social.Telegram }}" target="_blank" rel="noopener">Telegram ufficiale</a>.
+      {{ printf (i18n "faqMoreQuestionsText") site.Params.email site.Params.email site.Params.social.Telegram | safeHTML }}
     </p>
   </div>
 </main>

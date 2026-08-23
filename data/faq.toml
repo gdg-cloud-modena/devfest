@@ -1,3 +1,126 @@
+# Italian Q&A
+[[it]]
+question = "Ho scoperto tardi di questo evento, posso partecipare lo stesso?"
+answer = "Certamente, potrai fare registrazione e check-in in qualunque momento della giornata."
+
+[[it]]
+question = "Posso arrivare a metà mattina o anche soltanto al pomeriggio?"
+answer = "Certamente, l'ingresso è sempre aperto."
+
+[[it]]
+question = "L'evento è gratuito?"
+answer = "Sì, l'evento è gratuito. L'evento è organizzato spontaneamente dalle comunità locali. Gli sponsor ci aiutano a coprire le spese in modo da renderlo accessibile a tutti."
+
+[[it]]
+question = "Il pranzo è gratuito?"
+answer = "Sì, il pranzo è gratuito per tutti i partecipanti con biglietto."
+
+[[it]]
+question = "Ho allergie o intolleranze alimentari, come faccio?"
+answer = "Siamo preparati per questo. In fase di registrazione del biglietto ti verrà chiesto di indicare eventuali allergie o intolleranze alimentari. Se non l'hai fatto, puoi comunque inviarci una email a [info@devfest.modena.it](mailto:info@devfest.modena.it) e ti risponderemo al più presto."
+
+[[it]]
+question = "Ho bisogno di un biglietto per partecipare al DevFest Modena?"
+answer = "Sì, la partecipazione al DevFest Modena è gratuita ma la registrazione è obbligatoria."
+
+[[it]]
+question = "Ho preso un biglietto ma non posso più partecipare al DevFest Modena, cosa devo fare?"
+answer = "Se non puoi partecipare, ti chiediamo gentilmente di cancellare la tua prenotazione tramite la piattaforma di ticketing, oppure di inviarci un'email a [info@devfest.modena.it](mailto:info@devfest.modena.it) (possiamo farlo per te)."
+
+[[it]]
+question = "Devo stampare il mio biglietto?"
+answer = "No, non è necessario, puoi utilizzare il tuo smartphone per mostrarci il biglietto. Ci basta vedere l'email con il QR code del biglietto. Assicurati di averlo pronto all'ingresso per poter fare un check-in rapido."
+
+[[it]]
+question = "Posso cedere il mio biglietto ad un amico?"
+answer = "Purtroppo no, non è possibile perché la location ci richiede un ingresso nominale. Se non hai intenzione di venire, per favore cancella il tuo biglietto e chiedi al tuo amico di registrarsi per prenderne uno tutto suo."
+
+[[it]]
+question = "Posso lasciare la conferenza e tornare più tardi?"
+answer = "Sì, certamente, puoi sempre lasciare la conferenza e tornare quando vuoi. Per poter rientrare avrai bisogno del tuo badge, che ti daremo all'ingresso."
+
+[[it]]
+question = "Cosa devo portare alla conferenza?"
+answer = "Il tuo biglietto sullo smartphone, un laptop se intendi seguire workshop pratici... e tanta voglia di conoscere persone nuove! :)"
+
+[[it]]
+question = "Posso partecipare se non sono uno sviluppatore?"
+answer = "Assolutamente sì! DevFest Modena è pensato per essere inclusivo e aperto a chiunque sia interessato alla tecnologia, a prescindere da background o ruolo."
+
+[[it]]
+question = "Ci sarà lo streaming online dei talk?"
+answer = "I talk verranno registrati e pubblicati online dopo l'evento, ma non ci sarà la diretta streaming. L'evento è pensato per offrire la migliore esperienza dal vivo e opportunità di networking."
+
+[[it]]
+question = "Come partecipo ai workshop?"
+answer = "Puoi fare riferimento alla [pagina dedicata ai workshop](/workshops/)."
+
+[[it]]
+question = "È un evento ufficiale Google?"
+answer = "No, l'evento è organizzato volontariamente dalle comunità locali di sviluppatori. Google supporta il format DevFest a livello globale e fornisce supporto al GDG Cloud Modena."
+
+# English Q&A
+[[en]]
+question = "I found out about this event late, can I still attend?"
+answer = "Of course! You can register and check in at any time during the day."
+
+[[en]]
+question = "Can I arrive mid-morning or only in the afternoon?"
+answer = "Certainly, admission is open throughout the day."
+
+[[en]]
+question = "Is the event free?"
+answer = "Yes, DevFest Modena is completely free. It is organized on a non-profit basis by local tech communities. Our sponsors help us cover costs to keep it accessible to everyone."
+
+[[en]]
+question = "Is lunch included for free?"
+answer = "Yes, lunch is included for free for all registered ticket holders!"
+
+[[en]]
+question = "I have dietary restrictions or food allergies, what should I do?"
+answer = "We cater to different dietary needs! When registering your ticket you can specify your requirements. If you missed it, just email us at [info@devfest.modena.it](mailto:info@devfest.modena.it) and we'll assist you."
+
+[[en]]
+question = "Do I need a ticket to attend DevFest Modena?"
+answer = "Yes, attending DevFest Modena is free but registration is mandatory."
+
+[[en]]
+question = "I registered for a ticket but can no longer attend, what should I do?"
+answer = "If you cannot attend, please cancel your reservation through the ticketing platform or email us at [info@devfest.modena.it](mailto:info@devfest.modena.it) so we can give your spot to someone on the waiting list."
+
+[[en]]
+question = "Do I need to print my ticket?"
+answer = "No printing is needed! Just show the QR code from your confirmation email on your smartphone at the entrance for quick check-in."
+
+[[en]]
+question = "Can I transfer my ticket to a friend?"
+answer = "Unfortunately no, tickets are strictly nominal for venue access rules. Please cancel your registration and have your friend register for their own ticket."
+
+[[en]]
+question = "Can I leave the conference and come back later?"
+answer = "Yes! You can freely leave and return anytime during the day using your attendee badge received at check-in."
+
+[[en]]
+question = "What should I bring to the event?"
+answer = "Your digital ticket on your phone, a laptop if you are attending hands-on workshops, and enthusiasm to learn and meet fellow tech enthusiasts! :)"
+
+[[en]]
+question = "Can I attend if I am not a developer?"
+answer = "Absolutely! DevFest Modena is designed to be inclusive and welcoming to anyone interested in technology, regardless of background or role."
+
+[[en]]
+question = "Will there be a live online stream of the talks?"
+answer = "Talks will be recorded and published online after the event, but there is no live stream. We encourage in-person attendance for optimal networking and hands-on interactions."
+
+[[en]]
+question = "How do I participate in workshops?"
+answer = "Please refer to our [dedicated workshops page](/en/workshops/) for full details and registration instructions."
+
+[[en]]
+question = "Is this an official Google event?"
+answer = "No, DevFest Modena is organized independently by local tech communities (GDG Cloud Modena, Modena Full Stack, Reggio Emilia Full Stack, Conoscere Linux). Google supports the global DevFest format."
+
+# Legacy fallback
 [[qa]]
 question = "Ho scoperto tardi di questo evento, posso partecipare lo stesso?"
 answer = "Certamente, potrai fare registrazione e check-in in qualunque momento della giornata."

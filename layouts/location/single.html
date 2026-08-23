@@ -1,23 +1,23 @@
 {{ define "main" }}
 
 <main class="section section--padded">
-    <h1 class="h1">Come raggiungerci</h1>
+    <h1 class="h1">{{ i18n "howToReachUs" }}</h1>
 
     <!-- Sub-navigation sticky / pills -->
     <nav class="location-navigation" aria-label="Sezioni della location">
         <ul class="location-navigationList">
-            <li><a href="#location-introduction" class="location-navigationItem">📍 Mappa & Venue</a></li>
-            <li><a href="#location-auto" class="location-navigationItem">🚗 In Auto</a></li>
-            <li><a href="#location-parking" class="location-navigationItem">🅿️ Parcheggi</a></li>
-            <li><a href="#location-public-transport" class="location-navigationItem">🚆 Treno</a></li>
-            <li><a href="#location-airplane" class="location-navigationItem">✈️ In Aereo</a></li>
+            <li><a href="#location-introduction" class="location-navigationItem"><span class="location-navIcon" aria-hidden="true">📍</span> {{ i18n "locationNavVenue" }}</a></li>
+            <li><a href="#location-auto" class="location-navigationItem"><span class="location-navIcon" aria-hidden="true">🚗</span> {{ i18n "locationNavCar" }}</a></li>
+            <li><a href="#location-parking" class="location-navigationItem"><span class="location-navIcon" aria-hidden="true">🅿️</span> {{ i18n "locationNavParking" }}</a></li>
+            <li><a href="#location-public-transport" class="location-navigationItem"><span class="location-navIcon" aria-hidden="true">🚆</span> {{ i18n "locationNavTrain" }}</a></li>
+            <li><a href="#location-airplane" class="location-navigationItem"><span class="location-navIcon" aria-hidden="true">✈️</span> {{ i18n "locationNavPlane" }}</a></li>
         </ul>
     </nav>
 
     <div class="location">
         <!-- ── INTRODUCTION & MAP ── -->
         <section id="location-introduction" class="location-section">
-            <h2 class="h2 location-sectionTitle">{{ .Params.introduction.title }}</h2>
+            <h2 class="h2 location-sectionTitle"><span class="location-sectionEmoji" aria-hidden="true">📍</span> {{ .Params.introduction.title }}</h2>
 
             <!-- Featured Venue Hero Card -->
             {{- with .Params.introduction.featured_photo -}}
@@ -30,29 +30,32 @@
             <div class="location-grid">
                 <div class="location-infoCard">
                     <div class="location-infoItem">
-                        <strong>Indirizzo:</strong>
-                        <p class="p">{{ .Params.introduction.address }}</p>
+                        <strong>{{ i18n "address" }}:</strong>
+                        <div class="location-addressBlock">
+                            <span class="location-addressVenue">{{ .Params.introduction.title }}</span>
+                            <span class="location-addressDetail">{{ .Params.introduction.address }}</span>
+                        </div>
                     </div>
                     <div class="location-infoItem">
-                        <strong>Sito Ufficiale:</strong>
+                        <strong>{{ i18n "officialWebsite" }}:</strong>
                         <p><a class="link" href="{{ .Params.introduction.website }}" target="_blank" rel="noopener noreferrer">Fondazione San Carlo &rarr;</a></p>
                     </div>
                     <div class="location-infoItem">
-                        <strong>Accessibilità:</strong>
-                        <p class="p">Accesso privo di barriere architettoniche</p>
+                        <strong>{{ i18n "accessibility" }}:</strong>
+                        <p class="p">{{ i18n "accessibilityDesc" }}</p>
                     </div>
-                    <div class="location-infoItem" style="margin-top: auto;">
+                    <div class="location-infoItem location-infoItem--action">
                         <a class="button button--small" href="{{ .Params.introduction.link }}" target="_blank" rel="noopener noreferrer">
-                            Apri in Google Maps
+                            📍 {{ i18n "openInMaps" }}
                         </a>
                     </div>
                 </div>
 
                 <div class="location-mapCard">
                     {{- $locationImage := (resources.Get "location/location.png").Resize "600x webp q85" -}}
-                    <a href="{{ .Params.introduction.link }}" target="_blank" rel="noopener noreferrer" class="location-mapLink">
+                    <a href="{{ .Params.introduction.link }}" target="_blank" rel="noopener noreferrer" class="location-mapLink" title="{{ i18n "openInMaps" }}">
                         <img class="location-mapImg" src="{{ $locationImage.RelPermalink }}" alt="Mappa della Fondazione San Carlo" width="{{ $locationImage.Width }}" height="{{ $locationImage.Height }}">
-                        <span class="location-mapOverlay">Clicca per aprire la mappa &rarr;</span>
+                        <span class="location-mapOverlay">🗺️ {{ i18n "clickToOpenMap" }} &rarr;</span>
                     </a>
                 </div>
             </div>
@@ -69,7 +72,7 @@
 
             <!-- Description -->
             <div class="location-descriptionCard">
-                <h3 class="h3">Informazioni sulla sede</h3>
+                <h3 class="h3">{{ i18n "venueInfo" }}</h3>
                 <p class="p">{{ .Params.introduction.description1 | safeHTML }}</p>
                 <p class="p">{{ .Params.introduction.description2 | safeHTML }}</p>
                 <p class="p">{{ .Params.introduction.description3 | safeHTML }}</p>
@@ -78,13 +81,12 @@
 
         <!-- ── IN AUTO ── -->
         <section id="location-auto" class="location-section">
-            <h2 class="h2 location-sectionTitle">🚗 In Auto</h2>
+            <h2 class="h2 location-sectionTitle"><span class="location-sectionEmoji" aria-hidden="true">🚗</span> {{ i18n "byCar" }}</h2>
 
             <div class="callout callout--warning location-ztlCallout">
-                <h3 class="h3">⚠️ Attenzione alla Zona a Traffico Limitato (ZTL)!</h3>
+                <h3 class="h3">{{ i18n "ztlWarningTitle" }}</h3>
                 <p class="p">
-                    La Fondazione San Carlo si trova all'interno del centro storico e della ZTL di Modena.
-                    I varchi ZTL sono sorvegliati da telecamere attive 24/7. Consigliamo di lasciare l'auto in uno dei parcheggi elencati qui sotto, tutti a pochi minuti a piedi dalla sede.
+                    {{ i18n "ztlWarningDesc" }}
                 </p>
             </div>
 
@@ -105,17 +107,17 @@
 
         <!-- ── PARCHEGGI ── -->
         <section id="location-parking" class="location-section">
-            <h2 class="h2 location-sectionTitle">🅿️ Parcheggi Consigliati</h2>
+            <h2 class="h2 location-sectionTitle"><span class="location-sectionEmoji" aria-hidden="true">🅿️</span> {{ i18n "recommendedParking" }}</h2>
             <div class="location-cardsGrid">
                 {{ range .Params.parking }}
                 <div class="location-card">
                     <div>
                         <h3 class="h3 location-cardTitle">{{ .title }}</h3>
-                        <p class="p"><strong>Indirizzo:</strong> {{ .address }}</p>
-                        <p class="p"><strong>Distanza a piedi:</strong> {{ .distance }}</p>
-                        <p class="p"><strong>Note:</strong> {{ .description }}</p>
+                        <p class="p"><strong>{{ i18n "address" }}:</strong> {{ .address }}</p>
+                        <p class="p"><strong>{{ i18n "walkingDistance" }}:</strong> {{ .distance }}</p>
+                        <p class="p"><strong>{{ i18n "notes" }}:</strong> {{ .description }}</p>
                     </div>
-                    <a href="{{ .link }}" class="link location-cardLink" target="_blank" rel="noopener noreferrer">Apri su Google Maps &rarr;</a>
+                    <a href="{{ .link }}" class="link location-cardLink" target="_blank" rel="noopener noreferrer">{{ i18n "openOnMaps" }} &rarr;</a>
                 </div>
                 {{ end }}
             </div>
@@ -123,17 +125,17 @@
 
         <!-- ── TRENO ── -->
         <section id="location-public-transport" class="location-section">
-            <h2 class="h2 location-sectionTitle">🚆 In Treno</h2>
+            <h2 class="h2 location-sectionTitle"><span class="location-sectionEmoji" aria-hidden="true">🚆</span> {{ i18n "byTrain" }}</h2>
             <div class="location-cardsGrid">
                 {{ range .Params.train }}
                 <div class="location-card">
                     <div>
                         <h3 class="h3 location-cardTitle">{{ .title }}</h3>
-                        <p class="p"><strong>Distanza:</strong> {{ .distance }}</p>
-                        <p class="p"><strong>Tempo a piedi:</strong> {{ .time }}</p>
-                        <p class="p"><strong>Percorso:</strong> {{ .description }}</p>
+                        <p class="p"><strong>{{ i18n "distance" }}:</strong> {{ .distance }}</p>
+                        <p class="p"><strong>{{ i18n "walkingTime" }}:</strong> {{ .time }}</p>
+                        <p class="p"><strong>{{ i18n "route" }}:</strong> {{ .description }}</p>
                     </div>
-                    <a href="{{ .link }}" class="link location-cardLink" target="_blank" rel="noopener noreferrer">Percorso su Google Maps &rarr;</a>
+                    <a href="{{ .link }}" class="link location-cardLink" target="_blank" rel="noopener noreferrer">{{ i18n "routeOnMaps" }} &rarr;</a>
                 </div>
                 {{ end }}
             </div>
@@ -141,13 +143,13 @@
 
         <!-- ── AEREO ── -->
         <section id="location-airplane" class="location-section">
-            <h2 class="h2 location-sectionTitle">✈️ In Aereo</h2>
+            <h2 class="h2 location-sectionTitle"><span class="location-sectionEmoji" aria-hidden="true">✈️</span> {{ i18n "byPlane" }}</h2>
             <div class="location-cardsGrid">
                 {{ range .Params.airplane }}
                 <div class="location-card">
                     <h3 class="h3 location-cardTitle">{{ .title }}</h3>
-                    <p class="p"><strong>Distanza:</strong> {{ .distance }}</p>
-                    <p class="p"><strong>Indicazioni:</strong> {{ .suggestion }}</p>
+                    <p class="p"><strong>{{ i18n "distance" }}:</strong> {{ .distance }}</p>
+                    <p class="p"><strong>{{ i18n "directions" }}:</strong> {{ .suggestion }}</p>
                 </div>
                 {{ end }}
             </div>
