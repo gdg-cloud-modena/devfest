@@ -1,5 +1,5 @@
 +++
-title = "Beeapro"
+title = "BeeAPro"
 date = 2026-06-13
 draft = false
 
