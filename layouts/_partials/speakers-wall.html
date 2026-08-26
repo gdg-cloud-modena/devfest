@@ -4,8 +4,16 @@
 
 {{/* Collect all 2026 session speaker slugs */}}
 {{ $sessionsPage := site.GetPage (printf "/%s/sessions" $year) }}
+{{ $sessionsList := slice }}
+{{ if $sessionsPage }}{{ $sessionsList = $sessionsPage.Pages }}{{ end }}
+{{ if eq (len $sessionsList) 0 }}
+  {{ with (index site.Sites 0).GetPage (printf "/%s/sessions" $year) }}
+    {{ $sessionsList = .Pages }}
+  {{ end }}
+{{ end }}
+
 {{ $collectedSlugs := slice }}
-{{ range $sessionsPage.Pages }}
+{{ range $sessionsList }}
   {{ range .Params.speakers }}
     {{ if not (in $collectedSlugs .) }}
       {{ $collectedSlugs = $collectedSlugs | append . }}
@@ -30,9 +38,9 @@
 {{ if gt (len $speakerSlugs) 0 }}
 <section class="section section--padded homeSpeakers">
   <div class="homeSpeakers-header">
-    <h2 class="h2 homeSpeakers-title">I Relatori</h2>
+    <h2 class="h2 homeSpeakers-title">{{ i18n "speakersWallTitle" }}</h2>
     <p class="p homeSpeakers-subtitle">
-      {{ len $speakerSlugs }} esperti internazionali da tutto il mondo.
+      {{ printf (i18n "speakersWallSubtitle") (len $speakerSlugs) }}
     </p>
   </div>
   <div class="homeSpeakers-wall">
@@ -42,8 +50,9 @@
       {{ if $img }}
         {{ $img = $img.Fit "160x160 q80 jpg" }}
         {{ $speakerPage := site.GetPage (printf "/speakers/%s" $slug) }}
+        {{ if not $speakerPage }}{{ $speakerPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $slug) }}{{ end }}
         {{ $name := cond (ne $speakerPage nil) $speakerPage.Title $slug }}
-        {{ $href := cond (ne $speakerPage nil) $speakerPage.RelPermalink (printf "/speakers/%s/" $slug) }}
+        {{ $href := cond (ne $speakerPage nil) $speakerPage.RelPermalink (printf "/speakers/%s/" $slug | relLangURL) }}
         <a class="homeSpeakers-face" href="{{ $href }}" title="{{ $name }}">
           <img class="homeSpeakers-faceImg" src="{{ $img.RelPermalink }}" alt="{{ $name }}" width="80" height="80" loading="lazy">
           <span class="homeSpeakers-faceName">{{ $name }}</span>
@@ -52,7 +61,7 @@
     {{ end }}
   </div>
   <div class="homeSpeakers-footer">
-    <a class="button" href="/{{ $year }}/speakers/">Scopri tutti i relatori</a>
+    <a class="button" href="{{ printf "/%s/speakers/" $year | relLangURL }}">{{ i18n "discoverAllSpeakers" }}</a>
   </div>
 </section>
 {{ end }}

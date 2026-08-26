@@ -8,10 +8,11 @@
 {{/* Load agenda data for that year */}}
 {{- $days := cond $agenda $agenda.days (slice) -}}
 {{- $roomsData := cond $agenda $agenda.rooms (slice) -}}
-{{- $roomSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
+{{- $roomSlug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
 
 {{/* Sort sessions by date and time */}}
 {{- $sessionsSec := site.GetPage (printf "/%s/sessions" $year) -}}
+{{- if not $sessionsSec }}{{ $sessionsSec = (index site.Sites 0).GetPage (printf "/%s/sessions" $year) }}{{ end }}
 {{- $sessions := slice -}}
 {{- if $sessionsSec -}}
   {{- $sessions = where $sessionsSec.Pages "Params.starts" "ne" nil -}}
@@ -19,7 +20,10 @@
   {{- $sessions = sort $sessions "Params.starts" "asc" -}}
 {{ end }}
 
-{{- $rooms := (site.GetPage (printf "/%s/rooms" $year)).Pages -}}
+{{- $roomsPage := site.GetPage (printf "/%s/rooms" $year) -}}
+{{- if not $roomsPage }}{{ $roomsPage = (index site.Sites 0).GetPage (printf "/%s/rooms" $year) }}{{ end }}
+{{- $rooms := slice -}}
+{{- with $roomsPage }}{{ $rooms = .Pages }}{{ end -}}
 {{- $pageTitle := .Page.Title -}}
 
 
@@ -29,9 +33,9 @@
   {{ $rooms = where $rooms ".Params.forSessions" true }}
   {{ $numRooms := len $rooms }}
   {{ $currentRoom := . }}
-  <p class="p">Sale con sessioni: {{ range $i, $room := $rooms }}{{ if ne $room.File.BaseFileName $currentRoom.File.BaseFileName }}<a class="link" href="{{ $room.RelPermalink }}">{{ $room.Title }}</a>{{ else }}{{ $room.Title }}{{ end }}{{ if ne (add $i 1) $numRooms }}, {{ end }}{{ end }}.</p>
+  <p class="p">{{ i18n "roomsWithSessions" }}: {{ range $i, $room := $rooms }}{{ if ne $room.File.TranslationBaseName $currentRoom.File.TranslationBaseName }}<a class="link" href="{{ $room.RelPermalink }}">{{ $room.Title }}</a>{{ else }}{{ $room.Title }}{{ end }}{{ if ne (add $i 1) $numRooms }}, {{ end }}{{ end }}.</p>
 
-  <h1 class="h1">{{ if .Params.forSessions }}Sala {{ end }}{{ .Title }}</h1>
+  <h1 class="h1">{{ if .Params.forSessions }}{{ i18n "room" }} {{ end }}{{ .Title }}</h1>
 
   <div class="roomPage-description">
     <div class="content">
@@ -44,7 +48,7 @@
     {{ end }}
   </div>
 
-  <h2 class="h2">Sessioni</h2>
+  <h2 class="h2">{{ i18n "sessions" }}</h2>
 
   {{/* Loop over days */}}
   {{ range $day := $days }}
@@ -64,7 +68,6 @@
       {{ $daySessions = sort $daySessions "Params.starts" "asc" }}
 
       {{/* Title of the day */}}
-      {{ $weekday := $dayTime.Format "Monday" }}
       <h3 class="h3">{{ (time.Format "Monday" $dayTime) | title }}</h3>
     {{ end }}
 
@@ -77,7 +80,9 @@
         {{ $speakers := slice }}
         {{ $isMale := true }}
         {{ range $slug := $session.Params.speakers }}
-          {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+          {{ $spPage := site.GetPage (printf "/speakers/%s" $slug) }}
+          {{ if not $spPage }}{{ $spPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $slug) }}{{ end }}
+          {{ with $spPage }}
             {{ $isMale = .Params.male }}
             {{ $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) }}
           {{ else }}
@@ -89,7 +94,7 @@
         <li class="sessions-item" data-starts="{{ $session.Params.starts }}" data-ends="{{ $session.Params.ends }}">
           <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
           <p class="sessions-itemDetails">
-            {{ if eq (len $speakers) 1 }}{{ if $isMale }}Relatore{{ else }}Relatrice{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}Relatori: {{ $speakersHTML | safeHTML }}{{ end }} {{ if ne (lower $session.Params.language) "italiano" }}· {{ $session.Params.language }}{{ end }}
+            {{ if eq (len $speakers) 1 }}{{ if $isMale }}{{ i18n "speakerMale" }}{{ else }}{{ i18n "speakerFemale" }}{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}{{ i18n "speakers" }}: {{ $speakersHTML | safeHTML }}{{ end }} {{ if ne (lower $session.Params.language) "italiano" }}· {{ $session.Params.language }}{{ end }}
           </p>
         </li>
       {{ end }}

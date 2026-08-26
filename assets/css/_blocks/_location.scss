@@ -20,21 +20,31 @@
 
   .location-navigationList {
     display: flex;
-    gap: spaces.$space-2xs;
+    gap: spaces.$space-xs;
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
+  .location-navIcon {
+    font-size: 1.4rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .location-navigationItem {
-    display: inline-block;
-    padding: spaces.$space-2xs spaces.$space-s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.95rem;
     border-radius: effects.$radius;
     background-color: colors.$gray;
     color: colors.$black;
     text-decoration: none;
-    font-size: fonts.$size--1;
+    font-size: fonts.$size-0;
     font-weight: bold;
     transition: background-color effects.$time ease, color effects.$time ease, transform effects.$time ease;
 
@@ -52,7 +62,18 @@
   }
 
   .location-sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: spaces.$space-2xs;
     margin-bottom: spaces.$space-m;
+  }
+
+  .location-sectionEmoji {
+    font-size: 2.2rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Featured Venue Hero Card */
@@ -120,12 +141,34 @@
       font-size: fonts.$size--1;
       color: colors.$black;
       opacity: 0.7;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
     p {
       margin: 0;
     }
+
+    &--action {
+      margin-top: auto;
+      padding-top: spaces.$space-xs;
+    }
+  }
+
+  .location-addressBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .location-addressVenue {
+    font-weight: bold;
+    font-size: fonts.$size-0;
+    color: colors.$black;
+  }
+
+  .location-addressDetail {
+    color: colors.$black;
+    line-height: 1.4;
   }
 
   /* Map Card */
@@ -147,6 +190,7 @@
 
     &:hover .location-mapOverlay {
       opacity: 1;
+      transform: translateY(-2px);
     }
   }
 
@@ -162,14 +206,18 @@
     position: absolute;
     bottom: spaces.$space-s;
     right: spaces.$space-s;
-    background-color: colors.$black;
+    background-color: rgba(0, 0, 0, 0.82);
     color: colors.$white;
-    padding: spaces.$space-2xs spaces.$space-xs;
-    border-radius: 6px;
+    padding: spaces.$space-2xs spaces.$space-s;
+    border-radius: effects.$radius;
     font-size: fonts.$size--1;
     font-weight: bold;
-    opacity: 0.85;
-    transition: opacity effects.$time ease;
+    opacity: 0.9;
+    display: inline-flex;
+    align-items: center;
+    gap: spaces.$space-2xs;
+    backdrop-filter: blur(4px);
+    transition: opacity effects.$time ease, transform effects.$time ease, background-color effects.$time ease;
   }
 
   /* Photos Grid */

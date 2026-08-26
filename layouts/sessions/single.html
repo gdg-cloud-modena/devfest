@@ -3,36 +3,44 @@
 
 {{/* Build rooms map: slug -> name */}}
 {{- $rooms := dict -}}
-{{ range $page := (site.GetPage (printf "/%s/rooms" $year)).Pages }}
-  {{ $rooms = merge $rooms (dict $page.File.BaseFileName $page) }}
+{{- $roomsPage := site.GetPage (printf "/%s/rooms" $year) -}}
+{{- if not $roomsPage }}{{ $roomsPage = (index site.Sites 0).GetPage (printf "/%s/rooms" $year) }}{{ end }}
+{{- with $roomsPage -}}
+{{ range $page := .Pages }}
+  {{ $rooms = merge $rooms (dict $page.File.TranslationBaseName $page) }}
 {{ end }}
+{{- end -}}
 
 {{/* Prepare the room list */}}
 {{- $roomNames := slice -}}
 {{- range $code := .Params.rooms -}}
   {{- $room := index $rooms $code -}}
-  {{- $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) -}}
+  {{- if $room }}
+    {{- $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) -}}
+  {{- end }}
 {{- end -}}
 {{- $roomsHTML := delimit $roomNames ", " -}}
 
 <main class="section section--padded">
   {{ partial "previous-edition" . }}
   {{ if .Params.starts }}
-  <p class="p"><b>{{ .Params.starts | time.Format "Monday" | title }}</b> dalle <b>{{ .Params.starts | time.Format "15:04" }}</b> alle {{ .Params.ends | time.Format "15:04" }} {{ if eq (len $roomNames) 1 }}nella sala {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}nelle sale {{ $roomsHTML | safeHTML }} in contemporanea{{ end }}. {{ if .Params.topic }}Traccia: <b>{{ .Params.topic }}</b> · {{ end }}{{ if .Params.language }}Lingua: <b>{{ .Params.language }}</b>{{ end }}</p>
+  <p class="p"><b>{{ .Params.starts | time.Format "Monday" | title }}</b> {{ i18n "from" }} <b>{{ .Params.starts | time.Format "15:04" }}</b> {{ i18n "to" }} {{ .Params.ends | time.Format "15:04" }} {{ if eq (len $roomNames) 1 }}{{ i18n "inRoom" }} {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}{{ i18n "inRoomsParallel" }} {{ $roomsHTML | safeHTML }}{{ end }}. {{ if .Params.topic }}{{ i18n "track" }} <b>{{ .Params.topic }}</b> · {{ end }}{{ if .Params.language }}{{ i18n "language" }} <b>{{ .Params.language }}</b>{{ end }}</p>
   {{ else }}
-  <p class="p">{{ if .Params.topic }}Traccia: <b>{{ .Params.topic }}</b> · {{ end }}{{ if .Params.language }}Lingua: <b>{{ .Params.language }}</b> · {{ end }}<i>Orari e sala saranno annunciati a breve nell'agenda ufficiale!</i></p>
+  <p class="p">{{ if .Params.topic }}{{ i18n "track" }} <b>{{ .Params.topic }}</b> · {{ end }}{{ if .Params.language }}{{ i18n "language" }} <b>{{ .Params.language }}</b> · {{ end }}<i>{{ i18n "scheduleTBA" }}</i></p>
   {{ end }}
   {{ if .Params.slidesURL }}
-  <p class="p">Consulta le <a class="link" href="{{ .Params.slidesURL }}" target="_blank">slide</a>.</p>
+  <p class="p">{{ printf (i18n "viewSlides") .Params.slidesURL | safeHTML }}</p>
   {{ end }}
   <div class="content">
     {{ .Content }}
   </div>
   {{ if .Params.speakers }}
-  <h2 class="h2">{{ if eq (len .Params.speakers) 1 }}Relatore{{ else }}Relatori{{ end }}</h2>
+  <h2 class="h2">{{ if eq (len .Params.speakers) 1 }}{{ i18n "speaker" }}{{ else }}{{ i18n "speakers" }}{{ end }}</h2>
   <ul class="relatedSpeakers">
 	  {{ range $slug := .Params.speakers }}
-	  {{ with site.GetPage (printf "/speakers/%s" $slug) }}
+	  {{ $speakerPage := site.GetPage (printf "/speakers/%s" $slug) }}
+	  {{ if not $speakerPage }}{{ $speakerPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $slug) }}{{ end }}
+	  {{ with $speakerPage }}
 	    {{ $img := resources.Get (printf "speakers/%s.jpg" $slug) }}
 	    {{ if not $img }}
 	      {{ $img = resources.Get (printf "speakers/%s.png" $slug) }}
@@ -49,6 +57,8 @@
 	    {{ else }}
 	      <li class="relatedSpeakers-item"><b>{{ $slug }}</b></li>
 	    {{ end }}
+	  {{ else }}
+	    <li class="relatedSpeakers-item"><b>{{ $slug }}</b></li>
 	  {{ end }}
 	  {{ end }}
   </ul>

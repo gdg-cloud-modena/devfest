@@ -9,6 +9,13 @@
         {{- $allSessions = $allSessions | append . -}}
     {{- end -}}
 {{- end -}}
+{{- if eq (len $allSessions) 0 -}}
+  {{- range (index site.Sites 0).RegularPages -}}
+    {{- if in .File.Dir (printf "%s/sessions/" $year) -}}
+        {{- $allSessions = $allSessions | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
 {{- $speakers := dict -}}
 
@@ -18,7 +25,9 @@
             {{- $speakerCode := . -}}
             {{- if not (in $speakers $speakerCode) }}
                 {{$code := dict "code" $speakerCode "Title" $speakerCode}}
-                {{ with site.GetPage (printf "/speakers/%s" $speakerCode) }}
+                {{ $speakerPage := site.GetPage (printf "/speakers/%s" $speakerCode) }}
+                {{ if not $speakerPage }}{{ $speakerPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $speakerCode) }}{{ end }}
+                {{ with $speakerPage }}
                   {{ $code = merge $code (dict "Title" .Title) }}
                   {{ $code = merge $code .Params}}
                 {{ end }}
@@ -33,13 +42,13 @@
   {{ if eq $year $currentYear }}
   {{ if site.Params.callForSpeakersEnabled }}
   <div class="callout callout--info">
-    <p class="p">Vuoi salire sul palco del DevFest Modena {{ $year }}? La call for speakers è ancora aperta.</p>
-    <a class="button" href="{{ site.Params.sessionizeUrl }}" target="_blank" rel="noopener">Proponi una sessione</a>
+    <p class="p">{{ printf (i18n "cfsCallout") $year }}</p>
+    <a class="button" href="{{ site.Params.sessionizeUrl }}" target="_blank" rel="noopener">{{ i18n "cfsBtn" }}</a>
   </div>
   {{ end }}
   <br/>
   {{ end }}
-  <h1 class="h1">Speaker {{$year}}</h1>
+  <h1 class="h1">{{ printf (i18n "speakersTitle") $year }}</h1>
   <div class="content">
     {{ .Content }}
   </div>
@@ -56,7 +65,7 @@
     {{- $img := $img.Fit "200x200 q85 jpg" -}}
     {{- $slug := .code -}}
     {{- $person := dict "name" .Title "company" .company "description" .role -}}
-      <a  class="team-peopleItem"  href=" {{ relURL (printf "/speakers/%s" $slug) }}" target="_blank" role="listitem" aria-label="Visit Speaker {{ .Title }}'s profile">
+      <a class="team-peopleItem" href="{{ printf "/speakers/%s" $slug | relLangURL }}" role="listitem" aria-label="Visit Speaker {{ .Title }}'s profile">
         {{ partial "team-member" (dict "person" $person "img" $img) }}
       </a>
     {{- end -}}

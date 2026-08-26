@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ .Param "pageLang" | default $.Site.LanguageCode }}" dir="ltr">
+<html class="no-js" lang="{{ .Language.LanguageCode | default (.Param "pageLang" | default $.Site.LanguageCode) }}" dir="ltr">
 
 <head>
   {{- partial "head.html" . -}}

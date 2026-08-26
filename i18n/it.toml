@@ -1,0 +1,496 @@
+[tickets]
+other = "Biglietti"
+
+[getTicket]
+other = "🎟️ Prendi il Biglietto"
+
+[getFreeTicket]
+other = "Prendi il biglietto gratuito"
+
+[getTicketNow]
+other = "Prendi il tuo Biglietto Ora"
+
+[buyTicketNow]
+other = "Acquista Ora il Biglietto"
+
+[openMenu]
+other = "Apri menu"
+
+[closeMenu]
+other = "Chiudi menu"
+
+[heroDate]
+other = "3 e 4 Ottobre 2026"
+
+[heroTagline]
+other = "La più grande conferenza tech dell'Emilia-Romagna"
+
+[exploreSessions]
+other = "Scopri le sessioni"
+
+[whyAttendTitle]
+other = "Perché partecipare al DevFest Modena %s"
+
+[whyAttendSubtitle]
+other = "La più grande conferenza tecnologica dell'Emilia-Romagna: due giornate di innovazione, apprendimento e networking."
+
+[featureSpeakersTitle]
+other = "Speaker di Fama Internazionale"
+
+[featureSpeakersDesc]
+other = "I migliori esperti e relatori da tutto il mondo hanno scelto DevFest Modena come palcoscenico per condividere innovazione su AI, Cloud, Mobile e Web."
+
+[featureNetworkingTitle]
+other = "Networking & Community"
+
+[featureNetworkingDesc]
+other = "Incontra oltre 500 sviluppatori, aziende leader, sponsor e community tech del territorio per scambiare idee e creare nuove opportunità."
+
+[featureLocationTitle]
+other = "Location Storica Esclusiva"
+
+[featureLocationDesc]
+other = "Ospitati nella prestigiosa Fondazione San Carlo nel centro di Modena, unendo il fascino della storia con la tecnologia del futuro."
+
+[featureFreeTitle]
+other = "Ingresso 100% Gratuito"
+
+[featureFreeDesc]
+other = "La partecipazione a tutte le sessioni e talk è completamente gratuita grazie al supporto dei nostri sponsor. La registrazione è obbligatoria!"
+
+[sessionsTeaserTitle]
+other = "Le Tracce del DevFest %s"
+
+[sessionsTeaserSubtitle]
+other = "%d sessioni su 3 aree tematiche &mdash; trova il tuo argomento."
+
+[sessionCount]
+one = "%d sessione"
+other = "%d sessioni"
+
+[explore]
+other = "Scopri &rarr;"
+
+[exploreAllSessions]
+other = "Esplora tutte le %d sessioni"
+
+[sessionsCatalogTitle]
+other = "Catalogo Sessioni"
+
+[sessionsCatalogIntro]
+other = "Esplora tutti i talk e i workshop confermati per l'edizione %s! Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>."
+
+[sessionsCatalogHeroTitle]
+other = "Esplora le Sessioni del"
+
+[sessionsCatalogHeroDesc]
+other = "Esplora tutti i talk e i workshop confermati per l'edizione %s! Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>."
+
+[sessionsTitle]
+other = "Sessioni %s"
+
+[sessionsWelcomeCallout]
+other = "<b>Benvenuto nel Catalogo Sessioni!</b> Qui sotto trovi tutte le %d sessioni già confermate per il DevFest Modena %s, suddivise per area tematica. Per la vista oraria per sala, visita la pagina <a class=\"link\" href=\"%s\">Agenda %s</a>."
+
+[sessionsCallout]
+other = "<b>Benvenuto nel Catalogo Sessioni!</b> Qui sotto trovi tutte le %d sessioni già confermate per il DevFest Modena %s, suddivise per area tematica. Per la vista oraria per sala, visita la pagina <a class=\"link\" href=\"%s\">Agenda %s</a>."
+
+[browseSessionsCatalog]
+other = "Catalogo Sessioni"
+
+[browseCatalog]
+other = "🔍 Sfoglia Catalogo Sessioni"
+
+[consultCatalog]
+other = "📚 Consulta il Catalogo Sessioni"
+
+[discoverSession]
+other = "Scopri la sessione"
+
+[viewSession]
+other = "Scopri la sessione &rarr;"
+
+[dontMissSessions]
+other = "Non perdere queste sessioni al"
+
+[dontMissDesc]
+other = "Assicurati subito un posto per partecipare ai talk, incontrare i relatori e fare networking con la community."
+
+[sessionsBottomCtaTitle]
+other = "Non perdere queste sessioni al"
+
+[sessionsBottomCtaDesc]
+other = "Assicurati subito un posto per partecipare ai talk, incontrare i relatori e fare networking con la community."
+
+[track]
+other = "Traccia:"
+
+[language]
+other = "Lingua:"
+
+[scheduleTBA]
+other = "Orari e sala saranno annunciati a breve nell'agenda ufficiale!"
+
+[timeAndRoomSoon]
+other = "Orari e sala saranno annunciati a breve nell'agenda ufficiale!"
+
+[slides]
+other = "slide"
+
+[viewSlides]
+other = "Guarda le slide"
+
+[from]
+other = "Dalle"
+
+[to]
+other = "alle"
+
+[inRoom]
+other = "in"
+
+[inRoomsParallel]
+other = "in contemporanea nelle sale:"
+
+[noSessionsFound]
+other = "Nessuna sessione trovata per %s."
+
+[agendaTitle]
+other = "Agenda DevFest Modena %s"
+
+[agendaSubtitle]
+other = "Il programma degli orari e delle sale per orientarti durante le giornate dell'evento."
+
+[agendaBtn]
+other = "🗓️ Agenda %s"
+
+[scheduleAgendaBtn]
+other = "🗓️ Programma Orario & Agenda"
+
+[agendaComingSoonTitle]
+other = "Agenda in Arrivo!"
+
+[agendaComingSoonDesc]
+other = "L'orario e l'assegnazione delle sale per le singole sessioni verranno pubblicati a breve. Durante l'evento potrai consultare qui la timeline in tempo reale da smartphone."
+
+[agendaComingSoonText]
+other = "L'orario e l'assegnazione delle sale per le singole sessioni verranno pubblicati a breve. Durante l'evento potrai consultare qui la timeline in tempo reale da smartphone."
+
+[agendaConfirmedSessions]
+other = "<b>%d sessioni confermate</b> sono già disponibili nel nostro catalogo suddiviso per aree tematiche:"
+
+[agendaSessionsAvailable]
+other = "<b>%d sessioni confermate</b> sono già disponibili nel nostro catalogo suddiviso per aree tematiche:"
+
+[speakersTitle]
+other = "Speaker %s"
+
+[speakersWallTitle]
+other = "I Relatori"
+
+[speakersWallSubtitle]
+other = "%d esperti internazionali da tutto il mondo."
+
+[discoverAllSpeakers]
+other = "Scopri tutti i relatori"
+
+[speaker]
+other = "Relatore"
+
+[speakerMale]
+other = "Relatore"
+
+[speakerFemale]
+other = "Relatrice"
+
+[speakers]
+other = "Relatori"
+
+[role]
+other = "Ruolo:"
+
+[company]
+other = "Azienda:"
+
+[statsTitle]
+other = "Il Nostro %s in Numeri"
+
+[statsSubtitle]
+other = "I risultati dell'ultima edizione del DevFest Modena: un grande successo reso possibile dalla nostra community."
+
+[statsAttendees]
+other = "Partecipanti"
+
+[statAttendees]
+other = "Partecipanti"
+
+[statsAttendeesDesc]
+other = "Sviluppatori e appassionati da tutta Italia"
+
+[statAttendeesDesc]
+other = "Sviluppatori e appassionati da tutta Italia"
+
+[statsSpeakers]
+other = "Relatori & Speaker"
+
+[statSpeakers]
+other = "Relatori & Speaker"
+
+[statsSpeakersDesc]
+other = "Esperti nazionali e internazionali"
+
+[statSpeakersDesc]
+other = "Esperti nazionali e internazionali"
+
+[statsWorkshops]
+other = "Workshop Pratici"
+
+[statWorkshops]
+other = "Workshop Pratici"
+
+[statsWorkshopsDesc]
+other = "Sessioni interattive di apprendimento"
+
+[statWorkshopsDesc]
+other = "Sessioni interattive di apprendimento"
+
+[statsRooms]
+other = "Sale in Contemporanea"
+
+[statRooms]
+other = "Sale in Contemporanea"
+
+[statsRoomsDesc]
+other = "Talk paralleli su traccia e argomenti dedicati"
+
+[statRoomsDesc]
+other = "Talk paralleli su traccia e argomenti dedicati"
+
+[partnersTitle]
+other = "I Nostri Partner & Sponsor"
+
+[partnersSubtitle]
+other = "I partner e gli sponsor che sostengono l'edizione %s del DevFest Modena:"
+
+[visitWebsite]
+other = "Visita il sito"
+
+[patronage]
+other = "Con il patrocinio di:"
+
+[ctaTicketsTitle]
+other = "Biglietti disponibili"
+
+[ctaTicketsText1]
+other = "Le registrazioni per DevFest Modena %s sono aperte."
+
+[ctaTicketsText2]
+other = "Prendi il tuo biglietto gratuito e assicurati un posto all'evento."
+
+[ctaTicketsBtn]
+other = "Prendi il biglietto"
+
+[ctaCvTitle]
+other = "Manda il curriculum"
+
+[ctaCvText]
+other = "Invia il tuo curriculum, lo condivideremo con le aziende in cerca di collaboratori."
+
+[ctaCvDesc]
+other = "Invia il tuo curriculum, lo condivideremo con le aziende in cerca di collaboratori."
+
+[ctaCvBtn]
+other = "Invia qui"
+
+[cfsCallout]
+other = "Vuoi salire sul palco del DevFest Modena %s? La call for speakers è ancora aperta."
+
+[cfsBtn]
+other = "Proponi una sessione"
+
+[room]
+other = "Sala:"
+
+[roomsParallel]
+other = "Sale in contemporanea:"
+
+[roomsWithSessions]
+other = "Sale con sessioni:"
+
+[roomPrefix]
+other = "Sala "
+
+[howToReachUs]
+other = "Come raggiungerci"
+
+[locationNavVenue]
+other = "Sede & Mappa"
+
+[locationNavCar]
+other = "In Auto"
+
+[locationNavParking]
+other = "Parcheggi"
+
+[locationNavTrain]
+other = "In Treno"
+
+[locationNavPlane]
+other = "In Aereo"
+
+[navMap]
+other = "Sede & Mappa"
+
+[navAuto]
+other = "In Auto"
+
+[navParking]
+other = "Parcheggi"
+
+[navTrain]
+other = "In Treno"
+
+[navAirplane]
+other = "In Aereo"
+
+[address]
+other = "Indirizzo:"
+
+[officialSite]
+other = "Sito Ufficiale:"
+
+[officialWebsite]
+other = "Sito Ufficiale:"
+
+[accessibility]
+other = "Accessibilità:"
+
+[accessibilityDesc]
+other = "Accesso al piano terra privo di barriere architettoniche"
+
+[barrierFree]
+other = "Accesso privo di barriere architettoniche"
+
+[openMaps]
+other = "Apri la sede in Google Maps"
+
+[openInMaps]
+other = "Apri la sede in Google Maps"
+
+[openOnMaps]
+other = "Apri su Google Maps"
+
+[clickToOpenMap]
+other = "Clicca per aprire la mappa"
+
+[venueInfo]
+other = "Informazioni sulla sede"
+
+[byCar]
+other = "In Auto"
+
+[ztlWarningTitle]
+other = "Attenzione alla Zona a Traffico Limitato (ZTL)!"
+
+[ztlWarningText]
+other = "La Fondazione San Carlo si trova all'interno del centro storico e della ZTL di Modena. I varchi ZTL sono sorvegliati da telecamere attive 24/7. Consigliamo di lasciare l'auto in uno dei parcheggi elencati qui sotto, tutti a pochi minuti a piedi dalla sede."
+
+[ztlWarningDesc]
+other = "La Fondazione San Carlo si trova all'interno del centro storico e della ZTL di Modena. I varchi ZTL sono sorvegliati da telecamere attive 24/7. Consigliamo di lasciare l'auto in uno dei parcheggi elencati qui sotto, tutti a pochi minuti a piedi dalla sede."
+
+[parkingTitle]
+other = "Parcheggi Consigliati"
+
+[recommendedParking]
+other = "Parcheggi Consigliati"
+
+[walkingDistance]
+other = "Distanza a piedi:"
+
+[notes]
+other = "Note:"
+
+[byTrain]
+other = "In Treno"
+
+[distance]
+other = "Distanza:"
+
+[walkingTime]
+other = "Tempo a piedi:"
+
+[route]
+other = "Percorso:"
+
+[routeOnMaps]
+other = "Percorso su Google Maps"
+
+[byPlane]
+other = "In Aereo"
+
+[directions]
+other = "Indicazioni:"
+
+[footerDesc]
+other = "Un grande evento di programmazione e di tecnologia al centro dell'Emilia, nato dalle comunità locali."
+
+[previousEvents]
+other = "Eventi precedenti"
+
+[sitemap]
+other = "Sitemap"
+
+[workshops]
+other = "Workshop"
+
+[speedNetworking]
+other = "Speed networking"
+
+[codeOfConduct]
+other = "Codice di condotta"
+
+[contacts]
+other = "Contatti"
+
+[joinUs]
+other = "Vieni a trovarci"
+
+[prevEditionCallout]
+other = "Questa pagina fa riferimento all'edizione %s."
+
+[pageNotFound]
+other = "Pagina non trovata"
+
+[pageNotFoundText]
+other = "Spiacente, la pagina che stai cercando non esiste oppure è stata rimossa."
+
+[backToHome]
+other = "Clicca per tornare alla <a href=\"%s\">home page</a>."
+
+[faqMoreQuestionsTitle]
+other = "Hai altre domande?"
+
+[faqMoreQuestionsText]
+other = "Se non hai trovato la risposta che cercavi, puoi scriverci direttamente via email a <a class=\"link\" href=\"mailto:%s\">%s</a> oppure sul nostro canale <a class=\"link\" href=\"%s\" target=\"_blank\" rel=\"noopener\">Telegram ufficiale</a>."
+
+[topic_ai_desc]
+other = "Agenti AI, GenAI, Robotica, LLM, etica e futuro dello sviluppo"
+
+[topic_cloud_desc]
+other = "Cloud, DevOps, Infrastructure as Code, Security e affidabilità"
+
+[topic_web_desc]
+other = "Web moderno, Mobile nativo, Developer tools e qualità del codice"
+
+[role_organizers]
+other = "Organizzatori"
+
+[role_staff]
+other = "Staff"
+
+[role_supporter]
+other = "Supporter"
+
+
+[sessions]
+other = "Sessioni"

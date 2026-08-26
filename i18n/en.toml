@@ -1,0 +1,496 @@
+[tickets]
+other = "Tickets"
+
+[getTicket]
+other = "🎟️ Get Your Ticket"
+
+[getFreeTicket]
+other = "Get your free ticket"
+
+[getTicketNow]
+other = "Get Your Ticket Now"
+
+[buyTicketNow]
+other = "Get Your Ticket Now"
+
+[openMenu]
+other = "Open menu"
+
+[closeMenu]
+other = "Close menu"
+
+[heroDate]
+other = "October 3 & 4, 2026"
+
+[heroTagline]
+other = "The largest tech conference in Emilia-Romagna"
+
+[exploreSessions]
+other = "Explore sessions"
+
+[whyAttendTitle]
+other = "Why Attend DevFest Modena %s"
+
+[whyAttendSubtitle]
+other = "The biggest tech conference in Emilia-Romagna: two days of innovation, learning, and networking."
+
+[featureSpeakersTitle]
+other = "World-Class Speakers"
+
+[featureSpeakersDesc]
+other = "Top international experts and tech leaders choose DevFest Modena to share cutting-edge insights on AI, Cloud, Mobile, and Web."
+
+[featureNetworkingTitle]
+other = "Networking & Community"
+
+[featureNetworkingDesc]
+other = "Meet over 500 developers, industry leaders, sponsors, and local tech communities to exchange ideas and unlock opportunities."
+
+[featureLocationTitle]
+other = "Exclusive Historic Venue"
+
+[featureLocationDesc]
+other = "Hosted in the prestigious Fondazione San Carlo in downtown Modena, blending historic architectural beauty with future-defining technology."
+
+[featureFreeTitle]
+other = "100% Free Admission"
+
+[featureFreeDesc]
+other = "Access to all talks and workshops is completely free thanks to our generous sponsors. Registration is required!"
+
+[sessionsTeaserTitle]
+other = "DevFest %s Tracks"
+
+[sessionsTeaserSubtitle]
+other = "%d sessions across 3 tracks &mdash; find your topic."
+
+[sessionCount]
+one = "%d session"
+other = "%d sessions"
+
+[explore]
+other = "Discover &rarr;"
+
+[exploreAllSessions]
+other = "Explore all %d sessions"
+
+[sessionsCatalogTitle]
+other = "Sessions Catalog"
+
+[sessionsCatalogIntro]
+other = "Explore all confirmed talks and workshops for DevFest %s! Check out our 3 thematic tracks: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b>, and <b>Web, Mobile & Dev Experience</b>."
+
+[sessionsCatalogHeroTitle]
+other = "Explore Sessions at"
+
+[sessionsCatalogHeroDesc]
+other = "Explore all confirmed talks and workshops for DevFest %s! Check out our 3 thematic tracks: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b>, and <b>Web, Mobile & Dev Experience</b>."
+
+[sessionsTitle]
+other = "Sessions %s"
+
+[sessionsWelcomeCallout]
+other = "<b>Welcome to the Sessions Catalog!</b> Below you will find all %d sessions already confirmed for DevFest Modena %s, organized by topic. For the hourly schedule by room, visit the <a class=\"link\" href=\"%s\">Agenda %s</a> page."
+
+[sessionsCallout]
+other = "<b>Welcome to the Sessions Catalog!</b> Below you will find all %d sessions already confirmed for DevFest Modena %s, organized by topic. For the hourly schedule by room, visit the <a class=\"link\" href=\"%s\">Agenda %s</a> page."
+
+[browseSessionsCatalog]
+other = "Sessions Catalog"
+
+[browseCatalog]
+other = "🔍 Browse Sessions Catalog"
+
+[consultCatalog]
+other = "📚 Browse Sessions Catalog"
+
+[discoverSession]
+other = "Discover session"
+
+[viewSession]
+other = "Discover session &rarr;"
+
+[dontMissSessions]
+other = "Don't miss these sessions at"
+
+[dontMissDesc]
+other = "Secure your free spot now to attend talks, meet speakers, and network with the community."
+
+[sessionsBottomCtaTitle]
+other = "Don't miss these sessions at"
+
+[sessionsBottomCtaDesc]
+other = "Secure your free spot now to attend talks, meet speakers, and network with the community."
+
+[track]
+other = "Track:"
+
+[language]
+other = "Language:"
+
+[scheduleTBA]
+other = "Time and room will be announced shortly in the official agenda!"
+
+[timeAndRoomSoon]
+other = "Time and room will be announced shortly in the official agenda!"
+
+[slides]
+other = "slides"
+
+[viewSlides]
+other = "View slides"
+
+[from]
+other = "From"
+
+[to]
+other = "to"
+
+[inRoom]
+other = "in"
+
+[inRoomsParallel]
+other = "simultaneously in rooms:"
+
+[noSessionsFound]
+other = "No sessions found for %s."
+
+[agendaTitle]
+other = "DevFest Modena %s Agenda"
+
+[agendaSubtitle]
+other = "Schedule and room overview to help you navigate through the event days."
+
+[agendaBtn]
+other = "🗓️ Schedule %s"
+
+[scheduleAgendaBtn]
+other = "🗓️ Schedule & Agenda"
+
+[agendaComingSoonTitle]
+other = "Agenda Coming Soon!"
+
+[agendaComingSoonDesc]
+other = "The timetable and room allocation for each session will be published shortly. During the event, you will be able to follow the live timeline from your mobile device."
+
+[agendaComingSoonText]
+other = "The timetable and room allocation for each session will be published shortly. During the event, you will be able to follow the live timeline from your mobile device."
+
+[agendaConfirmedSessions]
+other = "<b>%d confirmed sessions</b> are already available in our catalog divided into thematic tracks:"
+
+[agendaSessionsAvailable]
+other = "<b>%d confirmed sessions</b> are already available in our catalog divided into thematic tracks:"
+
+[speakersTitle]
+other = "Speakers %s"
+
+[speakersWallTitle]
+other = "The Speakers"
+
+[speakersWallSubtitle]
+other = "%d international experts from all over the world."
+
+[discoverAllSpeakers]
+other = "Discover all speakers"
+
+[speaker]
+other = "Speaker"
+
+[speakerMale]
+other = "Speaker"
+
+[speakerFemale]
+other = "Speaker"
+
+[speakers]
+other = "Speakers"
+
+[role]
+other = "Role:"
+
+[company]
+other = "Company:"
+
+[statsTitle]
+other = "Our %s in Numbers"
+
+[statsSubtitle]
+other = "Highlights from the latest DevFest Modena edition: a massive success powered by our community."
+
+[statsAttendees]
+other = "Attendees"
+
+[statAttendees]
+other = "Attendees"
+
+[statsAttendeesDesc]
+other = "Developers and tech enthusiasts from all over Italy"
+
+[statAttendeesDesc]
+other = "Developers and tech enthusiasts from all over Italy"
+
+[statsSpeakers]
+other = "Speakers"
+
+[statSpeakers]
+other = "Speakers"
+
+[statsSpeakersDesc]
+other = "National and international industry experts"
+
+[statSpeakersDesc]
+other = "National and international industry experts"
+
+[statsWorkshops]
+other = "Hands-on Workshops"
+
+[statWorkshops]
+other = "Hands-on Workshops"
+
+[statsWorkshopsDesc]
+other = "Interactive hands-on learning sessions"
+
+[statWorkshopsDesc]
+other = "Interactive hands-on learning sessions"
+
+[statsRooms]
+other = "Parallel Rooms"
+
+[statRooms]
+other = "Parallel Tracks & Rooms"
+
+[statsRoomsDesc]
+other = "Parallel sessions across dedicated tech tracks"
+
+[statRoomsDesc]
+other = "Parallel sessions across dedicated tech tracks"
+
+[partnersTitle]
+other = "Our Partners & Sponsors"
+
+[partnersSubtitle]
+other = "Partners and sponsors supporting DevFest Modena %s:"
+
+[visitWebsite]
+other = "Visit website"
+
+[patronage]
+other = "Under the patronage of:"
+
+[ctaTicketsTitle]
+other = "Tickets available"
+
+[ctaTicketsText1]
+other = "Registrations for DevFest Modena %s are open."
+
+[ctaTicketsText2]
+other = "Get your free ticket and secure your spot at the event."
+
+[ctaTicketsBtn]
+other = "Get your ticket"
+
+[ctaCvTitle]
+other = "Send your CV"
+
+[ctaCvText]
+other = "Send your resume, we will share it with companies looking for team members."
+
+[ctaCvDesc]
+other = "Send your resume, we will share it with companies looking for team members."
+
+[ctaCvBtn]
+other = "Send here"
+
+[cfsCallout]
+other = "Want to speak at DevFest Modena %s? The Call for Speakers is open."
+
+[cfsBtn]
+other = "Submit a session"
+
+[room]
+other = "Room:"
+
+[roomsParallel]
+other = "Parallel rooms:"
+
+[roomsWithSessions]
+other = "Rooms with sessions:"
+
+[roomPrefix]
+other = "Room "
+
+[howToReachUs]
+other = "How to Reach Us"
+
+[locationNavVenue]
+other = "Venue & Map"
+
+[locationNavCar]
+other = "By Car"
+
+[locationNavParking]
+other = "Parking"
+
+[locationNavTrain]
+other = "By Train"
+
+[locationNavPlane]
+other = "By Plane"
+
+[navMap]
+other = "Venue & Map"
+
+[navAuto]
+other = "By Car"
+
+[navParking]
+other = "Parking"
+
+[navTrain]
+other = "By Train"
+
+[navAirplane]
+other = "By Plane"
+
+[address]
+other = "Address:"
+
+[officialSite]
+other = "Official Website:"
+
+[officialWebsite]
+other = "Official Website:"
+
+[accessibility]
+other = "Accessibility:"
+
+[accessibilityDesc]
+other = "Ground floor step-free barrier-free accessible"
+
+[barrierFree]
+other = "Step-free barrier-free access"
+
+[openMaps]
+other = "Open venue in Google Maps"
+
+[openInMaps]
+other = "Open venue in Google Maps"
+
+[openOnMaps]
+other = "Open on Google Maps"
+
+[clickToOpenMap]
+other = "Click to open map"
+
+[venueInfo]
+other = "Venue Information"
+
+[byCar]
+other = "By Car"
+
+[ztlWarningTitle]
+other = "Attention: Limited Traffic Zone (ZTL)!"
+
+[ztlWarningText]
+other = "Fondazione San Carlo is located inside Modena's historic city center and Limited Traffic Zone (ZTL). ZTL access gates are monitored by 24/7 enforcement cameras. We recommend parking in one of the suggested car parks listed below, all just a few minutes' walk from the venue."
+
+[ztlWarningDesc]
+other = "Fondazione San Carlo is located inside Modena's historic city center and Limited Traffic Zone (ZTL). ZTL access gates are monitored by 24/7 enforcement cameras. We recommend parking in one of the suggested car parks listed below, all just a few minutes' walk from the venue."
+
+[parkingTitle]
+other = "Recommended Parking"
+
+[recommendedParking]
+other = "Recommended Parking"
+
+[walkingDistance]
+other = "Walking distance:"
+
+[notes]
+other = "Notes:"
+
+[byTrain]
+other = "By Train"
+
+[distance]
+other = "Distance:"
+
+[walkingTime]
+other = "Walking time:"
+
+[route]
+other = "Route:"
+
+[routeOnMaps]
+other = "Route on Google Maps"
+
+[byPlane]
+other = "By Plane"
+
+[directions]
+other = "Directions:"
+
+[footerDesc]
+other = "A major coding and tech event in the heart of Emilia, organized by local developer communities."
+
+[previousEvents]
+other = "Previous events"
+
+[sitemap]
+other = "Sitemap"
+
+[workshops]
+other = "Workshops"
+
+[speedNetworking]
+other = "Speed networking"
+
+[codeOfConduct]
+other = "Code of Conduct"
+
+[contacts]
+other = "Contact"
+
+[joinUs]
+other = "Join Us"
+
+[prevEditionCallout]
+other = "This page refers to the %s edition."
+
+[pageNotFound]
+other = "Page Not Found"
+
+[pageNotFoundText]
+other = "Sorry, the page you are looking for does not exist or has been moved."
+
+[backToHome]
+other = "Click here to return to the <a href=\"%s\">homepage</a>."
+
+[faqMoreQuestionsTitle]
+other = "Have more questions?"
+
+[faqMoreQuestionsText]
+other = "If you couldn't find what you were looking for, email us directly at <a class=\"link\" href=\"mailto:%s\">%s</a> or join our <a class=\"link\" href=\"%s\" target=\"_blank\" rel=\"noopener\">official Telegram channel</a>."
+
+[topic_ai_desc]
+other = "AI Agents, GenAI, Robotics, LLMs, ethics and the future of coding"
+
+[topic_cloud_desc]
+other = "Cloud, DevOps, Infrastructure as Code, Security and site reliability"
+
+[topic_web_desc]
+other = "Modern Web, Native Mobile, Developer tooling and software quality"
+
+[role_organizers]
+other = "Organizers"
+
+[role_staff]
+other = "Staff"
+
+[role_supporter]
+other = "Supporter"
+
+
+[sessions]
+other = "Sessions"

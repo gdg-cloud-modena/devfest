@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="section section--padded">
   <div class="speaker">
-    {{- $speakerSlug := cond (ne .File.BaseFileName "index") .File.BaseFileName (path.Base (path.Clean .File.Dir)) -}}
+    {{- $speakerSlug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
 
     <div class="speaker-sidebar">
       <div class="speaker-title--sidebar">
@@ -22,13 +22,13 @@
       <div class="speaker-details">
         {{- with .Params.role -}}
         <div class="speaker-details--role">
-          <strong>Ruolo:</strong> {{ . }}
+          <strong>{{ i18n "role" }}:</strong> {{ . }}
         </div>
         {{- end }}
 
         {{- with .Params.company -}}
         <div class="speaker-details--company">
-          <strong>Azienda:</strong> {{ . }}
+          <strong>{{ i18n "company" }}:</strong> {{ . }}
         </div>
         {{- end }}
 
@@ -96,36 +96,44 @@
         {{ .Content }}
       </div>
 
-      <h2 class="h2">Sessioni</h2>
+      <h2 class="h2">{{ i18n "sessions" }}</h2>
 
       {{- $allSessions := slice -}}
+      {{- $sessionSlugsSeen := dict -}}
       {{- range site.RegularPages -}}
-      {{- if in .File.Dir "/sessions/" -}}
-      {{- $allSessions = $allSessions | append . -}}
+        {{- if in .File.Dir "sessions/" -}}
+          {{- $allSessions = $allSessions | append . -}}
+          {{- $sessionSlugsSeen = merge $sessionSlugsSeen (dict .File.TranslationBaseName true) -}}
+        {{- end -}}
       {{- end -}}
+      {{- range (index site.Sites 0).RegularPages -}}
+        {{- if in .File.Dir "sessions/" -}}
+          {{- if not (index $sessionSlugsSeen .File.TranslationBaseName) -}}
+            {{- $allSessions = $allSessions | append . -}}
+          {{- end -}}
+        {{- end -}}
       {{- end -}}
 
       {{- $bySpeaker := slice -}}
       {{- range $s := $allSessions -}}
-      {{- $starts := or ($s.Param "starts") $s.Date -}}
-      {{- if and $starts (in $s.Params.speakers $speakerSlug) -}}
-      {{- $bySpeaker = $bySpeaker | append $s -}}
-      {{- end -}}
+        {{- if in $s.Params.speakers $speakerSlug -}}
+          {{- $bySpeaker = $bySpeaker | append $s -}}
+        {{- end -}}
       {{- end -}}
 
       {{- if gt (len $bySpeaker) 0 -}}
       {{- $groups := dict -}}
       {{- range $s := $bySpeaker -}}
-      {{- $dt := time (or ($s.Param "starts") $s.Date) -}}
-      {{- $year := $dt.Format "2006" -}}
-      {{- $list := cond (isset $groups $year) (index $groups $year) (slice) -}}
-      {{- $list = $list | append $s -}}
-      {{- $groups = merge $groups (dict $year $list) -}}
+        {{- $dt := time (or ($s.Param "starts") $s.Date) -}}
+        {{- $year := printf "%v" (or ($s.Param "year") ($dt.Format "2006")) -}}
+        {{- $list := cond (isset $groups $year) (index $groups $year) (slice) -}}
+        {{- $list = $list | append $s -}}
+        {{- $groups = merge $groups (dict $year $list) -}}
       {{- end -}}
 
       {{- $years := slice -}}
       {{- range $k, $_ := $groups -}}
-      {{- $years = $years | append $k -}}
+        {{- $years = $years | append $k -}}
       {{- end -}}
       {{- $years = sort $years "value" "desc" -}}
 
@@ -134,10 +142,12 @@
       {{- $sessions = sort $sessions "Params.starts" "asc" -}}
 
       {{- $rooms := dict -}}
-      {{- with site.GetPage (printf "/%s/rooms" $y) -}}
-      {{- range .Pages -}}
-      {{- $rooms = merge $rooms (dict .File.BaseFileName .) -}}
-      {{- end -}}
+      {{- $roomsPage := site.GetPage (printf "/%s/rooms" $y) -}}
+      {{- if not $roomsPage }}{{ $roomsPage = (index site.Sites 0).GetPage (printf "/%s/rooms" $y) }}{{ end }}
+      {{- with $roomsPage -}}
+        {{- range .Pages -}}
+          {{- $rooms = merge $rooms (dict .File.TranslationBaseName .) -}}
+        {{- end -}}
       {{- end -}}
 
       <h3 class="h3">{{ $y }}</h3>
@@ -147,9 +157,10 @@
         {{/* Prepare the room list */}}
         {{ $roomNames := slice }}
         {{ range $code := $session.Params.rooms }}
-        {{ $room := index $rooms $code }}
-        {{ $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title)
-        }}
+          {{ $room := index $rooms $code }}
+          {{ if $room }}
+            {{ $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) }}
+          {{ end }}
         {{ end }}
         {{ $roomsHTML := delimit $roomNames ", " }}
 
@@ -163,8 +174,7 @@
           {{ end }}
           {{ if gt (len $roomNames) 0 }}
           <p class="sessions-itemDetails">
-            {{ if eq (len $roomNames) 1 }}Sala: {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}Sale in
-            contemporanea: {{ $roomsHTML | safeHTML }}{{ end }}
+            {{ if eq (len $roomNames) 1 }}{{ i18n "room" }} {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}{{ i18n "roomsParallel" }} {{ $roomsHTML | safeHTML }}{{ end }}
           </p>
           {{ end }}
         </li>
@@ -172,7 +182,7 @@
       </ul>
       {{- end -}}
       {{- else -}}
-      <p class="p">Nessuna sessione trovata per {{ .Title }}.</p>
+      <p class="p">{{ printf (i18n "noSessionsFound") .Title }}</p>
       {{- end -}}
     </div>
   </div>

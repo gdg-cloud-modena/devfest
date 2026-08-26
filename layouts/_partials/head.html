@@ -7,3 +7,7 @@
 {{- $notFound := ne .Page.Kind "404" -}}
 <meta name="robots" content="{{ if and (default true .Params.Index) $notFound }}index{{ else }}noindex{{ end }} {{ if and (default true .Params.Follow) $notFound }}follow{{ else }}nofollow{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">

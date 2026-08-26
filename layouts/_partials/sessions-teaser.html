@@ -1,27 +1,33 @@
 {{/* Sessions Teaser — 3 tracks, no speaker avatar */}}
 {{ $year := printf "%v" site.Params.currentEdition }}
 {{ $sessionsPage := site.GetPage (printf "/%s/sessions" $year) }}
-{{ $allSessions := $sessionsPage.Pages }}
+{{ $allSessions := slice }}
+{{ if $sessionsPage }}{{ $allSessions = $sessionsPage.Pages }}{{ end }}
+{{ if eq (len $allSessions) 0 }}
+  {{ with (index site.Sites 0).GetPage (printf "/%s/sessions" $year) }}
+    {{ $allSessions = .Pages }}
+  {{ end }}
+{{ end }}
 
 {{ $topics := slice
   (dict
     "key"         "AI & Machine Intelligence"
     "label"       "AI & Machine Intelligence"
-    "description" "Agenti AI, GenAI, Robotica, LLM, etica e futuro dello sviluppo"
+    "description" (i18n "topic_ai_desc" | default "Agenti AI, GenAI, Robotica, LLM, etica e futuro dello sviluppo")
     "emoji"       "🤖"
     "color"       "primary"
   )
   (dict
     "key"         "Cloud & Platform Engineering"
     "label"       "Cloud & Platform Engineering"
-    "description" "Cloud, DevOps, Infrastructure as Code, Security e affidabilità"
+    "description" (i18n "topic_cloud_desc" | default "Cloud, DevOps, Infrastructure as Code, Security e affidabilità")
     "emoji"       "☁️"
     "color"       "tertiary"
   )
   (dict
     "key"         "Web, Mobile & Dev Experience"
     "label"       "Web, Mobile & Dev Experience"
-    "description" "Web moderno, Mobile nativo, Developer tools e qualità del codice"
+    "description" (i18n "topic_web_desc" | default "Web moderno, Mobile nativo, Developer tools e qualità del codice")
     "emoji"       "📱"
     "color"       "secondary"
   )
@@ -29,9 +35,9 @@
 
 <section class="section section--padded homeSessions">
   <div class="homeSessions-header">
-    <h2 class="h2 homeSessions-title">Le Track del DevFest 2026</h2>
+    <h2 class="h2 homeSessions-title">{{ printf (i18n "sessionsTeaserTitle") $year }}</h2>
     <p class="p homeSessions-subtitle">
-      {{ len $allSessions }} sessioni su 3 aree tematiche &mdash; trovi il tuo argomento.
+      {{ printf (i18n "sessionsTeaserSubtitle") (len $allSessions) | safeHTML }}
     </p>
   </div>
 
@@ -39,17 +45,17 @@
     {{ range $topic := $topics }}
       {{ $topicSessions := where $allSessions "Params.topic" $topic.key }}
 
-      <a class="homeSessions-card homeSessions-card--{{ $topic.color }}" href="/{{ $year }}/sessions/">
+      <a class="homeSessions-card homeSessions-card--{{ $topic.color }}" href="{{ printf "/%s/sessions/#track-%s" $year (urlize $topic.key) | relLangURL }}">
         <div class="homeSessions-cardEmoji" aria-hidden="true">{{ $topic.emoji }}</div>
-        <div class="homeSessions-cardTrack">{{ len $topicSessions }} sessioni</div>
+        <div class="homeSessions-cardTrack">{{ printf (i18n "sessionCount") (len $topicSessions) }}</div>
         <h3 class="homeSessions-cardTitle">{{ $topic.label }}</h3>
         <p class="homeSessions-cardDesc">{{ $topic.description }}</p>
-        <span class="homeSessions-cardCta">Scopri &rarr;</span>
+        <span class="homeSessions-cardCta">{{ i18n "explore" | safeHTML }}</span>
       </a>
     {{ end }}
   </div>
 
   <div class="homeSessions-footer">
-    <a class="button" href="/{{ $year }}/sessions/">Esplora tutte le {{ len $allSessions }} sessioni</a>
+    <a class="button" href="{{ printf "/%s/sessions/" $year | relLangURL }}">{{ printf (i18n "exploreAllSessions") (len $allSessions) }}</a>
   </div>
 </section>

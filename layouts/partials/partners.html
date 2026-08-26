@@ -24,9 +24,9 @@
 
 <section class="partner-section section section--padded">
   <div class="partner-header">
-    <h2 class="h2 partner-title-section">I Nostri Partner &amp; Sponsor</h2>
+    <h2 class="h2 partner-title-section">{{ i18n "partnersTitle" }}</h2>
     <p class="p partner-subtitle-section">
-      I partner e gli sponsor che sostengono l'edizione {{ $yearStr }} del DevFest Modena:
+      {{ printf (i18n "partnersSubtitle") $yearStr }}
     </p>
   </div>
 
@@ -47,6 +47,7 @@
             {{ $external := .link }}
 
             {{ $page := site.GetPage (printf "%s/partners/%s" $yearStr $code) }}
+            {{ if not $page }}{{ $page = (index site.Sites 0).GetPage (printf "%s/partners/%s" $yearStr $code) }}{{ end }}
             {{ $hasContent := and $page (gt $page.WordCount 0) }}
 
             {{ $utm := site.Params.utm | default "" }}
