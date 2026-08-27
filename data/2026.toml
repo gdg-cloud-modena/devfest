@@ -2,6 +2,23 @@ days = [2026-10-03, 2026-10-04]
 participants = 600
 utm = "utm_source=website&utm_medium=referral&utm_campaign=devfest_modena_2026"
 
+# Speakers pinned to the front of the homepage speakers wall, in this order.
+# Anyone not listed follows, in session order.
+featuredSpeakers = [
+  "riccardo-carlesso",
+  "ashita-prasad",
+  "adi-mazor-kario",
+  "katya-vinnichenko",
+  "danny-preussler",
+  "etienne-bernard",
+  "matthew-christiansen",
+  "gregorio-palama",
+  "francesco-sciuti",
+  "tamas-piros",
+  "rustam-mehmandarov",
+]
+
+
 # Community index
 
 communities = [

@@ -1,0 +1,84 @@
+{{/*
+  Event structured data for a single talk, linked to its edition via superEvent.
+  Sessions are the pages people reach from search on a topic, so they are worth
+  marking up individually.
+
+  Unscheduled sessions omit startDate: an Event with no date is still valid, and
+  a made-up date would be worse than none.
+
+  @return {maps}  Ready for jsonify
+*/}}
+{{- $seo := partialCached "lookup/seo" . .Permalink -}}
+{{- $edition := $seo.edition -}}
+{{- $venue := site.Params.venue -}}
+{{- $rooms := partial "lookup/session-rooms" (dict "year" $edition "codes" .Params.rooms) -}}
+
+{{- $place := dict
+  "@type" "Place"
+  "name"  $venue.name
+  "address" (dict
+    "@type"           "PostalAddress"
+    "streetAddress"   $venue.street
+    "addressLocality" $venue.city
+    "postalCode"      $venue.postalCode
+    "addressRegion"   $venue.region
+    "addressCountry"  $venue.country
+  )
+-}}
+{{- with $rooms -}}
+  {{/* Name the room, keeping the venue address — that is what a Place needs. */}}
+  {{- $place = merge $place (dict "name" (printf "%s — %s" $venue.name (index . 0).Title)) -}}
+{{- end -}}
+
+{{- $performers := slice -}}
+{{- range .Params.speakers -}}
+  {{- with partial "lookup/page" (printf "/speakers/%s" .) -}}
+    {{- $performers = $performers | append (dict "@type" "Person" "name" .Title "url" .Permalink) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $session := dict
+  "@context"            "https://schema.org"
+  "@type"               "Event"
+  "name"                .Title
+  "description"         $seo.description
+  "url"                 .Permalink
+  "eventStatus"         "https://schema.org/EventScheduled"
+  "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode"
+  "isAccessibleForFree" true
+  "location"            $place
+  "organizer" (dict
+    "@type" "Organization"
+    "name"  site.Params.author
+    "url"   site.Home.Permalink
+  )
+  "superEvent" (dict
+    "@type" "Event"
+    "name"  $seo.siteName
+    "url"   site.Home.Permalink
+  )
+-}}
+
+{{- with .Params.starts -}}
+  {{- $session = merge $session (dict "startDate" ((time .).Format "2006-01-02T15:04:05-07:00")) -}}
+{{- end -}}
+{{- with .Params.ends -}}
+  {{- $session = merge $session (dict "endDate" ((time .).Format "2006-01-02T15:04:05-07:00")) -}}
+{{- end -}}
+{{/* Front matter stores the language for display ("Italiano"); schema.org
+     wants a BCP-47 code. */}}
+{{- $langCodes := dict "Italiano" "it" "Italian" "it" "English" "en" "Inglese" "en" -}}
+{{- with .Params.language -}}
+  {{- $session = merge $session (dict "inLanguage" (default . (index $langCodes .))) -}}
+{{- end -}}
+{{- with .Params.topic -}}
+  {{- $session = merge $session (dict "about" .) -}}
+{{- end -}}
+{{- with $performers -}}
+  {{- $session = merge $session (dict "performer" .) -}}
+{{- end -}}
+{{- with $seo.image -}}
+  {{- $session = merge $session (dict "image" (slice .Permalink)) -}}
+{{- end -}}
+
+{{- return $session -}}

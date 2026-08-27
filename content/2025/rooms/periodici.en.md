@@ -2,11 +2,11 @@
 title = "Periodici"
 date = 2025-09-10
 draft = false
-summary = "Seconda sala workshop raggiungibile dal Corridoio Onore"
+summary = "Second workshop room accessible from the Corridoio d'Onore"
 weight = 5
 forSessions = true
 +++
 
-Seconda sala raggiungibile dal Corridoio Onore, dedicata ai workshop.
+The second room accessible from the Corridoio d'Onore, reserved for workshops.
 
-Capienza per 16 persone.
+Capacity: 16 people.

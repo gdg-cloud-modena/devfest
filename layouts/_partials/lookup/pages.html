@@ -1,0 +1,17 @@
+{{/*
+  Resolve the child pages of a section, falling back to the default-language
+  site when the current language has no (or an empty) copy of that section.
+
+  @param  {string} path  Absolute section path, e.g. "/2026/sessions"
+  @return {page.Pages}   Empty slice when the section does not exist at all
+*/}}
+{{- $pages := slice -}}
+{{- with partial "lookup/page" . -}}
+  {{- $pages = .Pages -}}
+{{- end -}}
+{{- if eq (len $pages) 0 -}}
+  {{- with (index site.Sites 0).GetPage . -}}
+    {{- $pages = .Pages -}}
+  {{- end -}}
+{{- end -}}
+{{- return $pages -}}

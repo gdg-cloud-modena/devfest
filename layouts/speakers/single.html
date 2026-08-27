@@ -1,189 +1,80 @@
 {{ define "main" }}
+{{- $slug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
+{{- $portrait := (partial "lookup/speaker-image" $slug).Fit "600x600 q100" -}}
+{{- $sessions := where (partialCached "lookup/sessions" "all") "Params.speakers" "intersect" (slice $slug) -}}
+
 <main class="section section--padded">
   <div class="speaker">
-    {{- $speakerSlug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
+    {{/* One H1, placed by CSS: above the photo on mobile, beside it on desktop. */}}
+    <h1 class="h1 speaker-title">{{ .Title }}</h1>
 
     <div class="speaker-sidebar">
-      <div class="speaker-title--sidebar">
-        <h1 class="h1">{{ .Title }}</h1>
-      </div>
       <div class="speaker-imageContainer">
-        {{ $img := resources.Get (printf "speakers/%s.jpg" $speakerSlug) }}
-        {{ if not $img }}
-        {{ $img = resources.Get (printf "speakers/%s.png" $speakerSlug) }}
-        {{ end }}
-
-        {{ if $img }}
-        {{ $processedImage := $img.Fit "600x600 q100" }}
-        <img class="speakerImage" src="{{ $processedImage.RelPermalink }}" alt="{{ .Title }}">
-        {{ end }}
+        <img class="speakerImage" src="{{ $portrait.RelPermalink }}" width="{{ $portrait.Width }}" height="{{ $portrait.Height }}" alt="{{ .Title }}">
       </div>
 
       <div class="speaker-details">
-        {{- with .Params.role -}}
-        <div class="speaker-details--role">
-          <strong>{{ i18n "role" }}:</strong> {{ . }}
-        </div>
+        {{- with .Params.role }}
+        <div class="speaker-details--role"><strong>{{ i18n "role" }}</strong> {{ . }}</div>
         {{- end }}
 
-        {{- with .Params.company -}}
-        <div class="speaker-details--company">
-          <strong>{{ i18n "company" }}:</strong> {{ . }}
-        </div>
+        {{- with .Params.company }}
+        <div class="speaker-details--company"><strong>{{ i18n "company" }}</strong> {{ . }}</div>
         {{- end }}
 
-        {{- with .Params.social -}}
+        {{- with .Params.social }}
+        {{- $links := slice
+          (dict "url" .linkedin  "icon" "logo-linkedin-black.svg"  "label" "LinkedIn")
+          (dict "url" .github    "icon" "logo-github-black.svg"    "label" "GitHub")
+          (dict "url" (or .twitter .x) "icon" "logo-twitter-black.svg" "label" "X / Twitter")
+          (dict "url" .website   "icon" "logo-website-black.svg"   "label" "Website")
+          (dict "url" .facebook  "icon" "logo-facebook-black.svg"  "label" "Facebook")
+          (dict "url" .instagram "icon" "logo-instagram-black.svg" "label" "Instagram")
+        -}}
         <div class="speaker-details--social">
-          {{- with .linkedin -}}
-          {{ if ne . "" }}
-          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img src="/icons/logo-linkedin-black.svg" width="24" height="24" alt="LinkedIn" />
+          {{- range $link := $links }}
+          {{- with $link.url }}
+          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="{{ $link.label }}">
+            <img src="/icons/{{ $link.icon }}" width="24" height="24" alt="{{ $link.label }}">
           </a>
-          {{ end }}
-          {{- end -}}
-
-          {{- with .github -}}
-          {{ if ne . "" }}
-          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="GitHub">
-            <img src="/icons/logo-github-black.svg" width="24" height="24" alt="GitHub" />
-          </a>
-          {{ end }}
-          {{- end -}}
-
-          {{- $twitter := or .twitter .x -}}
-          {{- with $twitter -}}
-          {{ if ne . "" }}
-          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="X / Twitter">
-            <img src="/icons/logo-twitter-black.svg" width="24" height="24" alt="Twitter" />
-          </a>
-          {{ end }}
-          {{- end -}}
-
-          {{- with .website -}}
-          {{ if ne . "" }}
-          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="Website">
-            <img src="/icons/logo-website-black.svg" width="24" height="24" alt="Website" />
-          </a>
-          {{ end }}
-          {{- end -}}
-
-          {{- with .facebook -}}
-          {{ if ne . "" }}
-          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="Facebook">
-            <img src="/icons/logo-facebook-black.svg" width="24" height="24" alt="Facebook" />
-          </a>
-          {{ end }}
-          {{- end -}}
-
-          {{- with .instagram -}}
-          {{ if ne . "" }}
-          <a class="speaker-socialLink" href="{{ . }}" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="/icons/logo-instagram-black.svg" width="24" height="24" alt="Instagram" />
-          </a>
-          {{ end }}
-          {{- end -}}
+          {{- end }}
+          {{- end }}
         </div>
-        {{- end -}}
+        {{- end }}
       </div>
-
     </div>
 
     <div class="speaker-bio">
-      <div class="speaker-title--bio">
-        <h1 class="h1">{{ .Title }}</h1>
-      </div>
       <div class="content">
         {{ .Content }}
       </div>
 
       <h2 class="h2">{{ i18n "sessions" }}</h2>
 
-      {{- $allSessions := slice -}}
-      {{- $sessionSlugsSeen := dict -}}
-      {{- range site.RegularPages -}}
-        {{- if in .File.Dir "sessions/" -}}
-          {{- $allSessions = $allSessions | append . -}}
-          {{- $sessionSlugsSeen = merge $sessionSlugsSeen (dict .File.TranslationBaseName true) -}}
-        {{- end -}}
-      {{- end -}}
-      {{- range (index site.Sites 0).RegularPages -}}
-        {{- if in .File.Dir "sessions/" -}}
-          {{- if not (index $sessionSlugsSeen .File.TranslationBaseName) -}}
-            {{- $allSessions = $allSessions | append . -}}
-          {{- end -}}
-        {{- end -}}
-      {{- end -}}
-
-      {{- $bySpeaker := slice -}}
-      {{- range $s := $allSessions -}}
-        {{- if in $s.Params.speakers $speakerSlug -}}
-          {{- $bySpeaker = $bySpeaker | append $s -}}
-        {{- end -}}
-      {{- end -}}
-
-      {{- if gt (len $bySpeaker) 0 -}}
-      {{- $groups := dict -}}
-      {{- range $s := $bySpeaker -}}
-        {{- $dt := time (or ($s.Param "starts") $s.Date) -}}
-        {{- $year := printf "%v" (or ($s.Param "year") ($dt.Format "2006")) -}}
-        {{- $list := cond (isset $groups $year) (index $groups $year) (slice) -}}
-        {{- $list = $list | append $s -}}
-        {{- $groups = merge $groups (dict $year $list) -}}
-      {{- end -}}
-
-      {{- $years := slice -}}
-      {{- range $k, $_ := $groups -}}
-        {{- $years = $years | append $k -}}
-      {{- end -}}
-      {{- $years = sort $years "value" "desc" -}}
-
-      {{- range $y := $years -}}
-      {{- $sessions := index $groups $y -}}
-      {{- $sessions = sort $sessions "Params.starts" "asc" -}}
-
-      {{- $rooms := dict -}}
-      {{- $roomsPage := site.GetPage (printf "/%s/rooms" $y) -}}
-      {{- if not $roomsPage }}{{ $roomsPage = (index site.Sites 0).GetPage (printf "/%s/rooms" $y) }}{{ end }}
-      {{- with $roomsPage -}}
-        {{- range .Pages -}}
-          {{- $rooms = merge $rooms (dict .File.TranslationBaseName .) -}}
-        {{- end -}}
-      {{- end -}}
-
-      <h3 class="h3">{{ $y }}</h3>
+      {{- if $sessions -}}
+      {{- range $group := $sessions.GroupByParam "year" "desc" }}
+      <h3 class="h3">{{ $group.Key }}</h3>
       <ul class="sessions">
-        {{- range $session := $sessions -}}
-        {{ $starts := $session.Param "starts" }}
-        {{/* Prepare the room list */}}
-        {{ $roomNames := slice }}
-        {{ range $code := $session.Params.rooms }}
-          {{ $room := index $rooms $code }}
-          {{ if $room }}
-            {{ $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) }}
-          {{ end }}
-        {{ end }}
-        {{ $roomsHTML := delimit $roomNames ", " }}
-
+        {{- range $session := sort $group.Pages "Params.starts" "asc" }}
+        {{- $rooms := partial "lookup/session-rooms" (dict "year" (printf "%v" $group.Key) "codes" $session.Params.rooms) }}
         <li class="sessions-item">
-          {{ if $starts }}
-          {{ $dt := time $starts }}
-          <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a
-              class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
-          {{ else }}
-          <p class="sessions-itemHead"><a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
-          {{ end }}
-          {{ if gt (len $roomNames) 0 }}
-          <p class="sessions-itemDetails">
-            {{ if eq (len $roomNames) 1 }}{{ i18n "room" }} {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}{{ i18n "roomsParallel" }} {{ $roomsHTML | safeHTML }}{{ end }}
+          <p class="sessions-itemHead">
+            {{- with $session.Param "starts" }}{{ time.Format "15:04" . }}-{{ $session.Params.ends | time.Format "15:04" }} · {{ end -}}
+            <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
           </p>
-          {{ end }}
+          {{- with $rooms }}
+          <p class="sessions-itemDetails">
+            {{ if eq (len .) 1 }}{{ i18n "room" }}{{ else }}{{ i18n "roomsParallel" }}{{ end }}
+            {{ range $i, $room := . }}{{ if $i }}, {{ end }}<a class="link" href="{{ $room.RelPermalink }}">{{ $room.Title }}</a>{{ end }}
+          </p>
+          {{- end }}
         </li>
-        {{- end -}}
+        {{- end }}
       </ul>
-      {{- end -}}
-      {{- else -}}
+      {{- end }}
+      {{- else }}
       <p class="p">{{ printf (i18n "noSessionsFound") .Title }}</p>
-      {{- end -}}
+      {{- end }}
     </div>
   </div>
 </main>

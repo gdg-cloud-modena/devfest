@@ -1,0 +1,18 @@
+{{/*
+  The track a session belongs to, matched on its `topic` front matter value.
+
+  Sessions with no topic, or a topic that is not in data/tracks.toml, still need
+  to render — they fall back to the first track's colour rather than producing an
+  empty modifier class.
+
+  @param  {string} topic  A session's `topic` value
+  @return {maps}          A track: key, emoji, color, description
+*/}}
+{{- $tracks := partial "lookup/tracks" . -}}
+{{- $track := merge (index $tracks 0) (dict "key" . "emoji" "" "description" "") -}}
+{{- range $tracks -}}
+  {{- if eq .key $ -}}
+    {{- $track = . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $track -}}

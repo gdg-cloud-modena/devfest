@@ -1,0 +1,11 @@
+{{/*
+  The session tracks from data/tracks.toml, with each track's description
+  resolved from its i18n key so templates can render it directly.
+
+  @return {[]maps}  Each: key, emoji, color, description (translated)
+*/}}
+{{- $tracks := slice -}}
+{{- range site.Data.tracks.tracks -}}
+  {{- $tracks = $tracks | append (merge . (dict "description" (i18n .description))) -}}
+{{- end -}}
+{{- return $tracks -}}

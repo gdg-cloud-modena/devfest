@@ -30,18 +30,18 @@
             <div class="location-grid">
                 <div class="location-infoCard">
                     <div class="location-infoItem">
-                        <strong>{{ i18n "address" }}:</strong>
+                        <strong>{{ i18n "address" }}</strong>
                         <div class="location-addressBlock">
                             <span class="location-addressVenue">{{ .Params.introduction.title }}</span>
                             <span class="location-addressDetail">{{ .Params.introduction.address }}</span>
                         </div>
                     </div>
                     <div class="location-infoItem">
-                        <strong>{{ i18n "officialWebsite" }}:</strong>
+                        <strong>{{ i18n "officialWebsite" }}</strong>
                         <p><a class="link" href="{{ .Params.introduction.website }}" target="_blank" rel="noopener noreferrer">Fondazione San Carlo &rarr;</a></p>
                     </div>
                     <div class="location-infoItem">
-                        <strong>{{ i18n "accessibility" }}:</strong>
+                        <strong>{{ i18n "accessibility" }}</strong>
                         <p class="p">{{ i18n "accessibilityDesc" }}</p>
                     </div>
                     <div class="location-infoItem location-infoItem--action">
@@ -113,9 +113,9 @@
                 <div class="location-card">
                     <div>
                         <h3 class="h3 location-cardTitle">{{ .title }}</h3>
-                        <p class="p"><strong>{{ i18n "address" }}:</strong> {{ .address }}</p>
-                        <p class="p"><strong>{{ i18n "walkingDistance" }}:</strong> {{ .distance }}</p>
-                        <p class="p"><strong>{{ i18n "notes" }}:</strong> {{ .description }}</p>
+                        <p class="p"><strong>{{ i18n "address" }}</strong> {{ .address }}</p>
+                        <p class="p"><strong>{{ i18n "walkingDistance" }}</strong> {{ .distance }}</p>
+                        <p class="p"><strong>{{ i18n "notes" }}</strong> {{ .description }}</p>
                     </div>
                     <a href="{{ .link }}" class="link location-cardLink" target="_blank" rel="noopener noreferrer">{{ i18n "openOnMaps" }} &rarr;</a>
                 </div>
@@ -131,9 +131,9 @@
                 <div class="location-card">
                     <div>
                         <h3 class="h3 location-cardTitle">{{ .title }}</h3>
-                        <p class="p"><strong>{{ i18n "distance" }}:</strong> {{ .distance }}</p>
-                        <p class="p"><strong>{{ i18n "walkingTime" }}:</strong> {{ .time }}</p>
-                        <p class="p"><strong>{{ i18n "route" }}:</strong> {{ .description }}</p>
+                        <p class="p"><strong>{{ i18n "distance" }}</strong> {{ .distance }}</p>
+                        <p class="p"><strong>{{ i18n "walkingTime" }}</strong> {{ .time }}</p>
+                        <p class="p"><strong>{{ i18n "route" }}</strong> {{ .description }}</p>
                     </div>
                     <a href="{{ .link }}" class="link location-cardLink" target="_blank" rel="noopener noreferrer">{{ i18n "routeOnMaps" }} &rarr;</a>
                 </div>
@@ -148,8 +148,8 @@
                 {{ range .Params.airplane }}
                 <div class="location-card">
                     <h3 class="h3 location-cardTitle">{{ .title }}</h3>
-                    <p class="p"><strong>{{ i18n "distance" }}:</strong> {{ .distance }}</p>
-                    <p class="p"><strong>{{ i18n "directions" }}:</strong> {{ .suggestion }}</p>
+                    <p class="p"><strong>{{ i18n "distance" }}</strong> {{ .distance }}</p>
+                    <p class="p"><strong>{{ i18n "directions" }}</strong> {{ .suggestion }}</p>
                 </div>
                 {{ end }}
             </div>

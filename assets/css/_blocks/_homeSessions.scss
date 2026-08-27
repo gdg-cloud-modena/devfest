@@ -55,7 +55,7 @@
 
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 10px 24px rgba(colors.$black, 0.12);
       text-decoration: none;
       color: colors.$black;
     }
@@ -86,11 +86,6 @@
     &:hover { border-color: colors.$quaternary; }
   }
 
-  .homeSessions-card--info {
-    background-color: colors.$info--2;
-    &:hover { border-color: colors.$info; }
-  }
-
   .homeSessions-cardEmoji {
     font-size: 2rem;
     line-height: 1;
@@ -110,26 +105,6 @@
     line-height: 1.3;
     margin: 0;
     flex-grow: 1;
-  }
-
-  .homeSessions-cardSpeaker {
-    display: flex;
-    align-items: center;
-    gap: spaces.$space-2xs;
-    margin-top: spaces.$space-xs;
-  }
-
-  .homeSessions-cardAvatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .homeSessions-cardSpeakerName {
-    font-size: fonts.$size--1;
-    font-weight: bold;
   }
 
   .homeSessions-cardCta {

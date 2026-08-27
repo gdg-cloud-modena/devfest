@@ -1,0 +1,17 @@
+{{/*
+  Resolve a partner's logo from assets/<year>/partners/<code>.<ext>. Sponsors
+  send logos in whatever format they have, so all three are tried.
+
+  Returns nothing when there is no logo — callers render a text placeholder.
+
+  @param  {string} year  Edition, e.g. "2026"
+  @param  {string} code  Partner code, e.g. "google"
+  @return {resource.Resource|nil}
+*/}}
+{{- $img := "" -}}
+{{- range $ext := slice "png" "jpg" "webp" -}}
+  {{- if not $img -}}
+    {{- $img = resources.Get (printf "%s/partners/%s.%s" $.year $.code $ext) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $img -}}

@@ -16,4 +16,4 @@ workshop = true
 
 Ever wanted to build your own gemini.google.com with way more personality? ✨ In this workshop, you'll take a sample Rails application and infuse it with the magic of Gemini. We'll start by adding some flair with fun AI image generation 🖼️. Then, we'll build the technical centerpiece: your own Model Context Protocol (MCP) server. This MCP 🔌 will expose your ActiveRecord models, allowing your local editor (or Gemini CLI) to query your database using natural language!
 
-Go to the [workshop instructions](/en/workshops/) page to participate.
+Go to the [workshop instructions](/workshops/) page to participate.

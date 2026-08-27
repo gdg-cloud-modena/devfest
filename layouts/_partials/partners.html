@@ -1,86 +1,59 @@
 {{/*
-  Renders the partners grid for the current edition.
-  Conventions:
-  - Data is in site.Data[year] with .levels and .partners
-  - Sponsors now are in content/partners
-  - Logos path (when available): assets/${year}/partners/{code}.{png|jpg|webp}
-  - When logo not found, render a placeholder.
+  Partners grid for the current edition, grouped by sponsorship level.
+
+  Levels and partners come from data/<year>.toml. A partner links to its own
+  page under content/<year>/partners when it has one, otherwise straight out to
+  its site with the edition's UTM parameters appended.
 */}}
-
-{{ $year := site.Params.currentEdition | default (now.Format "2006") }}
-{{ $yearStr := printf "%v" $year }}
-{{ $dataset := index site.Data $yearStr }}
-{{ if not $dataset }}
-  {{/* No data for year - nothing to render */}}
-  {{ return }}
-{{ end }}
-
-{{/* Access via index to avoid type issues, then sort */}}
-{{ $levelsRaw := index $dataset "levels" }}
-{{ $partners := index $dataset "partners" }}
-{{ if not $levelsRaw }}{{ return }}{{ end }}
-{{ if not $partners }}{{ return }}{{ end }}
-{{ $levels := sort $levelsRaw "weight" "asc" }}
+{{- $year := printf "%v" site.Params.currentEdition -}}
+{{- $dataset := index site.Data $year -}}
+{{- $levels := and $dataset (index $dataset "levels") -}}
+{{- $partners := and $dataset (index $dataset "partners") -}}
+{{- if not (and $levels $partners) }}{{ return }}{{ end -}}
 
 <section class="partner-section section section--padded">
   <div class="partner-header">
     <h2 class="h2 partner-title-section">{{ i18n "partnersTitle" }}</h2>
-    <p class="p partner-subtitle-section">
-      {{ printf (i18n "partnersSubtitle") $yearStr }}
-    </p>
+    <p class="p partner-subtitle-section">{{ printf (i18n "partnersSubtitle") $year }}</p>
   </div>
 
-  {{ range $level := $levels }}
-    {{ $code := $level.code }}
-    {{ $items := where $partners "level" $code }}
+  {{ range $level := sort $levels "weight" "asc" }}
+  <div class="partners partners--{{ $level.code }}">
+    <div class="partners-levelHeader">
+      <span class="partners-levelBadge partners-levelBadge--{{ $level.code }}">{{ $level.title }}</span>
+    </div>
 
-    <div class="partners partners--{{ $code }}">
-      <div class="partners-levelHeader">
-        <span class="partners-levelBadge partners-levelBadge--{{ $code }}">{{ $level.title }}</span>
-      </div>
+    {{ with where $partners "level" $level.code }}
+    <div class="partners-grid partners-grid--{{ $level.code }}">
+      {{ range $partner := . }}
+      {{- $page := partial "lookup/page" (printf "/%s/partners/%s" $year $partner.code) -}}
+      {{- $internal := and $page (gt $page.WordCount 0) -}}
+      {{- $url := $partner.link -}}
+      {{- if $internal -}}
+        {{- $url = $page.RelPermalink -}}
+      {{- else -}}
+        {{- with site.Params.utm -}}
+          {{- $utm := replaceRE `\b20\d{2}\b` $year . -}}
+          {{- $url = printf "%s%s%s" $url (cond (in $url "?") "&" "?") $utm -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $logo := partial "lookup/partner-logo" (dict "year" $year "code" $partner.code) -}}
 
-      {{ if gt (len $items) 0 }}
-        <div class="partners-grid partners-grid--{{ $code }}">
-          {{ range $items }}
-            {{ $name := .name }}
-            {{ $code := .code }}
-            {{ $external := .link }}
-
-            {{ $page := site.GetPage (printf "%s/partners/%s" $yearStr $code) }}
-            {{ if not $page }}{{ $page = (index site.Sites 0).GetPage (printf "%s/partners/%s" $yearStr $code) }}{{ end }}
-            {{ $hasContent := and $page (gt $page.WordCount 0) }}
-
-            {{ $utm := site.Params.utm | default "" }}
-            {{ $utm = replaceRE `\b20\d{2}\b` $yearStr $utm }}
-            {{ if $utm }}
-              {{ $sep := "?" }}
-              {{ if in $external "?" }}{{ $sep = "&" }}{{ end }}
-              {{ $external = printf "%s%s%s" $external $sep $utm }}
-            {{ end }}
-
-            {{ $url := cond $hasContent $page.RelPermalink $external }}
-
-            {{/* Try to load logo (png, jpg, webp) */}}
-            {{ $img := resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.png" $code)) }}
-            {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.jpg" $code)) }}{{ end }}
-            {{ if not $img }}{{ $img = resources.Get (printf "%s/%s/%s" $yearStr "partners" (printf "%s.webp" $code)) }}{{ end }}
-
-            <a class="partner-card" href="{{ $url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $name }}" title="{{ $name }}">
-              <div class="partner-logoWrapper">
-                {{ if $img }}
-                  {{ $res := $img.Fit "360x180 webp q85" }}
-                  <img class="partner-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $name }}" loading="lazy">
-                {{ else }}
-                  <span class="partner-logoPlaceholder">
-                    {{ $name }}
-                  </span>
-                {{ end }}
-              </div>
-              <span class="partner-name">{{ $name }}</span>
-            </a>
+      {{/* Only outbound links open in a new tab. */}}
+      <a class="partner-card" href="{{ $url }}"{{ if not $internal }} target="_blank" rel="noopener noreferrer"{{ end }} title="{{ $partner.name }}">
+        <div class="partner-logoWrapper">
+          {{ with $logo }}
+          {{- $res := .Fit "360x180 webp q85" -}}
+          <img class="partner-logo" src="{{ $res.RelPermalink }}" width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $partner.name }}" loading="lazy">
+          {{ else }}
+          <span class="partner-logoPlaceholder">{{ $partner.name }}</span>
           {{ end }}
         </div>
+        <span class="partner-name">{{ $partner.name }}</span>
+      </a>
       {{ end }}
     </div>
+    {{ end }}
+  </div>
   {{ end }}
 </section>

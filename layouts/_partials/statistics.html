@@ -1,63 +1,48 @@
-{{ $year := "2025" }}
-{{ $sessionsPage := site.GetPage (printf "/%s/sessions" $year) }}
-{{ $sessionsList := slice }}
-{{ if $sessionsPage }}{{ $sessionsList = $sessionsPage.Pages }}{{ end }}
-{{ if eq (len $sessionsList) 0 }}
-  {{ with (index site.Sites 0).GetPage (printf "/%s/sessions" $year) }}
-    {{ $sessionsList = .Pages }}
-  {{ end }}
-{{ end }}
-{{ $workshopLen := len (where $sessionsList "Params.workshop" true)}}
-{{ $agenda := index site.Data $year }}
-{{ $roomsPage := site.GetPage (printf "/%s/rooms" $year) }}
-{{ if not $roomsPage }}{{ $roomsPage = (index site.Sites 0).GetPage (printf "/%s/rooms" $year) }}{{ end }}
-{{ $rooms := 0 }}
-{{ with $roomsPage }}
-  {{ $rooms = len (where .Pages "Params.forSessions" true) }}
-{{ end }}
-{{ $participants := cond $agenda $agenda.participants 600 }}
+{{/*
+  "Last edition in numbers" panel on the homepage.
+
+  The edition is derived from the current one rather than hard-coded, so this
+  keeps pointing at the right year without an annual edit. Every figure is
+  counted from content or read from the edition data — there are no fixed
+  numbers to go stale.
+*/}}
+{{- $year := printf "%v" (sub site.Params.currentEdition 1) -}}
+{{- $edition := index site.Data $year -}}
+
+{{- if $edition -}}
+{{- $sessions := partial "lookup/pages" (printf "/%s/sessions" $year) -}}
+{{- $speakers := slice -}}
+{{- range $sessions -}}
+  {{- range .Params.speakers -}}
+    {{- if not (in $speakers .) -}}{{- $speakers = $speakers | append . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $rooms := len (where (partial "lookup/pages" (printf "/%s/rooms" $year)) "Params.forSessions" true) -}}
+{{- $workshops := len (where $sessions "Params.workshop" true) -}}
+
+{{- $cards := slice
+  (dict "modifier" "participants" "icon" "people"   "value" $edition.participants "suffix" "+" "label" "statAttendees" "desc" "statAttendeesDesc")
+  (dict "modifier" "speakers"     "icon" "speakers" "value" (len $speakers)        "label" "statSpeakers"  "desc" "statSpeakersDesc")
+  (dict "modifier" "workshops"    "icon" "workshop" "value" $workshops             "label" "statWorkshops" "desc" "statWorkshopsDesc")
+  (dict "modifier" "rooms"        "icon" "room"     "value" $rooms                 "label" "statRooms"     "desc" "statRoomsDesc")
+-}}
 
 <div class="statistics-header">
   <h2 class="h2 statistics-title">{{ printf (i18n "statsTitle") $year }}</h2>
-  <p class="p statistics-subtitle">
-    {{ i18n "statsSubtitle" }}
-  </p>
+  <p class="p statistics-subtitle">{{ i18n "statsSubtitle" }}</p>
 </div>
 
 <div class="statistics-grid">
-  <div class="statistics-card statistics-card--participants">
+  {{ range $cards }}
+  <div class="statistics-card statistics-card--{{ .modifier }}">
     <div class="statistics-iconWrapper">
-      <img class="statistics-icon" src="/icons/people.svg" alt="Participants" width="32" height="32">
+      {{/* Decorative: the label right below already names the figure. */}}
+      <img class="statistics-icon" src="/icons/{{ .icon }}.svg" alt="" width="32" height="32">
     </div>
-    <div class="statistics-number">{{ $participants }}+</div>
-    <div class="statistics-label">{{ i18n "statAttendees" }}</div>
-    <p class="statistics-desc">{{ i18n "statAttendeesDesc" }}</p>
+    <div class="statistics-number">{{ .value }}{{ with .suffix }}{{ . | safeHTML }}{{ end }}</div>
+    <div class="statistics-label">{{ i18n .label }}</div>
+    <p class="statistics-desc">{{ i18n .desc }}</p>
   </div>
-
-  <div class="statistics-card statistics-card--speakers">
-    <div class="statistics-iconWrapper">
-      <img class="statistics-icon" src="/icons/speakers.svg" alt="Speakers" width="32" height="32">
-    </div>
-    <div class="statistics-number">50+</div>
-    <div class="statistics-label">{{ i18n "statSpeakers" }}</div>
-    <p class="statistics-desc">{{ i18n "statSpeakersDesc" }}</p>
-  </div>
-
-  <div class="statistics-card statistics-card--workshops">
-    <div class="statistics-iconWrapper">
-      <img class="statistics-icon" src="/icons/workshop.svg" alt="Workshops" width="32" height="32">
-    </div>
-    <div class="statistics-number">{{ if gt $workshopLen 0 }}{{ $workshopLen }}{{ else }}6{{ end }}</div>
-    <div class="statistics-label">{{ i18n "statWorkshops" }}</div>
-    <p class="statistics-desc">{{ i18n "statWorkshopsDesc" }}</p>
-  </div>
-
-  <div class="statistics-card statistics-card--rooms">
-    <div class="statistics-iconWrapper">
-      <img class="statistics-icon" src="/icons/room.svg" alt="Rooms" width="32" height="32">
-    </div>
-    <div class="statistics-number">{{ if gt $rooms 0 }}{{ $rooms }}{{ else }}3{{ end }}</div>
-    <div class="statistics-label">{{ i18n "statRooms" }}</div>
-    <p class="statistics-desc">{{ i18n "statRoomsDesc" }}</p>
-  </div>
+  {{ end }}
 </div>
+{{- end -}}

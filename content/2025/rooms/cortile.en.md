@@ -2,13 +2,13 @@
 title = "Cortile"
 date = 2025-09-10
 draft = false
-summary = "Cortile interno per networking e pause"
+summary = "Inner courtyard for networking and breaks"
 weight = 8
 forSessions = false
 +++
 
-Il cortile interno è dedicato a:
+The inner courtyard is used for:
 
-- [Speed networking](/speed-networking/), per conoscere nuove persone.
-- Coffe break durante la giornata.
-- [Pausa pranzo](/2025/sessions/lunch/), offerta dagli sponsor.
+- [Speed networking](/speed-networking/) and meeting new people.
+- Coffee breaks throughout the day.
+- [Lunch break](/2025/sessions/pranzo/), provided by the sponsors.

@@ -9,14 +9,14 @@ link = "https://www.credem.it/"
 
 +++
 
-Credem è una fra le principali banche private italiane, presente a livello nazionale in 19 regioni.
-Siamo una banca attenta al benessere finanziario e di vita delle sue persone, dei suoi fornitori, delle comunità e dell’ambiente in cui opera.
+Credem is one of Italy's leading private banks, with a presence across 19 regions.
+We care about the financial and personal wellbeing of our people, suppliers, communities, and the environment in which we operate.
 
-Questi principi ispirano da tempo le scelte del Gruppo Credem, questo per noi si racchiude in una parola: WELLBANKING.
+These principles have long guided Credem Group's choices. We bring them together in one word: WELLBANKING.
 
-Siamo un Gruppo costituito da 15 società specializzate nelle quale potrai costruire il tuo percorso professionale grazie alle quali affianchiamo alla storica attività di banca commerciale altri business: Private Banking (Credem Euromobiliare Private Banking), Bancassurance (Credemassicurazioni SPA), Asset Management (Euromobiliare SGR e SIM), Factoring (Credem Factor), Leasing (Credem Leasing), Prestiti personali (Avvera), Servizi Digitali (Credemtel).
+Our group comprises 15 specialist companies where people can build their careers. Alongside our longstanding commercial banking business, we operate in private banking (Credem Euromobiliare Private Banking), bancassurance (Credemassicurazioni), asset management (Euromobiliare SGR and SIM), factoring (Credem Factor), leasing (Credem Leasing), personal loans (Avvera), and digital services (Credemtel).
 
-Abbiamo oltre 600 punti vendita tra filiali, centri imprese, negozi finanziari e un Information Technology Department interno, in continua evoluzione.
-Siamo certificati Top Employers Institute, Equal Salary e PDR UNI 125:2022: certificazioni importanti per il benessere e per la parità di genere.
+We have more than 600 locations across branches, business centres, and financial advisory offices, as well as an evolving in-house Information Technology Department.
+Our Top Employers Institute, Equal Salary, and UNI/PdR 125:2022 certifications recognise our commitment to wellbeing and gender equality.
 
-Lavorare in Credem: crediamo che ogni persona abbia caratteristiche che la rendono unica. Ognuno può dare un contributo interessante e di valore. Chi lavora con noi si sente libero di esprimere e realizzare le proprie potenzialità in un ambiente stimolante, inclusivo e sempre aperto al nuovo. Il clima aziendale permette di coltivare relazioni di valore con colleghi e responsabili sempre pronti ad offrire il proprio supporto e a riconoscere ed evidenziare le potenzialità di ognuno. Si chiama benessere ma noi lo chiamiamo Wellbanking.
+Working at Credem means recognising that every person has qualities that make them unique and a valuable contribution to offer. Our people are free to express and realise their potential in a stimulating, inclusive environment that is always open to new ideas. Our culture encourages meaningful relationships with colleagues and managers who are ready to provide support and recognise each person's strengths. Some call it wellbeing; we call it Wellbanking.

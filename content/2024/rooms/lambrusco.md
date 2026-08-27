@@ -1,5 +1,5 @@
 +++
-title = "Tortellino"
+title = "Lambrusco"
 date = 2025-09-10
 draft = false
 summary = "Seconda sala piccola a sinistra"

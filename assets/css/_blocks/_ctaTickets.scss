@@ -21,10 +21,18 @@
   }
 
   .ctaTickets-info {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-    }
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Row of buttons under the copy, wrapping on narrow screens. */
+  .ctaTickets-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spaces.$space-2xs;
+    margin-top: spaces.$space-2xs;
+  }
 
   .ctaTickets-title {
     font-weight: bold;
@@ -45,9 +53,4 @@
   .ctaTickets-image {
     display: none;
   }
-  .ctaTickets-info {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-      }
 }

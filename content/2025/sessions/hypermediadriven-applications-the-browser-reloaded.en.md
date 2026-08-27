@@ -12,8 +12,8 @@ ends = 2025-10-05T12:30:00
 slidesURL = ""
 warning = ""
 +++
-E se ti dicessi che è possibile creare interfacce moderne, dinamiche e reattive, riportando il browser al centro dell’esperienza? In questa sessione esploreremo il paradigma delle Hypermedia-Driven Applications (HDA): un approccio che riscopre le origini di REST e valorizza le capacità native del web, spesso dimenticate, mettendo in risalto fattori importantissimi, come l'accessibilità.
+What if I told you that you can build modern, dynamic, responsive interfaces while putting the browser back at the centre of the experience? In this session, we will explore Hypermedia-Driven Applications (HDA): an approach that returns to the origins of REST and makes the most of the web's often-overlooked native capabilities, including essential qualities such as accessibility.
 
-Vedremo assieme come, con l’aiuto di HTMX e di un adeguato backend, si possa costruire applicazioni web interattive riducendo drasticamente (e felicemente?) la dipendenza da JavaScript.
+Together, we will see how HTMX and a suitable backend can create interactive web applications while dramatically—and perhaps happily—reducing their dependence on JavaScript.
 
-Sarà un viaggio sorprendente verso un modello di sviluppo più semplice, performante e... finalmente web-centrico!
+It will be a surprising journey towards a simpler, faster, and finally web-centred development model.

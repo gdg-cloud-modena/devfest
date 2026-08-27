@@ -2,19 +2,19 @@
 title = "Cardinali"
 date = 2025-09-10
 draft = false
-summary = "Ospita i banchetti ed è il posto migliore dove fare networking"
+summary = "Home to the sponsor booths and an ideal place for networking"
 weight = 6
 forSessions = true
 +++
 
-Al primo piano Nobile.
+On the *piano nobile*.
 
-La settecentesca Sala Grande del Collegio, oggi chiamata Sala dei Cardinali
-perché ospita alle pareti numerosi ritratti di porporati già stati allievi del
-San Carlo, è parte integrante dell’ala più antica del palazzo e punto culminante
-del percorso monumentale. Fu interamente decorata a partire dal 1715 ad opera
-del quadraturista Pellegrino Spaggiari e del figurista Antonio Consetti. Il
-programma decorativo coinvolge l’intera sala le cui balconate in affaccio sono
-riprese dalla ricchissima decorazione del soffitto che mima uno sfondato
-architettonico, secondo il gusto scenografico tipico del barocco emiliano,
-completato da numerose figure allegoriche, ornati e stemmi nobiliari.
+The eighteenth-century Great Hall of the College is now known as the Sala dei
+Cardinali because its walls display numerous portraits of cardinals who once
+studied at San Carlo. It is an integral part of the palace's oldest wing and the
+highlight of the monumental route. Beginning in 1715, it was fully decorated by
+quadratura painter Pellegrino Spaggiari and figure painter Antonio Consetti. The
+decoration covers the whole room: the overlooking balconies continue into the
+rich ceiling design, which creates the illusion of an open architectural space
+in the theatrical style typical of Emilian Baroque, completed by allegorical
+figures, ornaments, and noble coats of arms.

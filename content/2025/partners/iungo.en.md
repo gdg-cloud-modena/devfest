@@ -9,25 +9,26 @@ link = "https://bit.ly/46j3dmU"
 
 +++
 
-L’avventura di IUNGO Spa nasce nel 2001 da un’idea di **Andrea Tinti**. Classe 1972, Andrea aveva alle spalle un’esperienza consolidata in ambito **consulenziale su progetti di supply chain collaboration**. Quello che aveva intuito era che la tecnologia utilizzata all’epoca, l’EDI, non garantiva il raggiungimento del risultato sperato. Da qui l’intuizione di rendere più **semplice** ma soprattutto **efficace l’interazione tra cliente e fornitore** con una tecnologia alternativa: **la IUNGOmail**.
+IUNGO Spa began in 2001 with an idea from **Andrea Tinti**. Born in 1972, Andrea already had extensive experience **consulting on supply-chain collaboration projects**. He realised that EDI, the technology used at the time, did not reliably deliver the expected results. This led to an alternative technology designed to make **customer-supplier interaction simpler and, above all, more effective**: **IUNGOmail**.
 
-La IUNGOmail viene brevettata nel 2003 e da allora si è fatta tanta strada.
-Nel giro di una decina d’anni entrano a far parte del network IUNGO 100 clienti. Nel 2014 viene aperta una nuova sede commerciale a Milano, per affiancare la sede principale di Modena e garantire una maggiore copertura del territorio.
+IUNGOmail was patented in 2003 and has come a long way since then.
+Within a decade, the IUNGO network had welcomed 100 customers. In 2014, a new sales office opened in Milan alongside the Modena headquarters, extending the company's reach.
 
-La crescita di IUNGO Spa è fatta di **traguardi importanti e riconoscimenti di valore**.
-Non solo entriamo nelle classifiche **“Leader della Crescita”** o **“FT 1000 – Europe’s fastest growing companies”**, che premiano le aziende con maggiore crescita di fatturato negli anni, ma riceviamo anche riconoscimenti di solidità finanziaria, come la certificazione **Cribis Prime Company**.
+IUNGO Spa's growth has brought **important milestones and industry recognition**.
+The company has appeared in rankings such as **Leader della Crescita** and the **FT 1000 – Europe's Fastest Growing Companies**, which recognise sustained revenue growth. It has also received recognition for financial strength through **Cribis Prime Company** certification.
 
-Anche gli esperti di settore ci danno sempre maggiore credibilità: **Gartner**, tra le più conosciute società di consulenza strategica e ricerca, nel 2021 include la nostra soluzione nel suo **Magic Quadrant** per le suite dedicate al processo Procure-to-Pay e cita la IUNGOmail come esempio di tecnologia per l’integrazione con i fornitori.
+Industry experts have also recognised IUNGO's work. In 2021, **Gartner** included the solution in its **Magic Quadrant** for Procure-to-Pay suites and cited IUNGOmail as an example of supplier-integration technology.
 
-Crescono i clienti, crescono le opportunità e di pari passo crescono l’organico e il network di IUNGO.
-Vengono lanciati anche nuovi progetti quali il **Partnership Program** e il percorso di **Certificazione consulenti**, per allargare il nostro network con figure consulenziali e con profonde competenze sui processi.
-Entra a far parte del nostro ecosistema anche **InfoManager**, acquisita per fornire ai nostri clienti un maggiore supporto nella misurazione e valutazione multidimensionale dei fornitori e ricerca di fornitori alternativi.
+As the customer base and opportunities grow, so do IUNGO's team and network.
+New initiatives such as the **Partnership Program** and **Consultant Certification** have expanded that network with consultants who bring deep process expertise.
+The ecosystem has also welcomed **InfoManager**, acquired to give customers better support in multidimensional supplier measurement and assessment and in finding alternative suppliers.
 
-Oggi la piattaforma in SaaS IUNGO viene utilizzata da oltre 400 clienti e 40 milioni di IUNGOmail vengono spedite ogni anno, raggiungendo più di 150mila fornitori.
-Non ci piace stare fermi: abbiamo ancora tante idee da sviluppare e speriamo di potertele raccontare presto."
+Today, more than 400 customers use IUNGO's SaaS platform. Forty million IUNGOmail messages are sent every year, reaching over 150,000 suppliers.
+We never stand still: there are many more ideas to develop, and we hope to share them with you soon.
 
-Si possono anche citare i numeri della pagina "Lavora con noi":
-**29%** - tasso crescita persone (2023)
-**10,13%** vs 57,3% - turnover in IUNGO rispetto alla media del turnover in aziende tech per posizioni Dev
-**3.000** ore di formazione fruita dai dipendenti
-**79,41%** - employee net promoting score (Suggeriresti a un amico di lavorare in IUNGO?)
+Figures from the company's careers page include:
+
+- **29%** team growth rate in 2023
+- **10.13%** staff turnover at IUNGO, compared with an average of 57.3% for developer roles in technology companies
+- **3,000** hours of employee training
+- **79.41%** employee Net Promoter Score, based on whether employees would recommend IUNGO to a friend

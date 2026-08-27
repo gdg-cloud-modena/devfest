@@ -3,6 +3,6 @@
 
 {{- if eq hugo.Environment "production" -}}
 <script data-collect-dnt="true" async defer src="https://{{ .Site.Params.SimpleAnalyticsDomain }}/latest.js"></script>
-<noscript><img src="https://{{ .Site.Params.SimpleAnalyticsDomain }}/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"></noscript>
+<noscript><img src="https://{{ site.Params.simpleAnalyticsDomain }}/noscript.gif?collect-dnt=true" alt="" width="1" height="1" referrerpolicy="no-referrer-when-downgrade"></noscript>
 <script async src="https://{{ .Site.Params.SimpleAnalyticsDomain }}/auto-events.js"></script>
 {{- end -}}

@@ -1,9 +1,9 @@
 +++
-title = "Tortellino"
+title = "Lambrusco"
 date = 2025-09-10
 draft = false
-summary = "Seconda sala piccola a sinistra"
+summary = "Second small room on the left"
 weight = 3
 +++
 
-Seconda sala piccola a sinistra.
+Second small room on the left.

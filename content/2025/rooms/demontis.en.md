@@ -2,21 +2,20 @@
 title = "Demontis"
 date = 2025-09-10
 draft = false
-summary = "Si colloca fra la chiesa e il cortile principale"
+summary = "Located between the church and the main courtyard"
 weight = 2
 forSessions = true
 +++
 
-La Sala Demontis si colloca fra la chiesa e il cortile principale, nell’ala più
-antica del palazzo. La platea è situata nell’ambiente che, in origine, ospitava
-l’oratorio della Congregazione del Rosario, un’accolita di fedeli che si riuniva
-in questo ambiente un tempo completo di altare e di immagini sacre alle pareti.
+Sala Demontis lies between the church and the main courtyard, in the oldest wing
+of the palace. The audience area occupies the former oratory of the Congregation
+of the Rosary, whose members once gathered here in a room complete with an altar
+and sacred images on the walls.
 
-L’architettura che oggi la contraddistingue è parte di un intervento di restauro
-degli anni Settanta del Novecento. La parete di fondo, oggi non più esistente,
-separava questo ambiente dall’imponente sagrestia, ove oggi si colloca il tavolo
-dei relatori. A differenza dell’oratorio del Rosario la sagrestia conserva
-ancora interamente l’arredo e la quadreria originali, risalenti agli ultimi
-decenni del Seicento.
+Its present architecture dates from restoration work carried out in the 1970s.
+A rear wall, no longer standing, once separated this space from the imposing
+sacristy, where the speakers' table now stands. Unlike the former oratory, the
+sacristy still preserves all its original furnishings and paintings from the
+final decades of the seventeenth century.
 
-Capienza per 82 persone.
+Capacity: 82 people.

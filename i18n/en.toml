@@ -10,9 +10,6 @@ other = "Get your free ticket"
 [getTicketNow]
 other = "Get Your Ticket Now"
 
-[buyTicketNow]
-other = "Get Your Ticket Now"
-
 [openMenu]
 other = "Open menu"
 
@@ -20,7 +17,7 @@ other = "Open menu"
 other = "Close menu"
 
 [heroDate]
-other = "October 3 & 4, 2026"
+other = "October 3–4, 2026"
 
 [heroTagline]
 other = "The largest tech conference in Emilia-Romagna"
@@ -74,12 +71,6 @@ other = "Discover &rarr;"
 [exploreAllSessions]
 other = "Explore all %d sessions"
 
-[sessionsCatalogTitle]
-other = "Sessions Catalog"
-
-[sessionsCatalogIntro]
-other = "Explore all confirmed talks and workshops for DevFest %s! Check out our 3 thematic tracks: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b>, and <b>Web, Mobile & Dev Experience</b>."
-
 [sessionsCatalogHeroTitle]
 other = "Explore Sessions at"
 
@@ -92,35 +83,11 @@ other = "Sessions %s"
 [sessionsWelcomeCallout]
 other = "<b>Welcome to the Sessions Catalog!</b> Below you will find all %d sessions already confirmed for DevFest Modena %s, organized by topic. For the hourly schedule by room, visit the <a class=\"link\" href=\"%s\">Agenda %s</a> page."
 
-[sessionsCallout]
-other = "<b>Welcome to the Sessions Catalog!</b> Below you will find all %d sessions already confirmed for DevFest Modena %s, organized by topic. For the hourly schedule by room, visit the <a class=\"link\" href=\"%s\">Agenda %s</a> page."
-
 [browseSessionsCatalog]
 other = "Sessions Catalog"
 
-[browseCatalog]
-other = "🔍 Browse Sessions Catalog"
-
-[consultCatalog]
-other = "📚 Browse Sessions Catalog"
-
 [discoverSession]
 other = "Discover session"
-
-[viewSession]
-other = "Discover session &rarr;"
-
-[dontMissSessions]
-other = "Don't miss these sessions at"
-
-[dontMissDesc]
-other = "Secure your free spot now to attend talks, meet speakers, and network with the community."
-
-[sessionsBottomCtaTitle]
-other = "Don't miss these sessions at"
-
-[sessionsBottomCtaDesc]
-other = "Secure your free spot now to attend talks, meet speakers, and network with the community."
 
 [track]
 other = "Track:"
@@ -131,14 +98,11 @@ other = "Language:"
 [scheduleTBA]
 other = "Time and room will be announced shortly in the official agenda!"
 
-[timeAndRoomSoon]
-other = "Time and room will be announced shortly in the official agenda!"
-
-[slides]
-other = "slides"
-
 [viewSlides]
 other = "View slides"
+
+[comingSoon]
+other = "Coming soon"
 
 [from]
 other = "From"
@@ -164,22 +128,13 @@ other = "Schedule and room overview to help you navigate through the event days.
 [agendaBtn]
 other = "🗓️ Schedule %s"
 
-[scheduleAgendaBtn]
-other = "🗓️ Schedule & Agenda"
-
 [agendaComingSoonTitle]
 other = "Agenda Coming Soon!"
 
 [agendaComingSoonDesc]
 other = "The timetable and room allocation for each session will be published shortly. During the event, you will be able to follow the live timeline from your mobile device."
 
-[agendaComingSoonText]
-other = "The timetable and room allocation for each session will be published shortly. During the event, you will be able to follow the live timeline from your mobile device."
-
 [agendaConfirmedSessions]
-other = "<b>%d confirmed sessions</b> are already available in our catalog divided into thematic tracks:"
-
-[agendaSessionsAvailable]
 other = "<b>%d confirmed sessions</b> are already available in our catalog divided into thematic tracks:"
 
 [speakersTitle]
@@ -218,50 +173,26 @@ other = "Our %s in Numbers"
 [statsSubtitle]
 other = "Highlights from the latest DevFest Modena edition: a massive success powered by our community."
 
-[statsAttendees]
-other = "Attendees"
-
 [statAttendees]
 other = "Attendees"
-
-[statsAttendeesDesc]
-other = "Developers and tech enthusiasts from all over Italy"
 
 [statAttendeesDesc]
 other = "Developers and tech enthusiasts from all over Italy"
 
-[statsSpeakers]
-other = "Speakers"
-
 [statSpeakers]
 other = "Speakers"
-
-[statsSpeakersDesc]
-other = "National and international industry experts"
 
 [statSpeakersDesc]
 other = "National and international industry experts"
 
-[statsWorkshops]
-other = "Hands-on Workshops"
-
 [statWorkshops]
 other = "Hands-on Workshops"
-
-[statsWorkshopsDesc]
-other = "Interactive hands-on learning sessions"
 
 [statWorkshopsDesc]
 other = "Interactive hands-on learning sessions"
 
-[statsRooms]
-other = "Parallel Rooms"
-
 [statRooms]
 other = "Parallel Tracks & Rooms"
-
-[statsRoomsDesc]
-other = "Parallel sessions across dedicated tech tracks"
 
 [statRoomsDesc]
 other = "Parallel sessions across dedicated tech tracks"
@@ -293,9 +224,6 @@ other = "Get your ticket"
 [ctaCvTitle]
 other = "Send your CV"
 
-[ctaCvText]
-other = "Send your resume, we will share it with companies looking for team members."
-
 [ctaCvDesc]
 other = "Send your resume, we will share it with companies looking for team members."
 
@@ -317,9 +245,6 @@ other = "Parallel rooms:"
 [roomsWithSessions]
 other = "Rooms with sessions:"
 
-[roomPrefix]
-other = "Room "
-
 [howToReachUs]
 other = "How to Reach Us"
 
@@ -338,26 +263,8 @@ other = "By Train"
 [locationNavPlane]
 other = "By Plane"
 
-[navMap]
-other = "Venue & Map"
-
-[navAuto]
-other = "By Car"
-
-[navParking]
-other = "Parking"
-
-[navTrain]
-other = "By Train"
-
-[navAirplane]
-other = "By Plane"
-
 [address]
 other = "Address:"
-
-[officialSite]
-other = "Official Website:"
 
 [officialWebsite]
 other = "Official Website:"
@@ -367,12 +274,6 @@ other = "Accessibility:"
 
 [accessibilityDesc]
 other = "Ground floor step-free barrier-free accessible"
-
-[barrierFree]
-other = "Step-free barrier-free access"
-
-[openMaps]
-other = "Open venue in Google Maps"
 
 [openInMaps]
 other = "Open venue in Google Maps"
@@ -392,14 +293,8 @@ other = "By Car"
 [ztlWarningTitle]
 other = "Attention: Limited Traffic Zone (ZTL)!"
 
-[ztlWarningText]
-other = "Fondazione San Carlo is located inside Modena's historic city center and Limited Traffic Zone (ZTL). ZTL access gates are monitored by 24/7 enforcement cameras. We recommend parking in one of the suggested car parks listed below, all just a few minutes' walk from the venue."
-
 [ztlWarningDesc]
 other = "Fondazione San Carlo is located inside Modena's historic city center and Limited Traffic Zone (ZTL). ZTL access gates are monitored by 24/7 enforcement cameras. We recommend parking in one of the suggested car parks listed below, all just a few minutes' walk from the venue."
-
-[parkingTitle]
-other = "Recommended Parking"
 
 [recommendedParking]
 other = "Recommended Parking"
@@ -494,3 +389,33 @@ other = "Supporter"
 
 [sessions]
 other = "Sessions"
+
+[visitProfile]
+other = "Visit %s's profile"
+
+[heroImageAlt]
+other = "A street in the historic centre of Modena"
+
+[languageSelector]
+other = "Language selector"
+
+[menu_agenda]
+other = "Agenda"
+
+[menu_sessions]
+other = "Sessions"
+
+[menu_speakers]
+other = "Speakers"
+
+[menu_location]
+other = "Location"
+
+[menu_communities]
+other = "Communities"
+
+[menu_team]
+other = "Team"
+
+[menu_faq]
+other = "FAQ"

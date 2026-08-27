@@ -18,4 +18,4 @@ A practical, hands-on workshop designed to guide students and developers beyond 
 
 Learn how to integrate LLMs into codebases, build prompt chains, utilize function calling, and create AI-assisted workflows that supercharge developer productivity.
 
-Go to the [workshop instructions](/en/workshops/) page to participate.
+Go to the [workshop instructions](/workshops/) page to participate.

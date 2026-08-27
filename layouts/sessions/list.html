@@ -1,54 +1,19 @@
 {{ define "main" }}
-{{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
-{{ $currentYear := printf "%v" site.Params.currentEdition }}
-
-{{ $allSessions := .Pages }}
-{{ if eq (len $allSessions) 0 }}
-  {{ with (index site.Sites 0).GetPage (printf "/%s/sessions" $year) }}
-    {{ $allSessions = .Pages }}
-  {{ end }}
-{{ end }}
-
-{{ $topics := slice
-  (dict
-    "key"         "AI & Machine Intelligence"
-    "label"       "AI & Machine Intelligence"
-    "description" (i18n "topic_ai_desc" | default "Agenti AI, GenAI, Robotica, LLM, etica e futuro dello sviluppo")
-    "emoji"       "🤖"
-    "color"       "primary"
-  )
-  (dict
-    "key"         "Cloud & Platform Engineering"
-    "label"       "Cloud & Platform Engineering"
-    "description" (i18n "topic_cloud_desc" | default "Cloud, DevOps, Infrastructure as Code, Security e affidabilità")
-    "emoji"       "☁️"
-    "color"       "tertiary"
-  )
-  (dict
-    "key"         "Web, Mobile & Dev Experience"
-    "label"       "Web, Mobile & Dev Experience"
-    "description" (i18n "topic_web_desc" | default "Web moderno, Mobile nativo, Developer tools e qualità del codice")
-    "emoji"       "📱"
-    "color"       "secondary"
-  )
-}}
+{{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+{{- $isCurrentEdition := eq $year (printf "%v" site.Params.currentEdition) -}}
+{{- $allSessions := partial "lookup/pages" (printf "/%s/sessions" $year) -}}
+{{- $tracks := partial "lookup/tracks" . -}}
 
 <main class="section section--padded">
-  {{ if eq $year $currentYear }}
+  {{ if $isCurrentEdition }}
   <div class="ctaTickets">
     <div class="ctaTickets-content">
       <div class="ctaTickets-info">
         <h2 class="ctaTickets-title">{{ i18n "sessionsCatalogHeroTitle" }} <span class="ctaTickets-titleHighlight">DevFest Modena {{ $year }}</span></h2>
-        <p class="p">
-          {{ printf (i18n "sessionsCatalogHeroDesc") $year | safeHTML }}
-        </p>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px;">
-          <a class="button" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
-            {{ i18n "getTicketNow" }}
-          </a>
-          <a class="button button--secondary" href="{{ printf "/%s/agenda/" $year | relLangURL }}">
-            {{ printf (i18n "agendaBtn") $year }}
-          </a>
+        <p class="p">{{ printf (i18n "sessionsCatalogHeroDesc") $year | safeHTML }}</p>
+        <div class="ctaTickets-actions">
+          <a class="button" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">{{ i18n "getTicketNow" }}</a>
+          <a class="button button--secondary" href="{{ printf "/%s/agenda/" $year | relLangURL }}">{{ printf (i18n "agendaBtn") $year }}</a>
         </div>
       </div>
     </div>
@@ -61,93 +26,71 @@
     {{ .Content }}
   </div>
 
-  {{/* SHOWCASE MODE — 3 TRACKS CATALOG */}}
-  <div class="callout callout--info" style="margin-bottom: 24px;">
+  <div class="callout callout--info">
     <p class="p">{{ printf (i18n "sessionsWelcomeCallout") (len $allSessions) $year (printf "/%s/agenda/" $year | relLangURL) $year | safeHTML }}</p>
   </div>
 
-  {{/* Track Summary Grid */}}
+  {{/* Track index: jump links to the per-track sections below. The heading is
+       what keeps the card titles at h3 without skipping a level. */}}
+  <h2 class="h2">{{ printf (i18n "sessionsTeaserTitle") $year }}</h2>
   <div class="homeSessions-grid homeSessions-grid--3col">
-    {{ range $topic := $topics }}
-      {{ $topicSessions := where $allSessions "Params.topic" $topic.key }}
-      <a class="homeSessions-card homeSessions-card--{{ $topic.color }}" href="#track-{{ urlize $topic.key }}">
-        <div class="homeSessions-cardEmoji" aria-hidden="true">{{ $topic.emoji }}</div>
-        <div class="homeSessions-cardTrack">{{ printf (i18n "sessionCount") (len $topicSessions) }}</div>
-        <h3 class="homeSessions-cardTitle">{{ $topic.label }}</h3>
-        <p class="homeSessions-cardDesc">{{ $topic.description }}</p>
-      </a>
+    {{ range $track := $tracks }}
+    {{ partial "track-card" (dict
+      "track" $track
+      "href"  (printf "#track-%s" (urlize $track.key))
+      "count" (len (where $allSessions "Params.topic" $track.key))
+    ) }}
     {{ end }}
   </div>
 
-  {{ range $topic := $topics }}
-    {{ $topicSessions := where $allSessions "Params.topic" $topic.key }}
-    {{ if gt (len $topicSessions) 0 }}
-      <section id="track-{{ urlize $topic.key }}" class="sessions-trackSection">
-        <div class="sessions-trackHeader sessions-trackHeader--{{ $topic.color }}">
-          <div class="sessions-trackTitleGroup">
-            <span class="sessions-trackEmoji" aria-hidden="true">{{ $topic.emoji }}</span>
-            <h2 class="h2 sessions-trackTitle">{{ $topic.label }}</h2>
+  {{ range $track := $tracks }}
+  {{ with where $allSessions "Params.topic" $track.key }}
+  <section id="track-{{ urlize $track.key }}" class="sessions-trackSection">
+    <div class="sessions-trackHeader sessions-trackHeader--{{ $track.color }}">
+      <div class="sessions-trackTitleGroup">
+        <span class="sessions-trackEmoji" aria-hidden="true">{{ $track.emoji }}</span>
+        <h2 class="h2 sessions-trackTitle">{{ $track.key }}</h2>
+      </div>
+      <p class="sessions-trackDesc">{{ $track.description }}</p>
+    </div>
+
+    <div class="sessions-grid">
+      {{ range $session := . }}
+      <div class="sessions-card">
+        <div>
+          <div class="sessions-cardHeader">
+            <span class="sessions-badge {{ if eq (lower $session.Params.language) "english" }}sessions-badge--english{{ end }}">{{ $session.Params.language }}</span>
           </div>
-          <p class="sessions-trackDesc">{{ $topic.description }}</p>
+          <h3 class="h3 sessions-cardTitle">
+            <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
+          </h3>
+
+          <div class="sessions-speakers">
+            {{ range $slug := $session.Params.speakers }}
+            {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+            {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "80x80 q85 jpg" }}
+            <a class="sessions-speakerLink" href="{{ .RelPermalink }}">
+              <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="36" height="36">
+              <span class="sessions-speakerName">{{ .Title }}</span>
+            </a>
+            {{ else }}
+            <span class="sessions-speakerName">{{ $slug }}</span>
+            {{ end }}
+            {{ end }}
+          </div>
+
+          <p class="sessions-cardDesc">{{ $session.Summary | truncate 200 }}</p>
         </div>
 
-        <div class="sessions-grid">
-          {{ range $session := $topicSessions }}
-            <div class="sessions-card">
-              <div>
-                <div class="sessions-cardHeader">
-                  <span class="sessions-badge {{ if eq (lower $session.Params.language) "english" }}sessions-badge--english{{ end }}">{{ $session.Params.language }}</span>
-                </div>
-                <h3 class="h3 sessions-cardTitle">
-                  <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
-                </h3>
-                
-                <div class="sessions-speakers">
-                  {{ range $slug := $session.Params.speakers }}
-                    {{ $speakerPage := site.GetPage (printf "/speakers/%s" $slug) }}
-                    {{ if not $speakerPage }}{{ $speakerPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $slug) }}{{ end }}
-                    {{ with $speakerPage }}
-                      {{ $img := resources.Get (printf "speakers/%s.jpg" $slug) }}
-                      {{ if not $img }}{{ $img = resources.Get (printf "speakers/%s.png" $slug) }}{{ end }}
-                      {{ if not $img }}{{ $img = resources.Get "team/profile.jpg" }}{{ end }}
-                      {{ $imgResized := $img.Fit "80x80 q85 jpg" }}
-                      <a class="sessions-speakerLink" href="{{ .RelPermalink }}">
-                        <img class="sessions-speakerAvatar" src="{{ $imgResized.RelPermalink }}" alt="{{ .Title }}" width="36" height="36">
-                        <span class="sessions-speakerName">{{ .Title }}</span>
-                      </a>
-                    {{ else }}
-                      <span class="sessions-speakerName">{{ $slug }}</span>
-                    {{ end }}
-                  {{ end }}
-                </div>
-
-                <p class="sessions-cardDesc">
-                  {{ $session.Summary | truncate 200 }}
-                </p>
-              </div>
-              
-              <div class="sessions-cardFooter">
-                <a class="link" href="{{ $session.RelPermalink }}">{{ i18n "discoverSession" }} &rarr;</a>
-              </div>
-            </div>
-          {{ end }}
+        <div class="sessions-cardFooter">
+          <a class="link" href="{{ $session.RelPermalink }}">{{ i18n "discoverSession" }} &rarr;</a>
         </div>
-      </section>
-    {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
   {{ end }}
 
-  <div class="ctaTickets">
-    <div class="ctaTickets-content">
-      <div class="ctaTickets-info">
-        <h2 class="ctaTickets-title">{{ i18n "sessionsBottomCtaTitle" }} <span class="ctaTickets-titleHighlight">DevFest Modena {{ $year }}</span>!</h2>
-        <p class="p">
-          {{ i18n "sessionsBottomCtaDesc" }}
-        </p>
-        <a class="button" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
-          {{ i18n "getTicketNow" }}
-        </a>
-      </div>
-    </div>
-  </div>
 </main>
 {{ end }}

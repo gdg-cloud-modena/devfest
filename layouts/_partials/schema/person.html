@@ -1,0 +1,36 @@
+{{/*
+  Person structured data for a speaker profile: who they are, where they work,
+  and the profiles they can be reconciled against via sameAs.
+
+  @return {maps}  Ready for jsonify
+*/}}
+{{- $slug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
+{{- $person := dict
+  "@context" "https://schema.org"
+  "@type"    "Person"
+  "name"     .Title
+  "url"      .Permalink
+  "image"    (partial "lookup/speaker-image" $slug).Permalink
+-}}
+
+{{- with .Params.role -}}
+  {{- $person = merge $person (dict "jobTitle" .) -}}
+{{- end -}}
+{{- with .Params.company -}}
+  {{- $person = merge $person (dict "worksFor" (dict "@type" "Organization" "name" .)) -}}
+{{- end -}}
+{{- with .Description -}}
+  {{- $person = merge $person (dict "description" .) -}}
+{{- end -}}
+
+{{- with .Params.social -}}
+  {{- $sameAs := slice -}}
+  {{- range $url := (slice .linkedin .github (or .twitter .x) .website .facebook .instagram) -}}
+    {{- with $url -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+  {{- end -}}
+  {{- with $sameAs -}}
+    {{- $person = merge $person (dict "sameAs" .) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $person -}}

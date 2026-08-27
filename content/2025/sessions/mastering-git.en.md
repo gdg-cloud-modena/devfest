@@ -12,4 +12,4 @@ ends = 2025-10-04T12:45:00
 slidesURL = ""
 warning = ""
 +++
-Usiamo tutti Git, giusto? Ma sai come funziona realmente? E non intendo "cos'è il merge?”, andiamo un po' più a fondo. Sono sicura che tutti voi avete sentito qualcuno dire "ogni commit è un'istantanea dell'intera code base”. Ma cosa significa in realtà? Vediamolo insieme in questo talk!
+We all use Git, right? But do you know how it really works? I do not mean simply knowing what a merge is—we will go a little deeper. You have probably heard someone say that every commit is a snapshot of the entire codebase. But what does that actually mean? Let us find out together in this talk.

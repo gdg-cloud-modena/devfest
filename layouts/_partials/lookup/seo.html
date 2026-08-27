@@ -1,0 +1,50 @@
+{{/*
+  The resolved SEO values for a page, computed once and shared by head.html,
+  social-meta.html and schema.html so the three can never disagree.
+
+  @return {maps} title, description, image (resource or nil), edition, lang
+*/}}
+
+{{/* The edition a page belongs to, so archive pages are not labelled with the
+     current year. Falls back to the current edition for evergreen pages. */}}
+{{- $edition := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+{{- $siteName := printf "DevFest Modena %s" $edition -}}
+
+{{/* Home already carries the brand in its own title — anything else would read
+     "DevFest Modena 2026 – DevFest Modena 2026". */}}
+{{- $title := $siteName -}}
+{{- if .Params.seoTitle -}}
+  {{- $title = .Params.seoTitle -}}
+{{- else if and .Title (not .IsHome) -}}
+  {{- $title = printf "%s – %s" .Title $siteName -}}
+{{- end -}}
+
+{{/* Prefer a hand-written description; fall back to the page's own opening
+     words so no page ships an empty one. */}}
+{{- $description := .Description -}}
+{{- if not $description -}}
+  {{- $description = .Summary -}}
+{{- end -}}
+{{- if not $description -}}
+  {{- $description = site.Params.description -}}
+{{- end -}}
+{{- $description = $description | plainify | htmlUnescape | chomp -}}
+{{- $description = (replaceRE `\s+` " " $description) | truncate 160 "" -}}
+
+{{/* Social card image: the page's own, else the site default. Normalised to the
+     1200x630 that Open Graph and Twitter expect, as JPEG for compatibility. */}}
+{{- $image := "" -}}
+{{- with (or .Params.image site.Params.defaultImage) -}}
+  {{- with resources.Get . -}}
+    {{- $image = .Fill "1200x630 q85 jpg Center" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return dict
+  "title"       $title
+  "description" $description
+  "image"       $image
+  "edition"     $edition
+  "siteName"    $siteName
+  "lang"        .Language.LanguageCode
+-}}

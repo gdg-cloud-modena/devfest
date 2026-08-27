@@ -13,12 +13,12 @@ slidesURL = ""
 warning = ""
 +++
 
-Gli sviluppatori dei sistemi di intelligenza artificiale sono chiamati a rispondere delle nuove sfide tecnologiche non solo da un punto di vista strettamente tecnico, matematico o ingegneristico ma anche sotto il profilo etico e giuridico.
+Developers of artificial intelligence systems must address new technological challenges not only from a strictly technical, mathematical, or engineering perspective, but also from ethical and legal ones.
 
-Sono loro i protagonisti del processo di creazione e implementazione del codice e gli unici detentori di sapere e verità in merito al funzionamento di ogni singolo segmento dei sistemi di intelligenza artificiale.
+They play the central role in creating and implementing the code and hold the detailed knowledge needed to understand how every part of an AI system works.
 
-Non è sufficiente scrivere bene codice e debuggare, occorre interrogarsi sul significato profondo e sul valore di ciò che si sta ponendo in essere per mezzo della propria competenza tecnica.
+Writing good code and debugging it is not enough: developers must question the deeper meaning and value of what they create through their technical expertise.
 
-La capacità di ragionamento critico in chiave etica e giuridica diventa un requisito essenziale anche per gli sviluppatori.
+Critical thinking through ethical and legal lenses is therefore becoming an essential skill for developers too.
 
-Ecco allora l'importanza della discussione filosofica sulla tecnica per problematizzare orizzonti noti e raccogliere intuizioni disruptive al fine di accedere ad una visione nuova dell’agire umano nell’infosfera.
+This is why philosophical discussion about technology matters: it challenges familiar assumptions, captures disruptive insights, and helps us develop a new understanding of human action in the infosphere.

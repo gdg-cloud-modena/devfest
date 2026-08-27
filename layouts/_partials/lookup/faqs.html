@@ -1,0 +1,14 @@
+{{/*
+  The FAQ entries for the current language, from data/faq.toml, which keys its
+  lists by language code. Falls back to the default language so a new language
+  shows the existing questions rather than an empty page.
+
+  Shared by the FAQ page and by its FAQPage structured data.
+
+  @return {[]maps}  Each: question, answer (Markdown)
+*/}}
+{{- $faqs := index site.Data.faq site.Language.Lang -}}
+{{- if not $faqs -}}
+  {{- $faqs = index site.Data.faq (index site.Languages 0).Lang -}}
+{{- end -}}
+{{- return (default slice $faqs) -}}

@@ -1,66 +1,57 @@
 {{ define "main" }}
 {{- $year := printf "%v" (.Param "year") -}}
-
-{{/* Build rooms map: slug -> name */}}
-{{- $rooms := dict -}}
-{{- $roomsPage := site.GetPage (printf "/%s/rooms" $year) -}}
-{{- if not $roomsPage }}{{ $roomsPage = (index site.Sites 0).GetPage (printf "/%s/rooms" $year) }}{{ end }}
-{{- with $roomsPage -}}
-{{ range $page := .Pages }}
-  {{ $rooms = merge $rooms (dict $page.File.TranslationBaseName $page) }}
-{{ end }}
-{{- end -}}
-
-{{/* Prepare the room list */}}
-{{- $roomNames := slice -}}
-{{- range $code := .Params.rooms -}}
-  {{- $room := index $rooms $code -}}
-  {{- if $room }}
-    {{- $roomNames = $roomNames | append (printf `<a class="link" href="%s">%s</a>` $room.RelPermalink $room.Title) -}}
-  {{- end }}
-{{- end -}}
-{{- $roomsHTML := delimit $roomNames ", " -}}
+{{- $rooms := partial "lookup/session-rooms" (dict "year" $year "codes" .Params.rooms) -}}
 
 <main class="section section--padded">
   {{ partial "previous-edition" . }}
+
+  <h1 class="h1">{{ .Title }}</h1>
+
   {{ if .Params.starts }}
-  <p class="p"><b>{{ .Params.starts | time.Format "Monday" | title }}</b> {{ i18n "from" }} <b>{{ .Params.starts | time.Format "15:04" }}</b> {{ i18n "to" }} {{ .Params.ends | time.Format "15:04" }} {{ if eq (len $roomNames) 1 }}{{ i18n "inRoom" }} {{ $roomsHTML | safeHTML }}{{ else if gt (len $roomNames) 1 }}{{ i18n "inRoomsParallel" }} {{ $roomsHTML | safeHTML }}{{ end }}. {{ if .Params.topic }}{{ i18n "track" }} <b>{{ .Params.topic }}</b> · {{ end }}{{ if .Params.language }}{{ i18n "language" }} <b>{{ .Params.language }}</b>{{ end }}</p>
+  <p class="p">
+    <b>{{ .Params.starts | time.Format "Monday" | title }}</b>
+    {{ i18n "from" }} <b>{{ .Params.starts | time.Format "15:04" }}</b>
+    {{ i18n "to" }} {{ .Params.ends | time.Format "15:04" }}
+    {{- with $rooms }}
+      {{ if eq (len .) 1 }}{{ i18n "inRoom" }}{{ else }}{{ i18n "inRoomsParallel" }}{{ end }}
+      {{ range $i, $room := . }}{{ if $i }}, {{ end }}<a class="link" href="{{ $room.RelPermalink }}">{{ $room.Title }}</a>{{ end }}
+    {{- end }}.
+    {{ with .Params.topic }}{{ i18n "track" }} <b>{{ . }}</b> · {{ end }}
+    {{- with .Params.language }}{{ i18n "language" }} <b>{{ . }}</b>{{ end }}
+  </p>
   {{ else }}
-  <p class="p">{{ if .Params.topic }}{{ i18n "track" }} <b>{{ .Params.topic }}</b> · {{ end }}{{ if .Params.language }}{{ i18n "language" }} <b>{{ .Params.language }}</b> · {{ end }}<i>{{ i18n "scheduleTBA" }}</i></p>
+  <p class="p">
+    {{ with .Params.topic }}{{ i18n "track" }} <b>{{ . }}</b> · {{ end }}
+    {{- with .Params.language }}{{ i18n "language" }} <b>{{ . }}</b> · {{ end }}
+    <i>{{ i18n "scheduleTBA" }}</i>
+  </p>
   {{ end }}
-  {{ if .Params.slidesURL }}
-  <p class="p">{{ printf (i18n "viewSlides") .Params.slidesURL | safeHTML }}</p>
+
+  {{ with .Params.slidesURL }}
+  <p class="p"><a class="link" href="{{ . | safeURL }}"{{ if strings.HasPrefix . "http" }} target="_blank" rel="noopener"{{ end }}>{{ i18n "viewSlides" }}</a></p>
   {{ end }}
+
   <div class="content">
     {{ .Content }}
   </div>
-  {{ if .Params.speakers }}
-  <h2 class="h2">{{ if eq (len .Params.speakers) 1 }}{{ i18n "speaker" }}{{ else }}{{ i18n "speakers" }}{{ end }}</h2>
+
+  {{ with .Params.speakers }}
+  <h2 class="h2">{{ if eq (len .) 1 }}{{ i18n "speaker" }}{{ else }}{{ i18n "speakers" }}{{ end }}</h2>
   <ul class="relatedSpeakers">
-	  {{ range $slug := .Params.speakers }}
-	  {{ $speakerPage := site.GetPage (printf "/speakers/%s" $slug) }}
-	  {{ if not $speakerPage }}{{ $speakerPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $slug) }}{{ end }}
-	  {{ with $speakerPage }}
-	    {{ $img := resources.Get (printf "speakers/%s.jpg" $slug) }}
-	    {{ if not $img }}
-	      {{ $img = resources.Get (printf "speakers/%s.png" $slug) }}
-	    {{ end }}
-	    {{ if $img }}
-	      {{ $image := $img.Resize "100x100 webp q65" }}
-	      <li class="relatedSpeakers-item" data-starts="{{ .Params.starts }}" data-ends="{{ .Params.ends }}">
-	        <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
-          <div class="relatedSpeakers-details">
-            <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
-            <p class="relatedSpeakers-role">{{ .Params.role }}{{ if and .Params.role .Params.company }} @ {{ end }}{{ .Params.company }}</p>
-          </div>
-	      </li>
-	    {{ else }}
-	      <li class="relatedSpeakers-item"><b>{{ $slug }}</b></li>
-	    {{ end }}
-	  {{ else }}
-	    <li class="relatedSpeakers-item"><b>{{ $slug }}</b></li>
-	  {{ end }}
-	  {{ end }}
+    {{ range $slug := . }}
+    {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+    {{ $image := (partial "lookup/speaker-image" $slug).Fit "100x100 webp q65" }}
+    <li class="relatedSpeakers-item">
+      <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
+      <div class="relatedSpeakers-details">
+        <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        <p class="relatedSpeakers-role">{{ .Params.role }}{{ if and .Params.role .Params.company }} @ {{ end }}{{ .Params.company }}</p>
+      </div>
+    </li>
+    {{ else }}
+    <li class="relatedSpeakers-item"><b>{{ $slug }}</b></li>
+    {{ end }}
+    {{ end }}
   </ul>
   {{ end }}
 </main>

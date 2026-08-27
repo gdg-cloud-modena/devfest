@@ -5,12 +5,11 @@
     <summary class="lightningTalk-title {{if $talk.done}}lightningTalk-title--done{{end}}"><b class="link">{{ $talk.title }}</b> — {{ $talk.speaker }}</summary>
     <div class="lightningTalk-description">
       <p>{{ $talk.description }}</p>
-      {{ if $talk.slidesURL }}<p>Guarda le <a href="{{ $talk.slidesURL }}" target="_blank">slide</a>.</p>{{ end }}
-      {{ if $talk.profileURL }}<p>Visita il profilo di <a href="{{ $talk.profileURL }}" target="_blank">{{ $talk.speaker }}</a>.{{ end }}
+      {{ if $talk.slidesURL }}<p><a class="link" href="{{ $talk.slidesURL }}" target="_blank" rel="noopener">{{ i18n "viewSlides" }}</a></p>{{ end }}
+      {{ if $talk.profileURL }}<p><a class="link" href="{{ $talk.profileURL }}" target="_blank" rel="noopener">{{ printf (i18n "visitProfile") $talk.speaker }}</a></p>{{ end }}
     </div>
   </details>
 {{ end }}
 {{ else }}
-<p><i>~ Coming soon ~</i></p>
+<p><i>{{ i18n "comingSoon" }}</i></p>
 {{ end }}
-<br>

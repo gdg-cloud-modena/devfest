@@ -83,7 +83,7 @@
     overflow: hidden;
     margin-bottom: spaces.$space-m;
     border: 1px solid colors.$gray;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(colors.$black, 0.08);
   }
 
   .location-featuredImg {
@@ -96,20 +96,6 @@
     &:hover {
       transform: scale(1.02);
     }
-  }
-
-  .location-featuredBadge {
-    position: absolute;
-    bottom: spaces.$space-m;
-    left: spaces.$space-m;
-    background-color: rgba(0, 0, 0, 0.82);
-    backdrop-filter: blur(8px);
-    color: colors.$white;
-    padding: spaces.$space-2xs spaces.$space-m;
-    border-radius: effects.$radius;
-    font-size: fonts.$size-0;
-    font-weight: bold;
-    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   /* Intro Grid (Info + Map) */
@@ -206,7 +192,7 @@
     position: absolute;
     bottom: spaces.$space-s;
     right: spaces.$space-s;
-    background-color: rgba(0, 0, 0, 0.82);
+    background-color: rgba(colors.$black, 0.82);
     color: colors.$white;
     padding: spaces.$space-2xs spaces.$space-s;
     border-radius: effects.$radius;
@@ -259,7 +245,7 @@
     border-radius: effects.$radius;
     padding: spaces.$space-m;
     border: 1px solid colors.$gray;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 8px rgba(colors.$black, 0.04);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -267,7 +253,7 @@
 
     &:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(colors.$black, 0.1);
     }
   }
 
@@ -313,13 +299,6 @@
 @if r.$mobile {
   .location-featuredImg {
     height: 260px;
-  }
-
-  .location-featuredBadge {
-    font-size: fonts.$size--1;
-    padding: spaces.$space-2xs spaces.$space-s;
-    left: spaces.$space-s;
-    bottom: spaces.$space-s;
   }
 
   .location-navigationList {

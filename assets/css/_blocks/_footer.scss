@@ -113,7 +113,7 @@
   .footer-menu-patrocini-item-img--placeholder {
     width: 100px;
     height: 100px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(colors.$white, 0.08);
     display: block;
     align-items: center;
     justify-content: center;
@@ -131,17 +131,6 @@
       font-family: google sans display,sans-serif;
       font-size: clamp(1.125rem,.986rem + .37vi,1.25rem);
       font-optical-sizing: auto;
-  }
-
-  .footer-menu-tickets-button {
-    text-decoration: none;
-    position: relative;
-    padding: 0.5em 0.75em 0.5em 0.75em;
-    background: colors.$tertiary--1;
-    border: 2px solid transparent;
-    color: colors.$black;
-    @extend %rounded;
-    @extend %transition-border;
   }
 
   .footer-menuItem {

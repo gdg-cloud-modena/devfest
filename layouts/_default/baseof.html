@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ .Language.LanguageCode | default (.Param "pageLang" | default $.Site.LanguageCode) }}" dir="ltr">
+<html class="no-js" lang="{{ .Language.LanguageCode }}" dir="{{ default "ltr" .Language.LanguageDirection }}">
 
 <head>
   {{- partial "head.html" . -}}
-  {{- partial "styles.html" . -}}
-  {{- partial "microformats.html" . -}}
+  {{- partialCached "styles.html" . "styles" -}}
+  {{- partial "social-meta.html" . -}}
+  {{- partial "schema.html" . -}}
 </head>
 
 <body>
-  {{ if or (eq .Layout "landing") (.Param "hideSiteHeader") }}
-
-  {{ else }}
   {{- partial "header.html" . -}}
-  {{ end }}
+
   {{- block "main" . }}{{- end }}
-  {{ if not (.Param "hideSiteCtas") }}
+
   <section class="container">
     {{- partial "cta-tickets.html" . -}}
     {{- partial "cta-cv.html" . -}}
   </section>
-  {{ end }}
-  {{ if not (.Param "hideSiteFooter") }}
+
   {{- partial "footer.html" . -}}
-  {{ end }}
-  {{- partial "scripts.html" . -}}
+
+  {{- partialCached "scripts.html" . "scripts" -}}
 </body>
 
 </html>

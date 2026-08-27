@@ -1,0 +1,17 @@
+{{/*
+  Map an edition's room slugs to their pages, so templates can turn the room
+  codes stored on a session ("rooms" front matter) into links.
+
+  Call through partialCached, keyed by year — sessions/single.html renders this
+  for every one of the ~200 session pages and the result only varies per edition:
+
+    {{ $rooms := partialCached "lookup/rooms" $year $year }}
+
+  @param  {string} year  Edition, e.g. "2026"
+  @return {maps}         Room slug -> page.Page
+*/}}
+{{- $rooms := dict -}}
+{{- range partial "lookup/pages" (printf "/%s/rooms" .) -}}
+  {{- $rooms = merge $rooms (dict .File.TranslationBaseName .) -}}
+{{- end -}}
+{{- return $rooms -}}

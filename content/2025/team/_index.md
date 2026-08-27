@@ -1,4 +1,5 @@
 +++
+title = "Team"
 type = "team"
 
 [cascade]

@@ -1,0 +1,20 @@
+{{/*
+  Resolve a team member's photo. Team photos live in assets/team and arrive in
+  any of three formats; some organisers are also speakers, so assets/speakers is
+  tried next before the generic placeholder.
+
+  Returns the full-size resource — callers apply their own .Fit.
+
+  @param  {string} slug  Person code, e.g. "davide-muzzarelli"
+  @return {resource.Resource}
+*/}}
+{{- $img := "" -}}
+{{- range $path := slice "team/%s.jpg" "team/%s.jpeg" "team/%s.png" "speakers/%s.jpg" "speakers/%s.png" -}}
+  {{- if not $img -}}
+    {{- $img = resources.Get (printf $path $) -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $img -}}
+  {{- $img = resources.Get "team/profile.jpg" -}}
+{{- end -}}
+{{- return $img -}}

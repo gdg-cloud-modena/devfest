@@ -1,0 +1,17 @@
+{{/*
+  Whether a menu entry points at the page being rendered, or at the section it
+  lives in — so "Sessioni" stays highlighted while reading a single session.
+
+  Replaces a comparison against an `identifier` page param that no content file
+  ever set, which meant the active state never applied to any page.
+
+  @param {maps}      entry  A menu entry
+  @param {page.Page} page   The page being rendered
+  @return {bool}
+*/}}
+{{- $url := .entry.URL | relLangURL -}}
+{{- $active := false -}}
+{{- if not .entry.Params.external -}}
+  {{- $active = and (ne $url "/") (hasPrefix .page.RelPermalink $url) -}}
+{{- end -}}
+{{- return $active -}}

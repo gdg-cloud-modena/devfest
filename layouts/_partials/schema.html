@@ -1,0 +1,23 @@
+{{/*
+  schema.org JSON-LD. This is what earns rich results: event dates, venue and
+  "free admission" shown directly in Google, expandable FAQ answers, and speaker
+  profiles tied to the event.
+
+  Built as Go maps and passed through `jsonify`, so the output is always valid
+  JSON — never hand-assembled strings.
+*/}}
+{{- $schema := "" -}}
+
+{{- if or .IsHome (eq .Type "agenda") -}}
+  {{- $schema = partial "schema/event" . -}}
+{{- else if and .IsPage (eq .Type "sessions") -}}
+  {{- $schema = partial "schema/session" . -}}
+{{- else if and .IsPage (eq .Section "speakers") -}}
+  {{- $schema = partial "schema/person" . -}}
+{{- else if eq .Type "faq" -}}
+  {{- $schema = partial "schema/faq" . -}}
+{{- end -}}
+
+{{- with $schema }}
+<script type="application/ld+json">{{ . | jsonify (dict "indent" "") | safeJS }}</script>
+{{- end }}

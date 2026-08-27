@@ -1,0 +1,27 @@
+# Session tracks (topics).
+#
+# `key` must match the `topic` value in a session's front matter exactly — it is
+# what groups sessions into tracks and what builds the #track-... anchors.
+# `color` is a brand palette name from assets/css/_default/_colors.scss.
+# `description` names an i18n key, so the copy stays translatable.
+#
+# Read this through the "lookup/tracks" partial, never directly: it resolves the
+# description and keeps the ordering in one place.
+
+[[tracks]]
+key = "AI & Machine Intelligence"
+emoji = "🤖"
+color = "primary"
+description = "topic_ai_desc"
+
+[[tracks]]
+key = "Cloud & Platform Engineering"
+emoji = "☁️"
+color = "tertiary"
+description = "topic_cloud_desc"
+
+[[tracks]]
+key = "Web, Mobile & Dev Experience"
+emoji = "📱"
+color = "secondary"
+description = "topic_web_desc"

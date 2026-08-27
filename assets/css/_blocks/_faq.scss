@@ -1,85 +1,97 @@
+@use "_responsive" as r;
+
 @use "_default/_spaces";
 @use "_default/_colors";
 @use "_default/_effects";
 @use "_default/_fonts";
 
-.faq {
-  display: flex;
-  flex-direction: column;
-  gap: spaces.$space-xs;
-}
+@if r.$core {
+  .faq {
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-xs;
+  }
 
-.faq-item {
-  background-color: colors.$white;
-  border: 1px solid colors.$gray;
-  border-radius: effects.$radius;
-  overflow: hidden;
-  transition: box-shadow effects.$time ease, border-color effects.$time ease;
+  .faq-intro {
+    margin-bottom: spaces.$space-m;
+  }
 
-  &[open] {
-    border-color: colors.$primary;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  .faq-more {
+    margin-top: spaces.$space-l;
+  }
 
-    .faq-question {
+  .faq-item {
+    background-color: colors.$white;
+    border: 1px solid colors.$gray;
+    border-radius: effects.$radius;
+    overflow: hidden;
+    transition: box-shadow effects.$time ease, border-color effects.$time ease;
+
+    &[open] {
+      border-color: colors.$primary;
+      box-shadow: 0 4px 12px rgba(colors.$black, 0.06);
+
+      .faq-question {
+        background-color: colors.$primary--2;
+        color: colors.$black;
+      }
+
+      .faq-icon {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: spaces.$space-s spaces.$space-m;
+    font-weight: bold;
+    font-size: fonts.$size-0;
+    color: colors.$black;
+    background-color: colors.$white;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    transition: background-color effects.$time ease;
+
+    &::-webkit-details-marker,
+    &::marker {
+      display: none;
+    }
+
+    &:hover {
       background-color: colors.$primary--2;
-      color: colors.$black;
-    }
-
-    .faq-icon {
-      transform: rotate(45deg);
     }
   }
-}
 
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: spaces.$space-s spaces.$space-m;
-  font-weight: bold;
-  font-size: fonts.$size-0;
-  color: colors.$black;
-  background-color: colors.$white;
-  cursor: pointer;
-  user-select: none;
-  list-style: none;
-  transition: background-color effects.$time ease;
-
-  &::-webkit-details-marker,
-  &::marker {
-    display: none;
+  .faq-questionText {
+    flex-grow: 1;
+    padding-right: spaces.$space-s;
   }
 
-  &:hover {
-    background-color: colors.$primary--2;
-  }
-}
-
-.faq-questionText {
-  flex-grow: 1;
-  padding-right: spaces.$space-s;
-}
-
-.faq-icon {
-  font-size: 1.4rem;
-  line-height: 1;
-  font-weight: bold;
-  color: colors.$primary;
-  transition: transform effects.$time ease;
-  flex-shrink: 0;
-}
-
-.faq-answer {
-  padding: spaces.$space-s spaces.$space-m spaces.$space-m;
-  color: colors.$black;
-  line-height: 1.6;
-  border-top: 1px solid colors.$gray;
-
-  p:first-child {
-    margin-top: 0;
+  .faq-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    font-weight: bold;
+    color: colors.$primary;
+    transition: transform effects.$time ease;
+    flex-shrink: 0;
   }
 
-  p:last-child {
-    margin-bottom: 0;
+  .faq-answer {
+    padding: spaces.$space-s spaces.$space-m spaces.$space-m;
+    color: colors.$black;
+    line-height: 1.6;
+    border-top: 1px solid colors.$gray;
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 }

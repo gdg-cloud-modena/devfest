@@ -55,7 +55,7 @@
 
       // Enhanced hover and focus states
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 16px rgba(colors.$black, 0.1);
       &:hover {
         transform: translateY(-4px);
         box-shadow: effects.$box-shadow;
@@ -86,7 +86,7 @@
       flex-shrink: 0;
 
       border: 3px solid white;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 16px rgba(colors.$black, 0.1);
 
       > img {
         width: 100%;
@@ -128,9 +128,9 @@
       .team-peopleImage {
         background: linear-gradient(
           90deg,
-          #f0f0f0 25%,
-          #e0e0e0 50%,
-          #f0f0f0 75%
+          colors.$gray 25%,
+          colors.$gray--1 50%,
+          colors.$gray 75%
         );
         background-size: 200% 100%;
         animation: loading 1.5s infinite;
@@ -138,7 +138,7 @@
 
       .team-peopleDetail strong,
       .team-peopleDetail > div {
-        background: #f0f0f0;
+        background: colors.$gray;
         border-radius: 4px;
         color: transparent;
       }

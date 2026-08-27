@@ -48,3 +48,10 @@
     }
   }
 }
+
+@if r.$core {
+  /* Entries in a generic section listing. */
+  .listPage-entry {
+    margin-top: spaces.$space-xs;
+  }
+}

@@ -1,0 +1,24 @@
+{{/*
+  FAQPage structured data, built from the same data/faq.toml entries the page
+  renders. Answers are Markdown, so they are rendered and stripped back to plain
+  text — schema.org wants the answer text, not markup.
+
+  @return {maps}  Ready for jsonify
+*/}}
+{{- $questions := slice -}}
+{{- range partial "lookup/faqs" . -}}
+  {{- $questions = $questions | append (dict
+    "@type" "Question"
+    "name"  .question
+    "acceptedAnswer" (dict
+      "@type" "Answer"
+      "text"  (.answer | markdownify | plainify | htmlUnescape | chomp)
+    )
+  ) -}}
+{{- end -}}
+
+{{- return dict
+  "@context"   "https://schema.org"
+  "@type"      "FAQPage"
+  "mainEntity" $questions
+-}}

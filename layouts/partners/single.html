@@ -1,22 +1,28 @@
 {{ define "main" }}
 {{- $slug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
 {{- $year := printf "%v" (.Param "year") -}}
-{{- $yearStr := printf "%v" $year -}}
-{{ $utm := (index (index site.Data $yearStr) "utm") }}
-{{ $linkWithUtm := printf "%s?%s" .Params.link $utm }}
+{{- $edition := index site.Data $year -}}
+{{- $link := .Params.link -}}
+{{- with (and $edition (index $edition "utm")) -}}
+  {{- $link = printf "%s%s%s" $link (cond (in $link "?") "&" "?") . -}}
+{{- end -}}
 
 <main class="section section--padded">
-  <h1 class="h1"><a href="{{ $linkWithUtm }}" target="_blank">{{ .Title }}</a></h1>
-  <p class="p"><a class="link" href="{{ $linkWithUtm }}" target="_blank">{{ .Params.link }}</a></p>
+  {{ partial "previous-edition" . }}
+
+  <h1 class="h1"><a href="{{ $link }}" target="_blank" rel="noopener">{{ .Title }}</a></h1>
+  <p class="p"><a class="link" href="{{ $link }}" target="_blank" rel="noopener">{{ .Params.link }}</a></p>
+
   <div class="partnerPage-description">
     <div class="content">
       {{ .Content }}
     </div>
-    {{ with $img := resources.Get (printf "%s/partners/%s.png" $yearStr $slug) }}
-    {{ $img = $img.Fit "400x400 webp q85" }}
-    <img class="partnerPage-image" width="{{ $img.Width }}" height="{{ $img.Height }}" src="{{ $img.Permalink }}" alt="{{ .Title }} logo">
+    {{ with partial "lookup/partner-logo" (dict "year" $year "code" $slug) }}
+    {{- $img := .Fit "400x400 webp q85" -}}
+    <img class="partnerPage-image" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $.Title }}">
     {{ end }}
   </div>
-  <a class="button" href="{{ $linkWithUtm }}" target="_blank">{{ i18n "visitWebsite" }}</a>
+
+  <a class="button" href="{{ $link }}" target="_blank" rel="noopener">{{ i18n "visitWebsite" }}</a>
 </main>
 {{ end }}

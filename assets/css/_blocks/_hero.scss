@@ -39,7 +39,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.52);
+    background: rgba(colors.$black, 0.52);
     z-index: 1;
   }
 
@@ -109,19 +109,15 @@
     }
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.12);
+      background-color: rgba(colors.$white, 0.12);
       border-color: colors.$white;
     }
   }
 
-  .hero-title--variant {
-    font-weight: 400;
-    font-style: italic;
-    color: colors.$primary;
-  }
-
-  .hero-title--variant2 {
-    font-family: fonts.$titles;
+  /* The <h1> only wraps the logo, so it must not add heading spacing. */
+  .hero-heading {
+    margin: 0;
+    display: flex;
   }
 
   .hero-icon {
@@ -145,4 +141,3 @@
     align-items: stretch;
   }
 }
-
