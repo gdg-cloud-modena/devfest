@@ -1,0 +1,40 @@
+{{/*
+  Open Graph and Twitter card tags — what LinkedIn, WhatsApp, Telegram, Slack
+  and Facebook read when someone shares a link.
+
+  Replaces the old microformats.html, which also emitted Dublin Core tags (no
+  consumer has read those in over a decade) and og:start_time / og:end_time /
+  og:location, which are not Open Graph properties at all. Event details now go
+  out as schema.org JSON-LD, which search engines actually use — see schema.html.
+*/}}
+{{- $seo := partialCached "lookup/seo" . .Permalink -}}
+<meta property="og:site_name" content="{{ $seo.siteName }}">
+<meta property="og:locale" content="{{ replace $seo.lang "-" "_" }}">
+<meta property="og:type" content="{{ default "website" .Params.metaType }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ $seo.title }}">
+<meta property="og:description" content="{{ $seo.description }}">
+<meta property="og:updated_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- range .Translations }}
+<meta property="og:locale:alternate" content="{{ replace .Language.LanguageCode "-" "_" }}">
+{{- end }}
+
+{{- with $seo.image }}
+<meta property="og:image" content="{{ .Permalink }}">
+<meta property="og:image:width" content="{{ .Width }}">
+<meta property="og:image:height" content="{{ .Height }}">
+<meta property="og:image:alt" content="{{ $seo.title }}">
+{{- end }}
+
+{{/* summary_large_image needs an actual image; without one it renders as a
+     broken card, so fall back to the small variant. */}}
+<meta name="twitter:card" content="{{ cond (ne $seo.image "") "summary_large_image" "summary" }}">
+<meta name="twitter:title" content="{{ $seo.title }}">
+<meta name="twitter:description" content="{{ $seo.description }}">
+{{- with $seo.image }}
+<meta name="twitter:image" content="{{ .Permalink }}">
+<meta name="twitter:image:alt" content="{{ $seo.title }}">
+{{- end }}
+{{- with site.Params.twitter }}
+<meta name="twitter:site" content="{{ . }}">
+{{- end }}

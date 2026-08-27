@@ -27,4 +27,4 @@ What will we do together?
 - Identify strengths and areas for growth
 - Define a concrete action plan for your professional evolution
 
-Go to the [workshop instructions](/en/workshops/) page to participate.
+Go to the [workshop instructions](/workshops/) page to participate.

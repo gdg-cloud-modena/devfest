@@ -1,4 +1,5 @@
 +++
+title = "Rooms"
 type = "rooms"
 
 [cascade]

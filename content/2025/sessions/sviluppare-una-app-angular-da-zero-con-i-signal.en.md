@@ -28,4 +28,4 @@ What you will learn:
 ✅ How to write cleaner templates with new Control Flow (@if, @for, @switch)
 ✅ Best practices for simple, reactive, and efficient components
 
-Go to the [workshop instructions](/en/workshops/) page to participate.
+Go to the [workshop instructions](/workshops/) page to participate.

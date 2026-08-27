@@ -4,47 +4,55 @@
 		<div class="footer-columns">
 			<div class="footer-column">
 				<p class="footer-logo"><img class="footer-logo" src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena"></p>
+				{{ with resources.Get "communities/gdg-cloud-modena.png" }}
+				{{- $gdg := .Resize "300x300 png" -}}
 				<p class="footer-logo">
-					{{ with $img := resources.Get "communities/gdg-cloud-modena.png" }}
-					{{ $img = $img.Resize "300x300 png" }} {{/* genera lossless @2x */}}
-					<img class="partnerPage-image" src="{{ $img.RelPermalink }}" width="{{ div $logo.Width 2 }}" height="auto"
-					 alt="gdg-cloud-modena logo">
-					{{ end }}
-					</p>
+					<img class="partnerPage-image" src="{{ $gdg.RelPermalink }}" width="{{ div $gdg.Width 2 }}" height="{{ div $gdg.Height 2 }}" alt="GDG Cloud Modena">
+				</p>
+				{{ end }}
 				<p class="footer-description">{{ i18n "footerDesc" }}</p>
 			</div>
 			<div class="footer-column">
-				<h4 class="footer-title">{{ i18n "previousEvents" }}</h4>
+				<h3 class="footer-title">{{ i18n "previousEvents" }}</h3>
+				{{/* Past editions, newest first, taken from the edition data files
+				     so a new year needs no edit here. */}}
+				{{- $editions := slice -}}
+				{{- range $year, $_ := site.Data -}}
+					{{- if and (findRE `^[0-9]{4}$` $year) (lt $year (printf "%v" site.Params.currentEdition)) -}}
+						{{- $editions = $editions | append $year -}}
+					{{- end -}}
+				{{- end -}}
 				<ul class="footer-menu">
-					<li class="footer-menuItem">DevFest Modena 2025<br>(back online soon)</li>
-					<li class="footer-menuItem">DevFest Modena 2024<br>(back online soon)</li>
-					{{ range .Site.Menus.footer }}
+					{{ range sort $editions "value" "desc" }}
+					<li class="footer-menuItem"><a href="{{ printf "/%s/" . | relLangURL }}">DevFest Modena {{ . }}</a></li>
+					{{ end }}
+					{{ range $.Site.Menus.footer }}
 					<li class="footer-menuItem"><a
-						href="{{ .URL | relLangURL }}" {{ if .Params.external }}target="_blank" {{ end }}
-					>{{ .Name }}</a></li>
+						href="{{ .URL | relLangURL }}"{{ if .Params.external }} target="_blank" rel="noopener"{{ end }}
+					>{{ partial "lookup/menu-label" . }}</a></li>
 					{{ end }}
 				</ul>
 			</div>
       <div class="footer-column">
-        <h4 class="footer-title">{{ i18n "sitemap" }}</h4>
+        <h3 class="footer-title">{{ i18n "sitemap" }}</h3>
         {{ range .Site.Menus.main }}
         <p><a class="footer-link"
-          href="{{ .URL | relLangURL }}" {{ if .Params.external }}target="_blank" {{ end }}>{{ .Name }}</a></p>
+          href="{{ .URL | relLangURL }}"{{ if .Params.external }} target="_blank" rel="noopener"{{ end }}>{{ partial "lookup/menu-label" . }}</a></p>
         {{ end }}
         <p><a class="footer-link" href="{{ "/workshops/" | relLangURL }}">{{ i18n "workshops" }}</a></p>
         <p><a class="footer-link" href="{{ "/speed-networking/" | relLangURL }}">{{ i18n "speedNetworking" }}</a></p>
         <p><a class="footer-link" href="{{ "/code-of-conduct/" | relLangURL }}">{{ i18n "codeOfConduct" }}</a></p>
       </div>
 			<div class="footer-column">
-				<h4 class="footer-title">{{ i18n "contacts" }}</h4>
+				<h3 class="footer-title">{{ i18n "contacts" }}</h3>
 				<p><a class="footer-link" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
 				<ul class="footer-menu footer-menu-socialRow">
 					{{ range $name, $url := .Site.Params.social }}
 					<li class="footer-menuItem footer-menuItem-social ">
-						<a href="{{ $url }}"target="_blank" rel="noopener" aria-label="{{ $name }}">
+						<a href="{{ $url }}" target="_blank" rel="noopener" aria-label="{{ $name }}">
 							{{ $iconName := lower $name }}
 							{{ $iconPath := printf "icons/logo-%s-white.svg" $iconName }}
-							<img src="{{ relURL $iconPath }}" width="24" height="24" alt="{{ $name }} icon">
+							<img src="{{ relURL $iconPath }}" width="24" height="24" alt="">
 						</a>
 					</li>
 					{{ end }}
@@ -71,10 +79,7 @@
 						{{ $code := .code }}
 						{{ $link := .link }}
 
-						{{/* Try to load logo for the partner (prefer png/jpg/webp) */}}
-						{{ $img := resources.Get (printf "%v/partners/%s.png" $year $code) }}
-						{{ if not $img }}{{ $img = resources.Get (printf "%v/partners/%s.jpg" $year $code) }}{{ end }}
-						{{ if not $img }}{{ $img = resources.Get (printf "%v/partners/%s.webp" $year $code) }}{{ end }}
+						{{ $img := partial "lookup/partner-logo" (dict "year" (printf "%v" $year) "code" $code) }}
 
 						<a class="footer-menu-patrocini-item" href="{{ $link }}" target="_blank" rel="noopener">
 							{{ if $img }}
@@ -93,7 +98,7 @@
 					{{ end }}
 			</div>
 			<div class="footer-column">
-				<h4 class="footer-title">{{ i18n "joinUs" }}</h4>
+				<h3 class="footer-title">{{ i18n "joinUs" }}</h3>
 				<div class="footer-menu footer-menu-tickets">
 				      <a class="button" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
 					{{ i18n "tickets" }}

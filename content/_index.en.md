@@ -1,6 +1,6 @@
 +++
 title = "DevFest Modena 2026"
-description = "The premier developer conference in Modena organized by GDG Cloud Modena."
+description = "DevFest Modena 2026: two days of talks on AI, Cloud, Web and Mobile at Fondazione San Carlo, 3-4 October. Free entry, registration required."
 layout = "home"
 date = 2026-06-13
 year = 2026
@@ -13,6 +13,6 @@ DevFest is an event dedicated to developers, hosted by Google Developer Groups w
 
 The event is the result of collaboration between local tech communities: GDG Cloud Modena, Modena Full Stack, Reggio Emilia Full Stack, Conoscere Linux.
 
-During the day you can join [speed networking](/en/speed-networking/) to expand your professional network.
+During the day you can join [speed networking](/speed-networking/) to expand your professional network.
 
-Explore all confirmed [sessions](/en/2026/sessions/) on the schedule.
+Explore all confirmed [sessions](/2026/sessions/) on the schedule.

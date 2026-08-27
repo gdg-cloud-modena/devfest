@@ -1,23 +1,16 @@
-{{ $person := .person }}
-{{ $img := .img }}
-{{ $personCode := .personCode }}
+{{/*
+  Photo and details for one person, shared by the team page and the speakers
+  index. The caller wraps this in the link (or plain container).
 
+  @param {maps}              person  Needs .name, optionally .company and .description
+  @param {resource.Resource} img     Already resized by the caller
+*/}}
+{{- $person := .person -}}
 <div class="team-peopleImage" aria-hidden="true">
-  {{ if $img }}
-  <img src="{{ $img.RelPermalink }}" alt="{{ $person.name }}" width="{{ $img.Width }}" height="{{ $img.Height }}"
-    loading="lazy" onerror="this.style.display='none'">
-  {{ else }}
-  {{/* Fallback content handled by CSS */}}
-  {{ end }}
+  <img src="{{ .img.RelPermalink }}" alt="{{ $person.name }}" width="{{ .img.Width }}" height="{{ .img.Height }}" loading="lazy">
 </div>
 <div class="team-peopleDetail">
   <strong>{{ $person.name }}</strong>
-
-  {{ if $person.company }}
-  <i>{{ $person.company }}</i>
-  {{ end }}
-
-  {{ if $person.description }}
-  <div class="team-description">{{ $person.description }}</div>
-  {{ end }}
+  {{ with $person.company }}<i>{{ . }}</i>{{ end }}
+  {{ with $person.description }}<div class="team-description">{{ . }}</div>{{ end }}
 </div>

@@ -4,8 +4,6 @@ description = "Hands-on learning sessions."
 layout = "single.html"
 +++
 
-# Workshops
-
 Workshops have limited capacity, approximately 20-25 seats per session.
 
 We will send an email registration form a few days prior to the event to the email address used when booking your ticket.

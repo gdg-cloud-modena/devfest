@@ -1,0 +1,82 @@
+{{/*
+  Event structured data for the homepage and the agenda pages.
+
+  Dates come from the edition's `days` list in data/<year>.toml; the venue and
+  organiser from site params. Speakers are listed as performers, which is how
+  Google connects a talk's people to the event.
+
+  @return {maps}  Ready for jsonify
+*/}}
+{{- $seo := partialCached "lookup/seo" . .Permalink -}}
+{{- $edition := $seo.edition -}}
+{{- $data := index site.Data $edition -}}
+{{- $days := cond (ne $data nil) (default slice $data.days) slice -}}
+{{- $venue := site.Params.venue -}}
+
+{{- $performers := slice -}}
+{{- $seen := dict -}}
+{{- range partial "lookup/pages" (printf "/%s/sessions" $edition) -}}
+  {{- range .Params.speakers -}}
+    {{- if not (index $seen .) -}}
+      {{- $seen = merge $seen (dict . true) -}}
+      {{- with partial "lookup/page" (printf "/speakers/%s" .) -}}
+        {{- $performers = $performers | append (dict "@type" "Person" "name" .Title "url" .Permalink) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $event := dict
+  "@context"            "https://schema.org"
+  "@type"               "Event"
+  "name"                $seo.siteName
+  "description"         $seo.description
+  "url"                 .Permalink
+  "inLanguage"          $seo.lang
+  "eventStatus"         "https://schema.org/EventScheduled"
+  "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode"
+  "isAccessibleForFree" true
+  "organizer" (dict
+    "@type" "Organization"
+    "name"  site.Params.author
+    "url"   site.Home.Permalink
+  )
+  "location" (dict
+    "@type" "Place"
+    "name"  $venue.name
+    "url"   $venue.url
+    "address" (dict
+      "@type"           "PostalAddress"
+      "streetAddress"   $venue.street
+      "addressLocality" $venue.city
+      "postalCode"      $venue.postalCode
+      "addressRegion"   $venue.region
+      "addressCountry"  $venue.country
+    )
+  )
+  "offers" (dict
+    "@type"         "Offer"
+    "price"         "0"
+    "priceCurrency" "EUR"
+    "availability"  "https://schema.org/InStock"
+    "url"           site.Params.ticketsUrl
+    "category"      "Free"
+  )
+-}}
+
+{{- with $days -}}
+  {{- $event = merge $event (dict
+    "startDate" ((time.AsTime (index . 0)).Format "2006-01-02")
+    "endDate"   ((time.AsTime (index . (sub (len .) 1))).Format "2006-01-02")
+  ) -}}
+{{- end -}}
+
+{{- with $seo.image -}}
+  {{- $event = merge $event (dict "image" (slice .Permalink)) -}}
+{{- end -}}
+
+{{- with $performers -}}
+  {{- $event = merge $event (dict "performer" .) -}}
+{{- end -}}
+
+{{- return $event -}}

@@ -1,74 +1,50 @@
 {{ define "main" }}
+{{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+{{- $isCurrentEdition := eq $year (printf "%v" site.Params.currentEdition) -}}
 
-{{ $year := printf "%v" (or (.Param "year") site.Params.currentEdition) }}
-{{ $currentYear := printf "%v" site.Params.currentEdition }}
-
-{{- $allSessions := slice -}}
-{{- range site.RegularPages -}}
-    {{- if in .File.Dir (printf "%s/sessions/" $year) -}}
-        {{- $allSessions = $allSessions | append . -}}
-    {{- end -}}
-{{- end -}}
-{{- if eq (len $allSessions) 0 -}}
-  {{- range (index site.Sites 0).RegularPages -}}
-    {{- if in .File.Dir (printf "%s/sessions/" $year) -}}
-        {{- $allSessions = $allSessions | append . -}}
+{{/* Everyone speaking at this edition, deduplicated and alphabetical. Speaker
+     profiles are shared across editions, so they are resolved through the
+     default-language fallback. */}}
+{{- $speakers := slice -}}
+{{- $seen := dict -}}
+{{- range partial "lookup/pages" (printf "/%s/sessions" $year) -}}
+  {{- range .Params.speakers -}}
+    {{- if not (index $seen .) -}}
+      {{- $seen = merge $seen (dict . true) -}}
+      {{- with partial "lookup/page" (printf "/speakers/%s" .) -}}
+        {{- $speakers = $speakers | append . -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
-
-{{- $speakers := dict -}}
-
-{{- range $allSessions -}}
-    {{- if gt (len .Params.speakers) 0 }}
-        {{- range .Params.speakers }}
-            {{- $speakerCode := . -}}
-            {{- if not (in $speakers $speakerCode) }}
-                {{$code := dict "code" $speakerCode "Title" $speakerCode}}
-                {{ $speakerPage := site.GetPage (printf "/speakers/%s" $speakerCode) }}
-                {{ if not $speakerPage }}{{ $speakerPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $speakerCode) }}{{ end }}
-                {{ with $speakerPage }}
-                  {{ $code = merge $code (dict "Title" .Title) }}
-                  {{ $code = merge $code .Params}}
-                {{ end }}
-                {{- $speakers = merge $speakers (dict $speakerCode $code) -}}
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
-{{- end -}}
-{{- $speakers = sort $speakers "code" "asc" -}}
+{{- $speakers = sort $speakers "Title" "asc" -}}
 
 <main class="section section--padded">
-  {{ if eq $year $currentYear }}
-  {{ if site.Params.callForSpeakersEnabled }}
+  {{ partial "previous-edition" . }}
+
+  {{ if and $isCurrentEdition site.Params.callForSpeakersEnabled }}
   <div class="callout callout--info">
     <p class="p">{{ printf (i18n "cfsCallout") $year }}</p>
     <a class="button" href="{{ site.Params.sessionizeUrl }}" target="_blank" rel="noopener">{{ i18n "cfsBtn" }}</a>
   </div>
   {{ end }}
-  <br/>
-  {{ end }}
+
   <h1 class="h1">{{ printf (i18n "speakersTitle") $year }}</h1>
   <div class="content">
     {{ .Content }}
   </div>
-  <div class="team-people">
-    {{- range $speakers -}}
 
-    {{- $img := resources.Get (printf "speakers/%s.jpg" .code) -}}
-    {{- if not $img -}}
-    {{- $img = resources.Get (printf "speakers/%s.png" .code) -}}
-    {{- end -}}
-    {{-  if not $img -}}
-    {{- $img = resources.Get "team/profile.jpg" -}}
-    {{- end -}}
-    {{- $img := $img.Fit "200x200 q85 jpg" -}}
-    {{- $slug := .code -}}
-    {{- $person := dict "name" .Title "company" .company "description" .role -}}
-      <a class="team-peopleItem" href="{{ printf "/speakers/%s" $slug | relLangURL }}" role="listitem" aria-label="Visit Speaker {{ .Title }}'s profile">
-        {{ partial "team-member" (dict "person" $person "img" $img) }}
-      </a>
-    {{- end -}}
+  <div class="team-people" role="list">
+    {{ range $speakers }}
+    {{- $slug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
+    {{- $img := (partial "lookup/speaker-image" $slug).Fit "200x200 q85 jpg" -}}
+    <a class="team-peopleItem" href="{{ .RelPermalink }}" role="listitem" aria-label="{{ printf (i18n "visitProfile") .Title }}">
+      {{ partial "team-member" (dict
+        "person" (dict "name" .Title "company" .Params.company "description" .Params.role)
+        "img" $img
+      ) }}
+    </a>
+    {{ end }}
   </div>
 </main>
-{{- end -}}
+{{ end }}

@@ -12,4 +12,4 @@ slidesURL = ""
 warning = ""
 +++
 
-Keynote iniziale.
+Opening keynote.

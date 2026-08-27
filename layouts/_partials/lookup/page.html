@@ -1,0 +1,16 @@
+{{/*
+  Resolve a content page, falling back to the default-language site.
+
+  Speakers, rooms and sessions are authored once (in Italian). The English site
+  has no copy of most of them, so a plain site.GetPage returns nothing there and
+  the page would silently render empty. Every lookup of shared content must go
+  through this partial.
+
+  @param  {string} path  Absolute content path, e.g. "/speakers/mario-fusco"
+  @return {page.Page|nil}
+*/}}
+{{- $page := site.GetPage . -}}
+{{- if not $page -}}
+  {{- $page = (index site.Sites 0).GetPage . -}}
+{{- end -}}
+{{- return $page -}}

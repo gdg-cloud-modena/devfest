@@ -1,4 +1,5 @@
 +++
+title = "Partner"
 type = "partners"
 
 [cascade]

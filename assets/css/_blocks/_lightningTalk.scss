@@ -12,6 +12,7 @@
   .lightningTalk {
     list-style-type: none;
     padding-left: 1em;
+    margin-bottom: spaces.$space-xs;
     @extend %rounded;
     border: 2px solid transparent;
   }

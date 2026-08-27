@@ -9,14 +9,14 @@ link = "https://webranking.it/"
 
 +++
 
-Webranking è la più grande agenzia indipendente di digital marketing in Italia, con oltre 25 anni di esperienza e un team in costante crescita di oltre 250 professionisti.
+Webranking is Italy's largest independent digital marketing agency, with more than 25 years of experience and a growing team of over 250 professionals.
 
-Nata nel 1998, l’agenzia si è affermata come punto di riferimento per i brand che vogliono competere nel digitale unendo strategia, creatività e tecnologia. La sua indipendenza le consente di muoversi con rapidità e di proporre soluzioni personalizzate, senza vincoli di network internazionali.
+Founded in 1998, the agency has become a trusted partner for brands that want to compete digitally by combining strategy, creativity, and technology. Its independence allows it to move quickly and propose tailored solutions without the constraints of an international network.
 
-Nel tempo Webranking ha ampliato le proprie competenze fino a diventare un vero centro di competenze MarTech, dove sviluppo, analisi dei dati e innovazione convivono. Al cuore del suo approccio ci sono soluzioni su misura, la progettazione di tool proprietari, attività avanzate di data science e l’adozione di intelligenza artificiale applicata al marketing. Questo mix consente di offrire ai clienti vantaggi competitivi concreti, misurabili e scalabili, trasformando i dati in insight e le tecnologie in risultati di business.
+Over time, Webranking has expanded into a true MarTech centre of excellence where development, data analysis, and innovation work together. Its approach centres on tailored solutions, proprietary tools, advanced data science, and artificial intelligence applied to marketing. This combination delivers concrete, measurable, scalable advantages by turning data into insight and technology into business results.
 
-La cultura interna è altrettanto distintiva. Webranking è stata riconosciuta tra i Europe Best Workplaces 2024 da Great Place to Work, grazie a un ambiente che valorizza il benessere delle persone, la formazione continua e la crescita professionale. Programmi dedicati di welfare, flessibilità e sviluppo delle competenze favoriscono una comunità di lavoro inclusiva e motivata.
+Its internal culture is equally distinctive. Great Place to Work named Webranking among Europe's Best Workplaces 2024 for an environment that values wellbeing, continuous learning, and professional growth. Dedicated wellbeing, flexibility, and skills-development programmes foster an inclusive and motivated workplace community.
 
-L’azienda è inoltre impegnata a promuovere le competenze STEM e a ridurre il divario di genere, sostenendo progetti e iniziative sul territorio che incoraggiano le nuove generazioni ad avvicinarsi alla tecnologia e all’innovazione.
+The agency is also committed to promoting STEM skills and reducing the gender gap by supporting local projects that encourage younger generations to engage with technology and innovation.
 
-Oggi Webranking continua a evolversi come partner strategico per i brand che vogliono affrontare le sfide del marketing moderno con un approccio basato su tecnologia, dati e creatività, confermandosi una realtà italiana capace di competere su scala internazionale.
+Today, Webranking continues to evolve as a strategic partner for brands facing the challenges of modern marketing through technology, data, and creativity—an Italian company able to compete internationally.

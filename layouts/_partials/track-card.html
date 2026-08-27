@@ -1,0 +1,20 @@
+{{/*
+  A track summary card. Used by the homepage teaser and by the track index at
+  the top of the sessions catalogue.
+
+  @param {maps}   track  A track from the "lookup/tracks" partial
+  @param {string} href   Where the card links
+  @param {int}    count  Number of sessions in this track
+  @param {string} cta    Optional call-to-action label. The homepage teaser sets
+                         one because it links off the page; the in-page track
+                         index omits it.
+*/}}
+<a class="homeSessions-card homeSessions-card--{{ .track.color }}" href="{{ .href }}">
+  <div class="homeSessions-cardEmoji" aria-hidden="true">{{ .track.emoji }}</div>
+  <div class="homeSessions-cardTrack">{{ printf (i18n "sessionCount") .count }}</div>
+  <h3 class="homeSessions-cardTitle">{{ .track.key }}</h3>
+  <p class="homeSessions-cardDesc">{{ .track.description }}</p>
+  {{- with .cta }}
+  <span class="homeSessions-cardCta">{{ . | safeHTML }}</span>
+  {{- end }}
+</a>

@@ -1,39 +1,30 @@
 {{ define "main" }}
-
-{{/* Year from cascade param in _index.md */}}
 {{- $year := printf "%v" (.Param "year") -}}
-
-{{- $agenda := index site.Data $year -}}
-
-{{/* Load agenda data for that year */}}
-{{- $days := cond $agenda $agenda.days (slice) -}}
-{{- $roomsData := cond $agenda $agenda.rooms (slice) -}}
+{{- $edition := index site.Data $year -}}
+{{- $days := cond (ne $edition nil) (default slice $edition.days) slice -}}
 {{- $roomSlug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
 
-{{/* Sort sessions by date and time */}}
-{{- $sessionsSec := site.GetPage (printf "/%s/sessions" $year) -}}
-{{- if not $sessionsSec }}{{ $sessionsSec = (index site.Sites 0).GetPage (printf "/%s/sessions" $year) }}{{ end }}
-{{- $sessions := slice -}}
-{{- if $sessionsSec -}}
-  {{- $sessions = where $sessionsSec.Pages "Params.starts" "ne" nil -}}
-  {{- $sessions = sort $sessions "Params.ends" "asc" -}}
-  {{- $sessions = sort $sessions "Params.starts" "asc" -}}
-{{ end }}
+{{/* Sessions held in this room, earliest first; ties broken by end time. */}}
+{{- $sessions := where (partial "lookup/pages" (printf "/%s/sessions" $year)) "Params.starts" "ne" nil -}}
+{{- $sessions = sort (sort $sessions "Params.ends" "asc") "Params.starts" "asc" -}}
+{{- $sessions = where $sessions "Params.rooms" "intersect" (slice $roomSlug) -}}
 
-{{- $roomsPage := site.GetPage (printf "/%s/rooms" $year) -}}
-{{- if not $roomsPage }}{{ $roomsPage = (index site.Sites 0).GetPage (printf "/%s/rooms" $year) }}{{ end }}
-{{- $rooms := slice -}}
-{{- with $roomsPage }}{{ $rooms = .Pages }}{{ end -}}
-{{- $pageTitle := .Page.Title -}}
-
+{{- $sessionRooms := where (partial "lookup/pages" (printf "/%s/rooms" $year)) "Params.forSessions" true -}}
 
 <main class="section section--padded roomPage">
   {{ partial "previous-edition" . }}
 
-  {{ $rooms = where $rooms ".Params.forSessions" true }}
-  {{ $numRooms := len $rooms }}
-  {{ $currentRoom := . }}
-  <p class="p">{{ i18n "roomsWithSessions" }}: {{ range $i, $room := $rooms }}{{ if ne $room.File.TranslationBaseName $currentRoom.File.TranslationBaseName }}<a class="link" href="{{ $room.RelPermalink }}">{{ $room.Title }}</a>{{ else }}{{ $room.Title }}{{ end }}{{ if ne (add $i 1) $numRooms }}, {{ end }}{{ end }}.</p>
+  <p class="p">
+    {{ i18n "roomsWithSessions" }}
+    {{- $current := . }}
+    {{ range $i, $room := $sessionRooms }}{{ if $i }}, {{ end }}
+      {{- if eq $room.File.TranslationBaseName $current.File.TranslationBaseName -}}
+        {{ $room.Title }}
+      {{- else -}}
+        <a class="link" href="{{ $room.RelPermalink }}">{{ $room.Title }}</a>
+      {{- end -}}
+    {{ end }}.
+  </p>
 
   <h1 class="h1">{{ if .Params.forSessions }}{{ i18n "room" }} {{ end }}{{ .Title }}</h1>
 
@@ -41,64 +32,54 @@
     <div class="content">
       {{ .Content }}
     </div>
-    {{ $roomImage := resources.Get (printf "%s/rooms/%s.jpg" $year $roomSlug) }}
-    {{ if $roomImage }}
-    {{ $img := $roomImage.Resize "x300 webp q85" }}
-    <img class="roomPage-image" width="{{ $img.Width }}" height="{{ $img.Height }}" src="{{ $img.Permalink }}" alt="{{ .Title }} image">
+    {{ with resources.Get (printf "%s/rooms/%s.jpg" $year $roomSlug) }}
+    {{- $img := .Resize "x300 webp q85" -}}
+    <img class="roomPage-image" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $current.Title }}">
     {{ end }}
   </div>
 
   <h2 class="h2">{{ i18n "sessions" }}</h2>
 
-  {{/* Loop over days */}}
   {{ range $day := $days }}
-    {{ $dayTime := time.AsTime $day }}
-    {{ $dayKey := $dayTime.Format "2006-01-02" }}
+  {{- $dayTime := time.AsTime $day -}}
+  {{- $dayKey := $dayTime.Format "2006-01-02" -}}
+  {{- $daySessions := slice -}}
+  {{- range $sessions -}}
+    {{- if eq ((time (.Param "starts")).Format "2006-01-02") $dayKey -}}
+      {{- $daySessions = $daySessions | append . -}}
+    {{- end -}}
+  {{- end -}}
 
-    {{/* Collect sessions for that day */}}
-    {{ $daySessions := slice }}
-    {{ range $session := $sessions }}
-      {{ $dt := time ($session.Param "starts") }}
-      {{ if and (eq ($dt.Format "2006-01-02") $dayKey) (in $session.Params.rooms $roomSlug) }}
-        {{ $daySessions = $daySessions | append $session }}
-      {{ end }}
+  {{ with $daySessions }}
+  <h3 class="h3">{{ (time.Format "Monday" $dayTime) | title }}</h3>
+  <ul class="sessions">
+    {{ range $session := . }}
+    {{- $speakers := slice -}}
+    {{- $lastIsMale := true -}}
+    {{- range $slug := $session.Params.speakers -}}
+      {{- with partial "lookup/page" (printf "/speakers/%s" $slug) -}}
+        {{- $lastIsMale = .Params.male -}}
+        {{- $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) -}}
+      {{- else -}}
+        {{- $speakers = $speakers | append $slug -}}
+      {{- end -}}
+    {{- end -}}
+    <li class="sessions-item" data-starts="{{ $session.Params.starts }}" data-ends="{{ $session.Params.ends }}">
+      <p class="sessions-itemHead">
+        {{ $session.Params.starts | time.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} ·
+        <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
+      </p>
+      <p class="sessions-itemDetails">
+        {{- with $speakers -}}
+          {{ if eq (len .) 1 }}{{ if $lastIsMale }}{{ i18n "speakerMale" }}{{ else }}{{ i18n "speakerFemale" }}{{ end }}{{ else }}{{ i18n "speakers" }}{{ end }}:
+          {{ delimit . ", " | safeHTML }}
+        {{- end }}
+        {{- if ne (lower $session.Params.language) "italiano" }} · {{ $session.Params.language }}{{ end }}
+      </p>
+    </li>
     {{ end }}
-
-    {{ if gt (len $daySessions) 0 }}
-      {{ $daySessions = sort $daySessions "Params.starts" "asc" }}
-
-      {{/* Title of the day */}}
-      <h3 class="h3">{{ (time.Format "Monday" $dayTime) | title }}</h3>
-    {{ end }}
-
-    {{/* Loop over sessions for that day */}}
-    <ul class="sessions">
-      {{ range $session := $daySessions }}
-        {{ $dt := time ($session.Param "starts") }}
-
-        {{/* Prepare the speaker list */}}
-        {{ $speakers := slice }}
-        {{ $isMale := true }}
-        {{ range $slug := $session.Params.speakers }}
-          {{ $spPage := site.GetPage (printf "/speakers/%s" $slug) }}
-          {{ if not $spPage }}{{ $spPage = (index site.Sites 0).GetPage (printf "/speakers/%s" $slug) }}{{ end }}
-          {{ with $spPage }}
-            {{ $isMale = .Params.male }}
-            {{ $speakers = $speakers | append (printf `<a class="link" href="%s">%s</a>` .RelPermalink .Title) }}
-          {{ else }}
-            {{ $speakers = $speakers | append $slug }}
-          {{ end }}
-        {{ end }}
-        {{ $speakersHTML := delimit $speakers ", " }}
-
-        <li class="sessions-item" data-starts="{{ $session.Params.starts }}" data-ends="{{ $session.Params.ends }}">
-          <p class="sessions-itemHead">{{ $dt.Format "15:04" }}-{{ $session.Params.ends | time.Format "15:04" }} · <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a></p>
-          <p class="sessions-itemDetails">
-            {{ if eq (len $speakers) 1 }}{{ if $isMale }}{{ i18n "speakerMale" }}{{ else }}{{ i18n "speakerFemale" }}{{ end }}: {{ $speakersHTML | safeHTML }}{{ else if gt (len $speakers) 1 }}{{ i18n "speakers" }}: {{ $speakersHTML | safeHTML }}{{ end }} {{ if ne (lower $session.Params.language) "italiano" }}· {{ $session.Params.language }}{{ end }}
-          </p>
-        </li>
-      {{ end }}
-    </ul>
+  </ul>
+  {{ end }}
   {{ end }}
 </main>
 {{ end }}

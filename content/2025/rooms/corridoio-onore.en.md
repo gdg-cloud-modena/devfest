@@ -2,9 +2,9 @@
 title = "Corridoio Onore"
 date = 2025-09-10
 draft = false
-summary = "Corridoio che collega diverse sale e ospita i banchetti"
+summary = "A corridor connecting several rooms and hosting sponsor booths"
 weight = 3
 forSessions = false
 +++
 
-Al piano Nobile. Corridoio che collega diverse sale e ospita i banchetti.
+On the *piano nobile*. This corridor connects several rooms and hosts sponsor booths.

@@ -9,26 +9,26 @@ link = "https://www.bizzynow.com/"
 
 +++
 
-Quest’anno il Modena DevFest fa un passo in avanti nell’esperienza di community: **BizzyNow**, la startup italiana che sta rivoluzionando il networking professionale, sarà l’app ufficiale dell’evento.
+In 2025, DevFest Modena took its community experience a step further: **BizzyNow**, the Italian startup transforming professional networking, became the event's official app.
 
-BizzyNow è una piattaforma di **networking geo-localizzato** che trasforma i momenti “vuoti” durante eventi e conferenze in **occasioni di confronto autentico**. L’obiettivo è semplice ma potente: **mettere in contatto le persone giuste al momento giusto, facilitando lo scambio di idee e conoscenze**.
+BizzyNow is a **location-based networking** platform that turns downtime at events and conferences into **opportunities for genuine conversation**. Its goal is simple but powerful: **connect the right people at the right time and make it easier to exchange ideas and knowledge**.
 
-### Per gli sviluppatori
+## For developers
 
-La DevFest non è solo talk e workshop: è soprattutto community. Con BizzyNow, ogni developer avrà uno strumento concreto per:
+DevFest is not only about talks and workshops; above all, it is about community. BizzyNow gave every developer a practical tool to:
 
-- 📍 **Scoprire chi c’è intorno** e individuare altri professionisti con skill complementari.
-- 💬 **Condividere esperienze e soluzioni** in tempo reale, trasformando una pausa caffè in un mini-tech talk.
-- 🤝 **Fare knowledge sharing** al di fuori delle sessioni ufficiali, creando nuove connessioni e collaborazioni future.
+- 📍 **Discover who was nearby** and find professionals with complementary skills.
+- 💬 **Share experiences and solutions** in real time, turning a coffee break into a mini tech talk.
+- 🤝 **Exchange knowledge** outside the official sessions and create new connections and future collaborations.
 
-### Per le aziende
+## For companies
 
-BizzyNow non è solo networking tra developer: è anche un **ponte diretto verso i talenti**. Le aziende potranno:
+BizzyNow is not only for networking between developers; it is also a **direct bridge to talent**. Companies could:
 
-- 🏢 Interagire con i partecipanti in modo più diretto e mirato.
-- 🌐 Rafforzare la propria presenza nella community tech.
-- 🔗 Comprendere meglio i profili e le competenze dei developer presenti grazie all’integrazione con LinkedIn.
+- 🏢 Engage with attendees more directly and purposefully.
+- 🌐 Strengthen their presence in the tech community.
+- 🔗 Better understand developers' profiles and skills through LinkedIn integration.
 
-### Una startup italiana al servizio della community
+## An Italian startup serving the community
 
-La missione di BizzyNow è chiara: **rendere il networking un’occasione di crescita e condivisione per tutti**. Alla Modena DevFest, la app sarà il filo conduttore invisibile che unisce le persone, permettendo di vivere l’evento in una dimensione nuova: **conoscere, condividere e crescere insieme**.
+BizzyNow's mission is clear: **make networking an opportunity for everyone to grow and share**. At DevFest Modena, the app provided an invisible thread connecting people and offered a new way to experience the event: **meeting, sharing, and growing together**.

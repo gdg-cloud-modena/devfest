@@ -9,18 +9,18 @@ link = "https://www.allnet-italia.it/"
 
 +++
 
-### Chi siamo
+## About us
 
-Allnet.Italia è un distributore a valore aggiunto che da sempre mette la tecnologia al centro, ma con uno sguardo umano e collaborativo. Crediamo che l’innovazione non sia solo questione di prodotti o soluzioni, ma soprattutto di persone che ogni giorno costruiscono, sperimentano e sviluppano.
+Allnet.Italia is a value-added distributor that has always placed technology at its core while keeping a human, collaborative outlook. We believe innovation is not only about products and solutions, but above all about the people who build, experiment, and develop every day.
 
-### La nostra missione
+## Our mission
 
-Lavoriamo per creare un ecosistema in cui aziende, partner e sviluppatori possano trovare strumenti concreti e un supporto reale per crescere insieme. Offriamo un catalogo vasto e diversificato nel mondo ICT, ma quello che ci distingue è la capacità di accompagnare chi lavora con noi lungo tutto il percorso: dalla scelta delle soluzioni, all’integrazione, fino alla formazione continua.
+We work to create an ecosystem where companies, partners, and developers can find practical tools and genuine support to grow together. We offer a broad, diverse ICT catalogue, but what sets us apart is our ability to support the people who work with us throughout the journey: from selecting solutions and integrating them to ongoing training.
 
-### Perché ci rivolgiamo agli sviluppatori
+## Why we speak to developers
 
-Gli sviluppatori sono il cuore pulsante del cambiamento digitale. Sono coloro che trasformano l’idea in codice, la tecnologia in valore, il progetto in realtà. Per questo parliamo a voi: sappiamo che avete bisogno di soluzioni flessibili, sicure e pronte a dialogare tra loro. Sappiamo che dietro ogni riga di codice c’è la ricerca di un equilibrio tra creatività, performance e semplicità d’uso.
+Developers are the driving force behind digital change. They turn ideas into code, technology into value, and projects into reality. That is why we speak to you: we know you need flexible, secure solutions that are ready to work together. Behind every line of code is a search for the right balance of creativity, performance, and ease of use.
 
-### Il nostro approccio
+## Our approach
 
-Non ci limitiamo a distribuire prodotti, ma promuoviamo la costruzione di progetti completi. Crediamo nell’open innovation, nella condivisione di competenze e nel supporto diretto: per noi ogni collaborazione è un’occasione per imparare e far crescere una comunità. Lavoriamo con i principali brand globali ma sempre con la volontà di portare valore concreto sul campo, aiutando a creare infrastrutture più intelligenti, applicazioni più sicure e ambienti digitali più sostenibili.
+We do more than distribute products: we help build complete projects. We believe in open innovation, knowledge sharing, and direct support; every collaboration is an opportunity to learn and help a community grow. We work with leading global brands while remaining focused on delivering practical value: smarter infrastructure, safer applications, and more sustainable digital environments.

@@ -1,4 +1,5 @@
 +++
+title = "Sessions"
 type = "sessions"
 
 [cascade]

@@ -10,9 +10,6 @@ other = "Prendi il biglietto gratuito"
 [getTicketNow]
 other = "Prendi il tuo Biglietto Ora"
 
-[buyTicketNow]
-other = "Acquista Ora il Biglietto"
-
 [openMenu]
 other = "Apri menu"
 
@@ -20,7 +17,7 @@ other = "Apri menu"
 other = "Chiudi menu"
 
 [heroDate]
-other = "3 e 4 Ottobre 2026"
+other = "3 e 4 ottobre 2026"
 
 [heroTagline]
 other = "La più grande conferenza tech dell'Emilia-Romagna"
@@ -74,12 +71,6 @@ other = "Scopri &rarr;"
 [exploreAllSessions]
 other = "Esplora tutte le %d sessioni"
 
-[sessionsCatalogTitle]
-other = "Catalogo Sessioni"
-
-[sessionsCatalogIntro]
-other = "Esplora tutti i talk e i workshop confermati per l'edizione %s! Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>."
-
 [sessionsCatalogHeroTitle]
 other = "Esplora le Sessioni del"
 
@@ -92,35 +83,11 @@ other = "Sessioni %s"
 [sessionsWelcomeCallout]
 other = "<b>Benvenuto nel Catalogo Sessioni!</b> Qui sotto trovi tutte le %d sessioni già confermate per il DevFest Modena %s, suddivise per area tematica. Per la vista oraria per sala, visita la pagina <a class=\"link\" href=\"%s\">Agenda %s</a>."
 
-[sessionsCallout]
-other = "<b>Benvenuto nel Catalogo Sessioni!</b> Qui sotto trovi tutte le %d sessioni già confermate per il DevFest Modena %s, suddivise per area tematica. Per la vista oraria per sala, visita la pagina <a class=\"link\" href=\"%s\">Agenda %s</a>."
-
 [browseSessionsCatalog]
 other = "Catalogo Sessioni"
 
-[browseCatalog]
-other = "🔍 Sfoglia Catalogo Sessioni"
-
-[consultCatalog]
-other = "📚 Consulta il Catalogo Sessioni"
-
 [discoverSession]
 other = "Scopri la sessione"
-
-[viewSession]
-other = "Scopri la sessione &rarr;"
-
-[dontMissSessions]
-other = "Non perdere queste sessioni al"
-
-[dontMissDesc]
-other = "Assicurati subito un posto per partecipare ai talk, incontrare i relatori e fare networking con la community."
-
-[sessionsBottomCtaTitle]
-other = "Non perdere queste sessioni al"
-
-[sessionsBottomCtaDesc]
-other = "Assicurati subito un posto per partecipare ai talk, incontrare i relatori e fare networking con la community."
 
 [track]
 other = "Traccia:"
@@ -131,14 +98,11 @@ other = "Lingua:"
 [scheduleTBA]
 other = "Orari e sala saranno annunciati a breve nell'agenda ufficiale!"
 
-[timeAndRoomSoon]
-other = "Orari e sala saranno annunciati a breve nell'agenda ufficiale!"
-
-[slides]
-other = "slide"
-
 [viewSlides]
 other = "Guarda le slide"
+
+[comingSoon]
+other = "Prossimamente"
 
 [from]
 other = "Dalle"
@@ -164,22 +128,13 @@ other = "Il programma degli orari e delle sale per orientarti durante le giornat
 [agendaBtn]
 other = "🗓️ Agenda %s"
 
-[scheduleAgendaBtn]
-other = "🗓️ Programma Orario & Agenda"
-
 [agendaComingSoonTitle]
 other = "Agenda in Arrivo!"
 
 [agendaComingSoonDesc]
 other = "L'orario e l'assegnazione delle sale per le singole sessioni verranno pubblicati a breve. Durante l'evento potrai consultare qui la timeline in tempo reale da smartphone."
 
-[agendaComingSoonText]
-other = "L'orario e l'assegnazione delle sale per le singole sessioni verranno pubblicati a breve. Durante l'evento potrai consultare qui la timeline in tempo reale da smartphone."
-
 [agendaConfirmedSessions]
-other = "<b>%d sessioni confermate</b> sono già disponibili nel nostro catalogo suddiviso per aree tematiche:"
-
-[agendaSessionsAvailable]
 other = "<b>%d sessioni confermate</b> sono già disponibili nel nostro catalogo suddiviso per aree tematiche:"
 
 [speakersTitle]
@@ -218,50 +173,26 @@ other = "Il Nostro %s in Numeri"
 [statsSubtitle]
 other = "I risultati dell'ultima edizione del DevFest Modena: un grande successo reso possibile dalla nostra community."
 
-[statsAttendees]
-other = "Partecipanti"
-
 [statAttendees]
 other = "Partecipanti"
-
-[statsAttendeesDesc]
-other = "Sviluppatori e appassionati da tutta Italia"
 
 [statAttendeesDesc]
 other = "Sviluppatori e appassionati da tutta Italia"
 
-[statsSpeakers]
-other = "Relatori & Speaker"
-
 [statSpeakers]
 other = "Relatori & Speaker"
-
-[statsSpeakersDesc]
-other = "Esperti nazionali e internazionali"
 
 [statSpeakersDesc]
 other = "Esperti nazionali e internazionali"
 
-[statsWorkshops]
-other = "Workshop Pratici"
-
 [statWorkshops]
 other = "Workshop Pratici"
-
-[statsWorkshopsDesc]
-other = "Sessioni interattive di apprendimento"
 
 [statWorkshopsDesc]
 other = "Sessioni interattive di apprendimento"
 
-[statsRooms]
-other = "Sale in Contemporanea"
-
 [statRooms]
 other = "Sale in Contemporanea"
-
-[statsRoomsDesc]
-other = "Talk paralleli su traccia e argomenti dedicati"
 
 [statRoomsDesc]
 other = "Talk paralleli su traccia e argomenti dedicati"
@@ -293,9 +224,6 @@ other = "Prendi il biglietto"
 [ctaCvTitle]
 other = "Manda il curriculum"
 
-[ctaCvText]
-other = "Invia il tuo curriculum, lo condivideremo con le aziende in cerca di collaboratori."
-
 [ctaCvDesc]
 other = "Invia il tuo curriculum, lo condivideremo con le aziende in cerca di collaboratori."
 
@@ -317,9 +245,6 @@ other = "Sale in contemporanea:"
 [roomsWithSessions]
 other = "Sale con sessioni:"
 
-[roomPrefix]
-other = "Sala "
-
 [howToReachUs]
 other = "Come raggiungerci"
 
@@ -338,26 +263,8 @@ other = "In Treno"
 [locationNavPlane]
 other = "In Aereo"
 
-[navMap]
-other = "Sede & Mappa"
-
-[navAuto]
-other = "In Auto"
-
-[navParking]
-other = "Parcheggi"
-
-[navTrain]
-other = "In Treno"
-
-[navAirplane]
-other = "In Aereo"
-
 [address]
 other = "Indirizzo:"
-
-[officialSite]
-other = "Sito Ufficiale:"
 
 [officialWebsite]
 other = "Sito Ufficiale:"
@@ -367,12 +274,6 @@ other = "Accessibilità:"
 
 [accessibilityDesc]
 other = "Accesso al piano terra privo di barriere architettoniche"
-
-[barrierFree]
-other = "Accesso privo di barriere architettoniche"
-
-[openMaps]
-other = "Apri la sede in Google Maps"
 
 [openInMaps]
 other = "Apri la sede in Google Maps"
@@ -392,14 +293,8 @@ other = "In Auto"
 [ztlWarningTitle]
 other = "Attenzione alla Zona a Traffico Limitato (ZTL)!"
 
-[ztlWarningText]
-other = "La Fondazione San Carlo si trova all'interno del centro storico e della ZTL di Modena. I varchi ZTL sono sorvegliati da telecamere attive 24/7. Consigliamo di lasciare l'auto in uno dei parcheggi elencati qui sotto, tutti a pochi minuti a piedi dalla sede."
-
 [ztlWarningDesc]
 other = "La Fondazione San Carlo si trova all'interno del centro storico e della ZTL di Modena. I varchi ZTL sono sorvegliati da telecamere attive 24/7. Consigliamo di lasciare l'auto in uno dei parcheggi elencati qui sotto, tutti a pochi minuti a piedi dalla sede."
-
-[parkingTitle]
-other = "Parcheggi Consigliati"
 
 [recommendedParking]
 other = "Parcheggi Consigliati"
@@ -494,3 +389,33 @@ other = "Supporter"
 
 [sessions]
 other = "Sessioni"
+
+[visitProfile]
+other = "Visita il profilo di %s"
+
+[heroImageAlt]
+other = "Una via del centro storico di Modena"
+
+[languageSelector]
+other = "Selettore della lingua"
+
+[menu_agenda]
+other = "Agenda"
+
+[menu_sessions]
+other = "Sessioni"
+
+[menu_speakers]
+other = "Speaker"
+
+[menu_location]
+other = "Location"
+
+[menu_communities]
+other = "Community"
+
+[menu_team]
+other = "Team"
+
+[menu_faq]
+other = "FAQ"

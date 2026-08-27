@@ -7,7 +7,7 @@
   </div>
 
   {{ range .Pages }}
-    <article class="content" style="margin-top: 1rem;">
+    <article class="content listPage-entry">
       <h2 class="h2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       {{ with .Summary }}<p>{{ . }}</p>{{ end }}
     </article>

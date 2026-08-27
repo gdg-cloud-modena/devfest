@@ -1,0 +1,33 @@
+{{/*
+  Every session page across all editions, deduplicated: the current language's
+  copy of a session wins, and sessions that were never translated fall back to
+  the default language.
+
+  Building this means walking every page on both sites, so always call it
+  through partialCached with a constant key — the result is the same for every
+  page of a given language:
+
+    {{ $sessions := partialCached "lookup/sessions" "all" }}
+
+  To narrow it to one speaker, filter at the call site:
+
+    {{ where $sessions "Params.speakers" "intersect" (slice $slug) }}
+
+  @return {[]page.Page}
+*/}}
+{{- $sessions := slice -}}
+{{- $seen := dict -}}
+{{- range $site := (slice site (index site.Sites 0)) -}}
+  {{- range $site.RegularPages -}}
+    {{- if in .File.Dir "sessions/" -}}
+      {{/* Keyed on directory + slug, not slug alone: "keynote" exists in more
+           than one edition and must not collapse into a single entry. */}}
+      {{- $key := printf "%s|%s" .File.Dir .File.TranslationBaseName -}}
+      {{- if not (index $seen $key) -}}
+        {{- $seen = merge $seen (dict $key true) -}}
+        {{- $sessions = $sessions | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $sessions -}}

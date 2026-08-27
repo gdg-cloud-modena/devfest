@@ -1,5 +1,5 @@
 +++
-title = "Agenda & Schedule DevFest Modena 2026"
+title = "Agenda"
 type = "agenda"
 
 [cascade]

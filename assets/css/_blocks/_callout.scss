@@ -12,10 +12,6 @@
     @extend %rounded;
   }
 
-  .callout--success {
-    background-color: colors.$success--2;
-  }
-
   .callout--info {
     background-color: colors.$info--2;
   }
@@ -24,7 +20,4 @@
     background-color: colors.$warning--2;
   }
 
-  .callout--danger {
-    background-color: colors.$danger--2;
-  }
 }

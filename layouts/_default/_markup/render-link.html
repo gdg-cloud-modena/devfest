@@ -1,2 +1,18 @@
-<a href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank"{{ end }}>{{ .Text }}</a>
+{{/*
+  Markdown link rendering.
+
+  Internal absolute links are written language-agnostically in content
+  ("/workshops/") and resolved to the current language here, so the English site
+  never links back into the Italian one. Authors do not have to remember an
+  "/en/" prefix, and cannot get it wrong.
+
+  External links open in a new tab; rel="noopener" stops the opened page from
+  reaching back into this one.
+*/}}
+{{- $url := .Destination | safeURL -}}
+{{- $external := strings.HasPrefix .Destination "http" -}}
+{{- if and (strings.HasPrefix .Destination "/") (not (strings.HasPrefix .Destination "//")) -}}
+  {{- $url = .Destination | relLangURL -}}
+{{- end -}}
+<a href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .Text }}</a>
 {{- "" -}}

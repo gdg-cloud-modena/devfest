@@ -1,4 +1,5 @@
 +++
+title = "Sessions"
 type = "sessions"
 
 [cascade]
@@ -11,4 +12,4 @@ Here you will find all information about the scheduled talks, with details on to
 
 Explore the program and discover the stories and expertise of those who took the stage.
 
-If you wish to participate in workshops, please read the [instructions](/en/workshops/).
+If you wish to participate in workshops, please read the [instructions](/workshops/).

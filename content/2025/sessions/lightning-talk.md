@@ -61,7 +61,7 @@ done = false
 [[params.lightningTalks]]
 title = "Containerizziamo un'app"
 speaker = "Bryan Pedini"
-description = "A.k.a.: come una scelta mi ha permesso di andare a letto alle 2 anziché alle 3."
+description = "Un'introduzione pratica alla containerizzazione di un'applicazione."
 profileURL = "https://45r.it/pedini-li"
 slidesURL = "/share/2025/containerizziamo-un-app.pdf"
 done = false
@@ -71,18 +71,18 @@ I lightning talk sono sessioni di 10 minuti proposte dai partecipanti.
 
 Chiunque può [proporre](#how) un proprio talk.
 
-### In scaletta
+## In scaletta
 
 I talk proposti, fino ad esaurimento di tempo:
 
 {{< lightningTalks >}}
 
-### Come proporre il tuo lightning talk {#how}
+## Come proporre il tuo lightning talk {#how}
 
 Proponi il tuo talk su [Telegram](https://t.me/devfest_modena/300) nel canale "Lightning talk", indicando: **Titolo**, **Nome**, **Cognome** e una breve **Descrizione**.
 
 Gli interventi scelti verranno comunicati all'orario di pranzo di sabato, sempre su Telegram, e compariranno in questa pagina.
 
-E' importante che gli speaker di ventura arrivino con leggero anticipo rispetto all'orario d'inizio, così da preparare le sessioni.
+È importante che gli speaker di turno arrivino con leggero anticipo rispetto all'orario d'inizio, così da preparare le sessioni.
 
 Attenzione: il limite massimo di 10 minuti è tassativo 😉 e non sono ammessi talk pubblicitari.

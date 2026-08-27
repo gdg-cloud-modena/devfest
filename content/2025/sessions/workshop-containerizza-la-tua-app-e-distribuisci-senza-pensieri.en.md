@@ -27,4 +27,4 @@ USEFUL LINKS:
 - Docker Engine installation on Linux: https://docs.docker.com/engine/install/#supported-platforms
 - Podman installation (simpler): https://podman.io/docs/installation#installing-on-linux
 
-Go to the [workshop instructions](/en/workshops/) page to participate.
+Go to the [workshop instructions](/workshops/) page to participate.

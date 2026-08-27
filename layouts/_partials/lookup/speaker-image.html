@@ -1,0 +1,18 @@
+{{/*
+  Resolve a speaker portrait. Photos arrive from speakers in either format, so
+  both are tried before falling back to the generic profile placeholder.
+
+  Returns the full-size resource: callers apply their own .Fit, because the
+  rendered size differs per context (80px in listings, 600px on the profile).
+
+  @param  {string} slug  Speaker slug, e.g. "mario-fusco"
+  @return {resource.Resource}
+*/}}
+{{- $img := resources.Get (printf "speakers/%s.jpg" .) -}}
+{{- if not $img -}}
+  {{- $img = resources.Get (printf "speakers/%s.png" .) -}}
+{{- end -}}
+{{- if not $img -}}
+  {{- $img = resources.Get "team/profile.jpg" -}}
+{{- end -}}
+{{- return $img -}}

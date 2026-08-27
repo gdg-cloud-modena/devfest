@@ -1,50 +1,51 @@
 {{ define "main" }}
+{{- $edition := site.Params.currentEdition -}}
+{{- $heroSource := resources.Get "images/home-hero.webp" -}}
+{{- $hero := $heroSource.Resize "1080x webp q85" -}}
+{{- $logo := (resources.Get "images/logo-horizontal-year.png").Resize "x100 webp q45" -}}
+
 <main>
-  {{/* ── HERO ── */}}
   <section class="hero hero--home">
     <picture class="hero-bg">
-      {{- $hero := (resources.Get "images/home-hero.webp").Resize "300x webp q45" -}}
-      <source srcset="{{ $hero.RelPermalink }}" media="(max-width: 300px)">
-      {{- $hero = (resources.Get "images/home-hero.webp").Resize "600x webp q70" -}}
-      <source srcset="{{ $hero.RelPermalink }}" media="(max-width: 600px)">
-      {{- $hero = (resources.Get "images/home-hero.webp").Resize "1080x webp q85" -}}
-      <img class="hero-bgImg" src="{{ $hero.RelPermalink }}" alt="Acetaia Modena">
+      <source srcset="{{ ($heroSource.Resize "300x webp q45").RelPermalink }}" media="(max-width: 300px)">
+      <source srcset="{{ ($heroSource.Resize "600x webp q70").RelPermalink }}" media="(max-width: 600px)">
+      <img class="hero-bgImg" src="{{ $hero.RelPermalink }}" width="{{ $hero.Width }}" height="{{ $hero.Height }}" alt="{{ i18n "heroImageAlt" }}" fetchpriority="high">
     </picture>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      {{- $icon := (resources.Get "images/logo-horizontal-year.png").Resize "x100 webp q45" -}}
-      <img class="hero-icon" src="{{ $icon.RelPermalink }}" width="{{ $icon.Width }}" height="{{ $icon.Height }}" alt="DevFest Modena {{ .Site.Params.currentEdition }}">
+      {{/* The logo is the page's heading — its alt text carries the wording. */}}
+      <h1 class="hero-heading">
+        <img class="hero-icon" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" alt="DevFest Modena {{ $edition }}">
+      </h1>
       <p class="hero-title">{{ i18n "heroDate" }}</p>
       <p class="hero-tagline">{{ i18n "heroTagline" }}</p>
       <div class="hero-actions">
-        <a class="button button--hero" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+        <a class="button button--hero" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
           {{ i18n "getFreeTicket" }}
         </a>
-        <a class="button button--heroSecondary" href="{{ printf "/%v/sessions/" .Site.Params.currentEdition | relLangURL }}">
+        <a class="button button--heroSecondary" href="{{ printf "/%v/sessions/" $edition | relLangURL }}">
           {{ i18n "exploreSessions" }}
         </a>
       </div>
     </div>
   </section>
 
-  {{/* ── WHY ATTEND / FEATURES ── */}}
+  {{ with .Content }}
+  <section class="section section--padded homeIntro">
+    <div class="content">
+      {{ . }}
+    </div>
+  </section>
+  {{ end }}
+
   {{ partial "features.html" . }}
-
-  {{/* ── SESSIONS TEASER ── */}}
   {{ partial "sessions-teaser.html" . }}
-
-  {{/* ── SPEAKERS WALL ── */}}
   {{ partial "speakers-wall.html" . }}
 
-  {{/* ── STATS from previous edition ── */}}
   <section class="section section--padded">
     {{ partial "statistics.html" . }}
   </section>
 
-  {{/* ── TICKET CTA ── */}}
-  {{ partial "cta-tickets.html" . }}
-
-  {{/* ── PARTNERS ── */}}
   {{ partial "partners.html" . }}
 </main>
 {{ end }}

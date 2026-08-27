@@ -1,4 +1,5 @@
 +++
+title = "Sale"
 type = "rooms"
 
 [cascade]

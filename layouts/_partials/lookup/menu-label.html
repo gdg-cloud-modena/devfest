@@ -1,0 +1,14 @@
+{{/*
+  A menu entry's label. Entries are defined once in hugo.toml for every
+  language, so the wording lives in the i18n files under "menu_<identifier>".
+  Entries that set their own `name` (external links, which are not translated)
+  keep it.
+
+  @param  {maps} entry  A menu entry
+  @return {string}
+*/}}
+{{- $label := .Name -}}
+{{- if not $label -}}
+  {{- $label = i18n (printf "menu_%s" .Identifier) -}}
+{{- end -}}
+{{- return $label -}}

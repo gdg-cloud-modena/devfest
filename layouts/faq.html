@@ -1,0 +1,28 @@
+{{ define "main" }}
+<main class="section section--padded">
+  <h1 class="h1">{{ .Title }}</h1>
+
+  <div class="content faq-intro">
+    {{ .Content }}
+  </div>
+
+  <div class="faq">
+    {{ range partial "lookup/faqs" . }}
+    <details class="faq-item" name="faq">
+      <summary class="faq-question">
+        <span class="faq-questionText">{{ .question }}</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq-answer content">
+        {{ .answer | markdownify }}
+      </div>
+    </details>
+    {{ end }}
+  </div>
+
+  <aside class="callout callout--info faq-more">
+    <h2 class="h3">{{ i18n "faqMoreQuestionsTitle" }}</h2>
+    <p class="p">{{ printf (i18n "faqMoreQuestionsText") site.Params.email site.Params.email site.Params.social.Telegram | safeHTML }}</p>
+  </aside>
+</main>
+{{ end }}

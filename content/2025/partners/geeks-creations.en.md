@@ -9,15 +9,19 @@ link = "https://geekscreations.com/"
 
 +++
 
-Trasformiamo Idee in Esperienze Digitali Uniche
-GeeksCreations nasce dalla passione per la tecnologia e il design, con l’obiettivo di sviluppare soluzioni digitali su misura per aziende, startup e imprenditori. Ogni progetto rappresenta per noi l’occasione di trasformare un’idea in un prodotto concreto, combinando innovazione, funzionalità e valore per il business.
-Ci occupiamo di sviluppo web e mobile, progettando piattaforme performanti e scalabili che uniscono estetica e usabilità. Dall’analisi iniziale al rilascio finale, il nostro approccio è basato su design intuitivo, sviluppo efficiente e metodologie Agile, così da garantire risultati di qualità e tempi rapidi di esecuzione.
+## Turning ideas into distinctive digital experiences
 
-Cosa Facciamo
- Realizziamo siti web, applicazioni e piattaforme digitali utilizzando tecnologie moderne come React, Next.js e React Native. Collaboriamo con aziende e startup per costruire soluzioni innovative, capaci di adattarsi alle esigenze specifiche e di crescere insieme al loro business.
+GeeksCreations grew from a passion for technology and design, with the goal of developing tailored digital solutions for companies, startups, and entrepreneurs. Every project is an opportunity to turn an idea into a real product by combining innovation, functionality, and business value.
+We build high-performance, scalable web and mobile platforms that unite aesthetics and usability. From initial analysis to final release, our approach combines intuitive design, efficient development, and agile methods to deliver quality results quickly.
 
-Come Lavoriamo
- Offriamo un modello di “Team as a Service”, mettendo a disposizione sviluppatori, designer e professionisti dedicati. Il nostro metodo di lavoro è flessibile e trasparente: adottiamo cicli di sviluppo iterativi e miglioramenti continui per ridurre i rischi di progetto e massimizzare la qualità.
+## What we do
 
-Perché Sceglierci
- Non ci limitiamo a scrivere codice: creiamo strumenti che aiutano i nostri clienti a crescere, innovare e distinguersi nel mercato. Puntiamo sulla collaborazione, sull’attenzione ai dettagli e su un approccio strategico che unisce tecnologia, design e visione di lungo periodo.
+We create websites, applications, and digital platforms using modern technologies such as React, Next.js, and React Native. We work with companies and startups to build innovative solutions that adapt to their specific needs and grow with their business.
+
+## How we work
+
+Our Team-as-a-Service model provides dedicated developers, designers, and other specialists. We work flexibly and transparently, using iterative development cycles and continuous improvement to reduce project risk and maximise quality.
+
+## Why choose us
+
+We do more than write code: we create tools that help clients grow, innovate, and stand out in their market. Our work is grounded in collaboration, attention to detail, and a strategic approach that brings together technology, design, and long-term vision.

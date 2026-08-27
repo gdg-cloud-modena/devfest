@@ -1,0 +1,34 @@
+{{/*
+  Where the language switcher should send someone for a given language.
+
+  Prefers the translation of the current page. Most content (speakers, rooms,
+  sessions of past editions) exists in only one language, so when there is no
+  translation the switcher falls back to that language's home page rather than
+  producing a dead link.
+
+  @param {page.Page} page  The page being rendered
+  @param {string}    lang  Target language code
+  @return {string}         A relative URL
+*/}}
+{{- $page := .page -}}
+{{- $lang := .lang -}}
+{{- $url := "" -}}
+
+{{- if eq $lang $page.Language.Lang -}}
+  {{- $url = $page.RelPermalink -}}
+{{- else -}}
+  {{- range $page.Translations -}}
+    {{- if eq .Language.Lang $lang -}}
+      {{- $url = .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not $url -}}
+    {{- range site.Sites -}}
+      {{- if eq .Language.Lang $lang -}}
+        {{- $url = .Home.RelPermalink -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return (default "/" $url) -}}

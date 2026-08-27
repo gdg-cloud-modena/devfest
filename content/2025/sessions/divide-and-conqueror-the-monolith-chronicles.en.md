@@ -12,4 +12,4 @@ ends = 2025-10-04T15:30:00
 slidesURL = ""
 warning = ""
 +++
-In questo talk racconteremo come abbiamo affrontato la migrazione progressiva di Conqueror, un monolite con funzionalità critiche (POS, pagamenti, reservation, CRM) adottando lo Strangler Pattern per evolvere senza fermare la produttività.
+In this talk, we will explain how we approached the gradual migration of Conqueror, a monolith with business-critical features including POS, payments, reservations, and CRM. We adopted the Strangler Pattern so the platform could evolve without bringing delivery to a halt.

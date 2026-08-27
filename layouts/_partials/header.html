@@ -1,79 +1,43 @@
 {{- $logo := (resources.Get "images/devfest-modena-logo-t.png").Resize "x160 webp q75" -}}
 <header class="header">
   <div class="header-wrapper section">
-    <a class="header-brand" href="{{ .Site.Home.RelPermalink }}" title="Home">
-      <img src="{{- $logo.RelPermalink -}}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena">
+    <a class="header-brand" href="{{ site.Home.RelPermalink }}" title="Home">
+      <img src="{{ $logo.RelPermalink }}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="DevFest Modena">
     </a>
     <nav class="header-menu">
-      {{ range .Site.Menus.main }}
-      <a class="header-menuItem {{ if eq $.Page.Params.identifier .Identifier }}header-menuItem--active{{ end }}" href="{{ .URL | relLangURL }}" {{ if .Params.external }}target="_blank"{{ end }}>{{ .Name }}</a>
+      {{ range site.Menus.main }}
+      {{- $active := partial "lookup/menu-active" (dict "entry" . "page" $) }}
+      <a class="header-menuItem{{ if $active }} header-menuItem--active{{ end }}" href="{{ .URL | relLangURL }}"{{ if .Params.external }} target="_blank" rel="noopener"{{ end }}{{ if $active }} aria-current="page"{{ end }}>{{ partial "lookup/menu-label" . }}</a>
       {{ end }}
 
-      <a class="button button--small header-ticketsBtn" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+      <a class="button button--small header-ticketsBtn" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
         {{ i18n "tickets" }}
       </a>
 
-      <div class="header-langSwitch header-langSwitch--desktopOnly" aria-label="Language selector">
-        {{ range $.Site.Languages }}
-          {{ $lang := .Lang }}
-          {{ $target := "" }}
-          {{ if eq $lang $.Language.Lang }}
-            {{ $target = $.RelPermalink }}
-          {{ else }}
-            {{ range $.Translations }}
-              {{ if eq .Language.Lang $lang }}
-                {{ $target = .RelPermalink }}
-              {{ end }}
-            {{ end }}
-            {{ if not $target }}
-              {{ range $.Site.Sites }}
-                {{ if eq .Language.Lang $lang }}
-                  {{ $target = .Home.RelPermalink }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-          <a class="header-langLink {{ if eq $lang $.Language.Lang }}header-langLink--active{{ end }}" href="{{ $target }}" hreflang="{{ $lang }}" aria-label="{{ .LanguageName }}">
-            {{ $lang | upper }}
-          </a>
+      <div class="header-langSwitch header-langSwitch--desktopOnly" aria-label="{{ i18n "languageSelector" }}">
+        {{ range site.Languages }}
+        {{- $url := partial "lookup/translation-url" (dict "page" $ "lang" .Lang) }}
+        <a class="header-langLink{{ if eq .Lang $.Language.Lang }} header-langLink--active{{ end }}" href="{{ $url }}" hreflang="{{ .Lang }}" aria-label="{{ .LanguageName }}">{{ .Lang | upper }}</a>
         {{ end }}
       </div>
 
       <details class="header-dropdown header-dropdown--smallOnly" name="header">
         <summary class="header-dropdownIcon">
-          <img class="header-dropdownImg header-dropdownImg--open" src="/icons/burger.svg" alt="{{ i18n "openMenu" }}" title="{{ i18n "openMenu" }}" width="32" height="auto">
-          <img class="header-dropdownImg header-dropdownImg--close" src="/icons/close.svg" alt="{{ i18n "closeMenu" }}" title="{{ i18n "closeMenu" }}" width="32" height="auto">
+          <img class="header-dropdownImg header-dropdownImg--open" src="/icons/burger.svg" alt="{{ i18n "openMenu" }}" title="{{ i18n "openMenu" }}" width="32" height="32">
+          <img class="header-dropdownImg header-dropdownImg--close" src="/icons/close.svg" alt="{{ i18n "closeMenu" }}" title="{{ i18n "closeMenu" }}" width="32" height="32">
         </summary>
         <nav class="header-burgerMenu">
-          {{ range .Site.Menus.main }}
-          <a class="header-burgerItem {{ if eq $.Page.Params.identifier .Identifier }}header-burgerItem--active{{ end }}" href="{{ .URL | relLangURL }}" {{ if .Params.external }}target="_blank"{{ end }}>{{ .Name }}</a>
+          {{ range site.Menus.main }}
+          {{- $active := partial "lookup/menu-active" (dict "entry" . "page" $) }}
+          <a class="header-burgerItem{{ if $active }} header-burgerItem--active{{ end }}" href="{{ .URL | relLangURL }}"{{ if .Params.external }} target="_blank" rel="noopener"{{ end }}{{ if $active }} aria-current="page"{{ end }}>{{ partial "lookup/menu-label" . }}</a>
           {{ end }}
-          <a class="button header-burgerTicketsBtn" href="{{ .Site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+          <a class="button header-burgerTicketsBtn" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
             {{ i18n "getTicket" }}
           </a>
-          <div class="header-burgerLangSwitch" aria-label="Language selector">
-            {{ range $.Site.Languages }}
-              {{ $lang := .Lang }}
-              {{ $target := "" }}
-              {{ if eq $lang $.Language.Lang }}
-                {{ $target = $.RelPermalink }}
-              {{ else }}
-                {{ range $.Translations }}
-                  {{ if eq .Language.Lang $lang }}
-                    {{ $target = .RelPermalink }}
-                  {{ end }}
-                {{ end }}
-                {{ if not $target }}
-                  {{ range $.Site.Sites }}
-                    {{ if eq .Language.Lang $lang }}
-                      {{ $target = .Home.RelPermalink }}
-                    {{ end }}
-                  {{ end }}
-                {{ end }}
-              {{ end }}
-              <a class="header-burgerLangLink {{ if eq $lang $.Language.Lang }}header-burgerLangLink--active{{ end }}" href="{{ $target }}" hreflang="{{ $lang }}">
-                {{ .LanguageName }}
-              </a>
+          <div class="header-burgerLangSwitch" aria-label="{{ i18n "languageSelector" }}">
+            {{ range site.Languages }}
+            {{- $url := partial "lookup/translation-url" (dict "page" $ "lang" .Lang) }}
+            <a class="header-burgerLangLink{{ if eq .Lang $.Language.Lang }} header-burgerLangLink--active{{ end }}" href="{{ $url }}" hreflang="{{ .Lang }}">{{ .LanguageName }}</a>
             {{ end }}
           </div>
         </nav>

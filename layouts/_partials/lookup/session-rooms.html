@@ -1,0 +1,20 @@
+{{/*
+  Resolve the room pages a session takes place in, in the order listed on the
+  session. Unknown room codes are skipped rather than rendered as broken links.
+
+  Callers need the count as well as the pages (one room reads "in room X", more
+  than one reads "in parallel in X, Y"), so this returns pages rather than
+  pre-rendered markup.
+
+  @param  {string}     year   Edition, e.g. "2026"
+  @param  {[]string}   codes  Room codes from a session's "rooms" front matter
+  @return {[]page.Page}
+*/}}
+{{- $rooms := partialCached "lookup/rooms" .year .year -}}
+{{- $found := slice -}}
+{{- range .codes -}}
+  {{- with index $rooms . -}}
+    {{- $found = $found | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $found -}}

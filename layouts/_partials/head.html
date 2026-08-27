@@ -1,13 +1,36 @@
+{{- $seo := partialCached "lookup/seo" . .Permalink -}}
 <meta charset="utf-8">
-<link type="text/plain" rel="author" href="/humans.txt">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{- block "title" . }}{{ with .Params.seoTitle }}{{ . }}{{ else }}{{ .Title }} &ndash; {{ .Site.Title }}{{ end }}{{- end }}</title>
-<meta name="description" content="{{ .Description }}">
-{{- $notFound := ne .Page.Kind "404" -}}
-<meta name="robots" content="{{ if and (default true .Params.Index) $notFound }}index{{ else }}noindex{{ end }} {{ if and (default true .Params.Follow) $notFound }}follow{{ else }}nofollow{{ end }}">
+
+<title>{{ $seo.title }}</title>
+<meta name="description" content="{{ $seo.description }}">
+
+{{- $indexable := and (ne .Kind "404") (default true .Params.index) }}
+{{- $followable := and (ne .Kind "404") (default true .Params.follow) }}
+<meta name="robots" content="{{ cond $indexable "index" "noindex" }}, {{ cond $followable "follow" "nofollow" }}">
 <link rel="canonical" href="{{ .Permalink }}">
-{{ range .Translations }}
+
+{{/* Self-referencing plus every translation, as hreflang requires. x-default
+     points at Italian: it is the site's primary language. */}}
 <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
-{{ end }}
+{{- range .Translations }}
 <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{- end }}
+{{- $default := cond (eq .Language.Lang site.Home.Language.Lang) .Permalink "" }}
+{{- range .Translations }}{{ if eq .Language.Lang (index site.Languages 0).Lang }}{{ $default = .Permalink }}{{ end }}{{ end }}
+{{- with $default }}
+<link rel="alternate" hreflang="x-default" href="{{ . }}">
+{{- end }}
+
+{{/* Speeds up the largest paint: the fonts and the hero are needed immediately,
+     and the analytics origin is a third party. */}}
+<link rel="preconnect" href="https://{{ site.Params.simpleAnalyticsDomain }}" crossorigin>
+
+{{- if site.Params.favicon }}
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="{{ site.Params.brand }}">
+<link rel="manifest" href="/site.webmanifest">
+{{- end }}

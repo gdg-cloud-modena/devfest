@@ -1,95 +1,39 @@
 {{ define "main" }}
-
-{{ $year := printf "%v" (.Param "year") }}
-{{ $currentData := index site.Data $year}}
-
-{{ $roles := index $currentData "roles" }}
-{{ $people := index $currentData "people"}}
+{{- $year := printf "%v" (.Param "year") -}}
+{{- $edition := index site.Data $year -}}
+{{- $people := index $edition "people" -}}
 
 <main class="section section--padded">
-  <h1 class="h1">Team</h1>
+  {{ partial "previous-edition" . }}
+
+  <h1 class="h1">{{ .Title }}</h1>
   <div class="content">
     {{ .Content }}
   </div>
 
-  {{/* Organizers*/}}
   <div class="team">
-    {{ range $roles }}
-      {{$role := . }}
-      {{ $code := $role.code }}
-      {{ $peoples := where $people "role" $code }}
-      {{ if gt (len $peoples) 0 }}
-      <div class="team-role">
-
-        <h2 class="team-roleTitle"> {{ i18n (printf "role_%s" $role.code) | default $role.title }} </h2>
-        <div class="team-people">
-        {{ range $index, $element := $peoples }}
-          {{ $person := $element }}
-          {{ $personCode := $person.code }}
-          {{ $website := $person.website }}
-
-          {{/* Get image content */}}
-          {{ $img := resources.Get (printf "team/%s.jpg" $personCode) }}
-          {{ if not $img }}
-          {{ $img = resources.Get (printf "team/%s.jpeg" $personCode) }}
-          {{ end }}
-          {{ if not $img }}
-          {{ $img = resources.Get (printf "team/%s.png" $personCode) }}
-          {{ end }}
-          {{ if not $img }}
-          {{ $img = resources.Get (printf "speakers/%s.jpg" $personCode) }}
-          {{ end }}
-          {{ if not $img }}
-          {{ $img = resources.Get (printf "speakers/%s.png" $personCode) }}
-          {{ end }}
-          {{if not $img}}
-          {{ $img = resources.Get "team/profile.jpg" }}
-          {{ end }}
-
-          {{ $img := $img.Fit "200x200 q100 jpg" }}
-          {{ $link := printf "%s?%s" .website }}
-          {{ if $website }}
-          <a href="{{ $website }}" target="_blank" rel="noopener noreferrer" class="team-peopleItem" role="listitem"
-            aria-label="Visit {{ .name }}'s profile">
-            {{ partial "team-member" (dict "person" . "img" $img "personCode" $personCode) }}
-          </a>
-          {{ else }}
-          <div class="team-peopleItem" role="listitem">
-            {{ partial "team-member" (dict "person" . "img" $img "personCode" $personCode) }}
-          </div>
-          {{ end }}
-
-          {{ if and (eq $code "organizers") (eq $index 2) }}
-          <div class="team-break"></div>
-          {{ end }}
-        {{ end }}
+    {{ range $role := index $edition "roles" }}
+    {{ with where $people "role" $role.code }}
+    <div class="team-role">
+      <h2 class="team-roleTitle">{{ i18n (printf "role_%s" $role.code) | default $role.title }}</h2>
+      <div class="team-people" role="list">
+        {{ range $person := . }}
+        {{- $img := (partial "lookup/person-image" $person.code).Fit "200x200 q100 jpg" -}}
+        {{- $member := partial "team-member" (dict "person" $person "img" $img) -}}
+        {{ with $person.website }}
+        <a class="team-peopleItem" href="{{ . }}" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="{{ printf (i18n "visitProfile") $person.name }}">
+          {{ $member }}
+        </a>
+        {{ else }}
+        <div class="team-peopleItem" role="listitem">
+          {{ $member }}
         </div>
+        {{ end }}
+        {{ end }}
       </div>
-      {{ end }}
+    </div>
+    {{ end }}
     {{ end }}
   </div>
 </main>
-{{ end }}
-
-{{/* Reusable template for team member content */}}
-{{ define "team-member-content" }}
-{{ $person := .person }}
-{{ $img := .img }}
-{{ $personCode := .personCode }}
-
-<div class="team-peopleImage" aria-hidden="true">
-  {{ if $img }}
-  <img src="{{ $img.RelPermalink }}" alt="{{ $person.name }}" width="{{ $img.Width }}" height="{{ $img.Height }}"
-    loading="lazy" onerror="this.style.display='none'">
-  {{ else }}
-  {{/* Fallback content handled by CSS */}}
-  {{ end }}
-</div>
-
-<div class="team-peopleDetail">
-  <strong>{{ $person.name }}</strong>
-  {{ if $person.description }}
-  <div>{{ $person.description }}</div>
-  {{ end }}
-</div>
 {{ end }}

@@ -9,6 +9,6 @@ forSessions = false
 
 The internal courtyard is dedicated to:
 
-- [Speed networking](/en/speed-networking/), to meet other developers.
+- [Speed networking](/speed-networking/), to meet other developers.
 - Coffee breaks throughout the day.
 - Lunch break provided by our sponsors.
