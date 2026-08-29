@@ -48,19 +48,24 @@
 
     &:hover {
       background-color: colors.$primary--2;
-      color: colors.$primary;
+      color: colors.$primary-2;
       transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.$primary-2;
+      outline-offset: 2px;
     }
   }
 
   .header-menuItem--active {
-    background-color: colors.$primary;
+    background-color: colors.$primary-1;
     color: colors.$white !important;
     font-weight: 700;
-    box-shadow: 0 4px 12px rgba(colors.$primary, 0.25);
+    box-shadow: 0 4px 12px rgba(colors.$primary-1, 0.25);
 
     &:hover {
-      background-color: colors.$primary;
+      background-color: colors.$primary-2;
       color: colors.$white !important;
       transform: none;
     }
@@ -164,14 +169,19 @@
 
     &--active {
       background-color: colors.$primary--2;
-      color: colors.$primary;
-      border-color: rgba(colors.$primary, 0.3);
+      color: colors.$primary-2;
+      border-color: rgba(colors.$primary-2, 0.4);
       font-weight: 700;
     }
 
     &:hover {
       background-color: colors.$primary--2;
-      color: colors.$primary;
+      color: colors.$primary-2;
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.$primary-2;
+      outline-offset: 2px;
     }
   }
 
@@ -204,18 +214,23 @@
     padding: 0.3rem 0.6rem;
     border-radius: 9999px;
     text-decoration: none;
-    color: rgba(colors.$black, 0.6);
+    color: rgba(colors.$black, 0.85);
     transition: all effects.$time ease;
 
     &:hover {
-      color: colors.$primary;
-      background-color: rgba(colors.$primary, 0.08);
+      color: colors.$primary-2;
+      background-color: rgba(colors.$primary-1, 0.12);
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.$primary-2;
+      outline-offset: 2px;
     }
 
     &--active {
-      background-color: colors.$primary;
+      background-color: colors.$primary-1;
       color: colors.$white !important;
-      box-shadow: 0 2px 6px rgba(colors.$primary, 0.3);
+      box-shadow: 0 2px 6px rgba(colors.$primary-1, 0.3);
     }
   }
 
@@ -242,13 +257,18 @@
 
     &:hover {
       background-color: colors.$primary--2;
-      color: colors.$primary;
+      color: colors.$primary-2;
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.$primary-2;
+      outline-offset: 2px;
     }
 
     &--active {
-      background-color: colors.$primary;
+      background-color: colors.$primary-1;
       color: colors.$white !important;
-      border-color: colors.$primary;
+      border-color: colors.$primary-1;
       font-weight: 700;
     }
   }

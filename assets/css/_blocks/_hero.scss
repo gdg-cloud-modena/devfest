@@ -10,14 +10,15 @@
 @if r.$core {
   .hero {
     position: relative;
-    height: 80vh;
+    min-height: 80vh;
     text-align: center;
-    color: white;
+    color: colors.$white;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: spaces.$space-xl 0;
   }
 
   .hero-bg,
@@ -39,35 +40,104 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(colors.$black, 0.52);
+    background: linear-gradient(
+      180deg,
+      rgba(colors.$black, 0.4) 0%,
+      rgba(colors.$black, 0.62) 50%,
+      rgba(colors.$black, 0.88) 100%
+    );
     z-index: 1;
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    padding: 2rem;
+    padding: spaces.$space-m spaces.$space-s;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: spaces.$space-m;
-    max-width: 44em;
+    max-width: 48em;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .hero-title {
-    font-size: fonts.$size-6;
-    font-weight: bold;
-    line-height: fonts.$solid;
+  .hero-heading {
     margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-icon {
+    padding: spaces.$space-s spaces.$space-m;
+    background: rgba(colors.$white, 0.96);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(colors.$black, 0.35);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-meta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: spaces.$space-xs;
+    padding: 0.5rem 1.25rem;
+    background: rgba(colors.$black, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(colors.$white, 0.25);
+    border-radius: 9999px;
+    box-shadow: 0 4px 20px rgba(colors.$black, 0.3);
+  }
+
+  .hero-metaBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: fonts.$size-0;
+    font-weight: 600;
+    color: colors.$white;
+    text-decoration: none;
+
+    &--link {
+      transition: color effects.$time ease;
+
+      &:hover {
+        color: colors.$tertiary-1;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      &:focus-visible {
+        outline: 2px solid colors.$white;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .hero-metaIcon {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  .hero-metaDivider {
+    color: rgba(colors.$white, 0.55);
+    font-size: fonts.$size-0;
+    user-select: none;
   }
 
   .hero-tagline {
     font-size: fonts.$size-1;
-    font-weight: 400;
+    font-weight: 500;
+    line-height: 1.45;
     margin: 0;
-    opacity: 0.92;
-    letter-spacing: 0.02em;
+    color: rgba(colors.$white, 0.95);
+    text-shadow: 0 2px 10px rgba(colors.$black, 0.8);
+    max-width: 38ch;
+    letter-spacing: 0.01em;
   }
 
   .hero-actions {
@@ -75,15 +145,19 @@
     gap: spaces.$space-s;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: spaces.$space-xs;
+    margin-top: spaces.$space-2xs;
   }
 
   // Primary hero button — solid yellow/tertiary for maximum contrast
   .button--hero {
     background-color: colors.$tertiary;
     color: colors.$black;
-    font-size: fonts.$size-1;
+    font-size: fonts.$size-0;
+    font-weight: 700;
     padding: spaces.$space-s spaces.$space-l;
+    border-radius: 9999px;
+    box-shadow: 0 4px 16px rgba(colors.$black, 0.3);
+    border: 2px solid transparent;
 
     &:link,
     &:visited {
@@ -91,17 +165,29 @@
     }
 
     &:hover {
+      background-color: colors.$tertiary-1;
       border-color: colors.$white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(colors.$black, 0.4);
+    }
+
+    &:focus-visible {
+      outline: 3px solid colors.$white;
+      outline-offset: 3px;
     }
   }
 
   // Secondary hero button — ghost/outline on dark background
   .button--heroSecondary {
-    background-color: transparent;
+    background-color: rgba(colors.$black, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: colors.$white;
-    border: 2px solid colors.$white;
-    font-size: fonts.$size-1;
+    border: 2px solid rgba(colors.$white, 0.85);
+    font-size: fonts.$size-0;
+    font-weight: 700;
     padding: spaces.$space-s spaces.$space-l;
+    border-radius: 9999px;
 
     &:link,
     &:visited {
@@ -109,27 +195,39 @@
     }
 
     &:hover {
-      background-color: rgba(colors.$white, 0.12);
+      background-color: colors.$white;
+      color: colors.$black;
       border-color: colors.$white;
+      transform: translateY(-2px);
     }
-  }
 
-  /* The <h1> only wraps the logo, so it must not add heading spacing. */
-  .hero-heading {
-    margin: 0;
-    display: flex;
-  }
-
-  .hero-icon {
-    padding: spaces.$space-m;
-    background: colors.$gray;
-    @extend %rounded;
+    &:focus-visible {
+      outline: 3px solid colors.$white;
+      outline-offset: 3px;
+    }
   }
 }
 
 @if r.$mobile {
-  .hero-title {
-    font-size: fonts.$size-4;
+  .hero {
+    min-height: 75vh;
+    padding: spaces.$space-l 0;
+  }
+
+  .hero-icon {
+    padding: spaces.$space-xs spaces.$space-s;
+  }
+
+  .hero-meta {
+    flex-direction: column;
+    gap: spaces.$space-3xs;
+    border-radius: 16px;
+    padding: 0.6rem 1rem;
+    width: auto;
+  }
+
+  .hero-metaDivider {
+    display: none;
   }
 
   .hero-tagline {
@@ -139,5 +237,13 @@
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .button--hero,
+  .button--heroSecondary {
+    text-align: center;
+    padding: spaces.$space-xs spaces.$space-m;
   }
 }

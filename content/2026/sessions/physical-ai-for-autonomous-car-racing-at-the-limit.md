@@ -4,6 +4,9 @@ date = 2026-06-13
 draft = false
 
 [params]
+rooms = ["chiesa"]
+starts = 2026-10-04T10:15:00
+ends = 2026-10-04T10:45:00
 speakers = ["ayoub-raji"]
 language = "English"
 topic = "AI & Machine Intelligence"

@@ -1,10 +1,10 @@
 {{ define "main" }}
 {{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
 {{- $allSessions := partial "lookup/pages" (printf "/%s/sessions" $year) -}}
-{{/* Sorted by start time, then — sort being stable — by end time, so that
-     sessions sharing a slot list the shortest first. */}}
+{{/* Sorted by start time, then — sort being stable — by end time */}}
 {{- $scheduled := where $allSessions "Params.starts" "ne" nil -}}
 {{- $scheduled = sort (sort $scheduled "Params.ends" "asc") "Params.starts" "asc" -}}
+{{- $allRooms := where (partial "lookup/pages" (printf "/%s/rooms" $year)) "Params.forSessions" true -}}
 
 <main class="section section--padded agenda-main">
   {{ partial "previous-edition" . }}
@@ -12,6 +12,20 @@
   <div class="agenda-header">
     <h1 class="h1 agenda-title">{{ printf (i18n "agendaTitle") $year }}</h1>
     <p class="p agenda-subtitle">{{ i18n "agendaSubtitle" }}</p>
+
+    {{ with $allRooms }}
+    <div class="agenda-roomsNav" aria-label="{{ i18n "exploreRooms" }}">
+      <span class="agenda-roomsNav-label">📍 {{ i18n "exploreRooms" }}:</span>
+      <div class="agenda-roomsNav-list">
+        {{ range . }}
+        <a class="agenda-roomsNav-item link" href="{{ .RelPermalink }}">
+          {{ .Title }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
     <div class="agenda-actions">
       <a class="button button--secondary button--small" href="{{ printf "/%s/sessions/" $year | relLangURL }}">
         {{ i18n "browseSessionsCatalog" }}
@@ -20,64 +34,247 @@
   </div>
 
   {{ if $scheduled }}
-    {{/* One section per event day, in the order given by the edition data. */}}
     {{- $agenda := index site.Data $year -}}
-    {{- range $day := (cond (ne $agenda nil) $agenda.days slice) -}}
-    {{- $dayTime := time.AsTime $day -}}
-    {{- $dayKey := $dayTime.Format "2006-01-02" -}}
-    {{- $daySessions := slice -}}
-    {{- range $scheduled -}}
-      {{- if eq ((time (.Param "starts")).Format "2006-01-02") $dayKey -}}
-        {{- $daySessions = $daySessions | append . -}}
+    {{- $days := (cond (ne $agenda nil) $agenda.days slice) -}}
+
+    <div class="agenda-toggleWrapper">
+      {{/* Pure CSS Radio Toggle for Day Switching */}}
+      {{- range $index, $day := $days -}}
+      <input type="radio" name="agenda-day-radio" id="day-toggle-{{ $index }}" class="agenda-toggleInput agenda-toggleInput--{{ $index }}"{{ if eq $index 0 }} checked{{ end }}>
       {{- end -}}
-    {{- end -}}
 
-    {{ with $daySessions }}
-    <div class="agenda-daySection" id="day-{{ $dayKey }}">
-      <h2 class="h2 agenda-dayTitle">📅 {{ (time.Format "Monday 2 January" $dayTime) | title }}</h2>
-
-      <div class="agenda-timeline">
-        {{ range $session := . }}
-        {{- $track := partial "lookup/track" $session.Params.topic -}}
-        {{- $rooms := partial "lookup/session-rooms" (dict "year" $year "codes" $session.Params.rooms) -}}
-        <div class="agenda-card agenda-card--{{ $track.color }}">
-          <div class="agenda-timeCol">
-            <span class="agenda-timeSlot">{{ $session.Params.starts | time.Format "15:04" }} - {{ $session.Params.ends | time.Format "15:04" }}</span>
-            {{ range $rooms }}
-            <span class="agenda-roomBadge">📍 {{ .Title }}</span>
-            {{ end }}
-          </div>
-
-          <div class="agenda-contentCol">
-            <div class="agenda-cardMeta">
-              {{ with $session.Params.topic }}
-              <span class="agenda-topicBadge agenda-topicBadge--{{ $track.color }}">{{ . }}</span>
-              {{ end }}
-              <span class="agenda-langBadge">{{ $session.Params.language }}</span>
-            </div>
-
-            <h3 class="h3 agenda-cardTitle">
-              <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
-            </h3>
-
-            <div class="agenda-speakers">
-              {{ range $slug := $session.Params.speakers }}
-              {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
-              {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "60x60 q85 jpg" }}
-              <a class="agenda-speakerItem" href="{{ .RelPermalink }}">
-                <img class="agenda-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="30" height="30">
-                <span class="agenda-speakerName">{{ .Title }}</span>
-              </a>
-              {{ end }}
-              {{ end }}
-            </div>
-          </div>
-        </div>
-        {{ end }}
+      {{ if gt (len $days) 1 }}
+      <div class="agenda-toggleButtons" role="tablist" aria-label="{{ i18n "jumpToDay" }}">
+        {{- range $index, $day := $days -}}
+        {{- $dayTime := time.AsTime $day -}}
+        <label for="day-toggle-{{ $index }}" class="agenda-toggleBtn agenda-toggleBtn--{{ $index }}" role="tab">
+          📅 {{ (time.Format "Monday 2 January" $dayTime) | title }}
+        </label>
+        {{- end -}}
       </div>
+      {{ end }}
+
+      <p class="agenda-mobileHint">
+        <span>{{ i18n "swipeToExploreRooms" }}</span>
+      </p>
+
+      {{/* Day Panels */}}
+      {{- range $dayIndex, $day := $days -}}
+      {{- $dayTime := time.AsTime $day -}}
+      {{- $dayKey := $dayTime.Format "2006-01-02" -}}
+      {{- $daySessions := slice -}}
+      {{- range $scheduled -}}
+        {{- if eq ((time (.Param "starts")).Format "2006-01-02") $dayKey -}}
+          {{- $daySessions = $daySessions | append . -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{ with $daySessions }}
+      {{- /* Determine active rooms for this day */ -}}
+      {{- $dayRoomCodes := slice -}}
+      {{- range . -}}
+        {{- range .Params.rooms -}}
+          {{- if and (ne . "cortile") (not (in $dayRoomCodes .)) -}}
+            {{- $dayRoomCodes = $dayRoomCodes | append . -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- /* Collect room pages in order */ -}}
+      {{- $dayRooms := slice -}}
+      {{- range $allRooms -}}
+        {{- if in $dayRoomCodes .File.TranslationBaseName -}}
+          {{- $dayRooms = $dayRooms | append . -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- /* Collect unique start times */ -}}
+      {{- $startTimes := slice -}}
+      {{- range . -}}
+        {{- $st := (time (.Param "starts")).Format "15:04" -}}
+        {{- if not (in $startTimes $st) -}}
+          {{- $startTimes = $startTimes | append $st -}}
+        {{- end -}}
+      {{- end -}}
+
+      <div class="agenda-dayPanel agenda-dayPanel--{{ $dayIndex }}" id="day-panel-{{ $dayKey }}" role="tabpanel">
+        <div class="agenda-tableWrapper">
+          <table class="agenda-table">
+            <thead>
+              <tr class="agenda-tableHeadRow">
+                <th class="agenda-th agenda-th--time" scope="col">{{ i18n "timeSlot" }}</th>
+                {{ range $dayRooms }}
+                <th class="agenda-th agenda-th--room" scope="col">
+                  <a class="agenda-th-roomLink" href="{{ .RelPermalink }}" title="{{ .Title }}">
+                    📍 {{ .Title }}
+                  </a>
+                </th>
+                {{ end }}
+              </tr>
+            </thead>
+            <tbody>
+              {{ range $st := $startTimes }}
+                {{- /* Filter sessions starting at $st */ -}}
+                {{- $slotSessions := slice -}}
+                {{- range $daySessions -}}
+                  {{- if eq ((time (.Param "starts")).Format "15:04") $st -}}
+                    {{- $slotSessions = $slotSessions | append . -}}
+                  {{- end -}}
+                {{- end -}}
+
+                {{- $first := index $slotSessions 0 -}}
+                {{- $isPlenary := false -}}
+                {{- if eq (len $slotSessions) 1 -}}
+                  {{- if or $first.Params.keynote $first.Params.isplenary $first.Params.isPlenary ($first.Param "isPlenary") (eq (len $first.Params.speakers) 0) (in (slice "opening-devfest" "closing-ceremony" "concerto" "pranzo" "check-in-sabato" "check-in-domenica") $first.File.TranslationBaseName) -}}
+                    {{- $isPlenary = true -}}
+                  {{- end -}}
+                {{- end -}}
+
+                {{ if $isPlenary }}
+                  {{- $rooms := partial "lookup/session-rooms" (dict "year" $year "codes" $first.Params.rooms) -}}
+                  <tr class="agenda-tr agenda-tr--plenary">
+                    <td class="agenda-td agenda-td--time">
+                      <span class="agenda-slotTime">{{ $first.Params.starts | time.Format "15:04" }} - {{ $first.Params.ends | time.Format "15:04" }}</span>
+                    </td>
+                    <td class="agenda-td agenda-td--plenary" colspan="{{ len $dayRooms }}">
+                      <article class="agenda-tableCard agenda-tableCard--plenary">
+                        <div class="agenda-tableCard-header">
+                          {{ if $first.Params.keynote }}
+                          <span class="agenda-plenaryBadge agenda-plenaryBadge--keynote">Keynote</span>
+                          {{ else }}
+                          <span class="agenda-plenaryBadge">{{ i18n "allRooms" }}</span>
+                          {{ end }}
+                          {{ range $rooms }}
+                          <a class="agenda-roomBadge link" href="{{ .RelPermalink }}">📍 {{ .Title }}</a>
+                          {{ end }}
+                          {{ with $first.Params.topic }}
+                          <span class="agenda-topicBadge">{{ . }}</span>
+                          {{ end }}
+                          {{ with $first.Params.language }}
+                          <span class="agenda-langBadge">{{ . }}</span>
+                          {{ end }}
+                        </div>
+                        <h3 class="h3 agenda-tableCard-title">
+                          <a class="link" href="{{ $first.RelPermalink }}">{{ $first.Title }}</a>
+                        </h3>
+                        {{ with $first.Params.speakers }}
+                        <div class="agenda-tableCard-speakers">
+                          {{ range $slug := . }}
+                          {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+                          {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "60x60 q85 jpg" }}
+                          <a class="agenda-speakerItem" href="{{ .RelPermalink }}" title="{{ .Title }}">
+                            <img class="agenda-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="24" height="24" loading="lazy">
+                            <span class="agenda-speakerName">{{ .Title }}</span>
+                          </a>
+                          {{ end }}
+                          {{ end }}
+                        </div>
+                        {{ end }}
+                        {{ if and (not $first.Params.speakers) (or $first.Summary $first.Content) }}
+                        <p class="agenda-plenaryDesc">{{ $first.Summary | default $first.Content }}</p>
+                        {{ end }}
+                      </article>
+                    </td>
+                  </tr>
+                {{ else }}
+                  {{- /* Compute slot end time for track row */ -}}
+                  {{- $slotEnd := "" -}}
+                  {{- range $slotSessions -}}
+                    {{- $en := (time (.Param "ends")).Format "15:04" -}}
+                    {{- if or (eq $slotEnd "") (lt $en $slotEnd) -}}
+                      {{- $slotEnd = $en -}}
+                    {{- end -}}
+                  {{- end -}}
+
+                  <tr class="agenda-tr agenda-tr--tracks">
+                    <td class="agenda-td agenda-td--time">
+                      <span class="agenda-slotTime">{{ $st }}{{ with $slotEnd }} - {{ . }}{{ end }}</span>
+                    </td>
+                    {{ range $room := $dayRooms }}
+                      {{- $roomCode := $room.File.TranslationBaseName -}}
+                      {{- $sessionStarting := false -}}
+                      {{- range $slotSessions -}}
+                        {{- if in .Params.rooms $roomCode -}}
+                          {{- $sessionStarting = . -}}
+                        {{- end -}}
+                      {{- end -}}
+
+                      {{ if $sessionStarting }}
+                        {{- $track := partial "lookup/track" $sessionStarting.Params.topic -}}
+                        <td class="agenda-td agenda-td--session">
+                          <article class="agenda-tableCard{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}">
+                            <div class="agenda-tableCard-meta">
+                              {{ with $sessionStarting.Params.topic }}
+                              <span class="agenda-topicBadge agenda-topicBadge--{{ $track.color }}">{{ . }}</span>
+                              {{ end }}
+                              {{ with $sessionStarting.Params.language }}
+                              <span class="agenda-langBadge">{{ . }}</span>
+                              {{ end }}
+                              {{- $sessSt := (time ($sessionStarting.Param "starts")).Format "15:04" -}}
+                              {{- $sessEn := (time ($sessionStarting.Param "ends")).Format "15:04" -}}
+                              {{- if ne $sessEn $slotEnd -}}
+                              <span class="agenda-durationBadge">⏱️ {{ $sessSt }}-{{ $sessEn }}</span>
+                              {{- end -}}
+                            </div>
+
+                            <h3 class="h3 agenda-tableCard-title">
+                              <a class="link" href="{{ $sessionStarting.RelPermalink }}">{{ $sessionStarting.Title }}</a>
+                            </h3>
+
+                            {{ with $sessionStarting.Params.speakers }}
+                            <div class="agenda-tableCard-speakers">
+                              {{ range $slug := . }}
+                              {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+                              {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "60x60 q85 jpg" }}
+                              <a class="agenda-speakerItem" href="{{ .RelPermalink }}" title="{{ .Title }}">
+                                <img class="agenda-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="24" height="24" loading="lazy">
+                                <span class="agenda-speakerName">{{ .Title }}</span>
+                              </a>
+                              {{ end }}
+                              {{ end }}
+                            </div>
+                            {{ end }}
+                          </article>
+                        </td>
+                      {{ else }}
+                        {{- /* Check if session is continuing */ -}}
+                        {{- $sessionContinuing := false -}}
+                        {{- range $daySessions -}}
+                          {{- if and (in .Params.rooms $roomCode) (lt ((time (.Param "starts")).Format "15:04") $st) (gt ((time (.Param "ends")).Format "15:04") $st) -}}
+                            {{- $sessionContinuing = . -}}
+                          {{- end -}}
+                        {{- end -}}
+
+                        {{ if $sessionContinuing }}
+                          {{- $track := partial "lookup/track" $sessionContinuing.Params.topic -}}
+                          <td class="agenda-td agenda-td--session agenda-td--continues">
+                            <div class="agenda-tableCard agenda-tableCard--continues{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}">
+                              <div class="agenda-continuesHeader">
+                                <span class="agenda-continuesBadge">⏳ {{ i18n "ongoing" }}</span>
+                                <span class="agenda-durationBadge">({{ (time ($sessionContinuing.Param "starts")).Format "15:04" }} - {{ (time ($sessionContinuing.Param "ends")).Format "15:04" }})</span>
+                              </div>
+                              <h4 class="agenda-continuesTitle">
+                                <a class="link" href="{{ $sessionContinuing.RelPermalink }}">{{ $sessionContinuing.Title }}</a>
+                              </h4>
+                            </div>
+                          </td>
+                        {{ else }}
+                          <td class="agenda-td agenda-td--empty">
+                            <span class="agenda-emptyDash">—</span>
+                          </td>
+                        {{ end }}
+                      {{ end }}
+                    {{ end }}
+                  </tr>
+                {{ end }}
+              {{ end }}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{ end }}
+      {{- end -}}
     </div>
-    {{ end }}
-    {{- end -}}
 
   {{ else }}
     <div class="agenda-comingSoonCard">

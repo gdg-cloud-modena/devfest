@@ -1,58 +1,92 @@
 {{ define "main" }}
 {{- $year := printf "%v" (.Param "year") -}}
 {{- $rooms := partial "lookup/session-rooms" (dict "year" $year "codes" .Params.rooms) -}}
+{{- $track := partial "lookup/track" .Params.topic -}}
 
-<main class="section section--padded">
+<main class="section section--padded sessionDetail">
   {{ partial "previous-edition" . }}
 
-  <h1 class="h1">{{ .Title }}</h1>
+  <div class="sessionDetail-header">
+    <div class="sessionMeta-badges">
+      {{ if .Params.workshop }}
+      <span class="sessionMeta-badge sessionMeta-badge--workshop">🛠️ {{ i18n "workshops" }}</span>
+      {{ end }}
+      {{ with $track }}
+      <span class="sessionMeta-badge sessionMeta-badge--{{ .color }}">{{ .emoji }} {{ .key }}</span>
+      {{ end }}
+      {{ with .Params.language }}
+      <span class="sessionMeta-badge sessionMeta-badge--lang">🌐 {{ . }}</span>
+      {{ end }}
+    </div>
 
-  {{ if .Params.starts }}
-  <p class="p">
-    <b>{{ .Params.starts | time.Format "Monday" | title }}</b>
-    {{ i18n "from" }} <b>{{ .Params.starts | time.Format "15:04" }}</b>
-    {{ i18n "to" }} {{ .Params.ends | time.Format "15:04" }}
-    {{- with $rooms }}
-      {{ if eq (len .) 1 }}{{ i18n "inRoom" }}{{ else }}{{ i18n "inRoomsParallel" }}{{ end }}
-      {{ range $i, $room := . }}{{ if $i }}, {{ end }}<a class="link" href="{{ $room.RelPermalink }}">{{ $room.Title }}</a>{{ end }}
-    {{- end }}.
-    {{ with .Params.topic }}{{ i18n "track" }} <b>{{ . }}</b> · {{ end }}
-    {{- with .Params.language }}{{ i18n "language" }} <b>{{ . }}</b>{{ end }}
-  </p>
-  {{ else }}
-  <p class="p">
-    {{ with .Params.topic }}{{ i18n "track" }} <b>{{ . }}</b> · {{ end }}
-    {{- with .Params.language }}{{ i18n "language" }} <b>{{ . }}</b> · {{ end }}
-    <i>{{ i18n "scheduleTBA" }}</i>
-  </p>
-  {{ end }}
+    <h1 class="h1 sessionDetail-title">{{ .Title }}</h1>
 
-  {{ with .Params.slidesURL }}
-  <p class="p"><a class="link" href="{{ . | safeURL }}"{{ if strings.HasPrefix . "http" }} target="_blank" rel="noopener"{{ end }}>{{ i18n "viewSlides" }}</a></p>
-  {{ end }}
+    <div class="sessionMeta-card">
+      {{ if .Params.starts }}
+      <div class="sessionMeta-item">
+        <span class="sessionMeta-icon" aria-hidden="true">📅</span>
+        <span class="sessionMeta-text">
+          <b>{{ .Params.starts | time.Format "Monday 2 January" | title }}</b>
+          &bull; {{ .Params.starts | time.Format "15:04" }} - {{ .Params.ends | time.Format "15:04" }}
+        </span>
+      </div>
+      {{ with $rooms }}
+      <div class="sessionMeta-item">
+        <span class="sessionMeta-icon" aria-hidden="true">📍</span>
+        <span class="sessionMeta-text">
+          {{ if eq (len .) 1 }}{{ i18n "inRoom" }}{{ else }}{{ i18n "inRoomsParallel" }}{{ end }}
+          {{ range $i, $room := . }}{{ if $i }}, {{ end }}<a class="sessionMeta-roomLink link" href="{{ $room.RelPermalink }}"><b>{{ $room.Title }}</b></a>{{ end }}
+        </span>
+      </div>
+      {{ end }}
+      {{ else }}
+      <div class="sessionMeta-item">
+        <span class="sessionMeta-icon" aria-hidden="true">⏳</span>
+        <span class="sessionMeta-text"><i>{{ i18n "scheduleTBA" }}</i></span>
+      </div>
+      {{ end }}
 
-  <div class="content">
+      {{ with .Params.slidesURL }}
+      <div class="sessionMeta-item">
+        <span class="sessionMeta-icon" aria-hidden="true">📑</span>
+        <a class="sessionMeta-slidesLink link" href="{{ . | safeURL }}"{{ if strings.HasPrefix . "http" }} target="_blank" rel="noopener"{{ end }}>
+          <b>{{ i18n "viewSlides" }} &rarr;</b>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="content sessionDetail-content">
     {{ .Content }}
   </div>
 
   {{ with .Params.speakers }}
-  <h2 class="h2">{{ if eq (len .) 1 }}{{ i18n "speaker" }}{{ else }}{{ i18n "speakers" }}{{ end }}</h2>
-  <ul class="relatedSpeakers">
-    {{ range $slug := . }}
-    {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
-    {{ $image := (partial "lookup/speaker-image" $slug).Fit "100x100 webp q65" }}
-    <li class="relatedSpeakers-item">
-      <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Title }}">
-      <div class="relatedSpeakers-details">
-        <p class="relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
-        <p class="relatedSpeakers-role">{{ .Params.role }}{{ if and .Params.role .Params.company }} @ {{ end }}{{ .Params.company }}</p>
+  <div class="sessionDetail-speakersSection">
+    <h2 class="h2 sessionDetail-speakersTitle">{{ if eq (len .) 1 }}{{ i18n "speaker" }}{{ else }}{{ i18n "speakers" }}{{ end }}</h2>
+    <div class="relatedSpeakers-grid">
+      {{ range $slug := . }}
+      {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+      {{ $image := (partial "lookup/speaker-image" $slug).Fit "120x120 webp q85" }}
+      <div class="relatedSpeakers-card">
+        <img class="relatedSpeakers-image" src="{{ $image.RelPermalink }}" width="64" height="64" alt="{{ .Title }}" loading="lazy">
+        <div class="relatedSpeakers-details">
+          <h3 class="h3 relatedSpeakers-name"><a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{ if or .Params.role .Params.company }}
+          <p class="p relatedSpeakers-role">{{ .Params.role }}{{ if and .Params.role .Params.company }} @ {{ end }}{{ .Params.company }}</p>
+          {{ end }}
+        </div>
       </div>
-    </li>
-    {{ else }}
-    <li class="relatedSpeakers-item"><b>{{ $slug }}</b></li>
-    {{ end }}
-    {{ end }}
-  </ul>
+      {{ else }}
+      <div class="relatedSpeakers-card">
+        <div class="relatedSpeakers-details">
+          <h3 class="h3 relatedSpeakers-name">{{ $slug }}</h3>
+        </div>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
   {{ end }}
 </main>
 {{ end }}

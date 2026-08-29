@@ -3,6 +3,7 @@
 {{- $isCurrentEdition := eq $year (printf "%v" site.Params.currentEdition) -}}
 {{- $allSessions := partial "lookup/pages" (printf "/%s/sessions" $year) -}}
 {{- $tracks := partial "lookup/tracks" . -}}
+{{- $workshops := where $allSessions "Params.workshop" true -}}
 
 <main class="section section--padded">
   {{ if $isCurrentEdition }}
@@ -30,10 +31,9 @@
     <p class="p">{{ printf (i18n "sessionsWelcomeCallout") (len $allSessions) $year (printf "/%s/agenda/" $year | relLangURL) $year | safeHTML }}</p>
   </div>
 
-  {{/* Track index: jump links to the per-track sections below. The heading is
-       what keeps the card titles at h3 without skipping a level. */}}
+  {{/* Track index: jump links to the per-track sections below. */}}
   <h2 class="h2">{{ printf (i18n "sessionsTeaserTitle") $year }}</h2>
-  <div class="homeSessions-grid homeSessions-grid--3col">
+  <div class="homeSessions-grid">
     {{ range $track := $tracks }}
     {{ partial "track-card" (dict
       "track" $track
@@ -41,8 +41,17 @@
       "count" (len (where $allSessions "Params.topic" $track.key))
     ) }}
     {{ end }}
+    {{ with $workshops }}
+    <a class="homeSessions-card homeSessions-card--quaternary" href="#workshops">
+      <div class="homeSessions-cardEmoji" aria-hidden="true">🛠️</div>
+      <div class="homeSessions-cardTrack">{{ printf (i18n "sessionCount") (len .) }}</div>
+      <h3 class="homeSessions-cardTitle">{{ i18n "workshops" }}</h3>
+      <p class="homeSessions-cardDesc">{{ i18n "workshopsTeaserDesc" }}</p>
+    </a>
+    {{ end }}
   </div>
 
+  {{/* Track Sections */}}
   {{ range $track := $tracks }}
   {{ with where $allSessions "Params.topic" $track.key }}
   <section id="track-{{ urlize $track.key }}" class="sessions-trackSection">
@@ -56,9 +65,12 @@
 
     <div class="sessions-grid">
       {{ range $session := . }}
-      <div class="sessions-card">
+      <div class="sessions-card sessions-card--{{ $track.color }}">
         <div>
           <div class="sessions-cardHeader">
+            {{ if $session.Params.workshop }}
+            <span class="sessions-badge sessions-badge--workshop">{{ i18n "workshops" }}</span>
+            {{ end }}
             <span class="sessions-badge {{ if eq (lower $session.Params.language) "english" }}sessions-badge--english{{ end }}">{{ $session.Params.language }}</span>
           </div>
           <h3 class="h3 sessions-cardTitle">
@@ -69,8 +81,8 @@
             {{ range $slug := $session.Params.speakers }}
             {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
             {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "80x80 q85 jpg" }}
-            <a class="sessions-speakerLink" href="{{ .RelPermalink }}">
-              <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="36" height="36">
+            <a class="sessions-speakerLink" href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="36" height="36" loading="lazy">
               <span class="sessions-speakerName">{{ .Title }}</span>
             </a>
             {{ else }}
@@ -90,6 +102,55 @@
     </div>
   </section>
   {{ end }}
+  {{ end }}
+
+  {{/* Workshops Section */}}
+  {{ with $workshops }}
+  <section id="workshops" class="sessions-trackSection">
+    <div class="sessions-trackHeader sessions-trackHeader--quaternary">
+      <div class="sessions-trackTitleGroup">
+        <span class="sessions-trackEmoji" aria-hidden="true">🛠️</span>
+        <h2 class="h2 sessions-trackTitle">{{ i18n "workshopsSectionTitle" }}</h2>
+      </div>
+      <p class="sessions-trackDesc">{{ i18n "workshopsSectionDesc" }}</p>
+    </div>
+
+    <div class="sessions-grid">
+      {{ range $session := . }}
+      <div class="sessions-card sessions-card--quaternary">
+        <div>
+          <div class="sessions-cardHeader">
+            <span class="sessions-badge sessions-badge--workshop">{{ i18n "workshops" }}</span>
+            <span class="sessions-badge {{ if eq (lower $session.Params.language) "english" }}sessions-badge--english{{ end }}">{{ $session.Params.language }}</span>
+          </div>
+          <h3 class="h3 sessions-cardTitle">
+            <a class="link" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
+          </h3>
+
+          <div class="sessions-speakers">
+            {{ range $slug := $session.Params.speakers }}
+            {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+            {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "80x80 q85 jpg" }}
+            <a class="sessions-speakerLink" href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="36" height="36" loading="lazy">
+              <span class="sessions-speakerName">{{ .Title }}</span>
+            </a>
+            {{ else }}
+            <span class="sessions-speakerName">{{ $slug }}</span>
+            {{ end }}
+            {{ end }}
+          </div>
+
+          <p class="sessions-cardDesc">{{ $session.Summary | truncate 200 }}</p>
+        </div>
+
+        <div class="sessions-cardFooter">
+          <a class="link" href="{{ $session.RelPermalink }}">{{ i18n "discoverSession" }} &rarr;</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
   {{ end }}
 
 </main>

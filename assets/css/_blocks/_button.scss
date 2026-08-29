@@ -9,22 +9,20 @@
   .button {
     display: inline-block;
     padding: spaces.$space-xs spaces.$space-m;
-    border: none;
+    border: 2px solid transparent;
     @extend %rounded;
-    background-color: colors.$primary;
+    background-color: colors.$primary-1;
     color: colors.$primary-contrast;
     text-decoration: none;
-    transition:
-      transform effects.$time,
-      box-shadow effects.$time;
-    background-color: colors.$primary;
-    color: colors.$primary-contrast;
     margin-left: spaces.$space-3xs;
     margin-right: spaces.$space-3xs;
     font-size: fonts.$size-0;
     font-weight: bold;
-    border: 2px solid transparent;
-    @extend %transition-border;
+    transition:
+      transform effects.$time ease,
+      box-shadow effects.$time ease,
+      border-color effects.$time ease,
+      background-color effects.$time ease;
 
     &:link,
     &:visited {
@@ -33,8 +31,19 @@
     }
 
     &:hover {
-      border: 2px solid colors.$black;
-      @extend %transition-border;
+      background-color: colors.$primary-2;
+      border-color: colors.$primary-2;
+      color: colors.$primary-contrast;
     }
+
+    &:focus-visible {
+      outline: 3px solid colors.$primary-2;
+      outline-offset: 2px;
+    }
+  }
+
+  .button--small {
+    padding: spaces.$space-2xs spaces.$space-s;
+    font-size: fonts.$size--1;
   }
 }

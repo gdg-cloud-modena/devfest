@@ -54,6 +54,12 @@
     &:visited {
       color: colors.$black;
     }
+
+    &:focus-visible {
+      outline: 3px solid colors.$primary-2;
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
   }
 
   .homeSpeakers-faceImg {
@@ -66,8 +72,9 @@
     border: 3px solid colors.$white;
     transition: border-color effects.$time ease;
 
-    .homeSpeakers-face:hover & {
-      border-color: colors.$primary;
+    .homeSpeakers-face:hover &,
+    .homeSpeakers-face:focus-visible & {
+      border-color: colors.$primary-1;
     }
   }
 

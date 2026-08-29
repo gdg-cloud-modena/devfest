@@ -1,0 +1,175 @@
+// Home page – Introduction section
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+@use "_blocks/_h2";
+
+@if r.$core {
+  .homeIntro {
+    background-color: colors.$white;
+    border-bottom: 1px solid rgba(colors.$gray, 0.5);
+  }
+
+  .homeIntro-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-l;
+  }
+
+  .homeIntro-header {
+    text-align: center;
+  }
+
+  .homeIntro-title {
+    @extend .h2;
+    color: colors.$primary-2;
+    margin-bottom: spaces.$space-s;
+  }
+
+  .homeIntro-lead {
+    font-size: fonts.$size-1;
+    line-height: 1.6;
+    color: rgba(colors.$black, 0.9);
+    margin: 0 auto;
+    max-width: 65ch;
+  }
+
+  .homeIntro-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: spaces.$space-m;
+  }
+
+  .homeIntro-highlightCard {
+    background-color: colors.$gray--1;
+    border: 1px solid rgba(colors.$black, 0.06);
+    border-radius: 16px;
+    padding: spaces.$space-m;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: spaces.$space-3xs;
+    text-decoration: none;
+    color: colors.$black;
+    transition: transform effects.$time ease, box-shadow effects.$time ease, border-color effects.$time ease;
+
+    &--link {
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(colors.$black, 0.08);
+        border-color: colors.$primary-1;
+        color: colors.$black;
+        text-decoration: none;
+      }
+
+      &:focus-visible {
+        outline: 3px solid colors.$primary-2;
+        outline-offset: 3px;
+      }
+    }
+  }
+
+  .homeIntro-highlightIcon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: spaces.$space-3xs;
+  }
+
+  .homeIntro-highlightTitle {
+    font-size: fonts.$size-0;
+    font-weight: 700;
+    color: colors.$primary-2;
+    margin: 0;
+  }
+
+  .homeIntro-highlightDesc {
+    font-size: fonts.$size--1;
+    color: rgba(colors.$black, 0.8);
+    margin: 0;
+  }
+
+  .homeIntro-communitiesWrapper {
+    text-align: center;
+    padding-top: spaces.$space-s;
+    border-top: 1px dashed rgba(colors.$black, 0.12);
+  }
+
+  .homeIntro-communitiesLabel {
+    font-size: fonts.$size--1;
+    font-weight: 700;
+    color: rgba(colors.$black, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: spaces.$space-s;
+  }
+
+  .homeIntro-communitiesList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: spaces.$space-xs;
+  }
+
+  .homeIntro-communityBadge {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    background-color: colors.$gray--1;
+    border: 1px solid rgba(colors.$black, 0.08);
+    border-radius: 9999px;
+    font-size: fonts.$size--1;
+    font-weight: 600;
+    color: colors.$black;
+    text-decoration: none;
+    transition: all effects.$time ease;
+
+    &:hover {
+      background-color: colors.$primary--2;
+      border-color: colors.$primary-1;
+      color: colors.$primary-2;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.$primary-2;
+      outline-offset: 2px;
+    }
+  }
+}
+
+@if r.$tablet {
+  .homeIntro-highlights {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@if r.$mobile {
+  .homeIntro-highlights {
+    grid-template-columns: 1fr;
+    gap: spaces.$space-s;
+  }
+
+  .homeIntro-lead {
+    font-size: fonts.$size-0;
+  }
+
+  .homeIntro-communitiesList {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .homeIntro-communityBadge {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}

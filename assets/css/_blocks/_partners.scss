@@ -13,7 +13,7 @@
 
   .partner-title-section {
     @extend .h2;
-    color: colors.$primary;
+    color: colors.$primary-2;
     margin-bottom: spaces.$space-xs;
   }
 
@@ -21,7 +21,7 @@
     max-width: 680px;
     margin: 0 auto;
     font-size: fonts.$size-0;
-    color: rgba(colors.$black, 0.75);
+    color: rgba(colors.$black, 0.88);
   }
 
   .partners {
@@ -47,7 +47,7 @@
   }
 
   .partners-levelBadge--main {
-    background-color: colors.$primary;
+    background-color: colors.$primary-1;
     color: colors.$primary-contrast;
   }
 
@@ -89,7 +89,7 @@
 
   .partner-card {
     background-color: colors.$white;
-    border: 2px solid rgba(colors.$primary, 0.2);
+    border: 2px solid rgba(colors.$primary-1, 0.25);
     border-radius: 16px;
     padding: spaces.$space-s;
     display: flex;
@@ -105,13 +105,18 @@
 
     &:hover {
       transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 18px 32px rgba(colors.$primary, 0.22), 0 6px 12px rgba(colors.$black, 0.08);
-      border-color: colors.$primary;
+      box-shadow: 0 18px 32px rgba(colors.$primary-1, 0.22), 0 6px 12px rgba(colors.$black, 0.08);
+      border-color: colors.$primary-1;
 
       .partner-logoWrapper {
         background-color: colors.$primary--2;
-        border-color: rgba(colors.$primary, 0.3);
+        border-color: rgba(colors.$primary-1, 0.3);
       }
+    }
+
+    &:focus-visible {
+      outline: 3px solid colors.$primary-2;
+      outline-offset: 3px;
     }
   }
 

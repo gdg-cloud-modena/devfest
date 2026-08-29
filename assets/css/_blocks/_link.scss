@@ -10,21 +10,27 @@
 
 @if r.$core {
   .link {
-    color: colors.$secondary;
+    color: colors.$secondary-3;
     text-decoration: underline;
-    text-decoration-color: transparent;
-    transition: text-decoration-color effects.$time ease;
+    text-decoration-color: rgba(colors.$secondary-3, 0.5);
+    text-underline-offset: 2px;
+    transition: color effects.$time ease, text-decoration-color effects.$time ease;
 
     &:link,
     &:visited {
-      color: colors.$secondary;
-      text-decoration-color: transparent;
+      color: colors.$secondary-3;
+      text-decoration-color: rgba(colors.$secondary-3, 0.5);
     }
 
     &:hover {
-      text-decoration-color: colors.$secondary;
-      text-decoration: underline;
-      transition: text-decoration-color effects.$time ease;
+      color: colors.$secondary-4;
+      text-decoration-color: colors.$secondary-4;
+    }
+
+    &:focus-visible {
+      outline: 2px solid colors.$primary-1;
+      outline-offset: 2px;
+      border-radius: 2px;
     }
   }
 }

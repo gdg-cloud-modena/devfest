@@ -3,7 +3,7 @@ title = "Demontis Room"
 date = 2026-06-13
 draft = false
 summary = "Located between the church and the main courtyard"
-weight = 2
+weight = 4
 forSessions = true
 +++
 
