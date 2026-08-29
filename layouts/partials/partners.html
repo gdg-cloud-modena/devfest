@@ -27,7 +27,7 @@
     <div class="partners-grid partners-grid--{{ $level.code }}">
       {{ range $partner := . }}
       {{- $page := partial "lookup/page" (printf "/%s/partners/%s" $year $partner.code) -}}
-      {{- $internal := and $page (gt $page.WordCount 0) -}}
+      {{- $internal := not (not $page) -}}
       {{- $url := $partner.link -}}
       {{- if $internal -}}
         {{- $url = $page.RelPermalink -}}

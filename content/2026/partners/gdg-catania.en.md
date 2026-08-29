@@ -9,3 +9,5 @@ link = "https://gdg.community.dev/gdg-catania/"
 
 +++
 
+GDG Catania is the Google developer community in Sicily, organizing tech meetups, hands-on workshops on Cloud, Mobile, Web, and AI, and networking events for developers and students in Southern Italy.
+
