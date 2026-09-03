@@ -5,7 +5,7 @@ draft = false
 
 [params]
 speakers = ["marco-pollacci"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 
