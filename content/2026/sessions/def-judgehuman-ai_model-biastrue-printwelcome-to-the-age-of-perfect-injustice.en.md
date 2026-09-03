@@ -5,7 +5,7 @@ draft = false
 
 [params]
 speakers = ["celeste-andreano"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 
