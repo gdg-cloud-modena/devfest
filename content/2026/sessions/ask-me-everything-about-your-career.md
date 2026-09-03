@@ -1,5 +1,5 @@
 +++
-title = "Ask Me Everything About Your Career"
+title = "Ask me anything about your career"
 date = 2026-06-13
 draft = false
 
