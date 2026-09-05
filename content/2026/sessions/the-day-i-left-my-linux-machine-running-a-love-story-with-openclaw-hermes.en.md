@@ -10,7 +10,7 @@ rooms = ["chiesa"]
 starts = 2026-10-03T09:50:00
 ends = 2026-10-03T10:30:00
 speakers = ["riccardo-carlesso"]
-language = "English"
+language = "Italiano"
 topic = "Web, Mobile & Dev Experience"
 +++
 

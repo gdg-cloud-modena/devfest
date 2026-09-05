@@ -1,5 +1,5 @@
 +++
-title = "Reactive Apps without Frameworks"
+title = "App reattive senza framework"
 date = 2026-06-13
 draft = false
 
@@ -8,14 +8,14 @@ rooms = ["teatro"]
 starts = 2026-10-03T15:30:00
 ends = 2026-10-03T16:00:00
 speakers = ["emiliano-pisu"]
-language = "English"
+language = "Italiano"
 topic = "Web, Mobile & Dev Experience"
 +++
 
-Meet a framework-free, zero-deps app stack powered by the near-future web: a tiny signal-based store, DOM-first rendering, and tagged template literals for expressive, safe views.
+Scopri uno stack applicativo zero dipendenze e senza framework basato sul web del prossimo futuro: un micro-store basato su Signals, rendering DOM-first e tagged template literals per viste espressive e sicure.
 
-Sketching an observable state core aligned with the TC39 Signals proposal, with a look to the future to bind it to the DOM using emerging “DOM Parts” ideas for precise updates, finally layering a minimalist template-literal engine that makes JSX feel optional.
+Esploreremo il core di uno stato osservabile allineato con la proposta TC39 Signals, con uno sguardo al futuro per integrarlo al DOM tramite le emergenti proposte di “DOM Parts” per aggiornamenti granulari e precisi, per poi aggiungere un motore minimale basato su template literals che rende JSX del tutto opzionale.
 
-The result is a reactive, component-capable architecture you can understand in one file, portable from today’s browsers to tomorrow’s platform APIs.
+Il risultato è un'architettura reattiva e basata su componenti comprensibile in un unico file, portabile dai browser attuali alle API della piattaforma di domani.
 
-Come for the WOW, leave with a starter kit for building real apps in vanillaJS. (Proposals: TC39 Signals, DOM Parts, both in active exploration and limited availability.)
+Vieni per l'effetto WOW, torna a casa con un kit di partenza per creare vere applicazioni in vanilla JS. (Proposte: TC39 Signals, DOM Parts, entrambe in fase di esplorazione attiva e disponibilità iniziale).

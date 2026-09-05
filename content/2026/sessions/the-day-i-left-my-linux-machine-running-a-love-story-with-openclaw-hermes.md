@@ -1,5 +1,5 @@
 +++
-title = "Keynote: The Day I Left My Linux Machine Running: A Love Story with OpenClaw & Hermes"
+title = "Keynote: Il giorno in cui ho lasciato accesa la mia macchina Linux: una storia d'amore con OpenClaw & Hermes"
 date = 2026-06-13
 draft = false
 
@@ -10,10 +10,12 @@ rooms = ["chiesa"]
 starts = 2026-10-03T09:50:00
 ends = 2026-10-03T10:30:00
 speakers = ["riccardo-carlesso"]
-language = "English"
+language = "Italiano"
 topic = "Web, Mobile & Dev Experience"
 +++
 
-It was February 5th. I was boarding a flight to South Africa, leaving behind nothing but a beefy Linux machine named pupurabbux and a restless curiosity about automation. Little did I know that by February 7th, my entire world would shift on its axis.
-Join me for a whirlwind journey from standard engineering to AI-fueled enlightenment as I recount how Hermes and OpenClaw didn't just optimize my workflows—they redefined my reality.
-This is a story of serendipity, digital alchemy, and the day I realized that my server at home was doing more than just running scripts—it was running my life.
+Era il 5 febbraio. Stavo salendo su un volo per il Sudafrica, lasciandomi alle spalle solo una potente macchina Linux di nome pupurabbux e un'incessante curiosità per l'automazione. Non potevo immaginare che entro il 7 febbraio il mio intero mondo sarebbe cambiato radicalmente.
+
+Unisciti a me in questo viaggio travolgente dall'ingegneria tradizionale all'illuminazione alimentata dall'AI, in cui racconterò come Hermes e OpenClaw non si siano limitati a ottimizzare i miei flussi di lavoro, ma abbiano ridefinito la mia realtà.
+
+Questa è una storia di serendipità, alchimia digitale e del giorno in cui ho capito che il mio server di casa stava facendo molto più che eseguire semplici script: stava gestendo la mia vita.

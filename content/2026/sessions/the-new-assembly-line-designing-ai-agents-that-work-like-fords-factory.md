@@ -1,5 +1,5 @@
 +++
-title = "The New Assembly Line: Designing AI Agents That Work Like Ford's Factory"
+title = "La nuova catena di montaggio: progettare agenti AI che lavorano come la fabbrica di Ford"
 date = 2026-06-13
 draft = false
 
@@ -8,20 +8,20 @@ rooms = ["demontis"]
 starts = 2026-10-04T12:00:00
 ends = 2026-10-04T12:30:00
 speakers = ["zelda-ailine-luconi"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 
-After its debut at Coderful 2026 in Catania — where it was met with great enthusiasm and strong technical engagement — this talk now brings its mission to the GDG Modena community: a full immersion into the world of AI Design Architecture applied to multi-agent systems.
-Ford didn't know it, but he was inventing the future of artificial intelligence.
+Dopo il debutto a Coderful 2026 a Catania — dove è stato accolto con grande entusiasmo e forte coinvolgimento tecnico — questo talk porta la sua missione alla community del GDG Modena: una full immersion nel mondo dell'AI Design Architecture applicata ai sistemi multi-agente.
+Ford non lo sapeva, ma stava inventando il futuro dell'intelligenza artificiale.
 
-The idea that transformed industrial production — breaking a complex process into specialized stations, connected by precise handoffs — is today the most powerful paradigm for building AI systems that actually work in production.
-A single monolithic agent suffers from the same pathologies as an assembly line run by a single worker: context dilution, lack of specialization, inability to parallelize, confirmation bias. The result? A one-way ticket to the AI project graveyard — that silent cemetery of ambitious pilots that never made it to production.
-The answer is the digital assembly line: a multi-agent architecture where each station receives the output of its predecessor, applies its specific function, and passes the transformed artifact to the next station — with typed schemas, clean handoffs, and full technological heterogeneity across stations.
-In this talk we will explore the three pillars of the assembly line applied to AI:
+L'idea che ha trasformato la produzione industriale — scomporre un processo complesso in stazioni specializzate, collegate da passaggi di consegne precisi — è oggi il paradigma più potente per costruire sistemi AI che funzionano davvero in produzione.
+Un singolo agente monolitico soffre delle stesse patologie di una catena di montaggio gestita da un solo operaio: diluizione del contesto, mancanza di specializzazione, impossibilità di parallelizzare, bias di conferma. Il risultato? Un biglietto di sola andata per il cimitero dei progetti AI — quel silenzioso cimitero di progetti pilota ambiziosi che non sono mai arrivati in produzione.
+La risposta è la catena di montaggio digitale: un'architettura multi-agente in cui ogni stazione riceve l'output della precedente, applica la sua funzione specifica e passa l'artefatto trasformato alla stazione successiva — con schemi tipizzati, handoff puliti e completa eterogeneità tecnologica tra le stazioni.
+In questo talk esploreremo i tre pilastri della catena di montaggio applicata all'AI:
 
-Structured workflow — Graph workflows and multi-agent orchestration with Google ADK: when to use a deterministic approach and when to leave room for autonomy.
-Technological heterogeneity — Sub-agents, Tools, MCP, and the A2A (Agent-to-Agent) protocol: how to equip agents with tools and enable them to interact with data sources or with each other.
-Structured handoffs — how to eliminate structural hallucinations and make the pipeline robust and self-corrective using input/output schemas with Pydantic.
+Flusso di lavoro strutturato — Flussi di lavoro a grafo e orchestrazione multi-agente con Google ADK: quando usare un approccio deterministico e quando lasciare spazio all'autonomia.
+Eterogeneità tecnologica — Sotto-agenti, Tools, MCP e il protocollo A2A (Agent-to-Agent): come dotare gli agenti di strumenti e consentire loro di interagire con sorgenti dati o tra loro.
+Passaggi di consegne strutturati — come eliminare le allucinazioni strutturali e rendere la pipeline robusta e autocorrettiva utilizzando schemi di input/output con Pydantic.
 
-All of this through a concrete, narrative use case — built live, slide after slide, line of code after line of code with Google ADK — all the way to the complete final architecture.
+Tutto questo attraverso un caso d'uso concreto e narrativo — costruito dal vivo, slide dopo slide, riga di codice dopo riga di codice con Google ADK — fino all'architettura finale completa.

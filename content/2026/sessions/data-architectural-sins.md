@@ -1,5 +1,5 @@
 +++
-title = "Data architectural sins"
+title = "I peccati dell'architettura dei dati"
 date = 2026-06-13
 draft = false
 
@@ -8,8 +8,8 @@ rooms = ["periodici"]
 starts = 2026-10-04T12:00:00
 ends = 2026-10-04T12:30:00
 speakers = ["federico-marchesi"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 
-We are used to thinking that scalability comes with more raw power: faster CPUs, horizontal scaling, more RAM, and—sometimes—a quantized model. Well, we are wrong. Scalability comes from trade-offs, the right architecture, and, sometimes, very ugly schemas.
+Siamo abituati a pensare che la scalabilità derivi da una maggiore potenza di calcolo: CPU più veloci, scalabilità orizzontale, più RAM e — a volte — un modello quantizzato. Beh, ci sbagliamo. La scalabilità deriva dai compromessi, dalla giusta architettura e, a volte, da schemi davvero poco eleganti.

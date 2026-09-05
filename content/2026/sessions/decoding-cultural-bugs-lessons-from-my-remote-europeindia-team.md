@@ -1,5 +1,5 @@
 +++
-title = "Decoding cultural “bugs”: lessons from my remote Europe–India team"
+title = "Decodificare i “bug” culturali: lezioni dal mio team remoto Europa–India"
 date = 2026-06-13
 draft = false
 
@@ -8,12 +8,12 @@ rooms = ["biblioteca-antica"]
 starts = 2026-10-04T11:00:00
 ends = 2026-10-04T11:30:00
 speakers = ["giulia-scalaberni"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 
-Working in international teams, what seems like a “bug” is often a cultural default. 
+Lavorando in team internazionali, quello che sembra un “bug” è spesso un default culturale. 
 
-Using Erin Meyer’s Culture Map, I’ll explore key cultural dimensions - communication styles, feedback, leadership, decision-making and trust - and how they shape collaboration. 
+Utilizzando la Culture Map di Erin Meyer, esplorerò le principali dimensioni culturali — stili di comunicazione, feedback, leadership, processi decisionali e fiducia — e il modo in cui influenzano la collaborazione. 
 
-Drawing from my experience leading a fully remote, cross-cultural IT team spanning Europe and India, I’ll show practical ways to decode “strange” behaviors, adapt team practices and improve clarity and trust without asking anyone to change who they are.
+Attingendo dalla mia esperienza alla guida di un team IT completamente da remoto e interculturale tra Europa e India, mostrerò modi pratici per decodificare comportamenti “strani”, adattare le pratiche del team e migliorare chiarezza e fiducia senza chiedere a nessuno di cambiare la propria identità.

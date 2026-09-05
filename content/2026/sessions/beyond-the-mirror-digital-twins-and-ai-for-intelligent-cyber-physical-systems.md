@@ -1,5 +1,5 @@
 +++
-title = "Beyond the Mirror: Digital Twins and AI for Intelligent Cyber-Physical Systems"
+title = "Oltre lo specchio: Digital Twins e AI per sistemi ciber-fisici intelligenti"
 date = 2026-06-13
 draft = false
 
@@ -8,14 +8,14 @@ rooms = ["biblioteca-antica"]
 starts = 2026-10-04T12:00:00
 ends = 2026-10-04T12:30:00
 speakers = ["marco-picone"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 
-The physical world is becoming increasingly complex, and the rise of Physical AI, autonomous robots, intelligent sensors, and embedded decision-making, will only accelerate this trend. 
+Il mondo fisico sta diventando sempre più complesso e l'ascesa della Physical AI, dei robot autonomi, dei sensori intelligenti e del processo decisionale integrato non farà che accelerare questo trend. 
 
-Managing this complexity requires more than passive monitoring: it calls for digital counterparts that actively work side by side with physical assets. This talk presents Digital Twins not just as simulations, but as active digital entities that continuously integrate real-time data, historical knowledge, algorithms, and AI models, including AI agents, to support and increasingly act on behalf of physical systems. 
+Gestire questa complessità richiede più di un semplice monitoraggio passivo: richiede controparti digitali che lavorino attivamente fianco a fianco con gli asset fisici. Questo talk presenta i Digital Twin non solo come simulazioni, ma come entità digitali attive che integrano continuamente dati in tempo reale, conoscenza storica, algoritmi e modelli di intelligenza artificiale, inclusi agenti AI, per supportare e agire sempre più per conto dei sistemi fisici. 
 
-We discuss how this shift redefines Digital Twins as a core enabler for managing the growing complexity of Industrial IoT and Cyber-Physical Systems, and what challenges, from trustworthiness to temporal consistency, must be addressed to make these intelligent digital counterparts reliable in industrial settings.
+Discuteremo di come questa evoluzione ridefinisca i Digital Twin come elemento chiave per gestire la crescente complessità dell'Industrial IoT e dei Sistemi Ciber-Fisici, e quali sfide, dall'affidabilità alla consistenza temporale, debbano essere affrontate per rendere queste controparti digitali intelligenti affidabili in contesti industriali.
 
-Attendees will leave with a clear vision of why active, AI-augmented Digital Twins are becoming essential as physical systems grow more autonomous and complex.
+I partecipanti usciranno con una visione chiara del perché i Digital Twin attivi e potenziati dall'AI stiano diventando essenziali man mano che i sistemi fisici diventano più autonomi e complessi.

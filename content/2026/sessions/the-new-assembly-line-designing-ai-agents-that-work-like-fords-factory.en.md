@@ -8,7 +8,7 @@ rooms = ["demontis"]
 starts = 2026-10-04T12:00:00
 ends = 2026-10-04T12:30:00
 speakers = ["zelda-ailine-luconi"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 

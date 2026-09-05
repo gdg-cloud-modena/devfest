@@ -8,7 +8,7 @@ rooms = ["biblioteca-antica"]
 starts = 2026-10-04T11:00:00
 ends = 2026-10-04T11:30:00
 speakers = ["giulia-scalaberni"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 

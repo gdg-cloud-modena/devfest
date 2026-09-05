@@ -8,7 +8,7 @@ rooms = ["chiesa"]
 starts = 2026-10-03T17:15:00
 ends = 2026-10-03T17:45:00
 speakers = ["gregorio-palama"]
-language = "English"
+language = "Italiano"
 topic = "Cloud & Platform Engineering"
 +++
 
