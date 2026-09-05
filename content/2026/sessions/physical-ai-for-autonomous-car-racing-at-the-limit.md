@@ -1,12 +1,15 @@
 +++
-title = "Physical AI for Autonomous Car Racing at the limit"
+title = "Physical AI per la guida autonoma da corsa al limite"
 date = 2026-06-13
 draft = false
 
 [params]
+rooms = ["chiesa"]
+starts = 2026-10-04T10:15:00
+ends = 2026-10-04T10:45:00
 speakers = ["ayoub-raji"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 
-Nowadays, the AI term gained a wide popularity thanks to the Generative AI solutions available to everyone. Beyond this, the physical AI is another revolutionary  wave that is promising to bring this technology to more robots and automated vehicles. An extreme research field is Autonomous Raving where the algorithms are tested and pushed at their limit and where each milliseconds can make the difference in the final results. Unimore Racing Is a research team competing in the main international autonomous racing competition and in this session it will be presented their approach and the potential benefits of their research.
+Oggi il termine AI ha guadagnato un'enorme popolarità grazie alle soluzioni di Generative AI accessibili a tutti. Oltre a questo, la Physical AI rappresenta un'altra ondata rivoluzionaria che promette di portare questa tecnologia su un numero sempre maggiore di robot e veicoli autonomi. Un campo di ricerca estremo è l'Autonomous Racing, dove gli algoritmi vengono testati e spinti al limite e dove ogni millisecondo può fare la differenza nel risultato finale. Unimore Racing è un team di ricerca che gareggia nelle principali competizioni internazionali di corse autonome; in questa sessione verrà presentato il loro approccio e i potenziali benefici della loro ricerca.

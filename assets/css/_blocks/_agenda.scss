@@ -1,33 +1,122 @@
+@use "sass:color";
+
 @use "_responsive" as r;
 
 @use "_default/_spaces";
 @use "_default/_colors";
 @use "_default/_effects";
 @use "_default/_fonts";
+/* Not for their Sass members: @use fixes emission order, so .h2/.h3 land before
+   this file and the agenda's own overrides on those elements win the cascade.
+   Dropping them blows the card titles up to full heading size. */
 @use "_blocks/_h2";
 @use "_blocks/_h3";
 
-@if r.$core {
-  .agenda-main {
-    max-width: 960px;
-    margin: 0 auto;
+/* Width of the sticky "time" column, per breakpoint: the plenary cards stick
+   right next to it, so both need to agree on the value. */
+$time-col: 160px;
+$time-col-tablet: 96px;
+$time-col-mobile: 78px;
+
+/* Below the desktop breakpoint the inline "09:00 - 09:30" range can't wrap, so
+   it would hold the column far wider than declared. Stack it instead. */
+@mixin stacked-slot-time {
+  .agenda-slotTime {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
   }
 
+  .agenda-slotTime-sep {
+    display: none;
+  }
+
+  .agenda-slotTime-end {
+    color: rgba(colors.$black, 0.6);
+  }
+}
+
+/* Re-pin the plenary card against a narrower time column. */
+@mixin plenary-pinned-to($col) {
+  .agenda-td--plenary {
+    padding: spaces.$space-2xs;
+  }
+
+  .agenda-tableCard--plenary {
+    left: calc(#{$col} + 2px + #{spaces.$space-2xs});
+    width: calc(100cqw - #{$col} - 2px - #{spaces.$space-2xs} - #{spaces.$space-2xs});
+  }
+}
+
+@if r.$core {
   .agenda-header {
     text-align: center;
     margin-bottom: spaces.$space-l;
   }
 
   .agenda-title {
-    color: colors.$primary;
+    color: colors.$primary-2;
     margin-bottom: spaces.$space-xs;
   }
 
   .agenda-subtitle {
-    max-width: 640px;
+    max-width: 680px;
     margin: 0 auto spaces.$space-m auto;
     font-size: fonts.$size-0;
-    color: rgba(colors.$black, 0.75);
+    color: rgba(colors.$black, 0.85);
+  }
+
+  /* Rooms Quick Navigation */
+  .agenda-roomsNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: spaces.$space-xs;
+    background-color: colors.$gray--1;
+    border: 1px solid rgba(colors.$gray, 0.8);
+    border-radius: 16px;
+    padding: spaces.$space-s spaces.$space-m;
+    margin: 0 auto spaces.$space-m auto;
+    max-width: 760px;
+  }
+
+  .agenda-roomsNav-label {
+    font-size: fonts.$size--1;
+    font-weight: 700;
+    color: rgba(colors.$black, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .agenda-roomsNav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: spaces.$space-2xs;
+  }
+
+  .agenda-roomsNav-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: fonts.$size--1;
+    font-weight: 600;
+    color: colors.$black;
+    background-color: colors.$white;
+    border: 1px solid rgba(colors.$gray, 0.8);
+    border-radius: 20px;
+    padding: 6px 14px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(colors.$black, 0.03);
+    transition: all effects.$time ease;
+
+    &:hover {
+      background-color: colors.$primary--2;
+      color: colors.$primary-2;
+      border-color: colors.$primary-1;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(colors.$black, 0.08);
+    }
   }
 
   .agenda-actions {
@@ -36,90 +125,356 @@
     gap: spaces.$space-s;
   }
 
-  /* Day Section */
-  .agenda-daySection {
+  /* Day Toggle (Pure CSS) */
+  .agenda-toggleWrapper {
+    margin-top: spaces.$space-m;
+  }
+
+  /* Visually hidden instead of display:none, so the day switcher stays
+     reachable (and arrow-navigable) with the keyboard. */
+  .agenda-toggleInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .agenda-toggleButtons {
+    display: flex;
+    justify-content: center;
+    gap: spaces.$space-s;
+    margin-bottom: spaces.$space-m;
+    background-color: colors.$white;
+    border: 1px solid rgba(colors.$gray, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 6px 16px -10px rgba(colors.$black, 0.4);
+    padding: spaces.$space-xs;
+  }
+
+  .agenda-toggleBtn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: spaces.$space-3xs;
+    padding: spaces.$space-xs spaces.$space-m;
+    background-color: colors.$gray--1;
+    border: 2px solid transparent;
+    color: rgba(colors.$black, 0.85);
+    font-weight: 700;
+    font-size: fonts.$size-0;
+    border-radius: 30px;
+    user-select: none;
+    transition: all effects.$time ease;
+
+    &:hover {
+      background-color: colors.$primary--2;
+      color: colors.$primary-2;
+      transform: translateY(-1px);
+    }
+  }
+
+  #day-toggle-0:focus-visible ~ .agenda-toggleButtons .agenda-toggleBtn--0,
+  #day-toggle-1:focus-visible ~ .agenda-toggleButtons .agenda-toggleBtn--1,
+  #day-toggle-2:focus-visible ~ .agenda-toggleButtons .agenda-toggleBtn--2 {
+    outline: 2px solid colors.$primary-2;
+    outline-offset: 2px;
+  }
+
+  #day-toggle-0:checked ~ .agenda-toggleButtons .agenda-toggleBtn--0,
+  #day-toggle-1:checked ~ .agenda-toggleButtons .agenda-toggleBtn--1,
+  #day-toggle-2:checked ~ .agenda-toggleButtons .agenda-toggleBtn--2 {
+    background-color: colors.$primary-2;
+    color: colors.$white;
+    border-color: colors.$primary-2;
+    box-shadow: 0 4px 14px rgba(colors.$primary-2, 0.35);
+  }
+
+  .agenda-dayPanel {
+    display: none;
+  }
+
+  #day-toggle-0:checked ~ .agenda-dayPanel--0,
+  #day-toggle-1:checked ~ .agenda-dayPanel--1,
+  #day-toggle-2:checked ~ .agenda-dayPanel--2 {
+    display: block;
+  }
+
+  .agenda-scrollHint {
+    display: block;
+    text-align: center;
+    font-size: fonts.$size--2;
+    font-weight: 600;
+    color: rgba(colors.$black, 0.6);
+    margin-bottom: spaces.$space-xs;
+  }
+
+  /* Timetable Grid Table */
+  .agenda-tableWrapper {
+    /* Rooms scroll sideways; the day keeps the page's own vertical scroll, so
+       the whole timetable is reachable without a nested scrollport. */
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    /* Own stacking context for the sticky cells inside, and a size container so
+       the plenary cards can be sized against the *visible* width (100cqw). */
+    position: relative;
+    z-index: 0;
+    container-type: inline-size;
+    border-radius: 16px;
+    border: 1px solid rgba(colors.$gray, 0.8);
+    background-color: colors.$white;
+    box-shadow: 0 4px 20px rgba(colors.$black, 0.05);
     margin-bottom: spaces.$space-xl;
   }
 
-  .agenda-dayTitle {
-    color: colors.$primary;
-    border-bottom: 2px solid colors.$primary--2;
-    padding-bottom: spaces.$space-xs;
-    margin-bottom: spaces.$space-m;
-    font-size: fonts.$size-1;
+  .agenda-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 960px;
   }
 
-  /* Timeline & Cards */
-  .agenda-timeline {
+  /* Table Header */
+  /* The header row follows the page scroll so the room names stay visible down
+     a long day. It can't be `position: sticky`: the wrapper scrolls the rooms
+     sideways, which makes it the scrollport `top` would resolve against, and it
+     never scrolls vertically. So main.ts measures the offset and CSS shifts the
+     cells by it — untouched (and simply not pinned) when scripting is off.
+     z-index keeps the row above the body cells it now passes over. */
+  .agenda-th {
+    padding: spaces.$space-s spaces.$space-xs;
+    text-align: center;
+    font-size: fonts.$size--1;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(colors.$gray, 0.9);
+    border-right: 1px solid rgba(colors.$gray, 0.5);
+    background-color: colors.$gray--1;
+    position: relative;
+    z-index: 2;
+    transform: translateY(var(--agenda-headOffset, 0px));
+  }
+
+  /* Only while it is actually floating over the timetable. */
+  .agenda-tableWrapper--headPinned .agenda-th {
+    box-shadow: 0 6px 14px -10px rgba(colors.$black, 0.55);
+  }
+
+  .agenda-th--time {
+    position: sticky;
+    left: 0;
+    /* Above .agenda-td--time (2), which is sticky too and comes later in DOM. */
+    z-index: 3;
+    background-color: colors.$gray--1;
+    min-width: $time-col;
+    width: $time-col;
+    border-right: 2px solid rgba(colors.$gray, 0.9);
+    box-shadow: 2px 0 6px rgba(colors.$black, 0.04);
+  }
+
+  .agenda-th--room {
+    min-width: 180px;
+  }
+
+  .agenda-th-roomLink {
+    color: colors.$black;
+    text-decoration: none;
+    display: block;
+    transition: color effects.$time ease;
+
+    &:hover {
+      color: colors.$primary;
+    }
+  }
+
+  /* Table Body */
+  .agenda-td {
+    padding: spaces.$space-xs;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(colors.$gray, 0.4);
+    border-right: 1px solid rgba(colors.$gray, 0.4);
+    /* A cell can't be shorter than its content, so this only gives the cards
+       a percentage to resolve against — without it they stay ragged in the row.
+       Paired with min-height (not height) on the card, so an engine that
+       resolves the percentage against the literal 1px just leaves it natural. */
+    height: 1px;
+  }
+
+  .agenda-td--time {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    min-width: $time-col;
+    width: $time-col;
+    background-color: colors.$white;
+    font-weight: 800;
+    font-size: fonts.$size--1;
+    text-align: center;
+    border-right: 2px solid rgba(colors.$gray, 0.9);
+    box-shadow: 2px 0 6px rgba(colors.$black, 0.04);
+    vertical-align: middle;
+  }
+
+  .agenda-slotTime-start,
+  .agenda-slotTime-sep,
+  .agenda-slotTime-end {
+    white-space: nowrap;
+  }
+
+  .agenda-slotTime {
+    display: inline-block;
+    padding: 6px 10px;
+    background-color: colors.$gray--1;
+    border: 1px solid rgba(colors.$gray, 0.6);
+    border-radius: 8px;
+    color: colors.$black;
+    font-size: fonts.$size--1;
+    letter-spacing: -0.01em;
+  }
+
+  .agenda-td--empty {
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgba(colors.$gray--1, 0.35);
+  }
+
+  .agenda-emptyDash {
+    color: rgba(colors.$black, 0.25);
+    font-weight: 700;
+    font-size: fonts.$size-0;
+  }
+
+  /* Plenary Row */
+  .agenda-tr--plenary {
+    background-color: rgba(colors.$primary--2, 0.2);
+
+    /* Must be opaque: this cell is sticky, so a translucent background lets the
+       row's own content scroll through it and overlap the time. The mix is the
+       colour the old rgba(primary--2, 0.35) composited to over the row tint. */
+    .agenda-td--time {
+      background-color: color.mix(colors.$primary--2, colors.$white, 48%);
+    }
+  }
+
+  .agenda-td--plenary {
+    padding: spaces.$space-s;
+  }
+
+  /* Plenary rows span every room, so most of the card would sit off-screen once
+     the rooms scroll sideways. Pin it beside the time column, sized to what is
+     actually visible, so it stays readable at any scroll offset. */
+  .agenda-tableCard--plenary {
+    position: sticky;
+    left: calc(#{$time-col} + 2px + #{spaces.$space-s});
+    z-index: 1;
+    width: calc(
+      100cqw - #{$time-col} - 2px - #{spaces.$space-s} - #{spaces.$space-s}
+    );
+    background-color: colors.$white;
+    border-radius: 12px;
+    border: 1px solid rgba(colors.$gray, 0.6);
+    border-left: 6px solid colors.$secondary;
+    padding: spaces.$space-s spaces.$space-m;
+    box-shadow: 0 2px 8px rgba(colors.$black, 0.04);
+  }
+
+  .agenda-tableCard-header {
+    display: flex;
+    gap: spaces.$space-xs;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: spaces.$space-3xs;
+  }
+
+  .agenda-plenaryBadge {
+    font-size: fonts.$size--2;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: colors.$secondary--2;
+    color: colors.$secondary-3;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .agenda-plenaryBadge--keynote {
+    background-color: colors.$primary-2;
+    color: colors.$white;
+    font-weight: 800;
+  }
+
+  .agenda-roomBadge {
+    display: inline-flex;
+    align-items: center;
+    font-size: fonts.$size--2;
+    font-weight: 600;
+    color: rgba(colors.$black, 0.85);
+    background-color: colors.$gray--1;
+    border: 1px solid rgba(colors.$gray, 0.8);
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all effects.$time ease;
+
+    &:hover {
+      background-color: colors.$primary--2;
+      color: colors.$primary-2;
+      border-color: colors.$primary-1;
+      text-decoration: none;
+    }
+  }
+
+  .agenda-plenaryDesc {
+    font-size: fonts.$size--1;
+    color: rgba(colors.$black, 0.8);
+    line-height: 1.45;
+    margin: spaces.$space-3xs 0 0 0;
+  }
+
+  /* Track Session Card */
+  .agenda-tableCard {
+    background-color: colors.$white;
+    border-radius: 10px;
+    border: 1px solid rgba(colors.$gray, 0.7);
+    border-left: 5px solid colors.$primary-1;
+    padding: spaces.$space-xs;
     display: flex;
     flex-direction: column;
-    gap: spaces.$space-m;
-  }
-
-  .agenda-card {
-    background-color: colors.$white;
-    border-radius: 14px;
-    border: 1px solid rgba(colors.$gray, 0.3);
-    border-left: 6px solid colors.$primary;
-    box-shadow: 0 4px 12px rgba(colors.$black, 0.05);
-    padding: spaces.$space-m;
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: spaces.$space-m;
-    align-items: start;
+    gap: spaces.$space-3xs;
+    box-sizing: border-box;
+    min-height: 100%;
+    box-shadow: 0 2px 6px rgba(colors.$black, 0.04);
     transition: transform effects.$time ease, box-shadow effects.$time ease;
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(colors.$black, 0.1);
+      box-shadow: 0 6px 14px rgba(colors.$black, 0.09);
     }
   }
 
-  .agenda-card--primary {
-    border-left-color: colors.$primary;
+  .agenda-tableCard--primary {
+    border-left-color: colors.$primary-1;
   }
 
-  .agenda-card--tertiary {
-    border-left-color: colors.$tertiary;
+  .agenda-tableCard--tertiary {
+    border-left-color: colors.$tertiary-1;
   }
 
-  .agenda-card--secondary {
-    border-left-color: colors.$secondary;
+  .agenda-tableCard--secondary {
+    border-left-color: colors.$secondary-1;
   }
 
-  .agenda-timeCol {
+  .agenda-tableCard--quaternary {
+    border-left-color: colors.$quaternary-1;
+  }
+
+  .agenda-tableCard-meta {
     display: flex;
-    flex-direction: column;
-    gap: spaces.$space-2xs;
-  }
-
-  .agenda-timeSlot {
-    font-size: fonts.$size-0;
-    font-weight: 800;
-    color: colors.$black;
-    letter-spacing: -0.01em;
-  }
-
-  .agenda-roomBadge {
-    display: inline-block;
-    font-size: fonts.$size--1;
-    font-weight: 600;
-    color: rgba(colors.$black, 0.7);
-    background-color: colors.$gray--1;
-    padding: 2px 8px;
-    border-radius: 6px;
-    width: fit-content;
-  }
-
-  .agenda-contentCol {
-    display: flex;
-    flex-direction: column;
-    gap: spaces.$space-2xs;
-  }
-
-  .agenda-cardMeta {
-    display: flex;
-    gap: spaces.$space-xs;
+    gap: 4px;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -127,58 +482,74 @@
   .agenda-topicBadge {
     font-size: fonts.$size--2;
     font-weight: 700;
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
     background-color: colors.$primary--2;
-    color: colors.$primary;
+    color: colors.$primary-2;
   }
 
   .agenda-topicBadge--tertiary {
     background-color: colors.$tertiary--2;
-    color: colors.$tertiary;
+    color: colors.$tertiary-3;
   }
 
   .agenda-topicBadge--secondary {
     background-color: colors.$secondary--2;
-    color: colors.$secondary;
+    color: colors.$secondary-3;
+  }
+
+  .agenda-topicBadge--quaternary {
+    background-color: colors.$quaternary--2;
+    color: colors.$quaternary-2;
   }
 
   .agenda-langBadge {
     font-size: fonts.$size--2;
     font-weight: 600;
-    color: rgba(colors.$black, 0.6);
+    color: rgba(colors.$black, 0.7);
     background-color: colors.$gray--1;
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+
+  .agenda-durationBadge {
+    font-size: fonts.$size--2;
+    font-weight: 700;
+    color: colors.$secondary-3;
+    background-color: colors.$secondary--2;
     padding: 2px 6px;
     border-radius: 4px;
   }
 
-  .agenda-cardTitle {
-    font-size: fonts.$size-0;
-    margin: 2px 0;
+  .agenda-tableCard-title {
+    font-size: fonts.$size--1;
+    font-weight: 700;
     line-height: 1.3;
+    margin: 2px 0;
 
     a {
       color: colors.$black;
       text-decoration: none;
 
       &:hover {
-        color: colors.$primary;
+        color: colors.$primary-2;
         text-decoration: underline;
       }
     }
   }
 
-  .agenda-speakers {
+  .agenda-tableCard-speakers {
     display: flex;
-    flex-wrap: wrap;
-    gap: spaces.$space-s;
-    margin-top: spaces.$space-2xs;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+    padding-top: 4px;
   }
 
   .agenda-speakerItem {
     display: flex;
     align-items: center;
-    gap: spaces.$space-2xs;
+    gap: 6px;
     text-decoration: none;
     color: colors.$black;
 
@@ -189,18 +560,61 @@
   }
 
   .agenda-speakerAvatar {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     object-fit: cover;
   }
 
   .agenda-speakerName {
-    font-size: fonts.$size--1;
+    font-size: fonts.$size--2;
     font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  /* Agenda Coming Soon Card (Mobile Optimized) */
+  /* Continuing sessions */
+  .agenda-tableCard--continues {
+    background-color: rgba(colors.$gray--1, 0.6);
+    border: 1px dashed rgba(colors.$gray, 0.9);
+    border-left: 4px dashed colors.$primary;
+    padding: spaces.$space-2xs spaces.$space-xs;
+    opacity: 0.9;
+  }
+
+  .agenda-continuesHeader {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+  }
+
+  .agenda-continuesBadge {
+    font-size: fonts.$size--2;
+    font-weight: 700;
+    color: rgba(colors.$black, 0.7);
+  }
+
+  .agenda-continuesTitle {
+    font-size: fonts.$size--2;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0;
+
+    a {
+      color: rgba(colors.$black, 0.85);
+      text-decoration: none;
+
+      &:hover {
+        color: colors.$primary;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Agenda Coming Soon Card */
   .agenda-comingSoonCard {
     background-color: colors.$white;
     border-radius: 20px;
@@ -218,7 +632,7 @@
   }
 
   .agenda-comingSoonTitle {
-    color: colors.$primary;
+    color: colors.$primary-2;
     margin-bottom: spaces.$space-xs;
   }
 
@@ -245,25 +659,68 @@
   }
 }
 
-/* Mobile Optimizations for Live Event Use */
+/* Mobile & Tablet Optimizations */
 @if r.$mobile {
-  .agenda-card {
-    grid-template-columns: 1fr;
+  .agenda-roomsNav {
+    padding: spaces.$space-xs;
+    border-radius: 12px;
+  }
+
+  .agenda-roomsNav-list {
+    gap: spaces.$space-3xs;
+  }
+
+  .agenda-roomsNav-item {
+    padding: 5px 10px;
+    font-size: fonts.$size--2;
+  }
+
+  .agenda-toggleButtons {
     gap: spaces.$space-2xs;
-    padding: spaces.$space-s;
+    padding: spaces.$space-2xs;
   }
 
-  .agenda-timeCol {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(colors.$gray, 0.3);
-    padding-bottom: spaces.$space-2xs;
-    margin-bottom: spaces.$space-2xs;
+  .agenda-toggleBtn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    font-size: fonts.$size--1;
+    padding: spaces.$space-xs spaces.$space-s;
   }
 
-  .agenda-timeSlot {
-    font-size: 1.1rem;
+  .agenda-table {
+    min-width: 860px;
+  }
+
+  .agenda-th--time,
+  .agenda-td--time {
+    min-width: $time-col-mobile;
+    width: $time-col-mobile;
+  }
+
+  @include stacked-slot-time;
+
+  .agenda-slotTime {
+    padding: 4px 6px;
+    font-size: fonts.$size--2;
+  }
+
+  .agenda-th--room {
+    min-width: 155px;
+  }
+
+  .agenda-tableCard {
+    padding: 6px;
+  }
+
+  @include plenary-pinned-to($time-col-mobile);
+
+  .agenda-tableCard--plenary {
+    padding: spaces.$space-2xs spaces.$space-xs;
+  }
+
+  .agenda-tableCard-title {
+    font-size: fonts.$size--2;
   }
 
   .agenda-comingSoonCard {
@@ -272,9 +729,32 @@
 
   .agenda-comingSoonButtons {
     flex-direction: column;
-    
+
     .button {
       width: 100%;
     }
   }
+}
+
+/* Tablet: the timetable still scrolls sideways here, so it needs the same
+   affordances as mobile (the mobile sheet stops at 39.9375em). */
+@if r.$tablet {
+  .agenda-toggleBtn {
+    font-size: fonts.$size--1;
+    padding: spaces.$space-xs spaces.$space-s;
+  }
+
+  .agenda-th--time,
+  .agenda-td--time {
+    min-width: $time-col-tablet;
+    width: $time-col-tablet;
+  }
+
+  @include stacked-slot-time;
+
+  .agenda-th--room {
+    min-width: 170px;
+  }
+
+  @include plenary-pinned-to($time-col-tablet);
 }

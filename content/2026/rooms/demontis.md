@@ -3,7 +3,7 @@ title = "Demontis"
 date = 2026-06-13
 draft = false
 summary = "Si colloca fra la chiesa e il cortile principale"
-weight = 2
+weight = 4
 forSessions = true
 +++
 

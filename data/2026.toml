@@ -50,13 +50,6 @@ code = "supporter"
 
 [[people]]
 role = "organizers"
-code = "davide-muzzarelli"
-name = "Davide Muzzarelli"
-description = "Web Specialist & Community Lead"
-website = "https://www.linkedin.com/in/davidemuzzarelli/"
-
-[[people]]
-role = "organizers"
 code = "maurizio-ipsale"
 name = "Maurizio Ipsale"
 description = "GDE, Lead Cloud Trainer"
@@ -71,10 +64,11 @@ website = "https://www.linkedin.com/in/mirko-gilioli/"
 
 [[people]]
 role = "organizers"
-code = "alessio-miranda"
-name = "Alessio Miranda"
-description = "Netframe Founder"
-website = "https://www.linkedin.com/in/alessiomiranda/"
+code = "davide-muzzarelli"
+name = "Davide Muzzarelli"
+description = "Web Specialist & Community Lead"
+website = "https://www.linkedin.com/in/davidemuzzarelli/"
+break = true
 
 [[people]]
 role = "organizers"
@@ -82,6 +76,13 @@ code = "stefano-carlini"
 name = "Stefano Carlini"
 description = "Cloud & AI Strategy, Google Cloud Expert"
 website = "https://www.linkedin.com/in/stefanocarlini/"
+
+[[people]]
+role = "organizers"
+code = "alessio-miranda"
+name = "Alessio Miranda"
+description = "Netframe Founder"
+website = "https://www.linkedin.com/in/alessiomiranda/"
 
 [[people]]
 role = "staff"
@@ -222,6 +223,118 @@ code = "fabio-fasulo"
 name = "Fabio Fasulo"
 description = "Direttore Artistico del Cinematic Motor Fest"
 website = "https://www.linkedin.com/in/fabio-fasulo-b212b586"
+
+[[people]]
+role = "staff"
+code = "alessio-salman"
+name = "Alessio Salman"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "bryan-joshua-pedini"
+name = "Bryan Joshua Pedini"
+description = "Developer - Network & Cloud Specialist"
+website = "https://pedini.dev/"
+
+[[people]]
+role = "staff"
+code = "dario-varriale"
+name = "Dario Varriale"
+description = "Mobile Developer"
+website = "https://www.linkedin.com/in/dario-varriale/"
+
+[[people]]
+role = "staff"
+code = "fabiano-gaeta"
+name = "Fabiano Gaeta"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "francesca-rossi"
+name = "Francesca Rossi"
+description = ""
+website = "https://www.linkedin.com/in/rossifrancesca1999/"
+
+[[people]]
+role = "staff"
+code = "gianluca-lodi"
+name = "Gianluca Lodi"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "isabella-flecchia"
+name = "Isabella Flecchia"
+description = "Founder & Consulente HR"
+website = "https://www.linkedin.com/in/isabellaflecchia/"
+
+[[people]]
+role = "staff"
+code = "jessica-corrias"
+name = "Jessica Corrias"
+description = "Foundress di GeeksCreations | Frontend Developer"
+website = "https://www.linkedin.com/in/jessica-corrias/"
+
+[[people]]
+role = "staff"
+code = "jessica-iacobbe"
+name = "Jessica Iacobbe"
+description = ""
+website = "https://www.linkedin.com/in/jessica-iacobbe-41725a182/"
+
+[[people]]
+role = "staff"
+code = "laura-paveglio"
+name = "Laura Paveglio"
+description = "UX/UI Designer"
+website = "https://www.linkedin.com/in/laurapaveglio/"
+
+[[people]]
+role = "staff"
+code = "luca-bonetti"
+name = "Luca Bonetti"
+description = "Web Software Developer"
+website = "https://www.linkedin.com/in/lb-luca-bonetti/"
+
+[[people]]
+role = "staff"
+code = "massimiliano-rosi"
+name = "Massimiliano Rosi"
+description = "Software developer and BI analist"
+website = "https://www.linkedin.com/in/massimiliano-rosi-92430535/"
+
+[[people]]
+role = "staff"
+code = "milena-vignoli"
+name = "Milena Vignoli"
+description = "Professionista in grafica, web e marketing visivo"
+website = "https://www.linkedin.com/in/milena-vignoli-2b429861/"
+
+[[people]]
+role = "staff"
+code = "mjriam-contino"
+name = "Mjriam Contino"
+description = "Customer Success & Operations Leader in transition"
+website = "https://www.linkedin.com/in/mjriam-contino-5975b4b1/"
+
+[[people]]
+role = "staff"
+code = "riccardo-vitali"
+name = "Riccardo Vitali"
+description = "Dev | Data | Hiker"
+website = "https://www.linkedin.com/in/riccardo-vitali-789882b7/"
+
+[[people]]
+role = "staff"
+code = "stefano-sprocatti"
+name = "Stefano Sprocatti"
+description = "Project Manager presso SIAV Spa - Bologna"
+website = "https://www.linkedin.com/in/stefanosprocatti/"
 
 # Sponsorship levels, weight ascending
 

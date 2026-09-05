@@ -1,11 +1,16 @@
 +++
-title = "The Day I Left My Linux Machine Running: A Love Story with OpenClaw & Hermes"
+title = "Keynote: The Day I Left My Linux Machine Running: A Love Story with OpenClaw & Hermes"
 date = 2026-06-13
 draft = false
 
 [params]
+keynote = true
+isPlenary = true
+rooms = ["chiesa"]
+starts = 2026-10-03T09:50:00
+ends = 2026-10-03T10:30:00
 speakers = ["riccardo-carlesso"]
-language = "English"
+language = "Italiano"
 topic = "Web, Mobile & Dev Experience"
 +++
 

@@ -1,13 +1,20 @@
 {{ define "main" }}
-{{- $year := printf "%v" (.Param "year") -}}
+{{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
 {{- $edition := index site.Data $year -}}
 {{- $days := cond (ne $edition nil) (default slice $edition.days) slice -}}
 {{- $roomSlug := cond (ne .File.TranslationBaseName "index") .File.TranslationBaseName (path.Base (path.Clean .File.Dir)) -}}
 
 {{/* Sessions held in this room, earliest first; ties broken by end time. */}}
-{{- $sessions := where (partial "lookup/pages" (printf "/%s/sessions" $year)) "Params.starts" "ne" nil -}}
+{{- $allSess := partial "lookup/pages" (printf "/%s/sessions" $year) -}}
+{{- $sessions := where $allSess "Params.starts" "ne" nil -}}
 {{- $sessions = sort (sort $sessions "Params.ends" "asc") "Params.starts" "asc" -}}
-{{- $sessions = where $sessions "Params.rooms" "intersect" (slice $roomSlug) -}}
+{{- $roomSessions := slice -}}
+{{- range $sessions -}}
+  {{- if in .Params.rooms $roomSlug -}}
+    {{- $roomSessions = $roomSessions | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $sessions = $roomSessions -}}
 
 {{- $sessionRooms := where (partial "lookup/pages" (printf "/%s/rooms" $year)) "Params.forSessions" true -}}
 

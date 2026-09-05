@@ -1,12 +1,16 @@
 +++
-title = "Ask Me Everything About Your Career"
+title = "Ask Me Anything About Your Career"
 date = 2026-06-13
 draft = false
 
 [params]
+rooms = ["periodici"]
+starts = 2026-10-03T14:00:00
+ends = 2026-10-03T16:00:00
 speakers = ["eleonora-mistro"]
 language = "Italiano"
 topic = "AI & Machine Intelligence"
+workshop = true
 +++
 
 A 1:1 conversation dedicated to your career.

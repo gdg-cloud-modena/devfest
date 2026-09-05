@@ -1,16 +1,19 @@
 +++
-title = "Context Engineering: Stateless by Default, Stateful by Design"
+title = "Context Engineering: Stateless di default, Stateful by design"
 date = 2026-06-13
 draft = false
 
 [params]
+rooms = ["demontis"]
+starts = 2026-10-03T15:30:00
+ends = 2026-10-03T16:00:00
 speakers = ["giorgio-galassi"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 
-Every time you start a new AI-assisted session, your agents start blind. No memory of last week's architectural decision. No knowledge of why you chose that pattern three projects ago. No awareness that the session ended before you finished. So you explain everything from scratch.
+Ogni volta che avvii una nuova sessione assistita dall'AI, i tuoi agenti partono alla cieca. Nessun ricordo della decisione architetturale della scorsa settimana. Nessuna conoscenza del perché hai scelto quel pattern tre progetti fa. Nessuna consapevolezza che la sessione sia terminata prima che tu finissi. E così rispieghi tutto da capo.
 
-Context engineering is the discipline of fixing that: deciding what your agents know, when they know it, and how that knowledge survives session boundaries and tool switches. It's distinct from prompt engineering, and arguably the higher-leverage skill when building with AI agents.
+Il context engineering è la disciplina volta a risolvere questo problema: decidere cosa sanno i tuoi agenti, quando lo sanno e come tale conoscenza sopravvive ai confini delle sessioni e ai cambi di tool. È distinto dal prompt engineering ed è senza dubbio la competenza a più alto impatto quando si sviluppa con agenti AI.
 
-This talk covers the techniques behind persistent AI memory: index-first loading, anchored iterative summarization, phase-based context loading. The architectural decisions that shaped them. And why the right answer turned out to be simpler than you'd expect.
+Questo talk tratta le tecniche alla base della memoria persistente per l'AI: index-first loading, anchored iterative summarization, phase-based context loading. Le decisioni architetturali che le hanno modellate. E perché la risposta giusta si è rivelata più semplice di quanto ci si potesse aspettare.

@@ -19,11 +19,44 @@ other = "Close menu"
 [heroDate]
 other = "October 3–4, 2026"
 
+[heroLocation]
+other = "Fondazione San Carlo, Modena"
+
+[heroFreeBadge]
+other = "100% Free Entry"
+
 [heroTagline]
 other = "The largest tech conference in Emilia-Romagna"
 
 [exploreSessions]
 other = "Explore sessions"
+
+[homeIntroTitle]
+other = "What is DevFest Modena"
+
+[homeIntroLead]
+other = "DevFest is the largest developer conference in Emilia-Romagna, bringing together developers, professionals, and tech enthusiasts. An unmissable two-day event packed with inspiring talks, workshops, networking, and technology in the heart of Modena."
+
+[homeIntroOrganizers]
+other = "Proudly organized by local tech communities:"
+
+[homeIntroDatesHighlight]
+other = "October 3–4, 2026"
+
+[homeIntroDatesDesc]
+other = "Two full days of tech conference"
+
+[homeIntroLocationHighlight]
+other = "Fondazione San Carlo"
+
+[homeIntroLocationDesc]
+other = "Downtown Modena, Italy"
+
+[homeIntroFreeHighlight]
+other = "Free Admission"
+
+[homeIntroFreeDesc]
+other = "Online registration required"
 
 [whyAttendTitle]
 other = "Why Attend DevFest Modena %s"
@@ -127,6 +160,24 @@ other = "Schedule and room overview to help you navigate through the event days.
 
 [agendaBtn]
 other = "🗓️ Schedule %s"
+
+[exploreRooms]
+other = "Rooms & Stages"
+
+[jumpToDay]
+other = "Jump to day"
+
+[timeSlot]
+other = "Time"
+
+[swipeToExploreRooms]
+other = "👉 Swipe horizontally to explore all rooms"
+
+[allRooms]
+other = "All Rooms"
+
+[ongoing]
+other = "Ongoing"
 
 [agendaComingSoonTitle]
 other = "Agenda Coming Soon!"
@@ -337,6 +388,15 @@ other = "Sitemap"
 
 [workshops]
 other = "Workshops"
+
+[workshopsSectionTitle]
+other = "Workshops & Hands-on Labs"
+
+[workshopsSectionDesc]
+other = "Practical sessions, interactive labs, hackathons, and guided workshops to code and learn cutting-edge technologies directly."
+
+[workshopsTeaserDesc]
+other = "Practical sessions, hackathons, and interactive hands-on labs."
 
 [speedNetworking]
 other = "Speed networking"

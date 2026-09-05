@@ -4,8 +4,11 @@ date = 2026-06-13
 draft = false
 
 [params]
+rooms = ["periodici"]
+starts = 2026-10-04T11:00:00
+ends = 2026-10-04T11:30:00
 speakers = ["marco-pollacci"]
-language = "English"
+language = "Italiano"
 topic = "AI & Machine Intelligence"
 +++
 

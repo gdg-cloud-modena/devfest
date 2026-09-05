@@ -19,11 +19,44 @@ other = "Chiudi menu"
 [heroDate]
 other = "3 e 4 ottobre 2026"
 
+[heroLocation]
+other = "Fondazione San Carlo, Modena"
+
+[heroFreeBadge]
+other = "Ingresso 100% Gratuito"
+
 [heroTagline]
 other = "La più grande conferenza tech dell'Emilia-Romagna"
 
 [exploreSessions]
 other = "Scopri le sessioni"
+
+[homeIntroTitle]
+other = "Cos'è il DevFest Modena"
+
+[homeIntroLead]
+other = "DevFest è la più grande conferenza tecnologica dell'Emilia-Romagna dedicata a sviluppatori, professionisti e appassionati del mondo tech. Un'esperienza imperdibile di due giorni all'insegna di talk, workshop, networking e innovazione nel cuore di Modena."
+
+[homeIntroOrganizers]
+other = "Organizzato con passione dalle community locali:"
+
+[homeIntroDatesHighlight]
+other = "3-4 Ottobre 2026"
+
+[homeIntroDatesDesc]
+other = "Due giornate intense di conferenza"
+
+[homeIntroLocationHighlight]
+other = "Fondazione San Carlo"
+
+[homeIntroLocationDesc]
+other = "Centro storico di Modena"
+
+[homeIntroFreeHighlight]
+other = "Ingresso Gratuito"
+
+[homeIntroFreeDesc]
+other = "Registrazione obbligatoria online"
 
 [whyAttendTitle]
 other = "Perché partecipare al DevFest Modena %s"
@@ -127,6 +160,24 @@ other = "Il programma degli orari e delle sale per orientarti durante le giornat
 
 [agendaBtn]
 other = "🗓️ Agenda %s"
+
+[exploreRooms]
+other = "Sale e Aule"
+
+[jumpToDay]
+other = "Salta al giorno"
+
+[timeSlot]
+other = "Orario"
+
+[swipeToExploreRooms]
+other = "👉 Scorri orizzontalmente per vedere tutte le sale"
+
+[allRooms]
+other = "Tutte le Sale"
+
+[ongoing]
+other = "In corso"
 
 [agendaComingSoonTitle]
 other = "Agenda in Arrivo!"
@@ -337,6 +388,15 @@ other = "Sitemap"
 
 [workshops]
 other = "Workshop"
+
+[workshopsSectionTitle]
+other = "Workshop & Laboratori Hands-on"
+
+[workshopsSectionDesc]
+other = "Sessioni pratiche, laboratori interattivi, hackathon e percorsi guidati per mettere le mani sul codice e apprendere nuove tecnologie."
+
+[workshopsTeaserDesc]
+other = "Sessioni pratiche, hackathon e laboratori interattivi hands-on."
 
 [speedNetworking]
 other = "Speed networking"

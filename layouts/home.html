@@ -17,8 +17,19 @@
       <h1 class="hero-heading">
         <img class="hero-icon" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" alt="DevFest Modena {{ $edition }}">
       </h1>
-      <p class="hero-title">{{ i18n "heroDate" }}</p>
+
+      <div class="hero-meta">
+        <span class="hero-metaBadge">
+          <span class="hero-metaIcon" aria-hidden="true">📅</span> {{ i18n "heroDate" }}
+        </span>
+        <span class="hero-metaDivider" aria-hidden="true">•</span>
+        <a class="hero-metaBadge hero-metaBadge--link" href="{{ "/location/" | relLangURL }}">
+          <span class="hero-metaIcon" aria-hidden="true">📍</span> {{ i18n "heroLocation" }}
+        </a>
+      </div>
+
       <p class="hero-tagline">{{ i18n "heroTagline" }}</p>
+
       <div class="hero-actions">
         <a class="button button--hero" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
           {{ i18n "getFreeTicket" }}
@@ -30,21 +41,51 @@
     </div>
   </section>
 
-  {{ with .Content }}
+  <section class="section section--padded">
+    {{ partial "statistics.html" . }}
+  </section>
+
   <section class="section section--padded homeIntro">
-    <div class="content">
-      {{ . }}
+    <div class="homeIntro-container">
+      <header class="homeIntro-header">
+        <h2 class="homeIntro-title">{{ i18n "homeIntroTitle" }}</h2>
+        <p class="homeIntro-lead">{{ i18n "homeIntroLead" }}</p>
+      </header>
+
+      <div class="homeIntro-highlights">
+        <div class="homeIntro-highlightCard">
+          <div class="homeIntro-highlightIcon" aria-hidden="true">📅</div>
+          <h3 class="homeIntro-highlightTitle">{{ i18n "homeIntroDatesHighlight" }}</h3>
+          <p class="homeIntro-highlightDesc">{{ i18n "homeIntroDatesDesc" }}</p>
+        </div>
+        <a class="homeIntro-highlightCard homeIntro-highlightCard--link" href="{{ "/location/" | relLangURL }}">
+          <div class="homeIntro-highlightIcon" aria-hidden="true">📍</div>
+          <h3 class="homeIntro-highlightTitle">{{ i18n "homeIntroLocationHighlight" }}</h3>
+          <p class="homeIntro-highlightDesc">{{ i18n "homeIntroLocationDesc" }}</p>
+        </a>
+        <a class="homeIntro-highlightCard homeIntro-highlightCard--link" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
+          <div class="homeIntro-highlightIcon" aria-hidden="true">🎟️</div>
+          <h3 class="homeIntro-highlightTitle">{{ i18n "homeIntroFreeHighlight" }}</h3>
+          <p class="homeIntro-highlightDesc">{{ i18n "homeIntroFreeDesc" }}</p>
+        </a>
+      </div>
+
+      <div class="homeIntro-communitiesWrapper">
+        <p class="homeIntro-communitiesLabel">{{ i18n "homeIntroOrganizers" }}</p>
+        <div class="homeIntro-communitiesList">
+          {{- $communitiesUrl := printf "/%v/communities/" site.Params.currentEdition | relLangURL -}}
+          <a class="homeIntro-communityBadge" href="{{ $communitiesUrl }}">GDG Cloud Modena</a>
+          <a class="homeIntro-communityBadge" href="{{ $communitiesUrl }}">Modena Full Stack</a>
+          <a class="homeIntro-communityBadge" href="{{ $communitiesUrl }}">Reggio Emilia Full Stack</a>
+          <a class="homeIntro-communityBadge" href="{{ $communitiesUrl }}">Modena.rb</a>
+        </div>
+      </div>
     </div>
   </section>
-  {{ end }}
 
   {{ partial "features.html" . }}
   {{ partial "sessions-teaser.html" . }}
   {{ partial "speakers-wall.html" . }}
-
-  <section class="section section--padded">
-    {{ partial "statistics.html" . }}
-  </section>
 
   {{ partial "partners.html" . }}
 </main>

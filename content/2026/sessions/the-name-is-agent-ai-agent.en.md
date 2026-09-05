@@ -4,9 +4,13 @@ date = 2026-06-13
 draft = false
 
 [params]
+rooms = ["biblioteca-antica"]
+starts = 2026-10-03T10:45:00
+ends = 2026-10-03T13:00:00
 speakers = ["tamas-piros"]
 language = "English"
 topic = "AI & Machine Intelligence"
+workshop = true
 +++
 
 The AI agent hype is deafening. The actual understanding of what an agent is: near silence.

@@ -11,7 +11,7 @@ draft = false
 
 DevFest is an event dedicated to developers, hosted by Google Developer Groups worldwide.
 
-The event is the result of collaboration between local tech communities: GDG Cloud Modena, Modena Full Stack, Reggio Emilia Full Stack, Conoscere Linux.
+The event is the result of collaboration between local tech communities: GDG Cloud Modena, Modena Full Stack, Reggio Emilia Full Stack, Modena.rb.
 
 During the day you can join [speed networking](/speed-networking/) to expand your professional network.
 

@@ -3,7 +3,7 @@ title = "Teatro"
 date = 2026-06-13
 draft = false
 summary = "Teatro al primo piano, a destra della Sala Cardinali"
-weight = 4
+weight = 2
 forSessions = true
 +++
 

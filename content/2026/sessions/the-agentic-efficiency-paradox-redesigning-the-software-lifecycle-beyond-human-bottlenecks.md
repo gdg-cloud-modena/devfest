@@ -1,19 +1,22 @@
 +++
-title = "The Agentic Efficiency Paradox: Redesigning the Software Lifecycle Beyond Human Bottlenecks"
+title = "Il paradosso dell'efficienza agentica: riprogettare il ciclo di vita del software oltre i colli di bottiglia umani"
 date = 2026-06-13
 draft = false
 
 [params]
+rooms = ["chiesa"]
+starts = 2026-10-03T17:15:00
+ends = 2026-10-03T17:45:00
 speakers = ["gregorio-palama"]
-language = "English"
+language = "Italiano"
 topic = "Cloud & Platform Engineering"
 +++
 
-Agentic swarms are shifting the development bottleneck from code generation to validation. This leads to the "Agentic Efficiency Paradox": accelerating output without evolving our review process creates cognitive saturation and wasted resources.
+Gli sciami di agenti stanno spostando il collo di bottiglia dello sviluppo dalla generazione di codice alla validazione. Questo porta al "Paradosso dell'Efficienza Agentica": accelerare l'output senza evolvere il nostro processo di review genera saturazione cognitiva e spreco di risorse.
 
-Using ADK 2.0 and Gemini 3.1, we will re-engineer the SDLC for an agentic future:
-- Architectural Governance: Versioning prompts as code and embedding decision-tracking (Chain-of-Thought) into PR metadata.
-- Engineering the Flow: Applying queuing theory to transition from sequential bottlenecks to parallelized "Reviewer Pools," using automated TDD-based classification to filter PRs.
-- The Human Shift: Evolving the developer from a simple reviewer to a Gatekeeper and Strategist, optimizing cognitive load through scheduled deep-focus review blocks.
+Utilizzando ADK 2.0 e Gemini 3.1, riprogetteremo il ciclo di vita del software (SDLC) per un futuro basato su agenti:
+- Governance Architetturale: versionamento dei prompt come codice e tracciamento delle decisioni (Chain-of-Thought) nei metadati delle PR.
+- Ingegnerizzazione del Flusso: applicazione della teoria delle code per passare da colli di bottiglia sequenziali a "Pool di Reviewer" parallelizzati, usando classificazioni automatizzate basate su TDD per filtrare le PR.
+- Il Cambio di Ruolo Umano: evolvere lo sviluppatore da semplice reviewer a Gatekeeper e Strategist, ottimizzando il carico cognitivo con blocchi programmati di deep-focus review.
 
-This session offers a practical perspective on building more sustainable and balanced agentic development ecosystems.
+Questa sessione offre una prospettiva pratica per costruire ecosistemi di sviluppo agentico più sostenibili ed equilibrati.
