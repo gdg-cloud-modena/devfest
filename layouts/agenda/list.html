@@ -44,17 +44,17 @@
       {{- end -}}
 
       {{ if gt (len $days) 1 }}
-      <div class="agenda-toggleButtons" role="tablist" aria-label="{{ i18n "jumpToDay" }}">
+      <div class="agenda-toggleButtons" role="group" aria-label="{{ i18n "jumpToDay" }}">
         {{- range $index, $day := $days -}}
         {{- $dayTime := time.AsTime $day -}}
-        <label for="day-toggle-{{ $index }}" class="agenda-toggleBtn agenda-toggleBtn--{{ $index }}" role="tab">
+        <label for="day-toggle-{{ $index }}" class="agenda-toggleBtn agenda-toggleBtn--{{ $index }}">
           📅 {{ (time.Format "Monday 2 January" $dayTime) | title }}
         </label>
         {{- end -}}
       </div>
       {{ end }}
 
-      <p class="agenda-mobileHint">
+      <p class="agenda-scrollHint">
         <span>{{ i18n "swipeToExploreRooms" }}</span>
       </p>
 
@@ -97,7 +97,7 @@
         {{- end -}}
       {{- end -}}
 
-      <div class="agenda-dayPanel agenda-dayPanel--{{ $dayIndex }}" id="day-panel-{{ $dayKey }}" role="tabpanel">
+      <div class="agenda-dayPanel agenda-dayPanel--{{ $dayIndex }}" id="day-panel-{{ $dayKey }}">
         <div class="agenda-tableWrapper">
           <table class="agenda-table">
             <thead>
@@ -134,7 +134,7 @@
                   {{- $rooms := partial "lookup/session-rooms" (dict "year" $year "codes" $first.Params.rooms) -}}
                   <tr class="agenda-tr agenda-tr--plenary">
                     <td class="agenda-td agenda-td--time">
-                      <span class="agenda-slotTime">{{ $first.Params.starts | time.Format "15:04" }} - {{ $first.Params.ends | time.Format "15:04" }}</span>
+                      <span class="agenda-slotTime"><span class="agenda-slotTime-start">{{ $first.Params.starts | time.Format "15:04" }}</span><span class="agenda-slotTime-sep"> - </span><span class="agenda-slotTime-end">{{ $first.Params.ends | time.Format "15:04" }}</span></span>
                     </td>
                     <td class="agenda-td agenda-td--plenary" colspan="{{ len $dayRooms }}">
                       <article class="agenda-tableCard agenda-tableCard--plenary">
@@ -171,7 +171,7 @@
                         </div>
                         {{ end }}
                         {{ if and (not $first.Params.speakers) (or $first.Summary $first.Content) }}
-                        <p class="agenda-plenaryDesc">{{ $first.Summary | default $first.Content }}</p>
+                        <p class="agenda-plenaryDesc">{{ ($first.Summary | default $first.Content) | plainify }}</p>
                         {{ end }}
                       </article>
                     </td>
@@ -188,7 +188,7 @@
 
                   <tr class="agenda-tr agenda-tr--tracks">
                     <td class="agenda-td agenda-td--time">
-                      <span class="agenda-slotTime">{{ $st }}{{ with $slotEnd }} - {{ . }}{{ end }}</span>
+                      <span class="agenda-slotTime"><span class="agenda-slotTime-start">{{ $st }}</span>{{ with $slotEnd }}<span class="agenda-slotTime-sep"> - </span><span class="agenda-slotTime-end">{{ . }}</span>{{ end }}</span>
                     </td>
                     {{ range $room := $dayRooms }}
                       {{- $roomCode := $room.File.TranslationBaseName -}}
