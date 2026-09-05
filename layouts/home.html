@@ -73,10 +73,11 @@
       <div class="homeIntro-communitiesWrapper">
         <p class="homeIntro-communitiesLabel">{{ i18n "homeIntroOrganizers" }}</p>
         <div class="homeIntro-communitiesList">
-          <a class="homeIntro-communityBadge" href="https://gdgcloudmodena.it/" target="_blank" rel="noopener">GDG Cloud Modena</a>
-          <a class="homeIntro-communityBadge" href="https://www.meetup.com/it-IT/Modena-Full-Stack/" target="_blank" rel="noopener">Modena Full Stack</a>
-          <a class="homeIntro-communityBadge" href="https://www.meetup.com/reggio-emilia-full-stack/" target="_blank" rel="noopener">Reggio Emilia Full Stack</a>
-          <a class="homeIntro-communityBadge" href="https://conoscerelinux.org/" target="_blank" rel="noopener">Conoscere Linux</a>
+          {{- $communitiesUrl := printf "/%v/communities/" site.Params.currentEdition | relLangURL -}}
+          <a class="homeIntro-communityBadge" href="{{ $communitiesUrl }}">GDG Cloud Modena</a>
+          <a class="homeIntro-communityBadge" href="{{ $communitiesUrl }}">Modena Full Stack</a>
+          <a class="homeIntro-communityBadge" href="{{ $communitiesUrl }}">Reggio Emilia Full Stack</a>
+          <a class="homeIntro-communityBadge" href="{{ $communitiesUrl }}">Modena.rb</a>
         </div>
       </div>
     </div>

@@ -50,13 +50,6 @@ code = "supporter"
 
 [[people]]
 role = "organizers"
-code = "davide-muzzarelli"
-name = "Davide Muzzarelli"
-description = "Web Specialist & Community Lead"
-website = "https://www.linkedin.com/in/davidemuzzarelli/"
-
-[[people]]
-role = "organizers"
 code = "maurizio-ipsale"
 name = "Maurizio Ipsale"
 description = "GDE, Lead Cloud Trainer"
@@ -71,10 +64,11 @@ website = "https://www.linkedin.com/in/mirko-gilioli/"
 
 [[people]]
 role = "organizers"
-code = "alessio-miranda"
-name = "Alessio Miranda"
-description = "Netframe Founder"
-website = "https://www.linkedin.com/in/alessiomiranda/"
+code = "davide-muzzarelli"
+name = "Davide Muzzarelli"
+description = "Web Specialist & Community Lead"
+website = "https://www.linkedin.com/in/davidemuzzarelli/"
+break = true
 
 [[people]]
 role = "organizers"
@@ -82,6 +76,13 @@ code = "stefano-carlini"
 name = "Stefano Carlini"
 description = "Cloud & AI Strategy, Google Cloud Expert"
 website = "https://www.linkedin.com/in/stefanocarlini/"
+
+[[people]]
+role = "organizers"
+code = "alessio-miranda"
+name = "Alessio Miranda"
+description = "Netframe Founder"
+website = "https://www.linkedin.com/in/alessiomiranda/"
 
 [[people]]
 role = "staff"

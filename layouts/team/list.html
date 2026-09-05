@@ -20,14 +20,17 @@
         {{ range $person := . }}
         {{- $img := (partial "lookup/person-image" $person.code).Fit "200x200 q100 jpg" -}}
         {{- $member := partial "team-member" (dict "person" $person "img" $img) -}}
-        {{ with $person.website }}
-        <a class="team-peopleItem" href="{{ . }}" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="{{ printf (i18n "visitProfile") $person.name }}">
+        {{ if $person.website }}
+        <a class="team-peopleItem" href="{{ $person.website }}" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="{{ printf (i18n "visitProfile") $person.name }}">
           {{ $member }}
         </a>
         {{ else }}
         <div class="team-peopleItem" role="listitem">
           {{ $member }}
         </div>
+        {{ end }}
+        {{ if $person.break }}
+        <div class="team-break" aria-hidden="true"></div>
         {{ end }}
         {{ end }}
       </div>
