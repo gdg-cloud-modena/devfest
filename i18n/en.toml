@@ -158,6 +158,9 @@ other = "DevFest Modena %s Agenda"
 [agendaSubtitle]
 other = "Schedule and room overview to help you navigate through the event days."
 
+[agendaDisclaimer]
+other = "Schedule, times, and talks may be subject to change prior to the event."
+
 [agendaBtn]
 other = "🗓️ Schedule %s"
 

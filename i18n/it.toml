@@ -158,6 +158,9 @@ other = "Agenda DevFest Modena %s"
 [agendaSubtitle]
 other = "Il programma degli orari e delle sale per orientarti durante le giornate dell'evento."
 
+[agendaDisclaimer]
+other = "Orari e speech potrebbero subire variazioni prima dell'evento."
+
 [agendaBtn]
 other = "🗓️ Agenda %s"
 

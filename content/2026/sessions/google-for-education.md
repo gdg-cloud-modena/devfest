@@ -6,8 +6,8 @@ draft = false
 [params]
 rooms = ["40"]
 speakers = []
-starts = 2026-10-03T14:00:00
-ends = 2026-10-03T17:45:00
+starts = 2026-10-03T10:45:00
+ends = 2026-10-03T13:00:00
 language = "Italiano"
 slidesURL = ""
 warning = ""

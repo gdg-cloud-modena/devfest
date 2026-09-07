@@ -125,6 +125,15 @@ $time-col-mobile: 78px;
     gap: spaces.$space-s;
   }
 
+  .agenda-disclaimer {
+    max-width: 680px;
+    margin: spaces.$space-s auto 0 auto;
+    text-align: center;
+    font-size: fonts.$size--1;
+    color: rgba(colors.$black, 0.65);
+    font-style: italic;
+  }
+
   /* Day Toggle (Pure CSS) */
   .agenda-toggleWrapper {
     margin-top: spaces.$space-m;

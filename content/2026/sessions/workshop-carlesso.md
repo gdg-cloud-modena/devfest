@@ -6,8 +6,8 @@ draft = false
 [params]
 rooms = ["40"]
 speakers = ["riccardo-carlesso", "emiliano-della-casa"]
-starts = 2026-10-04T10:15:00
-ends = 2026-10-04T12:30:00
+starts = 2026-10-03T14:00:00
+ends = 2026-10-03T16:00:00
 language = "Italiano"
 topic = "AI & Machine Intelligence"
 slidesURL = ""
