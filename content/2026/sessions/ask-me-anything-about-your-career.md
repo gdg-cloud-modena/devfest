@@ -13,7 +13,8 @@ topic = "AI & Machine Intelligence"
 workshop = true
 +++
 
-Una conversazione 1:1 dedicata alla tua carriera.
+Una conversazione 1:1 dedicata alla tua carriera. Prenoti uno slot da 20 minuti tramite [questo link](https://calendly.com/eleonora-mistro/consulenza-hr-marketing).
+
 Niente slide. Niente talk frontali. Nessuna teoria astratta.
 
 Solo 20 minuti per confrontarti con una career coach su ciò che vuoi davvero sbloccare nel tuo percorso professionale.
@@ -28,7 +29,7 @@ Che tu sia:
 - Manager che gestisce un team
 ... Questo spazio nasce per aiutarti a fare chiarezza, esplorare possibilità concrete e ricevere un confronto autentico e personalizzato.
 
-Di cosa possiamo parlare?
+#### Di cosa possiamo parlare?
 - Diventare freelance
 - Trovare un nuovo equilibrio professionale
 - Cambiare carriera o settore
@@ -39,10 +40,8 @@ Di cosa possiamo parlare?
 - Gestione di un team se sei manager
 ... dubbi, blocchi e prossimi step
 
-Come funziona?
-
-Prenoti uno slot da 20 minuti tramite  un link che condividerò direttamente durante il DevFest o nei giorni precedenti.
+#### Come funziona?
 
 Al momento della prenotazione condividi ciò che pensi possa essere utile conoscere di te prima della sessione e il tuo profilo LinkedIn. 
 
-Uno spazio informale, riservato e orientato all’ascolto e 1:1 (io e te).
+Uno spazio informale, riservato e orientato all’ascolto e 1:1 (io e te), [prenota subito](https://calendly.com/eleonora-mistro/consulenza-hr-marketing)!

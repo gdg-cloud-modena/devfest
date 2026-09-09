@@ -13,7 +13,8 @@ topic = "AI & Machine Intelligence"
 workshop = true
 +++
 
-A 1:1 conversation dedicated to your career.
+A 1:1 conversation dedicated to your career. [Reserve here](https://calendly.com/eleonora-mistro/consulenza-hr-marketing) your slot!
+
 No slides. No front-facing lectures. No abstract theories.
 
 Just 20 minutes to talk with a career coach about what you really want to unlock in your professional journey.
@@ -27,7 +28,7 @@ Whether you are:
 - A manager leading a team...
 ... This space was created to help you find clarity, explore concrete possibilities, and receive authentic, personalized feedback.
 
-What can we talk about?
+#### What can we talk about?
 - Becoming a freelancer
 - Finding a new work-life balance
 - Changing careers or industries
@@ -38,9 +39,7 @@ What can we talk about?
 - Managing a team if you are a manager
 ... doubts, blockers, and next steps
 
-How does it work?
-
-Book a 20-minute slot via a link that I will share directly during DevFest or in the days leading up to it.
+#### How does it work?
 
 When booking, share whatever background you think might be helpful before the session, along with your LinkedIn profile.
 

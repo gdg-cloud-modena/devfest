@@ -5,7 +5,7 @@ draft = false
 
 [params]
 company = "Freelance"
-role = "UX/UI & Product Designer"
+role = "Career Coach | People Partner"
 [params.social]
 linkedin = "https://www.linkedin.com/in/eleonora-mistro/"
 github = ""
