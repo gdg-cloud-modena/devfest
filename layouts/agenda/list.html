@@ -281,6 +281,19 @@
                               <h4 class="agenda-continuesTitle">
                                 <a class="link" href="{{ $sessionContinuing.RelPermalink }}">{{ $sessionContinuing.Title }}</a>
                               </h4>
+                              {{ with $sessionContinuing.Params.speakers }}
+                              <div class="agenda-tableCard-speakers">
+                                {{ range $slug := . }}
+                                {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+                                {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "60x60 q85 jpg" }}
+                                <a class="agenda-speakerItem" href="{{ .RelPermalink }}" title="{{ .Title }}">
+                                  <img class="agenda-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="24" height="24" loading="lazy">
+                                  <span class="agenda-speakerName">{{ .Title }}</span>
+                                </a>
+                                {{ end }}
+                                {{ end }}
+                              </div>
+                              {{ end }}
                             </div>
                           </td>
                         {{ else }}
