@@ -5,8 +5,8 @@ draft = false
 
 [params]
 rooms = ["biblioteca-antica"]
-starts = 2026-10-03T10:45:00
-ends = 2026-10-03T13:00:00
+starts = 2026-10-03T14:00:00
+ends = 2026-10-03T16:00:00
 speakers = ["tamas-piros"]
 language = "English"
 topic = "AI & Machine Intelligence"

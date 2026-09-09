@@ -4,10 +4,10 @@ date = 2026-08-29
 draft = false
 
 [params]
-rooms = ["40"]
+rooms = ["biblioteca-antica"]
 speakers = []
-starts = 2026-10-03T16:30:00
-ends = 2026-10-03T17:45:00
+starts = 2026-10-03T10:45:00
+ends = 2026-10-03T12:00:00
 language = "Italiano"
 slidesURL = ""
 warning = ""

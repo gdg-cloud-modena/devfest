@@ -5,8 +5,8 @@ draft = false
 
 [params]
 rooms = ["teatro"]
-starts = 2026-10-03T14:00:00
-ends = 2026-10-03T14:30:00
+starts = 2026-10-03T10:45:00
+ends = 2026-10-03T11:15:00
 speakers = ["henry-lim"]
 language = "English"
 topic = "Web, Mobile & Dev Experience"

@@ -4,9 +4,9 @@ date = 2026-06-13
 draft = false
 
 [params]
-rooms = ["periodici"]
-starts = 2026-10-03T10:45:00
-ends = 2026-10-03T11:15:00
+rooms = ["biblioteca-antica"]
+starts = 2026-10-03T12:15:00
+ends = 2026-10-03T12:45:00
 speakers = ["soumaya-erradi"]
 language = "Italiano"
 topic = "AI & Machine Intelligence"

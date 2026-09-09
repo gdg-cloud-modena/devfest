@@ -150,7 +150,7 @@
                 {{- $first := index $slotSessions 0 -}}
                 {{- $isPlenary := false -}}
                 {{- if eq (len $slotSessions) 1 -}}
-                  {{- if or $first.Params.keynote $first.Params.isplenary $first.Params.isPlenary ($first.Param "isPlenary") (eq (len $first.Params.speakers) 0) (in (slice "opening-devfest" "closing-ceremony" "concerto" "pranzo" "check-in-sabato" "check-in-domenica") $first.File.TranslationBaseName) -}}
+                  {{- if or $first.Params.keynote $first.Params.isplenary $first.Params.isPlenary ($first.Param "isPlenary") (eq (len $first.Params.speakers) 0) (in (slice "opening-devfest" "closing-ceremony" "concerto" "pranzo" "check-in-sabato" "check-in-domenica" "coffee-break-sabato" "coffee-break-domenica") $first.File.TranslationBaseName) -}}
                     {{- $isPlenary = true -}}
                   {{- end -}}
                 {{- end -}}

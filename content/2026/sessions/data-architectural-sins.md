@@ -1,5 +1,5 @@
 +++
-title = "I peccati dell'architettura dei dati"
+title = "Data architectural sins"
 date = 2026-06-13
 draft = false
 
@@ -8,7 +8,7 @@ rooms = ["periodici"]
 starts = 2026-10-04T12:00:00
 ends = 2026-10-04T12:30:00
 speakers = ["federico-marchesi"]
-language = "Italiano"
+language = "English"
 topic = "AI & Machine Intelligence"
 +++
 
