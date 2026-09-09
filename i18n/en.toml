@@ -164,6 +164,9 @@ other = "Schedule, times, and talks may be subject to change prior to the event.
 [agendaBtn]
 other = "🗓️ Schedule %s"
 
+[backToAgenda]
+other = "Back to agenda"
+
 [exploreRooms]
 other = "Rooms & Stages"
 

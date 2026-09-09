@@ -1,10 +1,24 @@
 {{ define "main" }}
-{{- $year := printf "%v" (.Param "year") -}}
+{{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+{{- $agendaPage := partial "lookup/page" (printf "/%s/agenda" $year) -}}
+{{- $agendaUrl := "" -}}
+{{- with $agendaPage -}}
+  {{- $agendaUrl = .RelPermalink -}}
+{{- else -}}
+  {{- $agendaUrl = printf "/%s/agenda/" $year | relLangURL -}}
+{{- end -}}
 {{- $rooms := partial "lookup/session-rooms" (dict "year" $year "codes" .Params.rooms) -}}
 {{- $track := partial "lookup/track" .Params.topic -}}
 
 <main class="section section--padded sessionDetail">
   {{ partial "previous-edition" . }}
+
+  <nav class="sessionDetail-backNav" aria-label="{{ i18n "backToAgenda" }}">
+    <a class="sessionDetail-backLink" href="{{ $agendaUrl }}">
+      <span class="sessionDetail-backIcon" aria-hidden="true">&larr;</span>
+      <span>{{ i18n "backToAgenda" }}</span>
+    </a>
+  </nav>
 
   <div class="sessionDetail-header">
     <div class="sessionMeta-badges">
@@ -88,5 +102,11 @@
     </div>
   </div>
   {{ end }}
+
+  <div class="sessionDetail-footer">
+    <a class="button sessionDetail-footerBtn" href="{{ $agendaUrl }}">
+      &larr; {{ i18n "backToAgenda" }}
+    </a>
+  </div>
 </main>
 {{ end }}

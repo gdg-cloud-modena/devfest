@@ -164,6 +164,9 @@ other = "Orari e speech potrebbero subire variazioni prima dell'evento."
 [agendaBtn]
 other = "🗓️ Agenda %s"
 
+[backToAgenda]
+other = "Torna all'agenda"
+
 [exploreRooms]
 other = "Sale e Aule"
 
