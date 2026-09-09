@@ -443,4 +443,10 @@ code = "linuxday"
 link = "https://makeitmodena.comune.modena.it"
 level = "media"
 
+[[partners]]
+name = "ADT"
+code = "adt"
+link = "https://www.adtgroup.it"
+level = "diamond"
+
 

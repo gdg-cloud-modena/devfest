@@ -80,87 +80,87 @@ title = "Community"
 code = "community"
 weight = 7
 
-# Sponsors
+# Partners
 
-[[sponsors]]
+[[partners]]
 name = "Google"
 code = "google"
 link = "https://developers.google.com/community/devfest"
 level = "main"
 
-[[sponsors]]
+[[partners]]
 name = "Zuru"
 code = "zuru"
 link = "https://zuru.tech/"
 level = "diamond"
 
-[[sponsors]]
+[[partners]]
 name = "QubicaAMF"
 code = "qubicaamf"
 link = "https://www.qubicaamf.com/company"
 level = "diamond"
 
-[[sponsors]]
+[[partners]]
 name = "Expert.AI"
 code = "expertai"
 link = "https://www.expert.ai/"
 level = "diamond"
 
-[[sponsors]]
+[[partners]]
 name = "DualBit"
 code = "dualbit"
 link = "https://www.dualb.it/"
 level = "gold"
 
-[[sponsors]]
+[[partners]]
 name = "Credem"
 code = "credem"
 link = "https://www.credem.it/"
 level = "gold"
 
-[[sponsors]]
+[[partners]]
 name = "Netframe"
 code = "netframe"
 link = "https://netframe.it/"
 level = "tech"
 
-[[sponsors]]
+[[partners]]
 name = "Tetrapack"
 code = "tetrapack"
 link = "https://www.tetrapak.com/it-it/"
 level = "tech"
 
-[[sponsors]]
+[[partners]]
 name = "Quix"
 code = "quix"
 link = "https://quix.it/"
 level = "silver"
 
-[[sponsors]]
+[[partners]]
 name = "Juno"
 code = "juno"
 link = "https://www.any3dp.com/it/"
 level = "silver"
 
-[[sponsors]]
+[[partners]]
 name = "Atobit"
 code = "atobit"
 link = "https://atobit.it/"
 level = "bronze"
 
-[[sponsors]]
+[[partners]]
 name = "NetAi"
 code = "netai"
 link = "https://netai.it/devfest/"
 level = "bronze"
 
-[[sponsors]]
+[[partners]]
 name = "Studio DGP"
 code = "studio-dgp"
 link = "mailto:gilioli@dgpcommercialisti.it"
 level = "bronze"
 
-[[sponsors]]
+[[partners]]
 name = "JetBrains"
 code = "jetbrains"
 link = "https://www.jetbrains.com/"

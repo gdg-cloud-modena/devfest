@@ -9,9 +9,34 @@
   @return {resource.Resource|nil}
 */}}
 {{- $img := "" -}}
-{{- range $ext := slice "png" "jpg" "webp" -}}
+{{- $codes := slice $.code (replace $.code "-" "") -}}
+{{- if in $.code "tetrapack" -}}
+  {{- $codes = $codes | append (replace $.code "tetrapack" "tetrapak") -}}
+{{- else if in $.code "tetrapak" -}}
+  {{- $codes = $codes | append (replace $.code "tetrapak" "tetrapack") -}}
+{{- end -}}
+{{- range $c := $codes -}}
   {{- if not $img -}}
-    {{- $img = resources.Get (printf "%s/partners/%s.%s" $.year $.code $ext) -}}
+    {{- range $ext := slice "png" "jpg" "webp" -}}
+      {{- if not $img -}}
+        {{- $img = resources.Get (printf "%s/partners/%s.%s" $.year $c $ext) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $img -}}
+  {{- range $y := slice "2026" "2025" "2024" -}}
+    {{- if and (not $img) (ne (printf "%v" $y) (printf "%v" $.year)) -}}
+      {{- range $c := $codes -}}
+        {{- if not $img -}}
+          {{- range $ext := slice "png" "jpg" "webp" -}}
+            {{- if not $img -}}
+              {{- $img = resources.Get (printf "%s/partners/%s.%s" $y $c $ext) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- return $img -}}

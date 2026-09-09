@@ -158,8 +158,14 @@ other = "Agenda DevFest Modena %s"
 [agendaSubtitle]
 other = "Il programma degli orari e delle sale per orientarti durante le giornate dell'evento."
 
+[agendaDisclaimer]
+other = "Orari e speech potrebbero subire variazioni prima dell'evento."
+
 [agendaBtn]
 other = "🗓️ Agenda %s"
+
+[backToAgenda]
+other = "Torna all'agenda"
 
 [exploreRooms]
 other = "Sale e Aule"
@@ -171,13 +177,25 @@ other = "Salta al giorno"
 other = "Orario"
 
 [swipeToExploreRooms]
-other = "👉 Scorri orizzontalmente per vedere tutte le sale"
+other = "👉 Scorri o trascina per vedere tutte le sale"
+
+[prevRooms]
+other = "Sale prec."
+
+[nextRooms]
+other = "Sale succ."
+
+[scrollLeft]
+other = "Scorri a sinistra"
+
+[scrollRight]
+other = "Scorri a destra"
 
 [allRooms]
 other = "Tutte le Sale"
 
 [ongoing]
-other = "In corso"
+other = "Prosegue"
 
 [agendaComingSoonTitle]
 other = "Agenda in Arrivo!"

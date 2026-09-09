@@ -158,8 +158,14 @@ other = "DevFest Modena %s Agenda"
 [agendaSubtitle]
 other = "Schedule and room overview to help you navigate through the event days."
 
+[agendaDisclaimer]
+other = "Schedule, times, and talks may be subject to change prior to the event."
+
 [agendaBtn]
 other = "🗓️ Schedule %s"
+
+[backToAgenda]
+other = "Back to agenda"
 
 [exploreRooms]
 other = "Rooms & Stages"
@@ -171,13 +177,25 @@ other = "Jump to day"
 other = "Time"
 
 [swipeToExploreRooms]
-other = "👉 Swipe horizontally to explore all rooms"
+other = "👉 Swipe or drag to explore all rooms"
+
+[prevRooms]
+other = "Prev rooms"
+
+[nextRooms]
+other = "Next rooms"
+
+[scrollLeft]
+other = "Scroll left"
+
+[scrollRight]
+other = "Scroll right"
 
 [allRooms]
 other = "All Rooms"
 
 [ongoing]
-other = "Ongoing"
+other = "Continuing"
 
 [agendaComingSoonTitle]
 other = "Agenda Coming Soon!"

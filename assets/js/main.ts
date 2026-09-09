@@ -103,3 +103,162 @@ function pinAgendaTableHeads() {
 }
 
 pinAgendaTableHeads()
+
+/**
+ * Enables smooth horizontal scrolling controls (toolbar + floating buttons)
+ * and mouse drag-to-scroll on agenda timetables.
+ */
+function setupAgendaHorizontalScroll() {
+    const panels = Array.from(
+        document.querySelectorAll<HTMLElement>(".agenda-dayPanel")
+    )
+    if (!panels.length) return
+
+    const toolbarPrev = document.querySelector<HTMLButtonElement>(".agenda-scrollBar-btn--prev")
+    const toolbarNext = document.querySelector<HTMLButtonElement>(".agenda-scrollBar-btn--next")
+
+    const getActiveWrapper = (): HTMLElement | null => {
+        const activePanel = panels.find(p => p.offsetParent !== null) || panels[0]
+        return activePanel ? activePanel.querySelector<HTMLElement>(".agenda-tableWrapper") : null
+    }
+
+    const updateControlsForWrapper = (wrapper: HTMLElement) => {
+        const container = wrapper.closest(".agenda-tableContainer")
+        const floatPrev = container?.querySelector<HTMLButtonElement>(".agenda-floatingNav--prev")
+        const floatNext = container?.querySelector<HTMLButtonElement>(".agenda-floatingNav--next")
+
+        const maxScroll = wrapper.scrollWidth - wrapper.clientWidth
+        const hasOverflow = maxScroll > 8
+
+        const canScrollLeft = hasOverflow && wrapper.scrollLeft > 4
+        const canScrollRight = hasOverflow && wrapper.scrollLeft < maxScroll - 4
+
+        if (floatPrev) {
+            floatPrev.disabled = !canScrollLeft
+            floatPrev.classList.toggle("agenda-floatingNav--disabled", !canScrollLeft)
+            floatPrev.style.display = hasOverflow ? "" : "none"
+        }
+        if (floatNext) {
+            floatNext.disabled = !canScrollRight
+            floatNext.classList.toggle("agenda-floatingNav--disabled", !canScrollRight)
+            floatNext.style.display = hasOverflow ? "" : "none"
+        }
+
+        // If this wrapper belongs to the active panel, update toolbar buttons too
+        if (wrapper.offsetParent !== null) {
+            if (toolbarPrev) {
+                toolbarPrev.disabled = !canScrollLeft
+                toolbarPrev.classList.toggle("agenda-scrollBar-btn--disabled", !canScrollLeft)
+            }
+            if (toolbarNext) {
+                toolbarNext.disabled = !canScrollRight
+                toolbarNext.classList.toggle("agenda-scrollBar-btn--disabled", !canScrollRight)
+            }
+        }
+    }
+
+    const updateActiveControls = () => {
+        const activeWrapper = getActiveWrapper()
+        if (activeWrapper) {
+            updateControlsForWrapper(activeWrapper)
+        }
+    }
+
+    const scrollStep = 320
+
+    panels.forEach(panel => {
+        const wrapper = panel.querySelector<HTMLElement>(".agenda-tableWrapper")
+        if (!wrapper) return
+
+        const container = panel.querySelector<HTMLElement>(".agenda-tableContainer")
+        const floatPrev = container?.querySelector<HTMLButtonElement>(".agenda-floatingNav--prev")
+        const floatNext = container?.querySelector<HTMLButtonElement>(".agenda-floatingNav--next")
+
+        floatPrev?.addEventListener("click", () => {
+            wrapper.scrollBy({ left: -scrollStep, behavior: "smooth" })
+        })
+
+        floatNext?.addEventListener("click", () => {
+            wrapper.scrollBy({ left: scrollStep, behavior: "smooth" })
+        })
+
+        wrapper.addEventListener("scroll", () => {
+            updateControlsForWrapper(wrapper)
+        }, { passive: true })
+
+        // Mouse Drag to Scroll
+        let isDown = false
+        let startX = 0
+        let scrollStartLeft = 0
+        let dragged = false
+
+        wrapper.addEventListener("mousedown", (e: MouseEvent) => {
+            if (e.button !== 0) return
+            // Don't drag if clicked an interactive element directly
+            const target = e.target as HTMLElement | null
+            if (target?.closest("a, button, input, label")) return
+
+            isDown = true
+            dragged = false
+            startX = e.pageX - wrapper.offsetLeft
+            scrollStartLeft = wrapper.scrollLeft
+            wrapper.classList.add("agenda-tableWrapper--isDragging")
+        })
+
+        const onMouseMove = (e: MouseEvent) => {
+            if (!isDown) return
+            e.preventDefault()
+            const x = e.pageX - wrapper.offsetLeft
+            const walk = x - startX
+            if (Math.abs(walk) > 4) {
+                dragged = true
+            }
+            wrapper.scrollLeft = scrollStartLeft - walk
+        }
+
+        const onMouseUp = () => {
+            if (!isDown) return
+            isDown = false
+            wrapper.classList.remove("agenda-tableWrapper--isDragging")
+        }
+
+        window.addEventListener("mousemove", onMouseMove)
+        window.addEventListener("mouseup", onMouseUp)
+
+        wrapper.addEventListener("click", (e: MouseEvent) => {
+            if (dragged) {
+                e.preventDefault()
+                e.stopPropagation()
+                dragged = false
+            }
+        }, true)
+    })
+
+    // Toolbar buttons click
+    toolbarPrev?.addEventListener("click", () => {
+        const wrapper = getActiveWrapper()
+        if (wrapper) {
+            wrapper.scrollBy({ left: -scrollStep, behavior: "smooth" })
+        }
+    })
+
+    toolbarNext?.addEventListener("click", () => {
+        const wrapper = getActiveWrapper()
+        if (wrapper) {
+            wrapper.scrollBy({ left: scrollStep, behavior: "smooth" })
+        }
+    })
+
+    // Listen to day toggle switches and resize
+    document.querySelectorAll(".agenda-toggleInput").forEach(input => {
+        input.addEventListener("change", () => {
+            requestAnimationFrame(updateActiveControls)
+        })
+    })
+
+    window.addEventListener("resize", updateActiveControls, { passive: true })
+
+    updateActiveControls()
+}
+
+setupAgendaHorizontalScroll()

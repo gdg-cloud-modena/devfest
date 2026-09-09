@@ -5,10 +5,17 @@
   page under content/<year>/partners when it has one, otherwise straight out to
   its site with the edition's UTM parameters appended.
 */}}
-{{- $year := printf "%v" site.Params.currentEdition -}}
+{{- $year := "" -}}
+{{- if reflect.IsMap . -}}
+  {{- $year = printf "%v" (or .year site.Params.currentEdition) -}}
+{{- else if . -}}
+  {{- $year = printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+{{- else -}}
+  {{- $year = printf "%v" site.Params.currentEdition -}}
+{{- end -}}
 {{- $dataset := index site.Data $year -}}
 {{- $levels := and $dataset (index $dataset "levels") -}}
-{{- $partners := and $dataset (index $dataset "partners") -}}
+{{- $partners := and $dataset (or (index $dataset "partners") (index $dataset "sponsors")) -}}
 {{- if not (and $levels $partners) }}{{ return }}{{ end -}}
 
 <section class="partner-section section section--padded">

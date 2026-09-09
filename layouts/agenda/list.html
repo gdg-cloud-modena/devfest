@@ -31,6 +31,10 @@
         {{ i18n "browseSessionsCatalog" }}
       </a>
     </div>
+
+    <p class="agenda-disclaimer">
+      * {{ i18n "agendaDisclaimer" }}
+    </p>
   </div>
 
   {{ if $scheduled }}
@@ -54,9 +58,21 @@
       </div>
       {{ end }}
 
-      <p class="agenda-scrollHint">
-        <span>{{ i18n "swipeToExploreRooms" }}</span>
-      </p>
+      <div class="agenda-scrollBar">
+        <p class="agenda-scrollBar-hint">
+          <span>{{ i18n "swipeToExploreRooms" }}</span>
+        </p>
+        <div class="agenda-scrollBar-nav">
+          <button type="button" class="agenda-scrollBar-btn agenda-scrollBar-btn--prev" aria-label="{{ i18n "scrollLeft" }}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>{{ i18n "prevRooms" }}</span>
+          </button>
+          <button type="button" class="agenda-scrollBar-btn agenda-scrollBar-btn--next" aria-label="{{ i18n "scrollRight" }}">
+            <span>{{ i18n "nextRooms" }}</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
 
       {{/* Day Panels */}}
       {{- range $dayIndex, $day := $days -}}
@@ -98,7 +114,16 @@
       {{- end -}}
 
       <div class="agenda-dayPanel agenda-dayPanel--{{ $dayIndex }}" id="day-panel-{{ $dayKey }}">
-        <div class="agenda-tableWrapper">
+        <div class="agenda-tableContainer">
+          <div class="agenda-floatingNavOverlay" aria-hidden="true">
+            <button type="button" class="agenda-floatingNav agenda-floatingNav--prev" aria-label="{{ i18n "scrollLeft" }}" tabindex="-1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="agenda-floatingNav agenda-floatingNav--next" aria-label="{{ i18n "scrollRight" }}" tabindex="-1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <div class="agenda-tableWrapper">
           <table class="agenda-table">
             <thead>
               <tr class="agenda-tableHeadRow">
@@ -125,7 +150,7 @@
                 {{- $first := index $slotSessions 0 -}}
                 {{- $isPlenary := false -}}
                 {{- if eq (len $slotSessions) 1 -}}
-                  {{- if or $first.Params.keynote $first.Params.isplenary $first.Params.isPlenary ($first.Param "isPlenary") (eq (len $first.Params.speakers) 0) (in (slice "opening-devfest" "closing-ceremony" "concerto" "pranzo" "check-in-sabato" "check-in-domenica") $first.File.TranslationBaseName) -}}
+                  {{- if or $first.Params.keynote $first.Params.isplenary $first.Params.isPlenary ($first.Param "isPlenary") (eq (len $first.Params.speakers) 0) (in (slice "opening-devfest" "closing-ceremony" "concerto" "pranzo" "check-in-sabato" "check-in-domenica" "coffee-break-sabato" "coffee-break-domenica") $first.File.TranslationBaseName) -}}
                     {{- $isPlenary = true -}}
                   {{- end -}}
                 {{- end -}}
@@ -256,6 +281,19 @@
                               <h4 class="agenda-continuesTitle">
                                 <a class="link" href="{{ $sessionContinuing.RelPermalink }}">{{ $sessionContinuing.Title }}</a>
                               </h4>
+                              {{ with $sessionContinuing.Params.speakers }}
+                              <div class="agenda-tableCard-speakers">
+                                {{ range $slug := . }}
+                                {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+                                {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "60x60 q85 jpg" }}
+                                <a class="agenda-speakerItem" href="{{ .RelPermalink }}" title="{{ .Title }}">
+                                  <img class="agenda-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="24" height="24" loading="lazy">
+                                  <span class="agenda-speakerName">{{ .Title }}</span>
+                                </a>
+                                {{ end }}
+                                {{ end }}
+                              </div>
+                              {{ end }}
                             </div>
                           </td>
                         {{ else }}
@@ -272,7 +310,8 @@
           </table>
         </div>
       </div>
-      {{ end }}
+    </div>
+    {{ end }}
       {{- end -}}
     </div>
 
