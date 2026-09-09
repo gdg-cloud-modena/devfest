@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+<main class="section section--padded">
+  {{ partial "previous-edition" . }}
+
+  {{ with .Content }}
+  <div class="content">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  {{ partial "partners.html" (dict "year" $year) }}
+</main>
+{{ end }}
