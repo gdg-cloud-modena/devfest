@@ -174,7 +174,19 @@ other = "Salta al giorno"
 other = "Orario"
 
 [swipeToExploreRooms]
-other = "👉 Scorri orizzontalmente per vedere tutte le sale"
+other = "👉 Scorri o trascina per vedere tutte le sale"
+
+[prevRooms]
+other = "Sale prec."
+
+[nextRooms]
+other = "Sale succ."
+
+[scrollLeft]
+other = "Scorri a sinistra"
+
+[scrollRight]
+other = "Scorri a destra"
 
 [allRooms]
 other = "Tutte le Sale"

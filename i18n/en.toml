@@ -174,7 +174,19 @@ other = "Jump to day"
 other = "Time"
 
 [swipeToExploreRooms]
-other = "👉 Swipe horizontally to explore all rooms"
+other = "👉 Swipe or drag to explore all rooms"
+
+[prevRooms]
+other = "Prev rooms"
+
+[nextRooms]
+other = "Next rooms"
+
+[scrollLeft]
+other = "Scroll left"
+
+[scrollRight]
+other = "Scroll right"
 
 [allRooms]
 other = "All Rooms"
