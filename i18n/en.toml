@@ -497,3 +497,36 @@ other = "Team"
 
 [menu_faq]
 other = "FAQ"
+
+[editionSubtitle]
+other = "Relive the talks, sessions, and key moments from DevFest Modena %s."
+
+[editionExploreTitle]
+other = "Explore the Edition"
+
+[editionExploreSubtitle]
+other = "All sessions, schedules, and people from this edition:"
+
+[editionCardAgendaDesc]
+other = "Browse the detailed schedule, timeline, and talk hours."
+
+[editionCardSessionsDesc]
+other = "Explore the catalog of all talks, keynotes, and workshops."
+
+[editionCardSpeakersDesc]
+other = "Discover the speakers, experts, and mentors who took the stage."
+
+[editionCardCommunitiesDesc]
+other = "The local tech communities that collaborated on the event."
+
+[editionCardRoomsDesc]
+other = "The conference rooms and spaces where sessions took place."
+
+[editionCardTeamDesc]
+other = "The organizers, staff, and volunteers behind this DevFest."
+
+[editionCardPartnersDesc]
+other = "The companies and partner organizations that supported the event."
+
+[exploreSection]
+other = "Explore"

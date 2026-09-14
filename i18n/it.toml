@@ -497,3 +497,36 @@ other = "Team"
 
 [menu_faq]
 other = "FAQ"
+
+[editionSubtitle]
+other = "Rivivi i talk, le sessioni e i momenti salienti dell'edizione %s di DevFest Modena."
+
+[editionExploreTitle]
+other = "Esplora l'edizione"
+
+[editionExploreSubtitle]
+other = "Tutti i contenuti, i programmi e i protagonisti dell'evento:"
+
+[editionCardAgendaDesc]
+other = "Consulta il programma dettagliato, gli orari e la timeline delle sessioni."
+
+[editionCardSessionsDesc]
+other = "Esplora il catalogo di tutti i talk, gli approfondimenti e i workshop."
+
+[editionCardSpeakersDesc]
+other = "Scopri gli speaker, esperti e mentor saliti sul palco in questa edizione."
+
+[editionCardCommunitiesDesc]
+other = "Le community tecnologiche del territorio che hanno collaborato all'evento."
+
+[editionCardRoomsDesc]
+other = "Gli spazi e le sale della conferenza dove si sono svolti gli interventi."
+
+[editionCardTeamDesc]
+other = "Gli organizzatori, lo staff e i volontari che hanno reso possibile il DevFest."
+
+[editionCardPartnersDesc]
+other = "Le aziende e gli enti partner che hanno sostenuto l'iniziativa."
+
+[exploreSection]
+other = "Esplora"
