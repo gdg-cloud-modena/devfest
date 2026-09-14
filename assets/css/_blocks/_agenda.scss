@@ -548,6 +548,24 @@ $time-col-mobile: 78px;
     font-weight: 800;
   }
 
+  .agenda-tagBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: spaces.$space-3xs;
+    font-size: fonts.$size--2;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .agenda-tagBadge--wip {
+    background-color: colors.$warning--2;
+    color: colors.$warning-4;
+    border: 1px solid colors.$warning-1;
+  }
+
   .agenda-roomBadge {
     display: inline-flex;
     align-items: center;

@@ -22,6 +22,9 @@
 
   <div class="sessionDetail-header">
     <div class="sessionMeta-badges">
+      {{ with (or .Params.tag .Params.badge) }}
+      <span class="sessionMeta-badge sessionMeta-badge--wip">🚧 {{ . }}</span>
+      {{ end }}
       {{ if .Params.workshop }}
       <span class="sessionMeta-badge sessionMeta-badge--workshop">🛠️ {{ i18n "workshops" }}</span>
       {{ end }}

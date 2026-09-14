@@ -166,11 +166,14 @@
                         <div class="agenda-tableCard-header">
                           {{ if $first.Params.keynote }}
                           <span class="agenda-plenaryBadge agenda-plenaryBadge--keynote">Keynote</span>
-                          {{ else }}
+                          {{ else if and (not $rooms) (not (in (slice "coffee-break-sabato" "coffee-break-domenica") $first.File.TranslationBaseName)) }}
                           <span class="agenda-plenaryBadge">{{ i18n "allRooms" }}</span>
                           {{ end }}
                           {{ range $rooms }}
                           <a class="agenda-roomBadge link" href="{{ .RelPermalink }}">📍 {{ .Title }}</a>
+                          {{ end }}
+                          {{ with (or $first.Params.tag $first.Params.badge) }}
+                          <span class="agenda-tagBadge agenda-tagBadge--wip">🚧 {{ . }}</span>
                           {{ end }}
                           {{ with $first.Params.topic }}
                           <span class="agenda-topicBadge">{{ . }}</span>
@@ -229,6 +232,9 @@
                         <td class="agenda-td agenda-td--session">
                           <article class="agenda-tableCard{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}">
                             <div class="agenda-tableCard-meta">
+                              {{ with (or $sessionStarting.Params.tag $sessionStarting.Params.badge) }}
+                              <span class="agenda-tagBadge agenda-tagBadge--wip">🚧 {{ . }}</span>
+                              {{ end }}
                               {{ with $sessionStarting.Params.topic }}
                               <span class="agenda-topicBadge agenda-topicBadge--{{ $track.color }}">{{ . }}</span>
                               {{ end }}
@@ -276,6 +282,9 @@
                             <div class="agenda-tableCard agenda-tableCard--continues{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}">
                               <div class="agenda-continuesHeader">
                                 <span class="agenda-continuesBadge">⏳ {{ i18n "ongoing" }}</span>
+                                {{ with (or $sessionContinuing.Params.tag $sessionContinuing.Params.badge) }}
+                                <span class="agenda-tagBadge agenda-tagBadge--wip">🚧 {{ . }}</span>
+                                {{ end }}
                                 <span class="agenda-durationBadge">({{ (time ($sessionContinuing.Param "starts")).Format "15:04" }} - {{ (time ($sessionContinuing.Param "ends")).Format "15:04" }})</span>
                               </div>
                               <h4 class="agenda-continuesTitle">

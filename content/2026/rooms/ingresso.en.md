@@ -1,5 +1,5 @@
 +++
-title = "Fondazione San Carlo Entrance"
+title = "Main Entrance Fondazione San Carlo"
 date = 2026-06-13
 draft = false
 summary = "Main entrance of Fondazione San Carlo"

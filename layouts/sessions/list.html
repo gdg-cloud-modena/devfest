@@ -58,6 +58,9 @@
       <div class="sessions-card sessions-card--{{ $track.color }}">
         <div>
           <div class="sessions-cardHeader">
+            {{ with (or $session.Params.tag $session.Params.badge) }}
+            <span class="sessions-badge sessions-badge--wip">🚧 {{ . }}</span>
+            {{ end }}
             {{ if $session.Params.workshop }}
             <span class="sessions-badge sessions-badge--workshop">🛠️ {{ i18n "workshops" }}</span>
             {{ end }}
