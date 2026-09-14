@@ -449,4 +449,10 @@ code = "adt"
 link = "https://www.adtgroup.it"
 level = "diamond"
 
+[[partners]]
+name = "BizzyNow"
+code = "bizzynow"
+link = "https://www.bizzynow.com/"
+level = "startup"
+
 
