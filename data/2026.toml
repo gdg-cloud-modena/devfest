@@ -354,14 +354,19 @@ code = "gold"
 weight = 3
 
 [[levels]]
+title = "Bronze"
+code = "bronze"
+weight = 4
+
+[[levels]]
 title = "Startup"
 code = "startup"
-weight = 4
+weight = 5
 
 [[levels]]
 title = "Media Partner"
 code = "media"
-weight = 5
+weight = 6
 
 # Sponsors, put new ones at the end of the list
 
@@ -387,12 +392,6 @@ level = "diamond"
 name = "NetAi"
 code = "netai"
 link = "https://netai.it/"
-level = "startup"
-
-[[partners]]
-name = "UPark"
-code = "upark"
-link = "https://upark.it/"
 level = "startup"
 
 [[partners]]
@@ -454,5 +453,11 @@ name = "BizzyNow"
 code = "bizzynow"
 link = "https://www.bizzynow.com/"
 level = "startup"
+
+[[partners]]
+name = "Quix"
+code = "quix"
+link = "https://quix.it/"
+level = "bronze"
 
 
