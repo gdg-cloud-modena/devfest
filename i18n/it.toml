@@ -74,7 +74,7 @@ other = "I migliori esperti e relatori da tutto il mondo hanno scelto DevFest Mo
 other = "Networking & Community"
 
 [featureNetworkingDesc]
-other = "Incontra oltre 500 sviluppatori, aziende leader, sponsor e community tech del territorio per scambiare idee e creare nuove opportunità."
+other = "Incontra oltre 600 sviluppatori, aziende leader, sponsor e community tech del territorio per scambiare idee e creare nuove opportunità."
 
 [featureLocationTitle]
 other = "Location Storica Esclusiva"
@@ -237,34 +237,34 @@ other = "Ruolo:"
 other = "Azienda:"
 
 [statsTitle]
-other = "Il Nostro %s in Numeri"
+other = "Il DevFest %s in Numeri"
 
 [statsSubtitle]
-other = "I risultati dell'ultima edizione del DevFest Modena: un grande successo reso possibile dalla nostra community."
+other = "Cosa ti aspetta al DevFest Modena %s: due giornate imperdibili di tecnologia, innovazione, workshop pratici e condivisione."
 
 [statAttendees]
 other = "Partecipanti"
 
 [statAttendeesDesc]
-other = "Sviluppatori e appassionati da tutta Italia"
+other = "Sviluppatori e professionisti attesi a Modena"
 
 [statSpeakers]
 other = "Relatori & Speaker"
 
 [statSpeakersDesc]
-other = "Esperti nazionali e internazionali"
+other = "Esperti e tech leader da tutto il mondo"
 
 [statWorkshops]
-other = "Workshop Pratici"
+other = "Hands-On Workshop"
 
 [statWorkshopsDesc]
-other = "Sessioni interattive di apprendimento"
+other = "Laboratori pratici per mettere le mani sul codice"
 
 [statRooms]
-other = "Sale in Contemporanea"
+other = "Tracce & Sale Parallele"
 
 [statRoomsDesc]
-other = "Talk paralleli su traccia e argomenti dedicati"
+other = "Sessioni simultanee in sale storiche dedicate"
 
 [partnersTitle]
 other = "I Nostri Partner & Sponsor"

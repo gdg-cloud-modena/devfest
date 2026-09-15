@@ -460,4 +460,10 @@ code = "quix"
 link = "https://quix.it/"
 level = "bronze"
 
+[[partners]]
+name = "GDG Vicenza"
+code = "gdg-vicenza"
+link = "https://gdg.community.dev/gdg-vicenza/"
+level = "media"
+
 

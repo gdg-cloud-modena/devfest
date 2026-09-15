@@ -74,7 +74,7 @@ other = "Top international experts and tech leaders choose DevFest Modena to sha
 other = "Networking & Community"
 
 [featureNetworkingDesc]
-other = "Meet over 500 developers, industry leaders, sponsors, and local tech communities to exchange ideas and unlock opportunities."
+other = "Meet over 600 developers, industry leaders, sponsors, and local tech communities to exchange ideas and unlock opportunities."
 
 [featureLocationTitle]
 other = "Exclusive Historic Venue"
@@ -237,34 +237,34 @@ other = "Role:"
 other = "Company:"
 
 [statsTitle]
-other = "Our %s in Numbers"
+other = "DevFest %s in Numbers"
 
 [statsSubtitle]
-other = "Highlights from the latest DevFest Modena edition: a massive success powered by our community."
+other = "What awaits you at DevFest Modena %s: two packed days of world-class tech talks, hands-on workshops, and community."
 
 [statAttendees]
 other = "Attendees"
 
 [statAttendeesDesc]
-other = "Developers and tech enthusiasts from all over Italy"
+other = "Developers and tech professionals expected in Modena"
 
 [statSpeakers]
-other = "Speakers"
+other = "Speakers & Leaders"
 
 [statSpeakersDesc]
-other = "National and international industry experts"
+other = "World-class and international tech leaders"
 
 [statWorkshops]
-other = "Hands-on Workshops"
+other = "Hands-On Workshops"
 
 [statWorkshopsDesc]
-other = "Interactive hands-on learning sessions"
+other = "Interactive coding labs to master new technologies"
 
 [statRooms]
 other = "Parallel Tracks & Rooms"
 
 [statRoomsDesc]
-other = "Parallel sessions across dedicated tech tracks"
+other = "Simultaneous sessions across historic dedicated rooms"
 
 [partnersTitle]
 other = "Our Partners & Sponsors"
