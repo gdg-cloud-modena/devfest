@@ -92,7 +92,7 @@ other = "La partecipazione a tutte le sessioni e talk è completamente gratuita 
 other = "Le Tracce del DevFest %s"
 
 [sessionsTeaserSubtitle]
-other = "%d sessioni su 3 aree tematiche &mdash; trova il tuo argomento."
+other = "%d sessioni suddivise in 3 tracce tematiche, workshop e lightning talk &mdash; trova il tuo argomento."
 
 [sessionCount]
 one = "%d sessione"
@@ -108,7 +108,7 @@ other = "Esplora tutte le %d sessioni"
 other = "Esplora le Sessioni del"
 
 [sessionsCatalogHeroDesc]
-other = "Esplora tutti i talk e i workshop confermati per l'edizione %s! Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>."
+other = "Esplora tutti i talk, i workshop e i lightning talk confermati per l'edizione %s! Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>."
 
 [sessionsTitle]
 other = "Sessioni %s"
@@ -415,6 +415,18 @@ other = "Sessioni pratiche, laboratori interattivi, hackathon e percorsi guidati
 
 [workshopsTeaserDesc]
 other = "Sessioni pratiche, hackathon e laboratori interattivi hands-on."
+
+[lightningTalks]
+other = "Lightning Talks"
+
+[lightningTalksSectionTitle]
+other = "Lightning Talks"
+
+[lightningTalksSectionDesc]
+other = "Interventi rapidi di 10 minuti proposti direttamente dai partecipanti e dalla community."
+
+[lightningTalksScheduleTitle]
+other = "Talk confermati in scaletta:"
 
 [speedNetworking]
 other = "Speed networking"

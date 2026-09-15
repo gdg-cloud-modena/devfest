@@ -344,6 +344,18 @@
         margin-bottom: 0;
       }
     }
+
+    ul {
+      margin: 0;
+      padding-left: spaces.$space-m;
+      list-style-type: disc;
+    }
+
+    li {
+      margin-bottom: spaces.$space-3xs;
+      font-size: fonts.$size--1;
+      line-height: 1.4;
+    }
   }
 
   .sessions-cardFooter {
