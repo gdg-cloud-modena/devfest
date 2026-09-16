@@ -4,13 +4,14 @@ date = 2026-08-29
 draft = false
 
 [params]
-rooms = ["chiesa"]
+rooms = ["teatro"]
 speakers = []
 starts = 2026-10-03T18:00:00
 ends = 2026-10-03T19:55:00
 language = "Italiano"
 slidesURL = ""
 warning = ""
+tag = "Work in Progress"
 +++
 
-Live music concert and evening social closing the first day of DevFest.
+Live music concert and evening social closing the first day of DevFest. (Details and confirmation coming soon).

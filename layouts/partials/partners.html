@@ -25,12 +25,12 @@
   </div>
 
   {{ range $level := sort $levels "weight" "asc" }}
+  {{ with where $partners "level" $level.code }}
   <div class="partners partners--{{ $level.code }}">
     <div class="partners-levelHeader">
       <span class="partners-levelBadge partners-levelBadge--{{ $level.code }}">{{ $level.title }}</span>
     </div>
 
-    {{ with where $partners "level" $level.code }}
     <div class="partners-grid partners-grid--{{ $level.code }}">
       {{ range $partner := . }}
       {{- $page := partial "lookup/page" (printf "/%s/partners/%s" $year $partner.code) -}}
@@ -60,7 +60,7 @@
       </a>
       {{ end }}
     </div>
-    {{ end }}
   </div>
+  {{ end }}
   {{ end }}
 </section>

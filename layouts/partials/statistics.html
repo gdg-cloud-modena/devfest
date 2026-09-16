@@ -1,12 +1,10 @@
 {{/*
-  "Last edition in numbers" panel on the homepage.
+  "Edition in numbers" panel on the homepage.
 
-  The edition is derived from the current one rather than hard-coded, so this
-  keeps pointing at the right year without an annual edit. Every figure is
-  counted from content or read from the edition data — there are no fixed
-  numbers to go stale.
+  Points at the current edition to showcase the figures of DevFest Modena.
+  Every figure is counted from content or read from the edition data.
 */}}
-{{- $year := printf "%v" (sub site.Params.currentEdition 1) -}}
+{{- $year := printf "%v" site.Params.currentEdition -}}
 {{- $edition := index site.Data $year -}}
 
 {{- if $edition -}}
@@ -22,14 +20,14 @@
 
 {{- $cards := slice
   (dict "modifier" "participants" "icon" "people"   "value" $edition.participants "suffix" "+" "label" "statAttendees" "desc" "statAttendeesDesc")
-  (dict "modifier" "speakers"     "icon" "speakers" "value" (len $speakers)        "label" "statSpeakers"  "desc" "statSpeakersDesc")
-  (dict "modifier" "workshops"    "icon" "workshop" "value" $workshops             "label" "statWorkshops" "desc" "statWorkshopsDesc")
-  (dict "modifier" "rooms"        "icon" "room"     "value" $rooms                 "label" "statRooms"     "desc" "statRoomsDesc")
+  (dict "modifier" "speakers"     "icon" "speakers" "value" (len $speakers)       "suffix" "+" "label" "statSpeakers"  "desc" "statSpeakersDesc")
+  (dict "modifier" "workshops"    "icon" "workshop" "value" $workshops            "suffix" "+" "label" "statWorkshops" "desc" "statWorkshopsDesc")
+  (dict "modifier" "rooms"        "icon" "room"     "value" $rooms                "suffix" "+" "label" "statRooms"     "desc" "statRoomsDesc")
 -}}
 
 <div class="statistics-header">
   <h2 class="h2 statistics-title">{{ printf (i18n "statsTitle") $year }}</h2>
-  <p class="p statistics-subtitle">{{ i18n "statsSubtitle" }}</p>
+  <p class="p statistics-subtitle">{{ printf (i18n "statsSubtitle") $year }}</p>
 </div>
 
 <div class="statistics-grid">

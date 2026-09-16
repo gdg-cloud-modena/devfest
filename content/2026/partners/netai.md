@@ -9,4 +9,4 @@ link = "https://netai.it/"
 
 +++
 
-NetAi è una software house e società di consulenza specializzata in Intelligenza Artificiale applicata e sviluppo software evoluto. Focalizzata su architetture RAG (Retrieval-Augmented Generation), agenti AI autonomi, fine-tuning di Large Language Models e ottimizzazione dei flussi aziendali, NetAi trasforma la ricerca AI più avanzata in soluzioni concrete ed efficienti per le imprese.
+NetAI è una software company italiana specializzata nella progettazione, nello sviluppo e nell'integrazione di soluzioni di Intelligenza Artificiale per le aziende. Realizziamo sistemi AI su misura, agenti intelligenti, architetture RAG, soluzioni di Document Intelligence e OCR, automazione dei processi aziendali e applicazioni basate su Large Language Models. Affianchiamo le organizzazioni lungo l'intero ciclo di vita dei progetti, dall'analisi e dalla definizione dell'architettura fino allo sviluppo, all'integrazione con i sistemi esistenti e alla messa in produzione, con soluzioni cloud, on-premise e ibride.

@@ -1,0 +1,160 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_effects";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .edition-header {
+    text-align: center;
+    margin-bottom: spaces.$space-l;
+  }
+
+  .edition-title {
+    color: colors.$primary-2;
+    margin-top: spaces.$space-s;
+    margin-bottom: spaces.$space-xs;
+  }
+
+  .edition-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: spaces.$space-xs;
+    margin-bottom: spaces.$space-s;
+  }
+
+  .edition-metaBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: spaces.$space-3xs;
+    padding: spaces.$space-3xs spaces.$space-s;
+    background-color: colors.$white;
+    border: 1px solid rgba(colors.$primary-1, 0.2);
+    border-radius: 9999px;
+    font-size: fonts.$size--1;
+    font-weight: bold;
+    color: colors.$black;
+  }
+
+  .edition-lead {
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: fonts.$size-0;
+    color: rgba(colors.$black, 0.85);
+  }
+
+  .edition-navSection {
+    margin-top: spaces.$space-m;
+    margin-bottom: spaces.$space-xl;
+  }
+
+  .edition-navHeader {
+    text-align: center;
+    margin-bottom: spaces.$space-l;
+  }
+
+  .edition-navTitle {
+    color: colors.$primary-2;
+    margin-bottom: spaces.$space-xs;
+  }
+
+  .edition-navSubtitle {
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: fonts.$size-0;
+    color: rgba(colors.$black, 0.85);
+  }
+
+  .edition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: spaces.$space-m;
+    justify-content: center;
+  }
+
+  .editionCard {
+    background-color: colors.$white;
+    border-radius: 16px;
+    padding: spaces.$space-m;
+    border: 1px solid rgba(colors.$primary-1, 0.15);
+    border-top: 4px solid colors.$primary-1;
+    box-shadow: 0 4px 16px rgba(colors.$black, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: spaces.$space-s;
+    text-decoration: none;
+    color: colors.$black;
+    transition:
+      transform effects.$time ease,
+      box-shadow effects.$time ease,
+      border-color effects.$time ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(colors.$black, 0.12);
+      border-top-color: colors.$primary-2;
+      text-decoration: none;
+      color: colors.$black;
+
+      .editionCard-action {
+        color: colors.$primary-2;
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  .editionCard-iconWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: colors.$primary--2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: spaces.$space-3xs;
+  }
+
+  .editionCard-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .editionCard-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: spaces.$space-3xs;
+  }
+
+  .editionCard-title {
+    font-size: fonts.$size-1;
+    color: colors.$primary-2;
+    margin: 0;
+  }
+
+  .editionCard-desc {
+    font-size: fonts.$size--1;
+    color: rgba(colors.$black, 0.75);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  .editionCard-action {
+    display: inline-flex;
+    align-items: center;
+    gap: spaces.$space-3xs;
+    font-size: fonts.$size--1;
+    font-weight: bold;
+    color: colors.$primary-1;
+    margin-top: spaces.$space-xs;
+    transition:
+      color effects.$time ease,
+      transform effects.$time ease;
+  }
+}

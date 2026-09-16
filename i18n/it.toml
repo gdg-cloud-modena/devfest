@@ -74,7 +74,7 @@ other = "I migliori esperti e relatori da tutto il mondo hanno scelto DevFest Mo
 other = "Networking & Community"
 
 [featureNetworkingDesc]
-other = "Incontra oltre 500 sviluppatori, aziende leader, sponsor e community tech del territorio per scambiare idee e creare nuove opportunità."
+other = "Incontra oltre 600 sviluppatori, aziende leader, sponsor e community tech del territorio per scambiare idee e creare nuove opportunità."
 
 [featureLocationTitle]
 other = "Location Storica Esclusiva"
@@ -92,7 +92,7 @@ other = "La partecipazione a tutte le sessioni e talk è completamente gratuita 
 other = "Le Tracce del DevFest %s"
 
 [sessionsTeaserSubtitle]
-other = "%d sessioni su 3 aree tematiche &mdash; trova il tuo argomento."
+other = "%d sessioni suddivise in 3 tracce tematiche, workshop e lightning talk &mdash; trova il tuo argomento."
 
 [sessionCount]
 one = "%d sessione"
@@ -108,7 +108,7 @@ other = "Esplora tutte le %d sessioni"
 other = "Esplora le Sessioni del"
 
 [sessionsCatalogHeroDesc]
-other = "Esplora tutti i talk e i workshop confermati per l'edizione %s! Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>."
+other = "Esplora tutti i talk, i workshop e i lightning talk confermati per l'edizione %s! Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>."
 
 [sessionsTitle]
 other = "Sessioni %s"
@@ -237,34 +237,34 @@ other = "Ruolo:"
 other = "Azienda:"
 
 [statsTitle]
-other = "Il Nostro %s in Numeri"
+other = "Il DevFest %s in Numeri"
 
 [statsSubtitle]
-other = "I risultati dell'ultima edizione del DevFest Modena: un grande successo reso possibile dalla nostra community."
+other = "Cosa ti aspetta al DevFest Modena %s: due giornate imperdibili di tecnologia, innovazione, workshop pratici e condivisione."
 
 [statAttendees]
 other = "Partecipanti"
 
 [statAttendeesDesc]
-other = "Sviluppatori e appassionati da tutta Italia"
+other = "Sviluppatori e professionisti attesi a Modena"
 
 [statSpeakers]
 other = "Relatori & Speaker"
 
 [statSpeakersDesc]
-other = "Esperti nazionali e internazionali"
+other = "Esperti e tech leader da tutto il mondo"
 
 [statWorkshops]
-other = "Workshop Pratici"
+other = "Hands-On Workshop"
 
 [statWorkshopsDesc]
-other = "Sessioni interattive di apprendimento"
+other = "Laboratori pratici per mettere le mani sul codice"
 
 [statRooms]
-other = "Sale in Contemporanea"
+other = "Tracce & Sale Parallele"
 
 [statRoomsDesc]
-other = "Talk paralleli su traccia e argomenti dedicati"
+other = "Sessioni simultanee in sale storiche dedicate"
 
 [partnersTitle]
 other = "I Nostri Partner & Sponsor"
@@ -416,6 +416,18 @@ other = "Sessioni pratiche, laboratori interattivi, hackathon e percorsi guidati
 [workshopsTeaserDesc]
 other = "Sessioni pratiche, hackathon e laboratori interattivi hands-on."
 
+[lightningTalks]
+other = "Lightning Talks"
+
+[lightningTalksSectionTitle]
+other = "Lightning Talks"
+
+[lightningTalksSectionDesc]
+other = "Interventi rapidi di 10 minuti proposti direttamente dai partecipanti e dalla community."
+
+[lightningTalksScheduleTitle]
+other = "Talk confermati in scaletta:"
+
 [speedNetworking]
 other = "Speed networking"
 
@@ -497,3 +509,36 @@ other = "Team"
 
 [menu_faq]
 other = "FAQ"
+
+[editionSubtitle]
+other = "Rivivi i talk, le sessioni e i momenti salienti dell'edizione %s di DevFest Modena."
+
+[editionExploreTitle]
+other = "Esplora l'edizione"
+
+[editionExploreSubtitle]
+other = "Tutti i contenuti, i programmi e i protagonisti dell'evento:"
+
+[editionCardAgendaDesc]
+other = "Consulta il programma dettagliato, gli orari e la timeline delle sessioni."
+
+[editionCardSessionsDesc]
+other = "Esplora il catalogo di tutti i talk, gli approfondimenti e i workshop."
+
+[editionCardSpeakersDesc]
+other = "Scopri gli speaker, esperti e mentor saliti sul palco in questa edizione."
+
+[editionCardCommunitiesDesc]
+other = "Le community tecnologiche del territorio che hanno collaborato all'evento."
+
+[editionCardRoomsDesc]
+other = "Gli spazi e le sale della conferenza dove si sono svolti gli interventi."
+
+[editionCardTeamDesc]
+other = "Gli organizzatori, lo staff e i volontari che hanno reso possibile il DevFest."
+
+[editionCardPartnersDesc]
+other = "Le aziende e gli enti partner che hanno sostenuto l'iniziativa."
+
+[exploreSection]
+other = "Esplora"

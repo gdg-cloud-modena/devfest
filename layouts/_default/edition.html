@@ -1,0 +1,117 @@
+{{ define "main" }}
+{{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
+{{- $dataset := index site.Data $year -}}
+
+<main class="edition-main">
+  <div class="section section--padded edition-header">
+    {{ partial "previous-edition" . }}
+
+    <h1 class="h1 edition-title">{{ .Title }}</h1>
+
+    <div class="edition-meta">
+      {{ with $dataset }}
+        {{ with .days }}
+        <span class="edition-metaBadge">
+          <span class="edition-metaIcon" aria-hidden="true">📅</span>
+          {{- if eq (len .) 1 -}}
+            {{ (index . 0) | time.Format "2 January 2006" }}
+          {{- else -}}
+            {{ (index . 0) | time.Format "2" }} - {{ (index . (sub (len .) 1)) | time.Format "2 January 2006" }}
+          {{- end -}}
+        </span>
+        {{ end }}
+      {{ end }}
+      <span class="edition-metaBadge">
+        <span class="edition-metaIcon" aria-hidden="true">📍</span> Modena
+      </span>
+    </div>
+
+    <p class="p edition-lead">
+      {{ with .Description }}
+        {{ . }}
+      {{ else }}
+        {{ printf (i18n "editionSubtitle") $year }}
+      {{ end }}
+    </p>
+  </div>
+
+  {{ with .Content }}
+  <div class="section section--padded content">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  {{- $navItems := slice -}}
+  {{- range .Pages -}}
+    {{- $permalink := .RelPermalink -}}
+    {{- $title := .Title -}}
+    {{- $desc := .Summary -}}
+    {{- $icon := "workshop.svg" -}}
+    {{- $order := 99 -}}
+
+    {{- if in $permalink "/agenda/" -}}
+      {{- $order = 10 -}}
+      {{- $icon = "workshop.svg" -}}
+      {{- if not $desc }}{{ $desc = i18n "editionCardAgendaDesc" }}{{ end -}}
+    {{- else if in $permalink "/sessions/" -}}
+      {{- $order = 20 -}}
+      {{- $icon = "speakers.svg" -}}
+      {{- if not $desc }}{{ $desc = i18n "editionCardSessionsDesc" }}{{ end -}}
+    {{- else if in $permalink "/speakers/" -}}
+      {{- $order = 30 -}}
+      {{- $icon = "feature-speakers.svg" -}}
+      {{- if not $desc }}{{ $desc = i18n "editionCardSpeakersDesc" }}{{ end -}}
+    {{- else if in $permalink "/communities/" -}}
+      {{- $order = 40 -}}
+      {{- $icon = "people.svg" -}}
+      {{- if not $desc }}{{ $desc = i18n "editionCardCommunitiesDesc" }}{{ end -}}
+    {{- else if in $permalink "/rooms/" -}}
+      {{- $order = 50 -}}
+      {{- $icon = "room.svg" -}}
+      {{- if not $desc }}{{ $desc = i18n "editionCardRoomsDesc" }}{{ end -}}
+    {{- else if in $permalink "/team/" -}}
+      {{- $order = 60 -}}
+      {{- $icon = "people.svg" -}}
+      {{- if not $desc }}{{ $desc = i18n "editionCardTeamDesc" }}{{ end -}}
+    {{- else if in $permalink "/partners/" -}}
+      {{- $order = 70 -}}
+      {{- $icon = "feature-networking.svg" -}}
+      {{- if not $desc }}{{ $desc = i18n "editionCardPartnersDesc" }}{{ end -}}
+    {{- end -}}
+
+    {{- $navItems = $navItems | append (dict "order" $order "title" $title "desc" $desc "url" $permalink "icon" $icon) -}}
+  {{- end -}}
+
+  {{- if $navItems -}}
+  <section class="section section--padded edition-navSection">
+    <header class="edition-navHeader">
+      <h2 class="h2 edition-navTitle">{{ i18n "editionExploreTitle" }}</h2>
+      <p class="p edition-navSubtitle">{{ i18n "editionExploreSubtitle" }}</p>
+    </header>
+
+    <div class="edition-grid">
+      {{ range sort $navItems "order" "asc" }}
+      <a class="editionCard" href="{{ .url }}">
+        <div>
+          <div class="editionCard-iconWrapper">
+            <img class="editionCard-icon" src="/icons/{{ .icon }}" alt="" width="28" height="28">
+          </div>
+          <div class="editionCard-body">
+            <h3 class="editionCard-title">{{ .title }}</h3>
+            {{ with .desc }}
+            <p class="editionCard-desc">{{ . | plainify | truncate 130 }}</p>
+            {{ end }}
+          </div>
+        </div>
+        <span class="editionCard-action">
+          {{ i18n "exploreSection" }} <span aria-hidden="true">→</span>
+        </span>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{- end -}}
+
+  {{ partial "partners.html" (dict "year" $year) }}
+</main>
+{{ end }}

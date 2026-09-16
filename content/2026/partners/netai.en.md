@@ -9,4 +9,4 @@ link = "https://netai.it/"
 
 +++
 
-NetAi is a software and consulting company specializing in applied Artificial Intelligence and advanced software engineering. Focusing on RAG (Retrieval-Augmented Generation) architectures, autonomous AI agents, LLM fine-tuning, and enterprise workflow optimization, NetAi turns cutting-edge AI research into scalable business solutions.
+NetAI is an Italian software company specializing in the design, development, and integration of Artificial Intelligence solutions for enterprises. We build custom AI systems, intelligent agents, RAG architectures, Document Intelligence and OCR solutions, business process automation, and applications based on Large Language Models. We support organizations throughout the entire project lifecycle, from analysis and architecture design to development, integration with existing systems, and production deployment, across cloud, on-premise, and hybrid environments.

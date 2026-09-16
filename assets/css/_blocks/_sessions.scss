@@ -262,6 +262,13 @@
     color: rgba(colors.$black, 0.75);
   }
 
+  .sessions-badge--wip {
+    background-color: colors.$warning--2;
+    color: colors.$warning-4;
+    border: 1px solid colors.$warning-1;
+    font-weight: 700;
+  }
+
   /* Formato 1: Titoli */
   .sessions-cardTitle {
     font-size: fonts.$size-0;
@@ -336,6 +343,18 @@
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    ul {
+      margin: 0;
+      padding-left: spaces.$space-m;
+      list-style-type: disc;
+    }
+
+    li {
+      margin-bottom: spaces.$space-3xs;
+      font-size: fonts.$size--1;
+      line-height: 1.4;
     }
   }
 
@@ -449,6 +468,13 @@
   .sessionMeta-badge--lang {
     background-color: rgba(colors.$gray, 0.4);
     color: colors.$black;
+  }
+
+  .sessionMeta-badge--wip {
+    background-color: colors.$warning--2;
+    color: colors.$warning-4;
+    border: 1px solid colors.$warning-1;
+    font-weight: 700;
   }
 
   .sessionMeta-card {
