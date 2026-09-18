@@ -1,6 +1,6 @@
 +++
 title = "Iungo"
-date = 2025-09-10
+date = 2026-09-18
 draft = false
 
 [params]
@@ -24,10 +24,11 @@ Vengono lanciati anche nuovi progetti quali il **Partnership Program** e il perc
 Entra a far parte del nostro ecosistema anche **InfoManager**, acquisita per fornire ai nostri clienti un maggiore supporto nella misurazione e valutazione multidimensionale dei fornitori e ricerca di fornitori alternativi.
 
 Oggi la piattaforma in SaaS IUNGO viene utilizzata da oltre 400 clienti e 40 milioni di IUNGOmail vengono spedite ogni anno, raggiungendo più di 150mila fornitori.
-Non ci piace stare fermi: abbiamo ancora tante idee da sviluppare e speriamo di potertele raccontare presto."
+Non ci piace stare fermi: abbiamo ancora tante idee da sviluppare e speriamo di potertele raccontare presto.
 
 Si possono anche citare i numeri della pagina "Lavora con noi":
-**29%** - tasso crescita persone (2023)
-**10,13%** vs 57,3% - turnover in IUNGO rispetto alla media del turnover in aziende tech per posizioni Dev
-**3.000** ore di formazione fruita dai dipendenti
-**79,41%** - employee net promoting score (Suggeriresti a un amico di lavorare in IUNGO?)
+
+- **29%** - tasso crescita persone (2023)
+- **10,13%** vs 57,3% - turnover in IUNGO rispetto alla media del turnover in aziende tech per posizioni Dev
+- **3.000** ore di formazione fruita dai dipendenti
+- **79,41%** - employee net promoting score (Suggeriresti a un amico di lavorare in IUNGO?)
