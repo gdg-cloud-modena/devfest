@@ -4,7 +4,7 @@ date = 2026-06-13
 draft = false
 
 [params]
-rooms = ["periodici"]
+rooms = ["cappella"]
 starts = 2026-10-03T10:45:00
 ends = 2026-10-03T11:15:00
 speakers = ["mattia-di-eleuterio", "michele-biondi"]

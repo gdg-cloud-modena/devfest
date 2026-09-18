@@ -5,7 +5,7 @@ draft = false
 
 [params]
 rooms = ["biblioteca-antica"]
-speakers = ["gianni-forlastro", "maurizio-ipsale"]
+speakers = ["gianni-forlastro", "maurizio-ipsale", "davide-tresoldi"]
 starts = 2026-10-03T16:30:00
 ends = 2026-10-03T17:00:00
 language = "Italiano"

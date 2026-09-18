@@ -169,6 +169,9 @@
                           {{ else if and (not $rooms) (not (in (slice "coffee-break-sabato" "coffee-break-domenica") $first.File.TranslationBaseName)) }}
                           <span class="agenda-plenaryBadge">{{ i18n "allRooms" }}</span>
                           {{ end }}
+                          {{ if $first.Params.workshop }}
+                          <span class="agenda-workshopBadge">🛠️ {{ i18n "workshops" }}</span>
+                          {{ end }}
                           {{ range $rooms }}
                           <a class="agenda-roomBadge link" href="{{ .RelPermalink }}">📍 {{ .Title }}</a>
                           {{ end }}
@@ -232,6 +235,9 @@
                         <td class="agenda-td agenda-td--session">
                           <article class="agenda-tableCard{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}">
                             <div class="agenda-tableCard-meta">
+                              {{ if $sessionStarting.Params.workshop }}
+                              <span class="agenda-workshopBadge">🛠️ {{ i18n "workshops" }}</span>
+                              {{ end }}
                               {{ with (or $sessionStarting.Params.tag $sessionStarting.Params.badge) }}
                               <span class="agenda-tagBadge agenda-tagBadge--wip">🚧 {{ . }}</span>
                               {{ end }}
@@ -282,6 +288,9 @@
                             <div class="agenda-tableCard agenda-tableCard--continues{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}">
                               <div class="agenda-continuesHeader">
                                 <span class="agenda-continuesBadge">⏳ {{ i18n "ongoing" }}</span>
+                                {{ if $sessionContinuing.Params.workshop }}
+                                <span class="agenda-workshopBadge">🛠️ {{ i18n "workshops" }}</span>
+                                {{ end }}
                                 {{ with (or $sessionContinuing.Params.tag $sessionContinuing.Params.badge) }}
                                 <span class="agenda-tagBadge agenda-tagBadge--wip">🚧 {{ . }}</span>
                                 {{ end }}
