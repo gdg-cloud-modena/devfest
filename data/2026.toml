@@ -466,4 +466,10 @@ code = "gdg-vicenza"
 link = "https://gdg.community.dev/gdg-vicenza/"
 level = "media"
 
+[[partners]]
+name = "Bisy"
+code = "bisy"
+link = "https://bisy.it/"
+level = "bronze"
+
 
