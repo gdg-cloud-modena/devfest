@@ -21,12 +21,20 @@ In this hands-on workshop, we'll build a real agent from scratch, live, using Ty
 
 You'll leave with working code, a mental model that actually holds up, and a clear sense of where to take it next.
 
+<!--more-->
+
 <div class="callout callout--warning">
-  <p class="p">⚠️ <b>Posti limitati &amp; Requisito Biglietto:</b> La partecipazione al workshop richiede la registrazione tramite il Google Form dedicato. <b>Ricorda che per accedere al workshop è comunque necessario essere in possesso del biglietto generale d'ingresso per il DevFest Modena.</b></p>
+  <p class="p">⚠️ <b>Regole di partecipazione e posti limitati:</b></p>
+  <ul class="ul">
+    <li><b>Assegnazione dei posti:</b> La compilazione del form <b>NON garantisce</b> automaticamente la partecipazione. I posti sono limitati e verranno assegnati in base all'ordine di preferenza (priorità alla 1ª scelta, poi alla 2ª) e alla data di compilazione.</li>
+    <li><b>Appello all'ingresso:</b> I partecipanti registrati verranno chiamati per nome all'ingresso della sala. È importante presentarsi con <b>10 minuti di anticipo</b> per non perdere l'appello.</li>
+    <li><b>Accesso senza prenotazione:</b> Eventuali posti liberi o lasciati vacanti da chi non si presenta all'appello saranno aperti a chi non ha prenotato fino a esaurimento posti.</li>
+    <li><b>Biglietto evento:</b> È obbligatorio essere già in possesso del biglietto generale d'ingresso per il DevFest Modena.</li>
+  </ul>
 </div>
 
 <p class="p">
-  <a class="button" href="https://forms.gle/mZhk2TEALMxhenLd9" target="_blank" rel="noopener">
-    📝 Registrati al Workshop su Google Form &rarr;
+  <a class="button" href="https://form.asana.com/?k=OLnkKdwRlVcfAXbOwy1YEw&d=588515525965352" target="_blank" rel="noopener">
+    📝 Iscriviti ai Workshop &rarr;
   </a>
 </p>
