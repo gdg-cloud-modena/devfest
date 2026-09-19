@@ -20,3 +20,13 @@ Most developers have built a chatbot and called it an agent. They're not the sam
 In this hands-on workshop, we'll build a real agent from scratch, live, using TypeScript. We'll start with a single agent and a single tool, then layer in the patterns that make agents genuinely useful, the ones worth knowing, rather than all twenty-one that exist. Every architectural decision gets explained as we make it.
 
 You'll leave with working code, a mental model that actually holds up, and a clear sense of where to take it next.
+
+<div class="callout callout--warning">
+  <p class="p">⚠️ <b>Limited Seats &amp; Ticket Requirement:</b> Workshop participation requires registration via the dedicated Google Form. <b>Please note that holding a valid DevFest Modena general admission ticket is mandatory to attend the session.</b></p>
+</div>
+
+<p class="p">
+  <a class="button" href="https://forms.gle/mZhk2TEALMxhenLd9" target="_blank" rel="noopener">
+    📝 Register for the Workshop on Google Form &rarr;
+  </a>
+</p>

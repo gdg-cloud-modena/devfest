@@ -16,3 +16,13 @@ workshop = true
 +++
 
 Sfida interattiva e hands-on su architetture cloud e soluzioni Google Cloud.
+
+<div class="callout callout--warning">
+  <p class="p">⚠️ <b>Posti limitati &amp; Requisito Biglietto:</b> La partecipazione al workshop richiede la registrazione tramite il Google Form dedicato. <b>Ricorda che per accedere al workshop è comunque necessario essere in possesso del biglietto generale d'ingresso per il DevFest Modena.</b></p>
+</div>
+
+<p class="p">
+  <a class="button" href="https://forms.gle/PyeJuHdLYHg6N6yQ7" target="_blank" rel="noopener">
+    📝 Registrati al Workshop su Google Form &rarr;
+  </a>
+</p>

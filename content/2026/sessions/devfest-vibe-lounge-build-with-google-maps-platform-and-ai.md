@@ -11,10 +11,19 @@ ends = 2026-10-03T12:00:00
 language = "Italiano"
 topic = "Cloud & Platform Engineering"
 slidesURL = ""
-warning = ""
 workshop = true
 +++
 
 Da dove inizia oggi la creazione con l'AI? Inizia da una scintilla: un'idea che vale la pena prototipare. La modalità Build di Google AI Studio trasforma quella scintilla in realtà attraverso il "vibe coding". Sfruttando i modelli Gemini, puoi progettare, testare e distribuire applicazioni web full-stack interamente tramite la generazione conversazionale di codice.
 
 Costruirai Block Explorer, un gioco geospaziale interattivo che combina dati cartografici reali con l'AI generativa. Utilizzerai AI Studio per generare l'applicazione e integrarla con Google Maps Platform e l'API Gemini. Imparerai quindi come effettuare il deployment dell'applicazione finita direttamente su Cloud Run, rendendola disponibile a tutti.
+
+<div class="callout callout--warning">
+  <p class="p">⚠️ <b>Posti limitati &amp; Requisito Biglietto:</b> La partecipazione al workshop richiede la registrazione tramite il Google Form dedicato. <b>Ricorda che per accedere al workshop è comunque necessario essere in possesso del biglietto generale d'ingresso per il DevFest Modena.</b></p>
+</div>
+
+<p class="p">
+  <a class="button" href="https://forms.gle/ZjcxKoq7NAuuGeubA" target="_blank" rel="noopener">
+    📝 Registrati al Workshop su Google Form &rarr;
+  </a>
+</p>

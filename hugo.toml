@@ -20,6 +20,8 @@ ignoreLogs = ['warning-goldmark-raw-html']
 
 [markup]
 [markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 [markup.goldmark.renderHooks]
 [markup.goldmark.renderHooks.link]
 enableDefault = true
