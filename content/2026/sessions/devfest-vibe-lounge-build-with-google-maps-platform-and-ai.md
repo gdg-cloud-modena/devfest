@@ -12,11 +12,22 @@ language = "Italiano"
 topic = "Cloud & Platform Engineering"
 slidesURL = ""
 workshop = true
+ribbon = "Hackathon"
 +++
 
-Da dove inizia oggi la creazione con l'AI? Inizia da una scintilla: un'idea che vale la pena prototipare. La modalità Build di Google AI Studio trasforma quella scintilla in realtà attraverso il "vibe coding". Sfruttando i modelli Gemini, puoi progettare, testare e distribuire applicazioni web full-stack interamente tramite la generazione conversazionale di codice.
+### Hackathon Challenge Modena 2026: Competenze Digitali, AI e Innovazione per il Territorio
 
-Costruirai Block Explorer, un gioco geospaziale interattivo che combina dati cartografici reali con l'AI generativa. Utilizzerai AI Studio per generare l'applicazione e integrarla con Google Maps Platform e l'API Gemini. Imparerai quindi come effettuare il deployment dell'applicazione finita direttamente su Cloud Run, rendendola disponibile a tutti.
+Partecipa all'hackathon dedicato al Vibe Coding: impara a trasformare le tue idee in un'applicazione funzionante sfruttando il potenziale dell'Intelligenza Artificiale Generativa e di Google AI Studio, senza la necessità di scrivere manualmente ogni singola riga di codice!
+
+L'evento si articola in due fasi principali:
+
+#### Fase 1: Kick-off e formazione DevFest Modena (3 Ottobre)
+
+La prima fase prenderà il via al DevFest Modena. Durante questa giornata iniziale i partecipanti apprenderanno l'uso di Google AI Studio e di altri tool evoluti di AI generativa. Costruirai Block Explorer, un gioco geospaziale interattivo che combina dati cartografici reali con l’AI generativa. Utilizzerai AI Studio per generare l’applicazione e integrarla con Google Maps Platform e l’API Gemini. Imparerai quindi come effettuare il deployment dell’applicazione finita direttamente su Cloud Run, rendendola disponibile a tutti. Successivamente, in questa sede si formeranno i team di lavoro che, nelle settimane successive, lavoreranno offline allo sviluppo e al perfezionamento del proprio prototipo di app.
+
+#### Fase 2: Pitch e Finale @ Smart Life Festival (16 Ottobre)
+
+La fase conclusiva si terrà durante lo Smart Life Festival. I team saliranno sul palco per presentare le proprie soluzioni a una giuria d'eccezione, che valuterà la qualità, l'innovazione e l'impatto dei progetti per decretare l'app vincitrice.
 
 <!--more-->
 

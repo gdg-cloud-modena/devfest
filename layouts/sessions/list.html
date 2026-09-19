@@ -71,7 +71,12 @@
 
     <div class="sessions-grid">
       {{ range $session := . }}
-      <div class="sessions-card sessions-card--{{ $track.color }}">
+      <div class="sessions-card sessions-card--{{ $track.color }}{{ with $session.Params.ribbon }} sessions-card--hasRibbon{{ end }}">
+        {{ with $session.Params.ribbon }}
+        <div class="ribbon ribbon--{{ . | urlize }}">
+          <span class="ribbon-content">{{ . }}</span>
+        </div>
+        {{ end }}
         <div>
           <div class="sessions-cardHeader">
             {{ with (or $session.Params.tag $session.Params.badge) }}
@@ -128,7 +133,12 @@
 
     <div class="sessions-grid">
       {{ range $session := . }}
-      <div class="sessions-card sessions-card--quaternary">
+      <div class="sessions-card sessions-card--quaternary{{ with $session.Params.ribbon }} sessions-card--hasRibbon{{ end }}">
+        {{ with $session.Params.ribbon }}
+        <div class="ribbon ribbon--{{ . | urlize }}">
+          <span class="ribbon-content">{{ . }}</span>
+        </div>
+        {{ end }}
         <div>
           <div class="sessions-cardHeader">
             <span class="sessions-badge sessions-badge--workshop">🛠️ {{ i18n "workshops" }}</span>

@@ -12,11 +12,22 @@ language = "English"
 topic = "Cloud & Platform Engineering"
 slidesURL = ""
 workshop = true
+ribbon = "Hackathon"
 +++
 
-Where does building with AI start today? It starts with a spark: an idea worth prototyping. Google AI Studio's Build Mode turns that spark into reality through "vibe coding." By leveraging Gemini models, you can design, test, and deploy full-stack web applications entirely through conversational code generation.
+### Hackathon Challenge Modena 2026: Digital Skills, AI and Local Innovation
 
-You will build Block Explorer, an interactive geospatial game that combines real-world mapping data with generative AI. You will use AI Studio to generate the application and integrate it with Google Maps Platform and the Gemini API. You'll then learn how to deploy the finished application straight to Cloud Run, making it available for others to try.
+Join the hackathon dedicated to Vibe Coding: learn how to turn your ideas into a working application by leveraging the power of Generative AI and Google AI Studio, without having to manually write every single line of code!
+
+The event is organized into two main phases:
+
+#### Phase 1: Kick-off & Training @ DevFest Modena (October 3)
+
+The first phase kicks off at DevFest Modena. During this opening day, participants will learn how to use Google AI Studio and other advanced generative AI tools. You will build Block Explorer, an interactive geospatial game that combines real-world map data with generative AI. You will use AI Studio to generate the application and integrate it with Google Maps Platform and the Gemini API. You will then learn how to deploy the finished application directly to Cloud Run, making it available to everyone. Afterwards, working teams will be formed to collaborate offline over the following weeks to develop and refine their app prototype.
+
+#### Phase 2: Pitch & Grand Finale @ Smart Life Festival (October 16)
+
+The final phase will take place during the Smart Life Festival. Teams will take the stage to present their solutions to an exceptional jury, who will evaluate the quality, innovation, and impact of the projects to award the winning app.
 
 <!--more-->
 
