@@ -193,19 +193,7 @@
                         <h3 class="h3 agenda-tableCard-title">
                           <a class="link" href="{{ $first.RelPermalink }}">{{ $first.Title }}</a>
                         </h3>
-                        {{ with $first.Params.speakers }}
-                        <div class="agenda-tableCard-speakers">
-                          {{ range $slug := . }}
-                          {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
-                          {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "60x60 q85 jpg" }}
-                          <a class="agenda-speakerItem" href="{{ .RelPermalink }}" title="{{ .Title }}">
-                            <img class="agenda-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="24" height="24" loading="lazy">
-                            <span class="agenda-speakerName">{{ .Title }}</span>
-                          </a>
-                          {{ end }}
-                          {{ end }}
-                        </div>
-                        {{ end }}
+                        {{ partial "agenda-speakers" $first.Params.speakers }}
                         {{ if and (not $first.Params.speakers) (or $first.Summary $first.Content) }}
                         <p class="agenda-plenaryDesc">{{ ($first.Summary | default $first.Content) | plainify }}</p>
                         {{ end }}
@@ -268,19 +256,7 @@
                               <a class="link" href="{{ $sessionStarting.RelPermalink }}">{{ $sessionStarting.Title }}</a>
                             </h3>
 
-                            {{ with $sessionStarting.Params.speakers }}
-                            <div class="agenda-tableCard-speakers">
-                              {{ range $slug := . }}
-                              {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
-                              {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "60x60 q85 jpg" }}
-                              <a class="agenda-speakerItem" href="{{ .RelPermalink }}" title="{{ .Title }}">
-                                <img class="agenda-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="24" height="24" loading="lazy">
-                                <span class="agenda-speakerName">{{ .Title }}</span>
-                              </a>
-                              {{ end }}
-                              {{ end }}
-                            </div>
-                            {{ end }}
+                            {{ partial "agenda-speakers" $sessionStarting.Params.speakers }}
                           </article>
                         </td>
                       {{ else }}
@@ -314,19 +290,7 @@
                               <h4 class="agenda-continuesTitle">
                                 <a class="link" href="{{ $sessionContinuing.RelPermalink }}">{{ $sessionContinuing.Title }}</a>
                               </h4>
-                              {{ with $sessionContinuing.Params.speakers }}
-                              <div class="agenda-tableCard-speakers">
-                                {{ range $slug := . }}
-                                {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
-                                {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "60x60 q85 jpg" }}
-                                <a class="agenda-speakerItem" href="{{ .RelPermalink }}" title="{{ .Title }}">
-                                  <img class="agenda-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="24" height="24" loading="lazy">
-                                  <span class="agenda-speakerName">{{ .Title }}</span>
-                                </a>
-                                {{ end }}
-                                {{ end }}
-                              </div>
-                              {{ end }}
+                              {{ partial "agenda-speakers" $sessionContinuing.Params.speakers }}
                             </div>
                           </td>
                         {{ else }}

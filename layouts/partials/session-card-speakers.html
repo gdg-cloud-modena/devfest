@@ -1,0 +1,13 @@
+<div class="sessions-speakers">
+  {{ range $slug := . }}
+  {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+  {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "80x80 q85 jpg" }}
+  <a class="sessions-speakerLink" href="{{ .RelPermalink }}" title="{{ .Title }}">
+    <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="32" height="32" loading="lazy">
+    <span class="sessions-speakerName">{{ .Title }}</span>
+  </a>
+  {{ else }}
+  <span class="sessions-speakerName">{{ $slug }}</span>
+  {{ end }}
+  {{ end }}
+</div>

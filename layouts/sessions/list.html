@@ -1,6 +1,5 @@
 {{ define "main" }}
 {{- $year := printf "%v" (or (.Param "year") site.Params.currentEdition) -}}
-{{- $isCurrentEdition := eq $year (printf "%v" site.Params.currentEdition) -}}
 {{- $allSessions := partial "lookup/pages" (printf "/%s/sessions" $year) -}}
 {{- $tracks := partial "lookup/tracks" . -}}
 {{- $workshops := where $allSessions "Params.workshop" true -}}
@@ -103,19 +102,7 @@
             <a class="sessions-cardTitleLink" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
           </h3>
 
-          <div class="sessions-speakers">
-            {{ range $slug := $session.Params.speakers }}
-            {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
-            {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "80x80 q85 jpg" }}
-            <a class="sessions-speakerLink" href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="32" height="32" loading="lazy">
-              <span class="sessions-speakerName">{{ .Title }}</span>
-            </a>
-            {{ else }}
-            <span class="sessions-speakerName">{{ $slug }}</span>
-            {{ end }}
-            {{ end }}
-          </div>
+          {{ partial "session-card-speakers" $session.Params.speakers }}
 
           <div class="sessions-cardDesc">{{ $session.Summary | truncate 200 }}</div>
         </div>
@@ -160,19 +147,7 @@
             <a class="sessions-cardTitleLink" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
           </h3>
 
-          <div class="sessions-speakers">
-            {{ range $slug := $session.Params.speakers }}
-            {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
-            {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "80x80 q85 jpg" }}
-            <a class="sessions-speakerLink" href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="32" height="32" loading="lazy">
-              <span class="sessions-speakerName">{{ .Title }}</span>
-            </a>
-            {{ else }}
-            <span class="sessions-speakerName">{{ $slug }}</span>
-            {{ end }}
-            {{ end }}
-          </div>
+          {{ partial "session-card-speakers" $session.Params.speakers }}
 
           <div class="sessions-cardDesc">{{ $session.Summary | truncate 200 }}</div>
         </div>
@@ -212,19 +187,7 @@
           </h3>
 
           {{ with $session.Params.speakers }}
-          <div class="sessions-speakers">
-            {{ range $slug := . }}
-            {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
-            {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "80x80 q85 jpg" }}
-            <a class="sessions-speakerLink" href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="32" height="32" loading="lazy">
-              <span class="sessions-speakerName">{{ .Title }}</span>
-            </a>
-            {{ else }}
-            <span class="sessions-speakerName">{{ $slug }}</span>
-            {{ end }}
-            {{ end }}
-          </div>
+          {{ partial "session-card-speakers" . }}
           {{ end }}
 
           <div class="sessions-cardDesc">

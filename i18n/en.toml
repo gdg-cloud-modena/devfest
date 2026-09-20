@@ -7,9 +7,6 @@ other = "🎟️ Get Your Ticket"
 [getFreeTicket]
 other = "Get your free ticket"
 
-[getTicketNow]
-other = "Get Your Ticket Now"
-
 [openMenu]
 other = "Open menu"
 
@@ -21,9 +18,6 @@ other = "October 3–4, 2026"
 
 [heroLocation]
 other = "Fondazione San Carlo, Modena"
-
-[heroFreeBadge]
-other = "100% Free Entry"
 
 [heroTagline]
 other = "The largest tech conference in Emilia-Romagna"
@@ -107,12 +101,6 @@ other = "Discover &rarr;"
 [exploreAllSessions]
 other = "Explore all %d sessions"
 
-[sessionsCatalogHeroTitle]
-other = "Explore Sessions at"
-
-[sessionsCatalogHeroDesc]
-other = "Explore all confirmed talks, workshops, and lightning talks for DevFest %s! Check out our 3 thematic tracks: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b>, and <b>Web, Mobile & Dev Experience</b>."
-
 [sessionsTitle]
 other = "Sessions %s"
 
@@ -125,12 +113,6 @@ other = "Sessions Catalog"
 [discoverSession]
 other = "Discover session"
 
-[track]
-other = "Track:"
-
-[language]
-other = "Language:"
-
 [scheduleTBA]
 other = "Time and room will be announced shortly in the official agenda!"
 
@@ -139,12 +121,6 @@ other = "View slides"
 
 [comingSoon]
 other = "Coming soon"
-
-[from]
-other = "From"
-
-[to]
-other = "to"
 
 [inRoom]
 other = "in"
@@ -163,9 +139,6 @@ other = "Schedule and room overview to help you navigate through the event days.
 
 [agendaDisclaimer]
 other = "Schedule, times, and talks may be subject to change prior to the event."
-
-[agendaBtn]
-other = "🗓️ Schedule %s"
 
 [backToAgenda]
 other = "Back to agenda"
@@ -415,9 +388,6 @@ other = "Workshops & Hands-on Labs"
 
 [workshopsSectionDesc]
 other = "Practical sessions, interactive labs, hackathons, and guided workshops to code and learn cutting-edge technologies directly."
-
-[workshopsTeaserDesc]
-other = "Practical sessions, hackathons, and interactive hands-on labs."
 
 [lightningTalks]
 other = "Lightning Talks"

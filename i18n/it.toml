@@ -7,9 +7,6 @@ other = "🎟️ Prendi il Biglietto"
 [getFreeTicket]
 other = "Prendi il biglietto gratuito"
 
-[getTicketNow]
-other = "Prendi il tuo Biglietto Ora"
-
 [openMenu]
 other = "Apri menu"
 
@@ -21,9 +18,6 @@ other = "3 e 4 ottobre 2026"
 
 [heroLocation]
 other = "Fondazione San Carlo, Modena"
-
-[heroFreeBadge]
-other = "Ingresso 100% Gratuito"
 
 [heroTagline]
 other = "La più grande conferenza tech dell'Emilia-Romagna"
@@ -107,12 +101,6 @@ other = "Scopri &rarr;"
 [exploreAllSessions]
 other = "Esplora tutte le %d sessioni"
 
-[sessionsCatalogHeroTitle]
-other = "Esplora le Sessioni del"
-
-[sessionsCatalogHeroDesc]
-other = "Esplora tutti i talk, i workshop e i lightning talk confermati per l'edizione %s! Consulta le nostre 3 tracce tematiche: <b>AI & Machine Intelligence</b>, <b>Cloud & Platform Engineering</b> e <b>Web, Mobile & Dev Experience</b>."
-
 [sessionsTitle]
 other = "Sessioni %s"
 
@@ -125,12 +113,6 @@ other = "Catalogo Sessioni"
 [discoverSession]
 other = "Scopri la sessione"
 
-[track]
-other = "Traccia:"
-
-[language]
-other = "Lingua:"
-
 [scheduleTBA]
 other = "Orari e sala saranno annunciati a breve nell'agenda ufficiale!"
 
@@ -139,12 +121,6 @@ other = "Guarda le slide"
 
 [comingSoon]
 other = "Prossimamente"
-
-[from]
-other = "Dalle"
-
-[to]
-other = "alle"
 
 [inRoom]
 other = "in"
@@ -163,9 +139,6 @@ other = "Il programma degli orari e delle sale per orientarti durante le giornat
 
 [agendaDisclaimer]
 other = "Orari e speech potrebbero subire variazioni prima dell'evento."
-
-[agendaBtn]
-other = "🗓️ Agenda %s"
 
 [backToAgenda]
 other = "Torna all'agenda"
@@ -415,9 +388,6 @@ other = "Workshop & Laboratori Hands-on"
 
 [workshopsSectionDesc]
 other = "Sessioni pratiche, laboratori interattivi, hackathon e percorsi guidati per mettere le mani sul codice e apprendere nuove tecnologie."
-
-[workshopsTeaserDesc]
-other = "Sessioni pratiche, hackathon e laboratori interattivi hands-on."
 
 [lightningTalks]
 other = "Lightning Talks"
