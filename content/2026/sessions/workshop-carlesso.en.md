@@ -13,6 +13,7 @@ topic = "AI & Machine Intelligence"
 slidesURL = ""
 warning = ""
 workshop = true
+ribbon = "Sold Out"
 +++
 
 Take a modern Rails 8 monolith from local development to a resilient, serverless production architecture on Google Cloud with Google Antigravity. In this hands-on workshop, you will master multi-container Cloud Run deployments, zero-trust security, private cloud storage, and background GenAI pipelines.

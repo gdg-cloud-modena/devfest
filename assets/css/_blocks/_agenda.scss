@@ -566,6 +566,21 @@ $time-col-mobile: 78px;
     border: 1px solid colors.$warning-1;
   }
 
+  .agenda-workshopBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: spaces.$space-3xs;
+    font-size: fonts.$size--2;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: colors.$quaternary--2;
+    color: colors.$quaternary-2;
+    border: 1px solid colors.$quaternary-1;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
   .agenda-roomBadge {
     display: inline-flex;
     align-items: center;
@@ -606,6 +621,8 @@ $time-col-mobile: 78px;
     gap: spaces.$space-3xs;
     box-sizing: border-box;
     min-height: 100%;
+    position: relative;
+    overflow: hidden;
     box-shadow: 0 2px 6px rgba(colors.$black, 0.04);
     transition: transform effects.$time ease, box-shadow effects.$time ease;
 
@@ -613,6 +630,12 @@ $time-col-mobile: 78px;
       transform: translateY(-2px);
       box-shadow: 0 6px 14px rgba(colors.$black, 0.09);
     }
+  }
+
+  .agenda-tableCard--hasRibbon .agenda-tableCard-meta,
+  .agenda-tableCard--hasRibbon .agenda-continuesHeader,
+  .agenda-tableCard--hasRibbon .agenda-tableCard-header {
+    padding-right: 48px;
   }
 
   .agenda-tableCard--primary {

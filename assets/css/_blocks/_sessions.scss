@@ -204,11 +204,17 @@
     transition: transform effects.$time ease, box-shadow effects.$time ease, border-color effects.$time ease;
     border: 1px solid rgba(colors.$gray, 0.9);
     border-top: 4px solid colors.$gray;
+    position: relative;
+    overflow: hidden;
 
     &:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(colors.$black, 0.08);
     }
+  }
+
+  .sessions-card--hasRibbon .sessions-cardHeader {
+    padding-right: 50px;
   }
 
   .sessions-card--primary {

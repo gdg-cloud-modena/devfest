@@ -13,7 +13,7 @@ topic = "AI & Machine Intelligence"
 workshop = true
 +++
 
-Una conversazione 1:1 dedicata alla tua carriera. Prenoti uno slot da 20 minuti tramite [questo link](https://calendly.com/eleonora-mistro/consulenza-hr-marketing).
+Una conversazione 1:1 dedicata alla tua carriera per uno slot da 20 minuti.
 
 Niente slide. Niente talk frontali. Nessuna teoria astratta.
 
@@ -44,4 +44,22 @@ Che tu sia:
 
 Al momento della prenotazione condividi ciò che pensi possa essere utile conoscere di te prima della sessione e il tuo profilo LinkedIn. 
 
-Uno spazio informale, riservato e orientato all’ascolto e 1:1 (io e te), [prenota subito](https://calendly.com/eleonora-mistro/consulenza-hr-marketing)!
+Uno spazio informale, riservato e orientato all’ascolto e 1:1 (io e te).
+
+<!--more-->
+
+<div class="callout callout--warning">
+  <p class="p">⚠️ <b>Regole di partecipazione e posti limitati:</b></p>
+  <ul class="ul">
+    <li><b>Assegnazione dei posti:</b> La compilazione del form <b>NON garantisce</b> automaticamente la partecipazione. I posti sono limitati e verranno assegnati in base all'ordine di preferenza (priorità alla 1ª scelta, poi alla 2ª) e alla data di compilazione.</li>
+    <li><b>Appello all'ingresso:</b> I partecipanti registrati verranno chiamati per nome all'ingresso della sala. È importante presentarsi con <b>10 minuti di anticipo</b> per non perdere l'appello.</li>
+    <li><b>Accesso senza prenotazione:</b> Eventuali posti liberi o lasciati vacanti da chi non si presenta all'appello saranno aperti a chi non ha prenotato fino a esaurimento posti.</li>
+    <li><b>Biglietto evento:</b> È obbligatorio essere già in possesso del biglietto generale d'ingresso per il DevFest Modena.</li>
+  </ul>
+</div>
+
+<p class="p">
+  <a class="button" href="https://form.asana.com/?k=OLnkKdwRlVcfAXbOwy1YEw&d=588515525965352" target="_blank" rel="noopener">
+    📝 Iscriviti ai Workshop &rarr;
+  </a>
+</p>

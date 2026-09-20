@@ -162,12 +162,20 @@
                       <span class="agenda-slotTime"><span class="agenda-slotTime-start">{{ $first.Params.starts | time.Format "15:04" }}</span><span class="agenda-slotTime-sep"> - </span><span class="agenda-slotTime-end">{{ $first.Params.ends | time.Format "15:04" }}</span></span>
                     </td>
                     <td class="agenda-td agenda-td--plenary" colspan="{{ len $dayRooms }}">
-                      <article class="agenda-tableCard agenda-tableCard--plenary">
+                      <article class="agenda-tableCard agenda-tableCard--plenary{{ with $first.Params.ribbon }} agenda-tableCard--hasRibbon{{ end }}">
+                        {{ with $first.Params.ribbon }}
+                        <div class="ribbon ribbon--{{ . | urlize }}">
+                          <span class="ribbon-content">{{ . }}</span>
+                        </div>
+                        {{ end }}
                         <div class="agenda-tableCard-header">
                           {{ if $first.Params.keynote }}
                           <span class="agenda-plenaryBadge agenda-plenaryBadge--keynote">Keynote</span>
                           {{ else if and (not $rooms) (not (in (slice "coffee-break-sabato" "coffee-break-domenica") $first.File.TranslationBaseName)) }}
                           <span class="agenda-plenaryBadge">{{ i18n "allRooms" }}</span>
+                          {{ end }}
+                          {{ if $first.Params.workshop }}
+                          <span class="agenda-workshopBadge">🛠️ {{ i18n "workshops" }}</span>
                           {{ end }}
                           {{ range $rooms }}
                           <a class="agenda-roomBadge link" href="{{ .RelPermalink }}">📍 {{ .Title }}</a>
@@ -230,8 +238,16 @@
                       {{ if $sessionStarting }}
                         {{- $track := partial "lookup/track" $sessionStarting.Params.topic -}}
                         <td class="agenda-td agenda-td--session">
-                          <article class="agenda-tableCard{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}">
+                          <article class="agenda-tableCard{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}{{ with $sessionStarting.Params.ribbon }} agenda-tableCard--hasRibbon{{ end }}">
+                            {{ with $sessionStarting.Params.ribbon }}
+                            <div class="ribbon ribbon--{{ . | urlize }}">
+                              <span class="ribbon-content">{{ . }}</span>
+                            </div>
+                            {{ end }}
                             <div class="agenda-tableCard-meta">
+                              {{ if $sessionStarting.Params.workshop }}
+                              <span class="agenda-workshopBadge">🛠️ {{ i18n "workshops" }}</span>
+                              {{ end }}
                               {{ with (or $sessionStarting.Params.tag $sessionStarting.Params.badge) }}
                               <span class="agenda-tagBadge agenda-tagBadge--wip">🚧 {{ . }}</span>
                               {{ end }}
@@ -279,9 +295,17 @@
                         {{ if $sessionContinuing }}
                           {{- $track := partial "lookup/track" $sessionContinuing.Params.topic -}}
                           <td class="agenda-td agenda-td--session agenda-td--continues">
-                            <div class="agenda-tableCard agenda-tableCard--continues{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}">
+                            <div class="agenda-tableCard agenda-tableCard--continues{{ with $track }} agenda-tableCard--{{ .color }}{{ end }}{{ with $sessionContinuing.Params.ribbon }} agenda-tableCard--hasRibbon{{ end }}">
+                              {{ with $sessionContinuing.Params.ribbon }}
+                              <div class="ribbon ribbon--{{ . | urlize }}">
+                                <span class="ribbon-content">{{ . }}</span>
+                              </div>
+                              {{ end }}
                               <div class="agenda-continuesHeader">
                                 <span class="agenda-continuesBadge">⏳ {{ i18n "ongoing" }}</span>
+                                {{ if $sessionContinuing.Params.workshop }}
+                                <span class="agenda-workshopBadge">🛠️ {{ i18n "workshops" }}</span>
+                                {{ end }}
                                 {{ with (or $sessionContinuing.Params.tag $sessionContinuing.Params.badge) }}
                                 <span class="agenda-tagBadge agenda-tagBadge--wip">🚧 {{ . }}</span>
                                 {{ end }}

@@ -354,19 +354,24 @@ code = "gold"
 weight = 3
 
 [[levels]]
+title = "Silver"
+code = "silver"
+weight = 4
+
+[[levels]]
 title = "Bronze"
 code = "bronze"
-weight = 4
+weight = 5
 
 [[levels]]
 title = "Startup"
 code = "startup"
-weight = 5
+weight = 6
 
 [[levels]]
 title = "Media Partner"
 code = "media"
-weight = 6
+weight = 7
 
 # Sponsors, put new ones at the end of the list
 
@@ -465,5 +470,17 @@ name = "GDG Vicenza"
 code = "gdg-vicenza"
 link = "https://gdg.community.dev/gdg-vicenza/"
 level = "media"
+
+[[partners]]
+name = "Bisy"
+code = "bisy"
+link = "https://bisy.it/"
+level = "bronze"
+
+[[partners]]
+name = "Iungo"
+code = "iungo"
+link = "https://www.iungo.com"
+level = "silver"
 
 

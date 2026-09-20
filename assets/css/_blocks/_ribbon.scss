@@ -1,0 +1,48 @@
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 85px;
+    height: 85px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .ribbon-content {
+    position: absolute;
+    display: block;
+    width: 120px;
+    padding: 3px 0;
+    background-color: colors.$gray;
+    box-shadow: 0 2px 4px rgba(colors.$black, 0.2);
+    color: colors.$black;
+    font-family: fonts.$text;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    right: -28px;
+    top: 18px;
+    transform: rotate(45deg);
+  }
+
+  .ribbon--hackathon .ribbon-content {
+    background-color: colors.$primary-2;
+    color: colors.$primary-contrast;
+  }
+
+  .ribbon--sold-out .ribbon-content,
+  .ribbon--soldout .ribbon-content {
+    background-color: colors.$danger-1;
+    color: colors.$danger-contrast;
+  }
+}

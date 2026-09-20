@@ -13,6 +13,7 @@ topic = "AI & Machine Intelligence"
 slidesURL = ""
 warning = ""
 workshop = true
+ribbon = "Sold Out"
 +++
 
 Porta un moderno monolito Rails 8 dallo sviluppo locale a un'architettura di produzione resiliente e serverless su Google Cloud con il supporto di Google Antigravity. In questo workshop pratico imparerai a padroneggiare il deployment su Cloud Run multi-container, la sicurezza zero-trust, lo storage privato sul cloud e pipeline asincrone di Generative AI.

@@ -6,7 +6,8 @@
 @use "_default/_spaces";
 
 @if r.$core {
-  .button {
+  .button,
+  a.button {
     display: inline-block;
     padding: spaces.$space-xs spaces.$space-m;
     border: 2px solid transparent;

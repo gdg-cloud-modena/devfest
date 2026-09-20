@@ -2,6 +2,7 @@
 
 @use "_responsive" as r;
 
+@use "_default/_colors";
 @use "_default/_spaces";
 
 @use "_blocks/_h1";
@@ -37,6 +38,23 @@
 
     a {
       @extend .link;
+    }
+
+    a.button,
+    .button {
+      color: colors.$primary-contrast;
+      text-decoration: none;
+
+      &:link,
+      &:visited {
+        color: colors.$primary-contrast;
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: colors.$primary-contrast;
+        text-decoration: none;
+      }
     }
 
     ol {
