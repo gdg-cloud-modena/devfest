@@ -59,7 +59,7 @@ Uno spazio informale, riservato e orientato all’ascolto e 1:1 (io e te).
 </div>
 
 <p class="p">
-  <a class="button" href="https://form.asana.com/?k=OLnkKdwRlVcfAXbOwy1YEw&d=588515525965352" target="_blank" rel="noopener">
+  <a class="button" href="https://calendly.com/eleonora-mistro/eleonora-mistro" target="_blank" rel="noopener">
     📝 Iscriviti ai Workshop &rarr;
   </a>
 </p>
