@@ -113,6 +113,12 @@ other = "Catalogo Sessioni"
 [discoverSession]
 other = "Scopri la sessione"
 
+[sessionSoldOutTitle]
+other = "Workshop sold out"
+
+[sessionSoldOutText]
+other = "I posti disponibili sono esauriti e le iscrizioni sono chiuse."
+
 [scheduleTBA]
 other = "Orari e sala saranno annunciati a breve nell'agenda ufficiale!"
 

@@ -20,4 +20,10 @@
     background-color: colors.$warning--2;
   }
 
+  .callout--soldOut {
+    background-color: colors.$danger--4;
+    border-color: colors.$danger-1;
+    border-left-width: 6px;
+  }
+
 }

@@ -82,6 +82,16 @@
     </div>
   </div>
 
+  {{ if and .Params.workshop .Params.soldOut }}
+  <aside class="callout callout--soldOut sessionDetail-soldOut" aria-label="{{ i18n "sessionSoldOutTitle" }}">
+    <span class="sessionDetail-soldOutIcon" aria-hidden="true">!</span>
+    <div>
+      <h2 class="sessionDetail-soldOutTitle">{{ i18n "sessionSoldOutTitle" }}</h2>
+      <p class="sessionDetail-soldOutText">{{ i18n "sessionSoldOutText" }}</p>
+    </div>
+  </aside>
+  {{ end }}
+
   <div class="content sessionDetail-content">
     {{ .Content }}
   </div>

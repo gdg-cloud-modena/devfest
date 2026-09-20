@@ -539,6 +539,41 @@
     margin-bottom: spaces.$space-xl;
   }
 
+  .sessionDetail-soldOut {
+    display: flex;
+    align-items: center;
+    gap: spaces.$space-s;
+    padding: spaces.$space-s spaces.$space-m;
+    margin: 0 0 spaces.$space-l;
+  }
+
+  .sessionDetail-soldOutIcon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: colors.$danger-1;
+    color: colors.$danger-contrast;
+    font-size: fonts.$size-1;
+    font-weight: 800;
+  }
+
+  .sessionDetail-soldOutTitle {
+    margin: 0 0 spaces.$space-3xs;
+    color: colors.$danger-4;
+    font-size: fonts.$size-1;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .sessionDetail-soldOutText {
+    margin: 0;
+    color: colors.$black;
+    line-height: 1.5;
+  }
+
   .sessionDetail-speakersSection {
     margin-top: spaces.$space-xl;
     padding-top: spaces.$space-l;

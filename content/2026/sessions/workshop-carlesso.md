@@ -13,6 +13,7 @@ topic = "AI & Machine Intelligence"
 slidesURL = ""
 warning = ""
 workshop = true
+soldOut = true
 ribbon = "Sold Out"
 +++
 
@@ -26,4 +27,3 @@ Porta un moderno monolito Rails 8 dallo sviluppo locale a un'architettura di pro
 * 🟢 **Storage Privato degli Asset con IAM Signing**: Salva gli upload in bucket privati di Google Cloud Storage utilizzando URL firmati temporanei (Signed URLs), senza bucket pubblici.
 * 🔵 **GenAI Asincrona con Gemini & Solid Queue**: Genera copertine AI per il blog tramite Google Imagen 3 sfruttando le code native di Rails 8 basate su database.
 * 🔴 **AI Pair Programming con Google Antigravity**: Accelera il troubleshooting, la scrittura del codice e il deployment su cloud con un pair programming potenziato dall'intelligenza artificiale.
-
