@@ -142,10 +142,18 @@
 
   .hero-actions {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: spaces.$space-s;
+    margin-top: spaces.$space-2xs;
+  }
+
+  .hero-actionsRow {
+    display: flex;
     gap: spaces.$space-s;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: spaces.$space-2xs;
+    align-items: center;
   }
 
   // Primary hero button — solid yellow/tertiary for maximum contrast
@@ -238,7 +246,15 @@
     flex-direction: column;
     align-items: stretch;
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
+    gap: spaces.$space-xs;
+  }
+
+  .hero-actionsRow {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: spaces.$space-xs;
   }
 
   .button--hero,

@@ -99,9 +99,13 @@
   }
 
   .header-dropdownIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     list-style: none;
     padding: 0.5em 0.75em;
     border-radius: 9999px;
+    cursor: pointer;
     transition: background-color effects.$time ease;
 
     &:hover {
@@ -122,11 +126,13 @@
   }
 
   .header-dropdownImg {
-    display: inline;
+    width: 32px;
+    height: 32px;
+    display: block;
   }
 
   .header-dropdownImg--open {
-    display: inline;
+    display: block;
   }
 
   .header-dropdownImg--close {
@@ -138,7 +144,7 @@
   }
 
   .header-dropdown[open] .header-dropdownImg--close {
-    display: inline;
+    display: block;
   }
 
   .header-burgerMenu {
@@ -274,8 +280,23 @@
   }
 }
 
-// Small screens: collapse the inline nav into the burger menu.
-// This is the mobile bundle, already scoped to (max-width: 39.9375em).
+@if r.$tablet {
+  .header-brand img {
+    width: min(45vw, 13.5rem);
+    height: auto;
+  }
+
+  .header-menuItem,
+  .header-ticketsBtn,
+  .header-langSwitch--desktopOnly {
+    display: none;
+  }
+
+  .header-dropdown--smallOnly {
+    display: block;
+  }
+}
+
 @if r.$mobile {
   .header-brand img {
     width: min(55vw, 13.5rem);
@@ -289,6 +310,6 @@
   }
 
   .header-dropdown--smallOnly {
-    display: inline;
+    display: block;
   }
 }
