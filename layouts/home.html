@@ -31,11 +31,16 @@
       <p class="hero-tagline">{{ i18n "heroTagline" }}</p>
 
       <div class="hero-actions">
+        <div class="hero-actionsRow">
+          <a class="button button--heroSecondary" href="{{ printf "/%v/agenda/" $edition | relLangURL }}">
+            {{ i18n "viewAgenda" }}
+          </a>
+          <a class="button button--heroSecondary" href="{{ printf "/%v/sessions/" $edition | relLangURL }}">
+            {{ i18n "exploreSessions" }}
+          </a>
+        </div>
         <a class="button button--hero" href="{{ site.Params.ticketsUrl }}" target="_blank" rel="noopener">
           {{ i18n "getFreeTicket" }}
-        </a>
-        <a class="button button--heroSecondary" href="{{ printf "/%v/sessions/" $edition | relLangURL }}">
-          {{ i18n "exploreSessions" }}
         </a>
       </div>
     </div>

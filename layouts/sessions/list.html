@@ -5,6 +5,7 @@
 {{- $tracks := partial "lookup/tracks" . -}}
 {{- $workshops := where $allSessions "Params.workshop" true -}}
 {{- $lightningSessions := where $allSessions "File.TranslationBaseName" "in" (slice "lightning-talk" "lightning-talks") -}}
+{{- $concertSessions := where $allSessions "File.TranslationBaseName" "in" (slice "concerto" "concert") -}}
 
 <main class="section section--padded">
   {{ partial "previous-edition" . }}
@@ -52,6 +53,15 @@
       <span class="sessions-trackNavContent">
         <span class="sessions-trackNavCardTitle">{{ i18n "lightningTalks" }}</span>
         <span class="sessions-trackNavCount">{{ if gt $ltCount 0 }}{{ printf (i18n "sessionCount") $ltCount }}{{ else }}⚡{{ end }}</span>
+      </span>
+    </a>
+    {{ end }}
+    {{ with $concertSessions }}
+    <a class="sessions-trackNavCard sessions-trackNavCard--primary" href="#concert">
+      <span class="sessions-trackNavEmoji" aria-hidden="true">🎸</span>
+      <span class="sessions-trackNavContent">
+        <span class="sessions-trackNavCardTitle">{{ i18n "concertSectionTitle" }}</span>
+        <span class="sessions-trackNavCount">{{ printf (i18n "sessionCount") (len .) }}</span>
       </span>
     </a>
     {{ end }}
@@ -229,6 +239,66 @@
             {{ $session.Summary | truncate 200 }}
             {{ end }}
           </div>
+        </div>
+
+        <div class="sessions-cardFooter">
+          <a class="sessions-cardFooterLink" href="{{ $session.RelPermalink }}">{{ i18n "discoverSession" }} &rarr;</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* Concert Section */}}
+  {{ with $concertSessions }}
+  <section id="concert" class="sessions-trackSection">
+    <div class="sessions-trackHeader sessions-trackHeader--primary">
+      <div class="sessions-trackTitleGroup">
+        <span class="sessions-trackEmoji" aria-hidden="true">🎸</span>
+        <h2 class="h2 sessions-trackTitle">{{ i18n "concertSectionTitle" }}</h2>
+      </div>
+      <p class="sessions-trackDesc">{{ i18n "concertSectionDesc" }}</p>
+    </div>
+
+    <div class="sessions-grid">
+      {{ range $session := . }}
+      <div class="sessions-card sessions-card--primary{{ with $session.Params.ribbon }} sessions-card--hasRibbon{{ end }}">
+        {{ with $session.Params.ribbon }}
+        <div class="ribbon ribbon--{{ . | urlize }}">
+          <span class="ribbon-content">{{ . }}</span>
+        </div>
+        {{ end }}
+        <div>
+          <div class="sessions-cardHeader">
+            {{ with $session.Params.ribbon }}
+            <span class="sessions-badge sessions-badge--primary">🎸 {{ . }}</span>
+            {{ end }}
+            {{ with $session.Params.language }}
+            <span class="sessions-badge sessions-badge--lang">🌐 {{ . }}</span>
+            {{ end }}
+          </div>
+          <h3 class="h3 sessions-cardTitle">
+            <a class="sessions-cardTitleLink" href="{{ $session.RelPermalink }}">{{ $session.Title }}</a>
+          </h3>
+
+          {{ with $session.Params.speakers }}
+          <div class="sessions-speakers">
+            {{ range $slug := . }}
+            {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}
+            {{ $avatar := (partial "lookup/speaker-image" $slug).Fit "80x80 q85 jpg" }}
+            <a class="sessions-speakerLink" href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img class="sessions-speakerAvatar" src="{{ $avatar.RelPermalink }}" alt="{{ .Title }}" width="32" height="32" loading="lazy">
+              <span class="sessions-speakerName">{{ .Title }}</span>
+            </a>
+            {{ else }}
+            <span class="sessions-speakerName">{{ $slug }}</span>
+            {{ end }}
+            {{ end }}
+          </div>
+          {{ end }}
+
+          <div class="sessions-cardDesc">{{ $session.Summary | truncate 200 }}</div>
         </div>
 
         <div class="sessions-cardFooter">

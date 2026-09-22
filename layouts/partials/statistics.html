@@ -9,10 +9,18 @@
 
 {{- if $edition -}}
 {{- $sessions := partial "lookup/pages" (printf "/%s/sessions" $year) -}}
+{{- $hidden := cond (ne $edition nil) (default slice $edition.hiddenSpeakers) slice -}}
 {{- $speakers := slice -}}
 {{- range $sessions -}}
   {{- range .Params.speakers -}}
-    {{- if not (in $speakers .) -}}{{- $speakers = $speakers | append . -}}{{- end -}}
+    {{- $sp := partial "lookup/page" (printf "/speakers/%s" .) -}}
+    {{- $hide := false -}}
+    {{- with $sp -}}
+      {{- $hide = or .Params.hideFromWall .Params.hiddenFromWall .Params.hideFromSpeakerWall .Params.hideFromStats -}}
+    {{- end -}}
+    {{- if and (not (in $hidden .)) (not $hide) -}}
+      {{- if not (in $speakers .) -}}{{- $speakers = $speakers | append . -}}{{- end -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- $rooms := len (where (partial "lookup/pages" (printf "/%s/rooms" $year)) "Params.forSessions" true) -}}

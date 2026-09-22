@@ -564,7 +564,60 @@
   }
 }
 
+@if r.$desktop {
+  .sessions-trackNav {
+    display: flex;
+    flex-direction: row;
+    gap: spaces.$space-2xs;
+  }
+
+  .sessions-trackNavCard {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: spaces.$space-2xs spaces.$space-xs;
+    gap: spaces.$space-3xs;
+  }
+
+  .sessions-trackNavEmoji {
+    font-size: 1.25rem;
+  }
+
+  .sessions-trackNavCardTitle {
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+
+  .sessions-trackNavCount {
+    font-size: 0.72rem;
+  }
+}
+
+@if r.$tablet {
+  .sessions-trackNav {
+    grid-template-columns: repeat(3, 1fr);
+    gap: spaces.$space-xs;
+  }
+}
+
 @if r.$mobile {
+  .sessions-trackNav {
+    grid-template-columns: repeat(2, 1fr);
+    gap: spaces.$space-2xs;
+  }
+
+  .sessions-trackNavCard {
+    padding: spaces.$space-2xs;
+    gap: spaces.$space-3xs;
+  }
+
+  .sessions-trackNavEmoji {
+    font-size: 1.2rem;
+  }
+
+  .sessions-trackNavCardTitle {
+    font-size: 0.8rem;
+  }
+
   .sessions-grid {
     grid-template-columns: 1fr;
     gap: spaces.$space-s;
