@@ -428,6 +428,12 @@ other = "Quick 10-minute talks proposed directly by attendees and the community.
 [lightningTalksScheduleTitle]
 other = "Confirmed talks in schedule:"
 
+[concertSectionTitle]
+other = "Live Concert"
+
+[concertSectionDesc]
+other = "Live music, entertainment and networking to celebrate the end of the first day of DevFest Modena."
+
 [speedNetworking]
 other = "Speed networking"
 

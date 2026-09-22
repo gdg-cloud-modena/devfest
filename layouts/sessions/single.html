@@ -22,6 +22,9 @@
 
   <div class="sessionDetail-header">
     <div class="sessionMeta-badges">
+      {{ with .Params.ribbon }}
+      <span class="sessionMeta-badge sessionMeta-badge--primary">🎸 {{ . }}</span>
+      {{ end }}
       {{ with (or .Params.tag .Params.badge) }}
       <span class="sessionMeta-badge sessionMeta-badge--wip">🚧 {{ . }}</span>
       {{ end }}
@@ -31,8 +34,10 @@
       {{ if .Params.lightningTalks }}
       <span class="sessionMeta-badge sessionMeta-badge--primary">⚡ {{ i18n "lightningTalks" }}</span>
       {{ end }}
+      {{ if .Params.topic }}
       {{ with $track }}
       <span class="sessionMeta-badge sessionMeta-badge--{{ .color }}">{{ .emoji }} {{ .key }}</span>
+      {{ end }}
       {{ end }}
       {{ with .Params.language }}
       <span class="sessionMeta-badge sessionMeta-badge--lang">🌐 {{ . }}</span>
@@ -83,7 +88,7 @@
 
   {{ with .Params.speakers }}
   <div class="sessionDetail-speakersSection">
-    <h2 class="h2 sessionDetail-speakersTitle">{{ if eq (len .) 1 }}{{ i18n "speaker" }}{{ else }}{{ i18n "speakers" }}{{ end }}</h2>
+    <h2 class="h2 sessionDetail-speakersTitle">{{ with $.Params.speakersTitle }}{{ . }}{{ else }}{{ with $.Params.speakersLabel }}{{ . }}{{ else }}{{ if eq (len .) 1 }}{{ i18n "speaker" }}{{ else }}{{ i18n "speakers" }}{{ end }}{{ end }}{{ end }}</h2>
     <div class="relatedSpeakers-grid">
       {{ range $slug := . }}
       {{ with partial "lookup/page" (printf "/speakers/%s" $slug) }}

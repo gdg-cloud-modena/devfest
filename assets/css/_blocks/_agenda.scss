@@ -37,15 +37,10 @@ $time-col-mobile: 78px;
   }
 }
 
-/* Re-pin the plenary card against a narrower time column. */
+/* Plenary card padding on smaller viewports. */
 @mixin plenary-pinned-to($col) {
   .agenda-td--plenary {
     padding: spaces.$space-2xs;
-  }
-
-  .agenda-tableCard--plenary {
-    left: calc(#{$col} + 2px + #{spaces.$space-2xs});
-    width: calc(100cqw - #{$col} - 2px - #{spaces.$space-2xs} - #{spaces.$space-2xs});
   }
 }
 
@@ -505,22 +500,18 @@ $time-col-mobile: 78px;
     padding: spaces.$space-s;
   }
 
-  /* Plenary rows span every room, so most of the card would sit off-screen once
-     the rooms scroll sideways. Pin it beside the time column, sized to what is
-     actually visible, so it stays readable at any scroll offset. */
+  /* Plenary rows span every room across the entire table row. */
   .agenda-tableCard--plenary {
-    position: sticky;
-    left: calc(#{$time-col} + 2px + #{spaces.$space-s});
-    z-index: 1;
-    width: calc(
-      100cqw - #{$time-col} - 2px - #{spaces.$space-s} - #{spaces.$space-s}
-    );
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
     background-color: colors.$white;
     border-radius: 12px;
     border: 1px solid rgba(colors.$gray, 0.6);
     border-left: 6px solid colors.$secondary;
     padding: spaces.$space-s spaces.$space-m;
     box-shadow: 0 2px 8px rgba(colors.$black, 0.04);
+    overflow: hidden;
   }
 
   .agenda-tableCard-header {

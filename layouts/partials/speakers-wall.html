@@ -2,13 +2,21 @@
 {{- $year := printf "%v" site.Params.currentEdition -}}
 {{- $edition := index site.Data $year -}}
 {{- $featured := cond (ne $edition nil) (default slice $edition.featuredSpeakers) slice -}}
+{{- $hidden := cond (ne $edition nil) (default slice $edition.hiddenSpeakers) slice -}}
 
 {{/* Every speaker with a session this edition, in session order. */}}
 {{- $slugs := slice -}}
 {{- range partial "lookup/pages" (printf "/%s/sessions" $year) -}}
   {{- range .Params.speakers -}}
-    {{- if not (in $slugs .) -}}
-      {{- $slugs = $slugs | append . -}}
+    {{- $sp := partial "lookup/page" (printf "/speakers/%s" .) -}}
+    {{- $isExplicitlyHidden := false -}}
+    {{- with $sp -}}
+      {{- $isExplicitlyHidden = or .Params.hideFromWall .Params.hiddenFromWall .Params.hideFromSpeakerWall -}}
+    {{- end -}}
+    {{- if and (not (in $hidden .)) (not $isExplicitlyHidden) -}}
+      {{- if not (in $slugs .) -}}
+        {{- $slugs = $slugs | append . -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

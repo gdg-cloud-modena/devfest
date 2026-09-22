@@ -428,6 +428,12 @@ other = "Interventi rapidi di 10 minuti proposti direttamente dai partecipanti e
 [lightningTalksScheduleTitle]
 other = "Talk confermati in scaletta:"
 
+[concertSectionTitle]
+other = "Concerto Live"
+
+[concertSectionDesc]
+other = "Musica dal vivo, intrattenimento e networking per chiudere in bellezza la prima giornata del DevFest Modena."
+
 [speedNetworking]
 other = "Speed networking"
 
