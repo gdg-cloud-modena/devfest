@@ -50,3 +50,15 @@ website = "https://www.makerdojo.it/"
 name = "Modena.rb"
 code = "modena-rb"
 website = "https://www.meetup.com/modena-rb/"
+
+[[community]]
+name = "Mantova Dev"
+code = "mantova-dev"
+website = "https://mantova.dev/"
+
+[[community]]
+name = "PhyRE"
+code = "phyre"
+website = "https://www.phyre.it/"
+
+
