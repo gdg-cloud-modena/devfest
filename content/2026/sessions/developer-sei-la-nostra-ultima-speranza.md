@@ -4,7 +4,7 @@ date = 2026-06-13
 draft = false
 
 [params]
-rooms = ["40"]
+rooms = ["cappella"]
 starts = 2026-10-04T11:00:00
 ends = 2026-10-04T11:30:00
 speakers = ["lara-lombardi"]

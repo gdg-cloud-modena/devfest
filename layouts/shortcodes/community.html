@@ -30,6 +30,18 @@
 		    {{ end }}
           <a class="card-body" href="{{ $website }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}">
             {{- $logo := resources.Get (printf "communities/%s.png" .code) -}}
+            {{- if not $logo -}}
+              {{- $logo = resources.Get (printf "communities/%s.jpg" .code) -}}
+            {{- end -}}
+            {{- if not $logo -}}
+              {{- $logo = resources.Get (printf "communities/%s.jpeg" .code) -}}
+            {{- end -}}
+            {{- if not $logo -}}
+              {{- $logo = resources.Get (printf "communities/%s.webp" .code) -}}
+            {{- end -}}
+            {{- if not $logo -}}
+              {{- $logo = resources.Get (printf "communities/%s.svg" .code) -}}
+            {{- end -}}
             {{- if $logo -}}
               {{- $image := $logo.Fit "200x200 webp q80" -}}
 	            <img class="card-logo" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Logo {{ .name }}" loading="lazy" >

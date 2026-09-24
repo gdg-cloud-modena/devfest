@@ -103,13 +103,17 @@
     align-items: center;
     justify-content: center;
     list-style: none;
-    padding: 0.5em 0.75em;
-    border-radius: 9999px;
+    padding: 0.45em 0.55em;
+    border-radius: 10px;
+    background-color: colors.$white;
+    border: 1px solid rgba(colors.$black, 0.15);
+    box-shadow: 0 2px 6px rgba(colors.$black, 0.08);
     cursor: pointer;
-    transition: background-color effects.$time ease;
+    transition: all effects.$time ease;
 
     &:hover {
       background-color: colors.$gray--1;
+      border-color: rgba(colors.$black, 0.3);
     }
 
     // Prevents text selection
@@ -126,8 +130,8 @@
   }
 
   .header-dropdownImg {
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
     display: block;
   }
 

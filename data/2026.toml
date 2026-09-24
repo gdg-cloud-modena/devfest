@@ -30,6 +30,8 @@ communities = [
   "modena-rb",
   "she-is-a-scientist",
   "designing-success",
+  "mantova-dev",
+  "phyre",
 ]
 
 # People roles
@@ -335,6 +337,104 @@ code = "stefano-sprocatti"
 name = "Stefano Sprocatti"
 description = "Project Manager presso SIAV Spa - Bologna"
 website = "https://www.linkedin.com/in/stefanosprocatti/"
+
+[[people]]
+role = "staff"
+code = "fabio-trigari"
+name = "Fabio Trigari"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "francesca-palazzo"
+name = "Francesca Palazzo"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "lorenzo-baronio"
+name = "Lorenzo Baronio"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "marco-capelli"
+name = "Marco Capelli"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "simone-ipsale"
+name = "Simone Ipsale"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "mattia-borrelli"
+name = "Mattia Borrelli"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "brian-elmi"
+name = "Brian Elmi"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "megan-elmi"
+name = "Megan Elmi"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "ginevra-coti"
+name = "Ginevra Coti"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "luca-alterio"
+name = "Luca Alterio"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "priscilla-appoggetti"
+name = "Priscilla Appoggetti"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "martina-paglialonga"
+name = "Martina Paglialonga"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "davide-cornero"
+name = "Davide Cornero"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "sonia-bertacchi"
+name = "Sonia Bertacchi"
+description = ""
+website = ""
 
 # Sponsorship levels, weight ascending
 

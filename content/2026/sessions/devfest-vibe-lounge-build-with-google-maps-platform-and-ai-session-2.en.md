@@ -1,13 +1,13 @@
 +++
-title = "DevFest Vibe Lounge - Build with Google Maps Platform and AI - Session 1"
+title = "DevFest Vibe Lounge - Build with Google Maps Platform and AI - Session 2"
 date = 2026-09-18
 draft = false
 
 [params]
 rooms = ["biblioteca-antica"]
 speakers = ["mirko-gilioli", "maurizio-ipsale"]
-starts = 2026-10-03T10:45:00
-ends = 2026-10-03T11:45:00
+starts = 2026-10-03T12:00:00
+ends = 2026-10-03T13:00:00
 language = "English"
 topic = "Cloud & Platform Engineering"
 slidesURL = ""
