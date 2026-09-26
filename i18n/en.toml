@@ -551,3 +551,16 @@ other = "The companies and partner organizations that supported the event."
 
 [exploreSection]
 other = "Explore"
+
+[mayorGreetingTag]
+other = "A Message from the Mayor of Modena"
+
+[mayorGreetingText]
+other = "Hosting the great and passionate DevFest community in Modena for the third consecutive year is another important brick to strengthen the construction of that ecosystem of University, research, business, startups, services, and public functions that I recently placed at the center of a proposal for the development of 21st-century manufacturing. I therefore thank the organizers, the many speakers—including international guests—and the hundreds of attendees joining the sessions at Fondazione San Carlo, on the path leading us to the 11th edition of the Smart Life Festival in mid-October."
+
+[mayorGreetingAuthor]
+other = "Massimo Mezzetti"
+
+[mayorGreetingRole]
+other = "Mayor of Modena"
+

@@ -133,6 +133,8 @@
     width: 26px;
     height: 26px;
     display: block;
+    flex-shrink: 0;
+    pointer-events: none;
   }
 
   .header-dropdownImg--open {

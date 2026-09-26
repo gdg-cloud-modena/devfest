@@ -22,9 +22,16 @@
       </div>
 
       <details class="header-dropdown header-dropdown--smallOnly" name="header">
-        <summary class="header-dropdownIcon">
-          <img class="header-dropdownImg header-dropdownImg--open" src="/icons/burger.svg" alt="{{ i18n "openMenu" }}" title="{{ i18n "openMenu" }}" width="32" height="32">
-          <img class="header-dropdownImg header-dropdownImg--close" src="/icons/close.svg" alt="{{ i18n "closeMenu" }}" title="{{ i18n "closeMenu" }}" width="32" height="32">
+        <summary class="header-dropdownIcon" aria-label="{{ i18n "openMenu" }}">
+          <svg class="header-dropdownImg header-dropdownImg--open" width="24" height="24" viewBox="0 0 24 24" fill="#1e1e1e" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="2.5" rx="1.25" fill="#1e1e1e" />
+            <rect x="3" y="11" width="18" height="2.5" rx="1.25" fill="#1e1e1e" />
+            <rect x="3" y="17" width="18" height="2.5" rx="1.25" fill="#1e1e1e" />
+          </svg>
+          <svg class="header-dropdownImg header-dropdownImg--close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" stroke="#1e1e1e" stroke-width="2.5" />
+            <line x1="6" y1="6" x2="18" y2="18" stroke="#1e1e1e" stroke-width="2.5" />
+          </svg>
         </summary>
         <nav class="header-burgerMenu">
           {{ range site.Menus.main }}
