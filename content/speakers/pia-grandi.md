@@ -5,10 +5,10 @@ draft = false
 
 [params]
 company = ""
-role = "Tech Marketing Manager"
+role = "Marketing Strategist freelance"
 male = false
 [params.social]
-linkedin = ""
+linkedin = "https://www.linkedin.com/in/piagrandi"
 github = ""
 twitter = ""
 website = ""
