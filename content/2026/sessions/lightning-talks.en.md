@@ -5,7 +5,7 @@ draft = false
 
 [params]
 rooms = ["cappella"]
-speakers = ["nello-polesello", "andrea-saravalle"]
+speakers = ["nello-polesello", "andrea-saravalle", "angela-petraglia"]
 starts = 2026-10-03T16:30:00
 ends = 2026-10-03T17:45:00
 slidesURL = ""
@@ -24,6 +24,14 @@ title = "You Deployed AI. But Did the Process Actually Improve?"
 speaker = "Andrea Saravalle"
 description = "If artificial intelligence is now everywhere and integrated into countless work tools, why isn't productivity rising at the same pace? This talk draws a distinction between deploying a technology and generating real value.\n\nOrganizations and developers often measure success by user counts, generation speeds, prompts run, or theoretical hours saved. However, these metrics don't prove an actual business process has improved. From an economic perspective, this talk demonstrates that AI only creates productivity when applied to a concrete workflow bottleneck, altering a decision, and producing measurable before-and-after results.\n\nIn ten minutes, an actionable framework to move past benchmarks and demos: ask which process changes, which friction is removed, and which outcome is truly measurable."
 profileURL = "/en/speakers/andrea-saravalle/"
+slidesURL = ""
+done = false
+
+[[params.lightningTalks]]
+title = "I Just Write Code: Controller, Processor, Authorized or 404 Not Found? GDPR Answers"
+speaker = "Angela Petraglia"
+description = "While you write code, the GDPR determines your role. Find out if you are a Controller, Processor, Authorized person, or 404 Not Found.\n\nYou implemented OAuth2, optimized queries across millions of rows, and deployed to production on a Friday night—yet the GDPR looks at you and still doesn't know who you are. Controller? Processor? Authorized? Or are you just an undefined value in the European privacy map?\n\nIn this talk, we explore what the European General Data Protection Regulation (EU) 2016/679 entails when applied to your tech stack."
+profileURL = "/en/speakers/angela-petraglia/"
 slidesURL = ""
 done = false
 +++

@@ -1,6 +1,6 @@
 +++
 title = "Angela Petraglia"
-date = 2025-09-10
+date = 2026-06-13
 draft = false
 
 [params]
@@ -9,13 +9,18 @@ role = "Lawyer & Legal Tech Consultant"
 male = false
 [params.social]
 linkedin = "https://www.linkedin.com/in/avv-angela-petraglia/"
+instagram = "https://www.instagram.com/angelapetraglia_legaltech"
 github = ""
 twitter = ""
 website = ""
 +++
 
-Angela Petraglia, lawyer.
-She specializes in legal informatics and computer law with an interdisciplinary approach to emerging technologies, aimed at fostering an ethical vision in both the public and private sectors.
-She pays particular attention to regulatory evolution in the digital domain and ethical aspects of artificial intelligence through studies within the Faculty of Philosophy at the Pontifical University Antonianum.
-She assists innovative startups, SMEs, non-profit organizations, and public entities in the delicate process of digital transformation and regulatory compliance.
-She writes for specialized journals and is a frequent speaker at conferences and events dedicated to new technologies and digital culture.
+Angela Petraglia is a lawyer registered with the Reggio Emilia Bar.
+
+She specializes in the ethical and legal aspects of emerging technologies, including artificial intelligence and blockchain.
+
+She assists innovative startups, SMEs, non-profit organizations, and public entities in digital transformation, regulatory compliance, and building responsible governance for adopting new technologies.
+
+She studied legal informatics at the University of Bologna and explored critical aspects of artificial intelligence at the Faculty of Philosophy at the Pontifical University Antonianum in Rome.
+
+Author of podcasts and contributions for specialized magazines, she regularly speaks at conferences and events dedicated to new technologies and digital culture.
