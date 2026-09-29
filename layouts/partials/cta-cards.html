@@ -1,0 +1,14 @@
+{{- $cards := slice
+  (dict "key" "ctaCv" "url" site.Params.cvFormUrl)
+  (dict "key" "ctaPhotos" "url" site.Params.photosUrl)
+-}}
+
+<section class="section ctaCards">
+  {{- range $cards }}
+  <div class="ctaCards-item">
+    <h2 class="ctaCards-title">{{ i18n (printf "%sTitle" .key) }}</h2>
+    <p class="p ctaCards-desc">{{ i18n (printf "%sDesc" .key) }}</p>
+    <a class="button button--secondary" href="{{ .url }}" target="_blank" rel="noopener">{{ i18n (printf "%sBtn" .key) }}</a>
+  </div>
+  {{- end }}
+</section>

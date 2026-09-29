@@ -279,7 +279,16 @@ other = "Send your CV"
 other = "Send your resume, we will share it with companies looking for team members."
 
 [ctaCvBtn]
-other = "Send here"
+other = "Submit your CV"
+
+[ctaPhotosTitle]
+other = "Share your photos"
+
+[ctaPhotosDesc]
+other = "Took some pictures at DevFest? Upload them to the event's shared album."
+
+[ctaPhotosBtn]
+other = "Upload photos"
 
 [cfsCallout]
 other = "Want to speak at DevFest Modena %s? The Call for Speakers is open."

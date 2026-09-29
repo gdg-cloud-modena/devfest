@@ -1,0 +1,46 @@
+// Pair of secondary calls to action shown under the tickets banner.
+
+@use "_responsive" as r;
+
+@use "_default/_colors";
+@use "_default/_fonts";
+@use "_default/_spaces";
+
+@if r.$core {
+  .ctaCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: spaces.$space-m;
+    padding-bottom: spaces.$space-l;
+  }
+
+  .ctaCards-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: spaces.$space-2xs;
+    padding: spaces.$space-l spaces.$space-m;
+    text-align: center;
+    background-color: colors.$white;
+    border: 1px solid rgba(colors.$black, 0.06);
+    border-radius: 16px;
+  }
+
+  .ctaCards-title {
+    font-size: fonts.$size-2;
+    font-weight: bold;
+    color: colors.$primary-2;
+  }
+
+  // Pushes the buttons to the same baseline when descriptions differ in length.
+  .ctaCards-desc {
+    flex-grow: 1;
+    max-width: 40ch;
+  }
+}
+
+@if r.$mobile {
+  .ctaCards {
+    grid-template-columns: 1fr;
+  }
+}
