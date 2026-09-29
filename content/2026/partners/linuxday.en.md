@@ -5,7 +5,7 @@ draft = false
 
 [params]
 level = "media"
-link = "https://makeitmodena.comune.modena.it"
+link = "https://makeitmodena.comune.modena.it/makeitmodena/eventi/24-ottobre-2026-linux-day"
 
 +++
 
