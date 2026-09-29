@@ -1,4 +1,4 @@
-{{ $year := site.Params.currentEdition | default (now.Format "2006") }}
+{{ $year := or (.Page.Param "year") site.Params.currentEdition }}
 {{ $yearStr := printf "%v" $year }}
 {{ $dataset := index site.Data $yearStr }}
 {{ if not $dataset }}
