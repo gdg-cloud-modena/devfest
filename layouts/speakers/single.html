@@ -15,11 +15,11 @@
 
       <div class="speaker-details">
         {{- with .Params.role }}
-        <div class="speaker-details--role"><strong>{{ i18n "role" }}</strong> {{ . }}</div>
+        <div class="speaker-details--role"><strong>{{ with $.Params.roleLabel }}{{ . }}{{ else }}{{ with $.Params.role_label }}{{ . }}{{ else }}{{ i18n "role" }}{{ end }}{{ end }}</strong> {{ . }}</div>
         {{- end }}
 
         {{- with .Params.company }}
-        <div class="speaker-details--company"><strong>{{ i18n "company" }}</strong> {{ . }}</div>
+        <div class="speaker-details--company"><strong>{{ with $.Params.companyLabel }}{{ . }}{{ else }}{{ with $.Params.company_label }}{{ . }}{{ else }}{{ i18n "company" }}{{ end }}{{ end }}</strong> {{ . }}</div>
         {{- end }}
 
         {{- with .Params.social }}
