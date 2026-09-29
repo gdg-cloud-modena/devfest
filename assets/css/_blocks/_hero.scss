@@ -156,57 +156,18 @@
     align-items: center;
   }
 
-  // Primary hero button — solid yellow/tertiary for maximum contrast
-  .button--hero {
-    background-color: colors.$tertiary;
-    color: colors.$black;
+  // Larger pill size for the hero actions. Colors come from `.button`
+  // (main CTA) or `.button--secondary` (the less prominent ones).
+  .button--hero,
+  a.button--hero {
     font-size: fonts.$size-0;
-    font-weight: 700;
     padding: spaces.$space-s spaces.$space-l;
     border-radius: 9999px;
     box-shadow: 0 4px 16px rgba(colors.$black, 0.3);
-    border: 2px solid transparent;
-
-    &:link,
-    &:visited {
-      color: colors.$black;
-    }
 
     &:hover {
-      background-color: colors.$tertiary-1;
-      border-color: colors.$white;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(colors.$black, 0.4);
-    }
-
-    &:focus-visible {
-      outline: 3px solid colors.$white;
-      outline-offset: 3px;
-    }
-  }
-
-  // Secondary hero button — ghost/outline on dark background
-  .button--heroSecondary {
-    background-color: rgba(colors.$black, 0.35);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: colors.$white;
-    border: 2px solid rgba(colors.$white, 0.85);
-    font-size: fonts.$size-0;
-    font-weight: 700;
-    padding: spaces.$space-s spaces.$space-l;
-    border-radius: 9999px;
-
-    &:link,
-    &:visited {
-      color: colors.$white;
-    }
-
-    &:hover {
-      background-color: colors.$white;
-      color: colors.$black;
-      border-color: colors.$white;
-      transform: translateY(-2px);
     }
 
     &:focus-visible {
@@ -258,7 +219,7 @@
   }
 
   .button--hero,
-  .button--heroSecondary {
+  a.button--hero {
     text-align: center;
     padding: spaces.$space-xs spaces.$space-m;
   }

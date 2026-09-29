@@ -43,6 +43,26 @@
     }
   }
 
+  // Outlined variant for actions that must not compete with the main CTA.
+  // `a.` keeps the specificity on par with `a.button` above.
+  .button--secondary,
+  a.button--secondary {
+    background-color: colors.$white;
+    border-color: colors.$primary-1;
+    color: colors.$black;
+
+    &:link,
+    &:visited {
+      color: colors.$black;
+    }
+
+    &:hover {
+      background-color: colors.$primary--2;
+      border-color: colors.$primary-1;
+      color: colors.$black;
+    }
+  }
+
   .button--small {
     padding: spaces.$space-2xs spaces.$space-s;
     font-size: fonts.$size--1;
