@@ -5,7 +5,9 @@ draft = false
 
 [params]
 company = "Florence, Italy"
+companyLabel = "City:"
 role = "Alternative Metal Band"
+roleLabel = "Genre:"
 male = false
 hideFromWall = true
 [params.social]
