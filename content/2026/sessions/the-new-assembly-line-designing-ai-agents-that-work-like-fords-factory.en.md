@@ -13,6 +13,7 @@ topic = "AI & Machine Intelligence"
 +++
 
 After its debut at Coderful 2026 in Catania — where it was met with great enthusiasm and strong technical engagement — this talk now brings its mission to the GDG Modena community: a full immersion into the world of AI Design Architecture applied to multi-agent systems.
+
 Ford didn't know it, but he was inventing the future of artificial intelligence.
 
 The idea that transformed industrial production — breaking a complex process into specialized stations, connected by precise handoffs — is today the most powerful paradigm for building AI systems that actually work in production.
