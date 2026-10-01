@@ -441,6 +441,13 @@ name = "Ingrid Ciulin"
 description = ""
 website = ""
 
+[[people]]
+role = "staff"
+code = "michele-nigro"
+name = "Michele Nigro"
+description = ""
+website = ""
+
 # Sponsorship levels, weight ascending
 
 [[levels]]
