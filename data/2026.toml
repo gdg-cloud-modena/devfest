@@ -422,8 +422,8 @@ website = ""
 
 [[people]]
 role = "staff"
-code = "davide-cornero"
-name = "Davide Cornero"
+code = "davide-cordero"
+name = "Davide Cordero"
 description = ""
 website = ""
 
@@ -431,6 +431,13 @@ website = ""
 role = "staff"
 code = "sonia-bertacchi"
 name = "Sonia Bertacchi"
+description = ""
+website = ""
+
+[[people]]
+role = "staff"
+code = "ingrid-ciulin"
+name = "Ingrid Ciulin"
 description = ""
 website = ""
 

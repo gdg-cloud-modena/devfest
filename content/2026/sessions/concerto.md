@@ -4,7 +4,7 @@ date = 2026-08-29
 draft = false
 
 [params]
-rooms = ["teatro"]
+rooms = ["chiesa"]
 speakers = ["violet-blend"]
 starts = 2026-10-03T19:00:00
 ends = 2026-10-03T20:30:00
@@ -16,7 +16,7 @@ isPlenary = true
 speakersTitle = "Band"
 +++
 
-A conclusione della prima intensa giornata del DevFest Modena 2026, il palco dello storico **Teatro della Fondazione San Carlo** si accende con lo speciale concerto **Acoustic Live** dei **Violet Blend**, pluripremiata band alternative metal fiorentina.
+A conclusione della prima intensa giornata del DevFest Modena 2026, il palco della storica **Chiesa della Fondazione San Carlo** si accende con lo speciale concerto **Acoustic Live** dei **Violet Blend**, pluripremiata band alternative metal fiorentina.
 
 In una raffinata ed emozionante veste acustica che esalta la voce magistrale, le sfumature del pianoforte e il groove ritmico, i Violet Blend riarrangiano i brani più intensi dei loro acclamati album *Demons*, *White Mask*, *Live and True* e le ultime uscite discografiche.
 
