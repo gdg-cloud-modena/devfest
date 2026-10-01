@@ -17,6 +17,11 @@ code = "reggio-emilia-full-stack"
 website = "https://www.meetup.com/reggio-emilia-full-stack/"
 
 [[community]]
+name = "Verona Full Stack"
+code = "verona-full-stack"
+website = "https://www.meetup.com/verona-full-stack/"
+
+[[community]]
 name = "ML Modena"
 code = "ml-modena"
 website = "https://mlmodena.it/"
