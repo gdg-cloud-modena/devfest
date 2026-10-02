@@ -482,9 +482,14 @@ code = "startup"
 weight = 6
 
 [[levels]]
+title = "Patrocini"
+code = "patrocini"
+weight = 7
+
+[[levels]]
 title = "Media Partner"
 code = "media"
-weight = 7
+weight = 8
 
 # Sponsors, put new ones at the end of the list
 
@@ -596,4 +601,9 @@ code = "iungo"
 link = "https://www.iungo.com"
 level = "silver"
 
+[[partners]]
+name = "Comune di Modena"
+code = "comune-modena"
+link = "https://www.comune.modena.it/"
+level = "patrocini"
 
