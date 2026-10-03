@@ -13,6 +13,7 @@ topic = "AI & Machine Intelligence"
 slidesURL = ""
 warning = ""
 workshop = true
+bringLaptop = false
 +++
 
 Discover how artificial intelligence comes to life by building ideas with LEGO in a practical, creative, and engaging workshop!

@@ -539,7 +539,11 @@
     margin-bottom: spaces.$space-xl;
   }
 
-  .sessionDetail-soldOut {
+  .sessionDetail-content--beforeNotice {
+    margin-bottom: spaces.$space-m;
+  }
+
+  .sessionDetail-notice {
     display: flex;
     align-items: center;
     gap: spaces.$space-s;
@@ -547,31 +551,50 @@
     margin: 0 0 spaces.$space-l;
   }
 
-  .sessionDetail-soldOutIcon {
+  .sessionDetail-noticeIcon {
     display: grid;
     place-items: center;
     flex: 0 0 auto;
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: colors.$danger-1;
-    color: colors.$danger-contrast;
     font-size: fonts.$size-1;
     font-weight: 800;
   }
 
-  .sessionDetail-soldOutTitle {
+  .sessionDetail-noticeTitle {
     margin: 0 0 spaces.$space-3xs;
-    color: colors.$danger-4;
     font-size: fonts.$size-1;
     font-weight: 800;
     line-height: 1.2;
   }
 
-  .sessionDetail-soldOutText {
+  .sessionDetail-noticeText {
     margin: 0;
     color: colors.$black;
     line-height: 1.5;
+  }
+
+  .sessionDetail-notice--soldOut {
+    .sessionDetail-noticeIcon {
+      background-color: colors.$danger-1;
+      color: colors.$danger-contrast;
+    }
+
+    .sessionDetail-noticeTitle {
+      color: colors.$danger-4;
+    }
+  }
+
+  .sessionDetail-notice--laptop {
+    .sessionDetail-noticeIcon {
+      background-color: colors.$info-2;
+      color: colors.$info-contrast;
+    }
+
+    .sessionDetail-noticeTitle {
+      color: colors.$info-4;
+    }
   }
 
   .sessionDetail-speakersSection {

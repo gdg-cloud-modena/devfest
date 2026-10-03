@@ -13,6 +13,7 @@ topic = "AI & Machine Intelligence"
 slidesURL = ""
 warning = ""
 workshop = true
+bringLaptop = false
 +++
 
 Scopri come l'intelligenza artificiale prende vita costruendo idee con i Lego in un workshop pratico, creativo e coinvolgente!

@@ -11,6 +11,7 @@ speakers = ["eleonora-mistro"]
 language = "Italiano"
 topic = "AI & Machine Intelligence"
 workshop = true
+bringLaptop = false
 +++
 
 A 1:1 conversation dedicated to your career in a 20-minute slot.

@@ -6,8 +6,8 @@ draft = false
 [params]
 rooms = ["chiesa"]
 speakers = ["violet-blend"]
-starts = 2026-10-03T19:00:00
-ends = 2026-10-03T20:30:00
+starts = 2026-10-03T18:30:00
+ends = 2026-10-03T20:00:00
 language = "Italiano"
 slidesURL = ""
 warning = ""

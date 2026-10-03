@@ -83,18 +83,27 @@
   </div>
 
   {{ if and .Params.workshop .Params.soldOut }}
-  <aside class="callout callout--soldOut sessionDetail-soldOut" aria-label="{{ i18n "sessionSoldOutTitle" }}">
-    <span class="sessionDetail-soldOutIcon" aria-hidden="true">!</span>
-    <div>
-      <h2 class="sessionDetail-soldOutTitle">{{ i18n "sessionSoldOutTitle" }}</h2>
-      <p class="sessionDetail-soldOutText">{{ i18n "sessionSoldOutText" }}</p>
-    </div>
-  </aside>
+  {{ partial "session-notice.html" (dict "variant" "soldOut" "icon" "!" "title" (i18n "sessionSoldOutTitle") "text" (i18n "sessionSoldOutText")) }}
   {{ end }}
 
+  {{/* The laptop notice goes between the description and the rest (the
+       participation rules), split at the <!--more--> marker when present. */}}
+  {{ $hasMore := strings.Contains .RawContent "<!--more-->" }}
+  {{ if and .Params.workshop (ne .Params.bringLaptop false) }}
+  <div class="content sessionDetail-content sessionDetail-content--beforeNotice">
+    {{ if $hasMore }}{{ .Summary }}{{ else }}{{ .Content }}{{ end }}
+  </div>
+  {{ partial "session-notice.html" (dict "variant" "laptop" "icon" "💻" "title" (i18n "sessionBringLaptopTitle") "text" (i18n "sessionBringLaptopText")) }}
+  {{ with and $hasMore .ContentWithoutSummary }}
+  <div class="content sessionDetail-content">
+    {{ . }}
+  </div>
+  {{ end }}
+  {{ else }}
   <div class="content sessionDetail-content">
     {{ .Content }}
   </div>
+  {{ end }}
 
   {{ with .Params.speakers }}
   <div class="sessionDetail-speakersSection">

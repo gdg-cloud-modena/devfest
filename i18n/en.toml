@@ -119,6 +119,12 @@ other = "Workshop sold out"
 [sessionSoldOutText]
 other = "All available seats have been taken and registration is now closed."
 
+[sessionBringLaptopTitle]
+other = "Bring your laptop"
+
+[sessionBringLaptopText]
+other = "This is a hands-on workshop: remember to bring your laptop, fully charged, to follow along."
+
 [scheduleTBA]
 other = "Time and room will be announced shortly in the official agenda!"
 
