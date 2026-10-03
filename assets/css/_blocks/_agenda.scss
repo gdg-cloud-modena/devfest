@@ -613,6 +613,7 @@ $time-col-mobile: 78px;
     box-sizing: border-box;
     min-height: 100%;
     position: relative;
+    isolation: isolate;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(colors.$black, 0.04);
     transition: transform effects.$time ease, box-shadow effects.$time ease;
