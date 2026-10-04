@@ -44,7 +44,7 @@
     <div class="agenda-toggleWrapper">
       {{/* Pure CSS Radio Toggle for Day Switching */}}
       {{- range $index, $day := $days -}}
-      <input type="radio" name="agenda-day-radio" id="day-toggle-{{ $index }}" class="agenda-toggleInput agenda-toggleInput--{{ $index }}"{{ if eq $index 0 }} checked{{ end }}>
+      <input type="radio" name="agenda-day-radio" id="day-toggle-{{ $index }}" class="agenda-toggleInput agenda-toggleInput--{{ $index }}" data-day="{{ (time.AsTime $day).Format "2006-01-02" }}"{{ if eq $index 0 }} checked{{ end }}>
       {{- end -}}
 
       {{ if gt (len $days) 1 }}

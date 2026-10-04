@@ -42,6 +42,25 @@ function highlightCurrentSessions(checkInterval: number, startOffset: number) {
 highlightCurrentSessions(SESSION_CHECK_INTERVAL, SESSION_START_OFFSET)
 
 /**
+ * Open the agenda on today's day when it is one of the event days. Otherwise
+ * the first day, checked in the markup, stays selected.
+ */
+function selectAgendaToday() {
+    const now = new Date()
+    const pad = (n: number) => String(n).padStart(2, "0")
+    const today = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`
+
+    const input = document.querySelector<HTMLInputElement>(
+        `.agenda-toggleInput[data-day="${today}"]`
+    )
+
+    if (input) input.checked = true
+}
+
+// Before the agenda helpers below, so they measure the selected day's panel
+selectAgendaToday()
+
+/**
  * Keep the agenda's room header row in view while scrolling down a long day.
  *
  * `position: sticky` cannot do this: the timetable wrapper scrolls the rooms
